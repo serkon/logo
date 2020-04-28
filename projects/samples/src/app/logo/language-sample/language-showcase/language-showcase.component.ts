@@ -7,6 +7,7 @@ import { LanguageService } from '@logo-software/language';
   styleUrls: ['./language-showcase.component.scss'],
 })
 export class LanguageShowcaseComponent {
+
   constructor(private language: LanguageService) {
     this.addLanguage();
     this.language.onLoadComplete.subscribe(() => {

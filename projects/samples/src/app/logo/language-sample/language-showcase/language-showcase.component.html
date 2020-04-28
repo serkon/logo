@@ -1,10 +1,5 @@
-<nb-card>
-  <nb-card-header>Translate text sample: <span [innerHTML]="'login-info' | translate | safeHTML"></span>
-  </nb-card-header>
-  <nb-card-body class="example-items-rows">
-    <button (click)="setLanguage('tr')" nbButton>Tr</button>
-    <button (click)="setLanguage('en')" nbButton>En</button>
-    <button (click)="setLanguage('ro')" nbButton>Ro</button>
-    <button (click)="setLanguage('ru')" disabled nbButton>Ru</button>
-  </nb-card-body>
-</nb-card>
+<p>Translate text sample: <span [innerHTML]="'login-info' | translate"></span></p>
+<button (click)="setLanguage('tr')">Tr</button>
+<button (click)="setLanguage('en')">En</button>
+<button (click)="setLanguage('ro')">Ro</button>
+<button (click)="setLanguage('ru')" disabled>Ru</button>

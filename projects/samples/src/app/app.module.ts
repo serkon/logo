@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NbLayoutModule, NbThemeModule, NbThemeService } from '@nebular/theme';
 
 @NgModule({
   declarations: [
@@ -12,10 +12,9 @@ import { NbLayoutModule, NbThemeModule, NbThemeService } from '@nebular/theme';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NbThemeModule.forRoot(),
-    NbLayoutModule,
+    HttpClientModule,
   ],
-  providers: [NbThemeService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {

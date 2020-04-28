@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { ExcelSampleRoutingModule } from './excel-sample-routing.module';
 import { ExcelShowcaseComponent } from './excel-showcase/excel-showcase.component';
 import { ExcelModule } from '@logo-software/excel';
-import { NbButtonModule } from '@nebular/theme';
 
 @NgModule({
   declarations: [ExcelShowcaseComponent],
@@ -12,7 +11,6 @@ import { NbButtonModule } from '@nebular/theme';
     CommonModule,
     ExcelSampleRoutingModule,
     ExcelModule,
-    NbButtonModule,
   ],
 })
 export class ExcelSampleModule {

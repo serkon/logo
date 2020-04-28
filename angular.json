@@ -26,7 +26,12 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              { "glob": "versions.json", "input": "src/", "output": "/" }
+              { "glob": "versions.json", "input": "src/", "output": "/" },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@logo-software/table/src/lib/assets/icons",
+                "output": "assets/icons"
+              }
             ],
             "styles": [
               "src/styles.scss",
@@ -54,6 +59,7 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -132,6 +138,328 @@
           }
         }
       }
-    }},
+    },
+    "@logo-software/core": {
+      "root": "projects/logo-software/core",
+      "sourceRoot": "projects/logo-software/core/src",
+      "projectType": "library",
+      "prefix": "",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/logo-software/core/tsconfig.lib.json",
+            "project": "projects/logo-software/core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/logo-software/core/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/logo-software/core/src/test.ts",
+            "tsConfig": "projects/logo-software/core/tsconfig.spec.json",
+            "karmaConfig": "projects/logo-software/core/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/logo-software/core/tsconfig.lib.json",
+              "projects/logo-software/core/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@logo-software/language": {
+      "root": "projects/logo-software/language",
+      "sourceRoot": "projects/logo-software/language/src",
+      "projectType": "library",
+      "prefix": "",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/logo-software/language/tsconfig.lib.json",
+            "project": "projects/logo-software/language/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/logo-software/language/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/logo-software/language/src/test.ts",
+            "tsConfig": "projects/logo-software/language/tsconfig.spec.json",
+            "karmaConfig": "projects/logo-software/language/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/logo-software/language/tsconfig.lib.json",
+              "projects/logo-software/language/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@logo-software/excel": {
+      "root": "projects/logo-software/excel",
+      "sourceRoot": "projects/logo-software/excel/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/logo-software/excel/tsconfig.lib.json",
+            "project": "projects/logo-software/excel/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/logo-software/excel/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/logo-software/excel/src/test.ts",
+            "tsConfig": "projects/logo-software/excel/tsconfig.spec.json",
+            "karmaConfig": "projects/logo-software/excel/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/logo-software/excel/tsconfig.lib.json",
+              "projects/logo-software/excel/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@logo-software/paging": {
+      "root": "projects/logo-software/paging",
+      "sourceRoot": "projects/logo-software/paging/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/logo-software/paging/tsconfig.lib.json",
+            "project": "projects/logo-software/paging/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/logo-software/paging/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/logo-software/paging/src/test.ts",
+            "tsConfig": "projects/logo-software/paging/tsconfig.spec.json",
+            "karmaConfig": "projects/logo-software/paging/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/logo-software/paging/tsconfig.lib.json",
+              "projects/logo-software/paging/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@logo-software/table": {
+      "root": "projects/logo-software/table",
+      "sourceRoot": "projects/logo-software/table/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/logo-software/table/tsconfig.lib.json",
+            "project": "projects/logo-software/table/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/logo-software/table/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/logo-software/table/src/test.ts",
+            "tsConfig": "projects/logo-software/table/tsconfig.spec.json",
+            "karmaConfig": "projects/logo-software/table/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/logo-software/table/tsconfig.lib.json",
+              "projects/logo-software/table/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "samples": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/samples",
+      "sourceRoot": "projects/samples/src",
+      "prefix": "logo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/samples",
+            "index": "projects/samples/src/index.html",
+            "main": "projects/samples/src/main.ts",
+            "polyfills": "projects/samples/src/polyfills.ts",
+            "tsConfig": "projects/samples/tsconfig.app.json",
+            "assets": [
+              "projects/samples/src/favicon.ico",
+              "projects/samples/src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/@logo-software/table/src/lib/assets/icons",
+                "output": "assets/icons"
+              }
+            ],
+            "styles": [
+              "projects/samples/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/samples/src/environments/environment.ts",
+                  "with": "projects/samples/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "samples:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "samples:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "samples:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/samples/src/test.ts",
+            "polyfills": "projects/samples/src/polyfills.ts",
+            "tsConfig": "projects/samples/tsconfig.spec.json",
+            "karmaConfig": "projects/samples/karma.conf.js",
+            "assets": [
+              "projects/samples/src/favicon.ico",
+              "projects/samples/src/assets"
+            ],
+            "styles": [
+              "projects/samples/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/samples/tsconfig.app.json",
+              "projects/samples/tsconfig.spec.json",
+              "projects/samples/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/samples/e2e/protractor.conf.js",
+            "devServerTarget": "samples:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "samples:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "developer"
 }

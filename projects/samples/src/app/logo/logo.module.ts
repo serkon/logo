@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { LogoRoutingModule } from './logo-routing.module';
 import { LogoComponent } from './logo.component';
-import { NbLayoutModule } from '@nebular/theme';
 
 @NgModule({
   declarations: [LogoComponent],
-  imports: [CommonModule, LogoRoutingModule, NbLayoutModule],
+  imports: [CommonModule, LogoRoutingModule],
 })
 export class LogoModule {
 }
