@@ -1,0 +1,14 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/logo-software/table",
+  "lib": {
+    "entryFile": "src/public_api.ts"
+  },
+  "assets": [
+    "src/lib/assets/icons"
+  ],
+  "whitelistedNonPeerDependencies": [
+    "@logo-software/paging",
+    "@logo-software/excel"
+  ]
+}

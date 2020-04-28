@@ -1,0 +1,36 @@
+<div class="paging-container">
+  <select (change)="setPageSize()" [(ngModel)]="pageSize">
+    <option [ngValue]="5">5</option>
+    <option [ngValue]="10">10</option>
+    <option [ngValue]="15">15</option>
+    <option [ngValue]="20">20</option>
+    <option [ngValue]="30">30</option>
+    <option [ngValue]="40">40</option>
+    <option [ngValue]="50">50</option>
+  </select>
+  <div class="total-count">
+    <strong class="total-count-number">{{totalCount}}</strong>
+    <span class="record-found-text">{{"record_found"}}</span>
+  </div>
+  <div class="page-numbers">
+    <ul *ngIf="pager.pages && pager.pages.length >= 2" class="pagination">
+      <li [ngClass]="{disabled:pager.pageNumber === 1}" class="first">
+        <a (click)="setPage(1)"></a>
+      </li>
+      <li class="separator">|</li>
+      <li [ngClass]="{disabled:pager.pageNumber === 1}" class="previous">
+        <a (click)="setPage(pager.pageNumber - 1)"></a>
+      </li>
+      <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.pageNumber === page}" class="pages">
+        <a (click)="setPage(page)">{{page}}</a>
+      </li>
+      <li [ngClass]="{disabled:pager.pageNumber === pager.totalPages}" class="next">
+        <a (click)="setPage(pager.pageNumber + 1)"></a>
+      </li>
+      <li class="separator">|</li>
+      <li [ngClass]="{disabled:pager.pageNumber === pager.totalPages}" class="last">
+        <a (click)="setPage(pager.totalPages)"></a>
+      </li>
+    </ul>
+  </div>
+</div>

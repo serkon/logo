@@ -1,18 +1,60 @@
-import { BrowserModule } from '@angular/platform-browser';
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+import { BrowserModule, Title } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { NgdThemeModule } from './@theme/theme.module';
+import { NgdAppComponent } from './app.component';
+import { routes } from './app.routes';
+import { structure } from '../structure';
+import { DOCS, STRUCTURE } from './app.options';
+import {
+  NbCardModule,
+  NbCheckboxModule,
+  NbLayoutModule,
+  NbMenuModule,
+  NbProgressBarModule,
+  NbSidebarModule,
+  NbTabsetModule,
+  NbThemeModule,
+} from '@nebular/theme';
+
+const docs = require('../output.json');
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    NbSidebarModule,
+    NbCardModule,
+    NbLayoutModule,
+    NbTabsetModule,
+    NbCheckboxModule,
+    NbProgressBarModule,
+    NbMenuModule.forRoot(),
+    NbThemeModule.forRoot(),
+    NgdThemeModule.forRoot(),
+    NbSidebarModule.forRoot(),
+    RouterModule.forRoot(routes, {useHash: true}),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [
+    NgdAppComponent,
+  ],
+  providers: [
+    Title,
+    {provide: STRUCTURE, useValue: structure},
+    {provide: DOCS, useValue: docs},
+  ],
+  bootstrap: [NgdAppComponent],
 })
-export class AppModule { }
+export class AppModule {
+}

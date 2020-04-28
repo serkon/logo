@@ -1,0 +1,16 @@
+{
+  "name": "@logo-software/excel",
+  "version": "0.0.12",
+  "peerDependencies": {
+    "@angular/common": "^7.0.0",
+    "@angular/core": "^7.0.0"
+  },
+  "dependencies": {
+    "file-saver": "^2.0.2",
+    "xmlbuilder": "^12.0.1"
+  },
+  "devDependencies": {
+    "@types/file-saver": "^2.0.1"
+  },
+  "license": "See license in LICENSE file"
+}

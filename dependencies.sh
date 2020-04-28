@@ -1,0 +1,5 @@
+npm i --save @logo-software/core @logo-software/excel @logo-software/language @logo-software/paging @logo-software/table @nebular/bootstrap @nebular/eva-icons @nebular/theme bootstrap colors.js core-js date-fns docsearch.js eva-icons highlight.js intersection-observer ionicons jasmine-fail-fast leaflet marked moment normalize.css pace-js socicon
+npm i --save-dev del doc-prsr fs-extra gulp gulp-bump gulp-rename gulp-replace gulp-rollup gulp-sass gulp-sourcemaps gulp-typedoc minimist npm-run-all parse5 pump rimraf rollup-plugin-node-resolve rxjs-tslint-rules stylelint stylelint-config-standard through2 ts-node tsickle typedoc uglify-es uglifyjs-webpack-plugin ng-packagr @angular-devkit/build-ng-packagr @angular-devkit/core @angular/cdk @ng-bootstrap/ng-bootstrap @types/gulp @types/highlight.js @types/leaflet angular-cli-ghpages browserstack-local conventional-changelog-cli husky
+
+
+ng-packagr @angular-devkit/build-ng-packagr @angular-devkit/core @angular/cdk @ng-bootstrap/ng-bootstrap @types/gulp @types/highlight.js @types/leaflet angular-cli-ghpages browserstack-local conventional-changelog-cli husky

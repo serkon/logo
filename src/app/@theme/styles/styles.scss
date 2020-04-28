@@ -1,0 +1,38 @@
+@import 'themes';
+@import 'pace.theme';
+
+@import '~@nebular/theme/styles/global/normalize';
+@import '~@nebular/theme/styles/global/components';
+@import '~@nebular/theme/styles/global/typography/typography';
+@import '~@nebular/bootstrap/styles/globals';
+
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/grid';
+
+@include nb-install() {
+  @include nb-layout-theme();
+  @include nb-sidebar-theme();
+  @include nb-card-theme();
+  @include nb-menu-theme();
+  @include nb-actions-theme();
+  @include nb-search-theme();
+  @include nb-bootstrap-global();
+  @include nb-icon-theme();
+  @include nb-input-theme();
+  @include nb-typography();
+  @include nb-buttons-theme();
+  @include nb-select-theme();
+  @include nb-input-theme();
+  @include nb-overlay-theme();
+  // loading progress bar
+  @include ngd-pace-theme();
+};
+
+body {
+  scrollbar-face-color: rgba(0, 0, 0, 0.3);
+  scrollbar-track-color: rgba(255, 255, 255, 0.7);
+  min-width: 320px;
+  -webkit-font-smoothing: antialiased;
+}

@@ -1,0 +1,26 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/app",
+    "types": [],
+    "baseUrl": "./",
+    "paths": {
+      "@nebular/*": [
+        "../../src/framework/*/public_api.ts"
+      ],
+      "@logo-software/*": [
+        "../logo-software/*"
+      ],
+      "@samples/*": [
+        "./src/app/logo/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "src/test.ts",
+    "src/**/*.spec.ts"
+  ]
+}

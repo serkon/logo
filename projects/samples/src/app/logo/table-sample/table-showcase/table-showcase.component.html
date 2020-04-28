@@ -1,0 +1,87 @@
+<logo-table
+  #districtTable
+  class="no-bootstrap"
+  [actions]="actions"
+  [automatic]="true"
+  (onCreateAccepted)="onCreateAccepted($event)"
+  [pageSize]="5"
+  [columns]="tableDummyData.columns"
+  [draggable]="false"
+  [events]="tableDummyData.events"
+  [excel]="tableDummyData.excel"
+  [hasFilter]="true"
+  [hasPaging]="true"
+  [heads]="tableDummyData.heads"
+  [multiSelect]="false"
+  [pageNumber]="3"
+  [rows]="tableDummyData.rows"
+  [refresh]="true"
+  [delete]="true"
+  [serverSide]="serverSide"
+  [service]="{url: 'http://localhost:4300/assets/dummy/table.json?expandLevel=1&expand=Tenant', method: 'GET'}"
+  [sort]="true"
+  [height]="'100%'"
+  [index]="true"
+  [create]="true"
+  [editable]="false"
+  [oDataIdentityField]="'id'"
+  [oDataStatus]="false"
+  [paas]="false"
+  (onCreateHttpError)="onCreateHttpError($event)"
+  [mapPath]="'data'"
+  (onCreateHttpSucceed)="onCreateHttpSucceed($event)"
+  (onDeleteClicked)="onDeleteClicked($event)"
+  (onDeleteHttpError)="onDeleteHttpError($event)"
+  (onDeleteHttpSucceed)="onDeleteHttpSucceed($event)"
+  (onHttpError)="onHttpError($event)"
+  (onHttpHeaders)="onHttpHeaders($event)"
+  (onHttpParams)="onHttParams($event)"
+  (onHttpResponseModifier)="onHttpResponseModifier($event)"
+  (onHttpSucceed)="onHttpSucceed($event)"
+  (onTrClicked)="onTrClicked($event)"
+  (onRenderCompleted)="onRenderCompleted($event)"
+  (onTrDblClicked)="onTrDblClicked($event)"
+  (onUpdateAccepted)="onUpdateAccepted($event)"
+  (onUpdateBlur)="onUpdateBlur($event)"
+  (onUpdateCancel)="onUpdateCancel($event)"
+  (onUpdateChange)="onUpdateChange($event)"
+  (onUpdateFocus)="onUpdateFocus($event)"
+  (onUpdateHttpError)="onUpdateHttpError($event)"
+  (onUpdateHttpSucceed)="onUpdateHttpSucceed($event)"
+>
+  <!--  [rows]="tableDummyData.rows" -->
+  <ng-template
+    #columns
+    let-actions="actions"
+    let-columns="columns" let-filter="filter" let-first="isFirst" let-heads="heads"
+    let-createHead="createHead" let-i="index" let-last="isLast" let-odd="isOdd" let-row="row"
+  >
+    <td>
+      <button>{{createHead ? 'great' : row?.zone?.name || 'No Data'}}</button>
+    </td>
+    <td>
+      <ng-container *ngIf="last; else b" [ngTemplateOutlet]="a"></ng-container>
+    </td>
+  </ng-template>
+  <ng-template
+    #expander
+    let-actions="actions"
+    let-columns="columns" let-filter="filter" let-first="isFirst" let-heads="heads" let-i="index"
+    let-last="isLast" let-odd="isOdd" let-open="isOpen" let-row="row"
+  >
+    <logo-table
+      [columns]="tableDummyData.columns"
+      [rows]="tableDummyData.rows"
+      (onTrClicked)="onTrClickedChild($event)"
+      [pageSize]="5"
+      [parentIndex]="i"
+      [parentRow]="row"
+      [service]="{url: 'http://localhost:4300/assets/dummy/table.json?id='+row.percentage+'&expandLevel=1&expand=Tenant', method: 'GET'}"
+      [serverSide]="false"
+    >
+    </logo-table>
+  </ng-template>
+  <expander [expandable]="expanderEmitter"></expander>
+</logo-table>
+<ng-template #a>a</ng-template>
+<ng-template #b>b</ng-template>

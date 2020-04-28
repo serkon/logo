@@ -1,0 +1,236 @@
+<!--
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+-->
+<div class="table-actions">
+  <button (click)="actionHtmlAddReference()" *ngIf="!!reference && refButtonStatus" class="add"></button>
+  <button (click)="actionHtmlRemoveReference()" *ngIf="!!reference && refButtonStatus" class="remove"></button>
+  <button (click)="actionHtmlLoad()" *ngIf="!!refresh" class="refresh"></button>
+  <button (click)="create=!create" *ngIf="editable" [ngClass]="{'button-selected': create}" class="add"></button>
+  <button (click)="editable = !editable" [ngClass]="{'button-selected': editable}" class="edit"></button>
+  <button (click)="actionHtmlDeleteRow(selected)" *ngIf="delete" class="bin"></button>
+  <ng-container *ngFor="let action of actions">
+    <button
+      (click)="action.click && action.click(_this)" [disabled]="action.disable"
+      [ngClass]="htmlSetActionButtonClass(action)"
+    >
+      {{action.display}}
+    </button>
+  </ng-container>
+  <logo-excel
+    (complete)="excel.complete($event)"
+    [columns]="excel.columns"
+    [data]="rows"
+    [header]="excel.header"
+    [name]="excel.name"
+    [status]="excel.status"
+    class="excel-export"
+  >
+    <button class="excel"></button>
+  </logo-excel>
+</div>
+
+<div [ngStyle]="{'max-height': height ? height : 'auto'}" class="table-container">
+  <table [ngClass]="{'table-editing': editable}" class="table">
+    <thead>
+    <tr>
+      <th *ngIf="index" class="index"></th>
+      <th
+        (click)="htmlChangeSortingByColumn(column)"
+        *ngFor="let column of columns"
+        [hidden]="column.hidden"
+        [ngClass]="htmlSetTheadClass(column)"
+        [title]="column.display"
+        class="dotted"
+      >
+        {{column.display}}
+      </th>
+      <th
+        *ngFor="let thead of heads"
+        [ngClass]="[thead.className ? thead.className : '']"
+        [title]="thead.display"
+      >
+        {{thead.display}}
+      </th>
+    </tr>
+    <tr *ngIf="!reference && hasFilter">
+      <th *ngIf="index" class="index filter"></th>
+      <th *ngFor="let column of columns" [hidden]="column.hidden ? column.hidden : false" class="filter">
+        <label>
+          <!-- (change)="filterAdd(column, $event.target)" @TODO also added to input, inputa eklenmişti sildim-->
+          <input
+            (input)="htmlFilterAdd(column, $event.target)"
+            *ngIf="!column.filterDisable"
+            [type]="['percent' , 'range', 'custom', 'currency'].includes(column.filterType) ? 'text' : column.filterType"
+          />
+          <input *ngIf="column.filterDisable" disabled/>
+        </label>
+      </th>
+      <th *ngFor="let thead of heads" class="filter">
+        <label><input disabled/></label>
+      </th>
+    </tr>
+    </thead>
+    <tbody (dragover)="htmlDragOver($event)" (drop)="htmlDrop($event)">
+    <ng-container *ngIf="rows.length > 0">
+      <ng-container
+        *ngFor="let row of (this.serverSide ? rows : this.clientSideFilter());trackBy: trackByMethod; index as i; let isOdd = odd; let isEven = even;  let isLast= last; let isFirst = first;"
+      >
+        <tr
+          (click)="htmlOnClick(row, $event, i)"
+          (dblclick)="htmlOnDblClick(row, $event, i)"
+          (dragstart)="htmlDragStart(row, $event, i)"
+          (isLastEmitter)="htmlRendered(row)"
+          [draggable]="draggable"
+          [isLast]="isLast"
+          [ngClass]="{'selected':htmlIsInSelectedList(row), 'odd': isOdd, 'even': isEven}"
+        >
+          <td *ngIf="index" class="index">{{indexStart + i + 1}}</td>
+          <td
+            *ngFor="let column of columns; let columnIndex = index"
+            [hidden]="column.hidden"
+            [ngClass]="htmlSetTdClass(row, column)"
+          >
+            <div class="content-container">
+              <ng-container
+                *ngIf="!editable || !column.editable || column.variableFunction || isFunction(column.variablePath); else editableRef">
+                <button
+                  (click)="htmlExpanderOpen({row: row, index: i , isLast: isLast, isFirst: isFirst})"
+                  *ngIf="(column.expand && (!expanderComponent ? expanderTemplateRef : expanderComponent.expandable({row: row, i: index , isLast: isLast, isFirst: isFirst})))"
+                  class="expander"
+                  [ngClass]="expanderStatus[i] ? 'expander-remove' : 'expander-add'"
+                >
+                </button>
+                <span
+                  [innerHTML]="htmlGetRowPathValue(row, column) | format : column.filterType + ':' + column.format"
+                  class="content"
+                >
+                </span>
+              </ng-container>
+              <ng-template #editableRef>
+                <button
+                  (click)="htmlExpanderOpen({row: row, index: i , isLast: isLast, isFirst: isFirst})"
+                  *ngIf="(column.expand && (!expanderComponent ? expanderTemplateRef : expanderComponent.expandable({row: row, i: index , isLast: isLast, isFirst: isFirst})))"
+                  class="expander"
+                  [ngClass]="expanderStatus[i] ? 'expander-remove' : 'expander-add'"
+                >
+                </button>
+                <span class="content">
+                  <input
+                    (blur)="htmlUpdateBlur({column: column, row: row, showingCurrently: this.rows, showingOriginal: this.showing, fullOriginal: this.original, index: i, parentRow: parentRow, parentIndex: parentIndex})"
+                    (change)="htmlUpdateChange({column: column, row: row, showingCurrently: this.rows, showingOriginal: this.showing, fullOriginal: this.original, index: i, parentRow: parentRow, parentIndex: parentIndex})"
+                    (focus)="htmlUpdateFocus({column: column, row: row, showingCurrently: this.rows, showingOriginal: this.showing, fullOriginal: this.original, index: i, parentRow: parentRow, parentIndex: parentIndex})"
+                    (ngModelChange)="htmlSetRowPath($event, row, column)"
+                    [ngModel]="htmlGetRowPathValue(row, column)"
+                    [type]="column.filterType === 'custom' ? 'text' : column.filterType"
+                  />
+                  <button (click)="htmlUpdateStart()" class="edit-pen"></button>
+                  <button
+                    (click)="htmlUpdateCancel({column: column, row: row, showingCurrently: this.rows, showingOriginal: this.showing, fullOriginal: this.original, index: i, parentRow: parentRow, parentIndex: parentIndex})"
+                    class="edit-cancel"
+                  >
+                  </button>
+                  <button
+                    (click)="htmlUpdateAccept({column: column, row: row, showingCurrently: this.rows, showingOriginal: this.showing, fullOriginal: this.original, index: i, parentRow: parentRow, parentIndex: parentIndex})"
+                    class="edit-accept"
+                  >
+                  </button>
+                </span>
+              </ng-template>
+            </div>
+          </td>
+          <!-- Column template -->
+          <ng-container
+            [ngTemplateOutletContext]="{row: row, index: i, isLast: isLast, isFirst: isFirst, isOdd: isOdd, columns: columns, heads: heads, filter: filter, sorting: sorting, actions: actions}"
+            [ngTemplateOutlet]="templateRef"
+          >
+          </ng-container>
+        </tr>
+        <!-- Expander template -->
+        <tr *ngIf="expanderStatus[i]" class="expanded">
+          <td [colSpan]="htmlSetTdColspan(index)" class="expanded-td">
+            <ng-container
+              [ngTemplateOutletContext]="{row: row, index: i, isLast: isLast, isFirst: isFirst, isOdd: isOdd, columns: columns, heads: heads, filter: filter, sorting: sorting, actions: actions, isOpen: expanderStatus[i]}"
+              [ngTemplateOutlet]="expanderTemplateRef"
+            >
+            </ng-container>
+          </td>
+        </tr>
+      </ng-container>
+    </ng-container>
+    <!-- No Data Were Found -->
+    <tr (isLastEmitter)="htmlRendered(null)" *ngIf="rows.length <= 0" [isLast]="true">
+      <td [colSpan]="columns.length + heads.length + (index ? 1 : 0)" class="no-data">
+        {{"no_data_were_found"}}
+      </td>
+    </tr>
+    <!-- Adding New Row -->
+    <tr *ngIf="editable && create" class="new-line">
+      <td *ngIf="index" class="index">{{rows.length + 1}}</td>
+      <td
+        *ngFor="let column of columns; let columnIndex = index"
+        [hidden]="column.hidden"
+        [ngClass]="htmlSetTdClass(creating, column)"
+      >
+        <div class="content-container">
+          <span *ngIf="editable && column.editable && !column.variableFunction && !isFunction(column.variablePath)"
+                class="content">
+            <input
+              (blur)="htmlUpdateBlur({column: column, row: creating, showingCurrently: this.rows, showingOriginal: this.showing, fullOriginal: this.original, index: rows.length + 1, parentRow: parentRow, parentIndex: parentIndex})"
+              (change)="htmlUpdateChange({column: column, row: creating, showingCurrently: this.rows, showingOriginal: this.showing, fullOriginal: this.original, index: rows.length + 1, parentRow: parentRow, parentIndex: parentIndex})"
+              (focus)="htmlUpdateFocus({column: column, row: creating, showingCurrently: this.rows, showingOriginal: this.showing, fullOriginal: this.original, index: rows.length + 1, parentRow: parentRow, parentIndex: parentIndex})"
+              (ngModelChange)="htmlSetRowPath($event, creating, column)"
+              [ngModel]="htmlGetRowPathValue(creating, column)"
+              [type]="column.filterType === 'custom' ? 'text' : column.filterType"
+              placeholder="add new"
+            />
+            <button (click)="htmlUpdateStart()" class="edit-pen"></button>
+            <button (click)="htmlCreateCanceled(column)" class="edit-cancel"></button>
+            <button
+              (click)="htmlCreateAccepted({column: column, row: creating, showingCurrently: this.rows, showingOriginal: this.showing, fullOriginal: this.original, index: rows.length + 1, parentRow: parentRow, parentIndex: parentIndex})"
+              class="edit-accept"
+            >
+            </button>
+          </span>
+          <span
+            *ngIf="column.variableFunction"
+            [innerHTML]="htmlGetRowPathValue(creating, column) | format : column.filterType + ':' + column.format"
+            class="content"
+          >
+          </span>
+        </div>
+      </td>
+      <ng-container
+        [ngTemplateOutletContext]="{row: creating, index: rows.length + 1, isLast: true, isFirst: false, columns: columns, heads: heads, filter: filter, sorting: sorting, actions: actions, createHead: true}"
+        [ngTemplateOutlet]="templateRef"
+      >
+      </ng-container>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="!hasPaging && rows.length >= 0" class="app-paging">
+  <div class="row">
+    <div class="flex-grow total-count">
+      <strong>{{rows.length}}</strong> {{"record_found"}}
+    </div>
+  </div>
+</div>
+
+<!--*ngIf="!reference && hasPaging && paging.totalCount > 0"-->
+<logo-paging
+  (pageNumberChange)="htmlOnPageNumberChangeHandler($event)"
+  (pageSizeChange)="htmlOnPageSizeChangeHandler($event)"
+  *ngIf="hasPaging && paging.totalCount > 0"
+  [pageNumber]="paging.pageNumber"
+  [pageSize]="paging.pageSize"
+  [totalCount]="paging.totalCount">
+</logo-paging>

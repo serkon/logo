@@ -1,0 +1,15 @@
+:host {
+  display: block;
+
+  .wrapper {
+    display: block;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  .wrapper:not(:empty) + .default-content {
+    display: none;
+  }
+}

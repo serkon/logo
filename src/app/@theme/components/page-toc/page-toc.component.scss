@@ -1,0 +1,52 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+
+  $title-fg: nb-theme(color-fg-heading-light);
+  $item-fg: rgba(102, 110, 128, 0.87);
+  $item-fg-active: #202020;
+  $accent-line-bg: nb-theme(color-fg-highlight);
+
+  padding-left: 1rem;
+  display: block;
+
+  h4 {
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    color: $title-fg;
+    text-align: right;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    text-align: right;
+
+    li {
+      margin-bottom: 0.9375rem;
+      font-size: 10px;
+    }
+    a {
+      color: $item-fg;
+    }
+
+    li.selected a {
+      font-weight: 500;
+      color: $item-fg-active;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: -25px;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 0.07rem;
+        width: 10px;
+        background: $accent-line-bg;
+        border-radius: 1.5px;
+      }
+    }
+  }
+}

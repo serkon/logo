@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg height="12px" version="1.1" viewBox="0 0 12 12" width="12px" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+  <title>d</title>
+  <desc>Created with Sketch.</desc>
+  <defs>
+    <path
+      d="M5.293,0.293 C5.683,-0.097 6.317,-0.097 6.707,0.293 L11.657,5.243 L11.735,5.33 C12.045,5.722 12.019,6.294 11.657,6.657 L6.707,11.607 L6.62,11.684 C6.227,11.995 5.656,11.969 5.293,11.607 L5.215,11.519 C4.905,11.127 4.93,10.555 5.293,10.192 L9.536,5.95 L5.293,1.707 L5.215,1.62 C4.905,1.227 4.93,0.656 5.293,0.293 Z M0.293,0.293 C0.683,-0.097 1.317,-0.097 1.707,0.293 L6.657,5.243 L6.735,5.33 C7.045,5.722 7.019,6.294 6.657,6.657 L1.707,11.607 L1.62,11.684 C1.227,11.995 0.656,11.969 0.293,11.607 L0.215,11.519 C-0.095,11.127 -0.07,10.555 0.293,10.192 L4.536,5.95 L0.293,1.707 L0.215,1.62 C-0.095,1.227 -0.07,0.656 0.293,0.293 Z"
+      id="path-1"></path>
+  </defs>
+  <g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1">
+    <g id="d" transform="translate(-6.000000, -6.000000)">
+      <g id="double-chevron-left-copy"
+         transform="translate(12.000000, 12.000000) rotate(-180.000000) translate(-12.000000, -12.000000) translate(6.000000, 6.000000)">
+        <g id="Group-Clipped">
+          <mask fill="white" id="mask-2">
+            <use xlink:href="#path-1"></use>
+          </mask>
+          <g id="path-1"></g>
+          <g id="Group" mask="url(#mask-2)">
+            <g id="Path" transform="translate(-6.000000, -6.000000)">
+              <g>
+                <polygon fill="#0090FF" fill-rule="nonzero" points="0 0 24 0 24 24 0 24"></polygon>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <rect height="24" id="Rectangle" width="24" x="0" y="0"></rect>
+    </g>
+  </g>
+</svg>

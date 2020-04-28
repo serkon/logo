@@ -25,12 +25,21 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              { "glob": "versions.json", "input": "src/", "output": "/" }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/app/@theme/styles/styles.scss",
+              "node_modules/pace-js/templates/pace-theme-flash.tmpl.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/docsearch.js/dist/cdn/docsearch.min.css",
+              "node_modules/highlight.js/styles/dracula.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/pace-js/pace.min.js",
+              "node_modules/docsearch.js/dist/cdn/docsearch.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -57,7 +66,7 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumError": "13kb"
                 }
               ]
             }

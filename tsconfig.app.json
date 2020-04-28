@@ -8,7 +8,13 @@
     "src/main.ts",
     "src/polyfills.ts"
   ],
+  "exclude": [
+    "test.ts",
+    "src/dist/**",
+    "src/assets/examples/**/*.spec.ts"
+  ],
   "include": [
-    "src/**/*.d.ts"
+    "src/**/*.d.ts",
+    "src/assets/**/*.ts"
   ]
 }
