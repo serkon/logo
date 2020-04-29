@@ -21,6 +21,53 @@ const EXAMPLES_SRC = [
 ];
 const EXAMPLES_DEST = './src/assets/examples';
 
+task('generate-doc-json', () => {
+  return src([
+    'projects/logo-software/**/*.ts',
+    '!projects/**/*.spec.ts',
+    '!projects/**/*.d.ts',
+    '!projects/**/node_modules{,/**}',
+    '!src/**/*.spec.ts',
+  ]).pipe(typedoc({
+    module: 'commonjs',
+    target: 'ES6',
+    // TODO: ignoreCompilerErrors, huh?
+    ignoreCompilerErrors: true,
+    includeDeclarations: true,
+    emitDecoratorMetadata: true,
+    experimentalDecorators: true,
+    excludeExternals: true,
+    exclude: 'node_modules/**/*',
+    json: 'src/docs.json',
+    version: true,
+    noLib: true,
+  }));
+});
+
+task('parse-themes', (done) => {
+  exec('prsr -g typedoc -f angular -i src/docs.json -o src/output.json');
+  done();
+});
+
+task('generate-output-json', (done) => {
+  const docs = JSON.parse(readFileSync(DOCS_OUTPUT, 'utf8'));
+  docs.classes.forEach(cls => {
+    cls.overview = cls.overview.map(unfold);
+    cls.liveExamples = cls.liveExamples.map(unfold);
+  });
+  writeFileSync(DOCS_OUTPUT, JSON.stringify(docs));
+  done();
+});
+
+task(
+  'generate',
+  series(
+    'generate-doc-json',
+    'parse-themes',
+    'generate-output-json',
+  ),
+);
+
 task('copy-examples', () => {
   del.sync(EXAMPLES_DEST);
   return src(EXAMPLES_SRC)
@@ -28,74 +75,20 @@ task('copy-examples', () => {
     .pipe(dest(EXAMPLES_DEST));
 });
 
-task('generate-doc-json', generateDocJson);
-
-function generateDocJson() {
-  return src([
-    'projects/logo-software/**/*.ts',
-    '!projects/**/*.spec.ts',
-    '!projects/**/*.d.ts',
-    '!projects/**/node_modules{,/**}',
-    '!src/**/*.spec.ts',
-  ])
-    .pipe(typedoc({
-      module: 'commonjs',
-      target: 'ES6',
-      // TODO: ignoreCompilerErrors, huh?
-      ignoreCompilerErrors: true,
-      includeDeclarations: true,
-      emitDecoratorMetadata: true,
-      experimentalDecorators: true,
-      excludeExternals: true,
-      exclude: 'node_modules/**/*',
-      json: 'src/docs.json',
-      version: true,
-      noLib: true,
-    }));
-}
-
-task('parse-themes', (done) => {
-  exec('prsr -g typedoc -f angular -i src/docs.json -o src/output.json');
-  done();
-});
-
-
 task(
-  'generate-doc-json-and-parse-themes',
-  series(
-    'generate-doc-json',
-    'parse-themes',
-  ),
-);
-
-task(
-  'validate-examples',
-  series(
-    'copy-examples',
-    (done) => {
-      const docs = JSON.parse(readFileSync(DOCS_OUTPUT, 'utf8'));
-
-      docs.classes.forEach(cls => validate(cls));
-
-      done();
-    },
-  ),
+  'validate-examples', (done) => {
+    const docs = JSON.parse(readFileSync(DOCS_OUTPUT, 'utf8'));
+    docs.classes.forEach(cls => validate(cls));
+    done();
+  },
 );
 
 task(
   'find-full-examples',
   series(
-    'validate-examples',
-    (done) => {
-      const docs = JSON.parse(readFileSync(DOCS_OUTPUT, 'utf8'));
-      docs.classes.forEach(cls => {
-        cls.overview = cls.overview.map(unfold);
-        cls.liveExamples = cls.liveExamples.map(unfold);
-      });
-      writeFileSync(DOCS_OUTPUT, JSON.stringify(docs));
-
-      done();
-    },
+    // 'copy-examples',
+    // 'validate-examples',
+    'generate-output-json',
   ),
 );
 
