@@ -20,18 +20,12 @@ import {
 import { MaskDirective } from '../shared/directives/mask.directive';
 import { Base64Directive } from '../shared/directives/base64.directive';
 import { AutofocusDirective } from '../shared/directives/autofocus.directive';
+import { SharedDirectiveModule } from './shared-directive.module';
+import { SharedPipeModule } from './shared-pipe.module';
 
-const DIRECTIVES = [
-  IsActiveRouteDirective,
-  LastDirective, HTMLParserDirective,
-  VariableDirective,
-  VideoSnapshotDirective,
-  MaskDirective,
-  Base64Directive,
-  AutofocusDirective,
-];
+const DIRECTIVES = [];
+const PIPES = [];
 const SERVICES = [EndpointService, LoggerService, StateService, WatcherService];
-const PIPES = [FormatPipe, OrderPipe, SafeHTMLPipe];
 
 export let StorageClass = null;
 
@@ -64,7 +58,7 @@ export let StorageClass = null;
  * multicast to many Observers. Subjects are like EventEmitters.
  */
 @NgModule({
-  imports: [],
+  imports: [SharedDirectiveModule, SharedPipeModule],
   providers: [],
   declarations: [DIRECTIVES, PIPES],
   exports: [DIRECTIVES, PIPES],

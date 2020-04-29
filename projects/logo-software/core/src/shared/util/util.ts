@@ -93,12 +93,12 @@ export class Util {
    * var test  = {a:1,b:2,d:{c:null, d:4}}
    * test.clear(); // returns {a:1,b:2,d:{d:4}}
    *
-   * @param  [value] - The object will be clearad
+   * @param  [value] - The object will be cleared
    * @param [hard=false] - this option require if clear all empty things as [], {}, '', null.
    * @param [clone=true] - If clone true default variable not effected
    * @returns any;
    */
-  static clearNullAndUndefined(value: any, hard = false, clone = false) {
+  static clearNullAndUndefined(value: any, hard = false, clone = false): any {
     const _this: any = clone ? JSON.parse(JSON.stringify(value)) : value;
     if (_this.constructor === Object && hard.constructor === Boolean) {
       Object.keys(_this).forEach((key) => {
@@ -141,7 +141,7 @@ export class Util {
    * Creates an array of unique values
    * @param array - The arrays to inspect
    */
-  static union(...array) {
+  static union(...array: any[]) {
     const newFlatArray: any[] = ([...array] as any).flat(Infinity);
     const filter = (item, pos) => {
       return newFlatArray.indexOf(item) === pos;
@@ -290,6 +290,21 @@ export class Util {
     return data;
   }
 
+  static setObjectPathValue(obj, path, value) {
+    let schema = obj;  // a moving reference to internal objects within obj
+    const pList = path.split('.');
+    const len = pList.length;
+    for (let i = 0; i < len - 1; i++) {
+      const elem = pList[i];
+      if (!schema[elem]) {
+        schema[elem] = {}
+      }
+      schema = schema[elem];
+    }
+    schema[pList[len - 1]] = value;
+    return schema;
+  }
+
   /**
    * Convert dot separated string to object then assign the value to latest key
    * @param prop: string - Object property paths
@@ -297,9 +312,9 @@ export class Util {
    * @returns Object;
    *
    * @Usage
-   * Util.make("a.b.c", 'some value');  will return {a: {b: {c: 'some value'}}};
+   * Util.makeObject("a.b.c", 'some value');  will return {a: {b: {c: 'some value'}}};
    */
-  static setObjectPathValue(prop: string, value: any): Object {
+  static makeObject(prop: string, value: any): Object {
     const props = prop.split('.');
     let temp = {};
     props.reverse().forEach(function (key, index) {

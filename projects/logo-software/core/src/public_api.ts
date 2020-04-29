@@ -3,6 +3,8 @@
  */
 
 export * from './lib/core.module';
+export * from './lib/shared-directive.module';
+export * from './lib/shared-pipe.module';
 // DIRECTIVES
 export * from './shared/directives/autofocus.directive';
 export * from './shared/directives/base64.directive';
