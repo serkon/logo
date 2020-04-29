@@ -4,10 +4,25 @@ import { Component, EventEmitter, HostBinding, Input, OnChanges, Output, SimpleC
  * Given parameters outside of the component
  */
 export interface Paging {
+  /**
+   * `status` chanes paging visibility. If false paging will not be appear.
+   */
   status?: boolean | null;
+  /**
+   * `pageSize` is define record per page
+   */
   pageSize: number | null;
+  /**
+   * current page number
+   */
   pageNumber: number | null;
+  /**
+   * Total records count
+   */
   totalCount: number | undefined;
+  /**
+   * Total page count
+   */
   totalPages: number | undefined;
 }
 
@@ -23,19 +38,53 @@ export interface Pager {
   totalPages?: number;
 }
 
+/**
+ * Paging component display pages per totalPages.
+ *
+ * __Usage Example__
+ *
+ * <sub>html</sub>
+ * ```html
+ *    <logo-paging
+ *      (pageNumberChange)="pagingModule.onPageChangeHandler($event)"
+ *      *ngIf="true"
+ *      [pageSize]="5"
+ *      [totalCount]="140"
+ *    >
+ *    </logo-paging>
+ *  ```
+ */
 @Component({
   selector: 'logo-paging',
   templateUrl: './paging.component.html',
   styleUrls: ['./paging.component.scss'],
 })
 export class PagingComponent implements OnChanges {
+  /**
+   * Total records
+   */
   @Input() totalCount: number;
+  /**
+   * Records per page
+   */
   @Input() pageSize = 10;
+  /**
+   * Currently displaying page index
+   */
   @Input() pageNumber = 1;
   @HostBinding('class.app-paging') classes = true;
+  /**
+   * `pageNumberChange` event trigger, when page changed this will be emitted.
+   */
   @Output() pageNumberChange: EventEmitter<Pager> = new EventEmitter<Pager>();
+  /**
+   * `pageSizeChange event trigger, when page size changed will be emitted.
+   */
   @Output() pageSizeChange: EventEmitter<Pager> = new EventEmitter<Pager>();
   public pager: Pager = {};
+  /**
+   * Total page will be displaying
+   */
   public totalPages: number;
 
   ngOnChanges(changes: SimpleChanges) {
@@ -43,6 +92,10 @@ export class PagingComponent implements OnChanges {
     this.pager = this.getPager(this.totalCount, this.pageNumber, this.pageSize);
   }
 
+  /**
+   * Set current page the given parameter
+   * @param page
+   */
   setPage(page: number) {
     if (page >= 1 && page <= this.totalPages) {
       this.pager = this.getPager(this.totalCount, page, this.pageSize);
@@ -50,7 +103,8 @@ export class PagingComponent implements OnChanges {
     }
   }
 
-  setPageSize() {
+  setPageSize(pageSize?: number) {
+    this.pageSize = pageSize ? pageSize : this.pageSize;
     this.pager = this.getPager(this.totalCount, this.pageNumber, this.pageSize);
     this.pageSizeChange.emit(this.pager);
   }

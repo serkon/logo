@@ -23,6 +23,10 @@ const routes: Routes = [
         path: 'table-sample',
         loadChildren: () => import('./table-sample/table-sample.module').then(m => m.TableSampleModule),
       },
+      {
+        path: 'paging-sample',
+        loadChildren: () => import('./paging-sample/paging-sample.module').then(m => m.PagingSampleModule),
+      },
     ],
   },
 ];
