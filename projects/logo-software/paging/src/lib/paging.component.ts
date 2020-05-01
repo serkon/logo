@@ -1,15 +1,15 @@
 import { Component, EventEmitter, HostBinding, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 
 /**
- * Given parameters outside of the component
+ * Paging interface describe minimum configuration for PagingModule
  */
 export interface Paging {
   /**
-   * `status` chanes paging visibility. If false paging will not be appear.
+   * status changes paging visibility. If false paging will not be appear.
    */
   status?: boolean | null;
   /**
-   * `pageSize` is define record per page
+   * pageSize is define record per page
    */
   pageSize: number | null;
   /**

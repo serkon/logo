@@ -8,6 +8,8 @@ import { PagingComponent } from './paging.component';
  * Paging module uses when paging required like TableModule or ComboboxModule
  * Just import it to your project of @NgModule' import section
  *
+ * @stacked-example(Paging Showcase, logo/paging-sample/paging-showcase/paging-showcase.component)
+ *
  * __Usage Example__
  *
  * ```typescript
