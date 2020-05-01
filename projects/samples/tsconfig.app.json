@@ -5,11 +5,25 @@
     "types": [],
     "baseUrl": "./",
     "paths": {
-      "@nebular/*": [
-        "../../src/framework/*/public_api.ts"
+      "@logo-software/core": [
+        "../../projects/logo-software/core/src/public_api.ts",
+        "../../dist/logo-software/core"
       ],
-      "@logo-software/*": [
-        "../logo-software/*"
+      "@logo-software/language": [
+        "../../projects/logo-software/language/src/public_api.ts",
+        "../../dist/logo-software/language"
+      ],
+      "@logo-software/excel": [
+        "../../projects/logo-software/excel/src/public_api.ts",
+        "../../dist/logo-software/excel"
+      ],
+      "@logo-software/paging": [
+        "../../projects/logo-software/paging/src/public_api.ts",
+        "../../dist/logo-software/paging"
+      ],
+      "@logo-software/table": [
+        "../../projects/logo-software/table/src/public_api.ts",
+        "../../dist/logo-software/table"
       ],
       "@samples/*": [
         "./src/app/logo/*"

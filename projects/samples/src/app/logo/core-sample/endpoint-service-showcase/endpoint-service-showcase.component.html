@@ -1,3 +1,16 @@
-<p>
-  endpoint-service-showcase works!
-</p>
+<h3>User Information from Http</h3>
+<div *ngIf="users$ | async as user else noData">
+  <div><b>Name:</b> {{ user.name }}</div>
+  <div><b>Email:</b> {{ user.email }}</div>
+  <div><b>Phone:</b> {{ user.phone }}</div>
+</div>
+<ng-template #noData>
+  No Data Available
+</ng-template>
+
+<sub>Response:</sub>
+<br />
+<code style="font-size: 12px">
+  {{user | json}}
+</code>
+
