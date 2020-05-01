@@ -12,10 +12,10 @@
 <div class="table-actions">
   <button (click)="actionHtmlAddReference()" *ngIf="!!reference && refButtonStatus" class="add"></button>
   <button (click)="actionHtmlRemoveReference()" *ngIf="!!reference && refButtonStatus" class="remove"></button>
-  <button (click)="actionHtmlLoad()" *ngIf="!!refresh" class="refresh"></button>
+  <button (click)="actionHtmlLoad()" *ngIf="!!actRefresh" class="refresh"></button>
   <button (click)="create=!create" *ngIf="editable" [ngClass]="{'button-selected': create}" class="add"></button>
   <button (click)="editable = !editable" [ngClass]="{'button-selected': editable}" class="edit"></button>
-  <button (click)="actionHtmlDeleteRow(selected)" *ngIf="delete" class="bin"></button>
+  <button (click)="actionHtmlDeleteRow(selected)" *ngIf="actDelete" class="bin"></button>
   <ng-container *ngFor="let action of actions">
     <button
       (click)="action.click && action.click(_this)" [disabled]="action.disable"
@@ -68,7 +68,7 @@
           <input
             (input)="htmlFilterAdd(column, $event.target)"
             *ngIf="!column.filterDisable"
-            [type]="['percent' , 'range', 'custom', 'currency'].includes(column.filterType) ? 'text' : column.filterType"
+            [type]="htmlFilterType(column)"
           />
           <input *ngIf="column.filterDisable" disabled/>
         </label>
@@ -81,7 +81,7 @@
     <tbody (dragover)="htmlDragOver($event)" (drop)="htmlDrop($event)">
     <ng-container *ngIf="rows.length > 0">
       <ng-container
-        *ngFor="let row of (this.serverSide ? rows : this.clientSideFilter());trackBy: trackByMethod; index as i; let isOdd = odd; let isEven = even;  let isLast= last; let isFirst = first;"
+        *ngFor="let row of (this.serverSide ? rows : (rows | orderBy : htmlOrderBy()));trackBy: trackByMethod; index as i; let isOdd = odd; let isEven = even;  let isLast= last; let isFirst = first;"
       >
         <tr
           (click)="htmlOnClick(row, $event, i)"
@@ -128,8 +128,8 @@
                     (change)="htmlUpdateChange({column: column, row: row, showingCurrently: this.rows, showingOriginal: this.showing, fullOriginal: this.original, index: i, parentRow: parentRow, parentIndex: parentIndex})"
                     (focus)="htmlUpdateFocus({column: column, row: row, showingCurrently: this.rows, showingOriginal: this.showing, fullOriginal: this.original, index: i, parentRow: parentRow, parentIndex: parentIndex})"
                     (ngModelChange)="htmlSetRowPath($event, row, column)"
-                    [ngModel]="htmlGetRowPathValue(row, column)"
-                    [type]="column.filterType === 'custom' ? 'text' : column.filterType"
+                    [ngModel]="column.filterType === 'datetime' ? (htmlGetRowPathValue(row, column) | format: 'datetime'): htmlGetRowPathValue(row, column)"
+                    [type]="htmlFilterType(column)"
                   />
                   <button (click)="htmlUpdateStart()" class="edit-pen"></button>
                   <button
@@ -188,7 +188,7 @@
               (focus)="htmlUpdateFocus({column: column, row: creating, showingCurrently: this.rows, showingOriginal: this.showing, fullOriginal: this.original, index: rows.length + 1, parentRow: parentRow, parentIndex: parentIndex})"
               (ngModelChange)="htmlSetRowPath($event, creating, column)"
               [ngModel]="htmlGetRowPathValue(creating, column)"
-              [type]="column.filterType === 'custom' ? 'text' : column.filterType"
+              [type]="htmlFilterType(column)"
               placeholder="add new"
             />
             <button (click)="htmlUpdateStart()" class="edit-pen"></button>

@@ -9,15 +9,42 @@ import { TableComponent } from '../table.component';
  * The Table Meta class is used for type definition.
  */
 export interface TableMeta<T> {
+  /**
+   * Table service url and method definition `{ url: string, method?: string }`
+   */
   service?: { url: string, method?: string };
+  /**
+   * Table column definition pls look [TableColumn](/docs/modules/table-module#tablecolumn)
+   */
   columns: TableColumn[];
+  /**
+   * Table head definition for added extra added as child `td` [TableHead](/docs/modules/table-module#tablehead)
+   */
   heads?: TableHead[];
+  /**
+   * Will be deprecated
+   */
   events?: Events;
+  /**
+   * Table action adds new buttons to table for make chane outside [TableAction](/docs/modules/table-module#tableaction)
+   */
   actions?: TableAction[];
+  /**
+   * It defines the HTTP response data resource root path.
+   */
   mapPath?: string;
   status?: boolean;
+  /**
+   * Selected records
+   */
   list?: any[];
+  /**
+   * The showing records
+   */
   rows?: T[];
+  /**
+   *
+   */
   excel?: ExcelSettingType;
   serverSide?: boolean;
   editable?: boolean;
@@ -26,8 +53,8 @@ export interface TableMeta<T> {
   refButtonStatus?: boolean;
   automatic?: boolean;
   multiSelect?: boolean;
-  refresh?: boolean;
-  delete?: boolean;
+  actRefresh?: boolean;
+  actDelete?: boolean;
   hasPaging?: boolean;
   hasFilter?: boolean;
   index?: boolean;

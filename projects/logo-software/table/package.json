@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@logo-software/paging": "~0.0.9",
-    "@logo-software/excel": "~0.0.12"
+    "@logo-software/excel": "~0.0.12",
+    "@logo-software/core": "~0.0.22"
   }
 }

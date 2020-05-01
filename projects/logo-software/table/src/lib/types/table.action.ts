@@ -5,6 +5,8 @@ import { TableComponent } from '../table.component';
  *
  * __Usage Example__
  *
+ * <sub>typescript</sub>
+ *
  * ```typescript
  * this.table.actions = [{
  *   display: 'new',

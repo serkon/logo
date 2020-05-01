@@ -29,16 +29,16 @@ import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams, HttpResponse } 
 import { Pager, Paging } from '@logo-software/paging';
 import { ExcelSettingType, ExcelTableColumn } from '@logo-software/excel';
 import { Events } from './types/event.model';
-import { Util } from './util/util';
 import { ExpanderComponent } from './expander.component';
-import { OrderPipe } from './util/order.pipe';
 import { TableMeta } from './types/table.meta';
+import { FilterType } from './types/filter.type';
 import { TableHead } from './types/table.head';
 import { TableUpdateDataType } from './types/table.update-data-type';
 import { TableFilter } from './types/table.filter';
 import { TableColumn } from './types/table.column';
 import { TableAction } from './types/table.action';
 import { TableSorting } from './types/table.sorting';
+import { OrderPipe, Util } from '@logo-software/core';
 
 export type VariablePathResolver = (row: any) => string;
 export type VariableFunctionResolver = (row: any) => any;
@@ -67,16 +67,16 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   @ContentChild('expander', {read: TemplateRef, static: true}) expanderTemplateRef: TemplateRef<any>;
   @ContentChild(ExpanderComponent, {static: true}) expanderComponent: ExpanderComponent;
   /**
-   * Make table editable when set true
+   * Make table editable when it's the value set true
    */
   @Input() public editable = false;
   /**
-   * Add new record will be visible when set true
+   * Add new record area will be visible when it's the value set true
    */
   @Input() public create = false;
   /**
    * When reference property set to another Table reference it will connect to this table for drag,
-   * drop or push selected row to reference table
+   * drop or push for selected row to reference table
    */
   @Input() public reference: TableComponent;
   /**
@@ -87,7 +87,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
    * It defines the HTTP response data resource root path.
    * If the HTTP response data source path different then the response.data, `mapPath` set to the root resource path.
    * When the return response like the below example, wants to the show `id` and `name` properties on the table,
-   * you must set the resource path to 'table.data.path'.
+   * you must set the resource path to 'table.data.path'
    *
    * ```JSON
    * {
@@ -102,7 +102,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
    */
   @Input() public mapPath: string = null;
   /**
-   * Automatic load table automatically, default is true
+   * The automatic property, calls the table `load()` method when initialized. The default value is true.
    */
   @Input() public automatic = true;
   /**
@@ -113,18 +113,58 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
    * It set externally added table th columns. Reference [TableHead](/#/docs/logo-business-solutions/table-module#tablehead)
    */
   @Input() public heads: TableHead[] = [];
-  @Input() public refresh = false;
-  @Input() public delete = true;
+  /**
+   * Refresh action button enable when it's the value set true. Default value is false.
+   */
+  @Input() public actRefresh = false;
+  /**
+   * Delete action button enable when it's the value set true. Default value is false.
+   */
+  @Input() public actDelete = true;
+  /**
+   * Paging status default true
+   */
   @Input() public hasPaging = true;
+  /**
+   * Table filter status default true
+   */
   @Input() public hasFilter = true;
+  /**
+   * Index is make visible index numbers of the table at the first column. The default value is false.
+   */
   @Input() public index = false;
+  /**
+   * It sets index start number
+   */
   @Input() public indexStart = 0;
-  @Input() public sort = false; // table sorting feature parameter.
+  /**
+   * Make table columns sortable, default value is false
+   */
+  @Input() public sort = false;
+  /**
+   * It sets table height
+   */
   @Input() public height: string = null;
+  /**
+   * Service set table Http request url and request method.
+   * If table set to server side it must be set.
+   */
   @Input() public service: { url: string, method?: string } = {url: null, method: 'GET'};
+  /**
+   * It set excel exporting. More information please look [ExcelSettingType](/#/docs/modules/excel-module#excelsettingtype)
+   */
   @Input() public excel: ExcelSettingType = {status: true};
+  /**
+   * It make table row draggable. Default value is false.
+   */
   @Input() public draggable = false;
+  /**
+   * Event is *deprecated*, will be removed.
+   */
   @Input() public events: Events = new Events();
+  /**
+   * Paas is custom property for use PaaS project
+   */
   @Input() public paas = false;
   /**
    * This field define oDATA request identifier
@@ -292,7 +332,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
    */
   public interval: { status: boolean, time: number } = {status: false, time: 1000};
   /**
-   * Drag status
+   * Drag status contains `status` and `list` attribute
    */
   public drag: { start: boolean, list: any[] } = {start: false, list: []};
   public _this = this;
@@ -389,7 +429,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   set columns(value: TableColumn[]) {
     const options = new TableColumn();
     this._columns = value.map(column => ({...options, ...column}));
-    this.excel.columns = <ExcelTableColumn[]>value;
+    this.excel.columns = <ExcelTableColumn[]> value;
   }
 
   private _selected: any = null;
@@ -443,11 +483,11 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
     this.sorting.status = this.sort;
     this.service.method = this.service.method || 'GET';
     this._columns = this._columns.map((item: TableColumn) => {
-      item.filterType = item.filterType ? item.filterType : 'text';
+      item.filterType = item.filterType ? item.filterType : FilterType.TEXT;
       item.format = item.format ? item.format : '';
       return item;
     });
-    if (this.automatic && !this.reference) {
+    if (this.automatic) {
       this.load();
     }
     if (this.interval.status) {
@@ -515,7 +555,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   }
 
   htmlSetTdColspan(index) {
-    return this.columns.length + this.heads.length + (index ? 1 : 0)
+    return this.columns.length + this.heads.length + (index ? 1 : 0);
   }
 
   htmlSetTheadClass(column: TableColumn): string | boolean {
@@ -576,6 +616,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   }
 
   htmlSetRowPath(value, row, column) {
+    console.log(value);
     Util.setObjectPathValue(row, this.getColumnPath(row, column), value);
   }
 
@@ -587,6 +628,20 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
       this.pageNumber = 1;
       this.load();
     }, 800);
+  }
+
+  htmlFilterType(column: TableColumn) {
+    let type = null;
+    if (['custom'].includes(column.filterType)) {
+      type = 'text';
+    } else if (['percent', 'range', 'currency'].includes(column.filterType)) {
+      type = 'number';
+    } else if (column.filterType === 'datetime') {
+      type = 'datetime-local';
+    } else {
+      type = column.filterType;
+    }
+    return type;
   }
 
   filterGenerate(column, value) {
@@ -604,13 +659,13 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   }
 
   makeFilterToObject(filter: TableFilter<any>[], row?) {
-    return filter.reduce((p, c, i) => ({...p, ...Util.makeObject(this.isFunction(c.path) ? c.path(row) : <string>c.path, c.value)}), {})
+    return filter.reduce((p, c, i) => ({...p, ...Util.makeObject(this.isFunction(c.path) ? c.path(row) : <string> c.path, c.value)}), {});
   }
 
   runPathFilter(filtered) {
     if (this.variablePathFilter.length > 0) {
       filtered = filtered.filter(row => {
-        return Util.isContained(row, this.makeFilterToObject(this.variablePathFilter, row), false)
+        return Util.isContained(row, this.makeFilterToObject(this.variablePathFilter, row), false);
       });
     }
     if (this.variableFunctionFilter.length > 0) {
@@ -653,7 +708,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   }
 
   manageQueryParams(): HttpParams {
-    let sorting = this.sorting.column ? Util.makeObject(<string>this.sorting.column, this.sorting.descending ? 'desc' : 'asc') : null;
+    let sorting = this.sorting.column ? Util.makeObject(<string> this.sorting.column, this.sorting.descending ? 'desc' : 'asc') : null;
     const filter: TableFilter<string>[] = this.filter.length > 0 ? this.filter : null;
     const paging = {pageNumber: this.pageNumber, pageSize: this.pageSize};
     const queryParameter: { sort?: string, q?: string, offset?: number, limit?: number, $orderby?: string, $skip?: number, $top?: number, $filter?: string } = {};
@@ -987,17 +1042,17 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   htmlUpdateFocus(data: TableUpdateDataType) {
     (event.target as HTMLSpanElement).closest('tbody').querySelectorAll('.edit-focus').forEach(item => item.classList.remove('edit-focus'));
     (event.target as HTMLSpanElement).closest('td').classList.add('edit-focus');
-    this.onUpdateFocus.emit(data)
+    this.onUpdateFocus.emit(data);
   }
 
   htmlUpdateChange(data: TableUpdateDataType) {
     (event.target as HTMLSpanElement).closest('td').classList.add('editing');
-    this.onUpdateChange.emit(data)
+    this.onUpdateChange.emit(data);
   }
 
   htmlUpdateBlur(data: TableUpdateDataType) {
     // (event.target as HTMLInputElement).parentElement.parentElement.classList.remove('edit-focus');
-    this.onUpdateBlur.emit(data)
+    this.onUpdateBlur.emit(data);
   }
 
   htmlUpdateAccept(data: TableUpdateDataType) {
@@ -1027,7 +1082,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
       index,
       parentRow: this.parentRow,
       parentIndex: this.parentIndex,
-    })
+    });
   }
 
   htmlUpdateStart() {
@@ -1112,9 +1167,9 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
         this.onUpdateHttpSucceed.emit(response);
         this.load();
       }, (error: HttpErrorResponse) => {
-        this.onUpdateHttpError.emit(error)
+        this.onUpdateHttpError.emit(error);
         this.load();
-      })
+      });
     }
   }
 
@@ -1128,7 +1183,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
         this.load();
       }, (error: HttpErrorResponse) => {
         this.onCreateHttpError.emit(error);
-      })
+      });
     }
   }
 }

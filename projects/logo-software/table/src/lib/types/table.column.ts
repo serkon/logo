@@ -1,7 +1,9 @@
 import { VariableFunctionResolver, VariablePathResolver } from '../table.component';
+import { FilterType } from './filter.type';
 
 /**
- * TableColumn class used for define table header properties
+ * TableColumn class define table TD data properties where data will receive for each cell.
+ * Also it set column visibility. Header Title and more. Please read more below.
  *
  * __Usage Example__
  *
@@ -58,7 +60,7 @@ import { VariableFunctionResolver, VariablePathResolver } from '../table.compone
  *   sortingKey: 'zone.name',
  *  },
  * ]
- * * ```
+ * ```
  */
 export class TableColumn {
   /**
@@ -78,10 +80,9 @@ export class TableColumn {
   variableFunction?: VariableFunctionResolver;
   /**
    * Format of the Pipe types for filtering. FilterType will be HTMLInput element type `<input type="filterType"` />
-   * So which type want to use while filtering set the it can be set from here. Filter types are:
-   * {'text' | 'range ' | 'decimal' | 'number' | 'datetime' | 'date' | 'time' | null | string}
+   * So which type want to use while filtering set the it can be set from here.
    */
-  filterType?: 'custom' | 'text' | 'range' | 'percent' | 'currency' | 'decimal' | 'number' | 'datetime' | 'date' | 'time' | null = 'text';
+  filterType?: FilterType;
   /**
    * Angular formats, for example: `format: '1.1-3:"en-EN"'`
    */

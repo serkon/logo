@@ -367,6 +367,10 @@ $expanded-background-color: #dddde8;
         border-top: 0;
         border-bottom: 0;
         vertical-align: inherit;
+
+        label {
+          margin-bottom: 0;
+        }
       }
     }
   }

@@ -2,13 +2,13 @@
  * This input adds custom extra thead to and tbody columns to table.
  * If custom coded html need to be inserted between table columns, this is the solution.
  * Add some HTML to between app-table tag using
- * '<template let-i="index" let-row="row" let-last="isLast" let-odd="isOdd">' tags.
- *
- * 2 options can be set
- * "thead.className" is used for set style class name
- * "thead.display" is for thead visible text
  *
  * __Usage Example__
+ *
+ * <sub>html</sub>
+ * ```html
+ * <template let-i="index" let-row="row" let-last="isLast" let-odd="isOdd">
+ * ```
  *
  * <sub>typescript</sub>
  * ```typescript
@@ -47,6 +47,12 @@
  * ```
  */
 export class TableHead {
+  /**
+   * is used for set style class name
+   */
   display = '';
+  /**
+   * is for thead visible text
+   */
   className = '';
 }

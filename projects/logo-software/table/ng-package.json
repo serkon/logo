@@ -2,13 +2,19 @@
   "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../../dist/logo-software/table",
   "lib": {
-    "entryFile": "src/public_api.ts"
+    "entryFile": "src/public_api.ts",
+    "umdModuleIds": {
+      "@logo-software/paging": "paging",
+      "@logo-software/excel": "excel",
+      "@logo-software/core": "core$1"
+    }
   },
   "assets": [
     "src/lib/assets/icons"
   ],
   "whitelistedNonPeerDependencies": [
     "@logo-software/paging",
-    "@logo-software/excel"
+    "@logo-software/excel",
+    "@logo-software/core"
   ]
 }
