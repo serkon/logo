@@ -1,6 +1,31 @@
 {
   "name": "@logo-software/core",
-  "version": "0.0.19",
+  "version": "0.0.20",
+  "description": "Core module is main Logo Module that contains shared **directives**, **pipes**, **services** and **util** class. It also exported to the `SharedDirectiveModule` and `SharedPipeModule` for directly usage.",
+  "homepage": "https://github.com/logobs/ng-logo/tree/master/projects/logo-software/core",
+  "keywords": [
+    "services",
+    "pipes",
+    "directives",
+    "classes",
+    "isLast",
+    "auto focus",
+    "base64",
+    "isActiveRoute",
+    "mask",
+    "parser",
+    "variable",
+    "snapshot",
+    "format",
+    "safe html",
+    "order"
+  ],
+  "author": {
+    "name": "Serkan Konakcı",
+    "email": "konakci@mail.com",
+    "url": "http://www.serkankonakci.com"
+  },
+  "license": "[LICENSE](https://github.com/logobs/ng-logo/blob/master/projects/logo-software/core/LICENSE)",
   "peerDependencies": {
     "@angular/common": "^7.0.0",
     "@angular/core": "^7.0.0"
