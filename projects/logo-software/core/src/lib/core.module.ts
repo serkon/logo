@@ -14,11 +14,28 @@ const SERVICES = [EndpointService, LoggerService, StateService, WatcherService];
 export let StorageClass = null;
 
 /**
- * Core module is main Logo Module that contains shared directives, pipes, services and util class.
+ * Core module is main Logo Module that contains shared **directives**, **pipes**, **services** and **util** class. It also exported to the `SharedDirectiveModule` and `SharedPipeModule` for directly usage.
  *
- * If you use storage for application scope, you have to determine which storage type will be used
- * There are two type storage: LocalStorage or SessionStorage. Default storage is LocalStorage.
+ * If you use storage for application scope, you have to determine which storage type will be used.
  *
+ * There are two type storage: `LocalStorage` or `SessionStorage`. Default storage is `LocalStorage`.
+ *
+ * Add TableModule to `import` section of the desired module's `@NgModule` annotation:
+ *
+ * ```typescript
+ *  import { NgModule } from '@angular/core';
+ *  import { CoreModule } from './core.module';
+ *  import { STORAGE_TYPES } from './storage.service';
+ *
+ *  @NgModule({
+ *  imports: [
+ *    CommonModule,
+ *    CoreModule.forRoot(STORAGE_TYPES.LOCAL), // or Directly import CoreModule, it will be set StorageType to Local
+ *  ],
+ * })
+ *  export class AppModule {
+ * }
+ * ```
  * __Directives:__
  * - [AutoFocusDirective](/#/docs/directives/autofocusdirective#autofocusdirective) - Makes focused to added element
  * - [Base64Directive](/#/docs/directives/base64directive#base64directive) - Manages base64 operations
@@ -35,7 +52,7 @@ export let StorageClass = null;
  * - SafeHtml - Orders data ASC or DESC
  *
  * __Services:__
- * - EndpointService - Handles HTTP request
+ * - [EndpointService](/#/docs/services/endpointservice#endpointservice) - Handles HTTP request
  * - LoggerService - Manages Log
  * - StateService - Manages Application State data
  * - StorageService - Manage Application Storage data with LocalStorage or SessionStorage
