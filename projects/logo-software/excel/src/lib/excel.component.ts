@@ -262,7 +262,7 @@ export class ExcelComponent {
   getObjectPathValue(value: any, path: string) {
     let data = value;
     if (!!path && path.constructor === String) {
-      path.split('.').forEach(function (val: any) {
+      path.split('.').forEach(function(val: any) {
         data = (data !== null && typeof data !== 'undefined') ? data[val] : null;
       });
     }
