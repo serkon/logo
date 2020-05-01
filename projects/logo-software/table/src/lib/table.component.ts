@@ -116,11 +116,11 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   /**
    * Refresh action button enable when it's the value set true. Default value is false.
    */
-  @Input() public actRefresh = false;
+  @Input() public refresh = false;
   /**
    * Delete action button enable when it's the value set true. Default value is false.
    */
-  @Input() public actDelete = true;
+  @Input() public delete = true;
   /**
    * Paging status default true
    */

@@ -53,8 +53,8 @@ export interface TableMeta<T> {
   refButtonStatus?: boolean;
   automatic?: boolean;
   multiSelect?: boolean;
-  actRefresh?: boolean;
-  actDelete?: boolean;
+  refresh?: boolean;
+  delete?: boolean;
   hasPaging?: boolean;
   hasFilter?: boolean;
   index?: boolean;
