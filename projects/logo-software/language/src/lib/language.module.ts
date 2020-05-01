@@ -22,7 +22,13 @@ import { LanguageStoreService } from '../language.store';
 const PIPES = [LanguagePipe];
 
 /**
- * Import Language Module to your main module. For example, import section on you NgModule:
+ * With this module you can easily translate any text to specified language on the fly.
+ * Set configuration properties, if default language is different from English.
+ * For example, import section on you NgModule and set configuration
+ *
+ * <sub>app.module.ts</sub>
+ *
+ * __Usage Example__
  *
  * ```typescript
  * import { LanguageModule } from '@logo-software/language';
@@ -30,12 +36,13 @@ const PIPES = [LanguagePipe];
  * @NgModule({
  *  imports: [
  *    CommonModule,
- *    LanguageModule.forRoot({ abbr: 'en', readFromFile: false, extension: 'json', path: '/assets/languages' }),
+ *    LanguageModule.forRoot({ abbr: 'en', readFromFile: false, extension: 'json', path: 'languages' }),
  *  ],
  * })
  * export class AppModule {
  * }
  * ```
+ * @stacked-example(LanguageModule, logo/language-sample/language-showcase/language-showcase.component)
  */
 @NgModule({
   imports: [CommonModule],
@@ -61,7 +68,7 @@ export class LanguageModule {
   }
 
   static forChild(config?: LanguageInitSetting): ModuleWithProviders {
-    return <ModuleWithProviders>{
+    return <ModuleWithProviders> {
       ngModule: LanguageModule,
       providers: [LanguageService],
     };

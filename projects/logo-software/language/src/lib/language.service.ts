@@ -26,7 +26,6 @@ import { LanguageStoreService } from '../language.store';
  *  }
  *```
  *
- * @stacked-example(LanguageModule, logo/language-sample/language-showcase/language-showcase.component)
  */
 
 @Injectable()
