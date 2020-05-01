@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, NgZone, ViewChild } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { TableAction, TableComponent, TableMeta, TableUpdateDataType } from '@logo-software/table';
+import { FilterType, TableAction, TableComponent, TableMeta, TableUpdateDataType } from '@logo-software/table';
 
 @Component({
   selector: 'logo-table-showcase',
@@ -25,41 +25,52 @@ export class TableShowcaseComponent {
     status: true,
     list: [],
     columns: [
-      {display: 'ID', variablePath: 'id', filterType: 'text', hidden: false, editable: true},
       {
-        display: 'Secure ID',
-        variablePath: (row: any) => 'id',
-        filterType: 'text',
-        sortable: true,
-        sortingKey: 'id',
-        editable: false,
+        display: 'ID', variablePath: 'id', filterType: FilterType.TEXT, hidden: false, editable: true,
       },
       {
-        display: 'path sample',
+        display: 'var-path-1',
+        variablePath: (row: any) => 'id',
+        filterType: FilterType.TEXT,
+        sortable: true,
+        sortingKey: 'id',
+        editable: true,
+      },
+      {
+        display: 'var-path-2',
         variablePath: (row: any) => row.percentage > 9 ? 'percentage' : 'because',
-        filterType: 'text',
+        filterType: FilterType.NUMBER,
+        format: '1.1-3',
         sortable: true,
         sortingKey: 'because',
         expand: true,
       },
-      {display: 'zone.name', variablePath: 'zone.name', filterType: 'text', sortable: true},
       {
-        display: 'percentage number',
+        display: 'zone.name', variablePath: 'zone.name', filterType: FilterType.TEXT, sortable: true,
+      },
+      {
+        display: 'currency',
         variablePath: 'percentage',
-        filterType: 'currency',
+        filterType: FilterType.CURRENCY,
         format: '',
         sortable: true,
       },
       {
-        display: 'percentage %',
+        display: 'percentage',
         variablePath: 'percentage',
-        filterType: 'percent',
+        filterType: FilterType.PERCENT,
         format: '1.1-3:"it"',
         sortable: true,
       },
-      {display: 'date', variablePath: 'hour', filterType: 'date', format: 'yyyy.MM.dd HH:mm', sortable: true},
-      {display: 'surname', variablePath: 'surname', filterType: 'custom'},
-      {display: 'because', variablePath: 'because', filterType: 'number', format: '4.2-3', sortable: true},
+      {
+        display: 'datetime', variablePath: 'hour', filterType: FilterType.DATETIME, format: 'yyyy.MM.dd HH:mm', sortable: true,
+      },
+      {
+        display: 'surname', variablePath: 'surname', filterType: FilterType.CUSTOM,
+      },
+      {
+        display: 'number', variablePath: 'because', filterType: FilterType.NUMBER, format: '4.2-3', sortable: true,
+      },
       {
         display: 'Func Samp 1',
         variableFunction: (row: any) => row.percentage >= 34 ? row.zone && row.zone.name + ' <b>text</b>' : row.id,
