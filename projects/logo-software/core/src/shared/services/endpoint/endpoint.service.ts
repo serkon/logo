@@ -124,7 +124,7 @@ export class EndpointService {
    * @return An `Observable` of the `HTTPResponse`, with the response body of type `Object`.
    */
   request(method: string, url: string, options: RequestOption = {}): Observable<any> {
-    options.observe = options && options.observe ? options.observe : 'response';
+    // options.observe = options && options.observe ? options.observe : 'response';
     options.responseType = options.responseType ? options.responseType : ResponseContentEnum.Json;
     const headers = new HttpHeaders({...{'Content-Type': 'application/json'}, ...options.headers});
     return this.http.request(method, url, {...options, headers: headers});
@@ -140,10 +140,10 @@ export class EndpointService {
    * @return An `Observable` of the full `HTTPResponse` for the request, with a response body in the requested type.
    */
   get(url: string, options: RequestOption = {}): Observable<any> {
-    options.observe = options && options.observe ? options.observe : 'response';
+    // options.observe = options && options.observe ? options.observe : 'response';
     options.responseType = options.responseType ? options.responseType : ResponseContentEnum.Json;
     const headers = new HttpHeaders({...{'Content-Type': 'application/json'}, ...options.headers});
-    return this.http.get(url, {...options, headers: headers});
+    return this.http.get(url, {...options});
   }
 
   /**
@@ -157,7 +157,7 @@ export class EndpointService {
    * @return An `Observable` of the `HTTPResponse` for the request, with a response body in the requested type.
    */
   post(url: string, body: any, options: RequestOption = {}): Observable<any> {
-    options.observe = options && options.observe ? options.observe : 'response';
+    // options.observe = options && options.observe ? options.observe : 'response';
     options.responseType = options.responseType ? options.responseType : ResponseContentEnum.Json;
     const headers = new HttpHeaders({...{'Content-Type': 'application/json'}, ...options.headers});
     return this.http.post(url, body, {...options, headers: headers});

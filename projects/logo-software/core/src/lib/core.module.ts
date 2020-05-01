@@ -1,25 +1,9 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
-import { IsActiveRouteDirective } from '../shared/directives/is-active-route.directive';
-import { LastDirective } from '../shared/directives/last.directive';
-import { HTMLParserDirective } from '../shared/directives/parser.directive';
-import { VariableDirective } from '../shared/directives/variable.directive';
-import { VideoSnapshotDirective } from '../shared/directives/video-snapshot.directive';
+import { ModuleWithProviders, NgModule, Optional } from '@angular/core';
 import { EndpointService } from '../shared/services/endpoint/endpoint.service';
 import { LoggerService } from '../shared/services/logger/logger.service';
 import { StateService } from '../shared/services/state/state.service';
 import { WatcherService } from '../shared/services/watcher/watcher.service';
-import { FormatPipe } from '../shared/pipe/format.pipe';
-import { OrderPipe } from '../shared/pipe/order.pipe';
-import { SafeHTMLPipe } from '../shared/pipe/safe-html.pipe';
-import {
-  STORAGE_TYPE_CONFIG,
-  STORAGE_TYPES,
-  StorageFactory,
-  StorageService,
-} from '../shared/services/storage/storage.service';
-import { MaskDirective } from '../shared/directives/mask.directive';
-import { Base64Directive } from '../shared/directives/base64.directive';
-import { AutofocusDirective } from '../shared/directives/autofocus.directive';
+import { STORAGE_TYPE_CONFIG, STORAGE_TYPES, StorageFactory, StorageService } from '../shared/services/storage/storage.service';
 import { SharedDirectiveModule } from './shared-directive.module';
 import { SharedPipeModule } from './shared-pipe.module';
 
@@ -36,18 +20,19 @@ export let StorageClass = null;
  * There are two type storage: LocalStorage or SessionStorage. Default storage is LocalStorage.
  *
  * __Directives:__
- * - [AutoFocusDirective](/#/docs/logo-business-solutions/autofocusdirective#autofocusdirective) - Makes focused to added element
- * - [Base64Directive](/#/docs/logo-business-solutions/base64directive#base64directive) - Manages base64 operations
- * - [IsActiveRouteDirective](/#/docs/logo-business-solutions/autofocusdirective#autofocusdirective) - True when current route is active
- * - [LastDirective](/#/docs/logo-business-solutions/autofocusdirective#autofocusdirective) - When use ngFor directive, if it was last item trigger the a defined function
- * - [MaskDirective](/#/docs/logo-business-solutions/maskdirective#maskdirective) - An input mask is a string of characters that indicates the format of valid input values.
- * - [HTMLParseDirective](/#/docs/logo-business-solutions/htmlparserdirective#htmlparserdirective) - clear HTML tag and convert it to span
- * - [VariableDirective](/#/docs/logo-business-solutions/variabledirective#variabledirective) - Set a variable in HTML than use everywhere
- * - [VideoSnapshot](/#/docs/logo-business-solutions/videosnapshotdirective#videosnapshotdirective) - Takes a snapshot from video
+ * - [AutoFocusDirective](/#/docs/directives/autofocusdirective#autofocusdirective) - Makes focused to added element
+ * - [Base64Directive](/#/docs/directives/base64directive#base64directive) - Manages base64 operations
+ * - [IsActiveRouteDirective](/#/docs/directives/autofocusdirective#autofocusdirective) - True when current route is active
+ * - [LastDirective](/#/docs/directives/autofocusdirective#autofocusdirective) - When use ngFor directive, if it was last item trigger the a defined function
+ * - [MaskDirective](/#/docs/directives/maskdirective#maskdirective) - An input mask is a string of characters that indicates the format of valid input values.
+ * - [HTMLParseDirective](/#/docs/directives/htmlparserdirective#htmlparserdirective) - clear HTML tag and convert it to span
+ * - [VariableDirective](/#/docs/directives/variabledirective#variabledirective) - Set a variable in HTML than use everywhere
+ * - [VideoSnapshot](/#/docs/directives/videosnapshotdirective#videosnapshotdirective) - Takes a snapshot from video
  *
  * __Pipes:__
  * - FormatPipe - Formats string to given pattern
  * - OrderPipe - Orders data ASC or DESC
+ * - SafeHtml - Orders data ASC or DESC
  *
  * __Services:__
  * - EndpointService - Handles HTTP request
@@ -61,11 +46,11 @@ export let StorageClass = null;
   imports: [SharedDirectiveModule, SharedPipeModule],
   providers: [],
   declarations: [DIRECTIVES, PIPES],
-  exports: [DIRECTIVES, PIPES],
+  exports: [DIRECTIVES, PIPES, SharedDirectiveModule, SharedPipeModule],
 })
 export class CoreModule {
-  constructor(private storageService: StorageService) {
-    StorageClass = this.storageService;
+  constructor(@Optional() private storageService: StorageService) {
+    StorageClass = this.storageService || new StorageService();
   }
 
   static forRoot(storageTypes?: STORAGE_TYPES): ModuleWithProviders {
@@ -73,7 +58,7 @@ export class CoreModule {
       ngModule: CoreModule,
       providers: [
         SERVICES,
-        {provide: STORAGE_TYPE_CONFIG, useValue: storageTypes},
+        {provide: STORAGE_TYPE_CONFIG, useValue: storageTypes || STORAGE_TYPES.SESSION},
         {provide: StorageService, useFactory: StorageFactory, deps: [STORAGE_TYPE_CONFIG]},
       ],
     };

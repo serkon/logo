@@ -21,7 +21,7 @@ export class Util {
   static turkishToLower(value: any) {
     let string = value;
     const letters: any = {'İ': 'i', 'I': 'ı', 'Ş': 'ş', 'Ğ': 'ğ', 'Ü': 'ü', 'Ö': 'ö', 'Ç': 'ç'};
-    string = string.replace(/(([İIŞĞÜÇÖ]))/g, function (letter: string) {
+    string = string.replace(/(([İIŞĞÜÇÖ]))/g, function(letter: string) {
       return letters[letter];
     });
     return string.toLowerCase();
@@ -35,7 +35,7 @@ export class Util {
   static turkishToUpper(value: any) {
     let string = value;
     const letters: any = {'i': 'İ', 'ş': 'Ş', 'ğ': 'Ğ', 'ü': 'Ü', 'ö': 'Ö', 'ç': 'Ç', 'ı': 'I'};
-    string = string.replace(/(([iışğüçö]))/g, function (letter: string) {
+    string = string.replace(/(([iışğüçö]))/g, function(letter: string) {
       return letters[letter];
     });
     return string.toUpperCase();
@@ -61,7 +61,7 @@ export class Util {
       'Ç': 'C',
       'Ö': 'O',
     };
-    return value.replace(/(([ışğüçöİŞĞÜÇÖ]))/g, function (letter: string) {
+    return value.replace(/(([ışğüçöİŞĞÜÇÖ]))/g, function(letter: string) {
       return letters[letter];
     });
   }
@@ -82,7 +82,7 @@ export class Util {
   static copyToClipboard(text: any) {
     const tempInput = document.createElement('input');
     document.body.appendChild(tempInput);
-    tempInput.value = text || (<any>event).target.innerText;
+    tempInput.value = text || (<any> event).target.innerText;
     tempInput.select();
     document.execCommand('copy');
     tempInput.remove();
@@ -283,7 +283,7 @@ export class Util {
   static getObjectPathValue(value: any, path: string) {
     let data = value;
     if (!!path && path.constructor === String) {
-      path.split('.').forEach(function (val: any) {
+      path.split('.').forEach(function(val: any) {
         data = (data !== null && typeof data !== 'undefined') ? data[val] : null;
       });
     }
@@ -297,7 +297,7 @@ export class Util {
     for (let i = 0; i < len - 1; i++) {
       const elem = pList[i];
       if (!schema[elem]) {
-        schema[elem] = {}
+        schema[elem] = {};
       }
       schema = schema[elem];
     }
@@ -317,7 +317,7 @@ export class Util {
   static makeObject(prop: string, value: any): Object {
     const props = prop.split('.');
     let temp = {};
-    props.reverse().forEach(function (key, index) {
+    props.reverse().forEach(function(key, index) {
       if (index === 0) {
         temp[key] = !Util.isNullOrUndef(value) ? value : null;
       } else {
