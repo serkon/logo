@@ -8,16 +8,16 @@ const routes: Routes = [
     component: LogoComponent,
     children: [
       {
+        path: 'core-sample',
+        loadChildren: () => import('./core-sample/core-sample.module').then(m => m.CoreSampleModule),
+      },
+      {
         path: 'excel-sample',
         loadChildren: () => import('./excel-sample/excel-sample.module').then(m => m.ExcelSampleModule),
       },
       {
         path: 'language-sample',
         loadChildren: () => import('./language-sample/language-sample.module').then(m => m.LanguageSampleModule),
-      },
-      {
-        path: 'core-sample',
-        loadChildren: () => import('./core-sample/core-sample.module').then(m => m.CoreSampleModule),
       },
       {
         path: 'table-sample',
