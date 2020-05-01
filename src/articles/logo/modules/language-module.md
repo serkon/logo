@@ -1,13 +1,11 @@
-# Language Module
-
-With this module you can easily translate any text to specified language on the fly. 
-
 ### Installation
 There are three steps:
 
  - Install package using `npm install @logo-software/language` 
- - add it to your AppModule imports code block using `LanguageModule.forRoot(languageConf)`
- - Put your language files to your `assets/languages` folder (assets/language/en-En.json etc.). 
+ - add it to your AppModule imports code block using `LanguageModule.forRoot({abbr: 'en', path: 'languages'})`
+ - Put your language files to your `assets/languages` folder (/src/assets/language/en-En.json etc.). 
+
+<hr>
 
 ### Configuration
 
@@ -19,8 +17,10 @@ Before AppModule bootstrap, configuration constants must be set. The configurati
  - **extension**: The file extension will be download. Default is **json**. If change to another it will add to end of line this extension. With Following code, HTTP request will be send to the `http(s)://.../path/of/lang/en-GB.xyz` address.
  
 ```typescript
- const lang = {code: 'en-GB', extension: 'xyz', abbr: 'en', path:'/path/of/lang'}
+// path will look to 'src/assets/`languages`' with this option
+ const lang = {abbr: 'ro', readFromFile: false, extension: 'json', path: 'languages',}
 ```
+<hr>
  
 ### Usage
 
@@ -30,7 +30,7 @@ Just as below you can easily set you application's language.
 ```typescript
 import {LanguageInitSetting, LanguageModule} from '@logo-software/language';
 
-const languageConf: LanguageInitSetting = {abbr: 'en', readFromFile: false, extension: 'json'};
+const languageConf: LanguageInitSetting = {abbr: 'en', readFromFile: false, extension: 'json', path: 'languages'};
 const EXTERNAL_MODULES = [LanguageModule.forRoot(languageConf)];
 
 @NgModule({
@@ -42,6 +42,7 @@ const EXTERNAL_MODULES = [LanguageModule.forRoot(languageConf)];
 export class AppModule {
 }
 ```
+<hr>
 
 ### Change Language
 
@@ -75,6 +76,7 @@ export class AppComponent {
   }
 }
 ```
+<hr>
 
 ### Add Language
 
@@ -97,6 +99,7 @@ Save following JSON code into `ro-Ro.json` and then move this file to the `/src/
 }
 ```
 
+<sub>**sample.component.ts**</sub>
 ```typescript
 this.languageService.addLanguage({abbr: 'ro', code: 'ro-RO', display: 'Romain'});
 ```

@@ -112,6 +112,11 @@ export const structure = [
         children: [
           {
             type: 'block',
+            block: 'component',
+            source: 'LanguageModule',
+          },
+          {
+            type: 'block',
             block: 'markdown',
             source: 'logo/modules/language-module.md',
           },
@@ -124,11 +129,6 @@ export const structure = [
             type: 'block',
             block: 'component',
             source: 'LanguagePipe',
-          },
-          {
-            type: 'block',
-            block: 'component',
-            source: 'LanguageModule',
           },
           {
             type: 'block',
@@ -147,10 +147,9 @@ export const structure = [
         name: 'Paging Module',
         icon: 'layout.svg',
         source: [
-          'EndpointService',
-          'NbLayoutHeaderComponent',
-          'NbLayoutColumnComponent',
-          'NbLayoutFooterComponent',
+          'PagingModule',
+          'PagingComponent',
+          'Paging',
         ],
       },
       {
@@ -170,17 +169,17 @@ export const structure = [
           {
             type: 'block',
             block: 'component',
+            source: 'FilterType',
+          },
+          {
+            type: 'block',
+            block: 'component',
             source: 'TableAction',
           },
           {
             type: 'block',
             block: 'component',
             source: 'TableColumn',
-          },
-          {
-            type: 'block',
-            block: 'component',
-            source: 'TableFilter',
           },
           {
             type: 'block',
@@ -323,6 +322,45 @@ export const structure = [
             type: 'block',
             block: 'component',
             source: 'EndpointService',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    type: 'section',
+    name: 'Pipes',
+    children: [
+      {
+        type: 'page',
+        name: 'FormatPipe',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'FormatPipe',
+          },
+        ],
+      },
+      {
+        type: 'page',
+        name: 'OrderPipe',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'OrderPipe',
+          },
+        ],
+      },
+      {
+        type: 'page',
+        name: 'SafeHTMLPipe',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'SafeHTMLPipe',
           },
         ],
       },

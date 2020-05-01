@@ -1,9 +1,10 @@
 <div class="middle-column docSearch-content">
 
+  <!--
   <nb-card *ngIf="currentItem?.tabs" class="horizontal-nav">
     <nb-card-header>
       <h1 class="page-header h4">
-        {{ currentItem?.name }}
+        {{currentItem?.name }}
         <span class="visually-hidden">{{ currentTabName }}</span>
       </h1>
     </nb-card-header>
@@ -11,6 +12,7 @@
       <ngd-page-tabs [tabs]="currentItem?.tabs" horizontal></ngd-page-tabs>
     </nb-card-body>
   </nb-card>
+  -->
 
   <ng-container *ngFor="let block of currentItem?.children">
     <ng-container [ngSwitch]="block.block">
