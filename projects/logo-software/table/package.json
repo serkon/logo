@@ -1,6 +1,6 @@
 {
   "name": "@logo-software/table",
-  "version": "0.0.22",
+  "version": "0.0.24",
   "description": "This module generates a table using the given data. The table can generate data using server-side Http requests or given direct data using the client-side feature.",
   "homepage": "http://developer.logo.com.tr",
   "keywords": [
@@ -29,8 +29,8 @@
     "@angular/forms": "^7.0.0"
   },
   "dependencies": {
-    "@logo-software/paging": "~0.0.9",
+    "@logo-software/paging": "~0.0.10",
     "@logo-software/excel": "~0.0.12",
-    "@logo-software/core": "~0.0.22"
+    "@logo-software/core": "~0.0.20"
   }
 }
