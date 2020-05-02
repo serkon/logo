@@ -59,15 +59,6 @@ task('generate-output-json', (done) => {
   done();
 });
 
-task(
-  'generate',
-  series(
-    'generate-doc-json',
-    'parse-themes',
-    'generate-output-json',
-  ),
-);
-
 task('copy-examples', () => {
   del.sync(EXAMPLES_DEST);
   return src(EXAMPLES_SRC)
@@ -84,11 +75,29 @@ task(
 );
 
 task(
+  'delete-examples', (done) => {
+    del.sync(EXAMPLES_DEST);
+    done();
+  },
+);
+
+task(
   'find-full-examples',
   series(
-    // 'copy-examples',
-    // 'validate-examples',
+    'copy-examples',
+    'validate-examples',
     'generate-output-json',
+    'delete-examples',
+  ),
+);
+
+task(
+  'generate',
+  series(
+    'generate-doc-json',
+    'parse-themes',
+    // 'generate-output-json',
+    'find-full-examples',
   ),
 );
 
