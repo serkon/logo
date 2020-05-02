@@ -13,5 +13,6 @@ export * from './lib/types/filter.type';
 export * from './lib/types/table.head';
 export * from './lib/types/table.meta';
 export * from './lib/types/table.sorting';
+export * from './lib/types/table.paging';
 export * from './lib/types/table.update-data-type';
 

@@ -26,7 +26,7 @@ import {
   TemplateRef,
 } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
-import { Pager, Paging } from '@logo-software/paging';
+import { Pager } from '@logo-software/paging';
 import { ExcelSettingType, ExcelTableColumn } from '@logo-software/excel';
 import { Events } from './types/event.model';
 import { ExpanderComponent } from './expander.component';
@@ -39,6 +39,7 @@ import { TableColumn } from './types/table.column';
 import { TableAction } from './types/table.action';
 import { TableSorting } from './types/table.sorting';
 import { OrderPipe, Util } from '@logo-software/core';
+import { TablePaging } from './types/table.paging';
 
 export type VariablePathResolver = (row: any) => string;
 export type VariableFunctionResolver = (row: any) => any;
@@ -298,14 +299,13 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
    */
   public original: any[] | null = null;
   /**
-   * Initial paging values [Paging](/#/docs/modules/paging-module/overview)
-   * Paging object contains:
+   * Initial paging values. TablePaging object contains:
    *  - pageSize, (records per page)
    *  - pageNumber, (current page index number)
    *  - totalCount, (total records were found)
    *  - totalPages, (total pages were calculated by pageSize)
    */
-  public paging: Paging = {
+  public paging: TablePaging = {
     pageSize: this.pageSize || 10,
     pageNumber: this.pageNumber || 1,
     totalCount: 0,
