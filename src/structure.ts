@@ -79,10 +79,15 @@ export const structure = [
         type: 'page',
         name: 'Excel Module',
         children: [
+          // {
+          //   type: 'block',
+          //   block: 'markdown',
+          //   source: 'logo/modules/excel-module.md',
+          // },
           {
             type: 'block',
-            block: 'markdown',
-            source: 'logo/modules/excel-module.md',
+            block: 'component',
+            source: 'ExcelModule',
           },
           {
             type: 'block',
@@ -117,11 +122,6 @@ export const structure = [
           },
           {
             type: 'block',
-            block: 'markdown',
-            source: 'logo/modules/language-module.md',
-          },
-          {
-            type: 'block',
             block: 'component',
             source: 'LanguageService',
           },
@@ -142,6 +142,7 @@ export const structure = [
           },
         ],
       },
+      /*
       {
         type: 'tabs',
         name: 'Paging Module',
@@ -150,6 +151,28 @@ export const structure = [
           'PagingModule',
           'PagingComponent',
           'Paging',
+        ],
+      },
+       */
+      {
+        type: 'page',
+        name: 'Paging Module',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'PagingModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'PagingComponent',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'Pager',
+          },
         ],
       },
       {
@@ -322,6 +345,17 @@ export const structure = [
             type: 'block',
             block: 'component',
             source: 'EndpointService',
+          },
+        ],
+      },
+      {
+        type: 'page',
+        name: 'StorageClass',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'StorageService',
           },
         ],
       },

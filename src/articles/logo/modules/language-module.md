@@ -1,10 +1,45 @@
+With this module you can easily translate any text to specified language on the fly.
+Set configuration properties, if default language is different from English.
+For example, import section on you NgModule and set configuration
+
+@stacked-example(LanguageModule, logo/language-sample/language-showcase/language-showcase.component)
+
+<sub>app.module.ts</sub>
+
+__Usage Example__
+
+```typescript
+import { LanguageModule } from '@logo-software/language';
+
+@NgModule({
+ imports: [
+   CommonModule,
+   LanguageModule.forRoot({ abbr: 'en', readFromFile: false, extension: 'json', path: 'languages' }),
+ ],
+})
+export class AppModule {
+}
+```
+<hr>
+
 ### Installation
-There are three steps:
+All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
+To install Excel Module:
 
- - Install package using `npm install @logo-software/language` 
- - add it to your AppModule imports code block using `LanguageModule.forRoot({abbr: 'en', path: 'languages'})`
- - Put your language files to your `assets/languages` folder (/src/assets/language/en-En.json etc.). 
+  ```bash
+$ npm set registry https://registry.npmjs.org/
+$ npm install @logo-software/language -s
+```
 
+<div class="note note-info">
+  <div class="note-title">Custom Language Files</div>
+  <div class="note-body">
+
+  * Add it to AppModule `@NgModule`'s imports block with `LanguageModule.forRoot({ abbr: 'en', readFromFile: false, extension: 'json', path: 'languages' })`
+  * Put your **language files** to your `src/assets/languages` folder
+  put json to /src/assets/language/**en-En.json** etc
+  </div>
+</div>
 <hr>
 
 ### Configuration
@@ -21,60 +56,46 @@ Before AppModule bootstrap, configuration constants must be set. The configurati
  const lang = {abbr: 'ro', readFromFile: false, extension: 'json', path: 'languages',}
 ```
 <hr>
- 
-### Usage
-
-Just as below you can easily set you application's language.
- 
-<sub>**app.module.ts**</sub>
-```typescript
-import {LanguageInitSetting, LanguageModule} from '@logo-software/language';
-
-const languageConf: LanguageInitSetting = {abbr: 'en', readFromFile: false, extension: 'json', path: 'languages'};
-const EXTERNAL_MODULES = [LanguageModule.forRoot(languageConf)];
-
-@NgModule({
-  declarations: [AppComponent],
-  imports: [EXTERNAL_MODULES],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule {
-}
-```
-<hr>
 
 ### Change Language
 
 If you decide to use multiple language and change it using button to another one, just paste below sample to your code base.
 
 <sub>**app.component.ts**</sub>
+
 ```typescript
-import {Component} from '@angular/core';
-import {LanguageService} from '@logo-software/language';
+ import {Component} from '@angular/core';
+ import {LanguageService} from '@logo-software/language';
 
-@Component({
-  selector: 'lbs-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
-})
-export class AppComponent {
-  title = 'logo-ng-library';
+ @Component({
+  selector: 'app-home',
+  templateUrl: 'home.page.html',
+  styleUrls: ['home.page.scss'],
+  })
+ export class AppComponent {
+    constructor(private language: LanguageService) {
+      this.language.onLoadComplete.subscribe(() => {
+        console.log(this.language.translate('hello_world'));
+      });
+      this.addLanguage();
+      this.setLanguage('tr');
+    }
 
-  constructor(private languageService: LanguageService) {
-    this.addLanguage();
+    /**
+    * change application language to tr
+    */
+    setLanguage(lang: string = 'tr') {
+      this.languageService.setLanguage(lang);
+    }
+
+    /**
+    * adds new language to app
+    */
+    addLanguage() {
+      // Don't forget to add **ro-Ro.json** to `/src/assets/languages` folder
+      this.languageService.addLanguage({abbr: 'ro', code: 'ro-RO', display: 'Romain'});
+    }
   }
-  
-  // change application language to tr
-  setLanguage(lang: string = 'tr') {
-    this.languageService.setLanguage(lang);
-  }
-  
-  // adds new language to app
-  addLanguage() {
-    this.languageService.addLanguage({abbr: 'ro', code: 'ro-RO', display: 'Romain'});
-  }
-}
 ```
 <hr>
 
