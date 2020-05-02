@@ -2,7 +2,11 @@
   "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../../dist/logo-software/excel",
   "lib": {
-    "entryFile": "src/public_api.ts"
+    "entryFile": "src/public_api.ts",
+    "umdModuleIds": {
+      "file-saver": "fileSaver",
+      "xmlbuilder": "xmlbuilder"
+    }
   },
   "whitelistedNonPeerDependencies": [
     "file-saver",

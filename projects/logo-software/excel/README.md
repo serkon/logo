@@ -2,7 +2,7 @@
 Any given data or any service that returned data can be exportable with this component to Excel.
 
 ### Installation
-NG-Logo libraries can be installed from the Npm Server. All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). 
+**ng-logo** libraries can be installed from the Npm Server. All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). 
 Choose a package which required then run npm install @logo/(package_name) command to install it.
 For example, if you want to install @logo/excel package:
 

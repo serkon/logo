@@ -28,7 +28,11 @@ export class ExcelTableColumn {
    * This is the variable store path that will pull from the data object.
    * Separated using the dot (.) for nested object path. Example: const = {user:{name: 'serkan', surname: 'konakci'}};
    * For example:
-   * if your data is const data = {name: 'serkan', address: {city: 'istanbul', district: 'atasehir'}}
+   * if your data is:
+   *
+   * ```typescript
+   * const data = {name: 'serkan', address: {city: 'istanbul', district: 'atasehir'}}
+   * ```
    * For `District` column variablePath must be `data.address.district`. Module export this data from there.
    */
   variablePath: string;
@@ -128,7 +132,42 @@ export interface ExcelSettingType {
 /**
  * A quick JavaScript library to create export to Excel/CSV from given data. No server required.
  * If set service information it will call a Rest API then send data to ExcelModule for export.
+ *
  * @stacked-example(ExcelComponent, logo/excel-sample/excel-showcase/excel-showcase.component)
+ *
+ * __Usage Example__
+ *
+ * <sub>html</html>
+ *
+ * ````html
+ * <excel
+ *   (complete)="excelComplete()"
+ *   [data]="excelSample.data"
+ *   [columns]="excelSample.column"
+ *   [header]="excelSample.header"
+ *   [name]="excelSample.fileName"
+ * >
+ * </excel>
+ * ````
+ *
+ * <sub>typescript</sub>
+ *
+ * ````typescript
+ * const excelSample = {
+ *    fileName: 'ExcelFile',
+ *    header: ['ID', 'NAME', 'SURNAME'],
+ *    column: [
+ *      { display: 'ID', variablePath: 'id', hidden: true },
+ *      { display: 'Name', variablePath: 'user.name' },
+ *      { display: 'Surname', variablePath: 'user.surname' }
+ *    ],
+ *    data: [
+ *      {id: 1, code: 123213, user: {name: 'Serkan', surname: 'Konakcı'}},
+ *      {id: 2, code: 2134, user: {name: 'Seda', surname: 'Sayan'}},
+ *      {id: 3, code: 456456, user: {name: 'Banu', surname: 'Alkan'}}
+ *    ]
+ * };
+ * ````
  */
 @Component({
   selector: 'logo-excel',
