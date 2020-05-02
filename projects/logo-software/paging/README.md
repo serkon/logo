@@ -14,8 +14,8 @@ export class AppModule {
 ```
 ### Installation
 **ng-logo** libraries can be installed from the Npm Server. All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). 
-Choose a package which required then run npm install @logo/(package_name) command to install it.
-For example, if you want to install @logo/paging package:
+Choose a package which required then run npm install @logo-software/(package_name) command to install it.
+For example, if you want to install @logo-software/paging package:
 
 ```bash
 $ npm set registry https://registry.npmjs.org/

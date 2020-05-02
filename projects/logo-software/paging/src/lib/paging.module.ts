@@ -20,6 +20,15 @@ import { PagingComponent } from './paging.component';
  * export class AppModule {
  * }
  * ```
+ *
+ * ### Installation
+ * All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
+ * To install Paging Module:
+ *
+ *   ```bash
+ * $ npm set registry https://registry.npmjs.org/
+ * $ npm install @logo-software/paging -s
+ * ```
  */
 @NgModule({
   declarations: [PagingComponent],
