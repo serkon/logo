@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MaskDirectiveShowcaseComponent } from './mask-directive-showcase/mask-directive-showcase.component';
 import { EndpointServiceShowcaseComponent } from '@samples/core-sample/endpoint-service-showcase/endpoint-service-showcase.component';
+import { StorageClassShowcaseComponent } from '@samples/core-sample/storage-class-showcase/storage-class-showcase.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'endpoint-service-showcase/endpoint-service-showcase.component',
     component: EndpointServiceShowcaseComponent,
+  },
+  {
+    path: 'storage-class-showcase/storage-class-showcase.component',
+    component: StorageClassShowcaseComponent,
   },
 ];
 
