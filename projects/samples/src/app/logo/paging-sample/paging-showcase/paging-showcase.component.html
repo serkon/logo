@@ -1,7 +1,14 @@
 <logo-paging
-  (pageNumberChange)="pagingModule.onPageChangeHandler($event)"
+  (pageNumberChange)="onPageChangeHandler($event)"
+  (pageSizeChange)="onPageChangeHandler($event)"
+  (onLoad)="onPageChangeHandler($event)"
   *ngIf="true"
   [pageSize]="5"
   [totalCount]="140"
 >
 </logo-paging>
+<pre>
+  <code class="hljs json">
+    {{pagingDetail}}
+  </code>
+</pre>

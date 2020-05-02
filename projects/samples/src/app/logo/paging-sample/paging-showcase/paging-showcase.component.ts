@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Pager } from '@logo-software/paging';
 
 @Component({
   selector: 'logo-paging-showcase',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./paging-showcase.component.scss'],
 })
 export class PagingShowcaseComponent {
-  pagingModule = {onPageChangeHandler: ($event) => console.log('Event: ', $event)}; // Paging Module
+  pagingDetail;
+
+  onPageChangeHandler($event: Pager) {
+    this.pagingDetail = JSON.stringify($event);
+  }
 }
