@@ -2,13 +2,27 @@
 Any given data or any service that returned data can be exportable with this component to Excel.
 
 ### Installation
-**ng-logo** libraries can be installed from the Npm Server. All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). 
-Choose a package which required then run npm install @logo-software/(package_name) command to install it.
-For example, if you want to install @logo-software/excel package:
+All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
+To install Excel Module:
 
 ```bash
 $ npm set registry https://registry.npmjs.org/
 $ npm install @logo-software/excel -s
+```
+<sub>**sample.module.ts**</sub>
+
+```typescript
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ExcelModule } from '@logo-software/excel';
+
+@NgModule({
+  declarations: [SampleComponent],
+  imports: [CommonModule, ExcelModule],
+  exports: [SampleComponent],
+})
+export class SampleModule {
+}
 ```
 
 ### Dependencies ###
@@ -17,19 +31,24 @@ While installing @logo-software/excel, package manager also will be installing t
 * xmlbuilder
  
 ### Usage
-````angular2html
-<excel
+Add `logo-excel` html tag to the component and give initial values.
+
+```html
+<logo-excel
 (complete)="excelComplete()"
 [data]="excelSample.data"
 [columns]="excelSample.column"
 [header]="excelSample.header"
 [name]="excelSample.fileName"
 >
-</excel>
-```` 
+</logo-excel>
+```
 
 ### Data Sample
-````typescript
+
+Dummy data will be used for example:
+
+```typescript
 const excelSample = {
   fileName: 'ExcelFile',
   header: ['ID', 'NAME', 'SURNAME'],
@@ -40,8 +59,8 @@ const excelSample = {
   ],
   data: [
     {id: 1, code: 123213, user: {name: 'Serkan', surname: 'Konakcı'}},
-    {id: 2, code: 2134, user: {name: 'Seda', surname: 'Sayan'}},
-    {id: 3, code: 456456, user: {name: 'Banu', surname: 'Alkan'}}
+    {id: 2, code: 2134, user: {name: 'Esra', surname: 'Asyan'}},
+    {id: 3, code: 456456, user: {name: 'Banu', surname: 'Kan'}}
   ]
 };
-````
+```

@@ -140,14 +140,14 @@ export interface ExcelSettingType {
  * <sub>html</html>
  *
  * ````html
- * <excel
+ * <logo-excel
  *   (complete)="excelComplete()"
  *   [data]="excelSample.data"
  *   [columns]="excelSample.column"
  *   [header]="excelSample.header"
  *   [name]="excelSample.fileName"
  * >
- * </excel>
+ * </logo-excel>
  * ````
  *
  * <sub>typescript</sub>

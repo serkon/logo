@@ -14,17 +14,19 @@ import { ExcelComponent } from './excel.component';
  * $ npm install @logo-software/excel -s
  * ```
  *
+ *__Usage Example__
+ *
  * ```typescript
  * import { NgModule } from '@angular/core';
  * import { CommonModule } from '@angular/common';
- * import { ExcelComponent } from './excel.component';
+ * import { ExcelModule } from '@logo-software/excel';
  *
  * @NgModule({
- *   declarations: [ExcelComponent],
- *   imports: [CommonModule],
- *   exports: [ExcelComponent],
+ *   declarations: [SampleComponent],
+ *   imports: [CommonModule, ExcelModule],
+ *   exports: [SampleComponent],
  * })
- * export class ExcelModule {
+ * export class SampleModule {
  * }
  * ```
  * ### Dependencies ###
