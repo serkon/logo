@@ -46,7 +46,7 @@ import { LanguageStoreService } from '../language.store';
  *
  * ### Installation
  * All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
- * To install Excel Module:
+ * To install Language Module:
  *
  *   ```bash
  * $ npm set registry https://registry.npmjs.org/
