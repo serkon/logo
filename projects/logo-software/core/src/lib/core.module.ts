@@ -36,6 +36,16 @@ export let StorageClass: StorageService = null;
  *  export class AppModule {
  * }
  * ```
+ *
+ * ### Installation
+ * All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
+ * To install Core Module:
+ *
+ *   ```bash
+ * $ npm set registry https://registry.npmjs.org/
+ * $ npm install @logo-software/core -s
+ * ```
+ *
  * __Directives:__
  * - [AutoFocusDirective](/#/docs/directives/autofocusdirective#autofocusdirective) - Makes focused to added element
  * - [Base64Directive](/#/docs/directives/base64directive#base64directive) - Manages base64 operations
