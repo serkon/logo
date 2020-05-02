@@ -19,12 +19,12 @@ import { LanguageInitSetting } from './language';
 import { LanguageService } from './language.service';
 import { LanguageStoreService } from '../language.store';
 
-const PIPES = [LanguagePipe];
-
 /**
  * With this module you can easily translate any text to specified language on the fly.
  * Set configuration properties, if default language is different from English.
  * For example, import section on you NgModule and set configuration
+ *
+ * @stacked-example(LanguageModule, logo/language-sample/language-showcase/language-showcase.component)
  *
  * <sub>app.module.ts</sub>
  *
@@ -42,7 +42,41 @@ const PIPES = [LanguagePipe];
  * export class AppModule {
  * }
  * ```
- * @stacked-example(LanguageModule, logo/language-sample/language-showcase/language-showcase.component)
+ * <hr>
+ *
+ * ### Installation
+ * All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
+ * To install Excel Module:
+ *
+ *   ```bash
+ * $ npm set registry https://registry.npmjs.org/
+ * $ npm install @logo-software/language -s
+ * ```
+ *
+ * <div class="note note-info">
+ *   <div class="note-title">Adding Language Files</div>
+ *   <div class="note-body">
+ *
+ *   * Add it to AppModule `@NgModule`'s imports block with `LanguageModule.forRoot({ abbr: 'en', readFromFile: false, extension: 'json', path: 'languages' })`
+ *   * Put your **language files** to your `src/assets/languages` folder
+ *   put json to /src/assets/language/**en-En.json** etc
+ *   </div>
+ * </div>
+ * <hr>
+ *
+ * ### Configuration
+ *
+ * Before AppModule bootstrap, configuration constants must be set. The configuration file type is a [LanguageInitSetting](docs/logo-business-solutions/language-module#languageinitsetting) object type. There are several parameters for configuration:
+ *
+ * - **abbr**: Codes for the Representation of Names of Languages are described at [ISO 639-1](http://www.loc.gov/standards/iso639-2/php/code_list.php) Code.
+ * - **path**: HTTP request path that contains language files. **Note:** When **readFromFile** is **true**, you must put your language files under your `src/assets/languages` folder. And this property will not effect the project. If **readFromFile** is **false**, You can set your language files path anywhere you request with path option.
+ * - **readFromFile**: If set readFromFile to true data will be load from file system and HTTP request will not call. Otherwise data will be requested over HTTP protocol. Default value is false.
+ * - **extension**: The file extension will be download. Default is **json**. If change to another it will add to end of line this extension. With Following code, HTTP request will be send to the `http(s)://.../path/of/lang/en-GB.xyz` address.
+ *
+ * ```typescript
+ * // path will look to 'src/assets/`languages`' with this option
+ * const lang = {abbr: 'ro', readFromFile: false, extension: 'json', path: 'languages',}
+ * ```
  */
 @NgModule({
   imports: [CommonModule],

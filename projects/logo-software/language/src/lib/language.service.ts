@@ -6,27 +6,75 @@ import { LanguageStoreService } from '../language.store';
 /**
  * Language Service need for translation operation. It is injectable.
  *
+ * ### Change Language
+ *
+ *If you decide to use multiple language and change it using button to another one, just paste below sample to your code base.
+ *
+ *<sub>**app.component.ts**</sub>
+ *
  * ```typescript
  * import {Component} from '@angular/core';
- * import {LanguageService} from '~/shared/services/language/language.service';
+ * import {LanguageService} from '@logo-software/language';
+ *
  * @Component({
  *  selector: 'app-home',
  *  templateUrl: 'home.page.html',
  *  styleUrls: ['home.page.scss'],
  *  })
- * export class HomePage {
+ * export class AppComponent {
  *    constructor(private language: LanguageService) {
  *      this.language.onLoadComplete.subscribe(() => {
  *        console.log(this.language.translate('hello_world'));
  *      });
+ *      this.addLanguage();
+ *      this.setLanguage('tr');
  *    }
- *    change() {
- *      this.language.setLanguage('en');
+ *
+ *    /**
+ *    * change application language to tr
+ *    *\/
+ *    setLanguage(lang: string = 'tr') {
+ *      this.languageService.setLanguage(lang);
+ *    }
+ *
+ *    /**
+ *    * adds new language to app
+ *    *\/
+ *    addLanguage() {
+ *      // Don't forget to add **ro-Ro.json** to `/src/assets/languages` folder
+ *      this.languageService.addLanguage({abbr: 'ro', code: 'ro-RO', display: 'Romain'});
  *    }
  *  }
  *```
  *
- */
+ * <hr>
+ *
+ *### Add Language
+ *
+ * If you desire add more languages to your scope: first add your language file to **assetsPath** (default path is: `/src/assets/languages`). After that call newly created language definition from  code. Example usage:
+ *
+ * Save following JSON code into `ro-Ro.json` and then move this file to the `/src/assets/language` folder.
+ *
+ * <sub>**ro-Ro.json**</sub>
+ * ```json
+ * {
+ *  "app-name": "JOURNEY",
+ *  "login-info": "Romania to<br/>you via e-mail",
+ *  "login-fail-header": "Login failed",
+ *  "login-fail-subheader": "Unable to login, either username or password is incorrect.",
+ *  "username": "username",
+ *  "password": "password",
+ *  "login": "login",
+ *  "remember_me": "Remember Me",
+ *  "manage": "Manage"
+ * }
+ * ```
+ *
+ * <sub>**sample.component.ts**</sub>
+ * ```typescript
+ * this.languageService.addLanguage({abbr: 'ro', code: 'ro-RO', display: 'Romain'});
+ * ```
+ **/
 
 @Injectable()
 export class LanguageService {
