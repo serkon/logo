@@ -7,6 +7,18 @@ export enum STORAGE_TYPES {
 
 export const STORAGE_TYPE_CONFIG = new InjectionToken<string>('storage_type');
 
+/**
+ * Storage service holds data at browser's local storage or session storage
+ * Default storage type is LocalStorage.
+ *
+ * __Usage Example__
+ *
+ * ```ts
+ * StorageClass.setItem('user', {name: 'Serkan', surname: 'Konakcı'});
+ * StorageClass.getItem('user'); // <sub>return {name: 'Serkan', surname: 'Konakcı'}</sub>
+ * ```
+ * @stacked-example(StorageClass, logo/core-sample/storage-class-showcase/storage-class-showcase.component)
+ */
 export class StorageService {
   public storageType: Storage;
   storageAvailability: boolean;

@@ -11,7 +11,7 @@ const DIRECTIVES = [];
 const PIPES = [];
 const SERVICES = [EndpointService, LoggerService, StateService, WatcherService];
 
-export let StorageClass = null;
+export let StorageClass: StorageService = null;
 
 /**
  * Core module is main Logo Module that contains shared **directives**, **pipes**, **services** and **util** class. It also exported to the `SharedDirectiveModule` and `SharedPipeModule` for directly usage.
