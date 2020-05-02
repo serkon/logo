@@ -1,45 +1,53 @@
-import { Component, EventEmitter, HostBinding, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, HostBinding, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 /**
- * Paging interface describe minimum configuration for PagingModule
+ * Pager interface define paging values of the PageComponent
  */
-export interface Paging {
-  /**
-   * status changes paging visibility. If false paging will not be appear.
-   */
-  status?: boolean | null;
-  /**
-   * pageSize is define record per page
-   */
-  pageSize: number | null;
-  /**
-   * current page number
-   */
-  pageNumber: number | null;
-  /**
-   * Total records count
-   */
-  totalCount: number | undefined;
-  /**
-   * Total page count
-   */
-  totalPages: number | undefined;
-}
-
 export interface Pager {
+  /**
+   * Total records
+   */
   totalItems?: number;
+  /**
+   * Current page index
+   */
   pageNumber?: number;
+  /**
+   * Total records size per page
+   */
   pageSize?: number;
+  /**
+   * First page number of the displayed pages
+   */
   startPage?: number;
+  /**
+   * Last page number of the displayed pages
+   */
   endPage?: number;
+  /**
+   * The first record's index of the displaying data of the total records
+   * For example, total 100 records exit and the pager show records between 44-54
+   * startIndex is 44, endIndex is 54
+   */
   startIndex?: number;
+  /**
+   * The last record's index of the displaying data of the total records
+   * For example, total 100 records exit and the pager show records between 44-54
+   * startIndex is 44, endIndex is 54
+   */
   endIndex?: number;
+  /**
+   * Page list array
+   */
   pages?: number[];
+  /**
+   * Total page number
+   */
   totalPages?: number;
 }
 
 /**
- * Paging component display pages per totalPages.
+ * Paging component display paging for components
  *
  * __Usage Example__
  *
@@ -59,7 +67,7 @@ export interface Pager {
   templateUrl: './paging.component.html',
   styleUrls: ['./paging.component.scss'],
 })
-export class PagingComponent implements OnChanges {
+export class PagingComponent implements OnInit, OnChanges {
   /**
    * Total records
    */
@@ -72,7 +80,6 @@ export class PagingComponent implements OnChanges {
    * Currently displaying page index
    */
   @Input() pageNumber = 1;
-  @HostBinding('class.app-paging') classes = true;
   /**
    * `pageNumberChange` event trigger, when page changed this will be emitted.
    */
@@ -81,11 +88,21 @@ export class PagingComponent implements OnChanges {
    * `pageSizeChange event trigger, when page size changed will be emitted.
    */
   @Output() pageSizeChange: EventEmitter<Pager> = new EventEmitter<Pager>();
+  /**
+   * event will be triggered when ngOnInit completed
+   */
+  @Output() onLoad: EventEmitter<Pager> = new EventEmitter<Pager>();
   public pager: Pager = {};
   /**
    * Total page will be displaying
    */
   public totalPages: number;
+
+  @HostBinding('class.app-paging') classes = true;
+
+  ngOnInit() {
+    this.onLoad.emit(this.pager);
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     this.totalPages = Math.ceil(this.totalCount / this.pageSize);

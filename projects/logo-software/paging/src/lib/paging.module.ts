@@ -20,7 +20,6 @@ import { PagingComponent } from './paging.component';
  * export class AppModule {
  * }
  * ```
-
  */
 @NgModule({
   declarations: [PagingComponent],
