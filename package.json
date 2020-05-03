@@ -1,6 +1,24 @@
 {
-  "name": "developer",
-  "version": "0.0.0",
+  "name": "ng-logo",
+  "author": {
+    "email": "konakci@mail.com",
+    "name": "Serkan Konakcı",
+    "url": "http://www.serkankonakci.com"
+  },
+  "version": "1.0.0",
+  "description": "Documentation Module",
+  "homepage": "https://github.com/logobs/ng-logo/tree/master/projects/logo-software/core",
+  "keywords": [
+    "create",
+    "documentation",
+    "typedoc",
+    "typescript",
+    "doc",
+    "logo",
+    "business",
+    "company"
+  ],
+  "license": "[LICENSE](https://github.com/logobs/ng-logo/blob/master/projects/logo-software/core/LICENSE)",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,7 +26,29 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "docs": "gulp docs"
+    "docs": "gulp docs",
+    "build:core": "ng build @logo-software/core --prod",
+    "build:excel": "ng build @logo-software/excel --prod",
+    "build:language": "ng build @logo-software/language --prod",
+    "build:paging": "ng build @logo-software/paging --prod",
+    "build:table": "ng build @logo-software/table --prod",
+    "build:toast": "ng build @logo-software/toast --prod",
+    "pack:core": "npm run build:core && npm pack dist/logo-software/core",
+    "pack:excel": "npm run build:excell && npm pack dist/logo-software/excel",
+    "pack:language": "npm run build:language && npm pack dist/logo-software/language",
+    "pack:paging": "npm run build:paging && npm pack dist/logo-software/paging",
+    "pack:table": "npm run build:table && npm pack dist/logo-software/table",
+    "pack:toast": "npm run build:toast && npm pack dist/logo-software/toast",
+    "pub:core": "npm run pack:core && npm publish logo-software-core-*.*.tgz",
+    "pub:excel": "npm run pack:excel && npm publish logo-software-excel-*.*.tgz",
+    "pub:language": "npm run pack:language && npm publish logo-software-language-*.*.tgz",
+    "pub:paging": "npm run pack:paging && npm publish logo-software-paging-*.*.tgz",
+    "pub:table": "npm run pack:table && npm publish logo-software-table-*.*.tgz",
+    "pub:toast": "npm run pack:toast && npm publish logo-software-toast-*.*.tgz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+http://Serkan.Konakci@stash.logo.com.tr/scm/fd/developer.logo.com.tr.git"
   },
   "private": true,
   "dependencies": {
