@@ -1,8 +1,17 @@
 {
   "name": "@logo-software/table",
-  "version": "0.0.24",
+  "version": "0.0.23",
   "description": "This module generates a table using the given data. The table can generate data using server-side Http requests or given direct data using the client-side feature.",
   "homepage": "http://developer.logo.com.tr",
+  "author": {
+    "email": "konakci@mail.com",
+    "name": "Serkan Konakcı",
+    "url": "http://www.serkankonakci.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serkon/-table.git"
+  },
   "keywords": [
     "table",
     "sorting",
@@ -32,5 +41,19 @@
     "@logo-software/paging": "~0.0.10",
     "@logo-software/excel": "~0.0.12",
     "@logo-software/core": "~0.0.20"
+  },
+  "scripts": {
+    "ver:patch": "npm version patch",
+    "ver:minor": "npm version minor",
+    "ver:major": "npm version major",
+    "ver:prerelease": "npm version prerelease",
+    "postversion": "echo '### Versioning to:' $npm_package_version",
+    "build": "ng build $npm_package_name --prod",
+    "git": "git add . && git commit -m",
+    "patch:commit": "npm run ver:patch && npm run build && npm run git \"fix($npm_package_name): upgrading to v.$npm_package_version\"",
+    "minor:commit": "npm run ver:minor && npm run build && npm run git \"feat($npm_package_name): upgrading to v.$npm_package_version\"",
+    "prerelease:commit": "npm run ver:prerelease && npm run build && npm run git \"prerelease($npm_package_name): upgrading to v.$npm_package_version\"",
+    "release:commit": "npm run ver:major && git add . && git commit -m \"release($npm_package_name): cut the v.$npm_package_version release\"",
+    "postinstall": "node src/lib/assets/scripts/install.js"
   }
 }

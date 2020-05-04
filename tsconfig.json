@@ -36,7 +36,7 @@
         "./dist/logo-software/language"
       ],
       "@logo-software/excel": [
-        "./projects/logo-software/excel/src/public_api.ts",
+        // "./projects/logo-software/excel/src/public_api.ts",
         "./dist/logo-software/excel"
       ],
       "@logo-software/paging": [
