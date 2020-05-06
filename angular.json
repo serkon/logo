@@ -148,7 +148,7 @@
       "root": "projects/logo-software/core",
       "sourceRoot": "projects/logo-software/core/src",
       "projectType": "library",
-      "prefix": "",
+      "prefix": "logo",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -188,7 +188,7 @@
       "root": "projects/logo-software/language",
       "sourceRoot": "projects/logo-software/language/src",
       "projectType": "library",
-      "prefix": "",
+      "prefix": "logo",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -228,7 +228,7 @@
       "root": "projects/logo-software/excel",
       "sourceRoot": "projects/logo-software/excel/src",
       "projectType": "library",
-      "prefix": "lib",
+      "prefix": "logo",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -268,7 +268,7 @@
       "root": "projects/logo-software/paging",
       "sourceRoot": "projects/logo-software/paging/src",
       "projectType": "library",
-      "prefix": "lib",
+      "prefix": "logo",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -308,7 +308,7 @@
       "root": "projects/logo-software/table",
       "sourceRoot": "projects/logo-software/table/src",
       "projectType": "library",
-      "prefix": "lib",
+      "prefix": "logo",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -461,6 +461,46 @@
             "production": {
               "devServerTarget": "samples:serve:production"
             }
+          }
+        }
+      }
+    },
+    "@logo-software/toast": {
+      "projectType": "library",
+      "root": "projects/logo-software/toast",
+      "sourceRoot": "projects/logo-software/toast/src",
+      "prefix": "logo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/logo-software/toast/tsconfig.lib.json",
+            "project": "projects/logo-software/toast/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/logo-software/toast/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/logo-software/toast/src/test.ts",
+            "tsConfig": "projects/logo-software/toast/tsconfig.spec.json",
+            "karmaConfig": "projects/logo-software/toast/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/logo-software/toast/tsconfig.lib.json",
+              "projects/logo-software/toast/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }

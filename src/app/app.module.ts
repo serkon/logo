@@ -46,9 +46,7 @@ const docs = require('../output.json');
     NbSidebarModule.forRoot(),
     RouterModule.forRoot(routes, {useHash: true}),
   ],
-  declarations: [
-    NgdAppComponent,
-  ],
+  declarations: [NgdAppComponent],
   providers: [
     Title,
     {provide: STRUCTURE, useValue: structure},

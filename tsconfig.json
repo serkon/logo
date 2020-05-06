@@ -28,19 +28,15 @@
         "./projects/samples/src/app/logo/*"
       ],
       "@logo-software/core": [
-        // "./projects/logo-software/core/src/public_api.ts",
         "./dist/logo-software/core"
       ],
       "@logo-software/language": [
-        // "./projects/logo-software/language/src/public_api.ts",
         "./dist/logo-software/language"
       ],
       "@logo-software/excel": [
-        // "./projects/logo-software/excel/src/public_api.ts",
         "./dist/logo-software/excel"
       ],
       "@logo-software/paging": [
-        // "./projects/logo-software/paging/src/public_api.ts",
         "./dist/logo-software/paging"
       ],
       "@logo-software/table": [
@@ -49,6 +45,10 @@
       ],
       "@logo-software/*": [
         "./projects/logo-software/*"
+      ],
+      "@logo-software/toast": [
+        "dist/logo-software/toast/logo-software-toast",
+        "dist/logo-software/toast"
       ]
     }
   },
