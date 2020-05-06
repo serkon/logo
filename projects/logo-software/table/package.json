@@ -1,6 +1,6 @@
 {
   "name": "@logo-software/table",
-  "version": "0.0.24",
+  "version": "0.0.29",
   "description": "This module generates a table using the given data. The table can generate data using server-side Http requests or given direct data using the client-side feature.",
   "homepage": "http://developer.logo.com.tr",
   "author": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/serkon/-table.git"
+    "url": "https://github.com/logobs/ng-logo"
   },
   "keywords": [
     "table",
@@ -45,16 +45,17 @@
   "scripts": {
     "ver:patch": "npm version patch",
     "ver:minor": "npm version minor",
+    "ver:pre": "npm version prerelease",
     "ver:major": "npm version major",
-    "ver:prerelease": "npm version prerelease",
-    "postversion": "echo '### Versioning to:' $npm_package_version",
+    "postversion": "echo '#########\n### Versioning to:' $npm_package_version '\n### CommandPATH: ' $INIT_CWD '\n#########' && git status",
     "build": "ng build $npm_package_name --prod",
-    "git": "git add . && git commit -m",
-    "gitold": "git add . && git commit -m '('$npm_package_name'): v.'$npm_package_version",
-    "patch:commit": "npm run ver:patch && npm run build && npm run git \"fix($npm_package_name): upgrading to v.$npm_package_version\"",
-    "minor:commit": "npm run ver:minor && npm run build && npm run git \"feat($npm_package_name): upgrading to v.$npm_package_version\"",
-    "prerelease:commit": "npm run ver:prerelease && npm run build && npm run git \"prerelease($npm_package_name): upgrading to v.$npm_package_version\"",
-    "release:commit": "npm run ver:major && git add . && git commit -m \"release($npm_package_name): cut the v.$npm_package_version release\"",
+    "git-commit": "git add -A . && git commit . -m $TYPE'('$npm_package_name'): upgrading to v.'$npm_package_version",
+    "git-release": "git add -A . && git commit . -m $TYPE'('$npm_package_name'): cut the v.'$npm_package_version' release'",
+    "patch:commit": "npm run ver:patch && npm run build && TYPE=fix npm run git-commit",
+    "minor:commit": "npm run ver:minor && npm run build && TYPE=feat npm run git-commit",
+    "pre:commit": "npm run ver:pre && npm run build && TYPE=prerelease npm run git-commit",
+    "major:commit": "npm run ver:major && TYPE=release npm run git-release",
+    "unpublish": "npm unpublish $npm_package_name@$npm_package_version",
     "postinstall": "node src/lib/assets/scripts/install.js"
   }
 }
