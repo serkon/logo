@@ -1,6 +1,6 @@
 ## Language Translation
 
-With this module you can easly translate any text to specified language on the fly. Over HTTP or LOCAL file resource can be usable.
+With this module you can easily translate any text to specified language on the fly. Over HTTP or LOCAL file resource can be usable.
 
 ### Installation
 There are three steps:
