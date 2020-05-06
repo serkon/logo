@@ -52,3 +52,4 @@ Thumbs.db
 /src/assets/examples
 /src/dist
 node_modules/
+*.tgz
