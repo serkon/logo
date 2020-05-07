@@ -192,16 +192,6 @@ export const structure = [
           {
             type: 'block',
             block: 'component',
-            source: 'FilterType',
-          },
-          {
-            type: 'block',
-            block: 'component',
-            source: 'TableAction',
-          },
-          {
-            type: 'block',
-            block: 'component',
             source: 'TableColumn',
           },
           {
@@ -212,7 +202,17 @@ export const structure = [
           {
             type: 'block',
             block: 'component',
+            source: 'TableAction',
+          },
+          {
+            type: 'block',
+            block: 'component',
             source: 'TableMeta',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'FilterType',
           },
           {
             type: 'block',

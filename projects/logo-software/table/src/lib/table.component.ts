@@ -52,7 +52,18 @@ export enum CRUD {
 }
 
 /**
- * Creates data grid table with many features
+ * Creates data grid table with many features.
+ *
+ * Add below code to target component html page `app.component.html` file:
+ *
+ * <sub>**app.component.html**</sub>
+ * ```hmtl
+ * <logo-table
+ * [columns]="tableDummyData.columns"
+ * [rows]="tableDummyData.rows"
+ * >
+ * </logo-table>
+ * ```
  *
  * @stacked-example(Table Showcase, logo/table-sample/table-showcase/table-showcase.component)
  */

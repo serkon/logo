@@ -1,19 +1,14 @@
 /**
  * This input adds custom extra thead to and tbody columns to table.
  * If custom coded html need to be inserted between table columns, this is the solution.
- * Add some HTML to between app-table tag using
  *
  * __Usage Example__
- *
- * <sub>html</sub>
- * ```html
- * <template let-i="index" let-row="row" let-last="isLast" let-odd="isOdd">
- * ```
  *
  * <sub>typescript</sub>
  * ```typescript
  *    this.unassigned.theads: [{display: 'Onay', className:'some-class-name'}]
  *  ```
+ * Add some <ng-template> to between `<log-table>***here***</log-table>` tag using below code with `#columns` reference.
  *
  * <sub>html</sub>
  * ```html
@@ -24,20 +19,19 @@
  *  [hasFilter]="false"
  *  [hasPaging]="false"
  *  [height]="'600px'"
- *  #unassignedTable
  * >
  * <ng-template
- *   #columns
- *   let-actions="actions"
- *   let-columns="columns"
- *   let-filter="filter"
- *   let-first="isFirst"
- *   let-heads="heads"
- *   let-createHead="createHead"
- *   let-i="index"
- *   let-last="isLast"
- *   let-odd="isOdd"
- *   let-row="row"
+ *   #columns // -> It must be added to the template tag for understanding that is a table head template
+ *   let-actions="actions" // access table actions
+ *   let-columns="columns" // table columns
+ *   let-filter="filter" // table filters
+ *   let-first="isFirst" // is first row?
+ *   let-heads="heads" // access table heads
+ *   let-createHead="createHead" // is `Add new record area head cell`?
+ *   let-i="index" // row index
+ *   let-last="isLast" // is last row?
+ *   let-odd="isOdd" // is odd?
+ *   let-row="row" // current row data
  * >
  *  <td>
  *    current row: {{row | json}}, rowIndex: {{i}},  isLast: {{last}}, isOdd: {{odd}} etc.

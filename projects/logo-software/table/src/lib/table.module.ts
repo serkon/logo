@@ -19,20 +19,83 @@ import { ExcelModule } from '@logo-software/excel';
 import { CoreModule } from '@logo-software/core';
 
 /**
- * Add TableModule to `import` section of the desired module's `@NgModule` annotation:
+ * This module generates a table using the given data. The table can generate data using server-side Http requests or given direct data using the client-side feature.
  *
- * ```typescript
- * import { LanguageModule } from '@logo-software/table';
+ * __Usage Example__
+ *
+ * First import `TableModule` to your target module imports section. In this example, we add AppModule for display table at `app.component.ts`
+ *
+ * <sub>**app.module.ts**</sub>
+ *   ```typescript
+ * import { LanguageInitSetting, LanguageModule } from '@logo-software/language';
+ * import { NgModule } from '@angular/core';
+ * import { AppComponent } from './app.component';
+ *
+ * import { TableModule } from '@logo-software/table';
  *
  * @NgModule({
- *  imports: [
- *    CommonModule,
- *    TableModule,
- *  ],
+ *   declarations: [AppComponent],
+ *   imports: [TableModule],
+ *   providers: [],
+ *   bootstrap: [AppComponent]
  * })
  * export class AppModule {
  * }
  * ```
+ *
+ * ### Installation
+ * There are three steps:
+ *
+ *  - Install package using
+ *
+ *    ```typescript
+ *      npm install @logo-software/table
+ *    ```
+ *
+ *
+ *  - Add `TableModule` to target module imports
+ *
+ *    ```typescript
+ *    @NgModule({
+ *      imports: [BrowserModule, TableModule]
+ *    })
+ *    ```
+ *
+ *
+ *  - Open `angular.json` and add below code to `YOUR_PROJECT_NAME.architect.build.options.assets` path to make images available of TableModule.
+ *
+ *    ```JSON
+ *     {
+ *      "glob": "**\/*",
+ *      "input": "node_modules/@logo-software/table/src/lib/assets/icons",
+ *      "output": "assets/icons"
+ *     }
+ *    ```
+ *    It will be end of this like:
+ *
+ *    <sub>angular.json</sub>
+ *    ```JSON
+ *     {
+ *      "outputPath": "dist/logo-ng-library",
+ *      "index": "src/index.html",
+ *      "main": "src/main.ts",
+ *      "polyfills": "src/polyfills.ts",
+ *      "tsConfig": "src/tsconfig.app.json",
+ *      "assets": [
+ *        "src/favicon.ico",
+ *        "src/assets",
+ *        {
+ *          "glob": "**\/*",
+ *          "input": "node_modules/@logo-software/table/src/lib/assets/icons",
+ *          "output": "assets/icons"
+ *        }
+ *      ],
+ *      "styles": [
+ *        "src/styles.scss"
+ *      ],
+ *      "scripts": []
+ *     }
+ *    ```
  */
 @NgModule({
   imports: [CommonModule, FormsModule, PagingModule, ExcelModule, CoreModule],

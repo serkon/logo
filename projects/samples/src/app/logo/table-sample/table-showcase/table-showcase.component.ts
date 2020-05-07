@@ -179,7 +179,7 @@ export class TableShowcaseComponent {
   onUpdateAccepted(data: TableUpdateDataType) {
     console.log('sample accept: ', data);
     this.tableDummyData.rows[data.row.id] = data.row;
-    // data.clear(false, data);
+    data.clear(false, data);
   }
 
   onUpdateCancel(data: TableUpdateDataType) {
