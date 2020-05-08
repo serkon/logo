@@ -1,0 +1,246 @@
+/**
+ * @license
+ * Copyright Logo Yazılım. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of Logo Yazılım.
+ * Any reproduction of this material must contain this notice.
+ */
+
+// Color system
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+$grays: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$grays: map-merge(
+    (
+      "100": $gray-100,
+      "200": $gray-200,
+      "300": $gray-300,
+      "400": $gray-400,
+      "500": $gray-500,
+      "600": $gray-600,
+      "700": $gray-700,
+      "800": $gray-800,
+      "900": $gray-900
+    ),
+    $grays
+);
+
+$blue: #007bff !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #e83e8c !default;
+$red: #dc3545 !default;
+$orange: #fd7e14 !default;
+$yellow: #ffc107 !default;
+$green: #28a745 !default;
+$teal: #20c997 !default;
+$cyan: #17a2b8 !default;
+
+$colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$colors: map-merge(
+    (
+      "blue": $blue,
+      "indigo": $indigo,
+      "purple": $purple,
+      "pink": $pink,
+      "red": $red,
+      "orange": $orange,
+      "yellow": $yellow,
+      "green": $green,
+      "teal": $teal,
+      "cyan": $cyan,
+      "white": $white,
+      "gray": $gray-600,
+      "gray-dark": $gray-800
+    ),
+    $colors
+);
+
+$primary: $blue !default;
+$secondary: $gray-600 !default;
+$success: $green !default;
+$info: $cyan !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$light: $gray-100 !default;
+$dark: $gray-800 !default;
+
+$colors: (
+  red: #fe2851, // #fe2851, #fb2d55, #fd273b
+  blue: #1d8af9,
+  slate: #7760c8,
+  yellow: #fdba12,
+  orange: #ff7918,
+  purple: #be38a9,
+  green: #8ec63f,
+  tomato: #ff6060,
+  black: #151e3b,
+  lightgrey: #e4e8ed,
+  grey: #e7e9ea,
+  middlegrey: #919eab,
+  darkgrey: #323c47,
+  white: #ffffff,
+  lilac: #d6a2e8,
+  cyan: #25ccf7,
+  background: #f5f9Fa
+);
+
+$font-current-size: 14px;
+$font-family: "Nunito", "Arial";
+$color: map_get($colors, white);
+$color-success: map_get($colors, green);
+$color-warning: map_get($colors, yellow);
+$color-error: map_get($colors, red);
+$color-information: map_get($colors, blue);
+$font: $font-family;
+$color-action-text: $color;
+$color-action-hover-text: darken($color-action-text, 5);
+$color-action-button-hover: transparentize(lighten($color, 15), 0.63);
+$color-action-button-active: darken($color, 5);
+$modal-background: $color;
+@mixin modalBody($content-size-ratio:1, $bg-color: 'transparent', $toast-font-color: $color) {
+  margin: 15px;
+
+  .content {
+    border-radius: 5px;
+    padding: 40px 42px;
+    font-size: ($font-current-size - 4px) * $content-size-ratio;
+    font-family: $font;
+    max-height: 480px;
+    overflow: auto;
+    color: $toast-font-color;
+    background: $bg-color;
+
+    p {
+      margin: 0;
+      font-family: $font;
+      font-size: ($font-current-size - 2px) * $content-size-ratio;
+    }
+  }
+
+  .actions {
+    padding: 10px;
+    background: rgba($modal-background, 0.03);
+    text-align: right;
+
+    button {
+      background: $color-action-button-hover;
+      color: $toast-font-color;
+
+      &:hover {
+        background-color: lighten($color-action-button-hover, 0.2);
+        color: $toast-font-color;
+      }
+    }
+  }
+}
+
+:host {
+  .app-toast {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+
+    .toast {
+      position: relative;
+      top: 50%;
+      z-index: 2;
+      display: flex;
+      justify-content: flex-end;
+
+      .remove {
+        border-radius: 50%;
+        position: absolute;
+        right: -7px;
+        top: -7px;
+        width: 25px;
+        height: 25px;
+        line-height: 30px;
+        text-align: center;
+        background-color: map-get($colors, red);
+        color: map-get($colors, white);
+        font-size: 14px;
+        border: 3px solid map_get($colors, background);
+        z-index: 1;
+        cursor: pointer;
+      }
+
+      $content-size-ratio: 1;
+
+      &.initial {
+        width: auto;
+      }
+
+      &.small {
+        width: 300px;
+      }
+
+      &.medium {
+        width: 400px;
+      }
+
+      &.large {
+        width: 500px;
+      }
+
+      &.big {
+        width: 700px;
+      }
+
+      &.success {
+        @include modalBody($content-size-ratio, $color-success, $toast-font-color: transparentize(#ffffff, 0.2));
+      }
+
+      &.error {
+        @include modalBody(1.2, $color-error, $toast-font-color: transparentize(#ffffff, 0.2));
+      }
+
+      &.warning {
+        @include modalBody($content-size-ratio, $color-warning, $toast-font-color: white);
+      }
+
+      &.information {
+        @include modalBody($content-size-ratio, $color-information);
+      }
+
+      &.desktop {
+        $content-size-ratio: 1;
+        @include modalBody($content-size-ratio);
+      }
+
+      .actions {
+        background: rgba($color, 0.03);
+        text-align: right;
+
+        button {
+          background: transparent;
+
+          &.close {
+            font-size: 10px;
+            line-height: 16px;
+          }
+
+          &:hover {
+            background-color: $color-action-button-hover;
+            color: $color-action-hover-text;
+          }
+        }
+      }
+    }
+  }
+}
