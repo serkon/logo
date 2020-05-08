@@ -1,7 +1,18 @@
-<a [routerLink]="['/logo/core-sample/mask-directive-showcase/mask-directive-showcase.component']">Mask Directive</a> |
-<a [routerLink]="['/logo/excel-sample/excel-showcase/excel-showcase.component']">Excel Sample</a> |
-<a [routerLink]="['/logo/language-sample/language-showcase/language-showcase.component']">Language Sample</a> |
-<a [routerLink]="['/logo/table-sample/table-showcase/table-showcase.component']">Table Sample</a>
-<a [routerLink]="['/logo/paging-sample/paging-showcase/paging-showcase.component']">Paging Sample</a>
+<p>
+  <ng-container *ngFor="let component of components; let isLast=last">
+    <ng-container *ngIf="!component.hide">
+      <a
+        [routerLink]="['/logo/' + component.name + '-sample/' + component.name + '-showcase/' + component.name + '-showcase.component']">{{this.toUpperCase(component.name)}}</a>
+      <span>{{isLast ? "" : " | "}}</span>
+    </ng-container>
+    <ng-container *ngFor="let child of component.children; let isLastChild=last">
+      <a
+        [routerLink]="['/logo/' + component.name + '-sample/' + child.name + '-showcase/' + child.name + '-showcase.component']">{{this.toUpperCase(child.name)}}</a>
+      <span>{{isLast && isLastChild ? "" : " | "}}</span>
+    </ng-container>
+  </ng-container>
+</p>
 
+<logo-toast></logo-toast>
 <router-outlet></router-outlet>
+

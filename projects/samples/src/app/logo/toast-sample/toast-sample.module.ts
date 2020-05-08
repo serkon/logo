@@ -2,16 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ToastSampleRoutingModule } from './toast-sample-routing.module';
-import { ToastSampleComponent } from './toast-sample.component';
-
+import { ToastShowcaseComponent } from './toast-showcase.component';
 
 @NgModule({
-  declarations: [ToastSampleComponent],
+  declarations: [ToastShowcaseComponent],
   imports: [
     CommonModule,
     ToastSampleRoutingModule,
   ],
-  exports: [ToastSampleComponent],
+  exports: [ToastShowcaseComponent],
 })
 export class ToastSampleModule {
 }

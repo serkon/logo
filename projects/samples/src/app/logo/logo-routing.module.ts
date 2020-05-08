@@ -27,6 +27,10 @@ const routes: Routes = [
         path: 'paging-sample',
         loadChildren: () => import('./paging-sample/paging-sample.module').then(m => m.PagingSampleModule),
       },
+      {
+        path: 'toast-sample',
+        loadChildren: () => import('./toast-sample/toast-sample.module').then(m => m.ToastSampleModule),
+      },
     ],
   },
 ];
