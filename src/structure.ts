@@ -237,6 +237,27 @@ export const structure = [
           },
         ],
       },
+      {
+        type: 'page',
+        name: 'Toast Module',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'ToastModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'ToastComponent',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'ToastService',
+          },
+        ],
+      },
     ],
   },
   {
