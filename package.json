@@ -27,7 +27,7 @@
     "e2e": "ng e2e",
     "docs": "gulp docs",
     "######################### Library": "######",
-    "create-sample": "ng g m logo/${npm_config_lib}-sample --project=samples --routing && ng g c logo/${npm_config_lib}-sample --project=samples --export=true --module --prefix=logo --lintFix=true",
+    "create-sample": "ng g m logo/${npm_config_lib}-sample --project=samples --routing && ng g c logo/${npm_config_lib}-sample --project=samples --export=true --module --prefix=logo --lintFix=true --inlineTemplate=false --inlineStyle=false --style=scss",
     "create-library": "ng g library @logo-software/${npm_config_lib} --lintFix=true --prefix=logo",
     "create": "npm run create-library --lib=${npm_config_lib} && npm run create-sample --lib=${npm_config_lib}",
     "######################### Versioning": "###### npm run patch --lib=table ######",
