@@ -1,4 +1,5 @@
-const colors = require('./color')
+const colors = require('./color');
+const fs = require('fs');
 const {resolve, relative} = require('path');
 const {writeFileSync} = require('fs-extra');
 
@@ -11,14 +12,14 @@ const generateAngularJson = (json) => {
 }
 
 const addAssetsToFolder = () => {
-  const add_icon_glob = {
-    "glob": "**/*",
-    "input": "node_modules/@logo-software/icons/src/lib/assets/icons",
-    "output": "assets/icons",
-  };
   if (angularJson && angularJson.projects && angularJson.defaultProject) {
     const project = angularJson.projects[angularJson.defaultProject].architect.build.options;
     const {assets, styles} = project;
+    const add_icon_glob = {
+      "glob": "**/*",
+      "input": "node_modules/@logo-software/icons/src/lib/assets/icons",
+      "output": "assets/icons",
+    };
     // if (!assets.find(item => item.input === 'node_modules/@logo-software/icons/src/lib/assets/icons')) {
     //   assets.push(add_icon_glob);
     //   console.log(colors.blue("###\n### assets/icons added to angular.json of the main project's assets\n###"))
@@ -36,7 +37,7 @@ const addAssetsToFolder = () => {
 const file = process.env.INIT_CWD && resolve(process.env.INIT_CWD, 'angular.json');
 let angularJson;
 debugger;
-if (file) {
+if (file && fs.existsSync(file)) {
   angularJson = require(file);
   addAssetsToFolder();
   console.warn('# dirname: ', __dirname);
