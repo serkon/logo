@@ -206,13 +206,12 @@ $expanded-background-color: #dddde8;
                   }
 
                   &.expander-add {
-                    // background-color: #ffffff;
-                    border: 1px solid red;
+                    background-color: #ffffff;
                     @extend .logo-add;
                   }
 
                   &.expander-remove {
-                    // background-color: #ffffff;
+                    background-color: #ffffff;
                     @extend .logo-remove;
                   }
                 }
@@ -252,6 +251,7 @@ $expanded-background-color: #dddde8;
                     right: 0;
                     background: none;
                     padding: 0;
+                    border: $border-width solid $button-border-color;;
 
                     &:last-child {
                       margin-right: 4px;
@@ -268,6 +268,7 @@ $expanded-background-color: #dddde8;
 
                   &:hover {
                     box-shadow: $box-shadow;
+                    border: 1px solid red;
 
                     .content {
                       input {
@@ -293,8 +294,10 @@ $expanded-background-color: #dddde8;
                       margin-right: 60px;
 
                       & ~ button.edit-accept {
+                        color: #ffffff;
                         display: inline-block;
                         right: 0;
+                        border: none;
                         background-color: $button-accept-bg-color;
                         @extend .logo-small-check;
                       }
@@ -304,7 +307,6 @@ $expanded-background-color: #dddde8;
                         right: 30px;
                         background-color: #ffffff;
                         @extend .logo-small-cross;
-                        border: $border-width solid $button-border-color;
                       }
 
                       & ~ button.edit {
@@ -319,6 +321,16 @@ $expanded-background-color: #dddde8;
             &.selected {
               td {
                 background: rgba($thead-background-color, 0.3);
+
+                div.content-container {
+                  border: 1px solid green;
+
+                  span.content {
+                    button {
+                      border: none;
+                    }
+                  }
+                }
               }
             }
 
