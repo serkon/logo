@@ -38,9 +38,10 @@
     "@angular/forms": "^7.0.0"
   },
   "dependencies": {
-    "@logo-software/paging": "~0.0.10",
+    "@logo-software/core": "~0.0.20",
     "@logo-software/excel": "~0.0.12",
-    "@logo-software/core": "~0.0.20"
+    "@logo-software/paging": "~0.0.10",
+    "@logo-software/icons": "~0.0.3"
   },
   "scripts": {
     "ver:patch": "npm version patch",
@@ -55,7 +56,6 @@
     "minor:commit": "npm run ver:minor && npm run build && TYPE=feat npm run git-commit",
     "pre:commit": "npm run ver:pre && npm run build && TYPE=prerelease npm run git-commit",
     "major:commit": "npm run ver:major && TYPE=release npm run git-release",
-    "unpublish": "npm unpublish $npm_package_name@$npm_package_version",
-    "postinstall": "node src/lib/assets/scripts/install.js"
+    "unpublish": "npm unpublish $npm_package_name@$npm_package_version"
   }
 }

@@ -10,12 +10,12 @@
  */
 -->
 <div class="table-actions">
-  <button (click)="actionHtmlAddReference()" *ngIf="!!reference && refButtonStatus" class="add"></button>
-  <button (click)="actionHtmlRemoveReference()" *ngIf="!!reference && refButtonStatus" class="remove"></button>
-  <button (click)="actionHtmlLoad()" *ngIf="!!refresh" class="refresh"></button>
-  <button (click)="create=!create" *ngIf="editable" [ngClass]="{'button-selected': create}" class="add"></button>
-  <button (click)="editable = !editable" [ngClass]="{'button-selected': editable}" class="edit"></button>
-  <button (click)="actionHtmlDeleteRow(selected)" *ngIf="delete" class="bin"></button>
+  <button (click)="actionHtmlAddReference()" *ngIf="!!reference && refButtonStatus" class="logo-add"></button>
+  <button (click)="actionHtmlRemoveReference()" *ngIf="!!reference && refButtonStatus" class="logo-remove"></button>
+  <button (click)="actionHtmlLoad()" *ngIf="!!refresh" class="logo-refresh"></button>
+  <button (click)="create=!create" *ngIf="editable" [ngClass]="{'button-selected': create}" class="logo-add"></button>
+  <button (click)="editable = !editable" [ngClass]="{'button-selected': editable}" class="logo-edit"></button>
+  <button (click)="actionHtmlDeleteRow(selected)" *ngIf="delete" class="logo-bin"></button>
   <ng-container *ngFor="let action of actions">
     <button
       (click)="action.click && action.click(_this)" [disabled]="action.disable"
@@ -33,7 +33,7 @@
     [status]="excel.status"
     class="excel-export"
   >
-    <button class="excel"></button>
+    <button class="logo-excel"></button>
   </logo-excel>
 </div>
 

@@ -10,11 +10,11 @@
     }
   },
   "assets": [
-    "src/lib/assets/icons"
   ],
   "whitelistedNonPeerDependencies": [
     "@logo-software/paging",
     "@logo-software/excel",
-    "@logo-software/core"
+    "@logo-software/core",
+    "@logo-software/icons"
   ]
 }

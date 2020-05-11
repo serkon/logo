@@ -8,6 +8,8 @@
  * Any reproduction of this material must contain this notice.
  */
 
+@import "~@logo-software/icons/src/lib/logo-icons.scss";
+
 $font-family: 'Nunito', sans-serif !important;
 $thead-background-color: #0090ff;
 $thead-border-color: #0076ff;
@@ -204,11 +206,14 @@ $expanded-background-color: #dddde8;
                   }
 
                   &.expander-add {
-                    background: #ffffff url("assets/icons/add.svg") center center no-repeat;
+                    // background-color: #ffffff;
+                    border: 1px solid red;
+                    @extend .logo-add;
                   }
 
                   &.expander-remove {
-                    background: #ffffff url("assets/icons/remove.svg") center center no-repeat;
+                    // background-color: #ffffff;
+                    @extend .logo-remove;
                   }
                 }
 
@@ -269,7 +274,8 @@ $expanded-background-color: #dddde8;
                         ~ button.edit-pen {
                           display: inline-block;
                           margin-right: 4px;
-                          background: #ffffff url("assets/icons/edit-pen.svg") center center no-repeat;
+                          background-color: #ffffff;
+                          @extend .logo-edit-pen;
                           border: $border-width solid $button-border-color;
                         }
                       }
@@ -289,13 +295,15 @@ $expanded-background-color: #dddde8;
                       & ~ button.edit-accept {
                         display: inline-block;
                         right: 0;
-                        background: $button-accept-bg-color url("assets/icons/small-check.svg") no-repeat center center;
+                        background-color: $button-accept-bg-color;
+                        @extend .logo-small-check;
                       }
 
                       & ~ button.edit-cancel {
                         display: inline-block;
                         right: 30px;
-                        background: #ffffff url("assets/icons/small-cross.svg") no-repeat center center;
+                        background-color: #ffffff;
+                        @extend .logo-small-cross;
                         border: $border-width solid $button-border-color;
                       }
 
@@ -422,106 +430,6 @@ $expanded-background-color: #dddde8;
       outline: none;
       padding: 0;
       background-color: #ffffff;
-
-      &.three-dot-ver {
-        background-image: url("assets/icons/3-dots-ver.svg");
-      }
-
-      &.add {
-        background-image: url("assets/icons/add.svg");
-      }
-
-      &.add-new {
-        background-image: url("assets/icons/add-new.svg");
-      }
-
-      &.arrow-down {
-        background-image: url("assets/icons/arrow-down.svg");
-      }
-
-      &.bin {
-        background-image: url("assets/icons/bin.svg");
-      }
-
-      &.copy {
-        background-image: url("assets/icons/copy.svg");
-      }
-
-      &.double-chevron-left {
-        background-image: url("assets/icons/double-chevron-left.svg");
-      }
-
-      &.double-chevron-right {
-        background-image: url("assets/icons/double-chevron-right.svg");
-      }
-
-      &.edit {
-        background-image: url("assets/icons/edit.svg");
-      }
-
-      &.edit-pen {
-        background-image: url("assets/icons/edit-pen.svg");
-      }
-
-      &.eye {
-        background-image: url("assets/icons/eye.svg");
-      }
-
-      &.filter {
-        background-image: url("assets/icons/filter.svg");
-      }
-
-      &.large-chevron-left {
-        background-image: url("assets/icons/large-chevron-left.svg");
-      }
-
-      &.large-chevron-right {
-        background-image: url("assets/icons/large-chevron-right.svg");
-      }
-
-      &.link {
-        background-image: url("assets/icons/link.svg");
-      }
-
-      &.new {
-        background-image: url("assets/icons/new.svg");
-      }
-
-      &.org {
-        background-image: url("assets/icons/org.svg");
-      }
-
-      &.person {
-        background-image: url("assets/icons/person.svg");
-      }
-
-      &.print {
-        background-image: url("assets/icons/print.svg");
-      }
-
-      &.refresh {
-        background-image: url("assets/icons/refresh.svg");
-      }
-
-      &.remove {
-        background-image: url("assets/icons/remove.svg");
-      }
-
-      &.selection {
-        background-image: url("assets/icons/selection.svg");
-      }
-
-      &.small-check {
-        background-image: url("assets/icons/selection.svg");
-      }
-
-      &.small-cross {
-        background-image: url("assets/icons/selection.svg");
-      }
-
-      &.excel {
-        background-image: url("assets/icons/print.svg");
-      }
 
       &:hover {
         background-color: $button-hover-background-color;
