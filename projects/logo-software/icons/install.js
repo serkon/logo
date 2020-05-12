@@ -20,10 +20,10 @@ const addAssetsToFolder = () => {
       "input": "node_modules/@logo-software/icons/src/lib/assets/icons",
       "output": "assets/icons",
     };
-    // if (!assets.find(item => item.input === 'node_modules/@logo-software/icons/src/lib/assets/icons')) {
-    //   assets.push(add_icon_glob);
-    //   console.log(colors.blue("###\n### assets/icons added to angular.json of the main project's assets\n###"))
-    // }
+    if (!assets.find(item => item.input === 'node_modules/@logo-software/icons/src/lib/assets/icons')) {
+      assets.push(add_icon_glob);
+      console.log(colors.blue("###\n### assets/icons added to angular.json of the main project's assets\n###"))
+    }
     if (!styles.find(item => item === 'node_modules/@logo-software/icons/src/lib/logo-icons.scss')) {
       styles.push("node_modules/@logo-software/icons/src/lib/logo-icons.scss")
       console.log(colors.blue("###\n### logo-icons.scss added to angular.json of the main project's styles\n###"))
@@ -36,7 +36,7 @@ const addAssetsToFolder = () => {
 
 const file = process.env.INIT_CWD && resolve(process.env.INIT_CWD, 'angular.json');
 let angularJson;
-debugger;
+
 if (file && fs.existsSync(file)) {
   angularJson = require(file);
   addAssetsToFolder();
