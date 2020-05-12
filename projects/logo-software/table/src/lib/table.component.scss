@@ -268,7 +268,6 @@ $expanded-background-color: #dddde8;
 
                   &:hover {
                     box-shadow: $box-shadow;
-                    border: 1px solid red;
 
                     .content {
                       input {
@@ -323,8 +322,6 @@ $expanded-background-color: #dddde8;
                 background: rgba($thead-background-color, 0.3);
 
                 div.content-container {
-                  border: 1px solid green;
-
                   span.content {
                     button {
                       border: none;
