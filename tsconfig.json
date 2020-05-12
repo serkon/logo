@@ -28,27 +28,42 @@
         "./projects/samples/src/app/logo/*"
       ],
       "@logo-software/core": [
+        // "./projects/logo-software/core/src/public_api.ts",
+        "dist/logo-software/core/logo-software-core",
         "./dist/logo-software/core"
       ],
       "@logo-software/language": [
+        // "./projects/logo-software/language/src/public_api.ts",
+        "dist/logo-software/language/logo-software-language",
         "./dist/logo-software/language"
       ],
       "@logo-software/excel": [
+        // "./projects/logo-software/excel/src/public_api.ts",
+        //"dist/logo-software/excel/logo-software-excel",
         "./dist/logo-software/excel"
       ],
       "@logo-software/paging": [
+        // "./projects/logo-software/paging/src/public_api.ts",
+        // "dist/logo-software/paging/logo-software-paging",
         "./dist/logo-software/paging"
       ],
       "@logo-software/table": [
-        "./projects/logo-software/table/src/public_api.ts",
+        // "./projects/logo-software/table/src/public_api.ts",
+        // "dist/logo-software/table/logo-software-table",
         "./dist/logo-software/table"
+      ],
+      "@logo-software/toast": [
+        // "./projects/logo-software/toast/src/public_api.ts",
+        // "dist/logo-software/toast/logo-software-toast",
+        "dist/logo-software/toast"
+      ],
+      "@logo-software/icons": [
+        // "./projects/logo-software/icons/src/public_api.ts",
+        // "dist/logo-software/icons/logo-software-icons",
+        "dist/logo-software/icons"
       ],
       "@logo-software/*": [
         "./projects/logo-software/*"
-      ],
-      "@logo-software/toast": [
-        "dist/logo-software/toast/logo-software-toast",
-        "dist/logo-software/toast"
       ]
     }
   },

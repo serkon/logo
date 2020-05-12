@@ -33,18 +33,18 @@
               },
               {
                 "glob": "**/*",
-                "input": "node_modules/@logo-software/table/src/lib/assets/icons",
-                "output": "assets/icons"
+                "input": "projects/samples/src/app",
+                "output": "assets/examples"
               },
               {
                 "glob": "**/*",
-                "input": "node_modules/@logo-software/table/src/lib/assets/sounds",
+                "input": "node_modules/@logo-software/toast/src/lib/assets/sounds",
                 "output": "assets/sounds"
               },
               {
                 "glob": "**/*",
-                "input": "projects/samples/src/app",
-                "output": "assets/examples"
+                "input": "node_modules/@logo-software/icons/src/lib/assets/icons",
+                "output": "assets/icons"
               }
             ],
             "styles": [
@@ -53,7 +53,8 @@
               "node_modules/pace-js/templates/pace-theme-flash.tmpl.css",
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/docsearch.js/dist/cdn/docsearch.min.css",
-              "node_modules/highlight.js/styles/dracula.css"
+              "node_modules/highlight.js/styles/dracula.css",
+              "node_modules/@logo-software/icons/src/lib/logo-icons.scss"
             ],
             "scripts": [
               "node_modules/pace-js/pace.min.js",
@@ -179,7 +180,7 @@
               "projects/samples/src/assets",
               {
                 "glob": "**/*",
-                "input": "node_modules/@logo-software/table/src/lib/assets/icons",
+                "input": "node_modules/@logo-software/icons/src/lib/assets/icons",
                 "output": "assets/icons"
               },
               {
@@ -513,6 +514,46 @@
             "tsConfig": [
               "projects/logo-software/toast/tsconfig.lib.json",
               "projects/logo-software/toast/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@logo-software/icons": {
+      "projectType": "library",
+      "root": "projects/logo-software/icons",
+      "sourceRoot": "projects/logo-software/icons/src",
+      "prefix": "logo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/logo-software/icons/tsconfig.lib.json",
+            "project": "projects/logo-software/icons/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/logo-software/icons/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/logo-software/icons/src/test.ts",
+            "tsConfig": "projects/logo-software/icons/tsconfig.spec.json",
+            "karmaConfig": "projects/logo-software/icons/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/logo-software/icons/tsconfig.lib.json",
+              "projects/logo-software/icons/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
