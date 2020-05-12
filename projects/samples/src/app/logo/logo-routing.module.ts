@@ -31,6 +31,10 @@ const routes: Routes = [
         path: 'toast-sample',
         loadChildren: () => import('./toast-sample/toast-sample.module').then(m => m.ToastSampleModule),
       },
+      {
+        path: 'icons-sample',
+        loadChildren: () => import('./icons-sample/icons-sample.module').then(m => m.IconsSampleModule),
+      },
     ],
   },
 ];

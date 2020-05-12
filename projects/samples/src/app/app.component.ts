@@ -22,6 +22,7 @@ export class AppComponent {
     {name: 'paging'},
     {name: 'table'},
     {name: 'toast'},
+    {name: 'icons'},
   ];
 
   toUpperCase(value) {
