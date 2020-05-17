@@ -32,7 +32,7 @@
     "@logo-software/icons": "~0.0.3"
   },
   "devDependencies": {
-    "@types/file-saver": "^2.0.2"
+    "@types/file-saver": "^2.0.1"
   },
   "scripts": {
     "ver:patch": "npm version patch",
