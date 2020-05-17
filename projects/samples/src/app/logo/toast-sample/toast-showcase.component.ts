@@ -17,7 +17,23 @@ export class ToastShowcaseComponent {
     this.toastService.success('Survey results couldn’t be saved!', {
       autoClose: false,
       width: 'small',
-      actions: [{display: 'close me', event: (data) => console.log('data is : ', data)}],
+      actions: [{
+        display: 'close me', event: (data) => {
+          return new Promise(resolve => {
+            let counter = 0;
+            const interval = window.setInterval(() => {
+              counter++;
+              console.log(data, counter);
+              if (counter === 10) {
+                window.clearInterval(interval);
+                console.log('interval cleared');
+                resolve('düdük');
+                console.log('resolve value is düdük');
+              }
+            }, 100);
+          });
+        },
+      }],
     });
   }
 }

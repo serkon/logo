@@ -10,7 +10,7 @@
 
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { ToastService } from './toast.service';
-import { Toast } from './toast';
+import { Toast, ToastAction } from './toast';
 
 /**
  * Toast component can be call using ToastService.
@@ -103,5 +103,10 @@ export class ToastComponent implements OnDestroy, OnInit, AfterViewInit {
     }
     this.toastService.remove(toast);
     this.timeout = null;
+  }
+
+  public async eventHandler(toast: Toast, action: ToastAction) {
+    const value = await action.event(toast);
+    this.close(toast);
   }
 }

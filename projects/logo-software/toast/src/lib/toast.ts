@@ -8,6 +8,11 @@
  * Any reproduction of this material must contain this notice.
  */
 
+export interface ToastAction {
+  display: string,
+  event: (value?: any) => void
+}
+
 export class MessageTypes {
   public static ERROR = 'error';
   public static SUCCESS = 'success';
@@ -22,7 +27,7 @@ export class Toast {
   public width?: 'small' | 'medium' | 'large' | 'big' | 'auto';
   public autoClose ? = true;
   public audio?: HTMLAudioElement;
-  public actions?: { display: string, event: (value?: any) => void }[];
+  public actions?: ToastAction[];
 
   constructor(item: Toast) {
     this.type = item.type || MessageTypes.ERROR;
