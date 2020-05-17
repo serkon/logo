@@ -13,7 +13,11 @@ export class ToastShowcaseComponent {
   }
 
   show() {
-    this.toastService.soundEnable = true;
-    this.toastService.error('Survey results couldn’t be saved!', {soundType: 'error.old', autoClose: false});
+    this.toastService.soundEnable = false;
+    this.toastService.success('Survey results couldn’t be saved!', {
+      autoClose: false,
+      width: 'small',
+      actions: [{display: 'close me', event: (data) => console.log('data is : ', data)}],
+    });
   }
 }

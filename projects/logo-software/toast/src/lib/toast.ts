@@ -22,15 +22,15 @@ export class Toast {
   public width?: 'small' | 'medium' | 'large' | 'big' | 'auto';
   public autoClose ? = true;
   public audio?: HTMLAudioElement;
-  public actions?: any[];
+  public actions?: { display: string, event: (value?: any) => void }[];
 
   constructor(item: Toast) {
     this.type = item.type || MessageTypes.ERROR;
     this.soundType = item.soundType || item.type || MessageTypes.ERROR;
     this.message = item.message || null;
-    this.width = item.width || 'large';
-    this.autoClose = typeof item.autoClose!=='undefined' ? item.autoClose : true;
+    this.width = item.width || 'auto';
+    this.autoClose = typeof item.autoClose !== 'undefined' ? item.autoClose : true;
     this.audio = item.audio || null;
-    this.actions = item.actions || [];
+    this.actions = item.actions || null;
   }
 }

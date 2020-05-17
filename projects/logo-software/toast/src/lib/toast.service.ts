@@ -38,7 +38,6 @@ export class ToastService {
   public closeAction: null | Function = null;
   public closeFocus = false;
   public autoCloseTimeout = 3000; // TODO change autoclose
-  public width: 'small' | 'medium' | 'large' | 'big' | 'auto' = 'auto';
   public soundCompleteWatch = new Subject();
   public toasts: Toast[] = [];
   public soundEnable = false;

@@ -12,9 +12,14 @@
 
 <ng-container *ngIf="toastService.toasts.length > 0">
   <div class="app-toast">
-    <div #reference *ngFor="let toast of toastService.toasts" class="{{toast.width}} {{toast.type}} toast row">
-      <div class="remove" (click)="close(toast)" #closeRef [hidden]="!toast.autoClose"></div>
-      <div class="content flex-1" [innerHTML]="toast.message"></div>
+    <div #reference *ngFor="let toast of toastService.toasts" class="{{toast.width}} {{toast.type}} toast">
+      <div class="remove logo-small-cross" (click)="close(toast)" #closeRef></div>
+      <div class="content" [innerHTML]="toast.message" [ngClass]="{'action-exist':toast.actions}"></div>
+      <div class="actions" *ngIf="toast.actions">
+        <button class="secondary ion-close close" (click)="close(toast)" *ngFor="let action of toast.actions">
+          {{action.display}}
+        </button>
+      </div>
     </div>
   </div>
 </ng-container>
