@@ -1,0 +1,21 @@
+/**
+ * @license
+ * Copyright Logo Yazılım. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of Logo Yazılım.
+ * Any reproduction of this material must contain this notice.
+ */
+
+@mixin box-shadow($left:0, $top:0, $blur:4px, $spread: 0, $color:#ccc, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow: inset $left $top $blur $spread $color;
+    -moz-box-shadow: inset $left $top $blur $spread $color;
+    box-shadow: inset $left $top $blur $spread $color;
+  } @else {
+    -webkit-box-shadow: $left $top $blur $spread $color;
+    -moz-box-shadow: $left $top $blur $spread $color;
+    box-shadow: $left $top $blur $spread $color;
+  }
+}

@@ -1,0 +1,31 @@
+/**
+ * @license
+ * Copyright Logo Yazılım. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of Logo Yazılım.
+ * Any reproduction of this material must contain this notice.
+ */
+
+// ########################### Font Setting
+$font-icon: 'logo-font-icon';
+$font-family: 'Nunito Regular';
+$font-default-size: 16px;
+$font-current-size: 16px;
+
+// ########################### Path Setting
+$font-path: "~@logo-software/theme/src/lib/assets/fonts";
+$path-image: '$imagesPath';
+
+// ########################### Vertical Height Setting
+$vertical-measure: 1.375em; // 22px
+
+// ########################### breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);

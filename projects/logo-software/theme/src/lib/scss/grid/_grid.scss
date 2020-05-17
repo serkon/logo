@@ -1,0 +1,142 @@
+/**
+ * @license
+ * Copyright Logo Yazılım. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of Logo Yazılım.
+ * Any reproduction of this material must contain this notice.
+ */
+
+@import "responsive";
+
+$grid-columns: 12;
+$gutter-width: 30;
+$gutters: (
+  xs: $gutter-width/5,
+  sm: $gutter-width/4,
+  md: $gutter-width/3,
+  lg: $gutter-width/2,
+  xl: $gutter-width/1
+);
+
+/**
+NOTE: Comes from _config.csss (moved to there)
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+**/
+$container-max-widths: (11 xs: 100%,
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+);
+
+@mixin grid($gutters:$gutters) {
+  @each $breakpoint in map-keys($gutters) {
+    $device: map-get($grid-breakpoints, $breakpoint);
+    $gutter: map-get($gutters, $breakpoint);
+    $gutter-percent: $gutter / 100 * 10;
+    $column-percent: (100 - ($grid-columns - 1) * $gutter-percent) / $grid-columns;
+    $col-list: null;
+    @media (min-width: $device) {
+      .hidden-#{$breakpoint} {
+        display: none !important;
+      }
+
+      .visible-#{$breakpoint} {
+        display: initial !important;
+      }
+
+      @for $i from 1 through $grid-columns {
+        /**
+        It set size of the columns with margin right
+        */
+        .col-#{$breakpoint}-#{$i} {
+          $width: $i * $column-percent + ($i - 1) * $gutter-percent;
+          $total: $grid-columns * $column-percent + $grid-columns * $gutter-percent;
+          $percent: percentage($width / $total);
+          width: $width * 1%;
+          float: left;
+
+          /*
+          width: $percent - $gutter-percent;
+          margin-left: $gutter-percent/2 * 1%;
+          margin-right: $gutter-percent/2 * 1%;
+          */
+          @if $i != $grid-columns {
+            margin-right: $gutter-percent * 1%;
+          }
+        }
+
+        .size-#{$i} {
+          box-sizing: border-box;
+          width: ((100  / $grid-columns) * $i) * 1%;
+          float: left;
+        }
+
+        .split-#{$i} {
+          width: (100  / $i) * 1%;
+        }
+
+        .flex-#{$i} {
+          flex-grow: $i;
+          // flex-basis: $i * size(20px); // TODO remove
+          box-sizing: border-box;
+        }
+
+        $col-list: append($col-list, unquote(".column-#{$breakpoint}-#{$i}"), comma);
+      }
+      @include breakpoint($breakpoint, $column-percent, $gutter-percent); //Responsive Design Mixin
+
+      #{$col-list} {
+        display: inline-block !important;
+        margin: 0;
+      }
+
+      .container {
+        width: map-get($container-max-widths, $breakpoint);
+        margin: 0 auto;
+
+        &::before, &::after {
+          content: "";
+          display: table;
+        }
+
+        &::after {
+          clear: both;
+        }
+      }
+    }
+  }
+
+  [class*='col-']:last-child {
+    margin-right: 0;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    zoom: 1;
+    max-width: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+
+    &::before, &::after {
+      content: "";
+      display: table;
+    }
+
+    &::after {
+      clear: both;
+    }
+  }
+}
+
+@include grid();

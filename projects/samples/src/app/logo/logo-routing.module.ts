@@ -35,6 +35,10 @@ const routes: Routes = [
         path: 'icons-sample',
         loadChildren: () => import('./icons-sample/icons-sample.module').then(m => m.IconsSampleModule),
       },
+      {
+        path: 'theme-sample',
+        loadChildren: () => import('./theme-sample/theme-sample.module').then(m => m.ThemeSampleModule),
+      },
     ],
   },
 ];

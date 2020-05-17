@@ -18,11 +18,12 @@ export class AppComponent {
       ],
     },
     {name: 'excel'},
+    {name: 'icons'},
     {name: 'language'},
     {name: 'paging'},
     {name: 'table'},
+    {name: 'theme'},
     {name: 'toast'},
-    {name: 'icons'},
   ];
 
   toUpperCase(value) {

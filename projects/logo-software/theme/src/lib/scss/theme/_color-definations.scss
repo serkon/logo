@@ -1,0 +1,99 @@
+/**
+ * @license
+ * Copyright Logo Yazılım. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of Logo Yazılım.
+ * Any reproduction of this material must contain this notice.
+ */
+
+// ################ Basic colors
+$slate: #7760c8;
+$orange: #ff7918;
+$purple: #7500ff;
+$tomato: #ff6060;
+$indigo: indigo;
+$pink: pink;
+$teal: teal;
+$lilac: #d6a2e8;
+$cyan: #25ccf7;
+$background: #f5f9Fa;
+// ################ Gray colors
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+// ################ Custom gray
+$white: #ffffff;
+$light-grey: #e5e5e5;
+$middle-grey: #cccccc;
+$grey: #7c7c7c;
+$dark-grey: #4a4a4a;
+$black: #333333;
+// ################ Brand colors
+$brand: #7500ff;
+$brand-hover: #6700e2;
+$brand-active: #5d00cb;
+$brand-dark: #460099;
+// ################ Blue colors
+$blue: #0090ff;
+$blue-hover: #0089F2;
+$blue-active: #0076FF;
+$blue-dark: #0069E3;
+// ################ Red colors
+$red: #ff3e51;
+$red-hover: #de2d3f;
+$red-active: #c42232;
+$red-dark: #b91d2d;
+// ################ Yellow colors
+$yellow: #f8aa1c;
+$yellow-hover: #eea218;
+$yellow-active: #e4980c;
+$yellow-dark: #d08a09;
+// ################ Green colors
+$green: #01cc78;
+$green-hover: #00bd6f;
+$green-active: #00aa64;
+$green-dark: #008c52;
+// ################ Basic colors
+$basic: #dde8f7;
+$basic-hover: #d4e0f1;
+$basic-active: #c8d3e8;
+$basic-dark: #b1bed6;
+// ################ Default colors
+$default: #ffffff;
+$default-hover: #fafafa;
+$default-active: #f3f2f2;
+$default-dark: #e5e5e5;
+// ################ Dark colors
+$dark: #82869d;
+$dark-hover: #72768f;
+$dark-active: #636780;
+$dark-dark: #585c76;
+// ################ Outline colors
+$outline: #ffffff;
+$outline-hover: #fafafa;
+$outline-active: #f3f2f2;
+$outline-dark: #e5e5e5;
+// ################ Ghost colors
+$ghost: 0;
+$ghost-hover: 6%;
+$ghost-active: 10%;
+$ghost-dark: 15%;
+// ################ Define theme colors
+$primary-color: "blue";
+$secondary-color: "basic";
+$success-color: "green";
+$info-color: "blue";
+$warning-color: "yellow";
+$danger-color: "red";
+$light-color: "default";
+$dark-color: "dark";
