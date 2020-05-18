@@ -42,52 +42,52 @@ $black: #333333;
 $brand: #7500ff;
 $brand-hover: #6700e2;
 $brand-active: #5d00cb;
-$brand-dark: #460099;
+$brand-focus: #460099;
 // ################ Blue colors
 $blue: #0090ff;
 $blue-hover: #0089F2;
 $blue-active: #0076FF;
-$blue-dark: #0069E3;
+$blue-focus: #0069E3;
 // ################ Red colors
 $red: #ff3e51;
 $red-hover: #de2d3f;
 $red-active: #c42232;
-$red-dark: #b91d2d;
+$red-focus: #b91d2d;
 // ################ Yellow colors
 $yellow: #f8aa1c;
 $yellow-hover: #eea218;
 $yellow-active: #e4980c;
-$yellow-dark: #d08a09;
+$yellow-focus: #d08a09;
 // ################ Green colors
 $green: #01cc78;
 $green-hover: #00bd6f;
 $green-active: #00aa64;
-$green-dark: #008c52;
+$green-focus: #008c52;
 // ################ Basic colors
 $basic: #dde8f7;
 $basic-hover: #d4e0f1;
 $basic-active: #c8d3e8;
-$basic-dark: #b1bed6;
+$basic-focus: #b1bed6;
 // ################ Default colors
 $default: #ffffff;
 $default-hover: #fafafa;
 $default-active: #f3f2f2;
-$default-dark: #e5e5e5;
+$default-focus: #e5e5e5;
 // ################ Dark colors
 $dark: #82869d;
 $dark-hover: #72768f;
 $dark-active: #636780;
-$dark-dark: #585c76;
+$dark-focus: #585c76;
 // ################ Outline colors
 $outline: #ffffff;
 $outline-hover: #fafafa;
 $outline-active: #f3f2f2;
-$outline-dark: #e5e5e5;
+$outline-focus: #e5e5e5;
 // ################ Ghost colors
 $ghost: 0;
-$ghost-hover: 6%;
-$ghost-active: 10%;
-$ghost-dark: 15%;
+$ghost-hover: 0.06;
+$ghost-active: 0.1;
+$ghost-focus: 0.15;
 // ################ Define theme colors
 $primary-color: "blue";
 $secondary-color: "basic";

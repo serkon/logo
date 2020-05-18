@@ -18,14 +18,13 @@
     "#{$name}": color(#{$variable}),
     "#{$name}-hover": color(#{$variable}-hover),
     "#{$name}-active": color(#{$variable}-active),
-    "#{$name}-dark": color(#{$variable}-dark)
+    "#{$name}-focus": color(#{$variable}-focus)
   ));
   @return $map;
 }
 
 @function map-collect($maps...) {
   $collection: ();
-
   @each $map in $maps {
     $collection: map-merge($collection, $map);
   }
@@ -36,50 +35,50 @@
 $primary: color($primary-color);
 $primary-hover: color(#{$primary-color}-hover);
 $primary-active: color(#{$primary-color}-active);
-$primary-dark: color(#{$primary-color}-dark);
+$primary-focus: color(#{$primary-color}-focus);
 $primary-colors: colorStatusGenerator("primary", $primary-color);
 // ################ secondary
 $secondary: color($secondary-color);
 $secondary-hover: color(#{$secondary-color}-hover);
 $secondary-active: color(#{$secondary-color}-active);
-$secondary-dark: color(#{$secondary-color}-dark);
+$secondary-focus: color(#{$secondary-color}-focus);
 $secondary-colors: colorStatusGenerator("secondary", $secondary-color);
 // ################ success
 $success-colors: green;
 $success: color($success-color);
 $success-hover: color(#{$success-color}-hover);
 $success-active: color(#{$success-color}-active);
-$success-dark: color(#{$success-color}-dark);
+$success-focus: color(#{$success-color}-focus);
 $success-colors: colorStatusGenerator("success", $success-color);
 // ################ info
 $info: color($info-color);
 $info-hover: color(#{$info-color}-hover);
 $info-active: color(#{$info-color}-active);
-$info-dark: color(#{$info-color}-dark);
+$info-focus: color(#{$info-color}-focus);
 $info-colors: colorStatusGenerator("info", $info-color);
 // ################ warning
 $warning: color($warning-color);
 $warning-hover: color(#{$warning-color}-hover);
 $warning-active: color(#{$warning-color}-active);
-$warning-dark: color(#{$warning-color}-dark);
+$warning-focus: color(#{$warning-color}-focus);
 $warning-colors: colorStatusGenerator("warning", $warning-color);
 // ################ danger
 $danger: color($danger-color);
 $danger-hover: color(#{$danger-color}-hover);
 $danger-active: color(#{$danger-color}-active);
-$danger-dark: color(#{$danger-color}-dark);
+$danger-focus: color(#{$danger-color}-focus);
 $danger-colors: colorStatusGenerator("danger", $danger-color);
 // ################ light
 $light: color($light-color);
 $light-hover: color(#{$light-color}-hover);
 $light-active: color(#{$light-color}-active);
-$light-dark: color(#{$light-color}-dark);
+$light-focus: color(#{$light-color}-focus);
 $light-colors: colorStatusGenerator("light", $light-color);
 // ################ dark
 $dark: color($dark-color);
 $dark-hover: color(#{$dark-color}-hover);
 $dark-active: color(#{$dark-color}-active);
-$dark-dark: color(#{$dark-color}-dark);
+$dark-focus: color(#{$dark-color}-focus);
 $dark-colors: colorStatusGenerator("dark", $dark-color);
 
 // Merge this colors

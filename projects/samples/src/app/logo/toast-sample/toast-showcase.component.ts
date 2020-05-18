@@ -14,7 +14,7 @@ export class ToastShowcaseComponent {
 
   show() {
     this.toastService.soundEnable = false;
-    this.toastService.success('Survey results couldn’t be saved!', {
+    this.toastService.error('Survey results couldn’t be saved!', {
       autoClose: false,
       width: 'small',
       actions: [{

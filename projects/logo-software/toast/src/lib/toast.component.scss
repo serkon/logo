@@ -9,58 +9,24 @@
  */
 
 @import "~@logo-software/icons/src/lib/logo-icons";
-@import "~@logo-software/theme/src/lib/style";
-
-$font-color: $white;
-$font: $font-family;
-$color-action-button-hover-text: darken($white, 5);
-$color-action-button-hover: transparentize(lighten($font-color, 15), 0.63);
-$close-button-background: rgba(0, 0, 0, 0.4);
-
-@mixin modalBody($content-size-ratio:1, $color: rgba(255,255,255,0), $font-color: $white) {
-  margin: 15px;
-
-  .content {
-    border-radius: size(5px);
-    padding: size(40px) size(42px);
-    font-size: ($font-current-size - size(4px)) * $content-size-ratio;
-    font-family: $font;
-    text-align: center;
-    max-height: size(480px);
-    overflow: auto;
-    color: $font-color;
-    background-color: map_get($colors, $color);
-
-    p {
-      margin: 0;
-      font-family: $font;
-      font-size: ($font-current-size - 2px) * $content-size-ratio;
-    }
-
-    &.action-exist {
-      border-radius: size(5px) size(5px) 0 0;
-    }
-  }
-
-  .actions {
-    padding: size(15px) size(10px) size(10px) size(10px);
-    text-align: right;
-    border-radius: 0 0 size(5px) size(5px);
-    background-color: color(#{$color}-hover);
-
-    button {
-      background: $color-action-button-hover;
-      color: $font-color;
-
-      &:hover {
-        background-color: lighten($color-action-button-hover, 0.2);
-        color: $font-color;
-      }
-    }
-  }
-}
 
 :host {
+  @import "~@logo-software/theme/src/lib/style";
+
+  @mixin modalBody($color: rgba(255,255,255,0)) {
+    margin: size(15px);
+    border-radius: size(4px);
+    overflow: auto;
+
+    .content {
+      background-color: map_get($colors, $color);
+    }
+
+    .actions {
+      background-color: color(#{$color}-hover);
+    }
+  }
+
   .app-toast {
     position: absolute;
     z-index: 2;
@@ -115,43 +81,35 @@ $close-button-background: rgba(0, 0, 0, 0.4);
       }
 
       &.success {
-        @include modalBody($content-size-ratio, success, $font-color: transparentize($white, 0.2));
+        @include modalBody(success);
       }
 
-      &.error {
-        @include modalBody(1.2, danger, $font-color: transparentize($white, 0.2));
+      &.danger {
+        @include modalBody(danger);
       }
 
       &.warning {
-        @include modalBody($content-size-ratio, warning, $font-color: $white);
+        @include modalBody(warning);
       }
 
       &.information {
-        @include modalBody($content-size-ratio, info);
+        @include modalBody(info);
       }
 
-      &.desktop {
-        $content-size-ratio: 1;
-        @include modalBody($content-size-ratio);
+      .content {
+        padding: size(40px) size(42px);
+        text-align: center;
+        max-height: size(480px);
+        overflow: auto;
+
+        p {
+          margin: 0;
+        }
       }
 
       .actions {
-        background: rgba($white, 0.03);
+        padding: size(4px);
         text-align: right;
-
-        button {
-          background: transparent;
-
-          &.close {
-            font-size: size(10px);
-            line-height: size(16px);
-          }
-
-          &:hover {
-            background-color: $color-action-button-hover;
-            color: $color-action-button-hover-text;
-          }
-        }
       }
     }
   }

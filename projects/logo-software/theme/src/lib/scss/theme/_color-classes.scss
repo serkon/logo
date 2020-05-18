@@ -1,0 +1,49 @@
+$form-status: primary secondary success info warning danger light dark;
+$form-state: hover active focus;
+$form-type: fill outline ghost;
+$form-size: small medium large;
+
+@each $status in $form-status {
+  .#{$status} {
+    @each $type in $form-type {
+      @if $type != outline and $type != ghost {
+        background-color: color($status);
+        color: if($status == secondary or $status == light, $dark-grey, $white);
+        &.shadow {
+          box-shadow: 0 size(7px) size(10px) size(-4px) color($status);
+        }
+        @each $state in $form-state {
+          &:#{$state} {
+            background-color: color(#{$status}-#{$state});
+          }
+        }
+      } @else {
+        @if $type == outline {
+          &.outline {
+            background-color: transparent !important;
+            border: size(1px) solid $middle-grey;
+            color: if($status == secondary or $status == light, $dark, if($status == dark, $white, color($status)));
+            @each $state in $form-state {
+              &:#{$state} {
+                color: $dark;
+                background-color: color(#{$type}-#{$state}) !important;
+              }
+            }
+          }
+        }
+        @if $type == ghost {
+          &.ghost {
+            background-color: transparent !important;
+            color: if($status == secondary or $status == light, $dark, if($status == dark, $white, color($status)));
+            @each $state in $form-state {
+              &:#{$state} {
+                $alpha: to-number(color(#{$type}-#{$state}));
+                background-color: rgba($black, $alpha) !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

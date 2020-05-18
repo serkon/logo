@@ -1,0 +1,14 @@
+button {
+  cursor: pointer;
+  padding: size(8px) size(15px);
+  border: none;
+  box-shadow: none;
+  line-height: normal;
+  border-radius: size(2px);
+  font-size: size(12px);
+  font-family: $font-family;
+  @extend .secondary;
+
+  @each $status in $form-status {
+  }
+}
