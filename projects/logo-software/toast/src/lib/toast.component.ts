@@ -32,7 +32,7 @@ import { Toast, ToastAction } from './toast';
   styleUrls: ['./toast.component.scss'],
 })
 export class ToastComponent implements OnDestroy, OnInit, AfterViewInit {
-  @ViewChildren('reference') public queryList: QueryList<ToastComponent>;
+  @ViewChildren('reference') public queryList: QueryList<ElementRef<HTMLDivElement>>;
   public closeButton: ElementRef;
   protected timeout: any = null;
 
@@ -93,20 +93,35 @@ export class ToastComponent implements OnDestroy, OnInit, AfterViewInit {
     }
   }
 
+  public async eventHandler(toast: Toast, index: number, action: ToastAction) {
+    const value = await action.event(toast);
+    this.close(toast);
+  }
+
   public close(toast: Toast): void {
+    this.timeout = null;
     if (this.toastService.closeAction) {
       this.toastService.closeAction();
     }
     if (this.toastService.soundEnable && toast.audio) {
-      toast.audio.pause();
       toast.audio.currentTime = 0;
     }
-    this.toastService.remove(toast);
-    this.timeout = null;
+    this.removeElement(toast);
   }
 
-  public async eventHandler(toast: Toast, action: ToastAction) {
-    const value = await action.event(toast);
-    this.close(toast);
+  private removeElement(toast: Toast) {
+    const index = this.toastService.toasts.indexOf(toast);
+    const elementRef: ElementRef<HTMLDivElement> = this.queryList.toArray()[index];
+    const divElement: HTMLDivElement = ((elementRef.nativeElement) as HTMLDivElement);
+    divElement.classList.remove('flip-in-x');
+    divElement.classList.add('flip-out-x');
+    window.setTimeout(() => {
+      this.moveTop(divElement);
+    }, 1000);
+    window.setTimeout(() => this.toastService.remove(toast), 1350);
+  }
+
+  private moveTop(element) {
+    element.style.marginTop = parseInt(getComputedStyle(element)['height'], 10) * -1 - 15 + 'px';
   }
 }

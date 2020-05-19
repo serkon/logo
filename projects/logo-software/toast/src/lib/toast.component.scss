@@ -9,12 +9,13 @@
  */
 
 @import "~@logo-software/icons/src/lib/logo-icons";
+@import "~@logo-software/theme/src/lib/style";
 
 :host {
-  @import "~@logo-software/theme/src/lib/style";
+  $margin-size: size(15px);
 
   @mixin modalBody($color: rgba(255,255,255,0)) {
-    margin: size(15px);
+    margin: 0 $margin-size $margin-size $margin-size;
     border-radius: size(4px);
     overflow: auto;
 
@@ -28,18 +29,21 @@
   }
 
   .app-toast {
+    @include animate();
     position: absolute;
     z-index: 2;
     top: 0;
     right: 0;
 
+    &:first-child {
+      margin-top: $margin-size;
+    }
+
     .toast {
       position: relative;
-      top: 50%;
-      z-index: 2;
-      display: flex;
-      justify-content: flex-end;
-      flex-direction: column;
+      transition: all 0.35s;
+      left: 0;
+      z-index: -1;
 
       .remove {
         position: absolute;
@@ -58,7 +62,11 @@
         cursor: pointer;
       }
 
-      $content-size-ratio: 1;
+      &.erase {
+        transition: all 0.55s !important;
+        opacity: 0;
+        z-index: -1;
+      }
 
       &.initial {
         width: auto;
@@ -92,7 +100,7 @@
         @include modalBody(warning);
       }
 
-      &.information {
+      &.info {
         @include modalBody(info);
       }
 
@@ -101,6 +109,8 @@
         text-align: center;
         max-height: size(480px);
         overflow: auto;
+        font-size: size(14px);
+        font-weight: bold;
 
         p {
           margin: 0;

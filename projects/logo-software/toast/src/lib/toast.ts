@@ -13,11 +13,11 @@ export interface ToastAction {
   event: (value?: any) => void
 }
 
-export class MessageTypes {
-  public static ERROR = 'error';
-  public static SUCCESS = 'success';
-  public static WARNING = 'warning';
-  public static INFORMATION = 'information';
+export enum MessageTypes {
+  ERROR = 'danger',
+  SUCCESS = 'success',
+  WARNING = 'warning',
+  INFORMATION = 'info',
 }
 
 export class Toast {

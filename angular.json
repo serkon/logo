@@ -185,12 +185,13 @@
               },
               {
                 "glob": "**/*",
-                "input": "node_modules/@logo-software/table/src/lib/assets/sounds",
+                "input": "node_modules/@logo-software/toast/src/lib/assets/sounds",
                 "output": "assets/sounds"
               }
             ],
             "styles": [
-              "projects/samples/src/styles.scss"
+              "projects/samples/src/styles.scss",
+              "node_modules/@logo-software/theme/src/lib/style.scss"
             ],
             "scripts": []
           },
