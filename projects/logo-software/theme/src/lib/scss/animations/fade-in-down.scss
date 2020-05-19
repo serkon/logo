@@ -1,0 +1,15 @@
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fade-in-down {
+  animation: fadeInDown 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+}

@@ -17,29 +17,41 @@ $form-size: small medium large;
             background-color: color(#{$status}-#{$state});
           }
         }
+        &.selected {
+          background-color: color(#{$type}-focus);
+        }
       } @else {
         @if $type == outline {
           &.outline {
-            background-color: transparent !important;
+            box-sizing: border-box;
+            background-color: transparent;
             border: size(1px) solid $middle-grey;
             color: if($status == secondary or $status == light, $dark, if($status == dark, $white, color($status)));
             @each $state in $form-state {
               &:#{$state} {
                 color: $dark;
-                background-color: color(#{$type}-#{$state}) !important;
+                background-color: color(#{$type}-#{$state});
               }
+            }
+
+            &.selected {
+              background-color: color(#{$type}-focus);
             }
           }
         }
         @if $type == ghost {
           &.ghost {
-            background-color: transparent !important;
+            background-color: transparent;
             color: if($status == secondary or $status == light, $dark, if($status == dark, $white, color($status)));
             @each $state in $form-state {
               &:#{$state} {
                 $alpha: to-number(color(#{$type}-#{$state}));
-                background-color: rgba($black, $alpha) !important;
+                background-color: rgba($black, color(#{$type}-#{$state}));
               }
+            }
+
+            &.selected {
+              background-color: rgba($black, color(#{$type}-focus));
             }
           }
         }
@@ -47,3 +59,5 @@ $form-size: small medium large;
     }
   }
 }
+
+

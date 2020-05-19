@@ -1,0 +1,177 @@
+/**
+ * @license
+ * Copyright Logo Yazılım. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of Logo Yazılım.
+ * Any reproduction of this material must contain this notice.
+ */
+
+@mixin ferret-tooltip() {
+  $tipPosition: 4px;
+  $tipPositionOffset: 13px;
+  $tipWidth: 380px;
+  $tipBackgroundColor: transparentize(#333333, 0);
+  $tipColor: #fff;
+  $tipPointerSize: 7px;
+  $linkColor: #e94a34;
+  $triangle-base: $tipPointerSize solid transparent;
+  $triangle-fill: $tipPointerSize solid $tipBackgroundColor;
+
+  %triangle-vertical {
+    border-left: $triangle-base;
+    border-right: $triangle-base;
+  }
+
+  %triangle-horizontal {
+    border-top: $triangle-base;
+    border-bottom: $triangle-base;
+  }
+
+  .tooltip {
+    position: relative;
+    color: $linkColor;
+    cursor: pointer;
+
+    p {
+      b {
+        font-weight: 900;
+        border-bottom: 1px dotted #ffffff;
+      }
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+
+      li {
+        margin: 10px 0;
+
+        b {
+          font-weight: 900;
+          border-bottom: 1px dotted #ffffff;
+        }
+      }
+    }
+
+    .tip {
+      position: absolute;
+      max-width: $tipWidth + 100px;
+      min-width: $tipWidth;
+      color: $tipColor;
+      font: {
+        size: 14px;
+        style: normal;
+      }
+      line-height: 1.4;
+      text-align: left;
+      border-radius: 3px;
+      background: $tipBackgroundColor;
+      padding: 20px 10px 20px 25px;
+      box-sizing: border-box;
+      cursor: auto;
+      z-index: 10;
+      opacity: 0;
+      visibility: hidden;
+      transition: all .25s ease-in;
+
+      &:after {
+        position: absolute;
+        width: 0;
+        height: 0;
+        content: '';
+      }
+
+      &.on-top {
+        bottom: $tipPosition + $tipPositionOffset;
+        left: -16px;
+
+        &:after {
+          bottom: -$tipPointerSize;
+          left: 18px;
+          border-top: $triangle-fill;
+          @extend %triangle-vertical;
+        }
+      }
+
+      &.on-right {
+        top: -100%;
+        left: 103%;
+
+        &:after {
+          top: 37%;
+          left: -$tipPointerSize;
+          border-right: $triangle-fill;
+          @extend %triangle-horizontal;
+        }
+      }
+
+      &.on-bottom {
+        top: $tipPosition + $tipPositionOffset;
+        left: -18px;
+
+        &:after {
+          top: -$tipPointerSize;
+          left: 18px;
+          border-bottom: $triangle-fill;
+          @extend %triangle-vertical;
+        }
+      }
+
+      &.on-left {
+        top: -100%;
+        right: 103%;
+
+        &:after {
+          top: 37%;
+          right: -$tipPointerSize;
+          border-left: $triangle-fill;
+          @extend %triangle-horizontal;
+        }
+      }
+
+      &.on-right-bottom {
+        top: 0;
+        right: 0;
+
+        &:after {
+          top: -$tipPointerSize + 1px;
+          right: 18px;
+          border-bottom: $triangle-fill;
+          @extend %triangle-vertical;
+        }
+      }
+    }
+
+    &:hover {
+
+      .tip {
+        opacity: 1;
+        visibility: visible;
+
+        &.on-top {
+          transform: translateY(-$tipPositionOffset);
+        }
+
+        &.on-right {
+          transform: translateX($tipPositionOffset);
+        }
+
+        &.on-bottom {
+          transform: translateY($tipPositionOffset);
+        }
+
+        &.on-left {
+          transform: translateX(-$tipPositionOffset);
+        }
+
+        &.on-right-bottom {
+          transform: translate(0, 70%);
+        }
+      }
+    }
+  }
+}
+
+@include ferret-tooltip();

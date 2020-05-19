@@ -1,0 +1,42 @@
+/**
+ * @license
+ * Copyright Logo Yazılım. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of Logo Yazılım.
+ * Any reproduction of this material must contain this notice.
+ */
+
+@mixin arrow-box($side: right, $size: 6px, $position: top, $pos-val: 15px, $bg-color: red, $border-color: blue) {
+  position: relative;
+  background: $bg-color;
+  border: 1px solid $border-color;
+  @include border-radius(5px);
+
+  &:after, &:before {
+    #{$side}: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  &:after {
+    border-color: rgba($bg-color, 0);
+    border-#{$side}-color: $bg-color;
+    border-width: $size;
+    #{$position}: $pos-val;
+    margin-#{$position}: -($size);
+  }
+
+  &:before {
+    border-color: rgba($border-color, 0);
+    border-#{$side}-color: $border-color;
+    border-width: ($size + 1);
+    #{$position}: $pos-val;
+    margin-#{$position}: -($size + 1);
+  }
+}
