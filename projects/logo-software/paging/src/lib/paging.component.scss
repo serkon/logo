@@ -1,4 +1,6 @@
-$font-family: 'Nunito', sans-serif !important;
+@import "~@logo-software/theme/src/lib/style";
+@import "~@logo-software/icons/src/lib/logo-icons";
+
 $link-color: #4a4a4a;
 $link-hover-background: rgba(0, 0, 0, 0.06);
 $selected-background-color: rgba(0, 0, 0, 0.1);
@@ -45,7 +47,6 @@ $select-box-color: #4a4a4a;
       outline: none;
       color: $select-box-color;
       margin-right: 30px;
-
       -webkit-appearance: none;
       -moz-appearance: none;
       background-position: right 50%;
@@ -84,85 +85,11 @@ $select-box-color: #4a4a4a;
       justify-content: flex-end;
       cursor: pointer;
 
-      ul.pagination {
+      div.pagination {
         text-align: right;
         list-style: none;
         margin: 0;
         display: flex;
-
-        li {
-          @extend %no-select;
-          padding: 0 2px;
-          font-size: 11px;
-
-          a {
-            @include animate();
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            border-radius: 2px;
-            // border:1px solid red;
-            background-position: center center;
-            background-repeat: no-repeat;
-
-            &:hover {
-              color: darken($link-color, 10);
-              background-color: $link-hover-background;
-            }
-          }
-
-          &.active {
-            @include animate();
-
-            a {
-              background: $selected-background-color;
-            }
-          }
-
-          &.separator {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            display: none;
-          }
-
-          &.pages {
-            a {
-              font-size: 12px;
-              font-weight: normal;
-              font-stretch: normal;
-              font-style: normal;
-              line-height: normal;
-              letter-spacing: normal;
-            }
-          }
-
-          &.first {
-            a {
-              background-image: url("assets/icons/double-chevron-left.svg");
-            }
-          }
-
-          &.previous {
-            a {
-              background-image: url("assets/icons/large-chevron-right.svg");
-            }
-          }
-
-          &.next {
-            a {
-              background-image: url("assets/icons/large-chevron-left.svg");
-            }
-          }
-
-          &.last {
-            a {
-              background-image: url("assets/icons/double-chevron-right.svg");
-            }
-          }
-        }
       }
     }
   }

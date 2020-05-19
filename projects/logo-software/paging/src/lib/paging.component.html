@@ -25,24 +25,38 @@
     <span class="record-found-text">{{"record_found"}}</span>
   </div>
   <div class="page-numbers">
-    <ul *ngIf="pager.pages && pager.pages.length >= 2" class="pagination">
-      <li [ngClass]="{disabled:pager.pageNumber === 1}" class="first">
-        <a (click)="setPage(1)"></a>
-      </li>
-      <li class="separator">|</li>
-      <li [ngClass]="{disabled:pager.pageNumber === 1}" class="previous">
-        <a (click)="setPage(pager.pageNumber - 1)"></a>
-      </li>
-      <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.pageNumber === page}" class="pages">
-        <a (click)="setPage(page)">{{page}}</a>
-      </li>
-      <li [ngClass]="{disabled:pager.pageNumber === pager.totalPages}" class="next">
-        <a (click)="setPage(pager.pageNumber + 1)"></a>
-      </li>
-      <li class="separator">|</li>
-      <li [ngClass]="{disabled:pager.pageNumber === pager.totalPages}" class="last">
-        <a (click)="setPage(pager.totalPages)"></a>
-      </li>
-    </ul>
+    <div *ngIf="pager.pages && pager.pages.length >= 2" class="pagination">
+      <button
+        [ngClass]="{disabled:pager.pageNumber === 1}"
+        class="ghost logo-double-chevron-left"
+        (click)="setPage(1)"
+      >
+      </button>
+      <button
+        [ngClass]="{disabled:pager.pageNumber === 1}"
+        class="ghost logo-large-chevron-left"
+        (click)="setPage(pager.pageNumber - 1)"
+      >
+      </button>
+      <button
+        *ngFor="let page of pager.pages"
+        [ngClass]="{selected:pager.pageNumber === page}" class="ghost"
+        (click)="setPage(page)"
+      >
+        {{page}}
+      </button>
+      <button
+        [ngClass]="{disabled:pager.pageNumber === pager.totalPages}"
+        class="ghost logo-large-chevron-right"
+        (click)="setPage(pager.pageNumber + 1)"
+      >
+      </button>
+      <button
+        [ngClass]="{disabled:pager.pageNumber === pager.totalPages}"
+        class="ghost logo-double-chevron-left"
+        (click)="setPage(pager.totalPages)"
+      >
+      </button>
+    </div>
   </div>
 </div>
