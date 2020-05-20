@@ -512,6 +512,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
    */
   load() {
     (this.serverSide && !!this.service.url) ? this.serverSideLoading() : this.clientSideLoading();
+    this.changeDetectorRef.detectChanges();
   }
 
   ngOnDestroy() {
@@ -627,7 +628,6 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   }
 
   htmlSetRowPath(value, row, column) {
-    console.log(value);
     Util.setObjectPathValue(row, this.getColumnPath(row, column), value);
   }
 
