@@ -9,6 +9,7 @@
  */
 
 @import "~@logo-software/icons/src/lib/logo-icons.scss";
+@import "~@logo-software/theme/src/lib/style";
 
 $font-family: 'Nunito', sans-serif !important;
 $thead-background-color: #0090ff;
@@ -80,20 +81,19 @@ $expanded-background-color: #dddde8;
                 text-align: center;
               }
 
-              &.sort-asc {
+              &.logo-arrow-down {
                 &::before {
-                  content: "\f0d7";
-                  display: inline-block;
                   @include animate();
+                  height: size(7px);
+                  width: size(10px);
                 }
               }
 
-              &.sort-desc {
+              &.logo-arrow-up {
                 &::before {
-                  content: "\f0d7";
-                  display: inline-block;
-                  // TODO @include rotate(180deg);
-                  // TODO @include animate();
+                  @include animate();
+                  height: size(7px);
+                  width: size(10px);
                 }
               }
 
@@ -129,6 +129,10 @@ $expanded-background-color: #dddde8;
                 }
               }
 
+              &.checkbox {
+                text-align: center;
+              }
+
               &:last-child {
                 border: none;
               }
@@ -153,6 +157,10 @@ $expanded-background-color: #dddde8;
               height: 32px;
               padding: 0;
               vertical-align: middle;
+
+              &.checkbox {
+                text-align: center;
+              }
 
               &.index {
                 text-align: center;

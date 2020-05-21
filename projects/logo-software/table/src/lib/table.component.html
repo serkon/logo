@@ -14,7 +14,13 @@
   <button (click)="actionHtmlRemoveReference()" *ngIf="!!reference && refButtonStatus" class="logo-remove"></button>
   <button (click)="actionHtmlLoad()" *ngIf="!!refresh" class="logo-refresh"></button>
   <button (click)="create=!create" *ngIf="editable" [ngClass]="{'button-selected': create}" class="logo-add"></button>
-  <button (click)="editable = !editable" [ngClass]="{'button-selected': editable}" class="logo-edit"></button>
+  <button
+    (click)="editable = !editable"
+    *ngIf="editable"
+    [ngClass]="{'button-selected': editable}"
+    class="logo-edit"
+  >
+  </button>
   <button (click)="actionHtmlDeleteRow(selected)" *ngIf="delete" class="logo-bin"></button>
   <ng-container *ngFor="let action of actions">
     <button
@@ -42,6 +48,11 @@
     <thead>
     <tr>
       <th *ngIf="index" class="index"></th>
+      <th *ngIf="checkbox" class="checkbox">
+        <label>
+          <input type="checkbox" (click)="htmlMultiSelect($event)"/>
+        </label>
+      </th>
       <th
         (click)="htmlChangeSortingByColumn(column)"
         *ngFor="let column of columns"
@@ -62,6 +73,7 @@
     </tr>
     <tr *ngIf="!reference && hasFilter">
       <th *ngIf="index" class="index filter"></th>
+      <th *ngIf="checkbox" class="filter checkbox"></th>
       <th *ngFor="let column of columns" [hidden]="column.hidden ? column.hidden : false" class="filter">
         <label>
           <!-- (change)="filterAdd(column, $event.target)" @TODO also added to input, inputa eklenmişti sildim-->
@@ -93,6 +105,11 @@
           [ngClass]="{'selected':htmlIsInSelectedList(row), 'odd': isOdd, 'even': isEven}"
         >
           <td *ngIf="index" class="index">{{indexStart + i + 1}}</td>
+          <td *ngIf="checkbox" class="checkbox">
+            <label>
+              <input type="checkbox" [checked]="htmlIsInSelectedList(row)"/>
+            </label>
+          </td>
           <td
             *ngFor="let column of columns; let columnIndex = index"
             [hidden]="column.hidden"
@@ -167,7 +184,7 @@
     </ng-container>
     <!-- No Data Were Found -->
     <tr (isLastEmitter)="htmlRendered(null)" *ngIf="rows.length <= 0" [isLast]="true">
-      <td [colSpan]="columns.length + heads.length + (index ? 1 : 0)" class="no-data">
+      <td [colSpan]="htmlSetTdColspan(index)" class="no-data">
         {{"no_data_were_found"}}
       </td>
     </tr>
@@ -232,5 +249,7 @@
   *ngIf="hasPaging && paging.totalCount > 0"
   [pageNumber]="paging.pageNumber"
   [pageSize]="paging.pageSize"
-  [totalCount]="paging.totalCount">
+  [totalCount]="paging.totalCount"
+  [recordsFound]="recordsFound"
+>
 </logo-paging>

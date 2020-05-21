@@ -9,7 +9,6 @@
  */
 
 import {
-  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   ContentChild,
@@ -71,7 +70,6 @@ export enum CRUD {
   selector: 'logo-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChanges {
   public expanderStatus = [];
@@ -152,7 +150,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   /**
    * Make table columns sortable, default value is false
    */
-  @Input() public sort = false;
+  @Input() public sort = true;
   /**
    * It sets table height
    */
@@ -194,6 +192,15 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
    * Parent table row Index
    */
   @Input() parentIndex: number = null;
+
+  /**
+   * Record found text for translation
+   */
+  @Input() recordsFound = 'record(s) found';
+  /**
+   * If set true Checkbox will be visible
+   */
+  @Input() checkbox: boolean = true;
   /**
    * This method accepts parameters and return values for create HttpParams values. Using this data will be generated HttpParams.
    * ```JSON
@@ -512,7 +519,6 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
    */
   load() {
     (this.serverSide && !!this.service.url) ? this.serverSideLoading() : this.clientSideLoading();
-    this.changeDetectorRef.detectChanges();
   }
 
   ngOnDestroy() {
@@ -577,7 +583,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
     }
     if (this.sort) {
       if (column.variablePath === this.sorting.column || column.sortingKey === this.sorting.column) {
-        classes.push(`sort-${this.sorting.descending ? 'desc' : 'asc'}`);
+        classes.push(`logo-arrow-${this.sorting.descending ? 'down' : 'up'}`);
       } else if (column.sortable) {
         classes.push(`sort`);
       }
@@ -1196,5 +1202,12 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
         this.onCreateHttpError.emit(error);
       });
     }
+  }
+
+  htmlMultiSelect(event) {
+    this.rows.filter(row => {
+      const index = this.list.indexOf(row);
+      event.target.checked && index < 0 ? this.list.push(row) : !event.target.checked ? this.list.splice(index, 1) : null;
+    });
   }
 }

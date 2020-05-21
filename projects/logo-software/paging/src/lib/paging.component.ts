@@ -81,6 +81,10 @@ export class PagingComponent implements OnInit, OnChanges {
    */
   @Input() pageNumber = 1;
   /**
+   * Record found text
+   */
+  @Input() recordsFound = 'record(s) found';
+  /**
    * `pageNumberChange` event trigger, when page changed this will be emitted.
    */
   @Output() pageNumberChange: EventEmitter<Pager> = new EventEmitter<Pager>();
