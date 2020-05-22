@@ -27,6 +27,8 @@
     "e2e": "ng e2e",
     "docs": "gulp docs",
     "ins": "npm install @logo-software-${npm_config_lib}-*.*.tgz",
+    "icons": "npm run icons --prefix projects/logo-software/icons/",
+    "watch": "ng build @logo-software/${npm_config_lib} --prod --watch",
     "######################### Library": "######",
     "create-sample": "ng g m logo/${npm_config_lib}-sample --project=samples --routing && ng g c logo/${npm_config_lib}-showcase --project=samples --export=true --module --prefix=logo --lintFix=true --inlineTemplate=false --inlineStyle=false --style=scss",
     "create-library": "ng g library @logo-software/${npm_config_lib} --lintFix=true --prefix=logo",
