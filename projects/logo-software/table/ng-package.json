@@ -15,6 +15,7 @@
     "@logo-software/paging",
     "@logo-software/excel",
     "@logo-software/core",
-    "@logo-software/icons"
+    "@logo-software/icons",
+    "@logo-software/theme"
   ]
 }

@@ -1,6 +1,18 @@
 {
   "name": "@logo-software/table",
-  "version": "1.1.0",
+  "version": "1.1.2",
+  "peerDependencies": {
+    "@angular/common": "^7.0.0",
+    "@angular/core": "^7.0.0",
+    "@angular/forms": "^7.0.0"
+  },
+  "dependencies": {
+    "@logo-software/core": "~0.0.21",
+    "@logo-software/excel": "~1.0.4",
+    "@logo-software/paging": "~0.0.16",
+    "@logo-software/icons": "~1.0.2",
+    "@logo-software/theme": "~0.1.1"
+  },
   "description": "This module generates a table using the given data. The table can generate data using server-side Http requests or given direct data using the client-side feature.",
   "homepage": "http://developer.logo.com.tr",
   "author": {
@@ -32,17 +44,6 @@
     "multiselect"
   ],
   "license": "See license in LICENSE file",
-  "peerDependencies": {
-    "@angular/common": "^7.0.0",
-    "@angular/core": "^7.0.0",
-    "@angular/forms": "^7.0.0"
-  },
-  "dependencies": {
-    "@logo-software/core": "~0.0.21",
-    "@logo-software/excel": "~1.0.1",
-    "@logo-software/paging": "~0.0.11",
-    "@logo-software/icons": "~1.0.2"
-  },
   "scripts": {
     "ver:patch": "npm version patch",
     "ver:minor": "npm version minor",
