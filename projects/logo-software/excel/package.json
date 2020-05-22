@@ -1,6 +1,6 @@
 {
   "name": "@logo-software/excel",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Any given data or any service that returned data can be exportable with this component to Excel.",
   "homepage": "http://developer.logo.com.tr",
   "author": {
