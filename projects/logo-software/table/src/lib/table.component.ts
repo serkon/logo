@@ -572,8 +572,8 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
     return classes;
   }
 
-  htmlSetTdColspan(index) {
-    return this.columns.length + this.heads.length + (index ? 1 : 0);
+  htmlSetTdColspan() {
+    return this.columns.length + this.heads.length + (this.index ? 1 : 0) + (this.checkbox ? 1 : 0);
   }
 
   htmlSetTheadClass(column: TableColumn): string | boolean {
