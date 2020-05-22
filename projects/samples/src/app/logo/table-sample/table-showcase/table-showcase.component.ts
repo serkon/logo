@@ -16,8 +16,8 @@ export class TableShowcaseComponent {
         table.load();
       },
       display: ``,
-      className: 'person',
-      classFunction: (table) => table.serverSide ? 'button-selected' : 'logo-person',
+      className: 'logo-person',
+      classFunction: (table) => table.serverSide ? 'button-selected' : '',
       disable: false,
     },
   ];
@@ -27,6 +27,7 @@ export class TableShowcaseComponent {
     columns: [
       {
         display: 'ID', variablePath: 'id', filterType: FilterType.TEXT, hidden: false, editable: true,
+        expand: true,
       },
       {
         display: 'var-path-1',
@@ -43,7 +44,6 @@ export class TableShowcaseComponent {
         format: '1.1-3',
         sortable: true,
         sortingKey: 'because',
-        expand: true,
       },
       {
         display: 'zone.name', variablePath: 'zone.name', filterType: FilterType.TEXT, sortable: true,

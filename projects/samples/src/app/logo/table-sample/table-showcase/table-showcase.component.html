@@ -22,7 +22,7 @@
   [height]="'100%'"
   [index]="true"
   [create]="true"
-  [editable]="false"
+  [editable]="true"
   [oDataIdentityField]="'id'"
   [oDataStatus]="false"
   [paas]="false"
@@ -58,7 +58,7 @@
     let-createHead="createHead" let-i="index" let-last="isLast" let-odd="isOdd" let-row="row"
   >
     <td>
-      <button>{{createHead ? 'great' : row?.zone?.name || 'No Data'}}</button>
+      <button class="small warning">{{createHead ? 'great' : row?.zone?.name || 'No Data'}}</button>
     </td>
     <td>
       <ng-container *ngIf="last; else b" [ngTemplateOutlet]="a"></ng-container>
