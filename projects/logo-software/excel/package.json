@@ -29,7 +29,7 @@
   "dependencies": {
     "file-saver": "^2.0.2",
     "xmlbuilder": "^12.0.1",
-    "@logo-software/icons": "~0.0.3"
+    "@logo-software/icons": "~1.0.2"
   },
   "devDependencies": {
     "@types/file-saver": "^2.0.1"
