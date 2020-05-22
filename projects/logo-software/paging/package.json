@@ -1,6 +1,14 @@
 {
   "name": "@logo-software/paging",
-  "version": "0.0.15",
+  "version": "0.0.16",
+  "peerDependencies": {
+    "@angular/common": "^7.0.0",
+    "@angular/core": "^7.0.0"
+  },
+  "dependencies": {
+    "@logo-software/icons": "~1.0.2",
+    "@logo-software/theme": "~0.1.1"
+  },
   "description": "Paging module uses when paging properties required. The Table Module is can be given as a using sample. Just import it to @NgModule' import section.",
   "homepage": "http://developer.logo.com.tr",
   "author": {
@@ -32,12 +40,6 @@
     "multiselect"
   ],
   "license": "See license in LICENSE file",
-  "peerDependencies": {
-    "@angular/common": "^7.0.0",
-    "@angular/core": "^7.0.0",
-    "@logo-software/icons": "~1.0.2",
-    "@logo-software/theme": "~0.1.1"
-  },
   "scripts": {
     "ver:patch": "npm version patch",
     "ver:minor": "npm version minor",
