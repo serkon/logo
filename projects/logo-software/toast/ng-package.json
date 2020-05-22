@@ -6,5 +6,9 @@
   },
   "assets": [
     "src/assets"
+  ],
+  "whitelistedNonPeerDependencies": [
+    "@logo-software/icons",
+    "@logo-software/theme"
   ]
 }
