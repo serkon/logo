@@ -41,7 +41,7 @@
     "@logo-software/core": "~0.0.21",
     "@logo-software/excel": "~1.0.1",
     "@logo-software/paging": "~0.0.11",
-    "@logo-software/icons": "~1.0.1"
+    "@logo-software/icons": "~1.0.2"
   },
   "scripts": {
     "ver:patch": "npm version patch",
