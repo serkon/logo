@@ -8,7 +8,11 @@
  * Any reproduction of this material must contain this notice.
  */
 
-@import "theme/color-definations";
+/** #### color operations */
+@import "definations";
 @import "theme/color-maps";
 @import "theme/color-statuses";
 @import "theme/color-classes";
+
+/** #### padding operations */
+@import "theme/sizes";

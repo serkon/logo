@@ -1,0 +1,18 @@
+@each $item, $size in $sizes {
+  .#{$item} {
+    font-size: size(map_get($size, font-size));
+    padding: 0 size(nth(map_get($size, padding), 2));
+    position: relative;
+    min-width: size(map_get($size, icon-size));
+    height: size(map_get($size, icon-size));
+
+    &::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      min-width: size(map_get($size, icon-size));
+      width: size(map_get($size, icon-size));
+      height: size(map_get($size, icon-size));
+    }
+  }
+}

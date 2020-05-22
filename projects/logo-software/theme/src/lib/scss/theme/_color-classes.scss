@@ -1,7 +1,6 @@
 $form-status: primary secondary success info warning danger light dark;
 $form-state: hover active focus;
 $form-type: fill outline ghost;
-$form-size: small medium large;
 
 @each $status in $form-status {
   .#{$status} {
@@ -29,7 +28,7 @@ $form-size: small medium large;
             color: if($status == secondary or $status == light, $dark, if($status == dark, $white, color($status)));
             @each $state in $form-state {
               &:#{$state} {
-                color: $dark;
+                color: if($status == secondary or $status == light, $dark, if($status == dark, $white, color($status)));
                 background-color: color(#{$type}-#{$state});
               }
             }

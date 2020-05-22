@@ -97,3 +97,9 @@ $warning-color: "yellow";
 $danger-color: "red";
 $light-color: "default";
 $dark-color: "dark";
+// ################ Define form sizes
+$sizes: (
+  small: (font-size: 12px, padding: 8px 11px, icon-size: 24px),
+  medium: (font-size: 12px, padding: 8px 12px, icon-size: 32px),
+  large: (font-size: 14px, padding: 15px 25px, icon-size: 48px)
+);
