@@ -17,8 +17,6 @@ fs.readdirSync(ICONS_DIRECTORY).forEach(file => {
     background-position: center;
     display: inline-block;
     content: '';
-    width: size(32px);
-    height: size(32px);
   }
 }
   `;
@@ -59,8 +57,14 @@ const createSCSSFile = (input, output) => {
 @import "~@logo-software/theme/src/lib/style";
 
 // IMPORTANT: THIS SCSS FILE IS AUTO GENERATED! DO NOT MANUALLY EDIT OR CHECKIN!
-  ${input}`,
-    {encoding: 'utf-8'},
+  ${input}
+.outline {
+ &::before {
+  margin-left: size(-1px);
+  margin-top: size(-1px);
+ }
+}
+`, {encoding: 'utf-8'},
   );
 }
 

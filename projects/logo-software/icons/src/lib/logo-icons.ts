@@ -1,3 +1,4 @@
+
 /**
  * @license
  * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
@@ -76,5 +77,5 @@ export const LOGO_ICONS = [
   'tiny-chevron-down',
   'tiny-chevron-left',
   'tiny-chevron-right',
-  'warning',
+  'warning'
 ];
