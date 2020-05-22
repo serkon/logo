@@ -11,6 +11,7 @@
   "whitelistedNonPeerDependencies": [
     "file-saver",
     "xmlbuilder",
-    "@logo-software/icons"
+    "@logo-software/icons",
+    "@logo-software/theme"
   ]
 }
