@@ -1,404 +1,817 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
+@import "~@logo-software/theme/src/lib/style";
+
 // IMPORTANT: THIS SCSS FILE IS AUTO GENERATED! DO NOT MANUALLY EDIT OR CHECKIN!
-  
+
 .logo-add-new {
-  background-image: url("assets/icons/add-new.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/add-new.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-add {
-  background-image: url("assets/icons/add.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/add.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-arrow-down {
-  background-image: url("assets/icons/arrow-down.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/arrow-down.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-arrow-left {
-  background-image: url("assets/icons/arrow-left.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/arrow-left.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-arrow-right {
-  background-image: url("assets/icons/arrow-right.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/arrow-right.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-arrow-up {
-  background-image: url("assets/icons/arrow-up.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/arrow-up.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-ayna-doc {
-  background-image: url("assets/icons/ayna-doc.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/ayna-doc.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-ayna-folder {
-  background-image: url("assets/icons/ayna-folder.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/ayna-folder.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-ayna-upload {
-  background-image: url("assets/icons/ayna-upload.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/ayna-upload.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-bin {
-  background-image: url("assets/icons/bin.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/bin.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-browse {
-  background-image: url("assets/icons/browse.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/browse.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-chart {
-  background-image: url("assets/icons/chart.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/chart.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-copy {
-  background-image: url("assets/icons/copy.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/copy.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-date {
-  background-image: url("assets/icons/date.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/date.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-doc {
-  background-image: url("assets/icons/doc.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/doc.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-double-chevron-down {
-  background-image: url("assets/icons/double-chevron-down.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/double-chevron-down.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-double-chevron-left {
-  background-image: url("assets/icons/double-chevron-left.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/double-chevron-left.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-double-chevron-right {
-  background-image: url("assets/icons/double-chevron-right.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/double-chevron-right.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-double-chevron-up {
-  background-image: url("assets/icons/double-chevron-up.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/double-chevron-up.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-drag {
-  background-image: url("assets/icons/drag.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/drag.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-edit-pen {
-  background-image: url("assets/icons/edit-pen.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/edit-pen.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-edit {
-  background-image: url("assets/icons/edit.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/edit.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-email {
-  background-image: url("assets/icons/email.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/email.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-enveloppe-open {
-  background-image: url("assets/icons/enveloppe-open.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/enveloppe-open.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-eye {
-  background-image: url("assets/icons/eye.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/eye.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-eyedropper {
-  background-image: url("assets/icons/eyedropper.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/eyedropper.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-file {
-  background-image: url("assets/icons/file.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/file.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-filter {
-  background-image: url("assets/icons/filter.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/filter.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-ghost {
-  background-image: url("assets/icons/ghost.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/ghost.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-group {
-  background-image: url("assets/icons/group.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/group.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-hamburger-fill {
-  background-image: url("assets/icons/hamburger-fill.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/hamburger-fill.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-hamburger {
-  background-image: url("assets/icons/hamburger.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/hamburger.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-home-fill {
-  background-image: url("assets/icons/home-fill.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/home-fill.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-large-0 {
-  background-image: url("assets/icons/large-0.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/large-0.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-large-chevron-down {
-  background-image: url("assets/icons/large-chevron-down.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/large-chevron-down.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-large-chevron-left {
-  background-image: url("assets/icons/large-chevron-left.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/large-chevron-left.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-large-chevron-right {
-  background-image: url("assets/icons/large-chevron-right.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/large-chevron-right.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-large-chevron-up {
-  background-image: url("assets/icons/large-chevron-up.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/large-chevron-up.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-large-ghost {
-  background-image: url("assets/icons/large-ghost.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/large-ghost.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-large {
-  background-image: url("assets/icons/large.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/large.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-link {
-  background-image: url("assets/icons/link.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/link.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-minus {
-  background-image: url("assets/icons/minus.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/minus.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-new {
-  background-image: url("assets/icons/new.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/new.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-org {
-  background-image: url("assets/icons/org.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/org.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-paas-checked {
-  background-image: url("assets/icons/paas-checked.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/paas-checked.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-person {
-  background-image: url("assets/icons/person.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/person.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-print {
-  background-image: url("assets/icons/print.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/print.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-refresh {
-  background-image: url("assets/icons/refresh.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/refresh.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-remove {
-  background-image: url("assets/icons/remove.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/remove.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-right-one {
-  background-image: url("assets/icons/right-one.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/right-one.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-right {
-  background-image: url("assets/icons/right.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/right.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-search {
-  background-image: url("assets/icons/search.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/search.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-selection {
-  background-image: url("assets/icons/selection.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/selection.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-share {
-  background-image: url("assets/icons/share.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/share.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-small-check {
-  background-image: url("assets/icons/small-check.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/small-check.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-small-chevron-down {
-  background-image: url("assets/icons/small-chevron-down.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/small-chevron-down.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-small-chevron-left {
-  background-image: url("assets/icons/small-chevron-left.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/small-chevron-left.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-small-chevron-up {
-  background-image: url("assets/icons/small-chevron-up.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/small-chevron-up.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-small-cross {
-  background-image: url("assets/icons/small-cross.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/small-cross.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-star {
-  background-image: url("assets/icons/star.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/star.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-tab-settings {
-  background-image: url("assets/icons/tab-settings.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/tab-settings.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-table-refresh {
-  background-image: url("assets/icons/table-refresh.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/table-refresh.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-three-dots-ver {
-  background-image: url("assets/icons/three-dots-ver.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/three-dots-ver.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-tiny-chevron-down {
-  background-image: url("assets/icons/tiny-chevron-down.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/tiny-chevron-down.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-tiny-chevron-left {
-  background-image: url("assets/icons/tiny-chevron-left.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/tiny-chevron-left.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-tiny-chevron-right {
-  background-image: url("assets/icons/tiny-chevron-right.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/tiny-chevron-right.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  
+
 .logo-warning {
-  background-image: url("assets/icons/warning.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before {
+    background-image: url("assets/icons/warning.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
-  

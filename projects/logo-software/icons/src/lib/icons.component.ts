@@ -9,7 +9,7 @@ import { LOGO_ICONS } from './logo-icons';
 export class IconsComponent implements OnInit {
 
   constructor() {
-    console.log('icons is : ', LOGO_ICONS);
+    console.log('Icons is : ', LOGO_ICONS);
   }
 
   ngOnInit(): void {

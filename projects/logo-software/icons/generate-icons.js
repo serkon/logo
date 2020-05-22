@@ -11,16 +11,33 @@ fs.readdirSync(ICONS_DIRECTORY).forEach(file => {
   list.push(name);
   scss = `${scss}
 .logo-${name} {
-  background-image: url("assets/icons/${name}.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  &::before{
+    background-image: url("assets/icons/${name}.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    content: '';
+    width: size(32px);
+    height: size(32px);
+  }
 }
   `;
 });
 
 const createTSFile = (input, output) => {
   writeFileSync(output,
-    `// IMPORTANT: THIS TS FILE IS AUTO GENERATED! DO NOT MANUALLY EDIT OR CHECKIN!
+    `
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
+// IMPORTANT: THIS TS FILE IS AUTO GENERATED! DO NOT MANUALLY EDIT OR CHECKIN!
 export const LOGO_ICONS = ${JSON.stringify(input, null, 2).replace(/\"/g, "'")};
 `,
     {encoding: 'utf-8'},
@@ -29,7 +46,19 @@ export const LOGO_ICONS = ${JSON.stringify(input, null, 2).replace(/\"/g, "'")};
 
 const createSCSSFile = (input, output) => {
   writeFileSync(output,
-    `// IMPORTANT: THIS SCSS FILE IS AUTO GENERATED! DO NOT MANUALLY EDIT OR CHECKIN!
+    `/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
+@import "~@logo-software/theme/src/lib/style";
+
+// IMPORTANT: THIS SCSS FILE IS AUTO GENERATED! DO NOT MANUALLY EDIT OR CHECKIN!
   ${input}`,
     {encoding: 'utf-8'},
   );
