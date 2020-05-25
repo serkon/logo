@@ -11,11 +11,17 @@
 -->
 <div class="table-actions">
   <button (click)="actionHtmlAddReference()" *ngIf="!!reference && refButtonStatus" class="outline logo-add"></button>
-  <button (click)="actionHtmlRemoveReference()" *ngIf="!!reference && refButtonStatus"
-          class="outline logo-remove"></button>
+  <button
+    (click)="actionHtmlRemoveReference()" *ngIf="!!reference && refButtonStatus"
+    class="outline logo-remove"
+  >
+  </button>
   <button (click)="actionHtmlLoad()" *ngIf="!!refresh" class="outline logo-refresh"></button>
-  <button (click)="create=!create" *ngIf="editable" [ngClass]="{'button-selected': create}"
-          class="outline logo-add"></button>
+  <button
+    (click)="create=!create" *ngIf="editable" [ngClass]="{'button-selected': create}"
+    class="outline logo-add"
+  >
+  </button>
   <button
     (click)="editable = !editable"
     *ngIf="editable"
@@ -214,7 +220,8 @@
               placeholder="add new"
             />
             <button (click)="htmlUpdateStart()" class="light small outline logo-edit-pen edit-pen"></button>
-            <button (click)="htmlCreateCanceled(column)" class="small light outline logo-small-cross edit-cancel"></button>
+            <button (click)="htmlCreateCanceled(column)"
+                    class="small light outline logo-small-cross edit-cancel"></button>
             <button
               (click)="htmlCreateAccepted({column: column, row: creating, showingCurrently: this.rows, showingOriginal: this.showing, fullOriginal: this.original, index: rows.length + 1, parentRow: parentRow, parentIndex: parentIndex})"
               class="small success logo-small-check edit-accept"

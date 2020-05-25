@@ -39,6 +39,7 @@ import { TableAction } from './types/table.action';
 import { TableSorting } from './types/table.sorting';
 import { OrderPipe, Util } from '@logo-software/core';
 import { TablePaging } from './types/table.paging';
+import { forkJoin } from 'rxjs';
 
 export type VariablePathResolver = (row: any) => string;
 export type VariableFunctionResolver = (row: any) => any;
@@ -277,7 +278,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
    */
   @Output() public onCreateAccepted: EventEmitter<TableUpdateDataType> = new EventEmitter<TableUpdateDataType>();
   /**
-   * Triggered when clicked delete table action button. It send to selected row as a parameter.
+   * Triggered when clicked delete table action button. It send to selected row(s) as a parameter.
    */
   @Output() public onDeleteClicked: EventEmitter<any> = new EventEmitter<any>();
   /**
@@ -972,7 +973,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
 
   actionHtmlDeleteRow(row: Object) {
     this.oDataHandler(CRUD.DELETE, row);
-    this.onDeleteClicked.emit(row);
+    this.onDeleteClicked.emit(this.multiSelect ? this.list : row);
   }
 
   htmlDragOver($event: Event) {
@@ -1162,11 +1163,25 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   }
 
   oDataDelete(row: any) {
-    if (row && row[this.oDataIdentityField]) {
-      this.api.delete(`${this.service.url}(${row[this.oDataIdentityField]})`, {
-        params: this.generateHttpParams(),
-        headers: this.generateHttpHeaders(),
-      }).subscribe((response) => {
+    let promise = null;
+    if (this.multiSelect) {
+      const requests = this.list.map((item: any) => {
+        return this.api.delete(`${this.service.url}(${item[this.oDataIdentityField]})`, {
+          params: this.generateHttpParams(),
+          headers: this.generateHttpHeaders(),
+        });
+      });
+      promise = forkJoin(requests);
+    } else {
+      if (row && row[this.oDataIdentityField]) {
+        promise = this.api.delete(`${this.service.url}(${row[this.oDataIdentityField]})`, {
+          params: this.generateHttpParams(),
+          headers: this.generateHttpHeaders(),
+        });
+      }
+    }
+    if (promise) {
+      promise.subscribe((response) => {
         this.onDeleteHttpSucceed.emit(response);
         this.load();
       }, (error: HttpErrorResponse) => {
