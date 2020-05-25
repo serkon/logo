@@ -58,11 +58,9 @@ const createSCSSFile = (input, output) => {
 
 // IMPORTANT: THIS SCSS FILE IS AUTO GENERATED! DO NOT MANUALLY EDIT OR CHECKIN!
   ${input}
-.outline {
- &::before {
+[class*="logo-"]::before {
   margin-left: size(-1px);
   margin-top: size(-1px);
- }
 }
 `, {encoding: 'utf-8'},
   );

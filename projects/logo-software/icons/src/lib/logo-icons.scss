@@ -682,9 +682,7 @@
   }
 }
   
-.outline {
- &::before {
+[class*="logo-"]::before {
   margin-left: size(-1px);
   margin-top: size(-1px);
- }
 }
