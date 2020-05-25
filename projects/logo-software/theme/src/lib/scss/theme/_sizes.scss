@@ -3,7 +3,7 @@
     font-size: size(map_get($size, font-size));
     padding: 0 size(nth(map_get($size, padding), 2));
     position: relative;
-    min-width: size(map_get($size, icon-size));
+    min-width: size(map_get($size, icon-size)) - size(nth(map_get($size, padding), 2) * 2);
     height: size(map_get($size, icon-size));
 
     &::before {

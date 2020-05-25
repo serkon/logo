@@ -83,13 +83,13 @@ $dark-colors: colorStatusGenerator("dark", $dark-color);
 
 // Merge this colors
 $colors: map-collect(
-    $colors,
-    $primary-colors,
-    $secondary-colors,
-    $success-colors,
-    $info-colors,
-    $warning-colors,
-    $danger-colors,
-    $light-colors,
-    $dark-colors
+  $colors,
+  $primary-colors,
+  $secondary-colors,
+  $success-colors,
+  $info-colors,
+  $warning-colors,
+  $danger-colors,
+  $light-colors,
+  $dark-colors
 );
