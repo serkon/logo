@@ -50,8 +50,6 @@
         right: size(10px);
         top: size(10px);
         z-index: 1;
-        width: size(22px);
-        height: size(22px);
         line-height: size(30px);
         text-align: center;
         background-color: rgba($black, 0.1);
@@ -68,23 +66,23 @@
         z-index: -1;
       }
 
-      &.initial {
+      &.toast-initial {
         width: auto;
       }
 
-      &.small {
+      &.toast-small {
         width: 300px;
       }
 
-      &.medium {
+      &.toast-medium {
         width: 400px;
       }
 
-      &.large {
+      &.toast-large {
         width: 500px;
       }
 
-      &.big {
+      &.toast-big {
         width: 700px;
       }
 
