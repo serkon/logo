@@ -8,6 +8,8 @@ import { LanguageService } from '@logo-software/language';
 })
 export class LanguageShowcaseComponent {
 
+  public languages = ['tr', 'en', 'ro', 'ru'];
+
   constructor(private language: LanguageService) {
     this.addLanguage();
     this.language.onLoadComplete.subscribe(() => {
