@@ -8,19 +8,16 @@
  * Any reproduction of this material must contain this notice.
  */
 
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'logo-theme',
   templateUrl: './theme.component.html',
   styleUrls: ['./theme.component.scss'],
 })
-export class ThemeComponent implements OnInit {
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
-
+export class ThemeComponent {
+  statuses = ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark', 'gray'];
+  states = ['hover', 'active', 'focus'];
+  types = ['fill', 'outline', 'ghost'];
+  shades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 }

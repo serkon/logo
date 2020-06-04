@@ -9,10 +9,11 @@
  */
 
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ThemeComponent } from './theme.component';
 
 @NgModule({
-  imports: [],
+  imports: [CommonModule],
   declarations: [ThemeComponent],
   exports: [ThemeComponent],
 })
