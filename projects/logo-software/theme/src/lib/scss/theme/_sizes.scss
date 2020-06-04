@@ -7,12 +7,12 @@
     height: size(map_get($size, icon-size));
 
     &::before {
-      position: absolute;
-      left: 0;
-      top: 0;
-      min-width: size(map_get($size, icon-size));
-      width: size(map_get($size, icon-size));
-      height: size(map_get($size, icon-size));
+      // position: absolute;
+      // left: 0;
+      // top: 0;
+      // min-width: size(map_get($size, icon-size));
+      // width: size(map_get($size, icon-size));
+      // height: size(map_get($size, icon-size));
     }
   }
 }

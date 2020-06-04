@@ -10,18 +10,15 @@
 
 // ########################### Font Setting
 $font-icon: 'logo-font-icon';
-$font-family: 'Nunito Regular';
+$font-family: 'Nunito';
 $font-default-size: 16px;
 $font-current-size: 16px;
-
-// ########################### Path Setting
+// ########################### Path Setting #############################
 $font-path: "~@logo-software/theme/src/lib/assets/fonts";
 $path-image: '$imagesPath';
-
 // ########################### Vertical Height Setting
 $vertical-measure: 1.375em; // 22px
-
-// ########################### breakpoints
+// ########################### breakpoints ##############################
 $grid-breakpoints: (
   xs: 0,
   sm: 576px,
@@ -29,7 +26,55 @@ $grid-breakpoints: (
   lg: 992px,
   xl: 1200px
 );
+// ########################### Colors Setting ###########################
+$colors: ();
+$list-colors: (
+  primary: #0090ff, // #7500ff,
+  secondary: #edf1f7,
+  light: #ffffff,
+  dark: #838492,
+  gray: #cccccc,
+  info: #0090ff,
+  danger: #ff3e51,
+  warning: #f8aa1c,
+  success: #01cc78,
+);
+// Default shade is 500 select one of the list from 50, 100, 200, 300, 400, 500, 600, 700, 800, 900
+$hover-shade: 600;
+$active-shade: 700;
+$focus-shade: 800;
+// shade ratio map
+$shadesMap: (
+  50: 90%,
+  100: 80%,
+  200: 60%,
+  300: 40%,
+  400: 20%,
+  500: 0%,
+  600: 5%,
+  700: 10%,
+  800: 20%,
+  900: 30%,
+);
+// Ghost transparency
+$ghost: 0;
+$ghost-hover: 0.15;
+$ghost-active: 0.2;
+$ghost-focus: 0.32;
+// Disable transparency
+$disabled: 50%;
 
+// ########################### Define form sizes ############################
+$sizes: (
+  small: (font-size: 12px, padding: 8px 11px, icon-size: 24px),
+  medium: (font-size: 12px, padding: 8px 15px, icon-size: 32px),
+  large: (font-size: 14px, padding: 15px 23px, icon-size: 48px)
+);
+
+// ########################### Border radius size ###########################
+$border-radius: 2px;
+
+// ########################### Body #########################################
 body {
   font-family: $font-family !important;
 }

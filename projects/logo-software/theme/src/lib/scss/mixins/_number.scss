@@ -63,8 +63,6 @@
   @return $value * map-get($units, $unit);
 }
 
-@debug to-number('1.5');
-
 .a {
   content: to-length(1.5, px);
 }

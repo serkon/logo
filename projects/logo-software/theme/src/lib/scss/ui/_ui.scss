@@ -1,0 +1,38 @@
+button {
+  cursor: pointer;
+  border: none;
+  box-shadow: none;
+  line-height: normal;
+  font-family: $font-family;
+  border-radius: size($border-radius);
+  @extend .medium;
+  @extend .secondary;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+input {
+  border-radius: size($border-radius);
+  @extend .medium;
+  @extend .secondary;
+  @extend .outline;
+  background-color: var(--secondary-200) !important;
+  color: var(--dark-900) !important;
+  @include install-placeholder(var(--secondary-800));
+}
+
+.icon-left {
+  padding-left: size(48px);
+  background-position: size(12px) center;
+}
+
+.icon-right {
+  padding-right: size(48px);
+  background-position: right size(12px) center;
+}

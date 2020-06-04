@@ -1,19 +1,28 @@
-$form-status: primary secondary success info warning danger light dark;
+// $form-status: primary secondary success info warning danger light dark gray;
 $form-state: hover active focus;
 $form-type: fill outline ghost;
+$dark-ratio: 700;
 
-@each $status in $form-status {
+@each $status, $hex-value in $list-colors {
+  @debug $status;
   .#{$status} {
+    @include animate();
     @each $type in $form-type {
       @if $type != outline and $type != ghost {
         background-color: color($status);
-        color: if($status == secondary or $status == light, $dark-grey, $white);
+        filter: invert(.5) sepia(1) saturate(5) hue-rotate(175deg);
+        color: if($status == light, color(secondary-#{$dark-ratio}), if($status == secondary, color(secondary-900), color(white)));
         &.shadow {
           box-shadow: 0 size(7px) size(10px) size(-4px) color($status);
         }
         @each $state in $form-state {
-          &:#{$state} {
+          &:#{$state}, &-#{$state} {
             background-color: color(#{$status}-#{$state});
+            color: color(white);
+            outline: none;
+            @if $state == focus {
+              @include nb-outline(size(8px), rgba(color(gray-600), color(ghost-hover)));
+            }
           }
         }
         &.selected {
@@ -24,12 +33,14 @@ $form-type: fill outline ghost;
           &.outline {
             box-sizing: border-box;
             background-color: transparent;
-            border: size(1px) solid $middle-grey;
-            color: if($status == secondary or $status == light, $dark, if($status == dark, $white, color($status)));
+            // border: size(1px) solid color(dark-200);
+            border: size(1px) solid color(#{$status}-#{$dark-ratio});
+            color: if($status == secondary or $status == light or $status == gray, color(dark-#{$dark-ratio}), if($status == dark, color(white), color(#{$status})));
             @each $state in $form-state {
-              &:#{$state} {
-                color: if($status == secondary or $status == light, $dark, if($status == dark, $white, color($status)));
-                background-color: color(#{$type}-#{$state});
+              &:#{$state}, &-#{$state} {
+                color: if($status == secondary or $status == light or $status == gray, color(dark-#{$dark-ratio}), if($status == dark, color(white), color($status)));
+                // background-color: color(#{$type}-#{$state});
+                background-color: rgba(color(#{$status}-#{$state}), color(ghost-#{$state}));
               }
             }
 
@@ -41,16 +52,15 @@ $form-type: fill outline ghost;
         @if $type == ghost {
           &.ghost {
             background-color: transparent;
-            color: if($status == secondary or $status == light, $dark, if($status == dark, $white, color($status)));
+            color: if($status == secondary or $status == light or $status == gray, color(dark-#{$dark-ratio}), if($status == dark, color(white), color($status)));
             @each $state in $form-state {
-              &:#{$state} {
-                $alpha: to-number(color(#{$type}-#{$state}));
-                background-color: rgba($black, color(#{$type}-#{$state}));
+              &:#{$state}, &-#{$state} {
+                background-color: rgba(color(black), color(#{$type}-#{$state}));
               }
             }
 
             &.selected {
-              background-color: rgba($black, color(#{$type}-focus));
+              background-color: rgba(color(black), color(#{$type}-focus));
             }
           }
         }
@@ -63,4 +73,8 @@ $form-type: fill outline ghost;
   }
 }
 
-
+:root {
+  @each $status, $hex-value in $colors {
+    --#{$status}: #{$hex-value};
+  }
+}

@@ -1,0 +1,94 @@
+/**
+Make Tint Color
+ */
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+/**
+Make Shade Color
+ */
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+/**
+Get color from map
+ */
+@function color($color) {
+  @return map-get($colors, $color);
+}
+
+/**
+Color status generator
+ */
+@function CHAF($name) {
+  $map: ();
+  $map: map-merge($map, (
+    "#{$name}-hover": color(#{$name}-#{$hover-shade}),
+    "#{$name}-active": color(#{$name}-#{$active-shade}),
+    "#{$name}-focus": color(#{$name}-#{$focus-shade})
+  ));
+  @return $map;
+}
+
+/**
+Merge color lists
+ */
+@function map-collect($maps...) {
+  $collection: ();
+  @each $map in $maps {
+    $collection: map-merge($collection, $map);
+  }
+  @return $collection;
+}
+
+@function shadeGenerator($color-name, $hex) {
+  $map: (
+    "#{$color-name}": $hex
+  );
+  @each $name, $value in $shadesMap {
+    $map: map-merge($map, (
+      if($name >= 500, ("#{$color-name}-#{$name}": shade($hex, $value)), ("#{$color-name}-#{$name}": tint($hex, $value)))
+    ));
+  }
+  @return $map;
+}
+
+/**
+Color generate
+ */
+@each $color-name, $hex-value in $list-colors {
+  $colors: map-merge($colors, shadeGenerator($color-name, $hex-value));
+  $colors: map-merge($colors, CHAF($color-name));
+  @each $name, $ratio in $shadesMap {
+    .#{$color-name}-#{$name} {
+      background-color: if($name >= 500, shade($hex-value, $ratio), tint($hex-value, $ratio)) !important;
+    }
+  }
+}
+
+$outline: (
+  outline: transparent,
+  outline-hover: color(light-hover),
+  outline-active: color(light-active),
+  outline-focus: color(light-focus)
+);
+
+$ghost: (
+  ghost: $ghost,
+  ghost-hover: $ghost-hover,
+  ghost-active: $ghost-active,
+  ghost-focus: $ghost-focus
+);
+
+$gray: (
+  white: #ffffff,
+  light-grey: color(gray-300),
+  middle-grey: color(gray-400),
+  grey: color(gray-500),
+  dark-grey: color(gray-600),
+  black: #000000
+);
+
+$colors: map-collect($colors, $outline, $ghost, $gray);
