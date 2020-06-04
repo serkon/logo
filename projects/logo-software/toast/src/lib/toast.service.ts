@@ -10,38 +10,54 @@
 
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { MessageTypes, Toast } from './toast';
+import { Toast, ToastMessageTypes } from './toast';
 
 /**
- * Toast Service
- * @property {Boolean} [desktop='false'] - This property for display toast popup as small font size
- * @property {String} [width="large"] - There are four type width: 'small' | 'medium' | 'large' | 'big' you can set one.
- * @property {Boolean} [closeFocus=true] - When toast popup open will be focused to close button if it set to true.
+ * Toast Service used for create Toast Message. A toast is a lightweight, ephemeral notice from an application in direct response to a user's action.
  *
- * @example
- * // set some options if want to change default options:
- * this.notificationService.justSound = true;
- * this.notificationService.width = 'medium';
- * this.notificationService.desktop = false;
+ * __Usage Example__
  *
- * let notificationService = new ToastService();
- * notificationService.show({message: '', title: ''});
- *
- * // it can be also define some properties using options method at once
- * this.notificationService.options({justSound: true, width: 'medium', desktop: true});
- * this.notificationService.status(404);
+ * <sub>any.component.ts</sub>
+ * ```typescript
+ * @Component({
+ *   selector: 'logo-toast-sample',
+ *   templateUrl: './toast-showcase.component.html',
+ *   styleUrls: ['./toast-showcase.component.scss'],
+ * })
+ *  export class ToastShowcaseComponent {
+ *   constructor(private toastService: ToastService) {
+ *      this.toastService.error('message content goes here'); // error message
+ *      this.toastService.warning('message content goes here'); // warning message
+ *      this.toastService.information('message content goes here'); // info message
+ *      this.toastService.success('message content goes here'); // success message
+ *   }
+ * }
+ * ```
  */
 @Injectable()
 export class ToastService {
   public watch: Subject<Toast> = new Subject<Toast>();
   public soundType: string;
+  /**
+   * When closeAction function given, this method will be triggered before the close button clicked.
+   */
   public closeAction: null | Function = null;
-  public closeFocus = false;
+  /**
+   * Close focus value is true. It will focus when toast message appears.
+   */
+  public closeFocus = true;
   public autoCloseTimeout = 3000; // TODO change autoclose
   public soundCompleteWatch = new Subject();
   public toasts: Toast[] = [];
+  /**
+   * Sound enable is false. If set true default sound will be played.
+   */
   public soundEnable = false;
 
+  /**
+   * This will shows toast defined Toast property.
+   * @param item
+   */
   show(item: Toast) {
     const toast = new Toast(item);
     this.toasts.push(toast);
@@ -51,28 +67,47 @@ export class ToastService {
     }
   }
 
+  /**
+   * This shows error toast message
+   * @param message
+   * @param options
+   */
   public error(message: string, options?: Toast) {
-    this.show({...{message: message, type: MessageTypes.ERROR, autoClose: false}, ...options});
+    this.show({...{message: message, type: ToastMessageTypes.ERROR, autoClose: false}, ...options});
   }
 
+  /**
+   * This will shows success type toast message
+   * @param message
+   * @param options
+   */
   public success(message: string, options?: Toast) {
-    this.show({...{message: message, type: MessageTypes.SUCCESS, autoClose: true}, ...options});
+    this.show({...{message: message, type: ToastMessageTypes.SUCCESS, autoClose: true}, ...options});
   }
 
+  /**
+   * This will shows warning type toast message
+   * @param message - string
+   * @param options - Toast
+   */
   public warning(message: string, options?: Toast) {
-    this.show({...{message: message, type: MessageTypes.WARNING, autoClose: true}, ...options});
+    this.show({...{message: message, type: ToastMessageTypes.WARNING, autoClose: true}, ...options});
   }
 
+  /**
+   * This will shows information type toast message
+   * @param message
+   * @param options
+   */
   public information(message: string, options?: Toast) {
-    this.show({...{message: message, type: MessageTypes.INFORMATION, autoClose: true}, ...options});
+    this.show({...{message: message, type: ToastMessageTypes.INFORMATION, autoClose: true}, ...options});
   }
 
+  /**
+   * Returns All toast message
+   */
   public list() {
     return this.toasts;
-  }
-
-  public options(value: any) {
-    // _.merge(this, value);
   }
 
   public remove(toast: Toast) {

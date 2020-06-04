@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, NgZone, ViewChild } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { FilterType, TableAction, TableComponent, TableMeta, TableUpdateDataType } from '@logo-software/table';
+import { ToastService } from '@logo-software/toast';
 
 @Component({
   selector: 'logo-table-showcase',
@@ -131,7 +132,7 @@ export class TableShowcaseComponent {
   };
   public serverSide: boolean = false;
 
-  constructor(private http: HttpClient, private cd: ChangeDetectorRef, private ngZone: NgZone) {
+  constructor(private http: HttpClient, private cd: ChangeDetectorRef, private ngZone: NgZone, private toastService: ToastService) {
     this.getUser();
   }
 
@@ -216,8 +217,25 @@ export class TableShowcaseComponent {
     console.log(error);
   }
 
-  onDeleteClicked(row: any) {
-    console.log(row);
+  onDeleteClicked(rows: any) {
+    this.toastService.warning('All selected rows will be delete.<br />Are you sure?', {
+      autoClose: false,
+      actions: [
+        {
+          display: 'Delete',
+          event: (toast) => {
+            console.log(rows);
+          },
+        },
+        {
+          display: 'Cancel',
+          event: (toast) => {
+            console.log(rows);
+          },
+        },
+      ],
+    });
+    console.log(rows);
   }
 
   onDeleteHttpSucceed(response: any) {
@@ -225,7 +243,8 @@ export class TableShowcaseComponent {
   }
 
   onDeleteHttpError(error: any) {
-    console.log(error);
+    this.toastService.error(error.name);
+    console.log('Http error: ', error);
   }
 
   onUpdateHttpSucceed(response: any) {

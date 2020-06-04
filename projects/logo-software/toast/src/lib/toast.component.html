@@ -11,13 +11,13 @@
 -->
 
 <ng-container *ngIf="toastService.toasts.length > 0">
-  <div class="app-toast">
+  <div class="app-toast" role="alert" aria-live="polite" aria-atomic="true">
     <div
       #reference
       *ngFor="let toast of toastService.toasts; let i=index;"
       class="toast-{{toast.width}} {{toast.type === 'error' ? 'danger' : toast.type}} toast shadow flip-in-x"
     >
-      <div class="small remove logo-small-cross" (click)="close(toast)" #closeRef></div>
+      <div class="small remove logo-i-small-cross" (click)="close(toast)" #closeRef></div>
       <div class="content" [innerHTML]="toast.message"></div>
       <div class="actions" *ngIf="toast.actions">
         <button

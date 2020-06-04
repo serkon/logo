@@ -44,6 +44,7 @@
       transition: all 0.35s;
       left: 0;
       z-index: -1;
+      opacity: 1;
 
       .remove {
         position: absolute;
@@ -52,9 +53,9 @@
         z-index: 1;
         line-height: size(30px);
         text-align: center;
-        background-color: rgba($black, 0.1);
+        background-color: rgba(color(black), 0.1);
         background-repeat: initial;
-        color: $white;
+        color: color(white);
         font-size: size(14px);
         border-radius: 50%;
         cursor: pointer;
@@ -71,19 +72,19 @@
       }
 
       &.toast-small {
-        width: 300px;
+        width: size(300px);
       }
 
       &.toast-medium {
-        width: 400px;
+        width: size(400px);
       }
 
       &.toast-large {
-        width: 500px;
+        width: size(500px);
       }
 
       &.toast-big {
-        width: 700px;
+        width: size(700px);
       }
 
       &.success {

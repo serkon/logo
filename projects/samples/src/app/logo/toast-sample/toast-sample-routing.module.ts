@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ToastShowcaseComponent } from '@samples/toast-sample/toast-showcase.component';
-import { ToastModule } from '@logo-software/toast';
-
+import { ToastShowcaseComponent } from '@samples/toast-sample/toast-showcase/toast-showcase.component';
 
 const routes: Routes = [
   {
@@ -12,7 +10,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes), ToastModule],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
 export class ToastSampleRoutingModule {

@@ -1,14 +1,18 @@
 {
   "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../../dist/logo-software/toast",
-  "lib": {
-    "entryFile": "src/public-api.ts"
-  },
   "assets": [
-    "src/assets"
+    "src/assets",
+    "install.js",
+    "color.js"
   ],
   "whitelistedNonPeerDependencies": [
     "@logo-software/icons",
     "@logo-software/theme"
-  ]
+  ],
+  "keepLifecycleScripts": true,
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "cssUrl": "inline"
+  }
 }

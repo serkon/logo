@@ -13,18 +13,17 @@ import { ToastService } from './toast.service';
 import { Toast, ToastAction } from './toast';
 
 /**
- * Toast component can be call using ToastService.
- * Add a Class constructor to ToastService then
- * call with one of the below methods.
+ * The Toast Component is run through the Toast Service. However, the Toast Component must be added to
+ * the main module of the application first. Then it is enough to add `<logo-toast> </logo-toast>` to html.
  *
- * For example:
- * 1. add constructor(private toastService: ToastService)...
- * 2. call this.toastService.success('translate_text');
+ * __Usage Example__
  *
- * Other option is CloseAction, it must be define before below methods. For example
- * this.toastService.closeAction = () => console.log();
+ * <sub>**app.component.html**</sub>
+ * ```html
+ * <logo-toast></logo-table>
+ * ```
  *
- * @Input (boolean) closeFocus - When modal opened, if you want to set focus to close button use this property.
+ * @stacked-example(Table Showcase, logo/toast-sample/toast-showcase/toast-showcase.component)
  */
 @Component({
   selector: 'logo-toast',

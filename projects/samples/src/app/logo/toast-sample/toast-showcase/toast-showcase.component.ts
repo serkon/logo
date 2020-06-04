@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MessageTypes, ToastService } from '@logo-software/toast';
+import { ToastMessageTypes, ToastService } from '@logo-software/toast';
 
 @Component({
   selector: 'logo-toast-sample',
@@ -12,13 +12,17 @@ export class ToastShowcaseComponent {
   constructor(private toastService: ToastService) {
   }
 
+  /**
+   * Random sample with accept and cancel options.
+   * It will generate toast message.
+   */
   show() {
-    const randomMessageType = MessageTypes[Object.keys(MessageTypes)[Math.floor(Math.random() * Math.floor(4))]];
+    const randomMessageType = ToastMessageTypes[Object.keys(ToastMessageTypes)[Math.floor(Math.random() * Math.floor(4))]];
     this.toastService.soundEnable = false;
     this.toastService.show({
       type: randomMessageType,
       message: `In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. , ${this.counter++} `,
-      autoClose: true,
+      autoClose: false,
       width: 'small',
       actions: [
         {display: 'accept', event: (toast) => console.log(toast)},
@@ -42,19 +46,29 @@ export class ToastShowcaseComponent {
     });
   }
 
+  info() {
+    this.toastService.information('Simple error message');
+  }
+
+  /**
+   * AutoClose manually canceled
+   */
   error() {
     this.toastService.error('Simple error message', {autoClose: true});
   }
 
-  info() {
-    this.toastService.information('Simple error message', {autoClose: true});
-  }
-
+  /**
+   * Add sound also to the message, the sound type is the file name will be played.
+   */
   warning() {
-    this.toastService.warning('Simple error message', {autoClose: true});
+    this.toastService.soundEnable = true;
+    this.toastService.warning('Simple error message', {soundType: 'warning'});
   }
 
+  /**
+   * Toast with medium size
+   */
   success() {
-    this.toastService.success('Simple error message', {autoClose: true});
+    this.toastService.success('Simple error message', {width: 'medium'});
   }
 }
