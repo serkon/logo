@@ -1,0 +1,61 @@
+@import "~@logo-software/icons/src/lib/logo-icons";
+@import "~@logo-software/theme/src/lib/style";
+
+:host {
+  display: block;
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: size(100px);
+    box-shadow: 0 0 size(10px) 0 rgba(0, 0, 0, 0.05);
+    padding: size(0) size(50px);
+
+    nav {
+      display: flex;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+      width: 100%;
+
+      .menu {
+      }
+
+      .logo {
+        display: flex;
+        flex-grow: 1;
+
+        span {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 10px;
+          color: color(white);
+          font-size: size(25px);
+          font-weight: normal;
+          line-height: 1.36;
+          border-radius: size(2px);
+        }
+
+        span:first-child {
+          background-color: $primary;
+        }
+
+        span:last-child {
+          color: $gray-400;
+        }
+      }
+
+      .docs {
+        font-weight: bold;
+      }
+
+      .search {
+        display: flex;
+        flex-grow: 1;
+        justify-content: flex-end;
+      }
+    }
+  }
+}

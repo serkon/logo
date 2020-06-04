@@ -25,6 +25,7 @@ import {
   NbTabsetModule,
   NbThemeModule,
 } from '@nebular/theme';
+import { RootModule } from './root/root.module';
 
 const docs = require('../output.json');
 
@@ -44,6 +45,7 @@ const docs = require('../output.json');
     NbThemeModule.forRoot(),
     NgdThemeModule.forRoot(),
     NbSidebarModule.forRoot(),
+    RootModule,
     RouterModule.forRoot(routes, {useHash: true}),
   ],
   declarations: [NgdAppComponent],
