@@ -39,6 +39,10 @@ const routes: Routes = [
         path: 'theme-sample',
         loadChildren: () => import('./theme-sample/theme-sample.module').then(m => m.ThemeSampleModule),
       },
+      {
+        path: 'input-sample',
+        loadChildren: () => import('./input-sample/input-sample.module').then(m => m.InputSampleModule),
+      },
     ],
   },
 ];

@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'samples';
+  hidden = true;
   components = [
     {
       name: 'core',
@@ -24,6 +25,7 @@ export class AppComponent {
     {name: 'table'},
     {name: 'theme'},
     {name: 'toast'},
+    {name: 'input'},
   ];
 
   toUpperCase(value) {
