@@ -38,13 +38,13 @@
               },
               {
                 "glob": "**/*",
-                "input": "node_modules/@logo-software/toast/src/lib/assets/sounds",
-                "output": "assets/sounds"
+                "input": "node_modules/@logo-software/icons/src/lib/assets/icons",
+                "output": "assets/icons"
               },
               {
                 "glob": "**/*",
-                "input": "node_modules/@logo-software/icons/src/lib/assets/icons",
-                "output": "assets/icons"
+                "input": "node_modules/@logo-software/toast/src/assets/sounds",
+                "output": "assets/sounds"
               }
             ],
             "styles": [
@@ -595,6 +595,46 @@
             "tsConfig": [
               "projects/logo-software/theme/tsconfig.lib.json",
               "projects/logo-software/theme/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@logo-software/input": {
+      "projectType": "library",
+      "root": "projects/logo-software/input",
+      "sourceRoot": "projects/logo-software/input/src",
+      "prefix": "logo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/logo-software/input/tsconfig.lib.json",
+            "project": "projects/logo-software/input/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/logo-software/input/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/logo-software/input/src/test.ts",
+            "tsConfig": "projects/logo-software/input/tsconfig.spec.json",
+            "karmaConfig": "projects/logo-software/input/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/logo-software/input/tsconfig.lib.json",
+              "projects/logo-software/input/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
