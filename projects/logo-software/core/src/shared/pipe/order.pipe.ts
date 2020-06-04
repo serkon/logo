@@ -2,10 +2,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Util } from '../util/util';
 
 /**
- * Example use
- * Basic Array of single type: *ngFor="let todo of todoService.todos | orderBy : '-'"
- * Multidimensional sort on single column: *ngFor="let todo of todoService.todos | orderBy : ['-status']"
- * Multidimensional sort on multiple columns: ngFor="let todo of todoService.todos | orderBy : ['status', '-title']"
+ * This pipe uses for ordering the array.
+ * * Basic Array of single type: `*ngFor="let todo of todoService.todos | orderBy : {column: "zone.name", descending: false, status: true}"`
+ * * // @TODO convert to this -> Multidimensional sort on single column: *ngFor="let todo of todoService.todos | orderBy : ['-status']"
+ * * // @TODO convert to this -> Multidimensional sort on multiple columns: ngFor="let todo of todoService.todos | orderBy : ['status', '-title']"
  */
 @Pipe({name: 'orderBy', pure: false})
 export class OrderPipe implements PipeTransform {
