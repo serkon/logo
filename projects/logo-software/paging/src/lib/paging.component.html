@@ -28,13 +28,13 @@
     <div *ngIf="pager.pages && pager.pages.length >= 2" class="pagination">
       <button
         [ngClass]="{disabled:pager.pageNumber === 1}"
-        class="ghost logo-double-chevron-left"
+        class="ghost logo-i-double-chevron-left"
         (click)="setPage(1)"
       >
       </button>
       <button
         [ngClass]="{disabled:pager.pageNumber === 1}"
-        class="ghost logo-large-chevron-left"
+        class="ghost logo-i-large-chevron-left"
         (click)="setPage(pager.pageNumber - 1)"
       >
       </button>
@@ -47,13 +47,13 @@
       </button>
       <button
         [ngClass]="{disabled:pager.pageNumber === pager.totalPages}"
-        class="ghost logo-large-chevron-right"
+        class="ghost logo-i-large-chevron-right"
         (click)="setPage(pager.pageNumber + 1)"
       >
       </button>
       <button
         [ngClass]="{disabled:pager.pageNumber === pager.totalPages}"
-        class="ghost logo-double-chevron-left"
+        class="ghost logo-i-double-chevron-left"
         (click)="setPage(pager.totalPages)"
       >
       </button>

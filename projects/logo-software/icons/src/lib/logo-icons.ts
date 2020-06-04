@@ -52,6 +52,7 @@ export const LOGO_ICONS = [
   'large-ghost',
   'large',
   'link',
+  'menu-left-alt',
   'minus',
   'new',
   'org',

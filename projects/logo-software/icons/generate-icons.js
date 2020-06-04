@@ -10,14 +10,18 @@ fs.readdirSync(ICONS_DIRECTORY).forEach(file => {
   const name = path.parse(file).name;
   list.push(name);
   scss = `${scss}
-.logo-${name} {
-  &::before{
-    background-image: url("assets/icons/${name}.svg");
+.logo-i-${name} {
+  // &::before{
+    background-image: url("/assets/icons/${name}.svg");
     background-repeat: no-repeat;
     background-position: center;
-    display: inline-block;
+    // display: inline-block;
     content: '';
-  }
+    // width: 100%;
+    // height: 100%;
+    // position: absolute;
+    // left: 0;
+  // }
 }
   `;
 });
@@ -58,10 +62,7 @@ const createSCSSFile = (input, output) => {
 
 // IMPORTANT: THIS SCSS FILE IS AUTO GENERATED! DO NOT MANUALLY EDIT OR CHECKIN!
   ${input}
-[class*="logo-"]::before {
-  margin-left: size(-1px);
-  margin-top: size(-1px);
-}
+
 `, {encoding: 'utf-8'},
   );
 }

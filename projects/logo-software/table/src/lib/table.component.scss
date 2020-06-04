@@ -147,7 +147,7 @@ $expanded-background-color: #dddde8;
         tbody {
           tr {
             td {
-              color: $black;
+              color: color(black);
               font-weight: normal;
               font-stretch: normal;
               font-style: normal;
@@ -161,7 +161,7 @@ $expanded-background-color: #dddde8;
                 margin-right: size(4px);
 
                 &.expander {
-                  background-color: $white;
+                  background-color: color(white);
                   margin-left: size(4px);
                 }
               }
@@ -224,7 +224,7 @@ $expanded-background-color: #dddde8;
                   box-shadow: $box-shadow;
 
                   button.edit-pen {
-                    background-color: $white;
+                    background-color: color(white);
                     display: inline-block;
                     right: 0;
                     margin-right: 4px;
@@ -246,13 +246,13 @@ $expanded-background-color: #dddde8;
                       }
 
                       & ~ button.edit-cancel {
-                        background-color: $white;
+                        background-color: color(white);
                         display: inline-block;
                         right: size(28px);
                       }
 
                       & ~ button.edit {
-                        background-color: $white;
+                        background-color: color(white);
                         display: none;
                       }
                     }
