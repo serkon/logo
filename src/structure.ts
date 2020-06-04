@@ -256,6 +256,21 @@ export const structure = [
             block: 'component',
             source: 'ToastService',
           },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'Toast',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'ToastMessageTypes',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'ToastAction',
+          },
         ],
       },
     ],
