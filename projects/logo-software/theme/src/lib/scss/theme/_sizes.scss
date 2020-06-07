@@ -1,4 +1,4 @@
-@each $item, $size in $sizes {
+@each $item, $size in $form-sizes {
   .#{$item} {
     font-size: size(map_get($size, font-size));
     padding: 0 size(nth(map_get($size, padding), 2));

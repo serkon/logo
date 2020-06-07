@@ -39,11 +39,11 @@
         }
 
         span:first-child {
-          background-color: $primary;
+          background-color: var(--primary);
         }
 
         span:last-child {
-          color: $gray-400;
+          color: var(--gray-400);
         }
       }
 

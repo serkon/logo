@@ -11,6 +11,8 @@
 // ########################### Font Setting
 $font-icon: 'logo-font-icon';
 $font-family: 'Nunito';
+$font-alternative: 'Source Sans Pro';
+$font-default-color: var(--dark-900);
 $font-default-size: 16px;
 $font-current-size: 16px;
 // ########################### Path Setting #############################
@@ -51,30 +53,43 @@ $shadesMap: (
   300: 40%,
   400: 20%,
   500: 0%,
-  600: 5%,
-  700: 10%,
-  800: 20%,
-  900: 30%,
+  600: 3%,
+  700: 6%,
+  800: 12%,
+  900: 24%,
 );
 // Ghost transparency
 $ghost: 0;
-$ghost-hover: 0.15;
+$ghost-hover: 0.1;
 $ghost-active: 0.2;
-$ghost-focus: 0.32;
+$ghost-focus: 0.15;
 // Disable transparency
 $disabled: 50%;
 
 // ########################### Define form sizes ############################
-$sizes: (
+$form-sizes: (
   small: (font-size: 12px, padding: 8px 11px, icon-size: 24px),
   medium: (font-size: 12px, padding: 8px 15px, icon-size: 32px),
   large: (font-size: 14px, padding: 15px 23px, icon-size: 48px)
 );
+$heads-sizes: (h1: 40, h2: 32, h3: 30, h4: 26, h5: 22, h6: 18);
 
 // ########################### Border radius size ###########################
 $border-radius: 2px;
 
 // ########################### Body #########################################
-body {
-  font-family: $font-family !important;
+
+html {
+  display: flex;
+  min-height: 100%;
+  min-width: 100%;
+
+  body {
+    display: flex;
+    min-height: 100%;
+    min-width: 100%;
+    font-family: $font-family !important;
+    color: $font-default-color;
+    margin: 0;
+  }
 }

@@ -1,0 +1,5 @@
+@import "~@logo-software/theme/src/lib/style";
+
+:host {
+  @include host();
+}

@@ -10,7 +10,6 @@ $dark-ratio: 700;
     @each $type in $form-type {
       @if $type != outline and $type != ghost {
         background-color: color($status);
-        filter: invert(.5) sepia(1) saturate(5) hue-rotate(175deg);
         color: if($status == light, color(secondary-#{$dark-ratio}), if($status == secondary, color(secondary-900), color(white)));
         &.shadow {
           box-shadow: 0 size(7px) size(10px) size(-4px) color($status);
@@ -52,6 +51,7 @@ $dark-ratio: 700;
         @if $type == ghost {
           &.ghost {
             background-color: transparent;
+            border: none;
             color: if($status == secondary or $status == light or $status == gray, color(dark-#{$dark-ratio}), if($status == dark, color(white), color($status)));
             @each $state in $form-state {
               &:#{$state}, &-#{$state} {

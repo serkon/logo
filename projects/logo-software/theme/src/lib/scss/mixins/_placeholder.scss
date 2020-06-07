@@ -3,6 +3,7 @@
   opacity: $opacity;
   transition: opacity 0.3s ease;
   text-overflow: ellipsis;
+  font-weight: 100;
 }
 
 @mixin placeholder-focus() {

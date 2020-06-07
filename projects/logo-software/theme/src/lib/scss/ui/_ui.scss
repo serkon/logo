@@ -4,6 +4,7 @@ button {
   box-shadow: none;
   line-height: normal;
   font-family: $font-family;
+  font-weight: bold;
   border-radius: size($border-radius);
   @extend .medium;
   @extend .secondary;
@@ -18,13 +19,26 @@ a {
 }
 
 input {
-  border-radius: size($border-radius);
   @extend .medium;
   @extend .secondary;
-  @extend .outline;
-  background-color: var(--secondary-200) !important;
+  box-sizing: border-box;
+  border-radius: size($border-radius);
+  border: 1px solid transparent;
   color: var(--dark-900) !important;
-  @include install-placeholder(var(--secondary-800));
+  @include install-placeholder(var(--dark-200));
+
+  @each $name, $value in $list-colors {
+    &.#{$name} {
+      background-color: var(--secondary-200);
+    }
+
+    @each $state-name, $state-value in $form-state {
+      &.#{$name}:#{$state-name} {
+        border: size(1px) solid if($name=='light', var(--dark-300), var(--#{$name}-500));
+        background-color: rgba(var(--#{$name}-hover), var(--ghost-focus));
+      }
+    }
+  }
 }
 
 .icon-left {
