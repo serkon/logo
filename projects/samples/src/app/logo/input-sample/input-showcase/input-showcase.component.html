@@ -1,11 +1,17 @@
 <header>
   <nav>
     <button class="ghost large logo-i-menu-left-alt menu"></button>
-    <a class="logo large" href="/#/root"><span>Logo</span><span>Elements</span></a>
-    <button class="light ghost large">GUIDE</button>
-    <button class="light ghost large docs">DOCS</button>
-    <button class="light ghost large">COMPONENTS</button>
-    <button class="light ghost large">BLOG</button>
+    <a class="logo large" href="/#/"><span>Logo</span><span>Elements</span></a>
+    <div class="links">
+      <ng-container *ngFor="let link of links.one;">
+        <ng-container *ngTemplateOutlet="link.external ? externalURL: internalURL; context: {$implicit: link}">
+        </ng-container>
+      </ng-container>
+      <ng-template #internalURL let-link><a routerLink="{{link.url}}" class="secondary ghost large"
+                                            [ngClass]="link.classes">{{link.display}}</a></ng-template>
+      <ng-template #externalURL let-link><a href="{{link.url}}" class="secondary ghost large"
+                                            [ngClass]="link.classes">{{link.display}}</a></ng-template>
+    </div>
     <label class="search logo-add">
       <input type="text" placeholder="Search" class="large primary logo-i-search icon-left" required/>
     </label>

@@ -72,20 +72,40 @@
     }
   }
 
-  .logo {
+  .logo-container {
     display: flex;
     flex: 1 0 auto;
-    flex-direction: row;
+    flex-direction: column;
+    color: $logo-fg;
 
-    a {
-      font-size: 1.275rem;
-      color: $logo-fg;
+    .logo {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      box-sizing: border-box;
       text-decoration: none !important;
       font-weight: bold;
+
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2px;
+        border-radius: 2px;
+      }
+
+      span:first-child {
+        color: var(--white);
+        background-color: var(--primary-500);
+        padding: 5px;
+      }
+
+      span:last-child {
+        // color: var(--gray-400);
+      }
     }
 
     .version {
-      display: none;
       font-size: 0.75rem;
       font-weight: bold;
       color: $version-fg;

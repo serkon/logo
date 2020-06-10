@@ -3,7 +3,7 @@
 
 :host {
   @include host();
-  $header-size: size(100px);
+  $header-size: size(80px);
 
   header {
     position: absolute;
@@ -30,7 +30,8 @@
 
       .logo {
         display: flex;
-        flex-grow: 1;
+        width: size(245px);
+        box-sizing: border-box;
 
         span {
           display: flex;
@@ -49,21 +50,26 @@
         }
 
         span:last-child {
-          color: var(--gray-400);
+          color: var(--gray-600);
+          padding: size(10px) size(7px);
         }
       }
 
-      button {
+      .links {
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        justify-content: center;
         font-weight: 300;
-      }
+        padding-right: size(100px);
 
-      .docs {
-        font-weight: bold;
+        .docs {
+          font-weight: bold;
+        }
       }
 
       .search {
         display: flex;
-        flex-grow: 1;
         justify-content: flex-end;
       }
     }
@@ -76,13 +82,13 @@
     box-sizing: border-box;
     position: relative;
     justify-content: center;
+    padding: size(100px);
   }
 
   section.one {
-    padding-left: size(120px);
-    padding-top: $header-size;
+    padding: ($header-size + size(100px)) size(100px) size(100px) size(120px);
     min-height: size(400px);
-    background: url("landscape.svg") size(800px) size(56px) no-repeat;
+    background: url('images/landscape.svg') right size(-200px) bottom size(-56px) no-repeat;
 
     div.title-content {
       h1.title {
@@ -101,7 +107,7 @@
     div.clouds {
       position: absolute;
       bottom: 0;
-      left: size(510px);
+      right: size(888px);
 
       .cloud-group-1 {
         @include cloud($width: 140px, $color: var(--secondary-400), $shadow-color: rgba(color(secondary), 0.27), $shadow-height: 135px, $timing: 42s);
@@ -118,13 +124,13 @@
   }
 
   section.two {
-    background: url(leaf.svg) no-repeat left top;
+    background: url('images/leaf.svg') no-repeat left top;
     align-items: center;
 
     .background-image {
       width: size(165px);
       height: size(103px);
-      background: transparent url('code.svg') 0 0 no-repeat padding-box;
+      background: transparent url('images/code.svg') 0 0 no-repeat padding-box;
     }
 
     h2, h5, p {
@@ -158,7 +164,6 @@
   section.three {
     justify-content: center;
     align-items: center;
-    padding: size(100px);
 
     div.article-container {
       display: flex;
@@ -178,17 +183,17 @@
         }
 
         span.brush {
-          background-image: url('brush.svg');
+          background-image: url('images/brush.svg');
           background-size: size(31px);
         }
 
         span.laptop {
-          background-image: url('laptop.svg');
+          background-image: url('images/laptop.svg');
           background-size: size(54px);
         }
 
         span.mobile {
-          background-image: url('mobile.svg');
+          background-image: url('images/mobile.svg');
           background-size: size(61px);
         }
       }
@@ -222,7 +227,6 @@
 
   section.four {
     background: #101010 0 0 no-repeat padding-box;
-    padding: size(100px);
     align-items: flex-start;
     justify-content: space-between;
 
@@ -309,16 +313,16 @@
         color: var(--white);
 
         &.twitter {
-          background-image: url("twitter.svg");
+          background-image: url('images/twitter.svg');
           width: size(19px);
         }
 
         &.facebook {
-          background-image: url("facebook.svg");
+          background-image: url('images/facebook.svg');
         }
 
         &.youtube {
-          background-image: url("youtube.svg");
+          background-image: url('images/youtube.svg');
           width: size(22px);
         }
       }

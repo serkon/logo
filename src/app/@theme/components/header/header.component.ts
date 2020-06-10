@@ -13,8 +13,8 @@ import { NgdVersionService, Version } from '../../services';
       <button *ngIf="sidebarTag" class="sidebar-toggle" (click)="toggleSidebar()">
         <nb-icon icon="menu-2"></nb-icon>
       </button>
-      <div class="logo">
-        <a routerLink="/">Nebular</a>
+      <div class="logo-container">
+        <a class="logo" routerLink="/"><span>Logo</span><span>Elements</span></a>
         <span class="version" *ngIf="currentVersionName$ | async">
           v{{ currentVersionName$ | async }}
         </span>
@@ -60,19 +60,15 @@ export class NgdHeaderComponent implements OnInit {
     },
     {
       title: 'Components',
-      link: '/docs/components/components-overview',
+      url: '/docs/components/components-overview',
     },
     {
       title: 'Design System',
-      link: '/docs/design-system/eva-design-system-intro',
+      link: 'http://wiki.logo.com.tr/display/PAAS/UI+Elements',
     },
     {
-      title: 'Auth',
-      link: '/docs/auth/introduction',
-    },
-    {
-      title: 'Security',
-      link: '/docs/security/introduction',
+      title: 'Blog',
+      url: 'https://blog.logo.com.tr/',
     },
   ];
 

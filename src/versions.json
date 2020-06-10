@@ -4,10 +4,5 @@
     "name": "1.0.0",
     "path": "/",
     "isCurrent": true
-  },
-  {
-    "checkoutTarget": "bfaca3e9f50bcf05af6f8c98102691947cf95c02",
-    "name": "0.0.1",
-    "path": "/nebular/0.0.1/"
   }
 ]

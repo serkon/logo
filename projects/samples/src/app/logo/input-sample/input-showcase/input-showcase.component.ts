@@ -1,24 +1,48 @@
-import { AfterViewInit, Component, Inject, OnInit } from '@angular/core';
+import { AfterViewInit, Component, HostListener, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'logo-input-showcase',
   templateUrl: './input-showcase.component.html',
   styleUrls: ['./input-showcase.component.scss'],
 })
-export class InputShowcaseComponent implements OnInit, AfterViewInit {
+export class InputShowcaseComponent implements AfterViewInit {
   public quotes;
   public links;
-  private readonly bodyHeight: number;
+  private bodyHeight: number;
 
-  constructor(@Inject(DOCUMENT) private document) {
-    this.bodyHeight = this.document.body.clientHeight;
+  constructor(@Inject(DOCUMENT) private document, private router: Router) {
     this.quotes = [
       {story: 'People ignore design that ignores people', author: 'FRANK CHIMERO'},
-      {story: 'Good designs come from the heart, not from the brain', author: 'DANNY SENGERS'},
+      // {story: 'Good designs come from the heart, not from the brain', author: 'DANNY SENGERS'},
     ];
     this.links = {
-      one: [],
+      one: [
+        {
+          display: 'GUIDE',
+          description: `Based on Eva Design System, with 4 visual themes & handy variables to create your own. With hot-reload out of the box`,
+          url: 'http://wiki.logo.com.tr/display/PAAS/UI+Elements',
+          external: true,
+        },
+        {
+          display: 'DOCS',
+          description: `Based on Eva Design System, with 4 visual themes & handy variables to create your own. With hot-reload out of the box`,
+          url: '/docs',
+          classes: ['success'],
+        },
+        {
+          display: 'COMPONENTS',
+          description: 'Native Angular components with configurable styles',
+          url: 'docs/components/components-overview',
+        },
+        {
+          display: 'BLOG',
+          description: 'Native Angular components with configurable styles',
+          url: 'https://blog.logo.com.tr/',
+          external: true,
+        },
+      ],
       four: [
         {url: '#', display: 'Corporate'},
         {url: '#', display: 'Contact'},
@@ -38,6 +62,11 @@ export class InputShowcaseComponent implements OnInit, AfterViewInit {
     };
   }
 
+  /** The Window object from Document defaultView */
+  get window(): Window {
+    return this.document.defaultView;
+  }
+
   private _sections: HTMLElement[] = [];
 
   get sections() {
@@ -48,14 +77,25 @@ export class InputShowcaseComponent implements OnInit, AfterViewInit {
     this._sections = value;
   }
 
-  ngOnInit(): void {
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.resize();
   }
 
   ngAfterViewInit(): void {
+    this.resize();
+  }
+
+  redirect(link: string) {
+    this.router.navigate([link]);
+  }
+
+  resize() {
+    this.bodyHeight = this.document.documentElement.clientHeight;
+    console.log('size changed: ');
     this.sections = this.document.querySelectorAll('section');
     this.sections.forEach(section => {
       section.style.minHeight = `${this.bodyHeight}px`;
     });
   }
-
 }
