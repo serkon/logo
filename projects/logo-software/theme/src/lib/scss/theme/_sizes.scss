@@ -5,6 +5,7 @@
     position: relative;
     min-width: size(map_get($size, icon-size)) - size(nth(map_get($size, padding), 2) * 2);
     height: size(map_get($size, icon-size));
+    box-sizing: border-box;
 
     &::before {
       // position: absolute;

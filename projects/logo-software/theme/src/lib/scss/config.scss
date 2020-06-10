@@ -31,7 +31,8 @@ $grid-breakpoints: (
 // ########################### Colors Setting ###########################
 $colors: ();
 $list-colors: (
-  primary: #0090ff, // #7500ff,
+  brand: #7500ff,
+  primary: #0090ff,
   secondary: #edf1f7,
   light: #ffffff,
   dark: #838492,
@@ -69,7 +70,7 @@ $disabled: 50%;
 // ########################### Define form sizes ############################
 $form-sizes: (
   small: (font-size: 12px, padding: 8px 11px, icon-size: 24px),
-  medium: (font-size: 12px, padding: 8px 15px, icon-size: 32px),
+  medium: (font-size: 12px, padding: 8px 16px, icon-size: 32px),
   large: (font-size: 14px, padding: 15px 23px, icon-size: 48px)
 );
 $heads-sizes: (h1: 40, h2: 32, h3: 30, h4: 26, h5: 22, h6: 18);

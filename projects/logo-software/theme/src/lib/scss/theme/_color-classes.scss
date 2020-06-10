@@ -4,9 +4,8 @@ $form-type: fill outline ghost;
 $dark-ratio: 700;
 
 @each $status, $hex-value in $list-colors {
-  @debug $status;
   .#{$status} {
-    @include animate();
+    // @include animate();
     @each $type in $form-type {
       @if $type != outline and $type != ghost {
         background-color: color($status);

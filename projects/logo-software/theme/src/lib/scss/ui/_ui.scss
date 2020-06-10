@@ -11,7 +11,20 @@ button {
 }
 
 a {
+  cursor: pointer;
   text-decoration: none;
+
+  @each $name, $value in $list-colors {
+    &.#{$name} {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      color: var(--#{$name}-500);
+      border-radius: size($border-radius);
+      font-weight: bold;
+    }
+  }
 
   &:hover {
     text-decoration: none;
