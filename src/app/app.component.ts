@@ -12,6 +12,7 @@ import { NgdAnalytics } from './@theme/services/analytics.service';
   template: `
     <router-outlet></router-outlet>
   `,
+  styles: [':host {width: 100%}'],
 })
 export class NgdAppComponent implements OnInit {
 

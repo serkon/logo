@@ -73,11 +73,22 @@ export const structure = [
   },
   {
     type: 'section',
-    name: 'Modules',
+    name: 'Components',
     children: [
       {
         type: 'page',
+        name: 'Components Overview',
+        children: [
+          {
+            type: 'block',
+            block: 'components-overview',
+          },
+        ],
+      },
+      {
+        type: 'page',
         name: 'Excel Module',
+        icon: 'layout.svg',
         children: [
           // {
           //   type: 'block',
@@ -114,6 +125,7 @@ export const structure = [
       {
         type: 'page',
         name: 'Language Module',
+        icon: 'tab.svg',
         children: [
           {
             type: 'block',
@@ -157,6 +169,7 @@ export const structure = [
       {
         type: 'page',
         name: 'Paging Module',
+        icon: 'actions.svg',
         children: [
           {
             type: 'block',
@@ -178,6 +191,7 @@ export const structure = [
       {
         type: 'page',
         name: 'Table Module',
+        icon: 'list.svg',
         children: [
           {
             type: 'block',
@@ -229,6 +243,7 @@ export const structure = [
       {
         type: 'page',
         name: 'Core Module',
+        icon: 'collapsable.svg',
         children: [
           {
             type: 'block',
@@ -240,6 +255,7 @@ export const structure = [
       {
         type: 'page',
         name: 'Toast Module',
+        icon: 'toastr.svg',
         children: [
           {
             type: 'block',
