@@ -163,6 +163,10 @@ $expanded-background-color: #dddde8;
                 &.expander {
                   background-color: color(white);
                   margin-left: size(4px);
+
+                  &:focus {
+                    background-color: color(white);
+                  }
                 }
               }
 
@@ -210,6 +214,7 @@ $expanded-background-color: #dddde8;
                     color: #4a4a4a;
                     font-family: $font-family;
                     cursor: pointer;
+                    box-shadow: none;
                   }
 
                   button {
@@ -323,12 +328,19 @@ $expanded-background-color: #dddde8;
       }
     }
   }
+
+  label {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-bottom: 0;
+  }
 }
 
 :host ::ng-deep {
   table.table-editing tbody tr td {
-    $effect: 1px dotted rgba(0, 0, 0, 0.21);
-    border-bottom: 1px dotted rgba(255, 0, 0, 0.21);
+    $effect: 0px dotted rgba(0, 0, 0, 0.21);
+    // border-bottom: 1px dotted rgba(255, 0, 0, 0.21);
 
     &.editable {
       border-right: $effect;
@@ -357,6 +369,7 @@ $expanded-background-color: #dddde8;
 
     button {
       margin-right: size(10px);
+      background-color: var(--white);
     }
 
     :last-child {

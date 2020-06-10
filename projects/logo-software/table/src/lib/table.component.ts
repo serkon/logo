@@ -199,6 +199,10 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
    */
   @Input() recordsFound = 'record(s) found';
   /**
+   * No data found text for translation
+   */
+  @Input() noDataFound = 'No data were found';
+  /**
    * If set true Checkbox will be visible
    */
   @Input() checkbox: boolean = true;

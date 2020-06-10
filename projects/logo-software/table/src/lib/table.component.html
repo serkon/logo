@@ -193,7 +193,7 @@
     <!-- No Data Were Found -->
     <tr (isLastEmitter)="htmlRendered(null)" *ngIf="rows.length <= 0" [isLast]="true">
       <td [colSpan]="htmlSetTdColspan()" class="no-data">
-        {{"no_data_were_found"}}
+        {{noDataFound}}
       </td>
     </tr>
     <!-- Adding New Row -->
