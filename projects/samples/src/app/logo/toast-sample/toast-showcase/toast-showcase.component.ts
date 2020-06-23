@@ -62,13 +62,13 @@ export class ToastShowcaseComponent {
    */
   warning() {
     this.toastService.soundEnable = true;
-    this.toastService.warning('Simple error message', {soundType: 'warning'});
+    this.toastService.warning('Simple error message', {soundType: 'warning', autoClose: false});
   }
 
   /**
    * Toast with medium size
    */
   success() {
-    this.toastService.success('Simple error message', {width: 'medium'});
+    this.toastService.success('Simple error message', {width: 'small', autoClose: false});
   }
 }
