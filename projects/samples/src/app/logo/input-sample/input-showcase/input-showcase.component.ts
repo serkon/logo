@@ -29,7 +29,7 @@ export class InputShowcaseComponent implements AfterViewInit {
           display: 'DOCS',
           description: `Based on Eva Design System, with 4 visual themes & handy variables to create your own. With hot-reload out of the box`,
           url: '/docs',
-          classes: ['success'],
+          classes: ['secondary ghost'],
         },
         {
           display: 'COMPONENTS',

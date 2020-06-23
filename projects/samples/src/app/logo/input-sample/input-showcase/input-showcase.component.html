@@ -7,10 +7,24 @@
         <ng-container *ngTemplateOutlet="link.external ? externalURL: internalURL; context: {$implicit: link}">
         </ng-container>
       </ng-container>
-      <ng-template #internalURL let-link><a routerLink="{{link.url}}" class="secondary ghost large"
-                                            [ngClass]="link.classes">{{link.display}}</a></ng-template>
-      <ng-template #externalURL let-link><a href="{{link.url}}" class="secondary ghost large"
-                                            [ngClass]="link.classes">{{link.display}}</a></ng-template>
+      <ng-template #internalURL let-link>
+        <a
+          routerLink="{{link.url}}"
+          class="light large"
+          [ngClass]="link.classes"
+        >
+          {{link.display}}
+        </a>
+      </ng-template>
+      <ng-template #externalURL let-link>
+        <a
+          href="{{link.url}}"
+          class="light large"
+          [ngClass]="link.classes"
+        >
+          {{link.display}}
+        </a>
+      </ng-template>
     </div>
     <label class="search logo-add">
       <input type="text" placeholder="Search" class="large primary logo-i-search icon-left" required/>
