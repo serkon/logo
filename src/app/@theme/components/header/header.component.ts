@@ -60,11 +60,11 @@ export class NgdHeaderComponent implements OnInit {
     },
     {
       title: 'Components',
-      url: '/docs/components/components-overview',
+      link: '/docs/components/components-overview',
     },
     {
       title: 'Design System',
-      link: 'http://wiki.logo.com.tr/display/PAAS/UI+Elements',
+      url: 'http://wiki.logo.com.tr/display/PAAS/UI+Elements',
     },
     {
       title: 'Blog',

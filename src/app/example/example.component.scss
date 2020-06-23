@@ -4,4 +4,5 @@ $color-gray-background: transparent; // #f1f2f3;
 :host {
   display: block;
   background-color: $color-gray-background;
+  padding: 30px;
 }

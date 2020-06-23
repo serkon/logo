@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { map, shareReplay, catchError } from 'rxjs/operators';
+import { catchError, map, shareReplay } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
 
@@ -20,7 +20,7 @@ export interface Version {
   version associated with a current revision.
 */
 const currentVersionPredicate = environment.production
-  ? (version: Version) => version.name === require('../../../../package.json').versionName
+  ? (version: Version) => version.name === require('../../../../package.json').version
   : (version: Version) => version.isCurrent;
 
 @Injectable()

@@ -51,7 +51,6 @@
               "src/styles.scss",
               "src/app/@theme/styles/styles.scss",
               "node_modules/pace-js/templates/pace-theme-flash.tmpl.css",
-              "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/docsearch.js/dist/cdn/docsearch.min.css",
               "node_modules/highlight.js/styles/dracula.css",
               "node_modules/@logo-software/icons/src/lib/logo-icons.scss"
