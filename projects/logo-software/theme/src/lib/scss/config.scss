@@ -33,7 +33,7 @@ $colors: ();
 $list-colors: (
   brand: #7500ff,
   primary: #0090ff,
-  secondary: #edf1f7,
+  secondary: #dae9ff,
   light: #ffffff,
   dark: #838492,
   gray: #cccccc,
@@ -54,16 +54,16 @@ $shadesMap: (
   300: 40%,
   400: 20%,
   500: 0%,
-  600: 3%,
-  700: 6%,
-  800: 12%,
-  900: 24%,
+  600: 8%,
+  700: 16%,
+  800: 24%,
+  900: 40%,
 );
 // Ghost transparency
 $ghost: 0;
-$ghost-hover: 0.1;
+$ghost-hover: 0.15;
 $ghost-active: 0.2;
-$ghost-focus: 0.15;
+$ghost-focus: 0.25;
 // Disable transparency
 $disabled: 50%;
 

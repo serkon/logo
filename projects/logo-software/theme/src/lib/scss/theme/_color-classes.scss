@@ -1,22 +1,22 @@
 // $form-status: primary secondary success info warning danger light dark gray;
 $form-state: hover active focus;
 $form-type: fill outline ghost;
-$dark-ratio: 700;
+$dark-ratio: 900;
 
 @each $status, $hex-value in $list-colors {
   .#{$status} {
-    // @include animate();
+    @include animate();
     @each $type in $form-type {
       @if $type != outline and $type != ghost {
         background-color: color($status);
-        color: if($status == light, color(secondary-#{$dark-ratio}), if($status == secondary, color(secondary-900), color(white)));
+        color: if($status == light, var(--secondary-#{$dark-ratio}), if($status == secondary, var(--secondary-900), var(--white)));
         &.shadow {
-          box-shadow: 0 size(7px) size(10px) size(-4px) color($status);
+          box-shadow: 0 size(7px) size(10px) size(-4px) var(--#{$status});
         }
         @each $state in $form-state {
           &:#{$state}, &-#{$state} {
-            background-color: color(#{$status}-#{$state});
-            color: color(white);
+            background-color: var(--#{$status}-#{$state});
+            color: if($status == light and $state != focus, var(--#{$status}-#{$dark-ratio}), var(--white));
             outline: none;
             @if $state == focus {
               @include nb-outline(size(8px), rgba(color(gray-600), color(ghost-hover)));
@@ -24,19 +24,18 @@ $dark-ratio: 700;
           }
         }
         &.selected {
-          background-color: color(#{$type}-focus);
+          background-color: var(--#{$type}-focus);
         }
       } @else {
         @if $type == outline {
           &.outline {
             box-sizing: border-box;
             background-color: transparent;
-            // border: size(1px) solid color(dark-200);
-            border: size(1px) solid color(#{$status}-#{$dark-ratio});
-            color: if($status == secondary or $status == light or $status == gray, color(dark-#{$dark-ratio}), if($status == dark, color(white), color(#{$status})));
+            border: size(1px) solid if($status == light, var(--#{$status}-700), var(--#{$status}-500));
+            color: if($status == secondary or $status == light or $status == gray, var(--#{$status}-#{$dark-ratio}), if($status == dark, var(--white), var(--#{$status})));
             @each $state in $form-state {
               &:#{$state}, &-#{$state} {
-                color: if($status == secondary or $status == light or $status == gray, color(dark-#{$dark-ratio}), if($status == dark, color(white), color($status)));
+                color: if($status == secondary or $status == light or $status == gray, var(--#{$status}-#{$dark-ratio}), if($status == dark, var(--white), var(--#{$status})));
                 // background-color: color(#{$type}-#{$state});
                 background-color: rgba(color(#{$status}-#{$state}), color(ghost-#{$state}));
               }

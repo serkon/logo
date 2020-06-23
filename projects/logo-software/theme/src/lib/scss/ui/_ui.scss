@@ -19,8 +19,8 @@ a {
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: transparent;
-      color: var(--#{$name}-500);
+      // background-color: transparent;
+      // color: var(--#{$name}-500);
       border-radius: size($border-radius);
       font-weight: bold;
     }
@@ -42,7 +42,7 @@ input {
 
   @each $name, $value in $list-colors {
     &.#{$name} {
-      background-color: var(--secondary-200);
+      background-color: var(--secondary-100);
     }
 
     @each $state-name, $state-value in $form-state {
