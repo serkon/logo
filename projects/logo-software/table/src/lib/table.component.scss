@@ -215,6 +215,7 @@ $expanded-background-color: #dddde8;
                     font-family: $font-family;
                     cursor: pointer;
                     box-shadow: none;
+                    min-width: size(70px);
                   }
 
                   button {
