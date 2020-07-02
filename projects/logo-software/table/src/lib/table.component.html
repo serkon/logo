@@ -56,7 +56,7 @@
     <thead>
     <tr>
       <th *ngIf="index" class="index"></th>
-      <th *ngIf="checkbox" class="checkbox">
+      <th *ngIf="checkbox && multiSelect" class="checkbox">
         <label>
           <input type="checkbox" (click)="htmlMultiSelect($event)"/>
         </label>
@@ -67,7 +67,6 @@
         [hidden]="column.hidden"
         [ngClass]="htmlSetTheadClass(column)"
         [title]="column.display"
-        class="dotted"
       >
         {{column.display}}
       </th>
