@@ -149,7 +149,7 @@ $expanded-background-color: #dddde8;
         tbody {
           tr {
             td {
-              color: color(black);
+              color: var(--black);
               font-weight: normal;
               font-stretch: normal;
               font-style: normal;
@@ -163,11 +163,11 @@ $expanded-background-color: #dddde8;
                 margin-right: 4px;
 
                 &.expander {
-                  background-color: color(white);
+                  background-color: var(--white);
                   margin-left: 4px;
 
                   &:focus {
-                    background-color: color(white);
+                    background-color: var(--white);
                   }
                 }
               }
@@ -225,6 +225,9 @@ $expanded-background-color: #dddde8;
                     position: absolute;
                     z-index: 2;
                     margin-right: 4px;
+                    width: 24px;
+                    height: 24px;
+                    box-sizing: border-box;
                   }
                 }
 
@@ -232,7 +235,7 @@ $expanded-background-color: #dddde8;
                   box-shadow: $box-shadow;
 
                   button.edit-pen {
-                    background-color: color(white);
+                    background-color: var(--white);
                     display: inline-block;
                     right: 0;
                     margin-right: 4px;
@@ -254,13 +257,13 @@ $expanded-background-color: #dddde8;
                       }
 
                       & ~ button.edit-cancel {
-                        background-color: color(white);
+                        background-color: var(--white);
                         display: inline-block;
                         right: 28px;
                       }
 
                       & ~ button.edit {
-                        background-color: color(white);
+                        background-color: var(--white);
                         display: none;
                       }
                     }
@@ -371,6 +374,8 @@ $expanded-background-color: #dddde8;
     button {
       margin-right: 10px;
       background-color: white;
+      width: 32px;
+      height: 32px;
     }
 
     :last-child {
