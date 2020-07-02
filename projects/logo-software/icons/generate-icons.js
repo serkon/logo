@@ -44,8 +44,7 @@ task('string', (cb) => {
 });
 
 task('scss', (cb) => {
-  writeFileSync(ICONS_SCSS_OUTPUT, `
-/**
+  writeFileSync(ICONS_SCSS_OUTPUT, `/**
 * @license
 * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
 *
@@ -55,7 +54,7 @@ task('scss', (cb) => {
 * Any reproduction of this material must contain this notice.
 */
 
-@import "~@logo-software/theme/src/lib/style";
+// @import "~@logo-software/theme/src/lib/style";
 
 // IMPORTANT: THIS SCSS FILE IS AUTO GENERATED! DO NOT MANUALLY EDIT OR CHECKIN!
 ${scss}
@@ -65,8 +64,7 @@ ${scss}
 });
 
 task('typescript', (cb) => {
-  writeFileSync(ICONS_TS_OUTPUT, `
-/**
+  writeFileSync(ICONS_TS_OUTPUT, `/**
  * @license
  * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
  *

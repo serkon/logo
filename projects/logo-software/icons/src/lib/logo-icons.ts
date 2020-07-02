@@ -1,4 +1,3 @@
-
 /**
  * @license
  * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
