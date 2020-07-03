@@ -24,7 +24,6 @@
   </button>
   <button
     (click)="editable = !editable"
-    *ngIf="editable"
     [ngClass]="{'button-selected': editable}"
     class="outline logo-i-edit"
   >
@@ -56,8 +55,8 @@
     <thead>
     <tr>
       <th *ngIf="index" class="index"></th>
-      <th *ngIf="checkbox && multiSelect" class="checkbox">
-        <label>
+      <th *ngIf="checkbox" class="checkbox">
+        <label *ngIf="multiSelect">
           <input type="checkbox" (click)="htmlMultiSelect($event)"/>
         </label>
       </th>

@@ -64,7 +64,6 @@ $expanded-background-color: #dddde8;
               padding: 2px 5px;
               background-color: $thead-background-color;
               border-right: 1px solid $thead-border-color;
-              cursor: pointer;
               white-space: nowrap;
               text-align: left;
               height: 32px;
@@ -76,6 +75,10 @@ $expanded-background-color: #dddde8;
               line-height: normal;
               letter-spacing: normal;
               color: #ffffff;
+
+              &.sort {
+                cursor: pointer;
+              }
 
               &.index {
                 min-width: 20px;
