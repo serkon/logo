@@ -64,7 +64,7 @@ export class TableShowcaseComponent {
         sortable: true,
       },
       {
-        display: 'datetime', variablePath: 'hour', filterType: FilterType.DATETIME, format: 'yyyy.MM.dd HH:mm', sortable: true,
+        display: 'datetime', variablePath: 'hour', filterType: FilterType.DATETIME, format: 'yyyy.MM.dd HH:mm', sortable: false,
       },
       {
         display: 'surname', variablePath: 'surname', filterType: FilterType.CUSTOM,

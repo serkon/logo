@@ -1,7 +1,7 @@
 <header>
   <nav>
     <button class="ghost large logo-i-menu-left-alt menu"></button>
-    <a class="logo large" href="/#/"><span>Logo</span><span>Elements</span></a>
+    <a class="logo large" href="/#/"><span>Logo</span><span>PAAS</span></a>
     <div class="links">
       <ng-container *ngFor="let link of links.one;">
         <ng-container *ngTemplateOutlet="link.external ? externalURL: internalURL; context: {$implicit: link}">
@@ -10,7 +10,7 @@
       <ng-template #internalURL let-link>
         <a
           routerLink="{{link.url}}"
-          class="light large"
+          class="light ghost large"
           [ngClass]="link.classes"
         >
           {{link.display}}
@@ -19,7 +19,7 @@
       <ng-template #externalURL let-link>
         <a
           href="{{link.url}}"
-          class="light large"
+          class="light ghost large"
           [ngClass]="link.classes"
         >
           {{link.display}}
@@ -34,11 +34,12 @@
 <main>
   <section class="one">
     <div class="title-content">
-      <h1 class="title">Design System <span class="success  for-developers">for Developers</span></h1>
+      <h1 class="title">PaaS <span class="for">for Enterprise</span></h1>
       <p class="description">
-        Keep consistency in your Style Guides, UI component libraries, interactions, templates and other deliverables.
+        Enterprise PaaS ensures support for enterprise application requirements — such as high availability/disaster
+        recovery, external service access, strong security features, and the availability of technical support.
       </p>
-      <button class="primary large get-started">GET STARTED</button>
+      <button class="primary large get-started">EXPLORE</button>
     </div>
     <div class="clouds">
       <div class="cloud-group-1">

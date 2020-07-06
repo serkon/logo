@@ -20,27 +20,21 @@ export class InputShowcaseComponent implements AfterViewInit {
     this.links = {
       one: [
         {
-          display: 'GUIDE',
+          display: 'Services',
           description: `Based on Eva Design System, with 4 visual themes & handy variables to create your own. With hot-reload out of the box`,
           url: 'http://wiki.logo.com.tr/display/PAAS/UI+Elements',
           external: true,
         },
         {
-          display: 'DOCS',
+          display: 'Docs',
           description: `Based on Eva Design System, with 4 visual themes & handy variables to create your own. With hot-reload out of the box`,
           url: '/docs',
-          classes: ['secondary ghost'],
+          classes: ['ghost docs'],
         },
         {
-          display: 'COMPONENTS',
+          display: 'Blog',
           description: 'Native Angular components with configurable styles',
           url: 'docs/components/components-overview',
-        },
-        {
-          display: 'BLOG',
-          description: 'Native Angular components with configurable styles',
-          url: 'https://blog.logo.com.tr/',
-          external: true,
         },
       ],
       four: [
