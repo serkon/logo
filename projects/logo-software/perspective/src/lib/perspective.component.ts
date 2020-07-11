@@ -12,13 +12,37 @@ import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output } fro
   styleUrls: ['perspective.scss'],
 })
 export class PerspectiveComponent implements AfterViewInit {
+  /**
+   * The initiator. The element that will change the perspective value as you move the mouse over it.
+   */
   @Input() container: string;
+  /**
+   * It adds more space (padding) to the element to make perspective. Default is 100.
+   */
   @Input() threshold = 100;
+  /**
+   * Maximum x axis angle, default is 20
+   */
   @Input() xDegree = 20;
+  /**
+   * Maximum y axis angle, default is 20
+   */
   @Input() yDegree = 20;
+  /**
+   * It make more sensitive to the perspective. Default is 20.
+   */
   @Input() sensitivity = 20;
+  /**
+   * It makes disable or enable X axis perspective. Default is true.
+   */
   @Input() rotateX = true;
+  /**
+   * It makes disable or enable Y axis perspective. Default is true.
+   */
   @Input() rotateY = true;
+  /**
+   * Event emitter when changed perspective.
+   */
   @Output() degree: EventEmitter<{ x: number, y: number }> = new EventEmitter<{ x: number, y: number }>();
 
   constructor(private elementRef: ElementRef) {
