@@ -1,0 +1,153 @@
+<header>
+  <nav>
+    <button class="ghost large logo-i-menu-left-alt menu"></button>
+    <a class="logo large" href="/#/"><span>Logo</span><span>PaaS</span></a>
+    <div class="links">
+      <ng-container *ngFor="let link of links.one;">
+        <ng-container *ngTemplateOutlet="link.external ? externalURL: internalURL; context: {$implicit: link}">
+        </ng-container>
+      </ng-container>
+      <ng-template #internalURL let-link>
+        <a
+          routerLink="{{link.url}}"
+          class="light ghost large"
+          [ngClass]="link.classes"
+        >
+          {{link.display}}
+        </a>
+      </ng-template>
+      <ng-template #externalURL let-link>
+        <a
+          href="{{link.url}}"
+          class="light ghost large"
+          [ngClass]="link.classes"
+        >
+          {{link.display}}
+        </a>
+      </ng-template>
+    </div>
+    <label class="search logo-add">
+      <input type="text" placeholder="Search" class="large primary logo-i-search icon-left" required/>
+    </label>
+  </nav>
+</header>
+<main>
+  <section class="one">
+    <div class="title-content">
+      <h1 class="title">PaaS <span class="for">for Enterprise</span></h1>
+      <p class="description">
+        Enterprise PaaS ensures support for enterprise application requirements — such as high availability/disaster
+        recovery, external service access, strong security features, and the availability of technical support.
+      </p>
+      <button class="primary large get-started">EXPLORE</button>
+    </div>
+    <div class="icons">
+      <div class="relieved-smiley icon"><i></i></div>
+    </div>
+    <div class="things">
+      <div class="background">
+        <logo-perspective
+          [threshold]="150"
+          [xDegree]="50"
+          [yDegree]="3"
+          [sensitivity]="50"
+          [rotateX]="true"
+          [rotateY]="true"
+        >
+          <div class="art-bg-01"></div>
+          <div class="art-bg-02"></div>
+          <div class="dotted-line"></div>
+          <div class="mail"></div>
+          <div class="mobile"></div>
+          <div class="human-01"></div>
+          <div class="human-02"></div>
+          <div class="human-03"></div>
+          <div class="plant-01"></div>
+          <div class="plant-02"></div>
+          <div class="bottom"></div>
+        </logo-perspective>
+      </div>
+
+      <div class="rectangles">
+        <div class="rect-01"></div>
+        <div class="rect-02"></div>
+      </div>
+      <div class="clouds"></div>
+      <div class="planets">
+        <div class="planet-01"></div>
+        <div class="planet-02"></div>
+      </div>
+    </div>
+  </section>
+  <section class="two light-600">
+    <div class=" background-image"></div>
+    <h2>Built and customized for your habits</h2>
+    <h5>Design better. Faster. Together.</h5>
+    <p>
+      <span>Transform your products with the world’s leading digital product design platform.</span><br/>
+      <span>Elements is a design system – backed by open-source code – that helps teams build high-quality digital experiences.</span>
+    </p>
+    <button class="outline success large">I'M IN</button>
+  </section>
+  <section class="three">
+    <div class="article-container">
+      <aside>
+        <h1><span class="brush">Customize</span></h1>
+        <article>
+          As well as full documentation and tutorials for the <span>Logo Elements ®</span>. So no matter what, you will
+          be able to design, build and customize your site without sacrificing quality.
+        </article>
+      </aside>
+      <aside>
+        <h1><span class="laptop">Web & Mobile</span></h1>
+        <article>
+          <span>Logo Elements ®</span>, supports most popular web frameworks such as React, Angular and Vue. It also
+          support React Native mobile framework and Vaadin Framework.
+        </article>
+      </aside>
+      <aside>
+        <h1><span class="mobile">Components</span></h1>
+        <article>
+          Create beautiful application that represent your idea. Straightforward way to integrate your brand. Menu,
+          sliders, buttons, inputs, icons etc. are all here. Just dive in!
+        </article>
+      </aside>
+    </div>
+    <button class="primary large">JUST DIVE IN!</button>
+  </section>
+  <section class="four">
+    <div class="quotes" *ngFor="let quote of quotes">
+      <h1 class="story">"{{quote.story}}"</h1>
+      <span class="author">{{quote.author}}</span>
+    </div>
+    <div class="company">
+      <h5>Logo Software Company</h5>
+      <p>
+        Founded in 1984 to develop applications for personal computers, Logo is one of the biggest software companies in
+        Turkey.
+        With the solutions, services, and innovations offered, Logo has become Turkey’s software industry innovation
+        leader.
+      </p>
+      <p>
+        Logo Element® is an adaptable system of guidelines, components, and tools that
+        support the best practices of user interface design. Backed by open-source code,
+        Material streamlines collaboration between designers and developers, and
+        helps teams quickly build beautiful products.
+      </p>
+    </div>
+    <div class="links">
+      <a href="{{link.url}}" *ngFor="let link of links.four">{{link.display}}</a>
+    </div>
+    <div class="terms">
+      <a class="links" href="#" *ngFor="let link of links.footer.terms">{{link.display}}</a>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="social">
+    <a href="#" class="icon" *ngFor="let link of links.footer.socials" [ngClass]="link.display"></a>
+  </div>
+  <div class="copyright">
+    <span class="year">Logo Software 2020, All rights reserved -</span>
+  </div>
+</footer>

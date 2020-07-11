@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="0.5" viewBox="0 0 1440 0.5">
+  <defs>
+    <style>.a {
+      fill: none;
+      stroke: #3268f7;
+      stroke-width: 0.5px;
+      stroke-dasharray: 18;
+    }</style>
+  </defs>
+  <line class="a" x2="1440" transform="translate(0 0.25)"/>
+</svg>

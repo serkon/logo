@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="118.233" height="106.233" viewBox="0 0 118.233 106.233">
+  <defs>
+    <style>.a {
+      fill: none;
+      stroke: #2fa56a;
+      stroke-linecap: round;
+      stroke-width: 5px;
+    }
+
+    .b {
+      fill: #3abf7c;
+    }</style>
+  </defs>
+  <g transform="translate(0 3.536)">
+    <line class="a" x1="82.197" y2="82.197" transform="translate(32.5)"/>
+    <line class="a" x1="31.428" y2="31.428" transform="translate(36.731 25.989)"/>
+    <circle class="b" cx="31" cy="31" r="31" transform="translate(0 40.697)"/>
+  </g>
+</svg>

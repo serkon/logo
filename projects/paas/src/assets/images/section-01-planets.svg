@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="145.536" height="141.233" viewBox="0 0 145.536 141.233">
+  <defs>
+    <style>.a, .c {
+      fill: none;
+      stroke-linecap: round;
+      stroke-width: 5px;
+    }
+
+    .a {
+      stroke: #ffe200;
+    }
+
+    .b {
+      fill: #ffe200;
+    }
+
+    .c {
+      stroke: #2fa56a;
+    }
+
+    .d {
+      fill: #3abf7c;
+    }</style>
+  </defs>
+  <g transform="translate(0 3.536)">
+    <g transform="translate(74 79.697)">
+      <path class="a" d="M49.5,0,0,49.5" transform="translate(18.5)"/>
+      <path class="a" d="M18.926,0,0,18.926" transform="translate(21.048 11.651)"/>
+      <circle class="b" cx="18.5" cy="18.5" r="18.5" transform="translate(0 21)"/>
+    </g>
+    <line class="c" x1="82.197" y2="82.197" transform="translate(32.5)"/>
+    <line class="c" x1="31.428" y2="31.428" transform="translate(36.731 25.989)"/>
+    <circle class="d" cx="31" cy="31" r="31" transform="translate(0 40.697)"/>
+  </g>
+</svg>

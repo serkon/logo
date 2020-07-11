@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="132.484" height="88.145" viewBox="0 0 132.484 88.145">
+  <defs>
+    <style>.a {
+      fill: #e2e6eb;
+    }
+
+    .b, .c, .e {
+      fill: none;
+    }
+
+    .b {
+      stroke: #0090ff;
+      stroke-width: 5px;
+    }
+
+    .c {
+      stroke: #aab0bb;
+      stroke-width: 3px;
+    }
+
+    .d {
+      stroke: none;
+    }</style>
+  </defs>
+  <g transform="translate(0)">
+    <rect class="a" width="41" height="41" rx="14" transform="translate(3.679 20.5) rotate(-30)"/>
+    <g class="b" transform="translate(0 35.16) rotate(-30)">
+      <rect class="d" width="41" height="41" rx="14"/>
+      <rect class="e" x="2.5" y="2.5" width="36" height="36" rx="11.5"/>
+    </g>
+    <g class="c" transform="matrix(0.819, 0.574, -0.574, 0.819, 112.006, 53.326)">
+      <rect class="d" width="25" height="25" rx="9"/>
+      <rect class="e" x="1.5" y="1.5" width="22" height="22" rx="7.5"/>
+    </g>
+  </g>
+</svg>

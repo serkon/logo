@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="224" height="133.186" viewBox="0 0 224 133.186">
+  <defs>
+    <style>.a {
+      fill: #eef8ff;
+    }</style>
+  </defs>
+  <circle class="a" cx="25" cy="25" r="25" transform="translate(0 83.186)"/>
+  <circle class="a" cx="60" cy="60" r="60" transform="translate(104 0.186)"/>
+  <path class="a"
+        d="M7.033,49.12c-8.685-17.51-11.865-39.67,5.55-46.8,19.45-7.965,50.44,4.915,59.46,34.14C77.808,55.13,75.828,81.2,59.9,91.22,46.268,99.8,17.688,70.6,7.033,49.12"
+        transform="translate(20.185)"/>
+</svg>
