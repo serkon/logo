@@ -56,6 +56,14 @@
       ],
       "@logo-software/*": [
         "./projects/logo-software/*"
+      ],
+      "@logo-software/perspective": [
+        "dist/logo-software/perspective/logo-software-perspective",
+        "dist/logo-software/perspective"
+      ],
+      "@logo-software/cursor": [
+        "dist/logo-software/cursor/logo-software-cursor",
+        "dist/logo-software/cursor"
       ]
     }
   },
