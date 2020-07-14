@@ -8,7 +8,7 @@
  * Any reproduction of this material must contain this notice.
  */
 
-@import "~@logo-software/icons/src/lib/logo-icons.scss";
+@import "~@logo-software/icons/style";
 
 $font-family: 'Nunito', sans-serif !important;
 $thead-background-color: #0090ff;
@@ -329,6 +329,7 @@ $expanded-background-color: #dddde8;
         border-top: 0;
         border-bottom: 0;
         vertical-align: inherit;
+        margin: 0;
 
         label {
           margin-bottom: 0;
