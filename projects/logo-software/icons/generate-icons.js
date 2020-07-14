@@ -15,8 +15,8 @@ const pscss = require('postcss-scss');
 
 const ICONS_DIRECTORY = './src/lib/assets/icons/';
 const ICONS_TS_OUTPUT = './src/lib/logo-icons.ts';
-const ICONS_SCSS_OUTPUT = './src/lib/logo-icons.scss';
-const OUT = './src/lib/';
+const ICONS_SCSS_OUTPUT = './style.scss';
+const OUT = './';
 const ts = [];
 let scss = '';
 
@@ -27,7 +27,7 @@ task('string', (cb) => {
     scss = `${scss}
 .logo-i-${name} {
   // &::before{
-    background-image:  svg-load("assets/icons/${name}.svg", fill=#000000); // url("/assets/icons/${name}.svg");
+    background-image:  svg-load("src/lib/assets/icons/${name}.svg", fill=#000000); // url("/assets/icons/${name}.svg");
     background-repeat: no-repeat;
     background-position: center;
     // display: inline-block;
@@ -54,7 +54,7 @@ task('scss', (cb) => {
 * Any reproduction of this material must contain this notice.
 */
 
-// @import "~@logo-software/theme/src/lib/style";
+// @import "~@logo-software/theme/style";
 
 // IMPORTANT: THIS SCSS FILE IS AUTO GENERATED! DO NOT MANUALLY EDIT OR CHECKIN!
 ${scss}
@@ -82,14 +82,14 @@ export const LOGO_ICONS = ${JSON.stringify(ts, null, 2).replace(/\"/g, "'")};
 });
 
 task('postCSS', (cb) => {
-  return src(ICONS_SCSS_OUTPUT)
+   src(ICONS_SCSS_OUTPUT)
     .pipe(postcss(processors, {syntax: pscss}))
     .pipe(dest(OUT));
-  console.log('postCSS');
-  cb()
+   cb();
 });
 
 task('generate', series('string', 'scss', 'typescript', 'postCSS', (cb) => {
   console.log(`### ${ts.length} icons were generated`);
 }));
+
 task('generate')();

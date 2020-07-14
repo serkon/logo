@@ -3,8 +3,7 @@
   "dest": "../../../dist/logo-software/icons",
   "assets": [
     "src/lib/assets",
-    "src/lib/logo-icons.scss",
-    "src/lib/logo-icons.ts",
+    "style.scss",
     "color.js",
     "install.js"
   ],

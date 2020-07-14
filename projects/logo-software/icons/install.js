@@ -24,9 +24,9 @@ const addAssetsToFolder = () => {
       assets.push(add_icon_glob);
       console.log(colors.blue("###\n### assets/icons added to angular.json of the main project's assets\n###"))
     }
-    if (!styles.find(item => item === 'node_modules/@logo-software/icons/src/lib/logo-icons.scss')) {
-      styles.push("node_modules/@logo-software/icons/src/lib/logo-icons.scss")
-      console.log(colors.blue("###\n### logo-icons.scss added to angular.json of the main project's styles\n###"))
+    if (!styles.find(item => item === 'node_modules/@logo-software/icons/style.scss')) {
+      styles.push("node_modules/@logo-software/icons/style.scss")
+      console.log(colors.blue("###\n### style.scss added to angular.json of the main project's styles\n###"))
     }
     generateAngularJson(angularJson);
   } else {
