@@ -53,12 +53,12 @@ $dark-ratio: 900;
             color: if($status == secondary or $status == light or $status == gray, color(dark-#{$dark-ratio}), if($status == dark, color(white), color($status)));
             @each $state in $form-state {
               &:#{$state}, &-#{$state} {
-                background-color: rgba(color(black), color(#{$type}-#{$state}));
+                background-color: rgba(color(quote(black)), color(#{$type}-#{$state}));
               }
             }
 
             &.selected {
-              background-color: rgba(color(black), color(#{$type}-focus));
+              background-color: rgba(color(quote(black)), color(#{$type}-focus));
             }
           }
         }
@@ -68,11 +68,5 @@ $dark-ratio: 900;
     &:disabled {
       opacity: $disabled;
     }
-  }
-}
-
-:root {
-  @each $status, $hex-value in $colors {
-    --#{$status}: #{$hex-value};
   }
 }

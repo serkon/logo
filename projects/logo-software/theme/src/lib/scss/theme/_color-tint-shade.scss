@@ -32,6 +32,10 @@ Color status generator
   @return $map;
 }
 
+@function hexToRGB($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+
 /**
 Merge color lists
  */
@@ -69,26 +73,26 @@ Color generate
 }
 
 $outline: (
-  outline: transparent,
-  outline-hover: color(light-hover),
-  outline-active: color(light-active),
-  outline-focus: color(light-focus)
+  "outline": transparent,
+  "outline-hover": color(light-hover),
+  "outline-active": color(light-active),
+  "outline-focus": color(light-focus)
 );
 
 $ghost: (
-  ghost: $ghost,
-  ghost-hover: $ghost-hover,
-  ghost-active: $ghost-active,
-  ghost-focus: $ghost-focus
+  "ghost": $ghost,
+  "ghost-hover": $ghost-hover,
+  "ghost-active": $ghost-active,
+  "ghost-focus": $ghost-focus
 );
 
 $gray: (
-  white: #ffffff,
-  light-grey: color(gray-300),
-  middle-grey: color(gray-400),
-  grey: color(gray-500),
-  dark-grey: color(gray-600),
-  black: #000000
+  "white": #ffffff,
+  "light-grey": color(gray-300),
+  "middle-grey": color(gray-400),
+  "grey": color(gray-500),
+  "dark-grey": color(gray-600),
+  "black": #000000
 );
 
 $colors: map-collect($colors, $outline, $ghost, $gray);

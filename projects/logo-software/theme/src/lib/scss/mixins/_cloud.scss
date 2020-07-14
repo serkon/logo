@@ -81,3 +81,30 @@
   }
 }
 
+/**
+// Usage example
+.cloud-group-1 {
+  @include cloud(
+    $width: 140px,
+    $color: var(--secondary-400),
+    $shadow-color: rgba(var(--secondary-rgb), 0.27),
+    $shadow-height: 135px,
+    $timing: 42s
+  );
+  bottom: size(135px);
+  left: 30px;
+}
+
+.cloud-group-2 {
+  @include cloud(
+    $width: 90px,
+    $shadow-color: rgba(var(--secondary-rgb), 0.27),
+    $shadow-height: 90px,
+    $timing: 20s,
+    $animation-number: 2
+  );
+  bottom: size(90px);
+  left: size(150px);
+}
+ */
+
