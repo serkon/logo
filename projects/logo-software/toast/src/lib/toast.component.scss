@@ -58,7 +58,7 @@
         z-index: 1;
         line-height: size(30px);
         text-align: center;
-        background-color: rgba(color(black), 0.1);
+        background-color: rgba(var(--black-rgb), 0.1);
         background-repeat: initial;
         color: color(white);
         font-size: size(14px);
