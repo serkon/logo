@@ -96,7 +96,7 @@ export class PerspectiveComponent implements AfterViewInit {
     });
 
     elm.addEventListener('mouseleave', (e) => {
-      image.style.transition = 'all 0.2s linear';
+      image.style.transition = 'all 0.7s linear';
       image.style.transform = `rotateX(0deg) rotateY(0deg)`;
     });
 
