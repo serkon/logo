@@ -78,6 +78,18 @@ export class HomeComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.resize();
+    this.canvas();
+  }
+
+  canvas() {
+    const options: ParticleNetworkOption = {
+      particleColor: '#c4e3ff',
+      background: '#fff',
+      interactive: true,
+      speed: 'fast',
+      density: 'low',
+    };
+    const p: ParticleNetwork = new ParticleNetwork(document.getElementById('particles'), options);
   }
 
   redirect(link: string) {
@@ -86,7 +98,6 @@ export class HomeComponent implements AfterViewInit {
 
   resize() {
     this.bodyHeight = this.document.documentElement.clientHeight;
-    console.log('size changed: ');
     this.sections = this.document.querySelectorAll('section');
     this.sections.forEach(section => {
       section.style.minHeight = `${this.bodyHeight}px`;

@@ -4,6 +4,15 @@
 $header-size: size(80px);
 
 :host {
+  #particles {
+    position: absolute !important;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+  }
+
   header {
     position: absolute;
     left: 0;
@@ -111,7 +120,7 @@ $header-size: size(80px);
 
       h1.title {
         font-family: $font-family;
-        font-weight: bold;
+        font-weight: 800;
         color: var(--dark-500);
 
         .for {
