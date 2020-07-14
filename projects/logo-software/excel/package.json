@@ -1,6 +1,6 @@
 {
   "name": "@logo-software/excel",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Any given data or any service that returned data can be exportable with this component to Excel.",
   "homepage": "http://developer.logo.com.tr",
   "author": {
@@ -29,7 +29,7 @@
   "dependencies": {
     "file-saver": "^2.0.2",
     "xmlbuilder": "^12.0.1",
-    "@logo-software/icons": "~1.0.2"
+    "@logo-software/icons": "~1.1.2"
   },
   "devDependencies": {
     "@types/file-saver": "^2.0.1"
