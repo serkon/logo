@@ -63,6 +63,8 @@
       ],
       "@logo-software/cursor": [
         "dist/logo-software/cursor/logo-software-cursor",
+        "dist/logo-software/cursor",
+        "dist/logo-software/cursor/logo-software-cursor",
         "dist/logo-software/cursor"
       ]
     }
