@@ -40,8 +40,8 @@ export class CursorComponent implements AfterViewInit {
   public defaultTargets = ['.cursor', 'button', 'a'];
   private outside: HTMLElement;
   private inside: HTMLElement;
-  private isMovingTiming: number;
-  private moveTiming: number;
+  private isMovingTiming: number = null;
+  private moveTiming: number = null;
 
   constructor(private elementRef: ElementRef, private router: Router) {
     elementRef.nativeElement.ownerDocument.body.style.cursor = 'none';
@@ -66,7 +66,6 @@ export class CursorComponent implements AfterViewInit {
         this.outside.classList.remove('moving');
       }, this.timeDuration);
     }, 0);
-    requestAnimationFrame(this.cursor);
   }
 
   position(event, element) {
