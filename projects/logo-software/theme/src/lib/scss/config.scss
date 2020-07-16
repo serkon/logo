@@ -84,9 +84,11 @@ html {
   display: flex;
   min-height: 100%;
   min-width: 100%;
+  flex-direction: column;
+  flex-grow: 1;
+  -webkit-font-smoothing: antialiased;
 
   body {
-    display: flex;
     min-height: 100%;
     min-width: 100%;
     font-family: $font-family !important;
