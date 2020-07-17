@@ -856,6 +856,46 @@
           }
         }
       }
+    },
+    "@logo-software/carousel": {
+      "projectType": "library",
+      "root": "projects/logo-software/carousel",
+      "sourceRoot": "projects/logo-software/carousel/src",
+      "prefix": "logo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/logo-software/carousel/tsconfig.lib.json",
+            "project": "projects/logo-software/carousel/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/logo-software/carousel/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/logo-software/carousel/src/test.ts",
+            "tsConfig": "projects/logo-software/carousel/tsconfig.spec.json",
+            "karmaConfig": "projects/logo-software/carousel/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/logo-software/carousel/tsconfig.lib.json",
+              "projects/logo-software/carousel/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "developer"

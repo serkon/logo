@@ -31,7 +31,7 @@
     "icons": "npm run icons --prefix projects/logo-software/icons/",
     "w": "ng build @logo-software/${npm_config_lib} --prod --watch",
     "b": "ng build @logo-software/${npm_config_lib} --prod",
-    "link": "npm link @logo-software/core @logo-software/cursor @logo-software/excel @logo-software/icons @logo-software/language @logo-software/paging @logo-software/perspective @logo-software/table @logo-software/theme @logo-software/toast",
+    "link": "npm link @logo-software/core @logo-software/cursor @logo-software/excel @logo-software/icons @logo-software/language @logo-software/paging @logo-software/perspective @logo-software/table @logo-software/theme @logo-software/toast @logo-software/carousel",
     "link-paas": "cd projects/paas && npm run link",
     "######################### Library": "######",
     "m": "ng g m --project=${npm_config_project} --lintFix=true --routing --module && ng g c --project=${npm_config_project} --export=true --module --prefix=logo --lintFix=true --inlineTemplate=false --inlineStyle=false --style=scss",

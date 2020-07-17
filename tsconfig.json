@@ -66,6 +66,10 @@
         "dist/logo-software/cursor",
         "dist/logo-software/cursor/logo-software-cursor",
         "dist/logo-software/cursor"
+      ],
+      "@logo-software/carousel": [
+        "dist/logo-software/carousel/logo-software-carousel",
+        "dist/logo-software/carousel"
       ]
     }
   },
