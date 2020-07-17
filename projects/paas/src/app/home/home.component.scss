@@ -4,6 +4,8 @@
 $header-size: size(80px);
 
 :host {
+  @include host();
+
   #particles {
     position: absolute !important;
     left: 0;
@@ -100,13 +102,14 @@ $header-size: size(80px);
   }
 
   section {
+    width: 100%;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     box-sizing: border-box;
     position: relative;
     justify-content: center;
-    padding: size(100px);
+    padding: size(50px) size(100px);
   }
 
   section.one {
@@ -297,7 +300,7 @@ $header-size: size(80px);
             transform: translateZ(245px) scale(0.75);
             bottom: size(92px);
             left: size(135px);
-            filter: drop-shadow(0 0 size(10px) rgba(var(--success-500-rgb), 0.5));
+            // filter: drop-shadow(0 0 size(10px) rgba(var(--success-500-rgb), 0.5));
           }
 
           .plant-02 {
@@ -309,7 +312,7 @@ $header-size: size(80px);
             transform: translateZ(145px) scale(0.9);
             bottom: size(57px);
             right: size(100px);
-            filter: drop-shadow(0px 0 size(10px) rgba(var(--success-500-rgb), 0.5));
+            // filter: drop-shadow(0px 0 size(10px) rgba(var(--success-500-rgb), 0.5));
           }
 
           .bottom {
@@ -355,18 +358,17 @@ $header-size: size(80px);
   }
 
   section.two {
-    background: url("/assets/images/leaf.svg") no-repeat left top;
     align-items: center;
+    background-color: #f7f7f7;
 
     .background-image {
-      width: size(165px);
-      height: size(103px);
-      background: transparent url("/assets/images/code.svg") 0 0 no-repeat padding-box;
+      width: size(285px);
+      height: size(300px);
+      background: transparent url("/assets/images/home/section-02/chip.svg") 0 0 no-repeat padding-box;
     }
 
     h2, h5, p {
-      font-family: $font-alternative;
-      color: var(--dark-900);
+      color: var(--dark-500);
       text-align: center;
       margin: 0;
     }
@@ -381,76 +383,234 @@ $header-size: size(80px);
 
     h5 {
       font-size: size(40px);
-      font-weight: 300;
+      font-weight: normal;
       line-height: size(57px);
       padding-bottom: size(18px);
     }
 
     p {
-      margin-bottom: size(40px);
+      font-size: size(20px);
       font-weight: 300;
+      margin-bottom: size(40px);
     }
   }
 
   section.three {
+    position: relative;
+    display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 0;
+    padding: 0;
 
-    div.article-container {
-      display: flex;
-      flex-direction: row;
-      margin-top: size(140px);
-      margin-bottom: size(80px);
+    h1 {
+      color: #1291BF;
+      font-size: size(78px);
+      font-weight: lighter;
+    }
 
-      h1 {
-        font-family: $font-alternative;
-        font-size: size(30px);
-        margin-bottom: size(60px);
+    logo-carousel {
+      .slider-item {
+        box-shadow: 0 60px 60px #6e6e6e46;
+        // background-color: #ffffff;
+        border-radius: 20px;
+        box-sizing: border-box;
+        backdrop-filter: blur(23px);
+        color: #646464;
+        padding: 30px 44px;
+        min-width: 264px;
+        width: 264px;
+        margin-right: 24px;
+        display: inline-block;
+        vertical-align: top;
+        white-space: normal;
 
-        span {
-          background-repeat: no-repeat;
-          background-position: center top;
-          padding-top: size(50px);
+        .icon {
+          height: 42px;
         }
 
-        span.brush {
-          background-image: url("/assets/images/brush.svg");
-          background-size: size(31px);
+        .abbr {
+          font-weight: bold;
+          font-size: 40px;
         }
 
-        span.laptop {
-          background-image: url("/assets/images/laptop.svg");
-          background-size: size(54px);
+        .title {
+          color: #89969F;
+          font-size: 12px;
+          font-weight: bold;
+          letter-spacing: 0.2px;
         }
 
-        span.mobile {
-          background-image: url("/assets/images/mobile.svg");
-          background-size: size(61px);
+        .description {
+          margin-top: 20px;
+          font-size: 16px;
+          font-weight: 300;
+
         }
       }
+    }
 
-      aside {
-        font-size: size(18px);
-        margin: 0 size(45px);
-        max-width: size(400px);
-        text-align: center;
+    div.backgrounds {
+      @mixin circle($width, $height, $bg-color) {
+        position: absolute;
+        overflow: hidden;
+        width: $width;
+        height: $height;
+        mix-blend-mode: multiply;
+        z-index: -1;
 
-        &:first-child {
-          margin-left: 0;
-          text-align: left;
+        &::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: $width;
+          bottom: 0;
+          right: 0;
+          background-color: $bg-color;
+          border-radius: 50%;
+        }
+      }
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+
+      .background-yellow {
+        @include circle($width: size(465px), $height: size(326px), $bg-color: #ffe200);
+        right: 18%;
+        top: 0;
+      }
+
+      .background-green {
+        @include circle($width: size(235px), $height: size(138px), $bg-color: #3abf7c);
+        left: 17%;
+        top: 0;
+      }
+
+      .background-dark-blue {
+        @include circle($width: size(204px), $height: size(219px), $bg-color: #1291bf);
+        left: -2%;
+        bottom: size(-30px);
+      }
+
+      .background-light-blue {
+        @include circle($width: size(128px), $height: size(128px), $bg-color: #0090ff);
+        right: size(247px);
+        bottom: size(-30px);
+        mix-blend-mode: multiply;
+      }
+
+      .shapes {
+        opacity: 32%;
+
+        .circle {
+          position: absolute;
+          width: size(26px);
+          left: 4%;
+          top: size(22px);
+          height: size(26px);
+          border-radius: 50%;
+          border: size(3px) solid #b4b4b4;
+          box-sizing: border-box;
         }
 
-        &:last-child {
-          margin-right: 0;
-          text-align: right;
+        .circle-bg {
+          position: absolute;
+          width: size(26px);
+          left: size(55px);
+          mix-blend-mode: multiply;
+          top: size(22px);
+          height: size(26px);
+          border-radius: 50%;
+          border: size(3px) solid #b4b4b4;
+          box-sizing: border-box;
         }
 
-        article {
-          font-weight: 200;
+        .square {
+          position: absolute;
+          width: size(11px);
+          height: size(11px);
+          left: 11%;
+          top: size(50px);
+          transform: rotate(45deg);
+          border: size(3px) solid #0090ff;
+          box-sizing: border-box;
+        }
 
-          span {
-            font-weight: bold;
+        .plus {
+          position: absolute;
+          left: size(213px);
+          top: size(15px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: size(16px);
+          height: size(16px);
+
+          &::before {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: size(3px);
+            background-color: #ffe200;
           }
+
+          &::after {
+            position: absolute;
+            content: '';
+            width: size(3px);
+            height: 100%;
+            background-color: #ffe200;
+          }
+        }
+
+        .cross {
+          position: absolute;
+          left: size(550px);
+          top: size(35px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: size(32px);
+          height: size(32px);
+          transform: rotate(45deg);
+
+          &::before {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: size(3px);
+            background-color: #1291bf;
+          }
+
+          &::after {
+            position: absolute;
+            content: '';
+            width: size(3px);
+            height: 100%;
+            background-color: #1291bf;
+          }
+        }
+
+        .three-angle {
+          position: absolute;
+          width: size(23px);
+          height: size(26px);
+          transform: rotate(-14deg);
+          right: size(148px);
+          top: size(50px);
+          background: url("/assets/images/home/section-03/tree-angle.svg") center no-repeat;
+        }
+
+        .circle-right {
+          position: absolute;
+          width: size(21px);
+          height: size(21px);
+          right: size(67px);
+          top: size(60px);
+          border-radius: 50%;
+          border: size(3px) solid #b3d7ff;
+          box-sizing: border-box;
         }
       }
     }

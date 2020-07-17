@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, HostListener, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Router } from '@angular/router';
+import { SliderItem } from '@logo-software/carousel';
 
 @Component({
   selector: 'logo-home',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements AfterViewInit {
   public quotes;
   public links;
+  public sliderItems: SliderItem[];
   private bodyHeight: number;
 
   constructor(@Inject(DOCUMENT) private document, private router: Router) {
@@ -54,6 +56,48 @@ export class HomeComponent implements AfterViewInit {
         ],
       },
     };
+    this.sliderItems = [
+      {
+        icon: '/assets/images/home/section-03/user.svg',
+        abbr: 'IDM',
+        title: 'Centeral Identitiy Management',
+        description: 'Uygulamaların kullanıcı veritabanını tutarak, kullanıcı kayıt ve giriş işlemleri güvenli olarak yönetir',
+        link: '',
+        class: '',
+      },
+      {
+        icon: '/assets/images/home/section-03/cloud.svg',
+        abbr: 'CCS',
+        title: 'Cloud Control Service',
+        description: 'Logo PaaS platformundaki mikro servislerin ve uygulamaların ortak bilgilerini sağlar ve çoklu-kiracı (multi-tenancy) işlemlerini yönetir',
+        link: '',
+        class: '',
+      },
+      {
+        icon: '/assets/images/home/section-03/attribution.svg',
+        abbr: 'AS',
+        title: 'Authorization Service',
+        description: 'Logo PaaS platformunda geliştirilen uygulamlar için yetki yönetimi işlemlerini yönetmektedir',
+        link: '',
+        class: '',
+      },
+      {
+        icon: '/assets/images/home/section-03/keyhole.svg',
+        abbr: 'SS',
+        title: 'Setting Service',
+        description: 'Logo PaaS platformunda diğer mikro servislerin ayarlarını saklama ve gerektiğinde uygulamalara bu ayarları sağlama işlevlerini gerçekleştirir',
+        link: '',
+        class: '',
+      },
+      {
+        icon: '/assets/images/home/section-03/menu.svg',
+        abbr: 'MS',
+        title: 'Menu Service',
+        description: 'Masaüstü oluşturabildiği ve kullanıcıların kayıt olmuş uygulamaları aynı ortamda kullanmasını sağlayan bir servistir',
+        link: '',
+        class: '',
+      },
+    ];
   }
 
   /** The Window object from Document defaultView */
@@ -89,7 +133,7 @@ export class HomeComponent implements AfterViewInit {
       speed: 'fast',
       density: 'low',
     };
-    const p: ParticleNetwork = new ParticleNetwork(document.getElementById('particles'), options);
+    // const p: ParticleNetwork = new ParticleNetwork(document.getElementById('particles'), options);
   }
 
   redirect(link: string) {

@@ -1,0 +1,53 @@
+<svg id="Chip" xmlns="http://www.w3.org/2000/svg" width="284.106" height="300" viewBox="0 0 284.106 300">
+  <path id="Subtraction_14" data-name="Subtraction 14"
+        d="M137.086,137.086H0V0H137.086V137.086ZM10.544,10.544v116h116v-116Z" transform="translate(78.477 78.477)"
+        fill="#707070"/>
+  <rect id="Rectangle_965" data-name="Rectangle 965" width="116.225" height="116.225"
+        transform="translate(89.404 89.404)" fill="#fff"/>
+  <rect id="Rectangle_958" data-name="Rectangle 958" width="46.689" height="9.934"
+        transform="translate(100.331 100.331)" fill="#707070"/>
+  <rect id="Rectangle_959" data-name="Rectangle 959" width="30.795" height="9.934"
+        transform="translate(100.331 121.192)" fill="#707070"/>
+  <rect id="Rectangle_960" data-name="Rectangle 960" width="10.927" height="9.934"
+        transform="translate(131.126 189.735)" fill="#707070"/>
+  <rect id="Rectangle_961" data-name="Rectangle 961" width="9.934" height="9.934" transform="translate(152.98 189.735)"
+        fill="#707070"/>
+  <rect id="Rectangle_962" data-name="Rectangle 962" width="9.934" height="9.934" transform="translate(173.841 189.735)"
+        fill="#707070"/>
+  <rect id="Rectangle_966" data-name="Rectangle 966" width="78.477" height="9.934" transform="translate(0 100.331)"
+        fill="#707070"/>
+  <g id="Rectangle_967" data-name="Rectangle 967" transform="translate(47.682 121.192)" fill="#707070" stroke="#707070"
+     stroke-width="1">
+    <rect width="30.795" height="9.934" stroke="none"/>
+    <rect x="0.5" y="0.5" width="29.795" height="8.934" fill="none"/>
+  </g>
+  <g id="Rectangle_968" data-name="Rectangle 968" transform="translate(25.828 142.053)" fill="#707070" stroke="#707070"
+     stroke-width="1">
+    <rect width="52.649" height="10.927" stroke="none"/>
+    <rect x="0.5" y="0.5" width="51.649" height="9.927" fill="none"/>
+  </g>
+  <rect id="Rectangle_969" data-name="Rectangle 969" width="9.934" height="84.437"
+        transform="translate(116.225 215.563)" fill="#707070"/>
+  <g id="Rectangle_970" data-name="Rectangle 970" transform="translate(137.086 215.563)" fill="#707070" stroke="#707070"
+     stroke-width="1">
+    <rect width="9.934" height="42.715" stroke="none"/>
+    <rect x="0.5" y="0.5" width="8.934" height="41.715" fill="none"/>
+  </g>
+  <g id="Rectangle_971" data-name="Rectangle 971" transform="translate(157.947 215.563)" fill="#707070" stroke="#707070"
+     stroke-width="1">
+    <rect width="9.934" height="63.576" stroke="none"/>
+    <rect x="0.5" y="0.5" width="8.934" height="62.576" fill="none"/>
+  </g>
+  <rect id="Rectangle_972" data-name="Rectangle 972" width="9.934" height="52.649" transform="translate(116.225 25.828)"
+        fill="#707070"/>
+  <rect id="Rectangle_973" data-name="Rectangle 973" width="9.934" height="36.755" transform="translate(137.086 41.722)"
+        fill="#707070"/>
+  <rect id="Rectangle_974" data-name="Rectangle 974" width="9.934" height="78.477" transform="translate(157.947)"
+        fill="#707070"/>
+  <rect id="Rectangle_975" data-name="Rectangle 975" width="42.715" height="10.927"
+        transform="translate(215.563 142.053)" fill="#707070"/>
+  <rect id="Rectangle_976" data-name="Rectangle 976" width="20.861" height="10.927"
+        transform="translate(215.563 162.914)" fill="#707070"/>
+  <rect id="Rectangle_977" data-name="Rectangle 977" width="68.543" height="10.927"
+        transform="translate(215.563 183.775)" fill="#707070"/>
+</svg>

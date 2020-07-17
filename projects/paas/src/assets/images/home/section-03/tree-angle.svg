@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="23" viewBox="0 0 26 23">
+  <g id="Polygon_3" data-name="Polygon 3" fill="none">
+    <path d="M13,0,26,23H0Z" stroke="none"/>
+    <path
+      d="M 13 6.096853256225586 L 5.141698837280273 20 L 20.85830116271973 20 L 13 6.096853256225586 M 13 0 L 26 23 L 0 23 L 13 0 Z"
+      stroke="none" fill="red"/>
+  </g>
+</svg>

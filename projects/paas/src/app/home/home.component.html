@@ -82,39 +82,43 @@
   </section>
   <section class="two light-600">
     <div class=" background-image"></div>
-    <h2>Built and customized for your habits</h2>
+    <h2>Plug and Play for your requirement</h2>
     <h5>Design better. Faster. Together.</h5>
     <p>
       <span>Transform your products with the world’s leading digital product design platform.</span><br/>
       <span>Elements is a design system – backed by open-source code – that helps teams build high-quality digital experiences.</span>
     </p>
-    <button class="outline success large">I'M IN</button>
   </section>
   <section class="three">
-    <div class="article-container">
-      <aside>
-        <h1><span class="brush">Customize</span></h1>
-        <article>
-          As well as full documentation and tutorials for the <span>Logo Elements ®</span>. So no matter what, you will
-          be able to design, build and customize your site without sacrificing quality.
-        </article>
-      </aside>
-      <aside>
-        <h1><span class="laptop">Web & Mobile</span></h1>
-        <article>
-          <span>Logo Elements ®</span>, supports most popular web frameworks such as React, Angular and Vue. It also
-          support React Native mobile framework and Vaadin Framework.
-        </article>
-      </aside>
-      <aside>
-        <h1><span class="mobile">Components</span></h1>
-        <article>
-          Create beautiful application that represent your idea. Straightforward way to integrate your brand. Menu,
-          sliders, buttons, inputs, icons etc. are all here. Just dive in!
-        </article>
-      </aside>
+    <h1>Services</h1>
+    <logo-carousel>
+      <div class="slider-item" *ngFor="let item of sliderItems">
+        <img class="icon" src="{{item.icon}}" title="{{item.title}}" alt="{{item.title}}"/>
+        <div class="abbr">{{item.abbr}}</div>
+        <div class="title">{{item.title}}</div>
+        <div class="description">{{item.description}}</div>
+        <a class="go"></a>
+      </div>
+    </logo-carousel>
+    <div class="backgrounds">
+      <div class="background-green"></div>
+      <div class="background-yellow"></div>
+      <div class="background-dark-blue"></div>
+      <div class="background-light-blue"></div>
+      <div class="shapes">
+        <div class="circle"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="plus"></div>
+        <div class="plus plus-bg"></div>
+        <div class="cross"></div>
+        <div class="cross cross-bg"></div>
+        <div class="three-angle"></div>
+        <div class="three-angle three-angle-bg"></div>
+        <div class="circle-right"></div>
+        <div class="circle-right circle-right-bg"></div>
+      </div>
     </div>
-    <button class="primary large">JUST DIVE IN!</button>
   </section>
   <section class="four">
     <div class="quotes" *ngFor="let quote of quotes">
