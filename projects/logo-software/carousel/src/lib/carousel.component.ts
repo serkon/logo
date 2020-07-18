@@ -24,7 +24,7 @@ export interface SliderItem {
         -->
       </div>
     </div>
-    <div class="arrow-with-animation">
+    <div class="arrow-with-animation" *ngIf="arrow">
       <a href="#" class="slider-arrow left" (click)="moveLeft($event)">
         <i></i>
         <svg>
@@ -63,7 +63,14 @@ export class CarouselComponent implements AfterViewInit {
    * Total will be moved item count, default is one
    */
   @Input() count = 1;
+  /**
+   * It enable dots under the slide. Default is false;
+   */
   @Input() dots = false;
+  /**
+   * It enable arrows under the slide. Default is true.
+   */
+  @Input() arrow = true;
   @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
   @ViewChild('sliding', {read: ElementRef}) sliding: ElementRef;
   totalItems: number = 0;
@@ -145,12 +152,10 @@ export class CarouselComponent implements AfterViewInit {
 
   move() {
     const translateXSize = this.itemBoxWidth * this.currentItem;
-    console.log(translateXSize);
     this.sliding.nativeElement.style.transform = `translateX(${translateXSize > this.maxSize ? -this.maxSize : -translateXSize}px)`;
   }
 
   onDotClick(index: number) {
-    console.log(index);
     this.currentItem = index;
     this.move();
   }
