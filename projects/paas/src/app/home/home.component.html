@@ -91,7 +91,7 @@
   </section>
   <section class="three">
     <h1>Services</h1>
-    <logo-carousel>
+    <logo-carousel [count]="1" [arrow]="true" [dots]="true">
       <div class="slider-item" *ngFor="let item of sliderItems">
         <img class="icon" src="{{item.icon}}" title="{{item.title}}" alt="{{item.title}}"/>
         <div class="abbr">{{item.abbr}}</div>

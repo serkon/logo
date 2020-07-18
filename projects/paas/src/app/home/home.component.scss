@@ -4,7 +4,7 @@
 $header-size: size(80px);
 
 :host {
-  @include host();
+  display: block;
 
   #particles {
     position: absolute !important;
@@ -110,6 +110,7 @@ $header-size: size(80px);
     position: relative;
     justify-content: center;
     padding: size(50px) size(100px);
+    overflow: hidden;
   }
 
   section.one {
@@ -402,17 +403,21 @@ $header-size: size(80px);
     align-items: center;
     z-index: 0;
     padding: 0;
+    overflow: hidden;
 
     h1 {
       color: #1291BF;
       font-size: size(78px);
       font-weight: lighter;
+      margin-bottom: 50px;
     }
 
     logo-carousel {
+      padding: 0 size(100px);
+
       .slider-item {
         box-shadow: 0 60px 60px #6e6e6e46;
-        // background-color: #ffffff;
+        background-color: #ffffff;
         border-radius: 20px;
         box-sizing: border-box;
         backdrop-filter: blur(23px);
@@ -474,6 +479,7 @@ $header-size: size(80px);
       width: 100%;
       height: 100%;
       z-index: -1;
+      top: 0;
 
       .background-yellow {
         @include circle($width: size(465px), $height: size(326px), $bg-color: #ffe200);
