@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, HostListener, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { Router } from '@angular/router';
 import { SliderItem } from '@logo-software/carousel';
 
 @Component({
@@ -10,52 +9,36 @@ import { SliderItem } from '@logo-software/carousel';
 })
 export class HomeComponent implements AfterViewInit {
   public quotes;
-  public links;
   public sliderItems: SliderItem[];
+  public companies = [
+    {
+      image: '/assets/images/home/section-04/isbasi.png',
+      name: 'Isbasi',
+      description: 'Küçük işletmeler için cepte, web’de ön muhasebe uygulamasıdır',
+    },
+    {
+      image: '/assets/images/home/section-04/vyapari.png',
+      name: 'V-yapari',
+      description: 'Logo Yazılım’ın Hindistan vergi mevzuatına uygun olarak geliştirdiği SAAS uygulamadır.',
+    },
+    {
+      image: '/assets/images/home/section-04/logo.png',
+      name: 'Logo',
+      description: 'İş Süreçlerinin tasarlanması, otomasyonu, ölçümlenmesi ve yönetimini sağlayan İş Süreçleri Yönetimi (BPM) uygulamasıdır.',
+    },
+    {
+      image: '/assets/images/home/section-04/e-logo.png',
+      name: 'E-Logo',
+      description: 'Cepte ve web’de Kurumsal doküman yönetim uygulamasıdır.',
+    },
+  ];
   private bodyHeight: number;
 
-  constructor(@Inject(DOCUMENT) private document, private router: Router) {
+  constructor(@Inject(DOCUMENT) private document) {
     this.quotes = [
-      {story: 'People ignore design that ignores people', author: 'FRANK CHIMERO'},
+      {story: 'Logo güvencesiyle uygulama geliştirmeye siz de başlayın!', author: 'Get Ready?'},
       // {story: 'Good designs come from the heart, not from the brain', author: 'DANNY SENGERS'},
     ];
-    this.links = {
-      one: [
-        {
-          display: 'Services',
-          description: `Based on Eva Design System, with 4 visual themes & handy variables to create your own. With hot-reload out of the box`,
-          url: 'http://wiki.logo.com.tr/display/PAAS/UI+Elements',
-          external: true,
-        },
-        {
-          display: 'Docs',
-          description: `Based on Eva Design System, with 4 visual themes & handy variables to create your own. With hot-reload out of the box`,
-          url: '/docs',
-          classes: ['ghost docs'],
-        },
-        {
-          display: 'Blog',
-          description: 'Native Angular components with configurable styles',
-          url: 'docs/components/components-overview',
-        },
-      ],
-      four: [
-        {url: '#', display: 'Corporate'},
-        {url: '#', display: 'Contact'},
-        {url: '#', display: 'Blog'},
-        {url: '#', display: 'Carier'},
-      ],
-      footer: {
-        socials: [{url: '#', display: 'twitter'}, {url: '#', display: 'facebook'}, {url: '#', display: 'youtube'}],
-        terms: [
-          {url: '#', display: 'Copyright'},
-          {url: '#', display: 'Terms of Use'},
-          {url: '#', display: 'Privacy'},
-          {url: '#', display: 'Personal Data'},
-          {url: '#', display: 'Cookie Policy'},
-        ],
-      },
-    };
     this.sliderItems = [
       {
         icon: '/assets/images/home/section-03/user.svg',
@@ -134,10 +117,6 @@ export class HomeComponent implements AfterViewInit {
       density: 'low',
     };
     // const p: ParticleNetwork = new ParticleNetwork(document.getElementById('particles'), options);
-  }
-
-  redirect(link: string) {
-    this.router.navigate([link]);
   }
 
   resize() {

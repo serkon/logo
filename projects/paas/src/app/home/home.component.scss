@@ -1,8 +1,6 @@
-@import "~@logo-software/icons/style";
 @import "~@logo-software/theme/style";
 
 $header-size: size(80px);
-
 :host {
   display: block;
 
@@ -15,92 +13,6 @@ $header-size: size(80px);
     z-index: 0;
   }
 
-  header {
-    position: absolute;
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: $header-size;
-    box-shadow: 0 0 size(10px) 0 rgba(var(--black-rgb), 0.05);
-    padding: size(0) size(50px);
-    z-index: 2;
-    background-color: var(--white);
-
-    nav {
-      display: flex;
-      margin: 0;
-      padding: 0;
-      align-items: center;
-      width: 100%;
-
-      .menu {
-      }
-
-      .logo {
-        display: flex;
-        width: size(245px);
-        box-sizing: border-box;
-        font-family: $font-alternative;
-
-        span {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 10px;
-          color: var(--white);
-          font-size: size(25px);
-          font-weight: normal;
-          line-height: 1.36;
-          border-radius: size(2px);
-        }
-
-        span:first-child {
-          background-color: var(--primary-500);
-        }
-
-        span:last-child {
-          color: var(--gray-600);
-          padding: size(10px) size(8px);
-        }
-      }
-
-      .links {
-        display: flex;
-        flex-grow: 1;
-        align-items: center;
-        justify-content: center;
-        padding-right: size(100px);
-
-        a {
-          font-size: size(24px);
-          letter-spacing: size(-1.26px);
-          font-weight: normal;
-        }
-
-        .docs {
-          font-weight: bold;
-        }
-      }
-
-      .search {
-        display: flex;
-        justify-content: flex-end;
-
-        input {
-          @debug var(--black-rgb);
-          background-color: rgba(var(--black-rgb), 0.03);
-          background-size: size(32px) size(32px);
-
-          &:focus {
-            background-color: var(--white);
-          }
-        }
-      }
-    }
-  }
-
   section {
     width: 100%;
     display: flex;
@@ -111,37 +23,51 @@ $header-size: size(80px);
     justify-content: center;
     padding: size(50px) size(100px);
     overflow: hidden;
+
+    @include smaller-than(md) {
+      padding: size(40px);
+    }
   }
 
   section.one {
     padding: ($header-size + size(100px)) size(100px) size(100px) size(120px);
     min-height: size(400px);
     background: url("/assets/images/section-01-horizontal-line.svg") right 0 bottom 1px repeat-x;
+    @include smaller-than(md) {
+      padding: size(40px);
+    }
 
     div.title-content {
       position: relative;
       z-index: 1;
+      max-width: size(450px);
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
 
       h1.title {
         font-family: $font-family;
         font-weight: 800;
         color: var(--dark-500);
+        flex-direction: column;
+        pointer-events: none;
 
         .for {
-          // padding: size(7.5px) size(15px);
           color: var(--info-200);
         }
       }
 
       p.description {
-        width: size(450px);
         margin: size(25px) 0 size(40px) 0;
         font-size: size(20px);
         color: var(--dark-400);
+        pointer-events: none;
       }
     }
 
     div.things {
+      z-index: 0;
+
       .rectangles {
         position: absolute;
         top: size(124px);
@@ -158,6 +84,10 @@ $header-size: size(80px);
         width: size(224px);
         height: size(134px);
         background: url("/assets/images/section-01-clouds.svg") no-repeat;
+
+        @include smaller-than(md) {
+          display: none;
+        }
       }
 
       .planets {
@@ -169,13 +99,21 @@ $header-size: size(80px);
         background: url("/assets/images/section-01-planets.svg") no-repeat;
       }
 
-      .background {
+      .perspective {
         position: absolute;
         right: size(30px);
         bottom: 0;
         width: size(734px);
         height: size(615px);
         z-index: 1;
+
+        @include smaller-than(lg) {
+          transform: scale(0.7) translateX(25%) translateY(21%);
+        }
+
+        @include smaller-than(sm) {
+          transform: scale(0.4) translateX(80%) translateY(75%);
+        }
 
         logo-perspective {
           position: relative;
@@ -417,7 +355,7 @@ $header-size: size(80px);
 
       .slider-item {
         box-shadow: 0 60px 60px #6e6e6e46;
-        background-color: #ffffff;
+        // background-color: #ffffff;
         border-radius: 20px;
         box-sizing: border-box;
         backdrop-filter: blur(23px);
@@ -456,6 +394,8 @@ $header-size: size(80px);
     }
 
     div.backgrounds {
+      background: url("/assets/images/home/section-03/horizontal-line.svg") right 0 top 0 repeat-x;
+
       @mixin circle($width, $height, $bg-color) {
         position: absolute;
         overflow: hidden;
@@ -623,122 +563,123 @@ $header-size: size(80px);
   }
 
   section.four {
-    background: #101010 0 0 no-repeat padding-box;
-    align-items: flex-start;
-    justify-content: space-between;
+    $bg-color: #1291BF6B; // #1291BF6B
+    $bg-circle: rgba(255, 255, 255, 0.5); // rgba(255, 255, 255, 0.5);
+    background: $bg-color url("/assets/images/section-01-horizontal-line.svg") right 0 top 0 repeat-x;
+    padding: 0;
 
-    div.quotes {
-      margin-bottom: size(75px);
-
-      h1.story {
-        color: var(--white);
-        font-weight: 300;
-      }
-
-      span.author {
-        font-weight: 300;
-        color: var(--dark-900);
-        font: 30px/41px $font-family;
-      }
-    }
-
-    div.company {
-      flex-grow: 1;
-
-      h5 {
-        color: var(--white);
-        font-weight: 200;
-        margin-bottom: size(20px);
-      }
-
-      p {
-        font-size: size(14px);
-        font-weight: 200;
-        color: var(--light-900);
-      }
-    }
-
-    div.links {
-      padding-top: size(100px);
-
-      a {
-        color: var(--white);
-
-        &:not(:last-of-type)::after {
-          content: "|";
-          padding: 0 size(5px);
-        }
-      }
-    }
-
-    div.terms {
-      font-family: $font-alternative;
-      font-size: size(11px);
-
-      a {
-        color: var(--dark-700);
-
-        &:not(:last-of-type)::after {
-          content: "|";
-          padding: 0 size(5px);
-        }
-      }
-    }
-  }
-
-  footer {
-    display: flex;
-    font-family: $font-alternative;
-    font-size: size(12px);
-    color: var(--dark-500);
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-    padding: size(26px) size(100px);
-    background-color: var(--black);
-
-    div.social {
-      margin-bottom: size(20px);
-
-      a.icon {
-        display: inline-block;
-        height: size(16px);
-        width: size(16px);
-        background-repeat: no-repeat;
-        background-position: center;
-        margin: 0 size(15px);
-        color: var(--white);
-
-        &.twitter {
-          background-image: url("/assets/images/twitter.svg");
-          width: size(19px);
-        }
-
-        &.facebook {
-          background-image: url("/assets/images/facebook.svg");
-        }
-
-        &.youtube {
-          background-image: url("/assets/images/youtube.svg");
-          width: size(22px);
-        }
-      }
-    }
-
-    div.copyright {
+    div.backgrounds {
+      position: absolute;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      margin-top: -50%;
       display: flex;
       justify-content: center;
 
-      div.designer {
-        color: var(--light-800);
-        font-size: size(10px);
-        font-weight: 200;
-        font-family: $font-alternative;
-        margin-bottom: size(30px);
+      div.circle-01 {
+        position: relative;
+        z-index: 0;
+        background-color: $bg-circle;
+        box-shadow: 0 0 size(30px) $bg-color;
+        border-radius: 50%;
+        width: size(1100px);
+        min-width: size(1100px);
+        height: size(1100px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
-      span.year {
-        margin-right: size(3px);
+      div.circle-02 {
+        position: relative;
+        z-index: 0;
+        background-color: $bg-circle;
+        box-shadow: 0 0 size(30px) $bg-color;
+        border-radius: 50%;
+        width: size(800px);
+        min-width: size(800px);
+        height: size(800px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      div.circle-03 {
+        position: relative;
+        z-index: 0;
+        background-color: $bg-circle;
+        box-shadow: 0 0 size(30px) $bg-color;
+        border-radius: 50%;
+        width: size(500px);
+        min-width: size(500px);
+        height: size(500px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        div.circle-description {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+
+          h2 {
+            color: #000000;
+            font-size: size(60px);
+            font-weight: bold;
+          }
+
+          p, span {
+            color: #4d4d4d;
+            font-weight: 100;
+            line-height: normal;
+            margin: 0;
+          }
+
+          p {
+            font-size: size(22px);
+          }
+
+          span {
+            margin-top: size(5px);
+            font-size: size(14px);
+          }
+
+          button {
+            border-radius: size(3px);
+            margin-top: size(30px);
+          }
+        }
+      }
+    }
+
+    .companies {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      bottom: 0;
+      min-height: size(200px);
+
+      .company {
+        flex-direction: column;
+        padding: 0 size(47px);
+        margin: size(50px) 0;
+
+        .image {
+          background-repeat: no-repeat;
+          background-size: contain;
+          width: 100%;
+          height: size(30px);
+          margin-bottom: size(15px);
+          filter: brightness(0) contrast(0.4);
+          opacity: 0.9;
+        }
+
+        .description {
+          font-size: size(16px);
+          font-weight: lighter;
+        }
       }
     }
   }

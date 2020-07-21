@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1" viewBox="0 0 1440 1">
+  <g id="horizontal_line" data-name="horizontal line" transform="translate(0 0.5)">
+    <line id="hr" x2="351" fill="none" stroke="#3268f7" stroke-width="1" stroke-dasharray="18"/>
+    <line id="hr-2" data-name="hr" x2="351" transform="translate(363)" fill="none" stroke="#c00459" stroke-width="1"
+          stroke-dasharray="18"/>
+    <line id="hr-3" data-name="hr" x2="351" transform="translate(1089)" fill="none" stroke="#ffe200" stroke-width="1"
+          stroke-dasharray="18"/>
+    <line id="hr-4" data-name="hr" x2="351" transform="translate(726)" fill="none" stroke="#51c000" stroke-width="1"
+          stroke-dasharray="18"/>
+  </g>
+</svg>

@@ -1,2 +1,79 @@
-<logo-cursor [timeDuration]="500" [targets]="['.cursor', '.arrow', 'svg']"></logo-cursor>
-<router-outlet></router-outlet>
+<logo-cursor [timeDuration]="200" [targets]="['.cursor', '.arrow', 'svg']"></logo-cursor>
+<header>
+  <nav>
+    <button class="ghost large logo-i-menu-left-alt menu"></button>
+    <a class="logo large" href="/#/"><span>Logo</span><span>PaaS</span></a>
+    <div class="links">
+      <ng-container *ngFor="let link of links.one;">
+        <ng-container *ngTemplateOutlet="link.external ? externalURL: internalURL; context: {$implicit: link}">
+        </ng-container>
+      </ng-container>
+      <ng-template #internalURL let-link>
+        <a
+          routerLink="{{link.url}}"
+          class="light ghost large"
+          [ngClass]="link.classes"
+        >
+          {{link.display}}
+        </a>
+      </ng-template>
+      <ng-template #externalURL let-link>
+        <a
+          href="{{link.url}}"
+          class="light ghost large"
+          [ngClass]="link.classes"
+        >
+          {{link.display}}
+        </a>
+      </ng-template>
+    </div>
+    <label class="search logo-add">
+      <input type="text" placeholder="Search" class="large primary logo-i-search icon-left" required/>
+    </label>
+  </nav>
+</header>
+<main>
+  <router-outlet></router-outlet>
+  <section class="five">
+    <div class="quotes row" *ngFor="let quote of quotes">
+      <h1 class="story col-xs-12">"{{quote.story}}"</h1>
+      <div class="col-xs-12">
+        <button class="author dark-500 large" [innerHTML]="quote.author"></button>
+      </div>
+    </div>
+    <div class="layout row">
+      <div class="company col-xs-12 col-md-6 col-lg-5">
+        <h5>Logo Software Company</h5>
+        <p>
+          Founded in 1984 to develop applications for personal computers, Logo is one of the biggest software companies
+          in
+          Turkey.
+          With the solutions, services, and innovations offered, Logo has become Turkey’s software industry innovation
+          leader.
+        </p>
+        <p>
+          Logo Element® is an adaptable system of guidelines, components, and tools that
+          support the best practices of user interface design. Backed by open-source code,
+          Material streamlines collaboration between designers and developers, and
+          helps teams quickly build beautiful products.
+        </p>
+      </div>
+      <div class="links col-xs-12 col-md-6 col-lg-4">
+        <div class="corporate col-xs-6">
+          <a href="{{link.url}}" *ngFor="let link of links.five.corporate">{{link.display}}</a>
+        </div>
+        <div class="legal col-xs-6">
+          <a href="{{link.url}}" *ngFor="let link of links.five.legal">{{link.display}}</a>
+        </div>
+      </div>
+      <div class="social col-xs-12 col-md-12 col-lg-3">
+        <a href="#" class="icon" *ngFor="let link of links.five.socials" [ngClass]="link.display">{{link.display}}</a>
+      </div>
+    </div>
+    <footer class="row">
+      <div class="copyright col-xs-12">
+        <span class="year">Logo Software 2020, All rights reserved - Logo UX Team</span>
+      </div>
+    </footer>
+  </section>
+</main>

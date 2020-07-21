@@ -1,37 +1,4 @@
-<header>
-  <nav>
-    <button class="ghost large logo-i-menu-left-alt menu"></button>
-    <a class="logo large" href="/#/"><span>Logo</span><span>PaaS</span></a>
-    <div class="links">
-      <ng-container *ngFor="let link of links.one;">
-        <ng-container *ngTemplateOutlet="link.external ? externalURL: internalURL; context: {$implicit: link}">
-        </ng-container>
-      </ng-container>
-      <ng-template #internalURL let-link>
-        <a
-          routerLink="{{link.url}}"
-          class="light ghost large"
-          [ngClass]="link.classes"
-        >
-          {{link.display}}
-        </a>
-      </ng-template>
-      <ng-template #externalURL let-link>
-        <a
-          href="{{link.url}}"
-          class="light ghost large"
-          [ngClass]="link.classes"
-        >
-          {{link.display}}
-        </a>
-      </ng-template>
-    </div>
-    <label class="search logo-add">
-      <input type="text" placeholder="Search" class="large primary logo-i-search icon-left" required/>
-    </label>
-  </nav>
-</header>
-<main>
+
   <section class="one">
     <div id="particles"></div>
     <div class="title-content">
@@ -46,7 +13,7 @@
       <div class="relieved-smiley icon"><i></i></div>
     </div>
     <div class="things">
-      <div class="background">
+      <div class="perspective">
         <logo-perspective
           [threshold]="150"
           [xDegree]="3"
@@ -121,38 +88,25 @@
     </div>
   </section>
   <section class="four">
-    <div class="quotes" *ngFor="let quote of quotes">
-      <h1 class="story">"{{quote.story}}"</h1>
-      <span class="author">{{quote.author}}</span>
+    <div class="backgrounds">
+      <div class="circle-01">
+        <div class="circle-02">
+          <div class="circle-03">
+            <div class="circle-description">
+              <h2>Who uses it?</h2>
+              <p>They prefer us! It's scalabe, fast and secure</p>
+              <span>Logo güvencesiyle uygulama geliştirmeye siz de başlayın!</span>
+              <button class="large primary">Try for FREE</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="company">
-      <h5>Logo Software Company</h5>
-      <p>
-        Founded in 1984 to develop applications for personal computers, Logo is one of the biggest software companies in
-        Turkey.
-        With the solutions, services, and innovations offered, Logo has become Turkey’s software industry innovation
-        leader.
-      </p>
-      <p>
-        Logo Element® is an adaptable system of guidelines, components, and tools that
-        support the best practices of user interface design. Backed by open-source code,
-        Material streamlines collaboration between designers and developers, and
-        helps teams quickly build beautiful products.
-      </p>
-    </div>
-    <div class="links">
-      <a href="{{link.url}}" *ngFor="let link of links.four">{{link.display}}</a>
-    </div>
-    <div class="terms">
-      <a class="links" href="#" *ngFor="let link of links.footer.terms">{{link.display}}</a>
+    <div class="companies row">
+      <div class="company col-xs-12 col-md-6 col-lg-3" *ngFor="let company of companies">
+        <div class="image" [ngStyle]="{backgroundImage:'url('+company.image+')'}"></div>
+        <span class="description">{{company.description}}</span>
+      </div>
     </div>
   </section>
-</main>
-<footer>
-  <div class="social">
-    <a href="#" class="icon" *ngFor="let link of links.footer.socials" [ngClass]="link.display"></a>
-  </div>
-  <div class="copyright">
-    <span class="year">Logo Software 2020, All rights reserved -</span>
-  </div>
-</footer>
+
