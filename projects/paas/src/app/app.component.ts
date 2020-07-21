@@ -8,9 +8,14 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'PAAS';
+  public quotes;
   public links;
 
   constructor(private router: Router) {
+    this.quotes = [
+      {story: 'Logo güvencesiyle uygulama geliştirmeye siz de başlayın!', author: 'Get Ready?'},
+      // {story: 'Good designs come from the heart, not from the brain', author: 'DANNY SENGERS'},
+    ];
     this.links = {
       one: [
         {

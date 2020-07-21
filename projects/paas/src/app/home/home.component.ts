@@ -35,10 +35,6 @@ export class HomeComponent implements AfterViewInit {
   private bodyHeight: number;
 
   constructor(@Inject(DOCUMENT) private document) {
-    this.quotes = [
-      {story: 'Logo güvencesiyle uygulama geliştirmeye siz de başlayın!', author: 'Get Ready?'},
-      // {story: 'Good designs come from the heart, not from the brain', author: 'DANNY SENGERS'},
-    ];
     this.sliderItems = [
       {
         icon: '/assets/images/home/section-03/user.svg',
