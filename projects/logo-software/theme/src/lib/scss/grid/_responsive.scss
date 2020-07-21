@@ -10,7 +10,7 @@
 
 // ########################### Responsive Design Setting (breakpoints comes from _grid.scss)
 
-@mixin breakpoint($option, $column-width, $gutter-width) {
+@mixin breakpoint($option, $grid-columns, $gutter) {
   @if $option == "xl" {
     h1 {
       // background: red;
@@ -20,6 +20,31 @@
     h1 {
       // background: blue;
     }
+  }
+}
+
+/**
+.heading {
+  font-size: 2em;
+  @include smaller-than(xs) {
+    font-size: 1.5em;
+  }
+  @include larger-than(md) {
+    font-size: 3em;
+  }
+}
+ */
+@mixin smaller-than($point-name) {
+  $width: map-get($breakpoints, $point-name);
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin larger-than($point-name) {
+  $width: map-get($breakpoints, $point-name);
+  @media (min-width: $width) {
+    @content;
   }
 }
 
