@@ -1,0 +1,64 @@
+<section class="one">
+  <div class="title-content">
+    <h1 class="title">IDM - <span class="for">Identity Management Service</span></h1>
+    <p class="description">
+      Uygulamaların kullanıcı veritabanını tutarak, kullanıcı kayıt ve giriş işlemleri güvenli olarak yönetir.
+    </p>
+    <button class="light large get-started">EXPLORE</button>
+  </div>
+  <div class="illustrations">
+    <div class="people"></div>
+  </div>
+  <div class="backgrounds">
+    <div class="background one"></div>
+    <div class="background two"></div>
+    <div class="background three"></div>
+    <div class="background four"></div>
+  </div>
+</section>
+<section class="two">
+  <div class="row">
+    <div class="content col-xs-12 col-md-6">
+      <h1>Kullanım Senaryoları</h1>
+      <p>IDM servisi, kullanıcı arayüzü veya API uçları ile uygulamanıza entegre edilebilir.</p>
+      <ul>
+        <li>Uygulamalarınızı IDM giriş sayfasına entegre ederek kullanın.</li>
+        <li>Uygulamanıza özel giriş sayfasını siz tasarlayın ve yönetimini IDM ile entegre edin.</li>
+        <li>Microsoft Active Directory kimlik kaynağınızı bağlayarak uygulamalarınızı yönetin.</li>
+        <li>Kendi deponuzda tuttuğunuz kimlik bilgilerini Identity Management Service ile entegre edin ve yönetin.</li>
+      </ul>
+    </div>
+    <div class="seperator col-md-1"></div>
+    <div class="image col-xs-12 col-md-5"></div>
+  </div>
+</section>
+<section class="three">
+  <div class="row">
+    <div class="image col-xs-12 col-md-5"></div>
+    <div class="content col-xs-12 col-md-5">
+      <ul>
+        <li>LDAP hesaplarınızı IDM ile tam entegre haline getirin.</li>
+        <li>Şifremi unuttum ve yeni kullanıcı kaydı gibi hazır sayfaları kullanın.</li>
+        <li>Google, Microsoft, Twitter, Facebook ve LinkedIn hesapları entegre edin ve sosyal platform hesaplarınız ile
+          oturumlarınızı yönetin.
+        </li>
+      </ul>
+
+      <button class="success">DETAYLARI GÖRÜNTÜLE</button>
+    </div>
+    <div class="seperator col-md-2"></div>
+  </div>
+</section>
+<section class="four">
+  <h1>Özellikler</h1>
+  <p>IDM ‘den nelerde ve nasıl faydalanabileceğinizi öğrenin. İşinize değer katın!</p>
+  <logo-carousel [count]="1" [arrow]="true" [dots]="true">
+    <div class="slider-item" *ngFor="let item of sliderItems">
+      <div class="icon-bg"
+           [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"></div>
+      <div class="abbr">{{item.abbr}}</div>
+      <div class="description">{{item.description}}</div>
+      <a class="go" href="{{item.url}}" [ngClass]="item.classes">Detay</a>
+    </div>
+  </logo-carousel>
+</section>

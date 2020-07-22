@@ -94,8 +94,7 @@ export class HomeComponent implements AfterViewInit {
     this._sections = value;
   }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event) {
+  @HostListener('window:resize', ['$event']) onResize(event) {
     this.resize();
   }
 

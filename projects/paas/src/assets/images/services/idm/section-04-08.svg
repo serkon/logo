@@ -1,0 +1,9 @@
+<svg id="media-live" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="currentColor">
+  <path id="Path_793" data-name="Path 793" d="M15,12a3,3,0,1,1-3-3A3,3,0,0,1,15,12Zm-2,0a1,1,0,1,1-1-1A1,1,0,0,1,13,12Z"
+        transform="translate(-1 -1)" fill-rule="evenodd"/>
+  <path id="Path_794" data-name="Path 794" d="M12,19a7,7,0,1,0-7-7A7,7,0,0,0,12,19Zm0-2a5,5,0,1,0-5-5A5,5,0,0,0,12,17Z"
+        transform="translate(-1 -1)" fill-rule="evenodd"/>
+  <path id="Path_795" data-name="Path 795"
+        d="M12,23A11,11,0,1,0,1,12,11,11,0,0,0,12,23Zm0-2a9,9,0,1,0-9-9A9,9,0,0,0,12,21Z" transform="translate(-1 -1)"
+        fill-rule="evenodd"/>
+</svg>

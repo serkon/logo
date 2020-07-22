@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { AfterViewInit, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
@@ -16,5 +16,8 @@ import { CarouselModule } from '@logo-software/carousel/src/lib/carousel.module'
   ],
   exports: [HomeComponent],
 })
-export class HomeModule {
+export class HomeModule implements AfterViewInit {
+  ngAfterViewInit() {
+    console.log('Home');
+  }
 }

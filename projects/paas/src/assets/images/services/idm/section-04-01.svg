@@ -1,0 +1,9 @@
+<svg id="boy" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+  <path id="Path_159" data-name="Path 159" d="M9,14a1,1,0,1,0-1-1A1,1,0,0,0,9,14Z" transform="translate(-2 -2)"
+        fill="currentColor"/>
+  <path id="Path_160" data-name="Path 160" d="M16,13a1,1,0,1,1-1-1A1,1,0,0,1,16,13Z" transform="translate(-2 -2)"
+        fill="currentColor"/>
+  <path id="Path_161" data-name="Path 161"
+        d="M12,22A10,10,0,1,0,2,12,10,10,0,0,0,12,22Zm0-2A8.006,8.006,0,0,0,19.634,9.6a10.013,10.013,0,0,1-2.618.346A10,10,0,0,1,8.323,4.893,8,8,0,0,0,12,20Z"
+        transform="translate(-2 -2)" fill-rule="evenodd" fill="currentColor"/>
+</svg>

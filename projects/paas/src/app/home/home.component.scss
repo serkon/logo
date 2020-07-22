@@ -13,30 +13,7 @@ $header-size: size(80px);
     z-index: 0;
   }
 
-  section {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    box-sizing: border-box;
-    position: relative;
-    justify-content: center;
-    padding: size(50px) size(100px);
-    overflow: hidden;
-
-    @include smaller-than(md) {
-      padding: size(40px);
-    }
-  }
-
   section.one {
-    padding: ($header-size + size(100px)) size(100px) size(100px) size(120px);
-    min-height: size(400px);
-    background: url("/assets/images/section-01-horizontal-line.svg") right 0 bottom 1px repeat-x;
-    @include smaller-than(md) {
-      padding: size(40px);
-    }
-
     div.title-content {
       position: relative;
       z-index: 1;

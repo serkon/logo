@@ -1,0 +1,5 @@
+<svg id="key" xmlns="http://www.w3.org/2000/svg" width="17" height="8" viewBox="0 0 17 8" fill="currentColor">
+  <path id="key-2" data-name="key"
+        d="M6,8a3,3,0,0,0-3,3v2a3,3,0,0,0,6,0h6v2h2V13h1v2h2V11H9A3,3,0,0,0,6,8Zm1,5V11a1,1,0,0,0-2,0v2a1,1,0,0,0,2,0Z"
+        transform="translate(-3 -8)" fill-rule="evenodd"/>
+</svg>
