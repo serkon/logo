@@ -1,0 +1,33 @@
+<header>
+  <nav>
+    <button class="ghost large logo-i-menu-left-alt menu"></button>
+    <a class="logo large" href="/#/"><span>Logo</span><span>PaaS</span></a>
+    <div class="links">
+      <ng-container *ngFor="let link of links;">
+        <ng-container *ngTemplateOutlet="link.external ? externalURL: internalURL; context: {$implicit: link}">
+        </ng-container>
+      </ng-container>
+      <ng-template #internalURL let-link>
+        <a
+          routerLink="{{link.url}}"
+          class="light ghost large"
+          [ngClass]="link.classes"
+        >
+          {{link.display}}
+        </a>
+      </ng-template>
+      <ng-template #externalURL let-link>
+        <a
+          href="{{link.url}}"
+          class="light ghost large"
+          [ngClass]="link.classes"
+        >
+          {{link.display}}
+        </a>
+      </ng-template>
+    </div>
+    <label class="search logo-add">
+      <input type="text" placeholder="Search" class="large primary logo-i-search icon-left" required/>
+    </label>
+  </nav>
+</header>

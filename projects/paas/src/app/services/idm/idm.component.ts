@@ -18,6 +18,7 @@ export class SliderItem {
 export class IdmComponent implements AfterViewInit {
   public sliderItems: SliderItem[];
   private bodyHeight: number;
+  public opinions = [1];
 
   constructor(@Inject(DOCUMENT) private document) {
     this.sliderItems = [

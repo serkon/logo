@@ -10,6 +10,7 @@ import { CursorModule } from '@logo-software/cursor';
   imports: [BrowserModule, AppRoutingModule, CursorModule],
   providers: [],
   bootstrap: [AppComponent],
+  exports: [],
 })
 export class AppModule {
 }

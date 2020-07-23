@@ -1,0 +1,105 @@
+@import "~@logo-software/theme/style";
+
+$header-size: size(80px);
+
+:host {
+  display: block;
+
+  header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $header-size;
+    box-shadow: 0 0 size(10px) 0 rgba(var(--black-rgb), 0.05);
+    padding: size(0) size(50px);
+    z-index: 2;
+    background-color: var(--white);
+
+    @include smaller-than(md) {
+      padding: 0 size(40px);
+    }
+
+    nav {
+      display: flex;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+      width: 100%;
+
+      .menu {
+      }
+
+      .logo {
+        display: flex;
+        width: size(245px);
+        box-sizing: border-box;
+        font-family: $font-alternative;
+
+        span {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 10px;
+          color: var(--white);
+          font-size: size(25px);
+          font-weight: normal;
+          line-height: 1.36;
+          border-radius: size(2px);
+        }
+
+        span:first-child {
+          background-color: var(--primary-500);
+        }
+
+        span:last-child {
+          color: var(--gray-600);
+          padding: size(10px) size(8px);
+        }
+      }
+
+      .links {
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        justify-content: center;
+        padding-right: size(100px);
+
+        @include smaller-than(md) {
+          display: none;
+        }
+
+        a {
+          font-size: size(24px);
+          letter-spacing: size(-1.26px);
+          font-weight: normal;
+        }
+
+        .docs {
+          font-weight: bold;
+        }
+      }
+
+      .search {
+        display: flex;
+        justify-content: flex-end;
+
+        @include smaller-than(md) {
+          display: none;
+        }
+
+        input {
+          @debug var(--black-rgb);
+          background-color: rgba(var(--black-rgb), 0.03);
+          background-size: size(32px) size(32px);
+
+          &:focus {
+            background-color: var(--white);
+          }
+        }
+      }
+    }
+  }
+}
