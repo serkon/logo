@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { CursorModule } from '@logo-software/cursor';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CursorModule } from '@logo-software/cursor';
 
 @NgModule({
   declarations: [AppComponent],

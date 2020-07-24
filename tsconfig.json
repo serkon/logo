@@ -24,6 +24,9 @@
     ],
     "types": [],
     "paths": {
+      "@paas/*": [
+        "./projects/paas/*"
+      ],
       "@samples/*": [
         "./projects/samples/src/app/logo/*"
       ],

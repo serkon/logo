@@ -8,6 +8,7 @@ const routes: Routes = [
     component: ServicesComponent,
     children: [
       {path: 'idm', loadChildren: () => import('./idm/idm.module').then(module => module.IdmModule)},
+      {path: 'cc', loadChildren: () => import('./cc/cc.module').then(module => module.CcModule)},
     ],
   },
 ];

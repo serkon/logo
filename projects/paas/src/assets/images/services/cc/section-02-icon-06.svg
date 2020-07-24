@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <title>arrows-expand-left-alt</title>
+  <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Cloud-Control-Service" transform="translate(-995.000000, -1269.000000)" fill-rule="nonzero">
+      <g id="section2" transform="translate(1.000000, 799.000000)">
+        <g id="arrows-expand-left-alt" transform="translate(994.000000, 470.000000)">
+          <polygon id="Path" fill="#707070"
+                   points="10.4433029 0 10.4433029 2.61082972 4.4569836 2.61082972 12 10.1538562 10.1538291 12 2.61081268 4.45693436 2.61081268 10.4432928 0 10.4432928 0 0"></polygon>
+          <polygon id="Path" fill="#008FFF"
+                   points="26 15.5567038 23.389176 15.5567038 23.389176 21.5430623 15.8461137 14 14 15.8462442 21.5430623 23.389176 15.5567038 23.389176 15.5567038 26 26 26"></polygon>
+          <polygon id="Path" fill="#008FFF" points="19 9.83332253 17.1666883 8 8 17.1666904 9.83332469 19"></polygon>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

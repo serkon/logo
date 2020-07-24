@@ -1,0 +1,456 @@
+@import "~@logo-software/theme/style";
+
+$header-size: size(80px);
+
+:host {
+  display: block;
+
+  ul {
+    list-style-image: url('/assets/images/services/idm/check.svg');
+
+    li {
+      line-height: size(35px);
+      padding-left: size(10px);
+    }
+  }
+
+  section.one {
+    position: relative;
+
+    @include smaller-than('sm') {
+      justify-content: flex-start;
+    }
+
+    div.title-content {
+      position: relative;
+      z-index: 2;
+      max-width: size(450px);
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+
+      h1.title {
+        font-family: $font-family;
+        font-weight: 800;
+        flex-direction: column;
+        pointer-events: none;
+        color: var(--primary);
+
+        .for {
+          color: #707070;
+        }
+      }
+
+      p.description {
+        margin: size(25px) 0 size(40px) 0;
+        font-size: size(20px);
+        color: #707070;
+        pointer-events: none;
+      }
+    }
+
+    div.illustrations {
+      position: absolute;
+      right: size(120px);
+      width: size(721px);
+      height: size(388px);
+      z-index: 1;
+
+
+      div.computer {
+        width: 100%;
+        height: 100%;
+        background: url("/assets/images/services/cc/section-01-illustration.svg") center center no-repeat;
+      }
+    }
+
+    div.backgrounds {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background: url("/assets/images/services/cc/photo.png") right top no-repeat;
+
+      @include smaller-than('md') {
+        display: none;
+      }
+    }
+  }
+
+  section.two {
+    background: #eef2f9;
+    align-items: center;
+
+    h1 {
+      font-size: size(40px);
+      font-weight: 100;
+      color: #707070;
+      text-align: center;
+    }
+
+    p {
+      font-size: size(20px);
+      font-weight: 100;
+      margin-top: 0;
+      margin-bottom: size(50px);
+      text-align: center;
+    }
+
+    .boxes {
+      z-index: 1;
+
+      .box {
+        flex-direction: column;
+        color: #707070;
+        border-radius: size(24px);
+        background: var(--white);
+        padding: size(40px);
+        font-size: size(20px);
+        margin-top: size(15px);
+        margin-bottom: size(15px);
+        box-shadow: 0 size(30px) size(30px) rgba(0, 0, 0, 0.06);
+
+        .icon {
+          margin-bottom: size(15px);
+        }
+      }
+    }
+
+    button {
+      z-index: 1;
+      margin-top: size(50px);
+    }
+
+    div.backgrounds {
+      z-index: 0;
+
+      div.three-angle {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: size(245px);
+        height: size(361px);
+        background: url("/assets/images/services/cc/section-02-three-angle.svg") left bottom no-repeat;
+      }
+
+      div.rectangle-01 {
+        position: absolute;
+        right: 0;
+        top: 40%;
+        width: size(87px);
+        height: size(268px);
+        background: url("/assets/images/services/cc/section-02-rectangle.svg") right center no-repeat;
+      }
+
+      div.circle-01 {
+        position: absolute;
+        left: 15%;
+        top: size(90px);
+        width: size(146px);
+        height: size(146px);
+        background: url("/assets/images/services/cc/section-02-circle-01.svg") bottom center no-repeat;
+      }
+
+      div.circle-02 {
+        position: absolute;
+        left: 30%;
+        bottom: 0;
+        width: size(90px);
+        height: size(45px);
+        background: url("/assets/images/services/cc/section-02-circle-02.svg") bottom center no-repeat;
+      }
+    }
+  }
+
+  section.three {
+    background-image: linear-gradient(to top, #cccad9, #ededee 50%);
+
+    .row {
+      min-height: size(500px);
+      @include smaller-than('md') {
+        min-height: auto;
+      }
+
+      .content {
+        color: #707070;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+        ul {
+          list-style-image: url('/assets/images/services/idm/check.svg');
+
+          li {
+            margin-top: size(20px);
+            padding-left: size(10px);
+          }
+        }
+
+        button {
+          margin-top: size(30px);
+          margin-left: size(50px);
+        }
+      }
+
+      .seperator {
+        @include smaller-than('md') {
+          display: none;
+        }
+      }
+
+      .image {
+        background: url("/assets/images/services/idm/section-03.svg") left center no-repeat;
+        background-size: contain;
+
+        @include smaller-than('md') {
+          display: none;
+        }
+      }
+    }
+  }
+
+  section.four {
+    background-image: linear-gradient(to bottom, #9986f9, #7163d5 83%);
+    // background-image: linear-gradient(to bottom, #9986f9, rgba(58, 191, 124, 0.9) 83%);
+    color: var(--white);
+
+    h1 {
+      font-size: size(45px);
+      font-weight: lighter;
+      text-align: center;
+    }
+
+    p {
+      font-size: size(20px);
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    logo-carousel {
+      padding: 0 size(100px);
+
+      .slider-item {
+        background-color: var(--white);
+        box-shadow: 0 60px 60px #6e6e6e46;
+        // background-color: #ffffff;
+        border-radius: 20px;
+        box-sizing: border-box;
+        backdrop-filter: blur(23px);
+        color: #646464;
+        padding: 30px 44px;
+        min-width: 264px;
+        width: 264px;
+        margin-right: 24px;
+        display: inline-block;
+        vertical-align: top;
+        white-space: normal;
+
+        .icon-bg {
+          width: size(42px);
+          height: size(42px);
+          background-color: #6259a7;
+          mask-size: contain;
+          mask-repeat: no-repeat;
+          mask-position: center;
+
+          .icon {
+            position: relative;
+            max-height: size(42px);
+            max-width: size(42px);
+            height: size(42px);
+            margin-bottom: size(10px);
+            filter: invert(43%) sepia(26%) saturate(1500%) hue-rotate(208deg) brightness(115%) contrast(200%);
+            background-size: contain;
+
+            &::after {
+              content: '';
+              background: url("/assets/images/services/idm/section-04-icon-background.svg") no-repeat;
+              position: absolute;
+              left: 0;
+              top: 0;
+            }
+          }
+        }
+
+        .abbr {
+          font-weight: bold;
+          font-size: size(20px);
+        }
+
+        .description {
+          margin-top: 20px;
+          font-size: 16px;
+          font-weight: 300;
+        }
+
+        .go {
+          display: block;
+          margin-top: size(20px);
+        }
+      }
+
+      ::ng-deep {
+        .arrow-with-animation .slider-arrow {
+          color: var(--white);
+          --active: var(--white);
+          --border: rgba(255, 255, 255, 0.12);
+        }
+
+        .dots {
+          .dot {
+            border-color: #ffffff;
+
+            &::after {
+              background-color: rgba(255, 255, 255, 0.6);;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  section.five {
+    background: url("/assets/images/services/idm/section-05-bg.png") center no-repeat;
+    background-size: cover;
+    min-height: size(376px);
+    color: #ffffff;
+
+    &::after {
+      background: rgba(58, 191, 124, 0.9);
+      content: '';
+      position: absolute;
+      z-index: 0;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    .opinions {
+      position: relative;
+      z-index: 1;
+
+      aside.user {
+        @include larger-than(md) {
+          justify-content: center;
+          margin-top: size(106px);
+          margin-bottom: size(106px);
+          border-right: size(1px) solid white;
+        }
+
+        div.circle {
+          width: size(106px);
+          height: size(106px);
+          border: size(2px) solid white;
+          border-radius: 50%;
+          background-color: var(--dark-300);
+        }
+      }
+
+      aside.opinion {
+        flex-direction: column;
+        @include larger-than(md) {
+          padding-left: size(70px);
+        }
+
+        h1 {
+          font-size: size(35px);
+          font-weight: normal;
+          margin-bottom: size(30px);
+        }
+
+        div.description {
+          position: relative;
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: size(-15px);
+            @include larger-than(md) {
+              left: size(-50px);
+              top: size(-5px);
+            }
+            background: url("/assets/images/services/idm/section-05-quoute.svg") center no-repeat;
+            background-size: contain;
+            width: size(30px);
+            height: size(27px);
+          }
+
+          &::after {
+            position: absolute;
+            content: '';
+            background: url("/assets/images/services/idm/section-05-quoute.svg") center no-repeat;
+            transform: rotate(-180deg);
+            right: 0;
+            bottom: 0;
+            width: size(30px);
+            height: size(27px);
+          }
+
+          p {
+          }
+        }
+
+        div.author {
+          .name {
+            font-size: size(16px);
+            font-weight: bold;
+          }
+
+          .title {
+            font-size: size(12px);
+          }
+        }
+      }
+    }
+  }
+
+  section.six {
+    background-color: #fffdee;
+    position: relative;
+
+    .list {
+      flex-direction: column;
+      color: #707070;
+      font-weight: bold;
+
+      h1 {
+        font-size: size(35px);
+        margin-bottom: size(35px);
+      }
+
+      ul {
+        font-size: size(20px);
+        font-weight: 600;
+        flex-direction: column;
+      }
+    }
+
+    .button {
+      margin-top: size(30px);
+    }
+
+    .picture {
+      position: relative;
+      min-height: size(230px);
+
+      .background {
+        position: absolute;
+        top: size(-50px);
+        bottom: size(-50px);
+        background: url("/assets/images/services/idm/section-06-screenshot.png") bottom no-repeat;
+        background-size: contain;
+        min-height: size(230px);
+        width: 100%;
+
+        @include smaller-than(md) {
+          top: size(-40px);
+          bottom: size(-40px);
+        }
+      }
+    }
+  }
+}
