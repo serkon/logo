@@ -32,33 +32,67 @@
 </section>
 <section class="three">
   <div class="row">
-    <div class="image col-xs-12 col-md-5"></div>
-    <div class="content col-xs-12 col-md-5">
+    <div class="content col-xs-12 col-md-6">
+      <h1>Özellikler</h1>
+      <p class="description">Cloud Control Servisi Özelliklerine Gözatın. Servis Özellikleri Yakından Tanıyın!</p>
       <ul>
-        <li>LDAP hesaplarınızı IDM ile tam entegre haline getirin.</li>
-        <li>Şifremi unuttum ve yeni kullanıcı kaydı gibi hazır sayfaları kullanın.</li>
-        <li>Google, Microsoft, Twitter, Facebook ve LinkedIn hesapları entegre edin ve sosyal platform hesaplarınız ile
-          oturumlarınızı yönetin.
+        <li>
+          <h2>Segmentasyon Desteği</h2>
+          <p>Uygulama tanımlarınızı farklı segmentlerde PAAS ortamında sunarak, her segment için farklı lisanslama
+            yöntemlerini seçin.</p>
+        </li>
+
+        <li>
+          <h2>Veri tabanı sunucularınızı yönetin</h2>
+          <p>Veri tabanı sunucularınızı ve kapasitelerini tanımlayarak, kapasiteyi aşmayacak şekilde kullanılmasını
+            sağlayın.</p>
+        </li>
+
+        <li>
+          <h2>Uygulama Veritabanlarınız hazır gelsin</h2>
+          <p>Dilerseniz uygun sunucu üzerine hesap için açacağınız veri tabanı ya da şeması hazırlansın ve siz sadece
+            bağlantı cümlesini alarak işlemlerinize devam edin.</p>
+        </li>
+
+        <li>
+          <h2>E-Posta Şablonları</h2>
+          <p>Aktivasyon işlemleri için kullanılan E-Posta şablonlarını hesabınıza göre özelleştirin</p>
         </li>
       </ul>
-
-      <button class="large success">DETAYLARI GÖRÜNTÜLE</button>
     </div>
-    <div class="seperator col-md-2"></div>
+    <div class="image col-xs-12 col-md-6">
+      <div class="backgrounds"></div>
+    </div>
   </div>
 </section>
 <section class="four">
-  <h1>Özellikler</h1>
-  <p>IDM ‘den nelerde ve nasıl faydalanabileceğinizi öğrenin. İşinize değer katın!</p>
-  <logo-carousel [count]="1" [arrow]="true" [dots]="true">
-    <div class="slider-item" *ngFor="let item of sliderItems">
-      <div class="icon-bg"
-           [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"></div>
-      <div class="abbr">{{item.abbr}}</div>
-      <div class="description">{{item.description}}</div>
-      <a class="go" href="{{item.url}}" [ngClass]="item.classes">Detay</a>
+  <div class="row">
+    <div class="image col-xs-12 col-md-6">
+      <div class="backgrounds"></div>
     </div>
-  </logo-carousel>
+    <div class="content col-xs-12 col-md-6">
+      <ul>
+        <li>
+          <h2>Swagger UI destekli API uçları</h2>
+          <p>Desteklenen API uçlarına Swagger UI üzerinden kolayca ulaşın.</p>
+        </li>
+        <li>
+          <h2>Dinamik Adresler ile Uygulamanızı Ölçeklenebilir Yapın</h2>
+          <p>Bir Web Sunucusu üzerinde dilediğiniz sayıda hesaba hizmet verin, o sayı aştığında yeni sunucuya geçin.</p>
+        </li>
+        <li>
+          <h2>Güvenli bilgi saklama</h2>
+          <p>Kıymetli verileriniz veritabanında şifrelenmiş olarak saklansın.</p>
+        </li>
+        <li>
+          <h2>Ölçeklenebilir yapı</h2>
+          <p>Oturum bağımsız mimarisi ile Bulut Yönetim Servisini çoklayarak kullanabilirsiniz.</p>
+        </li>
+      </ul>
+
+      <button class="success large">Detayları Görüntüle</button>
+    </div>
+  </div>
 </section>
 <section class="five">
   <div class="row opinions" *ngFor="let opinion of opinions">
