@@ -5,6 +5,7 @@ import { MsRoutingModule } from './ms-routing.module';
 import { MsComponent } from './ms.component';
 import { HeaderModule } from '@paas/src/components/header/header.module';
 import { FooterModule } from '@paas/src/components/footer/footer.module';
+import { CarouselModule } from '@logo-software/carousel';
 
 @NgModule({
   declarations: [MsComponent],
@@ -13,6 +14,7 @@ import { FooterModule } from '@paas/src/components/footer/footer.module';
     MsRoutingModule,
     HeaderModule,
     FooterModule,
+    CarouselModule,
   ],
   exports: [MsComponent],
 })

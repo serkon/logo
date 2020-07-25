@@ -14,27 +14,25 @@
   <div class="backgrounds"></div>
 </section>
 <section class="two">
-  <h1>Kullanım Senaryoları</h1>
-  <p>Uygulamaları nasıl kullanacağınızı keşfedin. İşinize değer katın!</p>
-  <div class="boxes row">
-    <div class="box col-xs-12 col-sm-6 col-lg-4" *ngFor="let box of boxes">
-      <div class="icon"><img src="{{box.icon}}"/></div>
-      <div class="description">{{box.description}}</div>
+  <div class="row">
+    <div class="content size-xs-12 size-md-6">
+      <h1>Kullanım Senaryoları</h1>
+      <p>Logo PaaS platformunda ki uygulamalar için kullanıcı dostu bir giriş kapısıdır.</p>
+      <ul>
+        <li>Uygulamalarınızın Menülerini API yoluyla ya da Arayüzlerden hızlıca kayıt edin</li>
+        <li>Kullanıcılarınız menü tanımlarınız üzerindeki yetkiler doğrultusunda görebilsin</li>
+        <li>Uygulamanıza ait Yönetici ekranlarınızı Logo PaaS yönetici yetkilendirme yapısı ile ve API yoluyla hızlıca
+          kayıt edin
+        </li>
+      </ul>
     </div>
-  </div>
-  <button class="large primary">DETAYLARI GÖRÜNTÜLE</button>
-  <div class="backgrounds">
-    <div class="three-angle"></div>
-    <div class="rectangle-01"></div>
-    <div class="circle-01"></div>
-    <div class="circle-02"></div>
+    <div class="image size-xs-12 size-md-6"></div>
   </div>
 </section>
 <section class="three">
   <div class="row">
-    <div class="content col-xs-12 col-md-6">
-      <h1>Özellikler</h1>
-      <p class="description">Cloud Control Servisi Özelliklerine Gözatın. Servis Özellikleri Yakından Tanıyın!</p>
+    <div class="image size-xs-12 size-md-6"></div>
+    <div class="content size-xs-12 size-md-6">
       <ul>
         <li>
           <h2>Segmentasyon Desteği</h2>
@@ -59,40 +57,22 @@
           <p>Aktivasyon işlemleri için kullanılan E-Posta şablonlarını hesabınıza göre özelleştirin</p>
         </li>
       </ul>
-    </div>
-    <div class="image col-xs-12 col-md-6">
-      <div class="backgrounds"></div>
+      <button class="success large">Detayları Görüntüle</button>
     </div>
   </div>
 </section>
 <section class="four">
-  <div class="row">
-    <div class="image col-xs-12 col-md-6">
-      <div class="backgrounds"></div>
+  <h1>Özellikler</h1>
+  <p>Menu Service Özelliklerini Yakından Tanıyın</p>
+  <logo-carousel>
+    <div class="slider-item" *ngFor="let item of sliderItems">
+      <div class="icon-bg"
+           [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"></div>
+      <div class="abbr">{{item.abbr}}</div>
+      <div class="description">{{item.description}}</div>
+      <a class="go" href="{{item.url}}" [ngClass]="item.classes">Detay</a>
     </div>
-    <div class="content col-xs-12 col-md-6">
-      <ul>
-        <li>
-          <h2>Swagger UI destekli API uçları</h2>
-          <p>Desteklenen API uçlarına Swagger UI üzerinden kolayca ulaşın.</p>
-        </li>
-        <li>
-          <h2>Dinamik Adresler ile Uygulamanızı Ölçeklenebilir Yapın</h2>
-          <p>Bir Web Sunucusu üzerinde dilediğiniz sayıda hesaba hizmet verin, o sayı aştığında yeni sunucuya geçin.</p>
-        </li>
-        <li>
-          <h2>Güvenli bilgi saklama</h2>
-          <p>Kıymetli verileriniz veritabanında şifrelenmiş olarak saklansın.</p>
-        </li>
-        <li>
-          <h2>Ölçeklenebilir yapı</h2>
-          <p>Oturum bağımsız mimarisi ile Bulut Yönetim Servisini çoklayarak kullanabilirsiniz.</p>
-        </li>
-      </ul>
-
-      <button class="success large">Detayları Görüntüle</button>
-    </div>
-  </div>
+  </logo-carousel>
 </section>
 <section class="five">
   <div class="row opinions" *ngFor="let opinion of opinions">

@@ -68,188 +68,66 @@ $header-size: size(80px);
   }
 
   section.two {
-    background: #eef2f9;
-    align-items: center;
+    padding: 0;
 
-    h1 {
-      font-size: size(40px);
-      font-weight: 100;
-      color: #707070;
-      text-align: center;
-    }
+    .row {
+      @include smaller-than('md') {
+        height: auto;
+      }
 
-    p {
-      font-size: size(20px);
-      font-weight: 100;
-      margin-top: 0;
-      margin-bottom: size(50px);
-      text-align: center;
-    }
-
-    .boxes {
-      z-index: 1;
-
-      .box {
-        flex-direction: column;
+      .content {
         color: #707070;
-        border-radius: size(24px);
-        background: var(--white);
-        padding: size(40px);
-        font-size: size(20px);
-        margin-top: size(15px);
-        margin-bottom: size(15px);
-        box-shadow: 0 size(30px) size(30px) rgba(0, 0, 0, 0.06);
+        flex-direction: column;
+        padding: size(100px) size(120px);
 
-        .icon {
-          margin-bottom: size(15px);
+        @include smaller-than('sm') {
+          padding: size(40px);
+        }
+
+        h1 {
+          font-size: size(40px);
+          font-weight: bold;
+
+          &::before {
+            background: url('/assets/images/services/ms/section-02-clipboard.svg') no-repeat;
+            content: '';
+            width: size(50px);
+            height: size(50px);
+            display: block;
+          }
+        }
+
+        p {
+          font-size: size(30px);
         }
       }
-    }
 
-    button {
-      z-index: 1;
-      margin-top: size(50px);
-    }
+      .image {
+        padding-right: size(120x);
+        background: #e1e9f7 no-repeat url("/assets/images/services/ms/section-02-illustration.png") right -240% center/90%;
 
-    div.backgrounds {
-      z-index: 0;
-
-      div.three-angle {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: size(245px);
-        height: size(361px);
-        background: url("/assets/images/services/cc/section-02-three-angle.svg") left bottom no-repeat;
-      }
-
-      div.rectangle-01 {
-        position: absolute;
-        right: 0;
-        top: 40%;
-        width: size(87px);
-        height: size(268px);
-        background: url("/assets/images/services/cc/section-02-rectangle.svg") right center no-repeat;
-      }
-
-      div.circle-01 {
-        position: absolute;
-        left: 15%;
-        top: size(90px);
-        width: size(146px);
-        height: size(146px);
-        background: url("/assets/images/services/cc/section-02-circle-01.svg") bottom center no-repeat;
-      }
-
-      div.circle-02 {
-        position: absolute;
-        left: 30%;
-        bottom: 0;
-        width: size(90px);
-        height: size(45px);
-        background: url("/assets/images/services/cc/section-02-circle-02.svg") bottom center no-repeat;
+        @include smaller-than('md') {
+          min-height: size(350px);
+        }
       }
     }
   }
 
   section.three {
-    @include smaller-than('md') {
-      padding-bottom: 0;
-    }
+    padding: 0;
 
     .row {
-      min-height: size(500px);
       @include smaller-than('md') {
-        min-height: auto;
-      }
-
-      .content {
-        color: #707070;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-
-        h1 {
-          font-size: size(40px);
-        }
-
-        p.description {
-          margin-top: 0;
-          font-size: size(20px);
-        }
-
-        ul {
-          list-style-image: url('/assets/images/services/idm/check.svg');
-
-          li {
-            margin-top: size(20px);
-            padding-left: size(10px);
-
-            h2 {
-              font-weight: bold;
-              font-size: size(20px);
-            }
-
-            p {
-              font-size: size(16px);
-            }
-          }
-        }
+        flex-direction: column-reverse;
       }
 
       .image {
-        position: relative;
+        padding-right: size(120px);
+        background: #e1e9f7 no-repeat url("/assets/images/services/ms/section-03-illustration.svg") center/80%;
 
-        div.backgrounds {
-          width: calc(100% + 120px);
-          height: 100%;
-          position: absolute;
-          right: 0;
-          bottom: 0;
-          background: right 100% / 70% 70% no-repeat url("/assets/images/services/cc/section-03-illustrasyon.svg"), right bottom / contain no-repeat url("/assets/images/services/cc/section-03-photo.png");
-          margin-bottom: size(-50px);
-          margin-right: size(-120px);
-
-          @include smaller-than('md') {
-            display: none;
-          }
-        }
-      }
-    }
-  }
-
-  section.four {
-    @include smaller-than('md') {
-      padding-top: 0;
-    }
-
-    .row {
-      min-height: size(500px);
-      @include smaller-than('md') {
-        min-height: auto;
-      }
-
-      .image {
-        position: relative;
-
-        div.backgrounds {
-          width: calc(100% + 120px);
-          height: calc(100% + 100px);
-          position: absolute;
-          left: 0;
-          top: 0;
-          background: center / 50% no-repeat url(/assets/images/services/cc/section-04-illustrasyon.png), right center / cover no-repeat url(/assets/images/services/cc/section-04-photo.png);
-          /* margin-top: -50px; */
-          /* margin-left: -120px; */
-          /* width: 100%; */
-          /* height: 100%; */
-          /* background-size: cover; */
-          margin-left: -120px;
-          margin-top: -50px;
-
-          @include smaller-than('md') {
-            display: none;
-          }
+        @include smaller-than('md') {
+          min-height: size(350px);
+          background-size: 60%;
         }
       }
 
@@ -258,22 +136,14 @@ $header-size: size(80px);
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
+        padding: size(100px) size(120px);
 
-        h1 {
-          font-size: size(40px);
-        }
-
-        p.description {
-          margin-top: 0;
-          font-size: size(20px);
+        @include smaller-than('sm') {
+          padding: size(40px);
         }
 
         ul {
           list-style-image: url('/assets/images/services/idm/check.svg');
-
-          @include smaller-than('md') {
-            margin-top: 0;
-          }
 
           li {
             margin-top: size(20px);
@@ -297,9 +167,90 @@ $header-size: size(80px);
     }
   }
 
+  section.four {
+    color: var(--white);
+    background: no-repeat url("/assets/images/services/ms/section-04-photo.png") center/cover;
+
+    h1 {
+      font-size: size(45px);
+      font-weight: lighter;
+      text-align: center;
+    }
+
+    p {
+      font-size: size(20px);
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    logo-carousel {
+      // padding: 0 size(100px);
+
+      .slider-item {
+        background-color: var(--white);
+        box-shadow: 0 60px 60px #6e6e6e46;
+        // background-color: #ffffff;
+        border-radius: 20px;
+        box-sizing: border-box;
+        backdrop-filter: blur(23px);
+        color: #646464;
+        padding: 30px 44px;
+        min-width: 264px;
+        width: 264px;
+        margin-right: 24px;
+        display: inline-block;
+        vertical-align: top;
+        white-space: normal;
+
+        .icon-bg {
+          width: size(42px);
+          height: size(42px);
+          background-color: #3abf7c;
+          mask-size: contain;
+          mask-repeat: no-repeat;
+          mask-position: center;
+          margin-bottom: size(20px);
+        }
+
+        .abbr {
+          font-weight: bold;
+          font-size: size(20px);
+        }
+
+        .description {
+          margin-top: 20px;
+          font-size: 16px;
+          font-weight: 300;
+        }
+
+        .go {
+          display: block;
+          margin-top: size(20px);
+        }
+      }
+
+      ::ng-deep {
+        .arrow-with-animation .slider-arrow {
+          color: var(--white);
+          --active: var(--white);
+          --border: rgba(255, 255, 255, 0.12);
+        }
+
+        .dots {
+          .dot {
+            border-color: #ffffff;
+
+            &::after {
+              background-color: rgba(255, 255, 255, 0.6);;
+            }
+          }
+        }
+      }
+    }
+  }
+
   section.five {
-    background: url("/assets/images/services/cc/section-05-photo.png") center no-repeat;
-    background-size: cover;
+    background: #3abf7c;
     min-height: size(376px);
     color: #ffffff;
 
