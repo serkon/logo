@@ -108,7 +108,7 @@ $header-size: size(80px);
 
         &.four {
           z-index: -2;
-          background: #36bef4;
+          // background: #36bef4;
           transform: perspective(1640px) rotateY(10deg) translateX(0px) translateY(-100px) scaleX(5);
           mix-blend-mode: color;
         }
