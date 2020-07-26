@@ -1,0 +1,140 @@
+<logo-header></logo-header>
+<section class="one">
+  <div class="title-content">
+    <p class="sub">Hazırlayacağınız şablonlar ile</p>
+    <h1 class="title">Yetkilendirme <span class="for">Süreçlerinizi Minimize</span> edin</h1>
+    <p class="description">Yetkilendirme Servisi ile uygulamalarınızdaki yetki yönetimini kullanıcı bazlı, rol bazlı,
+      url bazlı ve operasyon (CRUD) bazlı olarak kolayca ve detaylı bir şekilde yönetin.</p>
+    <button class="primary large get-started">EXPLORE</button>
+  </div>
+  <div class="backgrounds"></div>
+</section>
+<section class="two">
+  <h1>Kullanım Senaryoları</h1>
+  <p>Uygulamaları nasıl kullanacağınızı keşfedin. İşinize değer katın!</p>
+  <logo-carousel [arrow]="false">
+    <div class="slider-item" *ngFor="let item of sliderItems">
+      <div class="icon-bg"
+           [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"></div>
+      <div class="abbr">{{item.abbr}}</div>
+      <div class="description">{{item.description}}</div>
+      <a class="go" href="{{item.url}}" [ngClass]="item.classes">Detay</a>
+    </div>
+  </logo-carousel>
+  <button class="large primary">Detayları Görüntüle</button>
+  <div class="backgrounds">
+    <div class="circle-01"></div>
+    <div class="circle-02"></div>
+    <div class="circle-03"></div>
+    <div class="circle-04"></div>
+    <div class="gear"></div>
+    <div class="gears"></div>
+  </div>
+</section>
+
+<section class="three">
+  <div class="row">
+    <div class="content size-xs-12 size-md-6">
+      <h1>Özellikler</h1>
+      <ul>
+        <li>
+          <h2>Uygulamalara özel yetkileri yönetin</h2>
+          <p>Uygulamalarınıza özel yetki kodları belirleyerek erişim haklarını yönetin</p>
+        </li>
+        <li>
+          <h2>Yetkileri kullanıcılara atayın</h2>
+          <p>Uygulamalar için tanımlanan yetkileri kullanıcılara doğrudan atayın ve kullanıcılarınızı yetkilendirin</p>
+        </li>
+        <li>
+          <h2>Uygulama rollerinizi kolayca yönetin</h2>
+          <p>Uygulamanıza özel roller tanımlayarak yetkilerini belirleyin. Kullanıcılarınıza roller atayın ve
+            yetkilerinizi roller üzerinden kolayca yönetin. Rol bazlı yetkilendirmenin avantajlarından yararlanın</p>
+        </li>
+        <li>
+          <h2>Rol grupları ile rollerinizi kategorize edin</h2>
+          <p>Tanımlanan rolleri uygulama ihtiyaçlarına göre gruplayın ve kolayca yönetin</p>
+        </li>
+      </ul>
+    </div>
+    <div class="image size-xs-12 size-md-6"></div>
+  </div>
+</section>
+<section class="four">
+  <div class="row">
+    <div class="image size-xs-12 size-md-6"></div>
+    <div class="content size-xs-12 size-md-6">
+      <ul>
+        <li>
+          <h2>Rol grup şablonu yaratın</h2>
+          <p>Yetki süreçlerini çok daha kolay yönetebilmek için yetkilere bağlı rol grup şablonları oluşturun ve bu
+            şablonu tüm hesaplarınızda kullanın</p>
+        </li>
+        <li>
+          <h2>İş grupları oluşturun ve yetkilerinizi belirleyin</h2>
+          <p>Uygulamanızın kullanıcı gruplarına göre tanımlanan erişim hakları ile özel iş grupları oluşturun ve
+            yetkilerini iş gruplarına göre kolayca yönetin</p>
+        </li>
+        <li>
+          <h2>Kullanıcı yetkilerini devredin</h2>
+          <p>Kullanıcıların kendi yetkilerini belirli süreliğine farklı bir kullanıcıya devretmesine izin verin ve
+            uygulama süreçlerin aksamasını önleyin</p>
+        </li>
+        <li>
+          <h2>Uygulamalarınızı kullanılan bölgelere göre yönetin</h2>
+          <p>Uygulamalarınızın kullanıldığı bölgelere özel kapsamlar belirleyerek arayüzlerinizi şekillendirin ve
+            yetkilerinizi bu kapsama göre tanımlayarak yönetin</p>
+        </li>
+      </ul>
+      <button class="success large">Detayları Görüntüle</button>
+    </div>
+  </div>
+</section>
+<section class="five">
+  <div class="row opinions" *ngFor="let opinion of opinions">
+    <aside class="user hidden-xs col-sm-12 col-md-3">
+      <div class="circle"></div>
+    </aside>
+    <aside class="opinion col-xs-12 col-md-9">
+      <h1>Kullanıcı Görüşleri</h1>
+      <div class="description">
+        <p>Türkiye'deki İşbaşı ve Hindistan'daki Vyapari uygulamalarımızda geliştirme sürecinin en başından bu yana IDM
+          servislerini kullanmaktayız. Hem kullanıcı arayüzü hem de servis entegrasyon arayüzlerinin kolayca
+          kullanılabilir
+          olmasından memnunuz.</p>
+        <p>Kullanıcı sayımızın artmasına rağmen performans ve güvenilirlik açısından beklentilerimizi fazlasıyla
+          karşılaşmıştır.</p>
+      </div>
+      <div class="author">
+        <div class="name">Ayhan İNAL</div>
+        <div class="title">KOBİ Bulut Ürünleri Teknik Proje Yöneticisi</div>
+      </div>
+    </aside>
+  </div>
+</section>
+<section class="six">
+  <div class="row">
+    <div class="list col-xs-12 col-lg-6">
+      <h1>Core Servisler</h1>
+      <div class="row">
+        <ul class="col-xs-12 col-md-6">
+          <li>Bulut Yönetim Servisi</li>
+          <li>Ayarlar Servisi</li>
+          <li>Yetkilendirme Servisi</li>
+        </ul>
+        <ul class="col-xs-12 col-md-6">
+          <li>Menü Servis</li>
+          <li>Yerelleştirme Servisi</li>
+        </ul>
+      </div>
+      <div class="col-xs-6 button">
+        <button class="success large">TÜMÜNÜ GÖRÜNTÜLE</button>
+      </div>
+    </div>
+    <div class="picture col-xs-12 col-lg-6">
+      <div class="background"></div>
+    </div>
+  </div>
+</section>
+
+<logo-footer></logo-footer>
+

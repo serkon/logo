@@ -10,6 +10,7 @@ const routes: Routes = [
       {path: 'idm', loadChildren: () => import('./idm/idm.module').then(module => module.IdmModule)},
       {path: 'cc', loadChildren: () => import('./cc/cc.module').then(module => module.CcModule)},
       {path: 'ms', loadChildren: () => import('./ms/ms.module').then(module => module.MsModule)},
+      {path: 'as', loadChildren: () => import('./as/as.module').then(module => module.AsModule)},
     ],
   },
 ];
