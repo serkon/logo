@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Link } from '@logo-software/link';
 
 @Component({
-  selector: 'logo-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  selector: 'logo-link-showcase',
+  templateUrl: './link-showcase.component.html',
+  styleUrls: ['./link-showcase.component.scss'],
 })
-export class HeaderComponent {
+export class LinkShowcaseComponent {
 
   public links: Link[] = [
     {
@@ -30,4 +30,5 @@ export class HeaderComponent {
       url: '#',
     },
   ];
+
 }

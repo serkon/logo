@@ -52,8 +52,7 @@
               "src/app/@theme/styles/styles.scss",
               "node_modules/pace-js/templates/pace-theme-flash.tmpl.css",
               "node_modules/docsearch.js/dist/cdn/docsearch.min.css",
-              "node_modules/highlight.js/styles/dracula.css",
-              "node_modules/@logo-software/icons/src/lib/logo-icons.scss"
+              "node_modules/highlight.js/styles/dracula.css"
             ],
             "scripts": [
               "node_modules/pace-js/pace.min.js",
@@ -889,6 +888,46 @@
             "tsConfig": [
               "projects/logo-software/carousel/tsconfig.lib.json",
               "projects/logo-software/carousel/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@logo-software/link": {
+      "projectType": "library",
+      "root": "projects/logo-software/link",
+      "sourceRoot": "projects/logo-software/link/src",
+      "prefix": "logo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/logo-software/link/tsconfig.lib.json",
+            "project": "projects/logo-software/link/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/logo-software/link/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/logo-software/link/src/test.ts",
+            "tsConfig": "projects/logo-software/link/tsconfig.spec.json",
+            "karmaConfig": "projects/logo-software/link/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/logo-software/link/tsconfig.lib.json",
+              "projects/logo-software/link/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

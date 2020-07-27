@@ -47,6 +47,10 @@ const routes: Routes = [
         path: 'cursor-sample',
         loadChildren: () => import('./cursor-sample/cursor-sample.module').then(m => m.CursorSampleModule),
       },
+      {
+        path: 'link-sample',
+        loadChildren: () => import('./link-sample/link-sample.module').then(m => m.LinkSampleModule),
+      },
     ],
   },
 ];

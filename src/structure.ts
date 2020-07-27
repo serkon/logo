@@ -289,6 +289,28 @@ export const structure = [
           },
         ],
       },
+      {
+        type: 'page',
+        name: 'Link Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'LinkModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'LinkComponent',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'Link',
+          },
+        ],
+      },
     ],
   },
   {

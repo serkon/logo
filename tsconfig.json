@@ -73,6 +73,10 @@
       "@logo-software/carousel": [
         "dist/logo-software/carousel/logo-software-carousel",
         "dist/logo-software/carousel"
+      ],
+      "@logo-software/link": [
+        "dist/logo-software/link/logo-software-link",
+        "dist/logo-software/link"
       ]
     }
   },

@@ -101,6 +101,7 @@ export class HomeComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.resize();
     this.canvas();
+    console.log('Home Component');
   }
 
   canvas() {

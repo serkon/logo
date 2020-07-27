@@ -56,17 +56,17 @@
       <span>Elements is a design system – backed by open-source code – that helps teams build high-quality digital experiences.</span>
     </p>
   </section>
-  <section class="three">
-    <h1>Services</h1>
-    <logo-carousel [count]="1" [arrow]="true" [dots]="true">
-      <div class="slider-item" *ngFor="let item of sliderItems">
-        <img class="icon" src="{{item.icon}}" title="{{item.title}}" alt="{{item.title}}"/>
-        <div class="abbr">{{item.abbr}}</div>
-        <div class="title">{{item.title}}</div>
-        <div class="description">{{item.description}}</div>
-        <a class="go"></a>
-      </div>
-    </logo-carousel>
+<section class="three" id="services">
+  <h1>Services</h1>
+  <logo-carousel [count]="1" [arrow]="true" [dots]="true">
+    <div class="slider-item" *ngFor="let item of sliderItems">
+      <img class="icon" src="{{item.icon}}" title="{{item.title}}" alt="{{item.title}}"/>
+      <div class="abbr">{{item.abbr}}</div>
+      <div class="title">{{item.title}}</div>
+      <div class="description">{{item.description}}</div>
+      <a class="go"></a>
+    </div>
+  </logo-carousel>
     <div class="backgrounds">
       <div class="background-green"></div>
       <div class="background-yellow"></div>
