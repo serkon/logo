@@ -30,5 +30,5 @@ export interface Link {
    * the event when clicked to the link
    * @param event
    */
-  click?: (event: Event) => void;
+  onClick?: (event: Event) => void;
 }

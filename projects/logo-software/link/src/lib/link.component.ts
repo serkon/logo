@@ -1,96 +1,61 @@
-import { AfterViewChecked, Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Link } from './link';
-import { Router, Scroll } from '@angular/router';
 
-/**
- * It creates external or internal links
- *
- * __Usage Example__
- *
- * <sub>header.component.ts</sub>
- * ```typescript
- * items = [{
- *   icon: '/assets/images/home/section-03/user.svg',
- *   abbr: 'IDM',
- *   title: 'Centeral Identitiy Management',
- *   description: 'Uygulamaların kullanıcı veritabanını tutarak, kullanıcı kayıt ve giriş işlemleri güvenli olarak yönetir',
- *   link: '',
- *   class: '',
- * }]
- * ```
- *
- * <sub>header.component.html</sub>
- * ```html
- * <logo-link [classes]="['light', 'large', 'ghost']" [links]="items"></logo-link>
- * ```
- * @stacked-example(Table Showcase, logo/link-sample/link-showcase/link-showcase.component)
- */
 @Component({
   selector: 'logo-link',
-  templateUrl: './link.component.html',
+  template: `
+    <ng-container *ngTemplateOutlet="external ? externalURL: internalURL">
+    </ng-container>
+    <ng-template #internalURL>
+      <a routerLink="{{url}}" [fragment]="fragment" [ngClass]="classes" (click)="onClickEvent($event)">
+        <ng-container *ngTemplateOutlet="display ? displayHTML : contentHTML"></ng-container>
+      </a>
+    </ng-template>
+    <ng-template #externalURL>
+      <a href="{{url}}" [ngClass]="classes" (click)="onClickEvent($event)">
+        <ng-container *ngTemplateOutlet="display ? displayHTML : contentHTML"></ng-container>
+      </a>
+    </ng-template>
+    <ng-template #displayHTML>{{display}}</ng-template>
+    <ng-template #contentHTML>
+      <ng-content></ng-content>
+    </ng-template>
+  `,
   styleUrls: ['./link.component.scss'],
 })
-export class LinkComponent implements AfterViewChecked {
-  /**
-   * add css classes to links
-   */
-  @Input() classes = [];
-  anchor: string = null;
-  status: boolean = false;
+export class LinkComponent implements OnInit {
+  @Input() external: boolean = false;
+  @Input() fragment: string;
+  @Input() url: string;
+  @Input() classes: string[] = [];
+  @Input() display: string = '';
+  @Input() onClick: (event: Event) => void;
+  @Input() link: Link;
 
-  constructor(private router: Router) {
-    this.router.events.subscribe(event => {
-      this.status = true;
-      if (event instanceof Scroll && !!event.anchor) {
-        this.anchor = event.anchor;
-      }
-    });
+  ngOnInit() {
+    if (this.link) {
+      this.external = this.link.external;
+      this.fragment = this.link.fragment;
+      this.url = this.link.url;
+      this.classes = this.link.classes && [...this.classes, ...this.link.classes] || this.classes;
+      this.display = this.link.display;
+      this.onClick = this.link.onClick;
+    }
   }
 
-  private _links = [];
-
-  get links() {
-    return this._links;
-  }
-
-
-  /**
-   * add link list to component.
-   */
-  @Input() set links(value: Link[]) {
-    this._links = value || [];
-  }
-
-  ngAfterViewChecked(): void {
-    if (this.anchor && this.status) {
-      this.status = false;
-      const anc = document.getElementById(this.anchor);
-      console.log('#### scrolling');
-      window.setTimeout(() => anc.scrollIntoView({
+  scrollToAnchor() {
+    if (this.fragment) {
+      console.log('#### scrolling link');
+      const anc = document.getElementById(this.fragment);
+      anc && window.setTimeout(() => anc.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
       }), 100);
     }
   }
 
-  setClasses(classes = []) {
-    return [...classes, ...this.classes];
-  }
-
-  scrollToAnchor() {
-    if (this.anchor) {
-      const anc = document.getElementById(this.anchor);
-      anc.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }
-  }
-
-  onClick(link: Link) {
-    this.anchor = link.fragment || null;
+  onClickEvent($event) {
     this.scrollToAnchor();
-    link.click(event);
+    this.onClick && this.onClick($event);
   }
-
 }

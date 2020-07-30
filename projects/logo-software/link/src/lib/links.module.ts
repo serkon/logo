@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
-import { LinkComponent } from './link.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+
+import { LinksComponent } from './links.component';
+import { LinkComponent } from './link.component';
 
 /**
  * Link module uses when links to internal or external url
@@ -30,9 +32,9 @@ import { RouterModule } from '@angular/router';
  * ```
  */
 @NgModule({
-  declarations: [LinkComponent],
+  declarations: [LinksComponent, LinkComponent],
   imports: [CommonModule, RouterModule],
-  exports: [LinkComponent],
+  exports: [LinksComponent, LinkComponent],
 })
-export class LinkModule {
+export class LinksModule {
 }
