@@ -1,12 +1,14 @@
 <logo-header></logo-header>
-<section class="one">
+<section class="one" id="main">
   <div class="title-content">
     <h1 class="title">Cloud Control <span class="for">Service</span></h1>
     <p class="description">
       Logo PaaS platformunda var olan Hesaplar (Tenant), Uygulamalar ve kullanıcılar arasında ki ilişkileri Çoklu hesap
       (multi-tenancy) operasyonları kapsamında yönetir.
     </p>
-    <button class="primary large get-started">EXPLORE</button>
+    <logo-link [classes]="['primary', 'large', 'get-started']" external="true"
+               url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139691">KEŞFET
+    </logo-link>
   </div>
   <div class="illustrations">
     <div class="computer"></div>
@@ -22,7 +24,9 @@
       <div class="description">{{box.description}}</div>
     </div>
   </div>
-  <button class="large primary">DETAYLARI GÖRÜNTÜLE</button>
+  <logo-link [classes]="['primary', 'large']" external="true"
+             url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139691">DETAYLARI GÖRÜNTÜLE
+  </logo-link>
   <div class="backgrounds">
     <div class="three-angle"></div>
     <div class="rectangle-01"></div>
@@ -89,8 +93,9 @@
           <p>Oturum bağımsız mimarisi ile Bulut Yönetim Servisini çoklayarak kullanabilirsiniz.</p>
         </li>
       </ul>
-
-      <button class="success large">Detayları Görüntüle</button>
+      <logo-link [classes]="['primary', 'large']" external="true"
+                 url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139691">DETAYLARI GÖRÜNTÜLE
+      </logo-link>
     </div>
   </div>
 </section>
@@ -104,8 +109,7 @@
       <div class="description">
         <p>Türkiye'deki İşbaşı ve Hindistan'daki Vyapari uygulamalarımızda geliştirme sürecinin en başından bu yana IDM
           servislerini kullanmaktayız. Hem kullanıcı arayüzü hem de servis entegrasyon arayüzlerinin kolayca
-          kullanılabilir
-          olmasından memnunuz.</p>
+          kullanılabilir olmasından memnunuz.</p>
         <p>Kullanıcı sayımızın artmasına rağmen performans ve güvenilirlik açısından beklentilerimizi fazlasıyla
           karşılaşmıştır.</p>
       </div>
@@ -132,7 +136,9 @@
         </ul>
       </div>
       <div class="col-xs-6 button">
-        <button class="success large">TÜMÜNÜ GÖRÜNTÜLE</button>
+        <logo-link [classes]="['success', 'large']" external="true"
+                   url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65132817">TÜMÜNÜ GÖRÜNTÜLE
+        </logo-link>
       </div>
     </div>
     <div class="picture col-xs-12 col-lg-6">

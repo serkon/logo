@@ -1,11 +1,13 @@
 <logo-header></logo-header>
-<section class="one">
+<section class="one" id="main">
   <div class="title-content">
     <h1 class="title">IDM - <span class="for">Identity Management Service</span></h1>
     <p class="description">
       Uygulamaların kullanıcı veritabanını tutarak, kullanıcı kayıt ve giriş işlemleri güvenli olarak yönetir.
     </p>
-    <button class="light large get-started">EXPLORE</button>
+    <logo-link [classes]="['light', 'large', 'get-started']" external="true"
+               url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65131821">KEŞFET
+    </logo-link>
   </div>
   <div class="illustrations">
     <div class="people"></div>
@@ -44,8 +46,9 @@
           oturumlarınızı yönetin.
         </li>
       </ul>
-
-      <button class="large success">DETAYLARI GÖRÜNTÜLE</button>
+      <logo-link [classes]="['success', 'large']" external="true"
+                 url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65131821">DETAYLARI GÖRÜNTÜLE
+      </logo-link>
     </div>
     <div class="seperator col-md-2"></div>
   </div>
@@ -59,7 +62,7 @@
            [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"></div>
       <div class="abbr">{{item.abbr}}</div>
       <div class="description">{{item.description}}</div>
-      <a class="go" href="{{item.url}}" [ngClass]="item.classes">Detay</a>
+      <!-- a class="go" href="{{item.url}}" [ngClass]="item.classes">go →</a-->
     </div>
   </logo-carousel>
 </section>
@@ -101,7 +104,9 @@
         </ul>
       </div>
       <div class="col-xs-6 button">
-        <button class="success large">TÜMÜNÜ GÖRÜNTÜLE</button>
+        <logo-link [classes]="['success', 'large']" external="true"
+                   url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65132817">TÜMÜNÜ GÖRÜNTÜLE
+        </logo-link>
       </div>
     </div>
     <div class="picture col-xs-12 col-lg-6">

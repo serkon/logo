@@ -6,6 +6,7 @@ import { IdmComponent } from './idm.component';
 import { CarouselModule } from '@logo-software/carousel/src/lib/carousel.module';
 import { HeaderModule } from '../../../components/header/header.module';
 import { FooterModule } from '../../../components/footer/footer.module';
+import { LinksModule } from '@logo-software/link';
 
 @NgModule({
   declarations: [IdmComponent],
@@ -15,6 +16,7 @@ import { FooterModule } from '../../../components/footer/footer.module';
     CarouselModule,
     HeaderModule,
     FooterModule,
+    LinksModule,
   ],
   exports: [IdmComponent],
 })

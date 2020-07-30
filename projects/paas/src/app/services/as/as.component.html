@@ -1,11 +1,13 @@
 <logo-header></logo-header>
-<section class="one">
+<section class="one" id="main">
   <div class="title-content">
     <p class="sub">Hazırlayacağınız şablonlar ile</p>
     <h1 class="title">Yetkilendirme <span class="for">Süreçlerinizi Minimize</span> edin</h1>
     <p class="description">Yetkilendirme Servisi ile uygulamalarınızdaki yetki yönetimini kullanıcı bazlı, rol bazlı,
       url bazlı ve operasyon (CRUD) bazlı olarak kolayca ve detaylı bir şekilde yönetin.</p>
-    <button class="primary large get-started">EXPLORE</button>
+    <logo-link [classes]="['primary', 'large', 'get-started']" external="true"
+               url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65141057">KEŞFET
+    </logo-link>
   </div>
   <div class="backgrounds"></div>
 </section>
@@ -18,10 +20,12 @@
            [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"></div>
       <div class="abbr">{{item.abbr}}</div>
       <div class="description">{{item.description}}</div>
-      <a class="go" href="{{item.url}}" [ngClass]="item.classes">Detay</a>
+      <!-- a class="go" href="{{item.url}}" [ngClass]="item.classes">go →</a -->
     </div>
   </logo-carousel>
-  <button class="large primary">Detayları Görüntüle</button>
+  <logo-link [classes]="['primary', 'large']" external="true"
+             url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65141057">DETAYLARI GÖRÜNTÜLE
+  </logo-link>
   <div class="backgrounds">
     <div class="circle-01"></div>
     <div class="circle-02"></div>
@@ -31,7 +35,6 @@
     <div class="gears"></div>
   </div>
 </section>
-
 <section class="three">
   <div class="row">
     <div class="content size-xs-12 size-md-6">
@@ -85,7 +88,9 @@
             yetkilerinizi bu kapsama göre tanımlayarak yönetin</p>
         </li>
       </ul>
-      <button class="success large">Detayları Görüntüle</button>
+      <logo-link [classes]="['success', 'large']" external="true"
+                 url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65141057">DETAYLARI GÖRÜNTÜLE
+      </logo-link>
     </div>
   </div>
 </section>
@@ -127,7 +132,9 @@
         </ul>
       </div>
       <div class="col-xs-6 button">
-        <button class="success large">TÜMÜNÜ GÖRÜNTÜLE</button>
+        <logo-link [classes]="['success', 'large']" external="true"
+                   url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65132817">TÜMÜNÜ GÖRÜNTÜLE
+        </logo-link>
       </div>
     </div>
     <div class="picture col-xs-12 col-lg-6">
@@ -135,6 +142,5 @@
     </div>
   </div>
 </section>
-
 <logo-footer></logo-footer>
 

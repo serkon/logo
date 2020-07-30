@@ -7,55 +7,57 @@
       Enterprise PaaS ensures support for enterprise application requirements — such as high availability/disaster
       recovery, external service access, strong security features, and the availability of technical support.
     </p>
-    <button class="primary large get-started">EXPLORE</button>
+    <logo-link [classes]="['primary', 'large', 'get-started']" external="true"
+               url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65132817">EXPLORE
+    </logo-link>
   </div>
-    <div class="icons">
-      <div class="relieved-smiley icon"><i></i></div>
+  <div class="icons">
+    <div class="relieved-smiley icon"><i></i></div>
+  </div>
+  <div class="things">
+    <div class="perspective">
+      <logo-perspective
+        [threshold]="150"
+        [xDegree]="3"
+        [yDegree]="3"
+        [sensitivity]="50"
+        [rotateX]="false"
+        [rotateY]="true"
+      >
+        <div class="art-bg-01"></div>
+        <div class="art-bg-02"></div>
+        <div class="dotted-line"></div>
+        <div class="mail"></div>
+        <div class="mobile"></div>
+        <div class="human-01"></div>
+        <div class="human-02"></div>
+        <div class="human-03"></div>
+        <div class="plant-01"></div>
+        <div class="plant-02"></div>
+        <div class="bottom"></div>
+      </logo-perspective>
     </div>
-    <div class="things">
-      <div class="perspective">
-        <logo-perspective
-          [threshold]="150"
-          [xDegree]="3"
-          [yDegree]="3"
-          [sensitivity]="50"
-          [rotateX]="false"
-          [rotateY]="true"
-        >
-          <div class="art-bg-01"></div>
-          <div class="art-bg-02"></div>
-          <div class="dotted-line"></div>
-          <div class="mail"></div>
-          <div class="mobile"></div>
-          <div class="human-01"></div>
-          <div class="human-02"></div>
-          <div class="human-03"></div>
-          <div class="plant-01"></div>
-          <div class="plant-02"></div>
-          <div class="bottom"></div>
-        </logo-perspective>
-      </div>
 
-      <div class="rectangles">
-        <div class="rect-01"></div>
-        <div class="rect-02"></div>
-      </div>
-      <div class="clouds"></div>
-      <div class="planets">
-        <div class="planet-01"></div>
-        <div class="planet-02"></div>
-      </div>
+    <div class="rectangles">
+      <div class="rect-01"></div>
+      <div class="rect-02"></div>
     </div>
-  </section>
-  <section class="two light-600">
-    <div class=" background-image"></div>
-    <h2>Plug and Play for your requirement</h2>
-    <h5>Design better. Faster. Together.</h5>
-    <p>
-      <span>Transform your products with the world’s leading digital product design platform.</span><br/>
-      <span>Elements is a design system – backed by open-source code – that helps teams build high-quality digital experiences.</span>
-    </p>
-  </section>
+    <div class="clouds"></div>
+    <div class="planets">
+      <div class="planet-01"></div>
+      <div class="planet-02"></div>
+    </div>
+  </div>
+</section>
+<section class="two light-600">
+  <div class=" background-image"></div>
+  <h2>Plug and Play for your requirement</h2>
+  <h5>Design better. Faster. Together.</h5>
+  <p>
+    <span>Transform your products with the world’s leading digital product design platform.</span><br/>
+    <span>Elements is a design system – backed by open-source code – that helps teams build high-quality digital experiences.</span>
+  </p>
+</section>
 <section class="three" id="services">
   <h1>Services</h1>
   <logo-carousel [count]="1" [arrow]="true" [dots]="true">
@@ -64,49 +66,49 @@
       <div class="abbr">{{item.abbr}}</div>
       <div class="title">{{item.title}}</div>
       <div class="description">{{item.description}}</div>
-      <a class="go"></a>
+      <a routerLink="{{item.link}}" class="detail">go →</a>
     </div>
   </logo-carousel>
-    <div class="backgrounds">
-      <div class="background-green"></div>
-      <div class="background-yellow"></div>
-      <div class="background-dark-blue"></div>
-      <div class="background-light-blue"></div>
-      <div class="shapes">
-        <div class="circle"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="plus"></div>
-        <div class="plus plus-bg"></div>
-        <div class="cross"></div>
-        <div class="cross cross-bg"></div>
-        <div class="three-angle"></div>
-        <div class="three-angle three-angle-bg"></div>
-        <div class="circle-right"></div>
-        <div class="circle-right circle-right-bg"></div>
-      </div>
+  <div class="backgrounds">
+    <div class="background-green"></div>
+    <div class="background-yellow"></div>
+    <div class="background-dark-blue"></div>
+    <div class="background-light-blue"></div>
+    <div class="shapes">
+      <div class="circle"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="plus"></div>
+      <div class="plus plus-bg"></div>
+      <div class="cross"></div>
+      <div class="cross cross-bg"></div>
+      <div class="three-angle"></div>
+      <div class="three-angle three-angle-bg"></div>
+      <div class="circle-right"></div>
+      <div class="circle-right circle-right-bg"></div>
     </div>
-  </section>
-  <section class="four">
-    <div class="backgrounds">
-      <div class="circle-01">
-        <div class="circle-02">
-          <div class="circle-03">
-            <div class="circle-description">
-              <h2>Who uses it?</h2>
-              <p>They prefer us! It's scalabe, fast and secure</p>
-              <span>Logo güvencesiyle uygulama geliştirmeye siz de başlayın!</span>
-              <button class="large primary">Try for FREE</button>
-            </div>
+  </div>
+</section>
+<section class="four">
+  <div class="backgrounds">
+    <div class="circle-01">
+      <div class="circle-02">
+        <div class="circle-03">
+          <div class="circle-description">
+            <h2>Who uses it?</h2>
+            <p>They prefer us! It's scalabe, fast and secure</p>
+            <span>Logo güvencesiyle uygulama geliştirmeye siz de başlayın!</span>
+            <button class="large primary">Try for FREE</button>
           </div>
         </div>
       </div>
     </div>
-    <div class="companies row">
-      <div class="company col-xs-12 col-md-6 col-lg-3" *ngFor="let company of companies">
-        <div class="image" [ngStyle]="{backgroundImage:'url('+company.image+')'}"></div>
-        <span class="description">{{company.description}}</span>
-      </div>
+  </div>
+  <div class="companies row">
+    <div class="company col-xs-12 col-md-6 col-lg-3" *ngFor="let company of companies">
+      <div class="image" [ngStyle]="{backgroundImage:'url('+company.image+')'}"></div>
+      <span class="description">{{company.description}}</span>
     </div>
-  </section>
+  </div>
+</section>
 <logo-footer></logo-footer>

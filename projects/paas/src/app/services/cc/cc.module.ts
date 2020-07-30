@@ -6,10 +6,11 @@ import { HeaderModule } from '@paas/src/components/header/header.module';
 import { FooterModule } from '@paas/src/components/footer/footer.module';
 import { CcRoutingModule } from './cc-routing.module';
 import { CcComponent } from './cc.component';
+import { LinksModule } from '@logo-software/link';
 
 @NgModule({
   declarations: [CcComponent],
-  imports: [CommonModule, CcRoutingModule, HeaderModule, FooterModule, CarouselModule],
+  imports: [CommonModule, CcRoutingModule, HeaderModule, FooterModule, CarouselModule, LinksModule],
   exports: [CcComponent],
 })
 export class CcModule {

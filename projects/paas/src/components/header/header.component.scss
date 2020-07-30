@@ -64,6 +64,12 @@ $header-size: size(80px);
         .docs {
           font-weight: bold;
         }
+
+        a {
+          font-size: size(24px);
+          letter-spacing: size(-1.26px);
+          font-weight: normal;
+        }
       }
 
       .search {

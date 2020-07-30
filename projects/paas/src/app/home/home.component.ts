@@ -41,7 +41,7 @@ export class HomeComponent implements AfterViewInit {
         abbr: 'IDM',
         title: 'Centeral Identitiy Management',
         description: 'Uygulamaların kullanıcı veritabanını tutarak, kullanıcı kayıt ve giriş işlemleri güvenli olarak yönetir',
-        link: '',
+        link: 'services/idm',
         class: '',
       },
       {
@@ -49,7 +49,7 @@ export class HomeComponent implements AfterViewInit {
         abbr: 'CCS',
         title: 'Cloud Control Service',
         description: 'Logo PaaS platformundaki mikro servislerin ve uygulamaların ortak bilgilerini sağlar ve çoklu-kiracı (multi-tenancy) işlemlerini yönetir',
-        link: '',
+        link: 'services/cc',
         class: '',
       },
       {
@@ -57,15 +57,7 @@ export class HomeComponent implements AfterViewInit {
         abbr: 'AS',
         title: 'Authorization Service',
         description: 'Logo PaaS platformunda geliştirilen uygulamlar için yetki yönetimi işlemlerini yönetmektedir',
-        link: '',
-        class: '',
-      },
-      {
-        icon: '/assets/images/home/section-03/keyhole.svg',
-        abbr: 'SS',
-        title: 'Setting Service',
-        description: 'Logo PaaS platformunda diğer mikro servislerin ayarlarını saklama ve gerektiğinde uygulamalara bu ayarları sağlama işlevlerini gerçekleştirir',
-        link: '',
+        link: 'services/as',
         class: '',
       },
       {
@@ -73,7 +65,15 @@ export class HomeComponent implements AfterViewInit {
         abbr: 'MS',
         title: 'Menu Service',
         description: 'Masaüstü oluşturabildiği ve kullanıcıların kayıt olmuş uygulamaları aynı ortamda kullanmasını sağlayan bir servistir',
-        link: '',
+        link: 'services/ms',
+        class: '',
+      },
+      {
+        icon: '/assets/images/home/section-03/keyhole.svg',
+        abbr: 'SS',
+        title: 'Setting Service',
+        description: 'Logo PaaS platformunda diğer mikro servislerin ayarlarını saklama ve gerektiğinde uygulamalara bu ayarları sağlama işlevlerini gerçekleştirir',
+        link: '#',
         class: '',
       },
     ];

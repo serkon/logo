@@ -1,5 +1,5 @@
 <logo-header></logo-header>
-<section class="one">
+<section class="one" id="main">
   <div class="title-content">
     <h1 class="title">Menu <span class="for">Service</span></h1>
     <p class="description">
@@ -7,7 +7,9 @@
       ortamda kullanıcıya sunulsun. Kullanıcılar yetkisi dahilinde olan farklı uygulama menüleri ile dilediği şekilde
       masaüstü oluştursun.¬
     </p>
-    <button class="primary large get-started">EXPLORE</button>
+    <logo-link [classes]="['primary', 'large', 'get-started']" external="true"
+               url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139826">KEŞFET
+    </logo-link>
   </div>
   <div class="illustrations">
     <div class="computer"></div>
@@ -42,7 +44,9 @@
         <li>Yetkilendirme kontrolünü dilerseniz menü servis sizin uygulamanızdan kullansın</li>
         <li>Kişisel masaüstünüzü oluşturup, sık kullandığınız menülere hızlıca ulaşın</li>
       </ul>
-      <button class="success large">Detayları Görüntüle</button>
+      <logo-link [classes]="['success', 'large']" external="true"
+                 url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139826">DETAYLARI GÖRÜNTÜLE
+      </logo-link>
     </div>
   </div>
 </section>
@@ -55,7 +59,7 @@
            [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"></div>
       <div class="abbr">{{item.abbr}}</div>
       <div class="description">{{item.description}}</div>
-      <a class="go" href="{{item.url}}" [ngClass]="item.classes">Detay</a>
+      <!-- a class="go" href="{{item.url}}" [ngClass]="item.classes">go →</a -->
     </div>
   </logo-carousel>
 </section>
@@ -97,7 +101,9 @@
         </ul>
       </div>
       <div class="col-xs-6 button">
-        <button class="success large">TÜMÜNÜ GÖRÜNTÜLE</button>
+        <logo-link [classes]="['success', 'large']" external="true"
+                   url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65132817">TÜMÜNÜ GÖRÜNTÜLE
+        </logo-link>
       </div>
     </div>
     <div class="picture col-xs-12 col-lg-6">

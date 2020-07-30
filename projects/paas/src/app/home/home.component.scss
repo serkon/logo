@@ -1,4 +1,5 @@
 @import "~@logo-software/theme/style";
+@import "~@logo-software/icons/style";
 
 $header-size: size(80px);
 :host {
@@ -39,6 +40,10 @@ $header-size: size(80px);
         font-size: size(20px);
         color: var(--dark-400);
         pointer-events: none;
+      }
+
+      ::ng-deep .get-started {
+
       }
     }
 
@@ -344,6 +349,7 @@ $header-size: size(80px);
         display: inline-block;
         vertical-align: top;
         white-space: normal;
+        justify-content: flex-start;
 
         .icon {
           height: 42px;
@@ -365,7 +371,11 @@ $header-size: size(80px);
           margin-top: 20px;
           font-size: 16px;
           font-weight: 300;
+        }
 
+        .detail {
+          font-size: size(12px);
+          margin-top: size(20px);
         }
       }
     }
@@ -641,7 +651,8 @@ $header-size: size(80px);
       .company {
         flex-direction: column;
         padding: 0 size(47px);
-        margin: size(50px) 0;
+        margin-top: size(50px);
+        margin-bottom: size(50px);
 
         .image {
           background-repeat: no-repeat;
