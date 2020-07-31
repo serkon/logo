@@ -1,14 +1,10 @@
 import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core';
 
-export interface SliderItem {
-  icon: string;
-  abbr: string;
-  title: string;
-  description: string;
-  link: string;
-  class: string;
-}
-
+/**
+ * The carousel is a slideshow for cycling through a series of content,
+ * built with CSS 3D transforms and a bit of JavaScript. It works with a series of images,
+ * text, or custom markup. It also includes support for previous/next controls and indicators.
+ */
 @Component({
   selector: 'logo-carousel',
   template: `
@@ -60,11 +56,11 @@ export interface SliderItem {
 })
 export class CarouselComponent implements AfterViewInit {
   /**
-   * Total will be moved item count, default is one
+   * It defines how many items will be moved when clicked to the arrow. The default is one.
    */
   @Input() count = 1;
   /**
-   * It enable dots under the slide. Default is false;
+   * It enable slider dots under the slide. Default is false;
    */
   @Input() dots = false;
   /**
@@ -100,6 +96,9 @@ export class CarouselComponent implements AfterViewInit {
     this.resize();
   }
 
+  /**
+   * Moves first items
+   */
   reset() {
     this.currentItem = 0;
     this.sliding.nativeElement.style.transform = `translateX(0px)`;
@@ -155,6 +154,10 @@ export class CarouselComponent implements AfterViewInit {
     this.sliding.nativeElement.style.transform = `translateX(${translateXSize > this.maxSize ? -this.maxSize : -translateXSize}px)`;
   }
 
+  /**
+   * Moves item to the described parameter.
+   * @param index
+   */
   onDotClick(index: number) {
     this.currentItem = index;
     this.move();
