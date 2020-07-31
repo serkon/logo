@@ -55,7 +55,7 @@ export class LinksComponent implements AfterViewChecked, OnDestroy {
 
   private _links: Link[] = [];
 
-  get links() {
+  get links(): Link[] {
     return this._links;
   }
 
@@ -76,7 +76,6 @@ export class LinksComponent implements AfterViewChecked, OnDestroy {
   public ngOnDestroy(): void {
     if (this.subscription) {
       this.subscription.unsubscribe();
-      console.log('link unsubscribed');
     }
   }
 
@@ -86,7 +85,6 @@ export class LinksComponent implements AfterViewChecked, OnDestroy {
 
   scrollToAnchor() {
     if (this.anchor) {
-      console.log('#### scrolling');
       const anc = document.getElementById(this.anchor);
       anc && window.setTimeout(() => anc.scrollIntoView({
         behavior: 'smooth',

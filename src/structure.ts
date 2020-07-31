@@ -297,7 +297,12 @@ export const structure = [
           {
             type: 'block',
             block: 'component',
-            source: 'LinkModule',
+            source: 'LinksModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'LinksComponent',
           },
           {
             type: 'block',
