@@ -1,0 +1,49 @@
+:host {
+  logo-carousel {
+    padding: 0 size(100px);
+
+    .slider-item {
+      box-shadow: 0 60px 60px #6e6e6e46;
+      background-color: #ffffff;
+      border-radius: 20px;
+      box-sizing: border-box;
+      backdrop-filter: blur(23px);
+      color: #646464;
+      padding: 30px 44px;
+      min-width: 264px;
+      width: 264px;
+      margin-right: 24px;
+      display: inline-block;
+      vertical-align: top;
+      white-space: normal;
+      justify-content: flex-start;
+
+      .icon {
+        height: 42px;
+      }
+
+      .abbr {
+        font-weight: bold;
+        font-size: 40px;
+      }
+
+      .title {
+        color: #89969F;
+        font-size: 12px;
+        font-weight: bold;
+        letter-spacing: 0.2px;
+      }
+
+      .description {
+        margin-top: 20px;
+        font-size: 16px;
+        font-weight: 300;
+      }
+
+      .detail {
+        font-size: size(12px);
+        margin-top: size(20px);
+      }
+    }
+  }
+}

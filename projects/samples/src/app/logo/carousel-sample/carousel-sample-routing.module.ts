@@ -1,8 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CarouselShowcaseComponent } from '@samples/carousel-sample/carousel-showcase/carousel-showcase.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'carousel-showcase/carousel-showcase.component',
+    component: CarouselShowcaseComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

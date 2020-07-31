@@ -51,6 +51,10 @@ const routes: Routes = [
         path: 'link-sample',
         loadChildren: () => import('./link-sample/link-sample.module').then(m => m.LinkSampleModule),
       },
+      {
+        path: 'carousel-sample',
+        loadChildren: () => import('./carousel-sample/carousel-sample.module').then(m => m.CarouselSampleModule),
+      },
     ],
   },
 ];

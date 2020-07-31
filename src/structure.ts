@@ -316,6 +316,23 @@ export const structure = [
           },
         ],
       },
+      {
+        type: 'page',
+        name: 'Carousel Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'CarouselModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'CarouselComponent',
+          },
+        ],
+      },
     ],
   },
   {

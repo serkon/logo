@@ -2,8 +2,19 @@ import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, 
 
 /**
  * The carousel is a slideshow for cycling through a series of content,
- * built with CSS 3D transforms and a bit of JavaScript. It works with a series of images,
+ * built with CSS transforms and a bit of JavaScript. It works with a series of images,
  * text, or custom markup. It also includes support for previous/next controls and indicators.
+ *
+ * __Usage Example__
+ * ```html
+ * <logo-carousel [count]="1" [arrow]="true" [dots]="true">
+ *   <div class="slider-item" *ngFor="let item of sliderItems">
+ *      {{item.description}}
+ *   </div>
+ * </logo-carousel>
+ * ```
+ *
+ * @stacked-example(Carousel Showcase, logo/carousel-sample/carousel-showcase/carousel-showcase.component)
  */
 @Component({
   selector: 'logo-carousel',
@@ -56,15 +67,15 @@ import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, 
 })
 export class CarouselComponent implements AfterViewInit {
   /**
-   * It defines how many items will be moved when clicked to the arrow. The default is one.
+   * It defines how many items will be moved when clicked to the arrow. The default is 1.
    */
   @Input() count = 1;
   /**
-   * It enable slider dots under the slide. Default is false;
+   * Activates the points under the slider. Default is false.
    */
   @Input() dots = false;
   /**
-   * It enable arrows under the slide. Default is true.
+   * Activates the arrows under the slider. Default is true.
    */
   @Input() arrow = true;
   @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
@@ -155,7 +166,7 @@ export class CarouselComponent implements AfterViewInit {
   }
 
   /**
-   * Moves item to the described parameter.
+   * Transform position to the selected item.
    * @param index
    */
   onDotClick(index: number) {

@@ -1,1 +1,8 @@
-<p>carousel-showcase works!</p>
+<logo-carousel [count]="1" [arrow]="true" [dots]="true">
+  <div class="slider-item" *ngFor="let item of sliderItems">
+    <div class="abbr">{{item.abbr}}</div>
+    <div class="title">{{item.title}}</div>
+    <div class="description">{{item.description}}</div>
+    <a routerLink="{{item.link}}" class="detail">go →</a>
+  </div>
+</logo-carousel>

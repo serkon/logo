@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CarouselSampleRoutingModule } from './carousel-sample-routing.module';
 import { CarouselShowcaseComponent } from './carousel-showcase/carousel-showcase.component';
+import { CarouselModule } from '@logo-software/carousel';
 
 
 @NgModule({
@@ -10,6 +11,7 @@ import { CarouselShowcaseComponent } from './carousel-showcase/carousel-showcase
   imports: [
     CommonModule,
     CarouselSampleRoutingModule,
+    CarouselModule,
   ],
   exports: [CarouselShowcaseComponent],
 })
