@@ -1,6 +1,14 @@
 import { AfterViewInit, Component, HostListener, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { SliderItem } from '@logo-software/carousel';
+
+export interface SliderItem {
+  icon: string;
+  abbr: string;
+  title: string;
+  description: string;
+  link: string;
+  class: string;
+}
 
 @Component({
   selector: 'logo-home',
