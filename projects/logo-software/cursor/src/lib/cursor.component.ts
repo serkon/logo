@@ -21,6 +21,18 @@ export class Pointer {
   }
 }
 
+/**
+ * Cursor component changes default cursor to animated nested circle cursor.
+ * There are two circle. Biggest one is track the default cursor position with animation.
+ *
+ * __Usage Example__
+ *
+ * <sub>app.component.html</sub>
+ * ```html
+ * <logo-cursor timeDuration=400 [targets]=['.cursor', 'button', 'a']></logo-cursor>
+ * ```
+ * @stacked-example(Cursor Showcase, logo/cursor-sample/cursor-showcase/cursor-showcase.component)
+ */
 @Component({
   selector: 'logo-cursor',
   template: `
@@ -31,10 +43,11 @@ export class Pointer {
 export class CursorComponent implements AfterViewInit {
   /**
    * cursor circle movement timing duration. It will complete finding the cursor position in the defined time.
+   * Default is 400
    */
   @Input() timeDuration: number = 400;
   /**
-   * defined target mouse over cursor circle size will be enlarged.
+   * defined target mouse over cursor circle size will be enlarged. The defaults are ['.cursor', 'button', 'a']
    */
   @Input() targets = [];
   public defaultTargets = ['.cursor', 'button', 'a'];
