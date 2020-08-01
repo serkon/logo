@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { IconsShowcaseComponent } from './icons-showcase.component';
+import { IconsShowcaseComponent } from './icons-showcase/icons-showcase.component';
 
 const routes: Routes = [{
   path: 'icons-showcase/icons-showcase.component',

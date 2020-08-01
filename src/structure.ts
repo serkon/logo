@@ -333,6 +333,40 @@ export const structure = [
           },
         ],
       },
+      {
+        type: 'page',
+        name: 'Cursor Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'CursorModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'CursorComponent',
+          },
+        ],
+      },
+      {
+        type: 'page',
+        name: 'Icons Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'IconsModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'IconsComponent',
+          },
+        ],
+      },
     ],
   },
   {

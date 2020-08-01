@@ -189,8 +189,7 @@
               }
             ],
             "styles": [
-              "projects/samples/src/styles.scss",
-              "node_modules/@logo-software/theme/style.scss"
+              "projects/samples/src/styles.scss"
             ],
             "scripts": []
           },

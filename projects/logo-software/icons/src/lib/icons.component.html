@@ -16,7 +16,7 @@
 
 <div class="grid">
   <button
-    class="logo-i-{{icon}} icon outline large light"
+    class="logo-i-{{icon}} icon large light"
     *ngFor="let icon of filtered"
     (click)="copyToClipboard('logo-i-' + icon)"
     title="{{icon}}"
