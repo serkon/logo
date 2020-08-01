@@ -1,99 +1,54 @@
-.three-dot-ver {
-  background-image: url("assets/icons/three-dots-ver.svg");
+@import "../../style";
+
+$gap: 10px;
+$grid: 12;
+
+@for $i from 1 through $grid {
+  .grid-#{$i} {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(calc((100 / #{$i} * 1%) - #{$gap}), 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(calc((100 / #{$i} * 1%) - #{$gap}), 1fr));
+    grid-gap: $gap;
+  }
 }
 
-.add {
-  background-image: url("assets/icons/add.svg");
-}
+:host {
+  display: block;
+  margin: 30px;
 
-.add-new {
-  background-image: url("assets/icons/add-new.svg");
-}
+  section {
+    display: flex;
+    align-items: center;
 
-.arrow-down {
-  background-image: url("assets/icons/arrow-down.svg");
-}
+    label {
+      input {
+      }
+    }
 
-.bin {
-  background-image: url("assets/icons/bin.svg");
-}
+    .clipboard {
+      display: flex;
+      align-items: center;
+      margin-left: 10px;
 
-.copy {
-  background-image: url("assets/icons/copy.svg");
-}
+      .text {
+        display: flex;
+        align-items: center;
+        color: green;
+        padding: 10px;
+      }
+    }
+  }
 
-.double-chevron-left {
-  background-image: url("assets/icons/double-chevron-left.svg");
-}
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
 
-.double-chevron-right {
-  background-image: url("assets/icons/double-chevron-right.svg");
-}
-
-.edit {
-  background-image: url("assets/icons/edit.svg");
-}
-
-.edit-pen {
-  background-image: url("assets/icons/edit-pen.svg");
-}
-
-.eye {
-  background-image: url("assets/icons/eye.svg");
-}
-
-.filter {
-  background-image: url("assets/icons/filter.svg");
-}
-
-.large-chevron-left {
-  background-image: url("assets/icons/large-chevron-left.svg");
-}
-
-.large-chevron-right {
-  background-image: url("assets/icons/large-chevron-right.svg");
-}
-
-.link {
-  background-image: url("assets/icons/link.svg");
-}
-
-.new {
-  background-image: url("assets/icons/new.svg");
-}
-
-.org {
-  background-image: url("assets/icons/org.svg");
-}
-
-.person {
-  background-image: url("assets/icons/person.svg");
-}
-
-.print {
-  background-image: url("assets/icons/print.svg");
-}
-
-.refresh {
-  background-image: url("assets/icons/refresh.svg");
-}
-
-.remove {
-  background-image: url("assets/icons/remove.svg");
-}
-
-.selection {
-  background-image: url("assets/icons/selection.svg");
-}
-
-.small-check {
-  background-image: url("assets/icons/selection.svg");
-}
-
-.small-cross {
-  background-image: url("assets/icons/selection.svg");
-}
-
-.excel {
-  background-image: url("assets/icons/print.svg");
+    .icon {
+      // width: 48px;
+      // height: 48px;
+      // border: 1px solid #e6e6e6;
+      // border-radius: 4px;
+      margin: 10px 10px 0 0;
+    }
+  }
 }

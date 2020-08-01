@@ -22,9 +22,11 @@ let scss = '';
 
 task('string', (cb) => {
   fs.readdirSync(ICONS_DIRECTORY).forEach(file => {
-    const name = path.parse(file).name;
-    ts.push(name);
-    scss = `${scss}
+    const fileObj = path.parse(file);
+    if (fileObj.ext === '.svg') {
+      const name = fileObj.name;
+      ts.push(name);
+      scss = `${scss}
 .logo-i-${name} {
   // &::before{
     background-image:  svg-load("src/lib/assets/icons/${name}.svg", fill=#000000); // url("/assets/icons/${name}.svg");
@@ -39,6 +41,7 @@ task('string', (cb) => {
   // }
 }
 `;
+    }
   });
   cb();
 });
