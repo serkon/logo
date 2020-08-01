@@ -2,11 +2,7 @@ import { NgModule } from '@angular/core';
 import { CursorComponent } from './cursor.component';
 
 /**
- * Customized cursor component
- */
-
-/**
- * Cursor module uses customize to the cursorç
+ * Cursor module uses customize to the cursor
  * Just import it to your project of @NgModule' import section
  *
  * __Usage Example__
