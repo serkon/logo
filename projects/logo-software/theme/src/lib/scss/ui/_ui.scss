@@ -46,9 +46,11 @@ input {
     }
 
     @each $state-name, $state-value in $form-state {
-      &.#{$name}:#{$state-name} {
-        border: size(1px) solid if($name=='light', var(--dark-300), var(--#{$name}-500));
-        background-color: var(--white);
+      @each $type in $form-type {
+        &.#{$name}.#{$type}:#{$state-name} {
+          border: size(1px) solid if($name=='light', var(--dark-300), var(--#{$name}-500));
+          background-color: var(--white) !important;
+        }
       }
     }
   }
@@ -56,10 +58,10 @@ input {
 
 .icon-left {
   padding-left: size(48px);
-  background-position: size(12px) center;
+  background-position: size(12px) center !important;
 }
 
 .icon-right {
   padding-right: size(48px);
-  background-position: right size(12px) center;
+  background-position: right size(12px) center !important;
 }

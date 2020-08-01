@@ -49,7 +49,7 @@ $dark-ratio: 900;
         @if $type == ghost {
           &.ghost {
             background-color: transparent;
-            border: none;
+            border-color: transparent;
             color: if($status == secondary or $status == light or $status == gray, color(dark-#{$dark-ratio}), if($status == dark, color(white), color($status)));
             @each $state in $form-state {
               &:#{$state}, &-#{$state} {
