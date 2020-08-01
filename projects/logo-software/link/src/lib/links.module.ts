@@ -9,7 +9,6 @@ import { LinkComponent } from './link.component';
  * Link module uses when links to internal or external url
  * Just import it to your project of @NgModule' import section
  *
- *
  * __Usage Example__
  *
  * ```typescript
@@ -24,7 +23,7 @@ import { LinkComponent } from './link.component';
  *
  * ### Installation
  * All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
- * To install Paging Module:
+ * To install Link Module:
  *
  *   ```bash
  * $ npm set registry https://registry.npmjs.org/
