@@ -2,20 +2,9 @@
   <nav>
     <button class="ghost large logo-i-menu-left-alt menu"></button>
     <a class="logo large" href="/#/root"><span>Logo</span><span>PAAS</span></a>
-    <div class="links">
-      <ng-container *ngFor="let link of links.one;">
-        <a href="{{link.url}}" *ngIf="link.external">
-          <ng-container *ngTemplateOutlet="myTemplate; context: {$implicit: link}"></ng-container>
-        </a>
-        <a [routerLink]="link.url" *ngIf="!link.external">
-          <ng-container *ngTemplateOutlet="myTemplate; context: {$implicit: link}"></ng-container>
-        </a>
-      </ng-container>
-      <ng-template #myTemplate let-link>{{link.display}}</ng-template>
-      <ng-template #myTemplate let-link>{{link.display}}</ng-template>
-    </div>
+    <logo-links [links]="links.one" [classes]="['large', 'ghost', 'light']"></logo-links>
     <label class="search logo-add">
-      <input type="text" placeholder="Search" class="large primary logo-i-search icon-left" required/>
+      <input type="text" placeholder="Search" class="large light outline logo-i-search icon-left" required/>
     </label>
   </nav>
 </header>

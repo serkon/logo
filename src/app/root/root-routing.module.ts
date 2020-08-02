@@ -4,7 +4,7 @@ import { RootComponent } from './root.component';
 
 
 const routes: Routes = [{
-  path: 'root',
+  path: '',
   component: RootComponent,
 }];
 

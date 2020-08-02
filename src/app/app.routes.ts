@@ -9,7 +9,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('../../projects/samples/src/app/logo/input-sample/input-sample.module').then(m => m.InputSampleModule),
+    loadChildren: () => import('./root/root.module').then(m => m.RootModule),
   },
   {
     path: 'docs',

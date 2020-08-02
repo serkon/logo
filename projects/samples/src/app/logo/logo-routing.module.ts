@@ -40,10 +40,6 @@ const routes: Routes = [
         loadChildren: () => import('./theme-sample/theme-sample.module').then(m => m.ThemeSampleModule),
       },
       {
-        path: 'input-sample',
-        loadChildren: () => import('./input-sample/input-sample.module').then(m => m.InputSampleModule),
-      },
-      {
         path: 'cursor-sample',
         loadChildren: () => import('./cursor-sample/cursor-sample.module').then(m => m.CursorSampleModule),
       },
