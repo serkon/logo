@@ -8,6 +8,9 @@ button {
   border-radius: size($border-radius);
   @extend .medium;
   @extend .secondary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 a {
@@ -54,14 +57,4 @@ input {
       }
     }
   }
-}
-
-.icon-left {
-  padding-left: size(48px);
-  background-position: size(12px) center !important;
-}
-
-.icon-right {
-  padding-right: size(48px);
-  background-position: right size(12px) center !important;
 }

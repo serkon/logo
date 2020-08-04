@@ -50,7 +50,7 @@ $dark-ratio: 900;
           &.ghost {
             background-color: transparent;
             border-color: transparent;
-            color: if($status == secondary or $status == light or $status == gray, color(dark-#{$dark-ratio}), if($status == dark, color(white), color($status)));
+            color: if($status == secondary or $status == light or $status == gray, color(dark-#{$dark-ratio}), if($status == dark, var(--white), color($status)));
             @each $state in $form-state {
               &:#{$state}, &-#{$state} {
                 background-color: rgba(color(quote(black)), color(#{$type}-#{$state}));

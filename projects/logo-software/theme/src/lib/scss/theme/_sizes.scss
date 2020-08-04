@@ -3,8 +3,8 @@
     font-size: size(map_get($size, font-size));
     padding: 0 size(nth(map_get($size, padding), 2));
     position: relative;
-    min-width: size(map_get($size, icon-size)) - size(nth(map_get($size, padding), 2) * 2);
-    height: size(map_get($size, icon-size));
+    min-width: size(map_get($size, height));
+    height: size(map_get($size, height));
     box-sizing: border-box;
 
     &::before {
@@ -14,6 +14,47 @@
       // min-width: size(map_get($size, icon-size));
       // width: size(map_get($size, icon-size));
       // height: size(map_get($size, icon-size));
+    }
+  }
+
+  [class*=logo-i] {
+    $icon-size-info: size(map_get($size, icon-size) * 2);
+
+    &.#{$item} {
+      &::before {
+        width: $icon-size-info;
+        height: $icon-size-info;
+        -webkit-mask-position: center;
+        mask-position: center;
+        -webkit-mask-size: size(map_get($size, icon-size));
+        mask-size: size(map_get($size, icon-size));
+      }
+
+      &.icon-left {
+        padding-left: $icon-size-info;
+
+        &::before {
+          width: $icon-size-info;
+          height: $icon-size-info;
+          -webkit-mask-position: center;
+          mask-position: center;
+          -webkit-mask-size: size(map_get($size, icon-size));
+          mask-size: size(map_get($size, icon-size));
+        }
+      }
+
+      &.icon-right {
+        padding-right: $icon-size-info;
+
+        &::before {
+          width: $icon-size-info;
+          height: $icon-size-info;
+          -webkit-mask-position: center;
+          mask-position: center;
+          -webkit-mask-size: size(map_get($size, icon-size));
+          mask-size: size(map_get($size, icon-size));
+        }
+      }
     }
   }
 }

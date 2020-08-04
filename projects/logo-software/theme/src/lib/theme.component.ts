@@ -20,4 +20,5 @@ export class ThemeComponent {
   states = ['hover', 'active', 'focus'];
   types = ['fill', 'outline', 'ghost'];
   shades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
+  sizes = ['large', 'medium', 'small'];
 }
