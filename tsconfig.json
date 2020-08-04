@@ -77,6 +77,10 @@
       "@logo-software/link": [
         "dist/logo-software/link/logo-software-link",
         "dist/logo-software/link"
+      ],
+      "@logo-software/combobox": [
+        "dist/logo-software/combobox/logo-software-combobox",
+        "dist/logo-software/combobox"
       ]
     }
   },

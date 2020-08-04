@@ -1,0 +1,66 @@
+@import "~@logo-software/icons/style";
+@import "~@logo-software/theme/style";
+
+:host {
+  $border-color: grey;
+  display: block;
+  border: 1px solid $border-color;
+  border-radius: 3px;
+  position: relative;
+
+  .selected {
+    display: flex;
+    align-items: center;
+
+    &::before {
+      transition: all 0.2s ease;
+    }
+
+    &.open {
+      &::before {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .dropdown {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    border-radius: 0 0 3px 3px;
+    border: 1px solid $border-color;
+    border-top: 0;
+    margin-top: -1px;
+    margin-left: -1px;
+
+    input {
+      display: flex;
+      flex-grow: 1;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+      max-height: 350px;
+      overflow: auto;
+
+      li {
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        &.hover {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        &.selected {
+          background-color: orange;
+        }
+      }
+    }
+  }
+}

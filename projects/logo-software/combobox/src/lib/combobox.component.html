@@ -1,0 +1,35 @@
+<div
+  class="selected large logo-i-selection-dropdown icon-right"
+  [ngClass]="{'open': display}"
+  [innerHTML]="selectedHTML()"
+  (click)="openListDiv()"
+>
+</div>
+<div class="dropdown" *ngIf="display">
+  <input
+    class="large outline light"
+    [(ngModel)]="search"
+    (keydown.arrowDown)="arrowDown()"
+    (keydown.arrowUp)="arrowUp()"
+    (keydown.enter)="this.selected = this.hover"
+    #inputRef
+  />
+  <ul class="items" #itemRef>
+    <li
+      class="item large"
+      *ngFor="let item of filtered; let i=index; let isLast=last; let isFirst=first; let isOdd=odd;"
+      (click)="setSelectedItem(item, i)"
+      [ngClass]="{'hover': i === hover, 'selected': item===selectedItem}"
+    >
+      <ng-container
+        [ngTemplateOutletContext]="{item: item, index: i, isLast: isLast, isFirst: isFirst, isOdd: isOdd}"
+        [ngTemplateOutlet]="templateRef ? templateRef: native"
+      >
+      </ng-container>
+      <ng-template #native>
+        icerik {{optionHTML(item, i)}}
+      </ng-template>
+    </li>
+  </ul>
+</div>
+
