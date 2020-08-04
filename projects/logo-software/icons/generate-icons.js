@@ -18,7 +18,7 @@ const ICONS_TS_OUTPUT = './src/lib/logo-icons.ts';
 const ICONS_SCSS_OUTPUT = './style.scss';
 const OUT = './';
 const ts = [];
-let scss = '';
+let scss = ``;
 
 task('string', (cb) => {
   fs.readdirSync(ICONS_DIRECTORY).forEach(file => {
@@ -28,17 +28,17 @@ task('string', (cb) => {
       ts.push(name);
       scss = `${scss}
 .logo-i-${name} {
-  // &::before{
-    background-image:  svg-load("src/lib/assets/icons/${name}.svg", fill=#000000); // url("/assets/icons/${name}.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    // display: inline-block;
+  &::before{
+    -webkit-mask-image:  svg-load("src/lib/assets/icons/${name}.svg", fill=currentColor); // url("/assets/icons/${name}.svg");
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    display: inline-block;
     content: '';
-    // width: 100%;
-    // height: 100%;
-    // position: absolute;
-    // left: 0;
-  // }
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #000000;
+  }
 }
 `;
     }
@@ -61,6 +61,20 @@ task('scss', (cb) => {
 
 // IMPORTANT: THIS SCSS FILE IS AUTO GENERATED! DO NOT MANUALLY EDIT OR CHECKIN!
 ${scss}
+
+.icon-left {
+  &::before {
+    -webkit-mask-position: left center;
+    left: 0;
+  }
+}
+
+.icon-right {
+  &::before {
+    -webkit-mask-position: right center;
+    right: 0;
+  }
+}
 `, {encoding: 'utf-8'},
   );
   cb();
@@ -85,10 +99,10 @@ export const LOGO_ICONS = ${JSON.stringify(ts, null, 2).replace(/\"/g, "'")};
 });
 
 task('postCSS', (cb) => {
-   src(ICONS_SCSS_OUTPUT)
+  src(ICONS_SCSS_OUTPUT)
     .pipe(postcss(processors, {syntax: pscss}))
     .pipe(dest(OUT));
-   cb();
+  cb();
 });
 
 task('generate', series('string', 'scss', 'typescript', 'postCSS', (cb) => {
