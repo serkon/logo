@@ -11,7 +11,7 @@ export class HeaderComponent {
   public links: Link[] = [
     {
       display: 'Services',
-      description: `Based on Eva Design System, with 4 visual themes & handy variables to create your own. With hot-reload out of the box`,
+      description: ``,
       url: '/',
       external: false,
       fragment: 'services',
@@ -19,10 +19,17 @@ export class HeaderComponent {
     },
     {
       display: 'Docs',
-      description: `Based on Eva Design System, with 4 visual themes & handy variables to create your own. With hot-reload out of the box`,
+      description: ``,
       url: 'http://wiki.logo.com.tr/pages/viewpage.action?pageId=65132817',
       external: true,
       classes: ['ghost', 'docs'],
+    },
+    {
+      display: 'Guideline',
+      description: `Based on Logo Design System`,
+      url: 'http://design.logo.com.tr',
+      external: true,
+      classes: ['ghost'],
     },
     {
       display: 'Blog',

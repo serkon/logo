@@ -61,6 +61,10 @@ $header-size: size(80px);
       }
 
       ::ng-deep {
+        logo-links {
+          flex-grow: 1;
+        }
+
         .docs {
           font-weight: bold;
         }

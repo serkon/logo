@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./root.component.scss'],
 })
 export class RootComponent implements AfterViewInit {
+  title = 'Logo Design Guide';
   public quotes;
   public links;
   private readonly bodyHeight: number;

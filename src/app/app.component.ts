@@ -15,6 +15,7 @@ import { NgdAnalytics } from './@theme/services/analytics.service';
   styles: [':host {width: 100%}'],
 })
 export class NgdAppComponent implements OnInit {
+  title = 'Logo Design Guide';
 
   constructor(private analytics: NgdAnalytics) {
   }

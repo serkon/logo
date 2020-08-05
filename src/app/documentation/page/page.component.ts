@@ -4,10 +4,10 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import { Component, Inject, NgZone, OnDestroy, OnInit, ViewChild, AfterContentChecked } from '@angular/core';
+import { AfterContentChecked, Component, Inject, NgZone, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import { filter, map, publishReplay, refCount, tap, takeUntil } from 'rxjs/operators';
+import { filter, map, publishReplay, refCount, takeUntil, tap } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { NB_WINDOW } from '@nebular/theme';
 import { NgdTabbedBlockComponent } from '../../blocks/components/tabbed-block/tabbed-block.component';
@@ -67,7 +67,7 @@ export class NgdPageComponent implements OnInit, AfterContentChecked, OnDestroy 
         }),
         filter(item => item),
         tap((item: any) => {
-          let title = `Nebular - ${item.name}`;
+          let title = `Logo Elements - ${item.name}`;
 
           if (item.type === 'tabs') {
             title += ' Angular UI Component';

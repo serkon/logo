@@ -71,7 +71,7 @@
     }
 
     .menu-item {
-      border: none!important;
+      border: none !important;
 
       .menu-title {
         flex: 1 1 auto;
@@ -80,13 +80,21 @@
 
     .menu-items .menu-item .menu-item a {
       &:hover, &.active, &:focus {
-        outline: none!important;
+        outline: none !important;
       }
     }
   }
 
-  ::ng-deep nb-layout-footer ngd-footer .contact {
-    display: none;
+  ::ng-deep nb-layout-footer {
+    nav {
+      padding: 0 !important;
+
+      ngd-footer {
+        .contact {
+          display: none;
+        }
+      }
+    }
   }
 
   @include media-breakpoint-up(xl) {
@@ -97,7 +105,7 @@
 
   @include media-breakpoint-up(macpro) {
     ::ng-deep nb-layout-footer {
-      margin-right: $settings-width + $settings-margin;
+      // margin-right: $settings-width + $settings-margin;
     }
   }
 }
