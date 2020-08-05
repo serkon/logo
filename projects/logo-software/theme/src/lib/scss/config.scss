@@ -10,8 +10,8 @@
 
 // ########################### Font Setting
 $font-icon: 'logo-font-icon';
-$font-family: 'Source Sans Pro';
-$font-alternative: 'Nunito';
+$font-family: 'Nunito';
+$font-alternative: 'Source Sans Pro';
 $font-default-color: var(--dark-900);
 $font-default-size: 16px;
 $font-current-size: 16px;
@@ -33,7 +33,7 @@ $colors: ();
 $list-colors: (
   brand: #7500ff,
   primary: #0090ff,
-  secondary: #e0eeff,
+  secondary: #a1b9d1, // #a1b9d1, // #75899e, //#cdd7e2, //#f2f4f9,
   light: #ffffff,
   dark: #717171,
   gray: #cccccc,
@@ -48,32 +48,43 @@ $active-shade: 700;
 $focus-shade: 800;
 // shade ratio map
 $shadesMap: (
-  50: 90%,
-  100: 80%,
-  200: 60%,
-  300: 40%,
-  400: 20%,
+  50: 50%,
+  100: 40%,
+  200: 30%,
+  300: 20%,
+  400: 10%,
   500: 0%,
-  600: 8%,
-  700: 16%,
-  800: 24%,
-  900: 40%,
+  600: 5%,
+  700: 10%,
+  800: 15%,
+  900: 20%,
 );
 // Ghost transparency
 $ghost: 0;
-$ghost-hover: 0.15;
-$ghost-active: 0.2;
-$ghost-focus: 0.25;
+$ghost-hover: 0.08;
+$ghost-active: 0.1;
+$ghost-focus: 0.12;
 // Disable transparency
 $disabled: 50%;
 
 // ########################### Define form sizes ############################
 $form-sizes: (
-  small: (font-size: 12px, padding: 8px 11px, icon-size: 18px, height: 24px),
-  medium: (font-size: 14px, padding: 8px 16px, icon-size: 22px, height: 32px),
-  large: (font-size: 16px, padding: 15px 16px, icon-size: 24px, height: 48px)
+  small: (font-size: 12px, padding: 8px, icon-size: 12px, height: 24px, icon-container: 24px),
+  medium: (font-size: 12px, padding: 15px, icon-size: 12px, height: 32px, icon-container: 28px),
+  large: (font-size: 14px, padding: 24px, icon-size: 20px, height: 48px, icon-container: 46px)
 );
-$heads-sizes: (h1: 40, h2: 32, h3: 30, h4: 26, h5: 22, h6: 18);
+
+$input-sizes: (
+  small: (font-size: 12px, padding: 7, icon-size: 12px, height: 24, icon-container: 24),
+  medium: (font-size: 12px, padding: 7, icon-size: 12px, height: 32, icon-container: 28),
+  large: (font-size: 14px, padding: 10, icon-size: 20px, height: 48, icon-container: 46),
+);
+
+// ########################### Head size ###########################
+$heads-sizes: (h1: 36, h2: 24, h3: 20, h4: 18, h5: 16, h6: 14);
+
+// ########################### Paragraph size ###########################
+$paragraph-sizes: (large: 16, medium: 14, small: 12);
 
 // ########################### Border radius size ###########################
 $border-radius: 2px;

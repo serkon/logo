@@ -1,7 +1,12 @@
 @each $item, $size in $form-sizes {
   .#{$item} {
     font-size: size(map_get($size, font-size));
-    padding: 0 size(nth(map_get($size, padding), 2));
+    // padding: 0 size(nth(map_get($size, padding), 2));
+    @each $type in $form-type {
+      &.#{$type} {
+        padding: if($type == outline, 0 size(map_get($size, padding) - 2px), 0 size(map_get($size, padding)));
+      }
+    }
     position: relative;
     min-width: size(map_get($size, height));
     height: size(map_get($size, height));
@@ -22,37 +27,44 @@
 
     &.#{$item} {
       &::before {
-        width: $icon-size-info;
-        height: $icon-size-info;
+        width: size(map_get($size, height));
+        height: size(map_get($size, height));
         -webkit-mask-position: center;
         mask-position: center;
         -webkit-mask-size: size(map_get($size, icon-size));
         mask-size: size(map_get($size, icon-size));
+        top: -1px;
+        left: -1px;
       }
 
       &.icon-left {
-        padding-left: $icon-size-info;
+        padding-left: size(map_get($size, icon-container));
 
         &::before {
-          width: $icon-size-info;
-          height: $icon-size-info;
+          width: size(map_get($size, icon-container));
+          height: size(map_get($size, height));
           -webkit-mask-position: center;
           mask-position: center;
           -webkit-mask-size: size(map_get($size, icon-size));
           mask-size: size(map_get($size, icon-size));
+          top: -1px;
+          left: -1px;
         }
       }
 
       &.icon-right {
-        padding-right: $icon-size-info;
+        padding-right: size(map_get($size, icon-container));
 
         &::before {
-          width: $icon-size-info;
-          height: $icon-size-info;
+          width: size(map_get($size, icon-container));
+          height: size(map_get($size, height));
           -webkit-mask-position: center;
           mask-position: center;
           -webkit-mask-size: size(map_get($size, icon-size));
           mask-size: size(map_get($size, icon-size));
+          left: auto;
+          top: -1px;
+          right: -1px;
         }
       }
     }

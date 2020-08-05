@@ -8,9 +8,9 @@ button {
   border-radius: size($border-radius);
   @extend .medium;
   @extend .secondary;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
 }
 
 a {
