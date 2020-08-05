@@ -13,13 +13,24 @@
 
 <h2>Colors</h2>
 <table>
+  <tr>
+    <td></td>
+    <td *ngFor="let shade of shades" class="color">{{shade}}</td>
+  </tr>
   <tr *ngFor="let status of statuses">
-    <td *ngFor="let shade of shades" class="color {{status}} {{status}}-{{shade}}"></td>
+    <td class="color-names">{{status}}</td>
+    <td
+      [ngClass]="{'black-color': shade<500, 'white-color': shade>=500}"
+      *ngFor="let shade of shades"
+    >
+      <div class="color {{status}} {{status}}-{{shade}}"></div>
+      <div>{{getColor('--' + status + '-' + shade)}}</div>
+    </td>
   </tr>
 </table>
 
 <h2>Buttons</h2>
-<table>
+<table class="buttons">
   <ng-container *ngFor="let type of types">
     <tr>
       <td [colSpan]="statuses.length" style="font-weight: bold; font-size: 24px">
@@ -28,17 +39,17 @@
     </tr>
     <tr>
       <td *ngFor="let status of statuses">
-        <button class="{{type}} {{status}} logo-i-save"></button>
+        <button class="{{type}} {{status}} logo-i-saved-offline-glyph"></button>
       </td>
     </tr>
     <tr>
       <td *ngFor="let status of statuses">
-        <button class="{{type}} {{status}} logo-i-save icon-left">{{type}}</button>
+        <button class="{{type}} {{status}} logo-i-saved-offline-glyph icon-left">{{status.toUpperCase()}}</button>
       </td>
     </tr>
     <tr>
       <td *ngFor="let status of statuses">
-        <button class="{{type}} {{status}} logo-i-save icon-right">{{type}}</button>
+        <button class="{{type}} {{status}} logo-i-saved-offline-glyph icon-right">{{status.toUpperCase()}}</button>
       </td>
     </tr>
     <tr>

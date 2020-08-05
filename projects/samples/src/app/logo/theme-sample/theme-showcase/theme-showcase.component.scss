@@ -17,17 +17,44 @@
 
     tr {
       td {
-        padding: 5px;
+        padding: 0;
+        font-size: 10px;
+        text-align: center;
 
-        &.color {
-          width: 50px;
-          height: 50px;
+        &.color-names {
+          text-align: right;
+          font-size: 14px;
+          padding: 0 20px;
+        }
+
+        .color {
+          width: 60px;
+          height: 60px;
+          text-align: center;
+          text-shadow: 0 0 10px white;
+        }
+
+        .white-color {
+          color: white;
+        }
+
+        .black-color {
+          color: #777777;;
         }
 
         button {
           // min-width: 88px;
           // margin: 5px;
         }
+      }
+    }
+  }
+
+  table.buttons {
+    tr {
+      td {
+        padding: size(5px);
+        text-align: left;
       }
     }
   }
