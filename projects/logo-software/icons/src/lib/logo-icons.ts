@@ -82,5 +82,5 @@ export const LOGO_ICONS = [
   'three-dots-ver',
   'underlined-g',
   'warning',
-  'zoom-out',
+  'zoom-out'
 ];
