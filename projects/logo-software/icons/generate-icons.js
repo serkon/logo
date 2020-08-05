@@ -34,8 +34,8 @@ task('string', (cb) => {
     -webkit-mask-position: center;
     display: inline-block;
     content: '';
-    width: 100%;
-    height: 100%;
+    // width: 100%;
+    // height: 100%;
     position: absolute;
     background: #000000;
   }
@@ -61,20 +61,6 @@ task('scss', (cb) => {
 
 // IMPORTANT: THIS SCSS FILE IS AUTO GENERATED! DO NOT MANUALLY EDIT OR CHECKIN!
 ${scss}
-
-.icon-left {
-  &::before {
-    -webkit-mask-position: left center;
-    left: 0;
-  }
-}
-
-.icon-right {
-  &::before {
-    -webkit-mask-position: right center;
-    right: 0;
-  }
-}
 `, {encoding: 'utf-8'},
   );
   cb();
