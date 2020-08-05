@@ -1,12 +1,12 @@
 {
   "name": "@logo-software/paging",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "peerDependencies": {
     "@angular/common": "^7.0.0",
     "@angular/core": "^7.0.0"
   },
   "dependencies": {
-    "@logo-software/icons": "~1.1.2"
+    "@logo-software/icons": "~1.1.5"
   },
   "description": "Paging module uses when paging properties required. The Table Module is can be given as a using sample. Just import it to @NgModule' import section.",
   "homepage": "http://developer.logo.com.tr",
