@@ -69,6 +69,10 @@ export interface Pager {
 })
 export class PagingComponent implements OnInit, OnChanges {
   /**
+   * This property specifies the maximum number of the page will be shown at the bar.
+   */
+  @Input() threshold: number = 10;
+  /**
    * Total records
    */
   @Input() totalCount: number;
@@ -110,7 +114,7 @@ export class PagingComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     this.totalPages = Math.ceil(this.totalCount / this.pageSize);
-    this.pager = this.getPager(this.totalCount, this.pageNumber, this.pageSize);
+    this.pager = this.getPager(this.totalCount, this.pageNumber, this.pageSize, this.threshold);
   }
 
   /**
@@ -119,21 +123,21 @@ export class PagingComponent implements OnInit, OnChanges {
    */
   setPage(page: number) {
     if (page >= 1 && page <= this.totalPages) {
-      this.pager = this.getPager(this.totalCount, page, this.pageSize);
+      this.pager = this.getPager(this.totalCount, page, this.pageSize, this.threshold);
       this.pageNumberChange.emit(this.pager);
     }
   }
 
   setPageSize(pageSize?: number) {
     this.pageSize = pageSize ? pageSize : this.pageSize;
-    this.pager = this.getPager(this.totalCount, this.pageNumber, this.pageSize);
+    this.pager = this.getPager(this.totalCount, this.pageNumber, this.pageSize, this.threshold);
     this.pageSizeChange.emit(this.pager);
   }
 
-  getPager(totalItems: number, pageNumber = 1, pageSize = 10): Pager {
+  getPager(totalItems: number, pageNumber = 1, pageSize = 10, threshold = 10): Pager {
     // calculate total pages
     const totalPages = Math.ceil(totalItems / pageSize);
-    const threshold = 10;
+    const halfPages = Math.ceil(threshold / 2);
     let startPage: number, endPage: number;
     if (totalPages <= threshold) {
       // less than 10 total pages so show all
@@ -141,15 +145,15 @@ export class PagingComponent implements OnInit, OnChanges {
       endPage = totalPages;
     } else {
       // more than 10 total pages so calculate start and end pages
-      if (pageNumber <= 6) {
+      if (pageNumber <= halfPages + 1) {
         startPage = 1;
         endPage = threshold;
-      } else if (pageNumber + 4 >= totalPages) {
-        startPage = totalPages - 9;
+      } else if (pageNumber + halfPages >= totalPages) {
+        startPage = totalPages - threshold + 1;
         endPage = totalPages;
       } else {
-        startPage = pageNumber - 5;
-        endPage = pageNumber + 4;
+        startPage = pageNumber - halfPages;
+        endPage = pageNumber + halfPages - 1;
       }
     }
     // calculate start and end item indexes

@@ -94,8 +94,9 @@ $select-box-color: #4a4a4a;
           min-width: 32px;
           height: 32px;
           margin-right: 10px;
+          padding: 0;
 
-          &:last-of-type{
+          &:last-of-type {
             margin-right: 0;
           }
         }
