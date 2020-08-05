@@ -35,7 +35,10 @@ a {
 }
 
 input {
-  @extend .medium;
+  &[type=text] {
+    @extend .medium;
+  }
+
   @extend .secondary;
   box-sizing: border-box;
   border-radius: size($border-radius);
