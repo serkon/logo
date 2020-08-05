@@ -33,8 +33,17 @@
         mask-position: center;
         -webkit-mask-size: size(map_get($size, icon-size));
         mask-size: size(map_get($size, icon-size));
-        top: -1px;
-        left: -1px;
+        top: 0;
+        left: 0;
+      }
+
+      @each $type in $form-type {
+        &.#{$type} {
+          &::before {
+            left: if($type == outline, size(-1px), 0);
+            top: if($type == outline, size(-1px), 0);
+          }
+        }
       }
 
       &.icon-left {
@@ -47,8 +56,15 @@
           mask-position: center;
           -webkit-mask-size: size(map_get($size, icon-size));
           mask-size: size(map_get($size, icon-size));
-          top: -1px;
-          left: -1px;
+        }
+
+        @each $type in $form-type {
+          &.#{$type} {
+            &::before {
+              left: if($type == outline, size(-1px), 0);
+              top: if($type == outline, size(-1px), 0);
+            }
+          }
         }
       }
 
@@ -63,8 +79,15 @@
           -webkit-mask-size: size(map_get($size, icon-size));
           mask-size: size(map_get($size, icon-size));
           left: auto;
-          top: -1px;
-          right: -1px;
+        }
+
+        @each $type in $form-type {
+          &.#{$type} {
+            &::before {
+              right: if($type == outline, size(-1px), 0);
+              top: if($type == outline, size(-1px), 0);
+            }
+          }
         }
       }
     }
