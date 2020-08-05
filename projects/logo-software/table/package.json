@@ -1,6 +1,6 @@
 {
   "name": "@logo-software/table",
-  "version": "1.1.16",
+  "version": "1.1.17",
   "peerDependencies": {
     "@angular/common": "^7.0.0",
     "@angular/core": "^7.0.0",
@@ -9,7 +9,7 @@
   "dependencies": {
     "@logo-software/core": "~0.0.21",
     "@logo-software/excel": "~1.0.10",
-    "@logo-software/paging": "~0.0.24",
+    "@logo-software/paging": "~0.0.25",
     "@logo-software/icons": "~1.1.6"
   },
   "description": "This module generates a table using the given data. The table can generate data using server-side Http requests or given direct data using the client-side feature.",
