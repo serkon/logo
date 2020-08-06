@@ -1,0 +1,17 @@
+@import "~@logo-software/theme/style";
+
+:host {
+  display: block;
+
+  .links {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    padding-right: size(100px);
+
+    @include smaller-than(md) {
+      display: none;
+    }
+  }
+}

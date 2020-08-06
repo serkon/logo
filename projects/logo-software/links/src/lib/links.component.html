@@ -1,0 +1,14 @@
+<div class="links">
+  <ng-container *ngFor="let link of links;">
+    <logo-link
+      [fragment]="link.fragment"
+      [classes]="setClasses(link.classes)"
+      [display]="link.display"
+      [external]="link.external"
+      [onClick]="link.onClick"
+      [url]="link.url"
+    >
+    </logo-link>
+    <ng-content></ng-content>
+  </ng-container>
+</div>
