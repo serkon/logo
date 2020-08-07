@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { HeaderComponent } from './header.component';
-import { LinksModule } from '@logo-software/link';
+import { LinksModule } from '@logo-software/links';
 
 @NgModule({
   declarations: [HeaderComponent],

@@ -6,7 +6,7 @@ import { HeaderModule } from '@paas/src/components/header/header.module';
 import { FooterModule } from '@paas/src/components/footer/footer.module';
 import { CcRoutingModule } from './cc-routing.module';
 import { CcComponent } from './cc.component';
-import { LinksModule } from '@logo-software/link';
+import { LinksModule } from '@logo-software/links';
 
 @NgModule({
   declarations: [CcComponent],
