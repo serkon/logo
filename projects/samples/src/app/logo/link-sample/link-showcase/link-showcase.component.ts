@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Link } from '@logo-software/link';
+import { Link } from '@logo-software/links';
 
 @Component({
   selector: 'logo-link-showcase',

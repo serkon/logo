@@ -20,13 +20,7 @@
     @include placeholder($color, $opacity);
   }
 
-  @each $selector in $placeholder-selectors {
-    &#{$selector} {
-      @include placeholder($color, $opacity);
-    }
-
-    &:focus#{$selector} {
-      @include placeholder-focus();
-    }
+  &:focus::placeholder {
+    @include placeholder-focus();
   }
 }

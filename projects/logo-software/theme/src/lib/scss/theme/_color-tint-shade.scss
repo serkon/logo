@@ -66,7 +66,7 @@ Color generate
   $colors: map-merge($colors, shadeGenerator($color-name, $hex-value));
   $colors: map-merge($colors, CHAF($color-name));
   @each $name, $ratio in $shadesMap {
-    .#{$color-name}-#{$name} {
+    .#{"" + $color-name}-#{$name} {
       background-color: if($name >= 500, shade($hex-value, $ratio), tint($hex-value, $ratio)) !important;
     }
   }

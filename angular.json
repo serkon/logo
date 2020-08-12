@@ -856,38 +856,38 @@
         }
       }
     },
-    "@logo-software/link": {
+    "@logo-software/links": {
       "projectType": "library",
-      "root": "projects/logo-software/link",
-      "sourceRoot": "projects/logo-software/link/src",
+      "root": "projects/logo-software/links",
+      "sourceRoot": "projects/logo-software/links/src",
       "prefix": "logo",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/logo-software/link/tsconfig.lib.json",
-            "project": "projects/logo-software/link/ng-package.json"
+            "tsConfig": "projects/logo-software/links/tsconfig.lib.json",
+            "project": "projects/logo-software/links/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/logo-software/link/tsconfig.lib.prod.json"
+              "tsConfig": "projects/logo-software/links/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/logo-software/link/src/test.ts",
-            "tsConfig": "projects/logo-software/link/tsconfig.spec.json",
-            "karmaConfig": "projects/logo-software/link/karma.conf.js"
+            "main": "projects/logo-software/links/src/test.ts",
+            "tsConfig": "projects/logo-software/links/tsconfig.spec.json",
+            "karmaConfig": "projects/logo-software/links/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/logo-software/link/tsconfig.lib.json",
-              "projects/logo-software/link/tsconfig.spec.json"
+              "projects/logo-software/links/tsconfig.lib.json",
+              "projects/logo-software/links/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

@@ -8,6 +8,12 @@
  * Any reproduction of this material must contain this notice.
  */
 
+
+//**
+$config: (
+  border-radius: 2px
+);
+
 // ########################### Font Setting
 $font-icon: 'logo-font-icon';
 $font-family: 'Nunito';
@@ -16,7 +22,8 @@ $font-default-color: var(--dark-900);
 $font-default-size: 16px;
 $font-current-size: 16px;
 // ########################### Path Setting #############################
-$font-path: "~@logo-software/theme/src/lib/assets/fonts";
+$font-path: "/assets/fonts";
+// $font-path: "~@logo-software/theme/src/lib/assets/fonts";
 $path-image: '$imagesPath';
 // ########################### Vertical Height Setting
 $vertical-measure: 1.375em; // 22px
@@ -33,7 +40,7 @@ $colors: ();
 $list-colors: (
   brand: #7500ff,
   primary: #0090ff,
-  secondary: #a1b9d1, // #a1b9d1, // #75899e, //#cdd7e2, //#f2f4f9,
+  secondary: #f2f4f9, // #a1b9d1, // #75899e, //#cdd7e2, //#f2f4f9,
   light: #ffffff,
   dark: #717171,
   gray: #cccccc,

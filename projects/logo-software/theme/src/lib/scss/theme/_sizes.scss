@@ -1,7 +1,9 @@
 @each $item, $size in $form-sizes {
   .#{$item} {
+    border-radius: map-get($config, border-radius);
     font-size: size(map_get($size, font-size));
     // padding: 0 size(nth(map_get($size, padding), 2));
+    padding: 0 size(map_get($size, padding));
     @each $type in $form-type {
       &.#{$type} {
         padding: if($type == outline, 0 size(map_get($size, padding) - 2px), 0 size(map_get($size, padding)));
@@ -10,6 +12,7 @@
     position: relative;
     min-width: size(map_get($size, height));
     height: size(map_get($size, height));
+    line-height: size(map_get($size, height));
     box-sizing: border-box;
 
     &::before {

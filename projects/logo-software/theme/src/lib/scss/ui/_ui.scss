@@ -8,26 +8,12 @@ button {
   border-radius: size($border-radius);
   @extend .medium;
   @extend .secondary;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
 }
 
 a {
+  display: inline-block;
   cursor: pointer;
   text-decoration: none;
-
-  @each $name, $value in $list-colors {
-    &.#{$name} {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      // background-color: transparent;
-      // color: var(--#{$name}-500);
-      border-radius: size($border-radius);
-      font-weight: bold;
-    }
-  }
 
   &:hover {
     text-decoration: none;
@@ -35,29 +21,50 @@ a {
 }
 
 input {
-  &[type=text] {
-    @extend .medium;
+  @extend .secondary;
+  @extend .fill;
+
+  &:focus {
+    background-color: var(--white) !important;
+    border: size(1px) solid var(--secondary);
+    color: var(--dark-900);
   }
 
-  @extend .secondary;
-  box-sizing: border-box;
-  border-radius: size($border-radius);
-  border: 1px solid transparent;
-  color: var(--dark-900) !important;
-  @include install-placeholder(var(--dark-500));
-
-  @each $name, $value in $list-colors {
-    &.#{$name} {
-      background-color: var(--secondary-100);
+  &:not([type]), &[type="text"] {
+    @include install-placeholder(var(--dark-600));
+    @extend .medium;
+    @each $size-name, $size in $form-sizes {
+      &.#{$size-name} {
+        @extend .#{$size-name};
+      }
     }
 
-    @each $state-name, $state-value in $form-state {
-      @each $type in $form-type {
-        &.#{$name}.#{$type}:#{$state-name} {
-          border: size(1px) solid if($name=='light', var(--dark-300), var(--#{$name}-500));
-          background-color: var(--white) !important;
+    @each $color-name, $value in $list-colors {
+      &.#{"" + $color-name} {
+        @extend .#{"" + $color-name};
+        @if $color-name == secondary {
+          // color: var(--secondary-900);
+          // color: var(--dark-900);
+          color: darken(color(#{secondary}-600), 30%);
         }
       }
+
+      $class-names: "";
+      @each $state-name, $state-value in $form-state {
+        @each $type in $form-type {
+          @if $state-name != hover {
+            $class-names: $class-names + "&." + $color-name + "." + $type + ":" + $state-name + ",";
+          }
+        }
+      }
+
+      #{$class-names} {
+        border: size(1px) solid if($color-name== "light", var(--dark-300), var(--#{$color-name}-500));
+      }
+    }
+
+    &:focus {
+      color: var(--dark-900);
     }
   }
 }

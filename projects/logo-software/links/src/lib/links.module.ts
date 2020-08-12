@@ -13,14 +13,14 @@ import { LinkComponent } from './link.component';
  * To install Link Module:
  *
  * ```bash$ npm set registry https://registry.npmjs.org/
- * $ npm install @logo-software/link -s
+ * $ npm install @logo-software/links -s
  * ```
  *
  * Just import it to your project of @NgModule' import section.
  *
  * ```typescript
  * @NgModule({
- * ... imports: [CommonModule, LinkModule], ...})
+ * ... imports: [CommonModule, LinksModule], ...})
  * export class AppModule {}
  * ```
  */

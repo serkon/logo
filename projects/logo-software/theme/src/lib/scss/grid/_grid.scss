@@ -29,9 +29,7 @@ $container-max-widths: (
   xl: 1140px,
 );
 
-
 @mixin grid($max-widths: $container-max-widths, $breakpoints: $breakpoints, $grid-columns: $grid-columns, $gutter: $gutter) {
-
   $gutters: (
     xs: $gutter/5,
     sm: $gutter/4,
@@ -69,30 +67,22 @@ $container-max-widths: (
       @for $i from 1 through $grid-columns {
         .col-#{$breakpoint}-#{$i} {
           $width: 100 / $grid-columns * $i * 1%;
-          display: flex;
-          flex-grow: 0;
-          flex-shrink: 0;
-          flex-basis: calc(100% / #{$grid-columns} * #{$i} - #{$gutter}px);
+          flex: 0 0 calc(100% / #{$grid-columns} * #{$i} - #{$gutter}px);
           margin: 0 #{$gutter/2}px;
-          box-sizing: border-box;
         }
 
         .size-#{$breakpoint}-#{$i} {
-          display: flex;
           flex: 0 0 auto;
-          box-sizing: border-box;
           width: ((100 / $grid-columns) * $i) * 1%;
+        }
+
+
+        .size-#{$breakpoint}-#{$i}, .flex-#{$breakpoint}-#{$i} {
+          flex: $i 0 100 / $grid-columns * $i * 1%;
         }
 
         .split-#{$breakpoint}-#{$i} {
           width: (100 / $i) * 1%;
-        }
-
-        .size-#{$breakpoint}-#{$i}, .flex-#{$breakpoint}-#{$i} {
-          display: flex;
-          flex-grow: $i;
-          flex-basis: 100 / $grid-columns * $i * 1%;
-          box-sizing: border-box;
         }
 
         $col-list: append(
@@ -111,6 +101,9 @@ $container-max-widths: (
       #{$col-list} {
         // display: initial !important;
         // border: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
       }
 
       .container {
