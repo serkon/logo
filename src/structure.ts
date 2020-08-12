@@ -367,6 +367,23 @@ export const structure = [
           },
         ],
       },
+      {
+        type: 'page',
+        name: 'Theme Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'ThemeModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'ThemeComponent',
+          },
+        ],
+      },
     ],
   },
   {

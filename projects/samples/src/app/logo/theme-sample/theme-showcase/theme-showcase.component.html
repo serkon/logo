@@ -64,3 +64,40 @@
     </tr>
   </ng-container>
 </table>
+<h2>Inputs</h2>
+<table class="buttons">
+  <ng-container *ngFor="let type of types">
+    <tr>
+      <td [colSpan]="statuses.length" style="font-weight: bold; font-size: 24px">
+        {{type}}
+      </td>
+    </tr>
+    <tr>
+      <td *ngFor="let status of statuses">
+        <input class="{{type}} {{status}} logo-i-saved-offline-glyph" placeholder="search">
+        <button>it is a test</button>
+        <input type="checkbox" value="it is a test">
+      </td>
+    </tr>
+    <tr>
+      <td *ngFor="let status of statuses">
+        <input class="{{type}} {{status}} logo-i-saved-offline-glyph icon-left" value="{{status.toUpperCase()}}">
+      </td>
+    </tr>
+    <tr>
+      <td *ngFor="let status of statuses">
+        <input class="{{type}} {{status}} logo-i-saved-offline-glyph icon-right" value="{{status.toUpperCase()}}">
+      </td>
+    </tr>
+    <tr>
+      <td *ngFor="let status of statuses">
+        <input class="{{type}} {{status}}" value="{{status.toUpperCase()}}">
+      </td>
+    </tr>
+    <tr *ngFor="let state of states">
+      <td *ngFor="let status of statuses">
+        <input class="{{status}} {{type}} {{status}}-{{state}} {{type}}-{{state}}" value="{{status.toUpperCase()}}">
+      </td>
+    </tr>
+  </ng-container>
+</table>
