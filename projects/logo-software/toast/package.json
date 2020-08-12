@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@logo-software/icons": "~1.1.6",
-    "@logo-software/theme": "~0.2.4"
+    "@logo-software/theme": "~0.2.5"
   },
   "description": "The Angular Toast is a small, nonblocking notification pop-up. A toast is shown to users with readable message content at the bottom of the screen or at a specific target and disappears automatically after a few seconds (time-out) with different animation effects.",
   "homepage": "http://developer.logo.com.tr",
