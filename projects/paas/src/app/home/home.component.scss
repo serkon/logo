@@ -24,7 +24,7 @@ $header-size: size(80px);
       flex-direction: column;
 
       h1.title {
-        font-family: $font-family;
+        font-family: $font-alternative;
         font-weight: 800;
         color: var(--dark-500);
         flex-direction: column;
@@ -289,6 +289,7 @@ $header-size: size(80px);
     }
 
     h2, h5, p {
+      font-family: $font-alternative;
       color: var(--dark-500);
       text-align: center;
       margin: 0;
@@ -313,6 +314,12 @@ $header-size: size(80px);
       font-size: size(20px);
       font-weight: 300;
       margin-bottom: size(40px);
+    }
+
+    span.extra-small {
+      // font-size: size(16px);
+      max-width: size(700px);
+      display: inline-block;
     }
   }
 
@@ -612,8 +619,9 @@ $header-size: size(80px);
           flex-direction: column;
 
           h2 {
+            font-family: $font-alternative;
             color: #000000;
-            font-size: size(60px);
+            font-size: size(40px);
             font-weight: bold;
           }
 
@@ -625,7 +633,7 @@ $header-size: size(80px);
           }
 
           p {
-            font-size: size(22px);
+            font-size: size(18px);
           }
 
           span {

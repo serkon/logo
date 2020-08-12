@@ -2,13 +2,18 @@
 <section class="one">
   <div id="particles"></div>
   <div class="title-content">
-    <h1 class="title">PaaS <span class="for">for Enterprise</span></h1>
+    <h1 class="title"><span class="for">Şirketler için</span> PaaS</h1>
     <p class="description">
-      Enterprise PaaS ensures support for enterprise application requirements — such as high availability/disaster
-      recovery, external service access, strong security features, and the availability of technical support.
+      Logo Bulut Uygulama Geliştirme Platformu, web tabanlı ve çoklu-kiracılı (multi-tenant) iş Uygulamaları geliştirme
+      platformudur. Platform, hazır sunduğu ürün ve servisler ile uygulama geliştirme süresini ve maliyetlerini
+      azaltmaya imkan sağlar.
     </p>
-    <logo-link [classes]="['primary', 'large', 'get-started']" external="true"
-               url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65132817">EXPLORE
+    <logo-link
+      [classes]="['primary', 'large', 'get-started']"
+      external="true"
+      url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65132817"
+    >
+      KEŞFET
     </logo-link>
   </div>
   <div class="icons">
@@ -51,22 +56,22 @@
 </section>
 <section class="two light-600">
   <div class=" background-image"></div>
-  <h2>Plug and Play for your requirement</h2>
-  <h5>Design better. Faster. Together.</h5>
+  <h2>Hazır Çözüm, Hızlı Entegrasyon</h2>
+  <h5>Güvenilir. Hızlı. İnovatif.</h5>
   <p>
-    <span>Transform your products with the world’s leading digital product design platform.</span><br/>
-    <span>Elements is a design system – backed by open-source code – that helps teams build high-quality digital experiences.</span>
+    <!--span>Ürünlerinizi dünyanın önde gelen dijital ürün tasarım platformuyla dönüştürün.</span><br/-->
+    <span class="extra-small">Uluslararası standartlarda, modern teknolojilere uyumlu geliştirilmiş ürün ve servisler, yeni nesil mikro-servisler ile düşük maliyet, yüksek erişilebilirlik ve ölçelenebilirlik.</span>
   </p>
 </section>
 <section class="three" id="services">
-  <h1>Services</h1>
+  <h1>Servisler</h1>
   <logo-carousel [count]="1" [arrow]="true" [dots]="true">
     <div class="slider-item" *ngFor="let item of sliderItems">
       <img class="icon" src="{{item.icon}}" title="{{item.title}}" alt="{{item.title}}"/>
       <div class="abbr">{{item.abbr}}</div>
       <div class="title">{{item.title}}</div>
       <div class="description">{{item.description}}</div>
-      <a routerLink="{{item.link}}" class="detail">go →</a>
+      <a routerLink="{{item.link}}" class="detail">detay →</a>
     </div>
   </logo-carousel>
   <div class="backgrounds">
@@ -95,10 +100,10 @@
       <div class="circle-02">
         <div class="circle-03">
           <div class="circle-description">
-            <h2>Who uses it?</h2>
-            <p>They prefer us! It's scalabe, fast and secure</p>
+            <h2>Kimler Kullanıyor?</h2>
+            <p>Bizi tercih ettiler! Ölçeklenebilir, hızlı ve güvenlir...</p>
             <span>Logo güvencesiyle uygulama geliştirmeye siz de başlayın!</span>
-            <button class="large primary">Try for FREE</button>
+            <button class="large primary">Ücretsiz Dene</button>
           </div>
         </div>
       </div>

@@ -9,17 +9,15 @@
     <div class="company col-xs-12 col-md-6 col-lg-5">
       <h5>Logo Software Company</h5>
       <p>
-        Founded in 1984 to develop applications for personal computers, Logo is one of the biggest software companies
-        in
-        Turkey.
-        With the solutions, services, and innovations offered, Logo has become Turkey’s software industry innovation
-        leader.
+        Kişisel bilgisayarlar için uygulama yazılımları geliştirmek üzere 1984 yılında sektöre giren Logo, Türkiye’nin
+        en büyük yazılım kuruluşlarından biridir. Ürettiği çözüm, hizmet ve inovasyonlarla Türkiye’de yazılım sektörünün
+        yenilikçi lideri konumuna gelmiştir.
       </p>
       <p>
-        Logo Element® is an adaptable system of guidelines, components, and tools that
-        support the best practices of user interface design. Backed by open-source code,
-        Material streamlines collaboration between designers and developers, and
-        helps teams quickly build beautiful products.
+        Sektördeki 35 yıllık geçmişinde sektörün önde gelen kurumlarından biri olan Logo Yazılım, Türkiye’de edindiği
+        birikim ve tecrübeyi yurt dışına taşıma hedefiyle imza attığı stratejik yatırımların ardından bölgesel güç olma
+        yolunda ilerliyor. Son 5 yılda gerçekleştirdiği yıllık ortalama %35 gelir artışıyla istikrarlı gelişimini
+        sürdürüyor.
       </p>
     </div>
     <div class="links col-xs-12 col-md-6 col-lg-4">
@@ -31,7 +29,7 @@
       </div>
     </div>
     <div class="social col-xs-12 col-md-12 col-lg-3">
-      <a href="#" class="icon" *ngFor="let link of socials" [ngClass]="link.display">{{link.display}}</a>
+      <a href="{{link.url}}" class="icon" *ngFor="let link of socials" [ngClass]="link.display">{{link.display}}</a>
     </div>
   </div>
   <footer class="row">

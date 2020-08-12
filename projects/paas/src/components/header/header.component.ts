@@ -10,7 +10,7 @@ export class HeaderComponent {
 
   public links: Link[] = [
     {
-      display: 'Services',
+      display: 'Servisler',
       description: ``,
       url: '/',
       external: false,
