@@ -24,7 +24,7 @@ import { CarouselComponent } from './carousel.component';
  *
  *   ```bash
  * $ npm set registry https://registry.npmjs.org/
- * $ npm install @logo-software/link -s
+ * $ npm install @logo-software/carousel -s
  * ```
  */
 @NgModule({
