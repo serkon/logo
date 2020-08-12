@@ -7,7 +7,7 @@ import { IconsComponent } from './icons.component';
 
 /**
  * Icon module uses for add icons to project
- * Just import it to your project scss folder
+ * Just import `scss` to your project main `style.scss`
  *
  * __Usage Example__
  *
