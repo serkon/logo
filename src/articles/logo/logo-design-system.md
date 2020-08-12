@@ -7,7 +7,7 @@ Logo Design System and Logo Framework are our preference because it is easy to u
 
 Our Zeplin project link is [here](https://app.zeplin.io/project/5e5f59849f60ec14ab8bcb67). Logo Elements' source code is publicly available on [GitHub](https://github.com/logo-group/logo-elements). The PDF version of our guide can be downloaded <a href="/assets/guideline/logo-design-system.pdf" target="_blank">here</a>. If you want to access to this file please communicate with [ux@logo.com.tr](mailto:ux@logo.com.tr)
 
-###Overview
+### Overview
 The angular component meets the developers' basic requirement. To review the library click [here](http://design.logo.com.tr/#/docs/components/components-overview). You can fork and customize library then call pull request from our team. Or open new issues. This component set is contains these modules:
 
 1. Excel Module
