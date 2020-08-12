@@ -15,16 +15,13 @@ import { NgdVersionService, Version } from '../../services';
       </button>
       <div class="logo-container">
         <a class="logo" routerLink="/"><span>Logo</span><span>Elements</span></a>
-        <span class="version" *ngIf="currentVersionName$ | async">
-          v{{ currentVersionName$ | async }}
-        </span>
       </div>
     </div>
     <div class="section middle">
       <nb-menu [items]="mainMenu"></nb-menu>
       <ngd-search *ngIf="showSearch"></ngd-search>
       <nb-select class="version-select"
-                 *ngIf="(showVersionSelect$ | async)"
+                 *ngIf="showVersion && (showVersionSelect$ | async)"
                  [selected]="currentVersion$ | async"
                  (selectedChange)="redirectToVersion($event)">
         <nb-option *ngFor="let version of supportedVersions$ | async" [value]="version">
@@ -33,26 +30,22 @@ import { NgdVersionService, Version } from '../../services';
       </nb-select>
     </div>
     <div class="section right">
-      <iframe class="stars"
-              src="https://ghbtns.com/github-btn.html?user=akveo&repo=nebular&type=star&count=true"
-              frameborder="0"
-              scrolling="0">
-      </iframe>
+      <span class="version" *ngIf="currentVersionName$ | async">
+        v{{ currentVersionName$ | async }}
+      </span>
     </div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NgdHeaderComponent implements OnInit {
 
-  @Input() showSearch = true;
+  @Input() showSearch = false;
   @HostBinding('class.docs-page') @Input() isDocs = false;
-
-  private window: Window;
   supportedVersions$: Observable<Version[]>;
   currentVersion$: Observable<Version>;
   currentVersionName$: Observable<string>;
   showVersionSelect$: Observable<boolean>;
-
+  @Input() showVersion = false;
   mainMenu: NbMenuItem[] = [
     {
       title: 'Docs',
@@ -71,8 +64,8 @@ export class NgdHeaderComponent implements OnInit {
       url: 'https://blog.logo.com.tr/',
     },
   ];
-
   @Input() sidebarTag: string;
+  private window: Window;
 
   constructor(
     @Inject(NB_WINDOW) window,

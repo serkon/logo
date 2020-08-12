@@ -5,14 +5,11 @@
  */
 
 $eva-mapping: (
-
   /* Components mappings - maps theme variables onto component variables */
-
   link-text-color: text-primary-color,
-  link-text-decoration: underline,
+  link-text-decoration: none,
   link-text-focus-color: text-primary-focus-color,
   link-text-hover-color: text-primary-hover-color,
-
   card-background-color: background-basic-color-1,
   card-text-color: text-basic-color,
   card-text-font-family: text-paragraph-font-family,

@@ -16,7 +16,7 @@ export class RootComponent implements AfterViewInit {
   constructor(@Inject(DOCUMENT) private document, private router: Router) {
     this.bodyHeight = this.document.documentElement.clientHeight;
     this.quotes = [
-      {story: 'People ignore design that ignores people', author: 'FRANK CHIMERO'},
+      // {story: 'People ignore design that ignores people', author: 'FRANK CHIMERO'},
       {story: 'Good designs come from the heart, not from the brain', author: 'DANNY SENGERS'},
     ];
     this.links = {

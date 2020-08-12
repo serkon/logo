@@ -49,12 +49,19 @@
         }
 
         span:last-child {
-          color: var(--gray-400);
+          color: var(--dark-900);
         }
       }
 
-      button {
+      a {
         font-weight: 300;
+      }
+
+      ::ng-deep logo-links {
+        a {
+          text-decoration: none;
+          line-height: size(48px);
+        }
       }
 
       .docs {

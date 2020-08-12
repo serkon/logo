@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { RootRoutingModule } from './root-routing.module';
 import { RootComponent } from './root.component';
-import { LinksModule } from '@logo-software/link';
-
+import { LinksModule } from '@logo-software/links';
 
 @NgModule({
   declarations: [RootComponent],

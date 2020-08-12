@@ -5,4 +5,4 @@ To provide our customers with a solid application with intuitive user experience
 
 Logo Design System and Logo Framework are our preference because it is easy to use and implemented quickly. This will allow our partners to develop custom modules built for our main applications which share the same user experience. This way our customers will experience seamlessly.
 
-Our Zeplin project link is [here](https://app.zeplin.io/project/5e5f59849f60ec14ab8bcb67). If you want to access to this file please communicate with [ux@logo.com.tr](mailto:ux@logo.com.tr)
+Our Zeplin project link is [here](https://app.zeplin.io/project/5e5f59849f60ec14ab8bcb67). The PDF version of our guide can be downloaded <a href="/assets/guideline/logo-design-system.pdf" target="_blank">here</a>. If you want to access to this file please communicate with [ux@logo.com.tr](mailto:ux@logo.com.tr)
