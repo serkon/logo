@@ -22,8 +22,8 @@ $font-default-color: var(--dark-900);
 $font-default-size: 16px;
 $font-current-size: 16px;
 // ########################### Path Setting #############################
-$font-path: "/assets/fonts";
-// $font-path: "~@logo-software/theme/src/lib/assets/fonts";
+// $font-path: "/assets/fonts";
+$font-path: "~@logo-software/theme/src/lib/assets/fonts";
 $path-image: '$imagesPath';
 // ########################### Vertical Height Setting
 $vertical-measure: 1.375em; // 22px
@@ -70,7 +70,7 @@ $shadesMap: (
 $ghost: 0;
 $ghost-hover: 0.08;
 $ghost-active: 0.1;
-$ghost-focus: 0.12;
+$ghost-focus: 0.08;
 // Disable transparency
 $disabled: 50%;
 

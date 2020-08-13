@@ -2,7 +2,6 @@
   .#{$item} {
     border-radius: map-get($config, border-radius);
     font-size: size(map_get($size, font-size));
-    // padding: 0 size(nth(map_get($size, padding), 2));
     padding: 0 size(map_get($size, padding));
     @each $type in $form-type {
       &.#{$type} {
@@ -13,16 +12,7 @@
     min-width: size(map_get($size, height));
     height: size(map_get($size, height));
     line-height: size(map_get($size, height));
-    box-sizing: border-box;
-
-    &::before {
-      // position: absolute;
-      // left: 0;
-      // top: 0;
-      // min-width: size(map_get($size, icon-size));
-      // width: size(map_get($size, icon-size));
-      // height: size(map_get($size, icon-size));
-    }
+    // box-sizing: border-box;
   }
 
   [class*=logo-i] {
@@ -36,17 +26,8 @@
         mask-position: center;
         -webkit-mask-size: size(map_get($size, icon-size));
         mask-size: size(map_get($size, icon-size));
-        top: 0;
-        left: 0;
-      }
-
-      @each $type in $form-type {
-        &.#{$type} {
-          &::before {
-            left: if($type == outline, size(-1px), 0);
-            top: if($type == outline, size(-1px), 0);
-          }
-        }
+        top: -1px;
+        left: -1px;
       }
 
       &.icon-left {
@@ -54,20 +35,6 @@
 
         &::before {
           width: size(map_get($size, icon-container));
-          height: size(map_get($size, height));
-          -webkit-mask-position: center;
-          mask-position: center;
-          -webkit-mask-size: size(map_get($size, icon-size));
-          mask-size: size(map_get($size, icon-size));
-        }
-
-        @each $type in $form-type {
-          &.#{$type} {
-            &::before {
-              left: if($type == outline, size(-1px), 0);
-              top: if($type == outline, size(-1px), 0);
-            }
-          }
         }
       }
 
@@ -76,21 +43,8 @@
 
         &::before {
           width: size(map_get($size, icon-container));
-          height: size(map_get($size, height));
-          -webkit-mask-position: center;
-          mask-position: center;
-          -webkit-mask-size: size(map_get($size, icon-size));
-          mask-size: size(map_get($size, icon-size));
           left: auto;
-        }
-
-        @each $type in $form-type {
-          &.#{$type} {
-            &::before {
-              right: if($type == outline, size(-1px), 0);
-              top: if($type == outline, size(-1px), 0);
-            }
-          }
+          right: size(-1px);
         }
       }
     }

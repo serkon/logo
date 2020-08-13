@@ -1,0 +1,19 @@
+.input-group {
+  span {
+    input {
+      // border-right: 0 !important;
+    }
+  }
+
+  div.input-group-append {
+    margin-left: -1px;
+
+    span.input-group-text {
+      margin-left: 0 !important;
+      border: 0;
+      background-color: var(--secondary-500);
+      border-left: 1px solid var(--secondary-600);
+      z-index: 1;
+    }
+  }
+}

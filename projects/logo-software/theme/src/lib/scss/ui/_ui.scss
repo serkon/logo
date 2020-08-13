@@ -21,50 +21,46 @@ a {
 }
 
 input {
-  @extend .secondary;
-  @extend .fill;
-
-  &:focus {
-    background-color: var(--white) !important;
-    border: size(1px) solid var(--secondary);
-    color: var(--dark-900);
-  }
-
-  &:not([type]), &[type="text"] {
-    @include install-placeholder(var(--dark-600));
+  &:not([type]), &[type~="text"], &[type~="password"] {
+    @extend .secondary;
     @extend .medium;
-    @each $size-name, $size in $form-sizes {
-      &.#{$size-name} {
-        @extend .#{$size-name};
-      }
-    }
+    $class-names: "";
+    @each $status, $hex-value in $list-colors {
+      &.#{"" + $status} {
+        @extend .#{$status};
 
-    @each $color-name, $value in $list-colors {
-      &.#{"" + $color-name} {
-        @extend .#{"" + $color-name};
-        @if $color-name == secondary {
-          // color: var(--secondary-900);
-          // color: var(--dark-900);
-          color: darken(color(#{secondary}-600), 30%);
+        @if ($status!=secondary) {
+          @include install-placeholder(var(--white));
         }
-      }
 
-      $class-names: "";
-      @each $state-name, $state-value in $form-state {
         @each $type in $form-type {
-          @if $state-name != hover {
-            $class-names: $class-names + "&." + $color-name + "." + $type + ":" + $state-name + ",";
+          &.#{"" + $type} {
+            @if ($status!=outline and $status!=ghost) {
+              @include install-placeholder(var(--dark-600));
+            }
+            @each $state in $form-state {
+              &:#{$state} {
+                @if ($type == fill) {
+                  @extend #{"." +$status + ":" + $state};
+                  // @if ($state==focus) {
+                  //   $class-names: $class-names + "&." + $status + ":" + $state + ",";
+                  // }
+                } @else {
+                  @extend #{"." +$status + "." + $type + ":" + $state};
+                  // @if ($state==focus) {
+                  //   $class-names: $class-names + "&." + $status + "." + $type + ":" + $state + ",";
+                  // }
+                }
+              }
+            }
           }
         }
       }
-
-      #{$class-names} {
-        border: size(1px) solid if($color-name== "light", var(--dark-300), var(--#{$color-name}-500));
-      }
     }
 
-    &:focus {
-      color: var(--dark-900);
+    &:focus { // &:focus, #{$class-names} {
+      background-color: var(--white) !important;
+      color: var(--dark-900) !important;
     }
   }
 }
