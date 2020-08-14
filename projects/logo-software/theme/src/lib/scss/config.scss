@@ -10,8 +10,14 @@
 
 
 //**
+
+@function config($variable) {
+  @return map-get($config, $variable);
+}
+
 $config: (
-  border-radius: 2px
+  border-radius: 2px,
+  font-path:"~@logo-software/theme/src/lib/assets/fonts",
 );
 
 // ########################### Font Setting

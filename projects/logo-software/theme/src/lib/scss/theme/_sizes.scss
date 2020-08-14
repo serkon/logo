@@ -1,6 +1,6 @@
 @each $item, $size in $form-sizes {
   .#{$item} {
-    border-radius: map-get($config, border-radius);
+    border-radius: config(border-radius);
     font-size: size(map_get($size, font-size));
     padding: 0 size(map_get($size, padding));
     @each $type in $form-type {
