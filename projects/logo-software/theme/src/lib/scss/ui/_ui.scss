@@ -1,66 +1,47 @@
-button {
-  cursor: pointer;
-  border: none;
-  box-shadow: none;
-  line-height: normal;
-  font-family: $font-family;
-  font-weight: bold;
-  border-radius: size($border-radius);
-  @extend .medium;
-  @extend .secondary;
-}
+:root {
+  button {
+    cursor: pointer;
+    font-weight: bold;
 
-a {
-  display: inline-block;
-  cursor: pointer;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: none;
-  }
-}
-
-input {
-  &:not([type]), &[type~="text"], &[type~="password"] {
     @extend .secondary;
     @extend .medium;
-    $class-names: "";
+    @extend .fill;
+  }
+
+  a {
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  input {
+    @extend .secondary;
+    @extend .medium;
+    @extend .fill;
     @each $status, $hex-value in $list-colors {
       &.#{"" + $status} {
-        @extend .#{$status};
-
-        @if ($status!=secondary) {
-          @include install-placeholder(var(--white));
-        }
-
         @each $type in $form-type {
           &.#{"" + $type} {
-            @if ($status!=outline and $status!=ghost) {
-              @include install-placeholder(var(--dark-600));
-            }
-            @each $state in $form-state {
-              &:#{$state} {
-                @if ($type == fill) {
-                  @extend #{"." +$status + ":" + $state};
-                  // @if ($state==focus) {
-                  //   $class-names: $class-names + "&." + $status + ":" + $state + ",";
-                  // }
-                } @else {
-                  @extend #{"." +$status + "." + $type + ":" + $state};
-                  // @if ($state==focus) {
-                  //   $class-names: $class-names + "&." + $status + "." + $type + ":" + $state + ",";
-                  // }
-                }
-              }
+            @if ($type!=outline and $type!=ghost) {
+              @include install-placeholder(
+                  if($status == secondary, var(--secondary-900), if($status==light, var(--dark-600), var(--white)))
+              );
+            } @else {
+              @include install-placeholder(
+                  if($status == secondary, var(--secondary-900), if($status==light, var(--dark-600), if($status == dark, var(--white), var(--#{$status}-600))))
+              );
             }
           }
         }
       }
-    }
-
-    &:focus { // &:focus, #{$class-names} {
-      background-color: var(--white) !important;
-      color: var(--dark-900) !important;
+      &:focus {
+        background-color: var(--white) !important;
+        color: var(--dark-900) !important;
+      }
     }
   }
 }

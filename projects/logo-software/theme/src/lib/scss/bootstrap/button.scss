@@ -1,0 +1,13 @@
+:root button:not(:disabled),
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled) {
+  // background-color: inherit;
+  // border-color: inherit;
+  &:active {
+    &:focus {
+      background-color: inherit;
+      border-color: inherit;
+    }
+  }
+}

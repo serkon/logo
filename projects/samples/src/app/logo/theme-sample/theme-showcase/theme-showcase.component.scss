@@ -17,17 +17,19 @@
     div.card {
       padding: size(20px) 0;
       margin: size(20px);
-      border: 1px solid #efefef;
+      border: size(1px) solid #efefef;
+      background: white;
+      box-shadow: 0 0 size(11px) 0 #efefef;
 
       .type-text {
         font-size: size(12px);
         font-weight: bold;
-        padding: size(10px);
-        margin: size(5px) 0;
+        padding: size(20px);
+        margin: size(20px) 0 0 0;
         text-align: center;
         color: var(--gray-900);
         border-top: 1px solid #efefef;
-        border-bottom: 1px solid #efefef;
+        // border-bottom: 1px solid #efefef;
         text-transform: uppercase;
       }
 
@@ -56,6 +58,8 @@
     div.colors {
       .group {
         .cell-container {
+          padding-right: size(15px);
+
           .cell {
             padding: 0;
             border: none;

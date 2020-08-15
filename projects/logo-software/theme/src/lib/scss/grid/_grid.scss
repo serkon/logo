@@ -12,92 +12,60 @@
 
 //################# Grid Sistemi v.1.1  **/
 
-$grid-columns: 12;
-$gutter: 30;
-$breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-);
-$container-max-widths: (
-  xs: 100%,
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 1140px,
-);
+$grid-columns: config(grid-columns);
+$gutter: config(grid-gutter);
+$breakpoints: config(breakpoints);
+$container-max-widths: config(container-max-widths);
 
 @mixin grid($max-widths: $container-max-widths, $breakpoints: $breakpoints, $grid-columns: $grid-columns, $gutter: $gutter) {
-  $gutters: (
-    xs: $gutter/5,
-    sm: $gutter/4,
-    md: $gutter/3,
-    lg: $gutter/2,
-    xl: $gutter/1,
-  );
-
   @if not variable-exists(container-max-widths) or not $max-widths {
     /* I get output to the CSS file */
   }
-
   @each $breakpoint, $value in $breakpoints {
     $device: $breakpoint;
     $keys: map-keys($breakpoints);
     $col-list: null;
     $i: index($breakpoints, $breakpoint $value);
     $child: 0;
-
-
     @if $i > 0 and $i < length($breakpoints) {
-
       @media (min-width: $value) and (max-width: map-get($breakpoints, nth($keys, ($i + 1)))) {
         .hidden-#{$breakpoint} {
           display: none !important;
         }
-
         .visible-#{$breakpoint} {
           display: initial !important;
         }
       }
     }
-
     @media (min-width: $value) {
       @for $i from 1 through $grid-columns {
         .col-#{$breakpoint}-#{$i} {
           $width: 100 / $grid-columns * $i * 1%;
-          flex: 0 0 calc(100% / #{$grid-columns} * #{$i} - #{$gutter}px);
-          margin: 0 #{$gutter/2}px;
+          flex: 0 0 calc(100% / #{$grid-columns} * #{$i} - #{$gutter});
+          margin: 0 #{$gutter/2};
         }
-
         .size-#{$breakpoint}-#{$i} {
           flex: 0 0 auto;
           width: ((100 / $grid-columns) * $i) * 1%;
         }
-
-
         .size-#{$breakpoint}-#{$i}, .flex-#{$breakpoint}-#{$i} {
           flex: $i 0 100 / $grid-columns * $i * 1%;
         }
-
         .split-#{$breakpoint}-#{$i} {
           width: (100 / $i) * 1%;
+          box-sizing: border-box;
         }
-
         $col-list: append(
             $col-list,
             unquote('.col-#{$breakpoint}-#{$i}, .flex-#{$breakpoint}-#{$i}, .size-#{$breakpoint}-#{$i}'),
             comma
         );
       }
-
       @include breakpoint(//Responsive Design Mixin
           $breakpoint,
           $grid-columns,
           $gutter
       );
-
       #{$col-list} {
         // display: initial !important;
         // border: 1px solid red;
@@ -105,27 +73,28 @@ $container-max-widths: (
         flex-direction: column;
         box-sizing: border-box;
       }
-
       .container {
         width: map-get($max-widths, $breakpoint);
         margin: 0 auto;
         box-sizing: border-box;
+        padding: 0 #{$gutter/2};
       }
-
       .row {
         display: flex;
         flex-wrap: wrap;
-        margin: 0 -#{$gutter/2}px;
-        width: calc(100% + #{$gutter}px);
+        margin: 0 -#{$gutter/2};
+        width: calc(100% + #{$gutter});
         box-sizing: border-box;
       }
     }
   }
-
   [class*='column-']:last-child {
     margin-right: 0;
   }
 }
 
-@include grid($gutter: 30);
+@if (config(grid) ==true) {
+  @include grid();
+}
+
 

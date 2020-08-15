@@ -13,19 +13,21 @@
 <div class="container">
   <div class="card colors">
     <h2>COLORS</h2>
-    <div class="group">
-      <div class="cell-container">
-        <div class="cell split-xs-11"></div>
-        <div class="cell shade split-xs-11" *ngFor="let shade of shades">{{shade}}</div>
-      </div>
-      <div class="cell-container" *ngFor="let status of statuses">
-        <div class="cell split-xs-11 color-names">{{status}}</div>
-        <div class="cell split-xs-11" *ngFor="let shade of shades">
-          <div class="color {{status}} {{status}}-{{shade}}"
-               [ngClass]="{'black-color': shade<500, 'white-color': shade>=500}">
-            {{getColor('--' + status + '-' + shade)}}
+    <div class="view">
+      <div class="group">
+        <div class="cell-container">
+          <div class="cell split-xs-11"></div>
+          <div class="cell shade split-xs-11" *ngFor="let shade of shades">{{shade}}</div>
+        </div>
+        <div class="cell-container" *ngFor="let status of statuses">
+          <div class="cell split-xs-11 color-names">{{status}}</div>
+          <div class="cell split-xs-11" *ngFor="let shade of shades">
+            <div class="color {{status}} {{status}}-{{shade}}"
+                 [ngClass]="{'black-color': shade<500, 'white-color': shade>=500}">
+              {{getColor('--' + status + '-' + shade)}}
+            </div>
+            <div class="color-text">{{status + '-' + shade}}</div>
           </div>
-          <div class="color-text">{{status + '-' + shade}}</div>
         </div>
       </div>
     </div>
@@ -33,7 +35,7 @@
 
   <div class="card">
     <h2>BUTTONS</h2>
-    <ng-container *ngFor="let type of types">
+    <div class="view" *ngFor="let type of types">
       <div class="type-text">{{type}}</div>
       <div class="group">
         <div class="cell-container">
@@ -67,11 +69,11 @@
           </div>
         </div>
       </div>
-    </ng-container>
+    </div>
   </div>
   <div class="card">
     <h2>INPUTS</h2>
-    <ng-container *ngFor="let type of types">
+    <div class="view" *ngFor="let type of types">
       <div class="type-text">{{type}}</div>
       <div class="group">
         <div class="cell-container">
@@ -85,7 +87,7 @@
           </div>
         </div>
       </div>
-    </ng-container>
+    </div>
   </div>
 </div>
 

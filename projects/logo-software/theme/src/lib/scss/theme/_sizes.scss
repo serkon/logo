@@ -1,50 +1,52 @@
-@each $item, $size in $form-sizes {
-  .#{$item} {
-    border-radius: config(border-radius);
-    font-size: size(map_get($size, font-size));
-    padding: 0 size(map_get($size, padding));
-    @each $type in $form-type {
-      &.#{$type} {
-        padding: if($type == outline, 0 size(map_get($size, padding) - 2px), 0 size(map_get($size, padding)));
-      }
-    }
-    position: relative;
-    min-width: size(map_get($size, height));
-    height: size(map_get($size, height));
-    line-height: size(map_get($size, height));
-    // box-sizing: border-box;
-  }
-
-  [class*=logo-i] {
-    $icon-size-info: size(map_get($size, icon-size) * 2);
-
-    &.#{$item} {
-      &::before {
-        width: size(map_get($size, height));
-        height: size(map_get($size, height));
-        -webkit-mask-position: center;
-        mask-position: center;
-        -webkit-mask-size: size(map_get($size, icon-size));
-        mask-size: size(map_get($size, icon-size));
-        top: -1px;
-        left: -1px;
-      }
-
-      &.icon-left {
-        padding-left: size(map_get($size, icon-container));
-
-        &::before {
-          width: size(map_get($size, icon-container));
+:root {
+  @each $item, $size in $form-sizes {
+    .#{$item} {
+      border-radius: config(border-radius);
+      font-size: size(map_get($size, font-size));
+      padding: 0 size(map_get($size, padding));
+      @each $type in $form-type {
+        &.#{$type} {
+          padding: if($type == outline, 0 size(map_get($size, padding) - 2px), 0 size(map_get($size, padding)));
         }
       }
+      position: relative;
+      min-width: size(map_get($size, height));
+      height: size(map_get($size, height));
+      // line-height: size(map_get($size, height));
+      // box-sizing: border-box;
+    }
 
-      &.icon-right {
-        padding-right: size(map_get($size, icon-container));
+    [class*=logo-i] {
+      $icon-size-info: size(map_get($size, icon-size) * 2);
 
+      &.#{$item} {
         &::before {
-          width: size(map_get($size, icon-container));
-          left: auto;
-          right: size(-1px);
+          width: size(map_get($size, height));
+          height: size(map_get($size, height));
+          -webkit-mask-position: center;
+          mask-position: center;
+          -webkit-mask-size: size(map_get($size, icon-size));
+          mask-size: size(map_get($size, icon-size));
+          top: -1px;
+          left: -1px;
+        }
+
+        &.icon-left {
+          padding-left: size(map_get($size, icon-container));
+
+          &::before {
+            width: size(map_get($size, icon-container));
+          }
+        }
+
+        &.icon-right {
+          padding-right: size(map_get($size, icon-container));
+
+          &::before {
+            width: size(map_get($size, icon-container));
+            left: auto;
+            right: size(-1px);
+          }
         }
       }
     }

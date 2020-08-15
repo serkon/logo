@@ -15,10 +15,29 @@
   @return map-get($config, $variable);
 }
 
-$config: (
+$config: if(not variable-exists(config), (), $config);
+
+$config: map-merge((
   border-radius: 2px,
   font-path:"~@logo-software/theme/src/lib/assets/fonts",
-);
+  grid: true,
+  grid-columns: 12,
+  grid-gutter: 30px,
+  breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+  ),
+  container-max-widths: (
+    xs: 100%,
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+  )
+), $config);
 
 // ########################### Font Setting
 $font-icon: 'logo-font-icon';
