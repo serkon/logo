@@ -9,73 +9,83 @@
  * Any reproduction of this material must contain this notice.
  */
 -->
-<div>LogoTheme Will be added some UX description here mayse it can be alone web site for showcase</div>
 
-<h2>Colors</h2>
-<table>
-  <tr>
-    <td></td>
-    <td *ngFor="let shade of shades" class="color">{{shade}}</td>
-  </tr>
-  <tr *ngFor="let status of statuses">
-    <td class="color-names">{{status}}</td>
-    <td
-      [ngClass]="{'black-color': shade<500, 'white-color': shade>=500}"
-      *ngFor="let shade of shades"
-    >
-      <div class="color {{status}} {{status}}-{{shade}}"></div>
-      <div>{{getColor('--' + status + '-' + shade)}}</div>
-    </td>
-  </tr>
-</table>
+<div class="container">
+  <div class="card colors">
+    <h2>COLORS</h2>
+    <div class="group">
+      <div class="cell-container">
+        <div class="cell split-xs-11"></div>
+        <div class="cell shade split-xs-11" *ngFor="let shade of shades">{{shade}}</div>
+      </div>
+      <div class="cell-container" *ngFor="let status of statuses">
+        <div class="cell split-xs-11 color-names">{{status}}</div>
+        <div class="cell split-xs-11" *ngFor="let shade of shades">
+          <div class="color {{status}} {{status}}-{{shade}}"
+               [ngClass]="{'black-color': shade<500, 'white-color': shade>=500}">
+            {{getColor('--' + status + '-' + shade)}}
+          </div>
+          <div class="color-text">{{status + '-' + shade}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<h2>Buttons</h2>
-<table class="buttons">
-  <ng-container *ngFor="let type of types">
-    <tr>
-      <td [colSpan]="statuses.length" style="font-weight: bold; font-size: 24px">
-        {{type}}
-      </td>
-    </tr>
-    <tr>
-      <td *ngFor="let status of statuses">
-        <button class="{{type}} {{status}} logo-i-saved-offline-glyph"></button>
-      </td>
-    </tr>
-    <tr>
-      <td *ngFor="let status of statuses">
-        <button class="{{type}} {{status}} logo-i-saved-offline-glyph icon-left">{{status.toUpperCase()}}</button>
-      </td>
-    </tr>
-    <tr>
-      <td *ngFor="let status of statuses">
-        <button class="{{type}} {{status}} logo-i-saved-offline-glyph icon-right">{{status.toUpperCase()}}</button>
-      </td>
-    </tr>
-    <tr>
-      <td *ngFor="let status of statuses">
-        <button class="{{type}} {{status}}">{{status.toUpperCase()}}</button>
-      </td>
-    </tr>
-    <tr *ngFor="let state of states">
-      <td *ngFor="let status of statuses">
-        <button class="{{status}} {{type}} {{status}}-{{state}} {{type}}-{{state}}">{{state.toUpperCase()}}</button>
-      </td>
-    </tr>
-  </ng-container>
-</table>
-<h2>Inputs</h2>
-<table class="buttons">
-  <ng-container *ngFor="let type of types">
-    <tr>
-      <td [colSpan]="statuses.length" style="font-weight: bold; font-size: 24px">
-        {{type}}
-      </td>
-    </tr>
-    <tr>
-      <td *ngFor="let status of statuses">
-        <input class="{{status}} {{type !== 'fill'? type : ''}}" placeholder="search">
-      </td>
-    </tr>
-  </ng-container>
-</table>
+  <div class="card">
+    <h2>BUTTONS</h2>
+    <ng-container *ngFor="let type of types">
+      <div class="type-text">{{type}}</div>
+      <div class="group">
+        <div class="cell-container">
+          <div class="cell split-xs-10" *ngFor="let status of statuses">
+            {{status}}
+          </div>
+        </div>
+        <div class="cell-container">
+          <div class="cell split-xs-10" *ngFor="let status of statuses">
+            <button class="{{type}} {{status}} logo-i-saved-offline-glyph"></button>
+          </div>
+        </div>
+        <div class="cell-container">
+          <div class="cell split-xs-10" *ngFor="let status of statuses">
+            <button class="{{type}} {{status}}">TEXT</button>
+          </div>
+        </div>
+        <div class="cell-container">
+          <div class="cell split-xs-10" *ngFor="let status of statuses">
+            <button class="{{type}} {{status}} logo-i-saved-offline-glyph icon-left">TEXT</button>
+          </div>
+        </div>
+        <div class="cell-container">
+          <div class="cell split-xs-10" *ngFor="let status of statuses">
+            <button class="{{type}} {{status}} logo-i-saved-offline-glyph icon-right">TEXT</button>
+          </div>
+        </div>
+        <div class="cell-container" *ngFor="let state of states">
+          <div class="cell split-xs-10" *ngFor="let status of statuses">
+            <button class="{{status}} {{type}} {{status}}-{{state}} {{type}}-{{state}}">{{state.toUpperCase()}}</button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="card">
+    <h2>INPUTS</h2>
+    <ng-container *ngFor="let type of types">
+      <div class="type-text">{{type}}</div>
+      <div class="group">
+        <div class="cell-container">
+          <div class="cell split-xs-10" *ngFor="let status of statuses">
+            {{status}}
+          </div>
+        </div>
+        <div class="cell-container">
+          <div class="cell split-xs-10" *ngFor="let status of statuses">
+            <input class="{{status}} {{type !== 'fill'? type : ''}}" placeholder="search">
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+

@@ -11,50 +11,97 @@
 @import "~@logo-software/theme/style";
 
 :host {
-  table {
-    border-collapse: collapse;
-    border-spacing: 0;
+  .container {
+    text-align: center;
 
-    tr {
-      td {
-        padding: 0;
-        font-size: 10px;
+    div.card {
+      padding: size(20px) 0;
+      margin: size(20px);
+      border: 1px solid #efefef;
+
+      .type-text {
+        font-size: size(12px);
+        font-weight: bold;
+        padding: size(10px);
+        margin: size(5px) 0;
         text-align: center;
+        color: var(--gray-900);
+        border-top: 1px solid #efefef;
+        border-bottom: 1px solid #efefef;
+        text-transform: uppercase;
+      }
 
-        &.color-names {
-          text-align: right;
-          font-size: 14px;
-          padding: 0 20px;
-        }
+      .group {
+        .cell-container {
+          display: flex;
 
-        .color {
-          width: 60px;
-          height: 60px;
-          text-align: center;
-          text-shadow: 0 0 10px white;
-        }
+          .cell {
+            border-left: 1px solid #efefef;
+            padding: size(5px) size(15px);
+            text-align: left;
+            font-size: size(10px);
 
-        .white-color {
-          color: white;
-        }
+            &:first-of-type {
+              border: 0;
+            }
 
-        .black-color {
-          color: #777777;;
-        }
-
-        button {
-          // min-width: 88px;
-          // margin: 5px;
+            input {
+              width: 100%;
+            }
+          }
         }
       }
     }
-  }
 
-  table.buttons {
-    tr {
-      td {
-        padding: size(5px);
-        text-align: left;
+    div.colors {
+      .group {
+        .cell-container {
+          .cell {
+            padding: 0;
+            border: none;
+
+            &.color-names {
+              text-align: right;
+              font-size: size(14px);
+              padding: 0 size(20px);
+              font-weight: bold;
+              line-height: size(45px);
+            }
+
+            &.shade {
+              padding: size(5px);
+            }
+
+            .color {
+              height: size(40px);
+              line-height: size(40px);
+              text-align: center;
+              text-shadow: 0 0 size(10px) white;
+              border-radius: 0;
+            }
+
+            .white-color {
+              color: #000000;
+            }
+
+            .black-color {
+              color: #000000;
+            }
+          }
+        }
+      }
+
+      h2 {
+        padding-bottom: size(20px);
+      }
+
+      .shade {
+        font-weight: bold;
+      }
+
+
+      .color-text {
+        padding: size(5px) 0;
       }
     }
   }
