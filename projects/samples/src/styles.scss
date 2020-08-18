@@ -1,4 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+$config: (
+  grid: true,
+  font-size: 16px,
+  font-color: var(--dark)
+);
+@import "~@logo-software/icons/style";
 @import "~@logo-software/theme/style";
 
 body {

@@ -1,4 +1,4 @@
-@import "~@logo-software/theme/style";
+@import "~@logo-software/theme/base";
 
 $header-size: size(80px);
 
@@ -36,7 +36,7 @@ $header-size: size(80px);
         display: flex;
         width: size(245px);
         box-sizing: border-box;
-        font-family: $font-alternative;
+        font-family: config(font-alternative);
 
         span {
           display: flex;

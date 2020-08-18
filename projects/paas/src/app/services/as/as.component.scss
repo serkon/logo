@@ -1,4 +1,4 @@
-@import "~@logo-software/theme/style";
+@import "~@logo-software/theme/base";
 
 $header-size: size(80px);
 
@@ -36,7 +36,7 @@ $header-size: size(80px);
       }
 
       h1.title {
-        font-family: $font-family;
+        font-family: config(font-family);
         font-weight: 800;
         flex-direction: column;
         pointer-events: none;

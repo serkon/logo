@@ -7,10 +7,12 @@
  * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
  * Any reproduction of this material must contain this notice.
  */
-@import "~@logo-software/icons/style";
-@import "~@logo-software/theme/style";
+
+@import "~@logo-software/theme/base";
 
 :host {
+  @include host();
+
   .container {
     text-align: center;
 
@@ -36,6 +38,7 @@
       .group {
         .cell-container {
           display: flex;
+          flex-wrap: wrap;
 
           .cell {
             border-left: 1px solid #efefef;
@@ -47,7 +50,7 @@
               border: 0;
             }
 
-            input {
+            input:not([type]), input[type~="text"], input[type~="password"] {
               width: 100%;
             }
           }
@@ -58,7 +61,12 @@
     div.colors {
       .group {
         .cell-container {
+          border-bottom: 0.1px solid #efefef;
           padding-right: size(15px);
+
+          &:last-of-type {
+            border-bottom: none;
+          }
 
           .cell {
             padding: 0;
@@ -66,10 +74,10 @@
 
             &.color-names {
               text-align: right;
+              line-height: size(42px);
               font-size: size(14px);
               padding: 0 size(20px);
               font-weight: bold;
-              line-height: size(45px);
             }
 
             &.shade {

@@ -1,4 +1,4 @@
-@import "~@logo-software/theme/style";
+@import "~@logo-software/theme/base";
 
 :host {
   display: block;
@@ -121,7 +121,7 @@
 
     footer {
       display: flex;
-      font-family: $font-alternative;
+      font-family: config(font-alternative);
       font-size: size(12px);
       color: var(--dark-500);
       flex-direction: column;
@@ -136,7 +136,7 @@
           color: var(--light-800);
           font-size: size(10px);
           font-weight: 200;
-          font-family: $font-alternative;
+          font-family: config(font-alternative);
           margin-bottom: size(30px);
         }
 

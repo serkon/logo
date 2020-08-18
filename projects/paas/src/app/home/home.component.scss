@@ -1,5 +1,4 @@
-@import "~@logo-software/theme/style";
-@import "~@logo-software/icons/style";
+@import "~@logo-software/theme/base";
 
 $header-size: size(80px);
 :host {
@@ -24,7 +23,7 @@ $header-size: size(80px);
       flex-direction: column;
 
       h1.title {
-        font-family: $font-alternative;
+        font-family: config(font-alternative);
         font-weight: 800;
         color: var(--dark-500);
         flex-direction: column;
@@ -40,10 +39,6 @@ $header-size: size(80px);
         font-size: size(20px);
         color: var(--dark-400);
         pointer-events: none;
-      }
-
-      ::ng-deep .get-started {
-
       }
     }
 
@@ -289,7 +284,7 @@ $header-size: size(80px);
     }
 
     h2, h5, p {
-      font-family: $font-alternative;
+      font-family: config(font-alternative);
       color: var(--dark-500);
       text-align: center;
       margin: 0;
@@ -619,7 +614,7 @@ $header-size: size(80px);
           flex-direction: column;
 
           h2 {
-            font-family: $font-alternative;
+            font-family: config(font-alternative);
             color: #000000;
             font-size: size(40px);
             font-weight: bold;
