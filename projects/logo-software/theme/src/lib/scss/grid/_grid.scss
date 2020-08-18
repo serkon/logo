@@ -8,14 +8,12 @@
  * Any reproduction of this material must contain this notice.
  */
 
-@import "responsive";
-
 //################# Grid Sistemi v.1.1  **/
 
 $grid-columns: config(grid-columns);
 $gutter: config(grid-gutter);
-$breakpoints: config(breakpoints);
-$container-max-widths: config(container-max-widths);
+$breakpoints: config(grid-breakpoints);
+$container-max-widths: config(grid-container-max-widths);
 
 @mixin grid($max-widths: $container-max-widths, $breakpoints: $breakpoints, $grid-columns: $grid-columns, $gutter: $gutter) {
   @if not variable-exists(container-max-widths) or not $max-widths {

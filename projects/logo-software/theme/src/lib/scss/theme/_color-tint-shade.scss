@@ -55,7 +55,7 @@ Merge color lists
 
 @function shadeGenerator($color-name, $hex) {
   $map: ("#{$color-name}": $hex);
-  @each $name, $value in $shadesMap {
+  @each $name, $value in config(color-shades) {
     $map: map-merge($map, (if($name >= 500, ("#{$color-name}-#{$name}": shade($hex, $value)), ("#{$color-name}-#{$name}": tint($hex, $value)))));
   }
   @return $map;
@@ -68,17 +68,6 @@ $generate: ();
 @each $color-name, $hex-value in $list-colors {
   $generate: map-merge($generate, shadeGenerator($color-name, $hex-value));
   $generate: map-merge($generate, CHAF($color-name, $generate));
-  @each $name, $ratio in $shadesMap {
-    :root {
-      .#{"" + $color-name}-#{$name} {
-        background-color: if(
-            $name >= 500,
-            shade($hex-value, $ratio),
-            tint($hex-value, $ratio)
-        ) !important;
-      }
-    }
-  }
 }
 
 $colors: map-merge($colors, $generate);

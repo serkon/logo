@@ -9,5 +9,5 @@
  */
 
 @function size($px) {
-  @return $px / $font-default-size * $font-current-size;
+  @return ($px / config(font-size-base)) * config(font-size);
 }

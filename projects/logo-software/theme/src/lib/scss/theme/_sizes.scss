@@ -1,19 +1,15 @@
-:root {
-  @each $item, $size in $form-sizes {
+#{config(selector)} {
+  @each $item, $size in config(form-size) {
     .#{$item} {
+      box-sizing: border-box;
       border-radius: config(border-radius);
-      font-size: size(map_get($size, font-size));
-      padding: 0 size(map_get($size, padding));
-      @each $type in $form-type {
-        &.#{$type} {
-          padding: if($type == outline, 0 size(map_get($size, padding) - 2px), 0 size(map_get($size, padding)));
-        }
-      }
       position: relative;
       min-width: size(map_get($size, height));
-      height: size(map_get($size, height));
-      // line-height: size(map_get($size, height));
-      // box-sizing: border-box;
+      min-height: size(map_get($size, height) - 2px);
+      line-height: size(map_get($size, height) - 2px);
+      @if config(bootstrap)==true {
+        height: size(map_get($size, height));
+      }
     }
 
     [class*=logo-i] {

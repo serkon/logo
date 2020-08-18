@@ -1,0 +1,26 @@
+button:not(:disabled),
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled) {
+  &.btn {
+    // background-color: inherit;
+    // border-color: inherit;
+    &:active {
+      &:focus {
+        // background-color: inherit;
+        // border-color: inherit;
+      }
+    }
+
+    @each $key, $color in config(bootstrap-color-map) {
+      &.btn-#{$color} {
+        @extend .#{$color};
+      }
+
+      &.btn-outline-#{$color} {
+        @extend .#{$color};
+        @extend .#{$color}.outline;
+      }
+    }
+  }
+}

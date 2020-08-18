@@ -7,6 +7,7 @@
   "assets": [
     "src/lib/assets",
     "src/lib/scss",
-    "style.scss"
+    "style.scss",
+    "base.scss"
   ]
 }

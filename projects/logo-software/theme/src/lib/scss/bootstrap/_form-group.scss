@@ -1,3 +1,13 @@
 .form-group {
   width: 100%;
+
+  label {
+    color: var(--dark-600);
+    font-size: size(12px);
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: size(2px);
+  }
 }
+
+

@@ -3,15 +3,13 @@ $form-state: hover active focus;
 $form-type: fill outline ghost;
 $dark-ratio: 900;
 
-:root {
+#{config(selector)} {
   @each $status, $hex-value in $list-colors {
     .#{"" + $status} {
-      box-sizing: border-box;
-      border-radius: $border-radius;
       @each $type in $form-type {
         @if $type != outline and $type != ghost {
           &::before {
-            background-color: if($status == light, var(--dark-#{$dark-ratio}), if($status == secondary, darken(color(#{secondary}-600), 30%), var(--white)));
+            // background-color: if($status == light, var(--dark-#{$dark-ratio}), if($status == secondary, darken(color(#{secondary}-600), 30%), var(--white)));
           }
           border: size(1px) solid var(--#{$status}-500);
           background-color: var(--#{$status}-500);
@@ -19,9 +17,12 @@ $dark-ratio: 900;
           color: if($status == light, var(--dark-#{$dark-ratio}), if($status == secondary, darken(color(#{secondary}-600), 30%), var(--white)));
           @each $state in $form-state {
             &:#{$state}, &-#{$state} {
-              background-color: var(--#{$status}-#{$state});
+              &:not([disabled]) {
+                background-color: var(--#{$status}-#{$state});
+                border-color: var(--#{$status}-600);
+              }
+
               // border-color: var(--#{$status}-#{$state});
-              border-color: var(--#{$status}-600);
               @if $state == focus {
                 @include nb-outline(size(8px), rgba(var(--gray-600-rgb), color(ghost-hover)));
               }
@@ -40,37 +41,43 @@ $dark-ratio: 900;
             @if ($status == secondary) {
               color: darken(color(#{secondary}-600), 30%);
               &::before {
-                background-color: darken(color(#{secondary}-600), 30%);
+                // background-color: darken(color(#{secondary}-600), 30%);
               }
             } @else if ($status == gray) {
               color: var(--#{$status}-#{$dark-ratio});
               &::before {
-                background-color: var(--#{$status}-#{$dark-ratio});
+                // background-color: var(--#{$status}-#{$dark-ratio});
               }
             } @else if ($status == light) {
               color: var(--dark-#{$dark-ratio});
               &::before {
-                background-color: var(--dark-#{$dark-ratio});
+                // background-color: var(--dark-#{$dark-ratio});
               }
             } @else if ($status == dark) {
               color: var(--white);
               &::before {
-                background-color: var(--white);
+                // background-color: var(--white);
               }
             } @else {
               color: var(--#{$status});
               &::before {
-                background-color: var(--#{$status});
+                // background-color: var(--#{$status});
               }
             }
             @each $state in $form-state {
               &:#{$state}, &-#{$state} {
-                @if ($status == secondary) {
-                  background-color: rgba(var(--#{$status}-#{$state}-rgb), (color(ghost-#{$state}) + 0.2));
-                } @else if ($status == light) {
-                  background-color: var(--light-#{$state});
-                } @else {
-                  background-color: rgba(var(--#{$status}-#{$state}-rgb), var(--ghost-#{$state}));
+
+                &:not([disabled]) {
+                  @if $type == ghost {
+                    border: size(1px) solid transparent;
+                  }
+                  @if ($status == secondary) {
+                    background-color: rgba(var(--#{$status}-#{$state}-rgb), (color(ghost-#{$state}) + 0.2));
+                  } @else if ($status == light) {
+                    background-color: var(--light-#{$state});
+                  } @else {
+                    background-color: rgba(var(--#{$status}-#{$state}-rgb), var(--ghost-#{$state}));
+                  }
                 }
               }
             }
@@ -94,7 +101,7 @@ $dark-ratio: 900;
       }
     }
 
-    @each $name, $ratio in $shadesMap {
+    @each $name, $ratio in config(color-shades) {
       $tempColor: if($name >= 500, shade($hex-value, $ratio), tint($hex-value, $ratio));
       .#{"" + $status}-#{$name} {
         background-color: $tempColor;
@@ -109,8 +116,6 @@ $dark-ratio: 900;
           border-color: $tempColor;
         }
       }
-
-
     }
   }
 }

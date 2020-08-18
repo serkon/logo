@@ -1,3 +1,11 @@
-@import "./form-group";
-@import "./input-group";
-@import "./button";
+%loadFile {
+  @import "./form-group";
+  @import "./input-group";
+  @import "./button";
+}
+
+#{config(selector)} {
+  @if config(bootstrap)==true {
+    @extend %loadFile;
+  }
+}

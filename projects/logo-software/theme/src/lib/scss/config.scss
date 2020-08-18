@@ -18,48 +18,72 @@
 $config: if(not variable-exists(config), (), $config);
 
 $config: map-merge((
-  border-radius: 2px,
-  font-path:"~@logo-software/theme/src/lib/assets/fonts",
+  bootstrap: false,
   grid: true,
+  selector: ':root',
+  border-radius: 2px,
+  font-alternative: 'Source Sans Pro',
+  font-size: 16px,
+  font-size-base: 16px,
+  font-color: var(--dark-900),
+  font-family: 'Nunito',
+  font-icon: 'logo-i-font',
+  font-path:"~@logo-software/theme/src/lib/assets/fonts",
   grid-columns: 12,
   grid-gutter: 30px,
-  breakpoints: (
+  grid-breakpoints: (
     xs: 0,
     sm: 576px,
     md: 768px,
     lg: 992px,
     xl: 1200px,
   ),
-  container-max-widths: (
+  grid-container-max-widths: (
     xs: 100%,
     sm: 540px,
     md: 720px,
     lg: 960px,
     xl: 1140px,
+  ),
+  form-size:(
+    small: (icon-size: 12px, height: 24px, icon-container: 24px),
+    medium: (icon-size: 12px, height: 32px, icon-container: 28px),
+    large: (icon-size: 20px, height: 48px, icon-container: 46px)
+  ),
+  form-input-size:(
+    large:(font-size: 14px, padding: 10px),
+    medium:(font-size: 14px, padding: 7px),
+    small:(font-size: 12px, padding: 7px)
+  ),
+  form-button-size:(
+    large:(font-size: 14px, padding: 24px),
+    medium:(font-size: 12px, padding: 15px),
+    small:(font-size: 12px, padding: 8px)
+  ),
+  color-shades:(
+    50: 50%,
+    100: 40%,
+    200: 30%,
+    300: 20%,
+    400: 10%,
+    500: 0%,
+    600: 5%,
+    700: 10%,
+    800: 15%,
+    900: 20%,
+  ),
+  bootstrap-color-map: (
+    primary: primary,
+    secondary: secondary,
+    success: success,
+    danger: danger,
+    warning: warning,
+    info: info,
+    light: light,
+    dark: dark
   )
 ), $config);
 
-// ########################### Font Setting
-$font-icon: 'logo-font-icon';
-$font-family: 'Nunito';
-$font-alternative: 'Source Sans Pro';
-$font-default-color: var(--dark-900);
-$font-default-size: 16px;
-$font-current-size: 16px;
-// ########################### Path Setting #############################
-// $font-path: "/assets/fonts";
-$font-path: "~@logo-software/theme/src/lib/assets/fonts";
-$path-image: '$imagesPath';
-// ########################### Vertical Height Setting
-$vertical-measure: 1.375em; // 22px
-// ########################### breakpoints ##############################
-$grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px
-);
 // ########################### Colors Setting ###########################
 $colors: ();
 $list-colors: (
@@ -78,19 +102,7 @@ $list-colors: (
 $hover-shade: 600;
 $active-shade: 700;
 $focus-shade: 800;
-// shade ratio map
-$shadesMap: (
-  50: 50%,
-  100: 40%,
-  200: 30%,
-  300: 20%,
-  400: 10%,
-  500: 0%,
-  600: 5%,
-  700: 10%,
-  800: 15%,
-  900: 20%,
-);
+
 // Ghost transparency
 $ghost: 0;
 $ghost-hover: 0.08;
@@ -98,19 +110,6 @@ $ghost-active: 0.1;
 $ghost-focus: 0.08;
 // Disable transparency
 $disabled: 50%;
-
-// ########################### Define form sizes ############################
-$form-sizes: (
-  small: (font-size: 12px, padding: 8px, icon-size: 12px, height: 24px, icon-container: 24px),
-  medium: (font-size: 12px, padding: 15px, icon-size: 12px, height: 32px, icon-container: 28px),
-  large: (font-size: 14px, padding: 24px, icon-size: 20px, height: 48px, icon-container: 46px)
-);
-
-$input-sizes: (
-  small: (font-size: 12px, padding: 7, icon-size: 12px, height: 24, icon-container: 24),
-  medium: (font-size: 12px, padding: 7, icon-size: 12px, height: 32, icon-container: 28),
-  large: (font-size: 14px, padding: 10, icon-size: 20px, height: 48, icon-container: 46),
-);
 
 // ########################### Head size ###########################
 $heads-sizes: (h1: 36, h2: 24, h3: 20, h4: 18, h5: 16, h6: 14);
@@ -134,8 +133,8 @@ html {
   body {
     min-height: 100%;
     min-width: 100%;
-    font-family: $font-family !important;
-    color: $font-default-color;
+    color: config(font-color);
+    font-family: config(font-family);
     margin: 0;
   }
 }
