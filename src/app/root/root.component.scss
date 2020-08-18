@@ -1,5 +1,4 @@
-@import "~@logo-software/icons/style";
-@import "~@logo-software/theme/style";
+@import "~@logo-software/theme/base";
 
 :host {
   @include host();
@@ -111,13 +110,14 @@
       right: size(888px);
 
       .cloud-group-1 {
-        @include cloud($width: 140px, $color: var(--secondary-400), $shadow-color: rgba(color(secondary), 0.27), $shadow-height: 135px, $timing: 42s);
+        @debug rgba(var(--secondary-rgb), 0.27);
+        @include cloud($width: 140px, $color: var(--secondary-400), $shadow-color: rgba(var(--secondary-rgb), 0.27), $shadow-height: 135px, $timing: 42s);
         bottom: size(135px);
         left: 30px;
       }
 
       .cloud-group-2 {
-        @include cloud($width: 90px, $shadow-color: rgba(color(secondary), 0.27), $shadow-height: 90px, $timing: 20s, $animation-number: 2);
+        @include cloud($width: 90px, $shadow-color: rgba(var(--secondary-rgb), 0.27), $shadow-height: 90px, $timing: 20s, $animation-number: 2);
         bottom: size(90px);
         left: size(150px);
       }
@@ -135,7 +135,7 @@
     }
 
     h2, h5, p {
-      font-family: $font-alternative;
+      font-family: config(font-alternative);
       color: var(--dark-900);
       text-align: center;
       margin: 0;
@@ -173,7 +173,7 @@
       margin-bottom: size(80px);
 
       h1 {
-        font-family: $font-alternative;
+        font-family: config(font-alternative);
         font-size: size(30px);
         margin-bottom: size(60px);
 
@@ -242,7 +242,7 @@
       span.author {
         font-weight: 300;
         color: var(--dark-900);
-        font: 30px/41px $font-family;
+        font: 30px/41px config(font-family);
       }
     }
 
@@ -276,7 +276,7 @@
     }
 
     div.terms {
-      font-family: $font-alternative;
+      font-family: config(font-alternative);
       font-size: size(11px);
 
       a {
@@ -292,7 +292,7 @@
 
   footer {
     display: flex;
-    font-family: $font-alternative;
+    font-family: config(font-alternative);
     font-size: size(12px);
     color: var(--dark-500);
     text-align: center;
@@ -337,7 +337,7 @@
         color: var(--light-800);
         font-size: size(10px);
         font-weight: 200;
-        font-family: $font-alternative;
+        font-family: config(font-alternative);
         margin-bottom: size(30px);
       }
 
