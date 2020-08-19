@@ -13,17 +13,15 @@
 }
 
 #{config(selector)} {
-
   /**
   Button
    */
-  button {
-    @extend .secondary;
+  button, a {
+    @include form-generator(form-button-size);
     @extend .medium;
-    @extend .fill;
+    @extend .secondary;
     cursor: pointer;
     font-weight: bold;
-    @include form-generator(form-button-size);
   }
 
   /**
@@ -31,54 +29,61 @@
    */
   a {
     display: inline-block;
-    cursor: pointer;
     text-decoration: none;
-
-    &:hover {
-      text-decoration: none;
-    }
   }
 
   /**
   Texts:not([type])
    */
   input, textarea {
-    @extend .secondary;
+    @include form-generator(form-input-size);
     @extend .medium;
-    @extend .fill;
-    @each $status, $hex-value in $list-colors {
-      &.#{"" + $status} {
-        // @extend .#{$status};
-        @each $type in $form-type {
-          &.#{"" + $type} {
-            // @extend .#{"" + $status}.#{"" + $type};
+    @extend .secondary;
+
+    &:focus {
+      &:not([disabled]) {
+        background-color: var(--white) !important;
+        color: var(--dark-900) !important;
+      }
+    }
+  }
+
+  input {
+    &:not([type]), &[type~="text"], &[type~="password"] {
+      @each $status, $hex-value in $list-colors {
+        &.#{$status} {
+          @each $type in $form-type {
             @if ($type!=outline and $type!=ghost) {
               @include install-placeholder(
                   if($status == secondary, darken(color(#{secondary}-600), 20%), if($status==light, var(--dark-600), var(--white)))
               );
             } @else {
-              @include install-placeholder(
-                  if($status == secondary, darken(color(#{secondary}-600), 20%), if($status==light, var(--dark-600), if($status == dark, var(--white), var(--#{$status}-600))))
-              );
+              &.#{$type} {
+                @include install-placeholder(
+                    if($status == secondary, darken(color(#{secondary}-600), 20%), if($status==light, var(--dark-600), if($status == dark, var(--white), var(--#{$status}-600))))
+                );
+              }
             }
           }
         }
       }
-      &:not([type]), &[type~="text"], &[type~="password"] {
-        &:focus {
-          background-color: var(--white) !important;
-          color: var(--dark-900) !important;
-        }
-      }
     }
-    @include form-generator(form-input-size);
+  }
+
+  textarea {
+    height: initial;
   }
 
   /**
-  Textarea
-   */
-  textarea {
-    height: initial;
+  general form config
+  */
+  button, a, input, textarea {
+    border-width: size(1px);
+    border-style: solid;
+
+    &:focus {
+      @include nb-outline(size(8px), rgba(var(--gray-600-rgb), color(ghost-hover)));
+    }
   }
 
   /**
