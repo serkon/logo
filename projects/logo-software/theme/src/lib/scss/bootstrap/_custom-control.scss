@@ -1,0 +1,90 @@
+.custom-control {
+  $padding: size(19px);
+  $width: size(14px);
+  $font-size: size(14px);
+  padding-left: $padding;
+
+  input.custom-control-input {
+    display: none;
+
+    & + label.custom-control-label {
+      @extend .medium;
+      margin-bottom: 0;
+      font-size: $font-size;
+      color: config(font-color);
+
+      &::before, &::after {
+        width: $width;
+        height: $width;
+        position: absolute;
+        left: $padding * -1;
+        border: none;
+        pointer-events: auto;
+      }
+
+      &::before {
+        background-color: var(--secondary-500);
+      }
+
+      &::after {
+        // left: size(-20px);
+      }
+
+      @each $size, $value in config(form-size) {
+        &.#{$size} {
+          line-height: size(map-get($value, height));
+          min-height: size(map-get($value, height));
+
+          &::before, &::after {
+            top: size((map-get($value, height) - $width) / 2) - size(1px);
+          }
+        }
+      }
+    }
+
+    &:checked {
+      & + label.custom-control-label {
+        &::before {
+          background-color: var(--info-500);
+        }
+      }
+    }
+  }
+
+  &.custom-radio {
+    input.custom-control-input {
+      &:checked {
+        & + label.custom-control-label {
+          &::before {
+          }
+
+          &::after {
+            left: size(-15px);
+            top: size(12px) !important;
+            background-color: var(--white);
+            width: size(6px);
+            height: size(6px);
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+
+  &.custom-checkbox {
+    input.custom-control-input {
+      &:checked, &:indeterminate {
+        & + label.custom-control-label {
+          &::before {
+            border-radius: size(3px);
+          }
+
+          &::after {
+            background-color: var(--info);
+            border-radius: config(border-radius);
+          }
+        }
+      }
+    }
+  }
+}
