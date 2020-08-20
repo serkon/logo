@@ -90,8 +90,14 @@
   Label
    */
   label {
-    display: flex;
-    align-items: center;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: size(14px);
+
+    * {
+      font-size: size(14px);
+      line-height: 32px;
+    }
   }
 
   /**
@@ -103,18 +109,18 @@
     -moz-appearance: none;
     -webkit-appearance: none;
     -o-appearance: none;
-    outline: none;
-    content: none;
-    min-width: size(14px);
-    min-height: size(14px);
+    min-width: auto;
+    min-height: auto;
     width: size(14px);
     height: size(14px);
-    line-height: size(14px);
     position: relative;
     padding: 0;
-    @each $status, $hex-value in $list-colors {
-      &.#{"" + $status} {
+    vertical-align: middle;
+    @each $size, $value in config(form-size) {
+      &.#{"" + $size} {
         // @extend .#{$status};
+        $top-bottom-size: size((map-get($value, height) - 14px) / 2);
+        margin: $top-bottom-size size(5px) $top-bottom-size 0;
       }
     }
 
@@ -123,8 +129,8 @@
       content: '';
       background: currentColor;
       color: transparent;
-      width: 100%;
-      height: 100%;
+      width: size(13px);
+      height: size(13px);
       position: absolute;
       top: size(-1px);
       left: size(-1px);

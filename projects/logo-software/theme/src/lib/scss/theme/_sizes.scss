@@ -5,7 +5,6 @@
     .#{$item} {
       min-width: size(map_get($size, height));
       min-height: size(map_get($size, height) - 2px);
-      line-height: size(map_get($size, height) - 2px);
       @if config(bootstrap)==true {
         height: size(map_get($size, height));
       }
