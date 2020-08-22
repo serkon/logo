@@ -1,0 +1,16 @@
+html {
+  display: flex;
+  min-height: 100%;
+  min-width: 100%;
+  flex-direction: column;
+  flex-grow: 1;
+  -webkit-font-smoothing: antialiased;
+
+  body {
+    font-family: get("font.family");
+    min-height: 100%;
+    min-width: 100%;
+    color: get("font.color");
+    margin: 0;
+  }
+}

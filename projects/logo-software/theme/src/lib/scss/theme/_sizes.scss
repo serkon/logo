@@ -1,6 +1,6 @@
-#{config(selector)} {
+#{get("selector")} {
   $form-size-common: '';
-  @each $item, $size in config(form-size) {
+  @each $item, $size in get("form.sizes") {
     $form-size-common: $form-size-common + "." + $item + ",";
     .#{$item} {
       min-width: size(map_get($size, height));
@@ -40,7 +40,7 @@
 
   #{$form-size-common} {
     box-sizing: border-box;
-    border-radius: config(border-radius);
+    border-radius: get("border.radius");
     position: relative;
 
     &[class*=logo-i] {

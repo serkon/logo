@@ -1,0 +1,8 @@
+@mixin padding-and-font-size-generator($element) {
+  @each $item, $size in get(#{$element}) {
+    &.#{$item} {
+      font-size: size(map_get($size, font-size));
+      padding: 0 size(map_get($size, padding));
+    }
+  }
+}

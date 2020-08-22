@@ -8,146 +8,124 @@
  * Any reproduction of this material must contain this notice.
  */
 
-
-//**
-
-@function config($variable) {
-  @return map-get($config, $variable);
-}
+@import "./helpers/deep-map-merge";
 
 $config: if(not variable-exists(config), (), $config);
-
-$config: map-merge((
-  bootstrap: false,
-  grid: true,
-  selector: ':root',
-  border-radius: 2px,
-  font-alternative: 'Source Sans Pro',
-  font-size: 16px,
-  font-size-base: 16px,
-  font-color: var(--dark-900),
-  font-family: 'Nunito',
-  font-icon: 'logo-i-font',
-  font-path:"~@logo-software/theme/src/lib/assets/fonts",
-  grid-columns: 12,
-  grid-gutter: 30px,
-  grid-breakpoints: (
-    xs: 0,
-    sm: 576px,
-    md: 768px,
-    lg: 992px,
-    xl: 1200px,
+$config: deep-map-merge((
+  selector: ":root",
+  font:(
+    family: "Nunito",
+    alternative: "Source Sans Pro",
+    icon:"logo-i-font",
+    size: 16px,
+    size-base: 16px,
+    color: var(--dark-900),
+    path: "~@logo-software/theme/src/lib/assets/fonts",
   ),
-  grid-container-max-widths: (
-    xs: 100%,
-    sm: 540px,
-    md: 720px,
-    lg: 960px,
-    xl: 1140px,
+  grid:(
+    status: true,
+    columns: 12,
+    gutter: 30px,
+    breakpoints: (
+      xs: 0,
+      sm: 576px,
+      md: 768px,
+      lg: 992px,
+      xl: 1200px,
+    ),
+    container-max-widths: (
+      xs: 100%,
+      sm: 540px,
+      md: 720px,
+      lg: 960px,
+      xl: 1140px,
+    ),
   ),
-  form-size:(
-    small: (icon-size: 12px, height: 24px, icon-container: 24px),
-    medium: (icon-size: 12px, height: 32px, icon-container: 28px),
-    large: (icon-size: 20px, height: 48px, icon-container: 46px)
+  border:(
+    radius: 2px
   ),
-  form-input-size:(
-    large:(font-size: 14px, padding: 10px),
-    medium:(font-size: 14px, padding: 7px),
-    small:(font-size: 12px, padding: 7px)
+  form: (
+    dark-shade: 900,
+    secondary-font-darkener: 30%,
+    states: hover active focus,
+    types: fill outline ghost,
+    sizes:(
+      small: (icon-size: 12px, height: 24px, icon-container: 24px),
+      medium: (icon-size: 12px, height: 32px, icon-container: 28px),
+      large: (icon-size: 20px, height: 48px, icon-container: 46px)
+    ),
+    input:(
+      large:(font-size: 14px, padding: 10px),
+      medium:(font-size: 14px, padding: 7px),
+      small:(font-size: 12px, padding: 7px)
+    ),
+    button:(
+      large:(font-size: 14px, padding: 24px),
+      medium:(font-size: 12px, padding: 15px),
+      small:(font-size: 12px, padding: 8px)
+    ),
+    heads: (
+      large: (h1: 36px, h2: 24px, h3: 20px, h4: 18px, h5: 16px, h6: 14px),
+      medium:(h1: 30px, h2: 22px, h3: 18px, h4: 16px, h5: 14px, h6: 12px),
+      small:(h1: 24px, h2: 20px, h3: 16px, h4: 14px, h5: 12px, h6: 10px),
+    ),
+    paragraphs: (
+      large: (font-size: 16px),
+      medium: (font-size: 14px),
+      small: (font-size: 12px)
+    )
   ),
-  form-button-size:(
-    large:(font-size: 14px, padding: 24px),
-    medium:(font-size: 12px, padding: 15px),
-    small:(font-size: 12px, padding: 8px)
+  color: (
+    list: (
+      brand: #7500ff,
+      primary: #0090ff,
+      secondary: #f2f4f9, // #a1b9d1, // #75899e, //#cdd7e2, //#f2f4f9,
+      light: #ffffff,
+      dark: #717171,
+      gray: #cccccc,
+      info: #0090ff,
+      danger: #ff3e51,
+      warning: #f8aa1c,
+      success: #01cc78,
+    ),
+    shades:(
+      50: 50%,
+      100: 40%,
+      200: 30%,
+      300: 20%,
+      400: 10%,
+      500: 0%,
+      600: 5%,
+      700: 10%,
+      800: 15%,
+      900: 20%,
+    ),
+    shade-states:(
+      hover: 600,
+      active: 700,
+      focus: 800
+    ),
+    disabled-opacity: 50%,
+    ghost-transparency:(
+      ghost: 0,
+      hover: 0.08,
+      active: 0.1,
+      focus: 0.08
+    ),
   ),
-  color-shades:(
-    50: 50%,
-    100: 40%,
-    200: 30%,
-    300: 20%,
-    400: 10%,
-    500: 0%,
-    600: 5%,
-    700: 10%,
-    800: 15%,
-    900: 20%,
+  bootstrap:(
+    status: false,
+    color-map:(
+      primary: primary,
+      secondary: secondary,
+      success: success,
+      danger: danger,
+      warning: warning,
+      info: info,
+      light: light,
+      dark: dark
+    )
   ),
-  bootstrap-color-map: (
-    primary: primary,
-    secondary: secondary,
-    success: success,
-    danger: danger,
-    warning: warning,
-    info: info,
-    light: light,
-    dark: dark
-  ),
-  colors: (
-    brand: #7500ff,
-    primary: #0090ff,
-    secondary: #f2f4f9, // #a1b9d1, // #75899e, //#cdd7e2, //#f2f4f9,
-    light: #ffffff,
-    dark: #717171,
-    gray: #cccccc,
-    info: #0090ff,
-    danger: #ff3e51,
-    warning: #f8aa1c,
-    success: #01cc78,
-  ),
-  color-disabled: 50%,
-), $config);
-
-// ########################### Colors Setting ###########################
+  tab:(align: center, height: null)
+), $config, true);
 $colors: ();
-$list-colors: (
-  brand: #7500ff,
-  primary: #0090ff,
-  secondary: #f2f4f9, // #a1b9d1, // #75899e, //#cdd7e2, //#f2f4f9,
-  light: #ffffff,
-  dark: #717171,
-  gray: #cccccc,
-  info: #0090ff,
-  danger: #ff3e51,
-  warning: #f8aa1c,
-  success: #01cc78,
-);
-// Default shade is 500 select one of the list from 50, 100, 200, 300, 400, 500, 600, 700, 800, 900
-$hover-shade: 600;
-$active-shade: 700;
-$focus-shade: 800;
-
-// Ghost transparency
-$ghost: 0;
-$ghost-hover: 0.08;
-$ghost-active: 0.1;
-$ghost-focus: 0.08;
-// Disable transparency
-$disabled: 50%;
-
-// ########################### Head size ###########################
-$heads-sizes: (h1: 36, h2: 24, h3: 20, h4: 18, h5: 16, h6: 14);
-
-// ########################### Paragraph size ###########################
-$paragraph-sizes: (large: 16, medium: 14, small: 12);
-
-// ########################### Border radius size ###########################
-$border-radius: 2px;
-
-// ########################### Body #########################################
-
-html {
-  display: flex;
-  min-height: 100%;
-  min-width: 100%;
-  flex-direction: column;
-  flex-grow: 1;
-  -webkit-font-smoothing: antialiased;
-
-  body {
-    min-height: 100%;
-    min-width: 100%;
-    color: config(font-color);
-    font-family: config(font-family);
-    margin: 0;
-  }
-}

@@ -9,5 +9,5 @@
  */
 
 @function size($px) {
-  @return ($px / config(font-size-base)) * config(font-size);
+  @return ($px / get("font.size-base")) * get("font.size");
 }

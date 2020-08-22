@@ -1,13 +1,10 @@
-button:not(:disabled),
-[type="button"]:not(:disabled),
-[type="reset"]:not(:disabled),
-[type="submit"]:not(:disabled) {
+button {
   &.btn {
     &:focus {
       @extend button:focus;
     }
 
-    @each $key, $color in config(bootstrap-color-map) {
+    @each $key, $color in get("bootstrap.color-map") {
       &.btn-#{$color} {
         @extend .#{$color};
       }

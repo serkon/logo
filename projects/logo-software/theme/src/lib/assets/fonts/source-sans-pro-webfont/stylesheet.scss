@@ -1,4 +1,4 @@
-$path: "#{config(font-path)}/source-sans-pro-webfont";
+$path: "#{get("font.path")}/source-sans-pro-webfont";
 @font-face {
   font-family: 'Source Sans Pro';
   src: url('#{$path}/SourceSansPro-Black.woff2') format('woff2'),

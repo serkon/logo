@@ -1,19 +1,14 @@
-// $form-status: primary secondary success info warning danger light dark gray;
-$form-state: hover active focus;
-$form-type: fill outline ghost;
-$dark-ratio: 900;
-$darken-color: darken(color(#{secondary}-600), 30%);
+$secondary-font-darkened: darken(color(#{secondary}-600), get("form.secondary-font-darkener"));
 
-
-#{config(selector)} {
-  @each $status, $hex-value in config(colors) {
+#{get("selector")} {
+  @each $status, $hex-value in get("color.list") {
     .#{$status} {
-      @each $type in $form-type {
+      @each $type in get("form.types") {
         @if $type != outline and $type != ghost {
           background-color: var(--#{$status}-500);
           border-color: var(--#{$status}-500);
-          color: if($status == light, var(--dark-#{$dark-ratio}), if($status == secondary, $darken-color, var(--white)));
-          @each $state in $form-state {
+          color: if($status == light, var(--dark-#{get("form.dark-shade")}), if($status == secondary, $secondary-font-darkened, var(--white)));
+          @each $state in get("form.states") {
             &:#{$state} {
               &:not([disabled]) {
                 background-color: var(--#{$status}-#{$state});
@@ -30,17 +25,17 @@ $darken-color: darken(color(#{secondary}-600), 30%);
               border-color: transparent;
             }
             @if ($status == secondary) {
-              color: $darken-color;
+              color: $secondary-font-darkened;
             } @else if ($status == gray) {
-              color: var(--#{$status}-#{$dark-ratio});
+              color: var(--#{$status}-#{get("form.dark-shade")});
             } @else if ($status == light) {
-              color: var(--dark-#{$dark-ratio});
+              color: var(--dark-#{get("form.dark-shade")});
             } @else if ($status == dark) {
               color: var(--white);
             } @else {
               color: var(--#{$status});
             }
-            @each $state in $form-state {
+            @each $state in get("form.states") {
               &:#{$state} {
                 &:not([disabled]) {
                   @if ($type == ghost) {
@@ -76,18 +71,18 @@ $darken-color: darken(color(#{secondary}-600), 30%);
       }
 
       &:disabled {
-        opacity: config(color-disabled);
+        opacity: get("color.disabled-opacity");
       }
     }
 
-    @each $name, $ratio in config(color-shades) {
+    @each $name, $ratio in get("color.shades") {
       $tempColor: if($name >= 500, shade($hex-value, $ratio), tint($hex-value, $ratio));
       .#{"" + $status}-#{$name} {
         background-color: $tempColor;
         border-color: $tempColor;
 
         $temp-class-names: '';
-        @each $state in $form-state {
+        @each $state in get("form.states") {
           $temp-class-names: $temp-class-names + "&" + ":" + $state + ",";
         }
 

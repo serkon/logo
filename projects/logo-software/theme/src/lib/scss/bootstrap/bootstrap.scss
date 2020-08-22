@@ -4,11 +4,11 @@
   @import "./button";
   @import "./text_truncate";
   @import "./custom-control";
-  // @import "./tab";
+  @import "./tab";
 }
 
-#{config(selector)} {
-  @if config(bootstrap)==true {
+#{get("selector")} {
+  @if get("bootstrap.status")==true {
     @extend %loadFile;
   }
 }

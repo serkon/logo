@@ -28,7 +28,7 @@
         // left: size(-20px);
       }
 
-      @each $size, $value in config(form-size) {
+      @each $size, $value in get("form.sizes") {
         &.#{$size} {
           line-height: size(map-get($value, height));
           min-height: size(map-get($value, height));
@@ -79,7 +79,7 @@
 
           &::after {
             background-color: var(--info);
-            border-radius: config(border-radius);
+            border-radius: get("border.radius");
           }
         }
       }

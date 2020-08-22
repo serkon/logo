@@ -1,16 +1,23 @@
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
-  line-height: 1.5;
   margin: 0;
 }
 
-@each $name, $size in $heads-sizes {
-  #{$name} {
-    font-size: #{size($size)}px;
+@each $size, $items in get("form.heads") {
+  @each $item, $value in $items {
+    #{$item + "." + $size} {
+      font-size: size($value);
+    }
   }
 }
 
 p {
   font-weight: 400;
-  line-height: 1.5;
+  margin: 0;
+
+  @each $size, $value in get("form.paragraphs") {
+    &.#{$size} {
+      font-size: get("form.paragraphs." + $size + ".font-size");
+    }
+  }
 }

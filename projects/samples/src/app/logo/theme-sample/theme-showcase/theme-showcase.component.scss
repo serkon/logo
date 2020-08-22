@@ -30,8 +30,7 @@
         margin: size(20px) 0 0 0;
         text-align: center;
         color: var(--gray-900);
-        border-top: 1px solid #efefef;
-        // border-bottom: 1px solid #efefef;
+        border-top: size(1px) solid #efefef;
         text-transform: uppercase;
       }
 
@@ -61,7 +60,7 @@
     div.colors {
       .group {
         .cell-container {
-          border-bottom: 0.1px solid #efefef;
+          border-bottom: size(0.1px) solid #efefef;
           padding-right: size(15px);
 
           &:last-of-type {

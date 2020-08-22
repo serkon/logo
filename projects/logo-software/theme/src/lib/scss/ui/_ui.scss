@@ -1,18 +1,9 @@
-@mixin form-generator($element) {
-  @each $item, $size in config(#{$element}) {
-    &.#{$item} {
-      font-size: size(map_get($size, font-size));
-      padding: 0 size(map_get($size, padding));
-    }
-  }
-}
-
-#{config(selector)} {
+#{get("selector")} {
   /**
   Button
    */
   button {
-    @include form-generator(form-button-size);
+    @include padding-and-font-size-generator("form.button");
     @extend .medium;
     @extend .secondary;
     cursor: pointer;
@@ -23,18 +14,19 @@
   Link
    */
   a {
-    @include form-generator(form-button-size);
+    @include padding-and-font-size-generator("form.button");
     @extend .medium;
     display: inline-block;
     text-decoration: none;
-    line-height: get('form-size.medium.height');
+    line-height: get('form.sizes.medium.height');
+    cursor: pointer;
   }
 
   /**
   Texts:not([type])
    */
   input, textarea {
-    @include form-generator(form-input-size);
+    @include padding-and-font-size-generator("form.input");
     @extend .medium;
     @extend .secondary;
 
@@ -48,17 +40,17 @@
 
   input {
     &:not([type]), &[type~="text"], &[type~="password"] {
-      @each $status, $hex-value in $list-colors {
+      @each $status, $hex-value in get("color.list") {
         &.#{$status} {
-          @each $type in $form-type {
+          @each $type in get("form.types") {
             @if ($type!=outline and $type!=ghost) {
               @include install-placeholder(
-                  if($status == secondary, transparentize($darken-color, 0.2), if($status==light, var(--dark-600), var(--white)))
+                  if($status == secondary, transparentize($secondary-font-darkened, 0.2), if($status==light, var(--dark-600), var(--white)))
               );
             } @else {
               &.#{$type} {
                 @include install-placeholder(
-                    if($status == secondary, transparentize($darken-color, 0.2), if($status==light, var(--dark-600), if($status == dark, var(--white), var(--#{$status}-600))))
+                    if($status == secondary, transparentize($secondary-font-darkened, 0.2), if($status==light, var(--dark-600), if($status == dark, var(--white), var(--#{$status}-600))))
                 );
               }
             }
@@ -69,10 +61,11 @@
   }
 
   textarea {
-    @each $size, $value in config(form-input-size) {
+    height: auto;
+
+    @each $size, $value in get("form.input") {
       &.#{$size} {
         padding: size(map-get($value, padding));
-        height: auto;
       }
     }
   }
@@ -103,8 +96,7 @@
   Checkbox
    */
   input[type=checkbox] {
-    // @extend .secondary;
-    border-radius: size(config(border-radius));
+    border-radius: size(get("border.radius"));
     -moz-appearance: none;
     -webkit-appearance: none;
     -o-appearance: none;
@@ -115,9 +107,8 @@
     position: relative;
     padding: 0;
     vertical-align: middle;
-    @each $size, $value in config(form-size) {
+    @each $size, $value in get("form.sizes") {
       &.#{"" + $size} {
-        // @extend .#{$status};
         $top-bottom-size: size((map-get($value, height) - 14px) / 2);
         margin: $top-bottom-size size(5px) $top-bottom-size 0;
       }

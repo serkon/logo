@@ -10,15 +10,16 @@
 
 //################# Grid Sistemi v.1.1  **/
 
-$grid-columns: config(grid-columns);
-$gutter: config(grid-gutter);
-$breakpoints: config(grid-breakpoints);
-$container-max-widths: config(grid-container-max-widths);
+$grid-columns: get("grid.columns");
+$gutter: get("grid.gutter");
+$breakpoints: get("grid.breakpoints");
+$container-max-widths: get("grid.container-max-widths");
 
 @mixin grid($max-widths: $container-max-widths, $breakpoints: $breakpoints, $grid-columns: $grid-columns, $gutter: $gutter) {
   @if not variable-exists(container-max-widths) or not $max-widths {
     /* I get output to the CSS file */
   }
+
   @each $breakpoint, $value in $breakpoints {
     $device: $breakpoint;
     $keys: map-keys($breakpoints);
@@ -91,8 +92,6 @@ $container-max-widths: config(grid-container-max-widths);
   }
 }
 
-@if (config(grid) ==true) {
+@if (get("grid.status") ==true) {
   @include grid();
 }
-
-
