@@ -1,0 +1,55 @@
+$tab: config(tab);
+.nav.nav-tabs, .nav.nav-pills, .nav.nav-fill {
+  border-radius: config(border-radius);
+  box-shadow: 0 size(2px) size(4px) 0 #6a78f527;
+  padding: 0 size(10px);
+  display: flex;
+  justify-content: get('tab.align');
+
+  .nav-item {
+    .nav-link {
+      display: flex;
+      align-items: center;
+      margin: size(10px) size(20px) size(10px) 0;
+      font-weight: 800;
+      color: $darken-color;
+
+      $form-button-size: config(form-button-size);
+      @each $size, $value in config(form-size) {
+        $height: if(get('tab.height') != null, size(get('tab.height')), size(get(#{'form-size.'+ $size + '.height'})));
+        &.#{$size} {
+          @debug $height;
+          font-size: size(get(#{'form-button-size.'+ $size + '.font-size'}));
+          padding: 0 size(get(#{'form-button-size.'+ $size + '.padding'}));
+          height: $height;
+          min-height: $height;
+          border-radius: $height / 2;
+        }
+      }
+
+      @each $color, $value in config(colors) {
+        &.#{$color} {
+          @extend .#{$color};
+        }
+      }
+
+      &.secondary {
+        color: $darken-color;
+      }
+
+      &.active {
+        border-bottom: none;
+        @extend .info;
+
+        @each $color, $value in config(colors) {
+          &.#{$color} {
+            @extend .#{$color};
+          }
+        }
+      }
+
+      &.disabled {
+      }
+    }
+  }
+}

@@ -1,8 +1,8 @@
 .custom-control {
   $padding: size(19px);
   $width: size(14px);
-  $font-size: size(14px);
   padding-left: $padding;
+  margin: 0;
 
   input.custom-control-input {
     display: none;
@@ -10,14 +10,12 @@
     & + label.custom-control-label {
       @extend .medium;
       margin-bottom: 0;
-      font-size: $font-size;
-      color: config(font-color);
 
       &::before, &::after {
-        width: $width;
-        height: $width;
         position: absolute;
         left: $padding * -1;
+        width: $width;
+        height: $width;
         border: none;
         pointer-events: auto;
       }
@@ -60,7 +58,7 @@
 
           &::after {
             left: size(-15px);
-            top: size(12px) !important;
+            top: size(12px);
             background-color: var(--white);
             width: size(6px);
             height: size(6px);
@@ -82,6 +80,43 @@
           &::after {
             background-color: var(--info);
             border-radius: config(border-radius);
+          }
+        }
+      }
+    }
+  }
+
+  &.custom-switch {
+    padding-left: size(57px);
+
+    input.custom-control-input {
+      & + label.custom-control-label {
+        &::before {
+          width: 52px;
+          height: 32px;
+          border-radius: 16px;
+          left: -55px;
+          top: 0;
+        }
+
+        &::after {
+          left: size(-53px);
+          background-color: var(--white);
+          width: size(32px - 4px);
+          height: size(32px - 4px);
+          border-radius: 50%;
+          top: 2px;
+        }
+      }
+
+      &:checked {
+        & + label.custom-control-label {
+          &::before {
+          }
+
+          &::after {
+            left: size(-45px);
+            background-color: var(--white);
           }
         }
       }

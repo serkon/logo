@@ -3,11 +3,6 @@
     &.#{$item} {
       font-size: size(map_get($size, font-size));
       padding: 0 size(map_get($size, padding));
-      @each $type in $form-type {
-        &.#{$type} {
-          padding: if($type == outline, 0 size(map_get($size, padding) - 2px), 0 size(map_get($size, padding)));
-        }
-      }
     }
   }
 }
@@ -16,7 +11,7 @@
   /**
   Button
    */
-  button, a {
+  button {
     @include form-generator(form-button-size);
     @extend .medium;
     @extend .secondary;
@@ -28,8 +23,11 @@
   Link
    */
   a {
+    @include form-generator(form-button-size);
+    @extend .medium;
     display: inline-block;
     text-decoration: none;
+    line-height: get('form-size.medium.height');
   }
 
   /**
@@ -55,12 +53,12 @@
           @each $type in $form-type {
             @if ($type!=outline and $type!=ghost) {
               @include install-placeholder(
-                  if($status == secondary, darken(color(#{secondary}-600), 20%), if($status==light, var(--dark-600), var(--white)))
+                  if($status == secondary, transparentize($darken-color, 0.2), if($status==light, var(--dark-600), var(--white)))
               );
             } @else {
               &.#{$type} {
                 @include install-placeholder(
-                    if($status == secondary, darken(color(#{secondary}-600), 20%), if($status==light, var(--dark-600), if($status == dark, var(--white), var(--#{$status}-600))))
+                    if($status == secondary, transparentize($darken-color, 0.2), if($status==light, var(--dark-600), if($status == dark, var(--white), var(--#{$status}-600))))
                 );
               }
             }
@@ -71,13 +69,18 @@
   }
 
   textarea {
-    height: initial;
+    @each $size, $value in config(form-input-size) {
+      &.#{$size} {
+        padding: size(map-get($value, padding));
+        height: auto;
+      }
+    }
   }
 
   /**
   general form config
   */
-  button, a, input, textarea {
+  button, input, a, textarea {
     border-width: size(1px);
     border-style: solid;
 
@@ -93,11 +96,7 @@
     display: inline-block;
     vertical-align: middle;
     font-size: size(14px);
-
-    * {
-      font-size: size(14px);
-      line-height: 32px;
-    }
+    cursor: pointer;
   }
 
   /**
@@ -153,7 +152,6 @@
         -webkit-mask-repeat: no-repeat;
         -webkit-mask-position: center;
         -webkit-mask-size: contain;
-        // color: currentColor;
         color: var(--white);
       }
     }

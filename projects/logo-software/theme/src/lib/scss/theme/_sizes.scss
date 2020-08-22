@@ -4,10 +4,7 @@
     $form-size-common: $form-size-common + "." + $item + ",";
     .#{$item} {
       min-width: size(map_get($size, height));
-      min-height: size(map_get($size, height) - 2px);
-      @if config(bootstrap)==true {
-        height: size(map_get($size, height));
-      }
+      height: size(map_get($size, height));
 
       &[class*=logo-i] {
         $icon-size-info: size(map_get($size, icon-size) * 2);

@@ -2,6 +2,8 @@
 $form-state: hover active focus;
 $form-type: fill outline ghost;
 $dark-ratio: 900;
+$darken-color: darken(color(#{secondary}-600), 30%);
+
 
 #{config(selector)} {
   @each $status, $hex-value in config(colors) {
@@ -10,7 +12,7 @@ $dark-ratio: 900;
         @if $type != outline and $type != ghost {
           background-color: var(--#{$status}-500);
           border-color: var(--#{$status}-500);
-          color: if($status == light, var(--dark-#{$dark-ratio}), if($status == secondary, darken(color(#{secondary}-600), 30%), var(--white)));
+          color: if($status == light, var(--dark-#{$dark-ratio}), if($status == secondary, $darken-color, var(--white)));
           @each $state in $form-state {
             &:#{$state} {
               &:not([disabled]) {
@@ -28,7 +30,7 @@ $dark-ratio: 900;
               border-color: transparent;
             }
             @if ($status == secondary) {
-              color: darken(color(#{secondary}-600), 30%);
+              color: $darken-color;
             } @else if ($status == gray) {
               color: var(--#{$status}-#{$dark-ratio});
             } @else if ($status == light) {
