@@ -11,7 +11,7 @@
 
 //**
 
-@function config($variable) {
+@function config($variable, $config: $config) {
   @return map-get($config, $variable);
 }
 
@@ -95,6 +95,10 @@ $config: map-merge((
     success: #01cc78,
   ),
   color-disabled: 50%,
+  tab:(
+    align: center,
+    height: null
+  ),
 ), $config);
 
 // ########################### Colors Setting ###########################
