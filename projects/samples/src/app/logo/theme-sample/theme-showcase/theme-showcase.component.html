@@ -75,6 +75,25 @@
   </div>
 
   <div class="card">
+    <h2>LINKS</h2>
+    <div class="view" *ngFor="let type of types">
+      <div class="type-text">{{type}}</div>
+      <div class="group">
+        <div class="cell-container">
+          <div class="cell hidden-xs hidden-sm hidden-md split-lg-10" *ngFor="let status of statuses">
+            {{status}}
+          </div>
+        </div>
+        <div class="cell-container">
+          <div class="cell split-xs-5 split-lg-10" *ngFor="let status of statuses">
+            <a class="{{type}} {{status}} logo-i-saved-offline-glyph icon-left">LINK</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
     <h2>INPUTS</h2>
     <div class="view" *ngFor="let type of types">
       <div class="type-text">{{type}}</div>
