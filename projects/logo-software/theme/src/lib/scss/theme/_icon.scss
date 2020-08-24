@@ -1,0 +1,78 @@
+/**
+ * @license
+ * Copyright Logo Yazılım. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of Logo Yazılım.
+ * Any reproduction of this material must contain this notice.
+ */
+#{get("selector")} {
+  [class*=logo-i] {
+    position: relative;
+
+    &::before {
+      -webkit-mask-position: center;
+      mask-position: center;
+      top: 0;
+      left: 0;
+      content: "";
+    }
+
+    &.outline {
+      &::before {
+        top: size(-1px);
+        left: size(-1px);
+      }
+    }
+
+    &.icon-right {
+      &::before {
+        left: auto;
+      }
+
+      &.fill, &.ghost {
+        &::before {
+          right: 0;
+        }
+      }
+
+      &.outline {
+        &::before {
+          right: size(-1px);
+        }
+      }
+    }
+  }
+
+  @each $item, $size in get("form.sizes") {
+    $icon-size-info: size(map_get($size, icon-size) * 2);
+    .#{$item} {
+      &[class*=logo-i] {
+        &::before {
+          width: size(map_get($size, height));
+          height: size(map_get($size, height));
+          -webkit-mask-size: size(map_get($size, icon-size));
+          mask-size: size(map_get($size, icon-size));
+        }
+
+        &.icon-left {
+          &::before {
+            width: size(map_get($size, icon-container));
+          }
+
+          padding-left: size(map_get($size, icon-container));
+        }
+
+        &.icon-right {
+          &::before {
+            width: size(map_get($size, icon-container));
+          }
+
+          padding-right: size(map_get($size, icon-container));
+        }
+      }
+    }
+  }
+}
+

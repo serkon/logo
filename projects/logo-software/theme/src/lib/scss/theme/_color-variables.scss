@@ -8,12 +8,13 @@
  * Any reproduction of this material must contain this notice.
  */
 
-#{get("selector")} {
-  @each $item, $size in get("form.sizes") {
-    .#{$item} {
-      box-sizing: border-box;
-      min-width: size(map_get($size, height));
-      height: size(map_get($size, height));
+@if get("debug")==false {
+  :root {
+    @each $name, $hex-value in $colors {
+      --#{$name}: #{$hex-value};
+      @if (not str-index(quote($name), "ghost")) {
+        --#{$name}-rgb: #{hexToRGB($hex-value, $name)};
+      }
     }
   }
 }

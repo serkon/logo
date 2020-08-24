@@ -10,6 +10,4 @@
 
 @mixin animate( $event: all, $time:0.1s, $animate:linear) {
   transition: $event $time $animate;
-  -moz-transition: $event $time $animate;
-  -webkit-transition: $event $time $animate;
 }

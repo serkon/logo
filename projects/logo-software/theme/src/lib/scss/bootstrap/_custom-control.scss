@@ -5,19 +5,21 @@
   margin: 0;
 
   input.custom-control-input {
-    display: none;
+    // display: none;
+    opacity: 1;
 
     & + label.custom-control-label {
       @extend .medium;
       margin-bottom: 0;
 
       &::before, &::after {
-        position: absolute;
-        left: $padding * -1;
-        width: $width;
-        height: $width;
-        border: none;
-        pointer-events: auto;
+        // position: absolute;
+        // left: $padding * -1;
+        // width: $width;
+        // height: $width;
+        // border: none;
+        // pointer-events: auto;
+        display: none;
       }
 
       &::before {
@@ -49,28 +51,11 @@
     }
   }
 
-  &.custom-radio {
-    input.custom-control-input {
-      &:checked {
-        & + label.custom-control-label {
-          &::before {
-          }
-
-          &::after {
-            left: size(-15px);
-            top: size(12px);
-            background-color: var(--white);
-            width: size(6px);
-            height: size(6px);
-            border-radius: 50%;
-          }
-        }
-      }
-    }
-  }
-
   &.custom-checkbox {
     input.custom-control-input {
+      display: inline-block !important;
+      width: $width !important;
+
       &:checked, &:indeterminate {
         & + label.custom-control-label {
           &::before {

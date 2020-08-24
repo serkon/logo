@@ -10,6 +10,8 @@
 
 //################# Grid Sistemi v.1.1  **/
 
+@import "responsive";
+
 $grid-columns: get("grid.columns");
 $gutter: get("grid.gutter");
 $breakpoints: get("grid.breakpoints");

@@ -1,4 +1,4 @@
-%loadFile {
+%loadBootstrapFile {
   @import "./form-group";
   @import "./input-group";
   @import "./button";
@@ -9,6 +9,6 @@
 
 #{get("selector")} {
   @if get("bootstrap.status")==true {
-    @extend %loadFile;
+    @extend %loadBootstrapFile;
   }
 }

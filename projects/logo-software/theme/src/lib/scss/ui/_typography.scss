@@ -1,23 +1,25 @@
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 400;
-  margin: 0;
-}
+#{get("selector")} {
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+    margin: 0;
+  }
 
-@each $size, $items in get("form.heads") {
-  @each $item, $value in $items {
-    #{$item + "." + $size} {
-      font-size: size($value);
+  @each $size, $items in get("form.heads") {
+    @each $item, $value in $items {
+      #{$item + "." + $size} {
+        font-size: size($value);
+      }
     }
   }
-}
 
-p {
-  font-weight: 400;
-  margin: 0;
+  p {
+    font-weight: 400;
+    margin: 0;
 
-  @each $size, $value in get("form.paragraphs") {
-    &.#{$size} {
-      font-size: get("form.paragraphs." + $size + ".font-size");
+    @each $size, $value in get("form.paragraphs") {
+      &.#{$size} {
+        font-size: get("form.paragraphs." + $size + ".font-size");
+      }
     }
   }
 }
