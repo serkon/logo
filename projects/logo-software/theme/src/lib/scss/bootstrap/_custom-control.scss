@@ -1,5 +1,5 @@
 .custom-control {
-  $padding: size(19px);
+  $padding: 0;
   $width: size(14px);
   padding-left: $padding;
   margin: 0;
@@ -13,39 +13,13 @@
       margin-bottom: 0;
 
       &::before, &::after {
-        // position: absolute;
-        // left: $padding * -1;
-        // width: $width;
-        // height: $width;
-        // border: none;
-        // pointer-events: auto;
         display: none;
-      }
-
-      &::before {
-        background-color: var(--secondary-500);
-      }
-
-      &::after {
-        // left: size(-20px);
       }
 
       @each $size, $value in get("form.sizes") {
         &.#{$size} {
-          line-height: size(map-get($value, height));
+          line-height: size(map-get($value, height)) + 1px;
           min-height: size(map-get($value, height));
-
-          &::before, &::after {
-            top: size((map-get($value, height) - $width) / 2) - size(1px);
-          }
-        }
-      }
-    }
-
-    &:checked {
-      & + label.custom-control-label {
-        &::before {
-          background-color: var(--info-500);
         }
       }
     }
@@ -72,35 +46,64 @@
   }
 
   &.custom-switch {
-    padding-left: size(57px);
+    $switch-size: size(52px);
+    $padding-left: $switch-size + size(5px);
+    $smaller-circle: size(2px);
+    padding-left: $padding-left;
 
     input.custom-control-input {
       & + label.custom-control-label {
+
         &::before {
-          width: 52px;
-          height: 32px;
-          border-radius: 16px;
-          left: -55px;
+          background-color: var(--secondary-500);
+        }
+
+        &::before, &::after {
+          position: absolute;
+          border: none;
+          pointer-events: auto;
+          display: inline-block;
+        }
+
+        &::before {
+          width: $switch-size;
+          left: $padding-left * -1;
           top: 0;
         }
 
         &::after {
-          left: size(-53px);
+          left: ($padding-left - $smaller-circle) * -1;
           background-color: var(--white);
-          width: size(32px - 4px);
-          height: size(32px - 4px);
           border-radius: 50%;
-          top: 2px;
+          top: size($smaller-circle);
+        }
+
+        @each $size, $value in get("form.sizes") {
+          &.#{$size} {
+            $height: size(map-get($value, height));
+
+            &::before {
+              height: $height;
+              border-radius: $height / 2;
+            }
+
+            &::after {
+              $after-size: $height - $smaller-circle * 2;
+              height: $after-size;
+              width: $after-size;
+            }
+          }
         }
       }
 
       &:checked {
         & + label.custom-control-label {
           &::before {
+            background-color: var(--info-500);
           }
 
           &::after {
-            left: size(-45px);
+            left: size(-47px);
             background-color: var(--white);
           }
         }
