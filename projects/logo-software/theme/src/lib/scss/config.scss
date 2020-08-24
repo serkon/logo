@@ -65,9 +65,9 @@ $config: deep-map-merge((
       small:(padding: 8px)
     ),
     switch:(
-      large:(padding: 24px),
-      medium:(padding: 15px),
-      small:(padding: 8px)
+      large:(width: 82px, circle-padding: 4px),
+      medium:(width: 52px, circle-padding: 2px),
+      small:(width: 38px, circle-padding: 2px)
     ),
     heads: (
       large: (h1: 36px, h2: 24px, h3: 20px, h4: 18px, h5: 16px, h6: 14px),

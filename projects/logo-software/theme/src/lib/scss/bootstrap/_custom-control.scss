@@ -5,21 +5,22 @@
   margin: 0;
 
   input.custom-control-input {
-    // display: none;
     opacity: 1;
 
     & + label.custom-control-label {
-      @extend .medium;
       margin-bottom: 0;
 
       &::before, &::after {
         display: none;
       }
+    }
+  }
 
-      @each $size, $value in get("form.sizes") {
-        &.#{$size} {
-          line-height: size(map-get($value, height)) + 1px;
-          min-height: size(map-get($value, height));
+  @each $size, $value in get("form.sizes") {
+    &.#{$size} {
+      input.custom-control-input {
+        & + label.custom-control-label {
+          @extend label.#{$size};
         }
       }
     }
@@ -46,14 +47,10 @@
   }
 
   &.custom-switch {
-    $switch-size: size(52px);
-    $padding-left: $switch-size + size(5px);
-    $smaller-circle: size(2px);
-    padding-left: $padding-left;
+    @extend .custom-switch.medium;
 
     input.custom-control-input {
       & + label.custom-control-label {
-
         &::before {
           background-color: var(--secondary-500);
         }
@@ -66,33 +63,13 @@
         }
 
         &::before {
-          width: $switch-size;
-          left: $padding-left * -1;
           top: 0;
         }
 
         &::after {
-          left: ($padding-left - $smaller-circle) * -1;
           background-color: var(--white);
           border-radius: 50%;
-          top: size($smaller-circle);
-        }
-
-        @each $size, $value in get("form.sizes") {
-          &.#{$size} {
-            $height: size(map-get($value, height));
-
-            &::before {
-              height: $height;
-              border-radius: $height / 2;
-            }
-
-            &::after {
-              $after-size: $height - $smaller-circle * 2;
-              height: $after-size;
-              width: $after-size;
-            }
-          }
+          box-shadow: 0 0 size(4px) 0 var(--gray-50);
         }
       }
 
@@ -103,11 +80,51 @@
           }
 
           &::after {
-            left: size(-47px);
             background-color: var(--white);
+            box-shadow: 0 0 size(4px) 0 #00000040;
+          }
+        }
+      }
+    }
+
+    @each $size, $value in get("form.sizes") {
+      &.#{$size} {
+        $width: size(get("form.switch."+$size+".width"));
+        $circle-padding: size(get("form.switch."+$size+".circle-padding"));
+        $padding-left: $width + size(5px);
+        $height: size(map-get($value, height));
+        $after-size: size($height - $circle-padding * 2);
+        padding-left: $padding-left;
+
+        input.custom-control-input {
+          & + label.custom-control-label {
+            &::before {
+              width: $width;
+              left: $padding-left * -1;
+              height: $height;
+              border-radius: $height / 2;
+            }
+
+            &::after {
+              left: ($padding-left - $circle-padding) * -1;
+              background-color: var(--white);
+              border-radius: 50%;
+              top: $circle-padding;
+              height: $after-size;
+              width: $after-size;
+            }
+          }
+
+          &:checked {
+            & + label.custom-control-label {
+              &::after {
+                left: ($after-size + size(17px) + $circle-padding) * -1;
+              }
+            }
           }
         }
       }
     }
   }
 }
+
