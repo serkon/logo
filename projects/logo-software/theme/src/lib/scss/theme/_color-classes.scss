@@ -19,19 +19,19 @@ $secondary-font-darkened: darken(color(#{secondary}-600), get("form.secondary-fo
         color: var(--#{$color});
       }
       @each $state in get("form.states") { // states
-        &:not(:disabled) {
-          &:#{$state} {
-            @if ($color == secondary) {
-              background-color: rgba(var(--#{$color}-#{$state}-rgb), (color(ghost-#{$state}) + 0.2));
-            } @else if ($color == light) {
-              background-color: rgba(var(--light-hover-rgb), (color(ghost-#{$state}) + 0.2));
-            } @else if ($color == dark) {
-              background-color: rgba(var(--white), (color(ghost-#{$state}) + 0.2));
-            } @else {
-              background-color: rgba(var(--#{$color}-#{$state}-rgb), var(--ghost-#{$state}));
-            }
+        // &:not(:disabled) {
+        &:#{$state} {
+          @if ($color == secondary) {
+            background-color: rgba(var(--#{$color}-#{$state}-rgb), (color(ghost-#{$state}) + 0.2));
+          } @else if ($color == light) {
+            background-color: rgba(var(--light-hover-rgb), (color(ghost-#{$state}) + 0.2));
+          } @else if ($color == dark) {
+            background-color: rgba(var(--white), (color(ghost-#{$state}) + 0.2));
+          } @else {
+            background-color: rgba(var(--#{$color}-#{$state}-rgb), var(--ghost-#{$state}));
           }
         }
+        // }
       }
     }
   }
@@ -73,9 +73,7 @@ $secondary-font-darkened: darken(color(#{secondary}-600), get("form.secondary-fo
           color: if($color == light, var(--dark-#{get("form.dark-shade")}), if($color == secondary, $secondary-font-darkened, var(--white)));
           @each $state in get("form.states") {
             &:#{$state} {
-              &:not(:disabled) {
-                background-color: var(--#{$color}-#{$state});
-              }
+              background-color: var(--#{$color}-#{$state});
             }
           }
         }

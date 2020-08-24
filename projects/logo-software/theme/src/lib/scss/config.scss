@@ -50,19 +50,24 @@ $config: deep-map-merge((
     states: hover,
     types: fill outline ghost,
     sizes:(
-      small: (icon-size: 12px, height: 24px, icon-container: 24px),
-      medium: (icon-size: 12px, height: 32px, icon-container: 28px),
-      large: (icon-size: 20px, height: 48px, icon-container: 46px)
+      small: (font-size: 12px, icon-size: 12px, height: 24px, icon-container: 24px),
+      medium: (font-size: 14px, icon-size: 12px, height: 32px, icon-container: 28px),
+      large: (font-size: 14px, icon-size: 20px, height: 48px, icon-container: 46px)
     ),
     input:(
-      large:(font-size: 14px, padding: 10px),
-      medium:(font-size: 14px, padding: 7px),
-      small:(font-size: 12px, padding: 7px)
+      large:(padding: 10px),
+      medium:(padding: 7px),
+      small:(padding: 7px)
     ),
     button:(
-      large:(font-size: 14px, padding: 24px),
-      medium:(font-size: 12px, padding: 15px),
-      small:(font-size: 12px, padding: 8px)
+      large:(padding: 24px),
+      medium:(padding: 15px),
+      small:(padding: 8px)
+    ),
+    switch:(
+      large:(padding: 24px),
+      medium:(padding: 15px),
+      small:(padding: 8px)
     ),
     heads: (
       large: (h1: 36px, h2: 24px, h3: 20px, h4: 18px, h5: 16px, h6: 14px),

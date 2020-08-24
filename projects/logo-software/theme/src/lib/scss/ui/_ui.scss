@@ -3,7 +3,7 @@
   Button
    */
   button {
-    @include padding-and-font-size-generator("form.button");
+    @include padding("form.button");
     cursor: pointer;
     font-weight: bold;
   }
@@ -12,7 +12,7 @@
   Link
    */
   a {
-    @include padding-and-font-size-generator("form.button");
+    @include padding("form.button");
     cursor: pointer;
     display: table-cell;
     vertical-align: middle;
@@ -22,7 +22,7 @@
   Texts:not([type])
    */
   input, textarea {
-    @include padding-and-font-size-generator("form.input");
+    @include padding("form.input");
 
     &:not([type]), &[type~="text"], &[type~="password"] {
       &:focus {
@@ -69,6 +69,7 @@
 
   textarea {
     height: auto;
+    border: size(1px) solid transparent;
 
     @each $size, $value in get("form.input") {
       &.#{$size} {
@@ -109,8 +110,8 @@
   label {
     display: inline-block;
     vertical-align: middle;
-    font-size: size(14px);
     cursor: pointer;
+    font-size: size(get('form.sizes.medium.font-size'));
   }
 
   /**
