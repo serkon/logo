@@ -2,19 +2,19 @@ button {
   &.btn {
     @each $key, $color in get("bootstrap.color-map") {
       &.btn-#{$color} {
-        @extend button.#{$color};
+        @extend %fill.#{$color};
 
         &:active:focus {
-          @extend button:focus;
+          // @extend button.#{$color}:focus;
         }
       }
 
       &.btn-outline-#{$color} {
-        @extend button.outline.#{$color};
+        @extend %outline.#{$color};
 
         &:active:focus {
-          @extend button:focus;
-          @extend button.outline.#{$color};
+          // @extend button.outline.#{$color};
+          // @extend button.outline.#{$color}:focus;
         }
       }
     }

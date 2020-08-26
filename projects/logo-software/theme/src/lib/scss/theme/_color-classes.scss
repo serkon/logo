@@ -4,34 +4,45 @@ $secondary-font-darkened: darken(color(#{secondary}-600), get("form.secondary-fo
   Template (outline & ghost): ghost and outline common styles
  */
 %ghost-outline {
+  background-color: transparent;
+
   @each $color, $value in get("color.list") { // colors
     &.#{$color} {
       background: none;
+      $selected-color: '';
       @if ($color == secondary) {
-        color: $secondary-font-darkened;
+        $selected-color: $secondary-font-darkened;
       } @else if ($color == gray) {
-        color: var(--#{$color}-#{get("form.dark-shade")});
+        $selected-color: var(--#{$color}-#{get("form.dark-shade")});
       } @else if ($color == light) {
-        color: var(--dark-#{get("form.dark-shade")});
+        $selected-color: var(--dark-#{get("form.dark-shade")});
       } @else if ($color == dark) {
-        color: var(--white);
+        $selected-color: var(--white);
       } @else {
-        color: var(--#{$color});
+        $selected-color: var(--#{$color});
       }
+      color: $selected-color;
+      $bg-color: "";
       @each $state in get("form.states") { // states
         // &:not(:disabled) {
         &:#{$state} {
           @if ($color == secondary) {
-            background-color: rgba(var(--#{$color}-#{$state}-rgb), (color(ghost-#{$state}) + 0.2));
+            $bg-color: rgba(var(--#{$color}-#{$state}-rgb), (color(ghost-#{$state}) + 0.2));
           } @else if ($color == light) {
-            background-color: rgba(var(--light-hover-rgb), (color(ghost-#{$state}) + 0.2));
+            $bg-color: rgba(var(--light-hover-rgb), (color(ghost-#{$state}) + 0.2));
           } @else if ($color == dark) {
-            background-color: rgba(var(--white), (color(ghost-#{$state}) + 0.2));
+            $bg-color: rgba(var(--white), (color(ghost-#{$state}) + 0.2));
           } @else {
-            background-color: rgba(var(--#{$color}-#{$state}-rgb), var(--ghost-#{$state}));
+            $bg-color: rgba(var(--#{$color}-#{$state}-rgb), var(--ghost-#{$state}));
           }
+          background-color: $bg-color;
         }
         // }
+      }
+
+      &:active, &:focus {
+        color: $selected-color;
+        background-color: $bg-color;
       }
     }
   }
@@ -48,9 +59,15 @@ $secondary-font-darkened: darken(color(#{secondary}-600), get("form.secondary-fo
   Template (outline): outline styles
  */
 %outline {
+  @extend %ghost-outline;
   @each $color, $value in get("color.list") {
     &.#{$color} {
-      border: size(1px) solid if($color == light, var(--light-600), if($color== secondary, var(--secondary-600), if($color == dark, var(--white), var(--#{$color}-500))));
+      $border: size(1px) solid if($color == light, var(--light-600), if($color== secondary, var(--secondary-600), if($color == dark, var(--white), var(--#{$color}-500))));
+      border: $border;
+
+      &:hover, &:active, &:focus {
+        border: $border;
+      }
     }
   }
 }
@@ -59,6 +76,7 @@ $secondary-font-darkened: darken(color(#{secondary}-600), get("form.secondary-fo
   Template (ghost): ghost styles
  */
 %ghost {
+  @extend %ghost-outline;
 }
 
 /**
@@ -75,6 +93,10 @@ $secondary-font-darkened: darken(color(#{secondary}-600), get("form.secondary-fo
             &:#{$state} {
               background-color: var(--#{$color}-#{$state});
             }
+          }
+
+          &:active, &:focus {
+            @include nb-outline(size(8px), rgba(var(--gray-600-rgb), color(ghost-hover)));
           }
         }
       }
@@ -116,28 +138,46 @@ $secondary-font-darkened: darken(color(#{secondary}-600), get("form.secondary-fo
   Extend classes
  */
 @if get("extend-colors")==true {
-  // #{get("selector")} {
-  @each $type in get("form.types") {
-    @each $color, $color-value in get("color.list") {
-      @if ($type==fill) {
-        .#{$color} {
-          @extend %fill;
+  #{get("selector")} {
+    @each $type in get("form.types") {
+      @each $color, $color-value in get("color.list") {
+        @if ($type==fill) {
+          .#{$color} {
+            @extend %fill;
+          }
         }
       }
     }
-  }
 
-  .outline, .ghost {
-    @extend %ghost-outline;
+    .outline, .ghost {
+      @extend %ghost-outline;
+    }
+
+    .ghost {
+      @extend %ghost;
+      @extend %ghost-outline.secondary;
+    }
+
+    .outline {
+      @extend %outline;
+      @extend %ghost-outline.secondary;
+    }
+  }
+}
+
+:root {
+  .fill {
+    @extend %fill;
+    @extend %fill.secondary;
   }
 
   .ghost {
     @extend %ghost;
+    @extend %ghost.secondary;
   }
 
   .outline {
     @extend %outline;
+    @extend %outline.secondary;
   }
-  // }
 }
-

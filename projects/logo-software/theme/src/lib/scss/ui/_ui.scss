@@ -86,14 +86,14 @@
     @extend %fill;
     outline: none;
     border-radius: size(get("border.radius"));
-    @each $type in get("form.types") {
-      &.#{$type} {
-        @if $type!=fill {
-          @extend %#{$type};
-          @extend %ghost-outline;
-        }
-      }
-    }
+    // @each $type in get("form.types") {
+    //   &.#{$type} {
+    //     @if $type!=fill {
+    //       @extend %#{$type};
+    //       @extend %ghost-outline;
+    //     }
+    //   }
+    // }
 
     &:active, &:focus {
       @include nb-outline(size(8px), rgba(var(--gray-600-rgb), color(ghost-hover)));
