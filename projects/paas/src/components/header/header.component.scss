@@ -36,7 +36,7 @@ $header-size: size(80px);
         display: flex;
         width: size(245px);
         box-sizing: border-box;
-        font-family: config(font-alternative);
+        font-family: get("font.alternative");
 
         span {
           display: flex;

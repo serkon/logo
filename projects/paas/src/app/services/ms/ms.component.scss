@@ -31,7 +31,7 @@ $header-size: size(80px);
       // margin-top: size(85px);
 
       h1.title {
-        font-family: config(font-family);
+        font-family: get("font.family");
         font-weight: 800;
         flex-direction: column;
         pointer-events: none;

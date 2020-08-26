@@ -23,7 +23,7 @@ $header-size: size(80px);
       flex-direction: column;
 
       h1.title {
-        font-family: config(font-alternative);
+        font-family: get("font.alternative");
         font-weight: 800;
         color: var(--dark-500);
         flex-direction: column;
@@ -284,7 +284,7 @@ $header-size: size(80px);
     }
 
     h2, h5, p {
-      font-family: config(font-alternative);
+      font-family: get("font.alternative");
       color: var(--dark-500);
       text-align: center;
       margin: 0;
@@ -614,7 +614,7 @@ $header-size: size(80px);
           flex-direction: column;
 
           h2 {
-            font-family: config(font-alternative);
+            font-family: get("font.alternative");
             color: #000000;
             font-size: size(40px);
             font-weight: bold;
