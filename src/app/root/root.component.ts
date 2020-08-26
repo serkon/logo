@@ -11,10 +11,9 @@ export class RootComponent implements AfterViewInit {
   title = 'Logo Design Guide';
   public quotes;
   public links;
-  private readonly bodyHeight: number;
+  private bodyHeight: number;
 
   constructor(@Inject(DOCUMENT) private document, private router: Router) {
-    this.bodyHeight = this.document.documentElement.clientHeight;
     this.quotes = [
       // {story: 'People ignore design that ignores people', author: 'FRANK CHIMERO'},
       {story: 'Good designs come from the heart, not from the brain', author: 'DANNY SENGERS'},
@@ -80,6 +79,7 @@ export class RootComponent implements AfterViewInit {
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
+    console.log('resized');
     this.resize();
   }
 
@@ -92,6 +92,7 @@ export class RootComponent implements AfterViewInit {
   }
 
   resize() {
+    this.bodyHeight = this.document.documentElement.clientHeight;
     this.sections = this.document.querySelectorAll('section');
     this.sections.forEach(section => {
       section.style.minHeight = `${this.bodyHeight}px`;

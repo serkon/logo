@@ -1,7 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "~@logo-software/theme/style";
 @import "~@logo-software/icons/style";
+$config: (
+  grid:(status: false),
+  bootstrap:(status: true),
+  extend-colors: false
+);
+
+@import "~@logo-software/theme/src/lib/scss/importer";
 
 body {
   background-color: transparent !important;
