@@ -1,4 +1,12 @@
 $secondary-font-darkened: darken(color(#{secondary}-600), get("form.secondary-font-darkener"));
+$not-exist-state-list: "";
+@each $d-state in get("form.default-states") {
+  @if index(get("form.states"), $d-state) == null {
+    $not-exist-state-list: $not-exist-state-list + "&:" + $d-state + ",";
+  }
+}
+
+@debug $not-exist-state-list;
 
 /**
   Template (outline & ghost): ghost and outline common styles
@@ -40,9 +48,11 @@ $secondary-font-darkened: darken(color(#{secondary}-600), get("form.secondary-fo
         // }
       }
 
-      &:active, &:focus {
-        color: $selected-color;
-        background-color: $bg-color;
+      @if get("bootstrap.status") {
+        &:active, &:focus {
+          color: $selected-color;
+          background-color: $bg-color;
+        }
       }
     }
   }
@@ -92,11 +102,20 @@ $secondary-font-darkened: darken(color(#{secondary}-600), get("form.secondary-fo
           @each $state in get("form.states") {
             &:#{$state} {
               background-color: var(--#{$color}-#{$state});
+              @if $state != hover {
+                @include nb-outline(size(8px), rgba(var(--gray-600-rgb), color(ghost-hover)));
+              }
             }
           }
-
-          &:active, &:focus {
-            @include nb-outline(size(8px), rgba(var(--gray-600-rgb), color(ghost-hover)));
+          @if not $not-exist-state-list != "" {
+            #{$not-exist-state-list} {
+              @include nb-outline(size(8px), rgba(var(--gray-600-rgb), color(ghost-hover)));
+            }
+          }
+          @if get("bootstrap.status") {
+            &:active, &:focus {
+              background-color: var(--#{$color}-500);
+            }
           }
         }
       }
