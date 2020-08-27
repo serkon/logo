@@ -26,7 +26,18 @@
 
     &.active {
       border-bottom: none;
-      @extend .info;
+      @extend %fill.info;
+    }
+  }
+
+  @each $color, $color-value in get("color.list") {
+    &.#{$color} {
+      .nav-link {
+        &.active {
+          @extend %fill.#{$color};
+          // or extend everything with @extend .#{$color};
+        }
+      }
     }
   }
 }
