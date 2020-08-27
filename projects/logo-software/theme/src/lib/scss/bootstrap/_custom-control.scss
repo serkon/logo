@@ -87,8 +87,7 @@
       }
     }
 
-    @each $color, $color-name in get("color.list") {
-
+    @each $color, $color-value in get("color.list") {
       &.#{$color} {
         input {
           &:checked {

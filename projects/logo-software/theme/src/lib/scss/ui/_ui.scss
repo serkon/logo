@@ -1,12 +1,4 @@
 #{get("selector")} {
-  /**
-  Button
-   */
-  button {
-    @include padding("form.button");
-    cursor: pointer;
-    font-weight: bold;
-  }
 
   /**
   Link
@@ -18,9 +10,62 @@
     vertical-align: middle;
   }
 
+
+  /**
+  Button
+  */
+  button {
+    @include padding("form.button");
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  /**
+  general form config
+  */
+  button, input, a, textarea {
+    @extend .medium;
+    @extend %fill;
+    outline: none;
+    border-radius: size(get("border.radius"));
+    // @each $type in get("form.types") {
+    //   &.#{$type} {
+    //     @if $type!=fill {
+    //       @extend %#{$type};
+    //       @extend %ghost-outline;
+    //     }
+    //   }
+    // }
+    // &:active, &:focus {
+    //   @include nb-outline(size(8px), rgba(var(--gray-600-rgb), color(ghost-hover)));
+    // }
+  }
+
+  button, input, textarea {
+    @extend %fill.secondary;
+  }
+
+  /**
+  Label
+   */
+  label {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    @extend label.medium;
+
+    @each $size, $size-map in get("form.sizes") {
+      &.#{$size} {
+        font-size: size(get('form.sizes.'+ $size + '.font-size'));
+        line-height: size(map_get($size-map, height));
+        height: size(map_get($size-map, height));
+      }
+    }
+  }
+
   /**
   Texts:not([type])
-   */
+ */
   input, textarea {
     @include padding("form.input");
 
@@ -78,52 +123,8 @@
   }
 
   /**
-  general form config
-  */
-  button, input, a, textarea {
-    @extend .medium;
-    @extend %fill;
-    outline: none;
-    border-radius: size(get("border.radius"));
-    // @each $type in get("form.types") {
-    //   &.#{$type} {
-    //     @if $type!=fill {
-    //       @extend %#{$type};
-    //       @extend %ghost-outline;
-    //     }
-    //   }
-    // }
-    // &:active, &:focus {
-    //   @include nb-outline(size(8px), rgba(var(--gray-600-rgb), color(ghost-hover)));
-    // }
-  }
-
-  button, input, textarea {
-    @extend %fill.secondary;
-  }
-
-  /**
-  Label
-   */
-  label {
-    display: inline-block;
-    vertical-align: middle;
-    cursor: pointer;
-    @extend label.medium;
-
-    @each $size, $size-map in get("form.sizes") {
-      &.#{$size} {
-        font-size: size(get('form.sizes.'+ $size + '.font-size'));
-        line-height: size(map_get($size-map, height));
-        height: size(map_get($size-map, height));
-      }
-    }
-  }
-
-  /**
   Checkbox
    */
-
   input[type=checkbox] {
     border-radius: size(get("border.radius"));
 
