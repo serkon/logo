@@ -18,7 +18,14 @@ const ICONS_TS_OUTPUT = './src/lib/logo-icons.ts';
 const ICONS_SCSS_OUTPUT = './style.scss';
 const OUT = './';
 const ts = [];
-let scss = ``;
+let scss = `[class*=logo-i] {
+  position: relative;
+
+  &::before {
+    width: 100%;
+    height: 100%;
+  }
+`;
 
 task('string', (cb) => {
   fs.readdirSync(ICONS_DIRECTORY).forEach(file => {
