@@ -4,6 +4,7 @@
 
 .chosen-container {
   @extend .medium;
+  @extend .icon-right;
 
   a {
     height: 100%;
@@ -27,6 +28,21 @@
 
     div {
       display: none;
+    }
+  }
+
+  &.large {
+
+    a {
+      @extend [class*=logo-i].large;
+    }
+  }
+
+  &.small {
+    @extend [class*=logo-i].small;
+
+    a {
+      @extend [class*=logo-i].small;
     }
   }
 
