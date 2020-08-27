@@ -1,0 +1,7 @@
+.custom-select {
+  display: none;
+
+  + .chosen-container {
+    @extend %fill.secondary;
+  }
+}
