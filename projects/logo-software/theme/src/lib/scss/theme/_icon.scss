@@ -17,6 +17,7 @@
       top: 0;
       left: 0;
       content: "";
+      z-index: 1;
     }
 
     &.outline {
@@ -31,10 +32,8 @@
         left: auto;
       }
 
-      &.fill, &.ghost {
-        &::before {
-          right: 0;
-        }
+      &::before {
+        right: 0;
       }
 
       &.outline {
