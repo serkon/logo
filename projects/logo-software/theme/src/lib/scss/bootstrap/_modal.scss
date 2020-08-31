@@ -6,12 +6,13 @@
 
   .modal-header {
     position: relative;
-    box-shadow: #{get("form.modal.shadow.header")};
+    box-shadow: #{get("form.modal.header.shadow")};
     font-size: size(16px);
     color: var(--dark-900);
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    height: size(get("form.modal.header.height"));
 
     button.close {
       padding: 0;
@@ -43,7 +44,7 @@
   }
 
   .modal-body {
-    margin: get("form.modal.margin");
+    margin: get("form.modal.body.margin");
     padding: 0;
     font-size: size(20px);
   }
@@ -52,6 +53,7 @@
     width: size(40px);
     height: size(40px);
     top: size(-5px) !important;
+    text-align: center;
 
     .fa-check-circle {
       color: var(--success) !important;
@@ -64,6 +66,10 @@
     .fa-exclamation {
       color: var(--warning) !important;
     }
+
+    .fa-exclamation-circle {
+      color: var(--danger) !important;
+    }
   }
 
   .message-text {
@@ -71,6 +77,12 @@
   }
 
   .modal-footer {
-    box-shadow: #{get("form.modal.shadow.footer")};
+    box-shadow: #{get("form.modal.footer.shadow")};
+    height: size(get("form.modal.footer.height"));
+    padding: size(nth(get("form.modal.footer.padding"), 1)) size(nth(get("form.modal.footer.padding"), 2));
+
+    span:last-child {
+      margin-right: 0;
+    }
   }
 }
