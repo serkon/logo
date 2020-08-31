@@ -1,0 +1,97 @@
+.t-grid-header, .t-grid-content {
+  th, td {
+    padding: 0 size(5px) !important;
+    height: size(32px);
+
+    &:first-child {
+      .custom-checkbox {
+        margin-right: 0 !important;
+
+        input {
+          margin-right: 0;
+        }
+
+        label {
+          display: none;
+        }
+      }
+    }
+  }
+
+  tr:nth-of-type(odd) {
+    background-color: var(--secondary-50);
+  }
+}
+
+.t-grid-header {
+  table {
+    th {
+      background-color: var(--info);
+      color: var(--white);
+      font-size: size(12px);
+      border: 0;
+      border-right: size(1px) solid var(--info-700);
+      border-radius: 0;
+
+      span.t-link {
+        font-weight: 800;
+      }
+    }
+  }
+
+  .t-grid-header-options {
+    display: none;
+  }
+
+  .t-grid-header-wrap {
+    margin-right: 0 !important;
+  }
+}
+
+.t-grid-content {
+  table {
+    td {
+      font-size: size(14px);
+      font-weight: normal;
+      color: var(--dark-900);
+
+      border-right: size(1px) solid var(--secondary-200);
+      border-left: transparent;
+
+      &:last-child {
+        border-right: 0;
+      }
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+  }
+}
+
+.t-grid-pager {
+  box-shadow: 0 0 10px 0 rgba(106, 120, 245, 0.05), 0 -5px 5px 0 rgba(106, 120, 245, 0.1);
+  margin-top: 0;
+  padding: size(10px);
+
+  a {
+    @extend %fill.secondary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: size(10px);
+    color: var(--dark-900);
+    border-radius: size(get("border.radius")) !important;
+  }
+}
+
+.t-filterPanel {
+  border: 0;
+  box-shadow: 0 2px 15px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+
+  .t-filterRemoveBtn {
+    @extend %fill.secondary;
+    margin-top: size(10px);
+  }
+}
