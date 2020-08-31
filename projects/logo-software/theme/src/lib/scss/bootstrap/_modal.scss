@@ -1,7 +1,7 @@
 .modal-dialog {
 
   .modal-content {
-    border-radius: get("border.radius");
+    border-radius: size(get("border.radius"));
   }
 
   .modal-header {
@@ -83,6 +83,10 @@
 
     span:last-child {
       margin-right: 0;
+    }
+
+    button {
+      min-width: auto !important;
     }
   }
 }
