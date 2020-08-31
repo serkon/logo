@@ -148,6 +148,7 @@
       border: none;
 
       &:before {
+        width: size(14px);
         -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIyIiB2aWV3Qm94PSIwIDAgOCAyIiBmaWxsPSdjdXJyZW50Q29sb3InPgogICAgPHJlY3Qgd2lkdGg9IjgiIGhlaWdodD0iMiIgeD0iMyIgeT0iNiIgZmlsbD0iI0ZGRiIgZmlsbC1ydWxlPSJldmVub2RkIiByeD0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTMgLTYpIi8+Cjwvc3ZnPgo=");
       }
     }
