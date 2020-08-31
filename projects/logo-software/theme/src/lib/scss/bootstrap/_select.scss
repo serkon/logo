@@ -2,7 +2,7 @@
   @extend .medium;
   @extend .icon-right;
   @extend %fill.secondary;
-  border-radius: get("border.radius");
+  border-radius: size(get("border.radius"));
 
   @each $type in get("form.types") {
     &.#{$type} {

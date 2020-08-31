@@ -39,7 +39,7 @@
 
           &::after {
             background-color: var(--info);
-            border-radius: get("border.radius");
+            border-radius: size(get("border.radius"));
           }
         }
       }
