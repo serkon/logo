@@ -1,0 +1,62 @@
+.dataDropdown {
+  box-shadow: 0 2px 15px 4px rgba(0, 0, 0, 0.1);
+  border: 0;
+
+  .dataContainer {
+    table {
+      tr {
+        &:last-child td {
+          border-bottom: 0;
+        }
+
+        th {
+          color: var(--dark-900);
+          font-size: size(12px);
+          border: 0;
+          border-radius: 0;
+
+          span.t-link {
+            font-weight: 800;
+          }
+        }
+
+        td {
+          font-size: size(14px);
+          font-weight: normal;
+          color: var(--dark-900);
+
+          border-left: transparent;
+          border-right: size(1px) solid var(--secondary-200);
+
+          &:last-child {
+            border-right: 0;
+          }
+        }
+
+      }
+    }
+
+    tr.selected, tr.selected:hover {
+      td {
+        color: var(--white);
+        background-color: var(--info-500) !important;
+        border-right: size(1px) solid var(--info-600);
+      }
+    }
+
+    tr:nth-of-type(odd) {
+      background-color: var(--secondary-50);
+    }
+
+    tr:hover {
+      td {
+        background-color: var(--secondary-300);
+        border-right: size(1px) solid var(--secondary-500);
+      }
+    }
+  }
+
+  .dataRecordStatus {
+    border-top: 0;
+  }
+}
