@@ -79,6 +79,13 @@ $config: deep-map-merge((
       large: (font-size: 16px),
       medium: (font-size: 14px),
       small: (font-size: 12px)
+    ),
+    modal: (
+      shadow: (
+        header: "0 0 10px 0 rgba(106, 120, 245, 0.05), 0 5px 5px 0 rgba(106, 120, 245, 0.1)",
+        footer: "0 0 10px 0 rgba(106, 120, 245, 0.05), 0 -5px 5px 0 rgba(106, 120, 245, 0.1)"
+      ),
+      margin: 55px auto,
     )
   ),
   color: (
@@ -134,7 +141,7 @@ $config: deep-map-merge((
   ),
   tab:(align: center, height: null),
   debug: false,
-  extend-colors: false
+  extend-colors: false,
 ), $config, true);
 $colors: ();
 

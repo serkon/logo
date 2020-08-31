@@ -65,7 +65,7 @@
 
   @each $color, $color-value in get("color.list") {
     &.#{$color} {
-      div.chosen-drop {
+      div {
         border-color: var(--#{$color});
 
         li {
@@ -106,7 +106,6 @@
   padding: 0;
 
   @each $type in get("form.types") {
-
     &.#{$type} {
       @extend %#{$type};
     }
@@ -122,7 +121,7 @@
   @each $size, $size-map in get("form.sizes") {
     &.#{$size} {
       option {
-        @extend .#{$size};
+        // @extend .#{$size};
         height: size(get("form.sizes." + $size + ".height")) !important;
       }
     }

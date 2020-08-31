@@ -1,0 +1,76 @@
+.modal-dialog {
+
+  .modal-content {
+    border-radius: get("border.radius");
+  }
+
+  .modal-header {
+    position: relative;
+    box-shadow: #{get("form.modal.shadow.header")};
+    font-size: size(16px);
+    color: var(--dark-900);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button.close {
+      padding: 0;
+      margin: 0;
+      font-size: 0;
+      min-width: size(22px);
+      width: size(22px);
+      height: size(22px);
+      background-color: rgba(0, 0, 0, 0.1);
+      opacity: 1;
+      border-radius: 50%;
+      position: absolute;
+      right: size(15px);
+
+      &::before {
+        content: "";
+        width: size(15px);
+        height: size(15px);
+        position: absolute;
+        left: size(4px);
+        top: size(3px);
+        -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiB2aWV3Qm94PSIwIDAgMTAyNCAxMDI0IiBmaWxsPSdjdXJyZW50Q29sb3InPgo8dGl0bGU+PC90aXRsZT4KPGcgaWQ9Imljb21vb24taWdub3JlIj4KPC9nPgo8cGF0aCBmaWxsPSIjMDAwIiBkPSJNNzA3LjM4IDMxNi42MmMyMy45MzggMjMuOTM4IDIzLjkzOCA2Mi43NDggMCA4Ni42ODVsLTEzMC4wMTUgMTMwLjAyOCAxMzAuMDE1IDEzMC4wMjhjMjMuOTM4IDIzLjkzOCAyMy45MzggNjIuNzQ4IDAgODYuNjg1cy02Mi43NDggMjMuOTM4LTg2LjY4NSAwbC0xMzAuMDI4LTEzMC4wMTUtMTMwLjAyOCAxMzAuMDE1Yy0yMy45MzggMjMuOTM4LTYyLjc0OCAyMy45MzgtODYuNjg1IDBzLTIzLjkzOC02Mi43NDggMC04Ni42ODVsMTMwLjAxNS0xMzAuMDI4LTEzMC4wMTUtMTMwLjAyOGMtMjMuOTM4LTIzLjkzOC0yMy45MzgtNjIuNzQ4IDAtODYuNjg1czYyLjc0OC0yMy45MzggODYuNjg1IDBsMTMwLjAyOCAxMzAuMDE1IDEzMC4wMjgtMTMwLjAxNWMyMy45MzgtMjMuOTM4IDYyLjc0OC0yMy45MzggODYuNjg1IDB6Ij48L3BhdGg+Cjwvc3ZnPgo=);
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        -webkit-mask-size: contain;
+        background: rgba(0, 0, 0, 0.25);
+      }
+    }
+  }
+
+  .modal-body {
+    margin: get("form.modal.margin");
+    padding: 0;
+    font-size: size(20px);
+  }
+
+  .message-icon {
+    width: size(40px);
+    height: size(40px);
+    top: size(-5px) !important;
+
+    .fa-check-circle {
+      color: var(--success) !important;
+    }
+
+    .fa-info-circle, .fa-question-circle {
+      color: var(--info) !important;
+    }
+
+    .fa-exclamation {
+      color: var(--warning) !important;
+    }
+  }
+
+  .message-text {
+    padding-left: size(45px) !important;
+  }
+
+  .modal-footer {
+    box-shadow: #{get("form.modal.shadow.footer")};
+  }
+}
