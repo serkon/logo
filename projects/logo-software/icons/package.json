@@ -1,6 +1,6 @@
 {
   "name": "@logo-software/icons",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "The Angular Toast is a small, nonblocking notification pop-up. A toast is shown to users with readable message content at the bottom of the screen or at a specific target and disappears automatically after a few seconds (time-out) with different animation effects.",
   "homepage": "http://developer.logo.com.tr",
   "author": {
@@ -28,8 +28,6 @@
   ],
   "license": "See license in LICENSE file",
   "peerDependencies": {
-    "@angular/common": "^9.1.6",
-    "@angular/core": "^9.1.6",
     "tslib": "^1.10.0",
     "fs-extra": "^9.0.1"
   },
@@ -40,14 +38,13 @@
     "ver:pre": "npm version prerelease",
     "ver:major": "npm version major",
     "postversion": "echo '#########\n### Versioning to:' $npm_package_version '\n### CommandPATH: ' $INIT_CWD '\n#########' && git status",
-    "build": "npm run icons && ng build $npm_package_name --prod",
+    "build": "npm run icons",
     "git-commit": "git add -A . && git commit . -m $TYPE'('$npm_package_name'): upgrading to v.'$npm_package_version",
     "git-release": "git add -A . && git commit . -m $TYPE'('$npm_package_name'): cut the v.'$npm_package_version' release'",
     "patch:commit": "npm run ver:patch && npm run build && TYPE=fix npm run git-commit",
     "minor:commit": "npm run ver:minor && npm run build && TYPE=feat npm run git-commit",
     "pre:commit": "npm run ver:pre && npm run build && TYPE=prerelease npm run git-commit",
     "major:commit": "npm run ver:major && TYPE=release npm run git-release",
-    "unpublish": "npm unpublish $npm_package_name@$npm_package_version",
-    "postinstall": "node install.js"
+    "unpublish": "npm unpublish $npm_package_name@$npm_package_version"
   }
 }

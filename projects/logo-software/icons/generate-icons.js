@@ -13,8 +13,8 @@ const processors = [
 ];
 const pscss = require('postcss-scss');
 
-const ICONS_DIRECTORY = './src/lib/assets/icons/';
-const ICONS_TS_OUTPUT = './src/lib/logo-icons.ts';
+const ICONS_DIRECTORY = './assets/icons/';
+const ICONS_TS_OUTPUT = './logo-icons.ts';
 const ICONS_SCSS_OUTPUT = './style.scss';
 const OUT = './';
 const ts = [];
@@ -37,7 +37,7 @@ task('string', (cb) => {
       scss = `${scss}
 .logo-i-${name} {
   &::before{
-    -webkit-mask-image:  svg-load("src/lib/assets/icons/${name}.svg", fill=currentColor); // url("/assets/icons/${name}.svg");
+    -webkit-mask-image:  svg-load("assets/icons/${name}.svg", fill=currentColor);
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
     display: inline-block;

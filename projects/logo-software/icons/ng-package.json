@@ -1,15 +1,12 @@
 {
   "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../../dist/logo-software/icons",
-  "assets": [
-    "src/lib/assets",
-    "style.scss",
-    "color.js",
-    "install.js"
-  ],
-  "keepLifecycleScripts": true,
   "lib": {
-    "entryFile": "src/public-api.ts",
+    "entryFile": "./public-api.ts",
     "cssUrl": "inline"
-  }
+  },
+  "keepLifecycleScripts": true,
+  "assets": [
+    "style.scss"
+  ]
 }
