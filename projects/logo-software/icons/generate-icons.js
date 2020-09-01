@@ -25,6 +25,7 @@ let scss = `[class*=logo-i] {
     width: 100%;
     height: 100%;
   }
+}
 `;
 
 task('string', (cb) => {
