@@ -18,10 +18,8 @@
 
   @each $size, $value in get("form.sizes") {
     &.#{$size} {
-      input {
-        & + label {
-          @extend label.#{$size};
-        }
+      label {
+        @extend label.#{$size};
       }
     }
   }
@@ -112,6 +110,8 @@
 
         input {
           & + label {
+            @extend .#{$size};
+
             &::before {
               width: $width;
               left: $padding-left * -1;

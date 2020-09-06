@@ -7,11 +7,31 @@ $not-exist-state-list: "";
 }
 
 /**
+  Template (fill): fill styles
+ */
+%fill {
+}
+
+/**
+  Template (outline): outline styles
+ */
+%outline {
+  @extend %ghost-outline;
+  @extend %border;
+}
+
+
+/**
+  Template (ghost): ghost styles
+ */
+%ghost {
+  @extend %ghost-outline;
+}
+
+/**
   Template (outline & ghost): ghost and outline common styles
  */
 %ghost-outline {
-  background-color: transparent;
-
   @each $color, $value in get("color.list") { // colors
     &.#{$color} {
       background: none;
@@ -56,24 +76,18 @@ $not-exist-state-list: "";
   }
 }
 
-/**
-  Template (fill & ghost): fill and ghost common styles
- */
-%fill, %ghost {
-  border: none;
-}
 
 /**
   Template (outline): outline styles
  */
-%outline {
-  @extend %ghost-outline;
+%border {
   @each $color, $value in get("color.list") {
+    $border: size(1px) solid if($color == light, var(--light-600), if($color== secondary, var(--secondary-600), if($color == dark, var(--white), var(--#{$color}-500))));
+
     &.#{$color} {
-      $border: size(1px) solid if($color == light, var(--light-600), if($color== secondary, var(--secondary-600), if($color == dark, var(--white), var(--#{$color}-500))));
       border: $border;
 
-      &:hover, &:active, &:focus {
+      &:hover, &:focus, &active {
         border: $border;
       }
     }
@@ -81,27 +95,21 @@ $not-exist-state-list: "";
 }
 
 /**
-  Template (ghost): ghost styles
- */
-%ghost {
-  @extend %ghost-outline;
-}
-
-/**
- Template (fill): fill styles
+ Template (fill): extended fill styles
  */
 @each $type in get("form.types") {
   @if ($type == fill) {
     %#{$type} {
       @each $color, $color-value in get("color.list") {
         &.#{$color} {
+          border: size(1px) solid transparent;
           background-color: var(--#{$color}-500);
-          border: size(1px) solid var(--#{$color}-500);
           color: if($color == light, var(--dark-#{get("form.dark-shade")}), if($color == secondary, $secondary-font-darkened, var(--white)));
           @each $state in get("form.states") {
             &:#{$state} {
               background-color: var(--#{$color}-#{$state});
-              border-color: var(--#{$color}-#{$state});
+              // border-color: var(--#{$color}-#{$state});
+              border: size(1px) solid transparent;
               @if $state != hover {
                 @include nb-outline(size(8px), rgba(var(--gray-600-rgb), color(ghost-hover)));
               }
@@ -166,20 +174,6 @@ $not-exist-state-list: "";
           }
         }
       }
-    }
-
-    .outline, .ghost {
-      @extend %ghost-outline;
-    }
-
-    .ghost {
-      @extend %ghost;
-      @extend %ghost-outline.secondary;
-    }
-
-    .outline {
-      @extend %outline;
-      @extend %ghost-outline.secondary;
     }
   }
 }

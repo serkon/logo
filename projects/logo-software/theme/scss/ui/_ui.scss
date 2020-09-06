@@ -29,26 +29,12 @@
   /**
   general form config
   */
-  button, input, a, textarea {
-    @extend %fill;
-    outline: none;
-    border-radius: size(get("border.radius"));
-    // @each $type in get("form.types") {
-    //   &.#{$type} {
-    //     @if $type!=fill {
-    //       @extend %#{$type};
-    //       @extend %ghost-outline;
-    //     }
-    //   }
-    // }
-    // &:active, &:focus {
-    //   @include nb-outline(size(8px), rgba(var(--gray-600-rgb), color(ghost-hover)));
-    // }
-  }
-
   button, input, textarea {
+    @extend %fill;
     @extend %fill.secondary;
     @extend .medium;
+    outline: none;
+    border-radius: size(get("border.radius"));
   }
 
   /**
@@ -58,15 +44,12 @@
     display: inline-block;
     vertical-align: middle;
     cursor: pointer;
-    font-size: get("form.label.medium.font-size");
+    font-size: get("form.sizes.medium.font-size");
+    @extend label.medium;
 
-    @each $size, $size-map in get("form.label") {
+    @each $size, $size-map in get("form.sizes") {
       &.#{$size} {
-        border: 1px solid red;
-        @debug $size-map;
-        font-size: size(get('form.label.'+ $size + '.font-size'));
-        // line-height: size(map_get($size-map, height));
-        // height: size(map_get($size-map, height));
+        font-size: size(get('form.sizes.'+ $size + '.font-size'));
       }
     }
   }
@@ -78,14 +61,9 @@
     @include padding("form.input");
 
     &:not([type]), &[type~="text"], &[type~="password"] {
-
-      &.ghost {
-        border: size(1px) solid transparent;
-      }
-
       &:focus {
         &:not([disabled]) {
-          border: size(1px) solid var(--secondary);
+          // border: size(1px) solid var(--secondary);
           background-color: var(--white);
           color: var(--dark-900);
           transition: auto;
@@ -95,7 +73,9 @@
       @each $color, $value in get("color.list") {
         &.#{$color} {
           &:focus {
-            border: size(1px) solid var(--#{$color});
+            // border: size(1px) solid var(--#{$color});
+            @extend %outline.#{$color}:focus;
+            // border: size(1px) solid if($color == light, var(--light-600), if($color== secondary, var(--secondary-600), if($color == dark, var(--white), var(--#{$color}-500))));
           }
         }
       }
@@ -161,7 +141,8 @@
       border: none;
 
       &:before {
-        width: size(14px);
+        width: size(16px);
+        height: size(16px);
         -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIyIiB2aWV3Qm94PSIwIDAgOCAyIiBmaWxsPSdjdXJyZW50Q29sb3InPgogICAgPHJlY3Qgd2lkdGg9IjgiIGhlaWdodD0iMiIgeD0iMyIgeT0iNiIgZmlsbD0iI0ZGRiIgZmlsbC1ydWxlPSJldmVub2RkIiByeD0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTMgLTYpIi8+Cjwvc3ZnPgo=");
       }
     }
@@ -191,7 +172,7 @@
         margin: $top-bottom-size size(5px) $top-bottom-size 0;
 
         & + label {
-          font-size: size(map-get($value, font-size));
+          @extend label.#{$size}
         }
       }
     }

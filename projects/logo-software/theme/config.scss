@@ -53,7 +53,7 @@ $config: deep-map-merge((
     sizes:(
       small: (font-size: 12px, icon-size: 12px, height: 24px, icon-container: 24px),
       medium: (font-size: 14px, icon-size: 12px, height: 32px, icon-container: 28px),
-      large: (font-size: 14px, icon-size: 20px, height: 48px, icon-container: 46px)
+      large: (font-size: 16px, icon-size: 20px, height: 48px, icon-container: 46px)
     ),
     input:(
       large:(padding: 10px),
@@ -69,11 +69,6 @@ $config: deep-map-merge((
       large:(width: 82px, circle-padding: 4px),
       medium:(width: 52px, circle-padding: 2px),
       small:(width: 38px, circle-padding: 2px)
-    ),
-    label:(
-      large: (font-size: 14px),
-      medium: (font-size: 12px),
-      small: (font-size: 12px)
     ),
     heads: (
       large: (h1: 36px, h2: 24px, h3: 20px, h4: 18px, h5: 16px, h6: 14px),
