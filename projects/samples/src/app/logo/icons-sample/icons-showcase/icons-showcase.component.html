@@ -1,1 +1,25 @@
-<logo-icons></logo-icons>
+<section>
+  <label>
+    <input
+      class="logo-i-search large light icon-left outline"
+      placeholder="search" list="browser"
+      [(ngModel)]="filter"
+      (keyup)="onFilter($event.target.value)"
+    />
+    <datalist id="browser">
+      <option [value]="icon" *ngFor="let icon of icons" (click)="copyToClipboard('logo-i-' + icon)">
+        logo-i-{{icon}}</option>
+    </datalist>
+  </label>
+  <span class="clipboard" *ngIf="clipboard">Copied: <span class="text large">.{{clipboard}}</span></span>
+</section>
+
+<div class="grid">
+  <button
+    class="logo-i-{{icon}} icon large light"
+    *ngFor="let icon of filtered"
+    (click)="copyToClipboard('logo-i-' + icon)"
+    title="{{icon}}"
+  >
+  </button>
+</div>

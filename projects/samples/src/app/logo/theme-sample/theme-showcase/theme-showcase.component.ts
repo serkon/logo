@@ -18,7 +18,6 @@ export class ThemeShowcaseComponent implements AfterViewInit {
   }
 
   getColor(item) {
-    console.log(item);
     return getComputedStyle(document.documentElement).getPropertyValue(item);
   }
 }

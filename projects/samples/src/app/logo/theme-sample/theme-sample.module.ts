@@ -3,11 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { ThemeSampleRoutingModule } from './theme-sample-routing.module';
 import { ThemeShowcaseComponent } from './theme-showcase/theme-showcase.component';
-import { ThemeModule } from '@logo-software/theme';
-
 
 @NgModule({
-  imports: [CommonModule, ThemeSampleRoutingModule, ThemeModule],
+  imports: [CommonModule, ThemeSampleRoutingModule],
   declarations: [ThemeShowcaseComponent],
   exports: [ThemeShowcaseComponent],
 })
