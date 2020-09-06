@@ -8,7 +8,7 @@
  * Any reproduction of this material must contain this notice.
  */
 
-@import "./helpers/deep-map-merge";
+@import "./scss/helpers/deep-map-merge";
 
 $config: if(not variable-exists(config), (), $config);
 $config: deep-map-merge((
@@ -20,7 +20,7 @@ $config: deep-map-merge((
     size: 16px,
     size-base: 16px,
     color: var(--dark-900),
-    path: "~@logo-software/theme/src/lib/assets/fonts",
+    path: "~@logo-software/theme/assets/fonts",
   ),
   grid:(
     status: true,
@@ -69,6 +69,11 @@ $config: deep-map-merge((
       large:(width: 82px, circle-padding: 4px),
       medium:(width: 52px, circle-padding: 2px),
       small:(width: 38px, circle-padding: 2px)
+    ),
+    label:(
+      large: (font-size: 14px),
+      medium: (font-size: 12px),
+      small: (font-size: 12px)
     ),
     heads: (
       large: (h1: 36px, h2: 24px, h3: 20px, h4: 18px, h5: 16px, h6: 14px),

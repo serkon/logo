@@ -1,1 +1,11 @@
-@import "src/lib/scss/importer";
+@import "./config";
+@import "./scss/helpers/importer";
+@import "./scss/mixins/mixin";
+@import "./scss/animations/all";
+@import "./scss/fonts/fonts";
+@import "./scss/grid/grid";
+@import "./scss/theme/theme";
+@import "./scss/ui/ui";
+@import "./scss/ui/typography";
+@import "./scss/ui/reset";
+@import "./scss/bootstrap/bootstrap";

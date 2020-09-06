@@ -4,6 +4,7 @@
   padding: size(10px) size(20px);
   display: flex;
   justify-content: get('tab.align');
+  height: auto;
 
   .nav-link {
     display: flex;
@@ -11,14 +12,8 @@
     font-weight: 800;
     color: $secondary-font-darkened;
     margin-right: size(20px);
-
-    @each $size, $value in get("form.sizes") {
-      $height: if(get('tab.height') != null, size(get('tab.height')), size(get(#{'form.sizes.'+ $size + '.height'})));
-      &.#{$size} {
-        padding: 0 size(get(#{'form.button.'+ $size + '.padding'}));
-        border-radius: $height / 2;
-      }
-    }
+    border-radius: size(get("form.sizes.large.height")/2);
+    @extend .medium;
 
     &.secondary {
       color: $secondary-font-darkened;
@@ -27,6 +22,17 @@
     &.active {
       border-bottom: none;
       @extend %fill.info;
+    }
+  }
+
+  @each $size, $value in get("form.sizes") {
+    $height: if(get('tab.height') != null, size(get('tab.height')), size(get(#{'form.sizes.'+ $size + '.height'})));
+    &.#{$size} {
+      // padding: 0 size(get(#{'form.button.'+ $size + '.padding'}));
+      .nav-link {
+        @extend .#{$size};
+        border-radius: $height / 2;
+      }
     }
   }
 

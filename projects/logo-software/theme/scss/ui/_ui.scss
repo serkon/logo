@@ -5,11 +5,17 @@
    */
   a {
     @include padding("form.button");
+    display: inline-block;
     cursor: pointer;
-    display: table-cell;
-    vertical-align: middle;
-  }
+    text-decoration: none;
+    font-size: size(get("form.sizes.medium.font-size"));
+    // display: table-cell;
+    // vertical-align: middle;
 
+    &[class*=logo-i] {
+      @extend .medium;
+    }
+  }
 
   /**
   Button
@@ -24,7 +30,6 @@
   general form config
   */
   button, input, a, textarea {
-    @extend .medium;
     @extend %fill;
     outline: none;
     border-radius: size(get("border.radius"));
@@ -43,6 +48,7 @@
 
   button, input, textarea {
     @extend %fill.secondary;
+    @extend .medium;
   }
 
   /**
@@ -52,13 +58,15 @@
     display: inline-block;
     vertical-align: middle;
     cursor: pointer;
-    @extend label.medium;
+    font-size: get("form.label.medium.font-size");
 
-    @each $size, $size-map in get("form.sizes") {
+    @each $size, $size-map in get("form.label") {
       &.#{$size} {
-        font-size: size(get('form.sizes.'+ $size + '.font-size'));
-        line-height: size(map_get($size-map, height));
-        height: size(map_get($size-map, height));
+        border: 1px solid red;
+        @debug $size-map;
+        font-size: size(get('form.label.'+ $size + '.font-size'));
+        // line-height: size(map_get($size-map, height));
+        // height: size(map_get($size-map, height));
       }
     }
   }
@@ -70,6 +78,11 @@
     @include padding("form.input");
 
     &:not([type]), &[type~="text"], &[type~="password"] {
+
+      &.ghost {
+        border: size(1px) solid transparent;
+      }
+
       &:focus {
         &:not([disabled]) {
           border: size(1px) solid var(--secondary);
@@ -169,13 +182,17 @@
     min-height: auto;
     width: size(14px);
     height: size(14px);
-    position: static;
+    position: relative;
     padding: 0;
     vertical-align: middle;
     @each $size, $value in get("form.sizes") {
       &.#{$size} {
         $top-bottom-size: size((map-get($value, height) - 14px) / 2);
         margin: $top-bottom-size size(5px) $top-bottom-size 0;
+
+        & + label {
+          font-size: size(map-get($value, font-size));
+        }
       }
     }
 
@@ -187,14 +204,13 @@
       width: size(13px);
       height: size(13px);
       position: absolute;
-      // top: size(-1px);
-      // left: size(-1px);
+      top: size(-1px);
+      left: size(-1px);
     }
-
 
     &:checked, &:checked:hover {
       background-color: var(--info) !important;
-      border: none;
+      border: size(1px) solid transparent;
     }
   }
 }
