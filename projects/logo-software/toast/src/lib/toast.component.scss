@@ -20,6 +20,7 @@
 
     .content {
       background-color: map_get($colors, $color);
+      color: var(--white);
     }
 
     .actions {
