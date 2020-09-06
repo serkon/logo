@@ -1,18 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~@logo-software/icons/style";
+
 $config: (
-  grid:(status: false),
+  grid:(status: true),
   bootstrap:(status: true),
   extend-colors: false
 );
-
-@import "~@logo-software/theme/src/lib/scss/importer";
+@import "~@logo-software/theme/style";
 
 body {
   background-color: transparent !important;
   margin: 0;
   overflow-x: hidden;
+}
+
+:root .nb-theme-docs-page a {
+  text-decoration: none;
 }
 
 [hidden] {
