@@ -108,14 +108,6 @@
             <input class="{{status}} {{type !== 'fill'? type : ''}}" placeholder="search">
           </div>
         </div>
-        <div class="cell-container">
-          <div class="cell split-xs-5 split-lg-10" *ngFor="let status of statuses">
-            <label>
-              Text
-              <input class="{{status}}" placeholder="search">
-            </label>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -139,17 +131,6 @@
               id="{{type}}-{{index}}"
             >
             <label for="{{type}}-{{index}}">near</label>
-          </div>
-        </div>
-        <div class="cell-container">
-          <div class="cell split-xs-5 split-lg-10" *ngFor="let status of statuses; let index = index">
-            <label>
-              <input
-                class="{{status}} {{type !== 'fill'? type : ''}}"
-                placeholder="search"
-                type="checkbox"
-              >click
-            </label>
           </div>
         </div>
         <div class="cell-container">
