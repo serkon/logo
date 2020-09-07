@@ -1,7 +1,7 @@
 $secondary-font-darkened: darken(color(#{secondary}-600), get("form.secondary-font-darkener"));
 $not-exist-state-list: "";
-@each $d-state in get("form.default-states") {
-  @if index(get("form.states"), $d-state) == null {
+@each $d-state in get("form.states.default") {
+  @if index(get("form.states.current"), $d-state) == null {
     $not-exist-state-list: $not-exist-state-list + "&:" + $d-state + ",";
   }
 }
@@ -49,7 +49,7 @@ $not-exist-state-list: "";
       }
       color: $selected-color;
       $bg-color: "";
-      @each $state in get("form.states") { // states
+      @each $state in get("form.states.current") { // states
         // &:not(:disabled) {
         &:#{$state} {
           @if ($color == secondary) {
@@ -69,7 +69,6 @@ $not-exist-state-list: "";
       @if get("bootstrap.status") {
         &:active, &:focus {
           color: $selected-color;
-          background-color: $bg-color;
         }
       }
     }
@@ -100,32 +99,22 @@ $not-exist-state-list: "";
 @each $type in get("form.types") {
   @if ($type == fill) {
     %#{$type} {
+      border: size(1px) solid transparent;
       @each $color, $color-value in get("color.list") {
         &.#{$color} {
-          border: size(1px) solid transparent;
           background-color: var(--#{$color}-500);
           color: if($color == light, var(--dark-#{get("form.dark-shade")}), if($color == secondary, $secondary-font-darkened, var(--white)));
-          @each $state in get("form.states") {
+          @each $state in get("form.states.current") {
             &:#{$state} {
               background-color: var(--#{$color}-#{$state});
-              // border-color: var(--#{$color}-#{$state});
-              border: size(1px) solid transparent;
-              @if $state != hover {
-                @include nb-outline(size(8px), rgba(var(--gray-600-rgb), color(ghost-hover)));
-              }
-            }
-          }
-          @if not $not-exist-state-list != "" {
-            #{$not-exist-state-list} {
-              @include nb-outline(size(8px), rgba(var(--gray-600-rgb), color(ghost-hover)));
-            }
-          }
-          @if get("bootstrap.status") {
-            &:active, &:focus {
-              background-color: var(--#{$color}-500);
+              border-color: transparent;
             }
           }
         }
+      }
+
+      &:active, &:focus {
+        @include nb-outline(size(8px), rgba(var(--gray-600-rgb), color(ghost-hover)));
       }
     }
   }

@@ -60,23 +60,25 @@
  */
   input, textarea {
     @include padding("form.input");
+    @extend input.secondary;
+    cursor: pointer;
 
     &:not([type]), &[type~="text"], &[type~="password"] {
       &:focus {
-        &:not([disabled]) {
-          // border: size(1px) solid var(--secondary);
-          background-color: var(--white);
-          color: var(--dark-900);
-          transition: auto;
-        }
+        // &:not([disabled]) {
+        border: size(1px) solid var(--secondary);
+        color: var(--dark-900);
+        transition: auto;
+        // }
       }
 
       @each $color, $value in get("color.list") {
         &.#{$color} {
           &:focus {
             // border: size(1px) solid var(--#{$color});
-            @extend %outline.#{$color}:focus;
-            // border: size(1px) solid if($color == light, var(--light-600), if($color== secondary, var(--secondary-600), if($color == dark, var(--white), var(--#{$color}-500))));
+            // @extend %outline.#{$color}:focus;
+            background-color: var(--white);
+            border: size(1px) solid if($color == light, var(--light-600), if($color== secondary, var(--secondary-600), if($color == dark, var(--white), var(--#{$color}-500))));
           }
         }
       }
@@ -107,7 +109,6 @@
 
   textarea {
     height: auto;
-    border: size(1px) solid transparent;
 
     @each $size, $value in get("form.input") {
       &.#{$size} {
@@ -120,8 +121,6 @@
   Checkbox
    */
   input[type=checkbox] {
-    border-radius: size(get("border.radius"));
-
     &:checked, &:indeterminate {
       &:before {
         -webkit-mask-repeat: no-repeat;

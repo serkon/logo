@@ -47,8 +47,7 @@ $config: deep-map-merge((
   form: (
     dark-shade: 900,
     secondary-font-darkener: 30%,
-    states: hover,
-    default-states: hover active focus,
+    states: (current: hover active focus, default: hover active focus),
     types: fill outline ghost,
     sizes:(
       small: (font-size: 12px, icon-size: 12px, height: 24px, icon-container: 24px),
