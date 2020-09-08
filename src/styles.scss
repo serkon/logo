@@ -1,7 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
 $config: (
-  grid:(status: true),
+  grid:(
+    status: true,
+    breakpoints:(xl: 1300px),
+    container-max-widths: (xl: 1300px)
+  ),
   bootstrap:(status: false),
   extend-colors: false
 );
