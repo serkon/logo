@@ -14,18 +14,20 @@
     &::before {
       -webkit-mask-position: center;
       mask-position: center;
-      top: 0;
-      left: 0;
+      // top: 0;
+      // left: 0;
+      top: size(-1px);
+      left: size(-1px);
       content: "";
       z-index: 1;
     }
 
-    &.outline {
-      &::before {
-        top: size(-1px);
-        left: size(-1px);
-      }
-    }
+    // &.outline {
+    //   &::before {
+    //     top: size(-1px);
+    //     left: size(-1px);
+    //   }
+    // }
 
     &.icon-right {
       &::before {
