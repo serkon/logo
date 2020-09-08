@@ -4,12 +4,12 @@
   Link
    */
   a {
-    @include padding("form.button");
+    @include padding("element.button");
     @extend %fill;
     display: inline-block;
     cursor: pointer;
     text-decoration: none;
-    font-size: size(get("form.sizes.medium.font-size"));
+    font-size: size(get("sizes.medium.font-size"));
     // display: table-cell;
     // vertical-align: middle;
 
@@ -27,7 +27,7 @@
   Button
   */
   button {
-    @include padding("form.button");
+    @include padding("element.button");
     cursor: pointer;
     font-weight: bold;
   }
@@ -50,12 +50,12 @@
     display: inline-block;
     vertical-align: middle;
     cursor: pointer;
-    font-size: get("form.sizes.medium.font-size");
+    font-size: get("sizes.medium.font-size");
     @extend label.medium;
 
-    @each $size, $size-map in get("form.sizes") {
+    @each $size, $size-map in get("sizes") {
       &.#{$size} {
-        font-size: size(get('form.sizes.'+ $size + '.font-size'));
+        font-size: size(get('sizes.'+ $size + '.font-size'));
       }
     }
   }
@@ -64,7 +64,7 @@
   Texts:not([type])
  */
   input, textarea {
-    @include padding("form.input");
+    @include padding("element.input");
     @extend input.secondary;
     cursor: pointer;
 
@@ -94,7 +94,7 @@
     &:not([type]), &[type~="text"], &[type~="password"] {
       @each $status, $hex-value in get("color.list") {
         &.#{$status} {
-          @each $type in get("form.types") {
+          @each $type in get("types") {
             @if ($type!=outline and $type!=ghost) {
               @include install-placeholder(
                   if($status == secondary, transparentize($secondary-font-darkened, 0.2), if($status==light, var(--dark-600), var(--white)))
@@ -115,7 +115,7 @@
   textarea {
     height: auto;
 
-    @each $size, $value in get("form.input") {
+    @each $size, $value in get("element.input") {
       &.#{$size} {
         padding: size(map-get($value, padding));
       }
@@ -171,7 +171,7 @@
     position: relative;
     padding: 0;
     vertical-align: middle;
-    @each $size, $value in get("form.sizes") {
+    @each $size, $value in get("sizes") {
       &.#{$size} {
         $top-bottom-size: size((map-get($value, height) - 14px) / 2);
         margin: $top-bottom-size size(5px) $top-bottom-size 0;

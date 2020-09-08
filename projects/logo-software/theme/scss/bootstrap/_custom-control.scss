@@ -22,7 +22,7 @@
     }
   }
 
-  @each $size, $value in get("form.sizes") {
+  @each $size, $value in get("sizes") {
     &.#{$size} {
       label {
         @extend label.#{$size};
@@ -107,10 +107,10 @@
       }
     }
 
-    @each $size, $value in get("form.sizes") {
+    @each $size, $value in get("sizes") {
       &.#{$size} {
-        $width: size(get("form.switch."+$size+".width"));
-        $circle-padding: size(get("form.switch."+$size+".circle-padding"));
+        $width: size(get("element.switch."+$size+".width"));
+        $circle-padding: size(get("element.switch."+$size+".circle-padding"));
         $padding-left: $width + size(5px);
         $height: size(map-get($value, height));
         $after-size: size($height - $circle-padding * 2);

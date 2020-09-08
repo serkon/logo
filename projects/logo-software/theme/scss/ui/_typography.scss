@@ -5,7 +5,7 @@
     margin-bottom: 0;
   }
 
-  @each $size, $items in get("form.heads") {
+  @each $size, $items in get("element.heads") {
     @each $item, $value in $items {
       #{$item + "." + $size} {
         font-size: size($value);
@@ -17,9 +17,9 @@
     font-weight: 400;
     margin: 0;
 
-    @each $size, $value in get("form.paragraphs") {
+    @each $size, $value in get("element.paragraphs") {
       &.#{$size} {
-        font-size: get("form.paragraphs." + $size + ".font-size");
+        font-size: get("element.paragraphs." + $size + ".font-size");
       }
     }
   }

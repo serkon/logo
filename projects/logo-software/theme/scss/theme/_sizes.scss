@@ -9,12 +9,12 @@
  */
 
 #{get("selector")} {
-  @each $item, $size in get("form.sizes") {
+  @each $item, $size in get("sizes") {
     .#{$item} {
       box-sizing: border-box;
       min-width: size(map_get($size, height));
       height: size(map_get($size, height));
-      font-size: size(get('form.sizes.'+ $item + '.font-size'));
+      font-size: size(get('sizes.'+ $item + '.font-size'));
       line-height: size(map_get($size, height) - 2px);
     }
   }

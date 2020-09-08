@@ -4,7 +4,7 @@
   @extend %fill.secondary;
   border-radius: size(get("border.radius"));
 
-  @each $type in get("form.types") {
+  @each $type in get("types") {
     &.#{$type} {
       @extend %#{$type};
     }
@@ -105,7 +105,7 @@
   @extend .secondary;
   padding: 0;
 
-  @each $type in get("form.types") {
+  @each $type in get("types") {
     &.#{$type} {
       @extend %#{$type};
     }
@@ -113,16 +113,16 @@
 
   option {
     @extend .medium;
-    @include padding("form.input");
+    @include padding("element.input");
     display: flex;
     align-items: center;
   }
 
-  @each $size, $size-map in get("form.sizes") {
+  @each $size, $size-map in get("sizes") {
     &.#{$size} {
       option {
         // @extend .#{$size};
-        height: size(get("form.sizes." + $size + ".height")) !important;
+        height: size(get("sizes." + $size + ".height")) !important;
       }
     }
   }

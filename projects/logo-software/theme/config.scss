@@ -44,16 +44,18 @@ $config: deep-map-merge((
   border:(
     radius: 2px
   ),
-  form: (
+  sizes:(
+    small: (font-size: 12px, icon-size: 12px, height: 24px, icon-container: 24px),
+    medium: (font-size: 14px, icon-size: 12px, height: 32px, icon-container: 28px),
+    large: (font-size: 16px, icon-size: 20px, height: 48px, icon-container: 46px)
+  ),
+  states: (current: hover active focus, default: hover active focus),
+  types: fill outline ghost,
+  helper:(
     dark-shade: 900,
-    secondary-font-darkener: 30%,
-    states: (current: hover active focus, default: hover active focus),
-    types: fill outline ghost,
-    sizes:(
-      small: (font-size: 12px, icon-size: 12px, height: 24px, icon-container: 24px),
-      medium: (font-size: 14px, icon-size: 12px, height: 32px, icon-container: 28px),
-      large: (font-size: 16px, icon-size: 20px, height: 48px, icon-container: 46px)
-    ),
+    font-darkener: 30%,
+  ),
+  element: (
     input:(
       large:(padding: 10px),
       medium:(padding: 7px),
@@ -92,7 +94,8 @@ $config: deep-map-merge((
       body:(
         margin: 55px 23px
       ),
-    )
+    ),
+    tab:(align: center, height: null)
   ),
   color: (
     list: (
@@ -146,7 +149,6 @@ $config: deep-map-merge((
       dark: dark
     )
   ),
-  tab:(align: center, height: null),
   debug: false,
   extend-colors: false,
 ), $config, true);

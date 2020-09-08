@@ -6,13 +6,13 @@
 
   .modal-header {
     position: relative;
-    box-shadow: #{get("form.modal.header.shadow")};
+    box-shadow: #{get("element.modal.header.shadow")};
     font-size: size(16px);
     color: var(--dark-900);
     display: flex;
     align-items: center;
     justify-content: center;
-    height: size(get("form.modal.header.height"));
+    height: size(get("element.modal.header.height"));
 
     button.close {
       padding: 0;
@@ -44,7 +44,7 @@
   }
 
   .modal-body {
-    margin: get("form.modal.body.margin");
+    margin: get("element.modal.body.margin");
     padding: 0;
     font-size: size(20px);
   }
@@ -77,9 +77,9 @@
   }
 
   .modal-footer {
-    box-shadow: #{get("form.modal.footer.shadow")};
-    height: size(get("form.modal.footer.height"));
-    padding: size(nth(get("form.modal.footer.padding"), 1)) size(nth(get("form.modal.footer.padding"), 2));
+    box-shadow: #{get("element.modal.footer.shadow")};
+    height: size(get("element.modal.footer.height"));
+    padding: size(nth(get("element.modal.footer.padding"), 1)) size(nth(get("element.modal.footer.padding"), 2));
 
     span:last-child {
       margin-right: 0;
