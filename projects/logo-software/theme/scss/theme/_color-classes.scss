@@ -167,7 +167,7 @@ $not-exist-state-list: "";
   }
 }
 
-:root {
+#{get("selector")} {
   .fill {
     @extend %fill;
     @extend %fill.secondary;
