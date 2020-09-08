@@ -13,8 +13,12 @@
     // vertical-align: middle;
 
     &[class*=logo-i] {
+      display: flex;
+      align-items: center;
+      border: size(1px) solid transparent;
       border-radius: size(get("border.radius"));
       @extend .medium;
+      line-height: normal;
     }
   }
 
