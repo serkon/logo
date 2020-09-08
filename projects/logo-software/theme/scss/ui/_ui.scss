@@ -5,6 +5,7 @@
    */
   a {
     @include padding("form.button");
+    @extend %fill;
     display: inline-block;
     cursor: pointer;
     text-decoration: none;
