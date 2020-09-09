@@ -113,7 +113,7 @@
 
   option {
     @extend .medium;
-    @include padding("element.input");
+    @include padding("element.input.size");
     display: flex;
     align-items: center;
   }

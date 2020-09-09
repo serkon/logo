@@ -4,7 +4,7 @@
   Link
    */
   a {
-    @include padding("element.button");
+    @include padding("element.button.size");
     @extend %fill;
     display: inline-block;
     cursor: pointer;
@@ -27,7 +27,7 @@
   Button
   */
   button {
-    @include padding("element.button");
+    @include padding("element.button.size");
     cursor: pointer;
     font-weight: bold;
   }
@@ -64,7 +64,7 @@
   Texts:not([type])
  */
   input, textarea {
-    @include padding("element.input");
+    @include padding("element.input.size");
     @extend input.secondary;
     cursor: pointer;
 
@@ -115,7 +115,7 @@
   textarea {
     height: auto;
 
-    @each $size, $value in get("element.input") {
+    @each $size, $value in get("element.input.size") {
       &.#{$size} {
         padding: size(map-get($value, padding));
       }
