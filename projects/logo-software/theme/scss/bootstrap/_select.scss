@@ -4,7 +4,7 @@
   @extend %fill.secondary;
   border-radius: size(get("border.radius"));
 
-  @each $type in get("types") {
+  @each $type in get("type") {
     &.#{$type} {
       @extend %#{$type};
     }
@@ -105,7 +105,7 @@
   @extend .secondary;
   padding: 0;
 
-  @each $type in get("types") {
+  @each $type in get("type") {
     &.#{$type} {
       @extend %#{$type};
     }
@@ -118,11 +118,11 @@
     align-items: center;
   }
 
-  @each $size, $size-map in get("sizes") {
+  @each $size, $size-map in get("size") {
     &.#{$size} {
       option {
         // @extend .#{$size};
-        height: size(get("sizes." + $size + ".height")) !important;
+        height: size(get("size." + $size + ".height")) !important;
       }
     }
   }

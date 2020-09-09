@@ -46,7 +46,7 @@
     }
   }
 
-  @each $item, $size in get("sizes") {
+  @each $item, $size in get("size") {
     $icon-size-info: size(map_get($size, icon-size) * 2);
     .#{$item} {
       &[class*=logo-i] {

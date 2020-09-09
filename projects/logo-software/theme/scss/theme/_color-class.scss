@@ -1,7 +1,7 @@
 $secondary-font-darkened: darken(color(#{secondary}-600), get("helper.font-darkener"));
 $not-exist-state-list: "";
-@each $d-state in get("states.default") {
-  @if index(get("states.current"), $d-state) == null {
+@each $d-state in get("state.default") {
+  @if index(get("state.current"), $d-state) == null {
     $not-exist-state-list: $not-exist-state-list + "&:" + $d-state + ",";
   }
 }
@@ -49,7 +49,7 @@ $not-exist-state-list: "";
       }
       color: $selected-color;
       $bg-color: "";
-      @each $state in get("states.current") { // states
+      @each $state in get("state.current") {
         // &:not(:disabled) {
         &:#{$state} {
           @if ($color == secondary) {
@@ -96,7 +96,7 @@ $not-exist-state-list: "";
 /**
  Template (fill): extended fill styles
  */
-@each $type in get("types") {
+@each $type in get("type") {
   @if ($type == fill) {
     %#{$type} {
       border: size(1px) solid transparent;
@@ -104,7 +104,7 @@ $not-exist-state-list: "";
         &.#{$color} {
           background-color: var(--#{$color}-500);
           color: if($color == light, var(--dark-#{get("helper.dark-shade")}), if($color == secondary, $secondary-font-darkened, var(--white)));
-          @each $state in get("states.current") {
+          @each $state in get("state.current") {
             &:#{$state} {
               background-color: var(--#{$color}-#{$state});
               border-color: transparent;
@@ -155,7 +155,7 @@ $not-exist-state-list: "";
  */
 @if get("extend-colors")==true {
   #{get("selector")} {
-    @each $type in get("types") {
+    @each $type in get("type") {
       @each $color, $color-value in get("color.list") {
         @if ($type==fill) {
           .#{$color} {

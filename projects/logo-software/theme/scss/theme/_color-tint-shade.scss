@@ -26,9 +26,9 @@ Color status generator
   $map: ();
   $map: map-merge($map,
     (
-      "#{$name}-hover": map-get($color-list, #{$name}-#{get("color.shade-states.hover")}),
-      "#{$name}-active": map-get($color-list, #{$name}-#{get("color.shade-states.active")}),
-      "#{$name}-focus": map-get($color-list, #{$name}-#{get("color.shade-states.focus")}),
+      "#{$name}-hover": map-get($color-list, #{$name}-#{get("color.shade-state.hover")}),
+      "#{$name}-active": map-get($color-list, #{$name}-#{get("color.shade-state.active")}),
+      "#{$name}-focus": map-get($color-list, #{$name}-#{get("color.shade-state.focus")}),
     )
   );
   @return $map;

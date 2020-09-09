@@ -1,3 +1,5 @@
+@import "input";
+
 #{get("selector")} {
 
   /**
@@ -9,7 +11,7 @@
     display: inline-block;
     cursor: pointer;
     text-decoration: none;
-    font-size: size(get("sizes.medium.font-size"));
+    font-size: size(get("size.medium.font-size"));
     // display: table-cell;
     // vertical-align: middle;
 
@@ -50,12 +52,12 @@
     display: inline-block;
     vertical-align: middle;
     cursor: pointer;
-    font-size: get("sizes.medium.font-size");
+    font-size: get("size.medium.font-size");
     @extend label.medium;
 
-    @each $size, $size-map in get("sizes") {
+    @each $size, $size-map in get("size") {
       &.#{$size} {
-        font-size: size(get('sizes.'+ $size + '.font-size'));
+        font-size: size(get('size.'+ $size + '.font-size'));
       }
     }
   }
@@ -84,28 +86,6 @@
             // @extend %outline.#{$color}:focus;
             background-color: var(--white);
             border: size(1px) solid if($color == light, var(--light-600), if($color== secondary, var(--secondary-600), if($color == dark, var(--white), var(--#{$color}-500))));
-          }
-        }
-      }
-    }
-  }
-
-  input {
-    &:not([type]), &[type~="text"], &[type~="password"] {
-      @each $status, $hex-value in get("color.list") {
-        &.#{$status} {
-          @each $type in get("types") {
-            @if ($type!=outline and $type!=ghost) {
-              @include install-placeholder(
-                  if($status == secondary, transparentize($secondary-font-darkened, 0.2), if($status==light, var(--dark-600), var(--white)))
-              );
-            } @else {
-              &.#{$type} {
-                @include install-placeholder(
-                    if($status == secondary, transparentize($secondary-font-darkened, 0.2), if($status==light, var(--dark-600), if($status == dark, var(--white), var(--#{$status}-600))))
-                );
-              }
-            }
           }
         }
       }
@@ -171,7 +151,7 @@
     position: relative;
     padding: 0;
     vertical-align: middle;
-    @each $size, $value in get("sizes") {
+    @each $size, $value in get("size") {
       &.#{$size} {
         $top-bottom-size: size((map-get($value, height) - 14px) / 2);
         margin: $top-bottom-size size(5px) $top-bottom-size 0;

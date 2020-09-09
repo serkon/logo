@@ -44,13 +44,13 @@ $config: deep-map-merge((
   border:(
     radius: 2px
   ),
-  sizes:(
+  size:(
     small: (font-size: 12px, icon-size: 12px, height: 24px, icon-container: 24px),
     medium: (font-size: 14px, icon-size: 12px, height: 32px, icon-container: 28px),
     large: (font-size: 16px, icon-size: 20px, height: 48px, icon-container: 46px)
   ),
-  states: (current: hover active focus, default: hover active focus),
-  types: fill outline ghost,
+  state: (current: hover active focus, default: hover active focus),
+  type: fill outline ghost,
   helper:(
     dark-shade: 900,
     font-darkener: 30%,
@@ -61,6 +61,11 @@ $config: deep-map-merge((
         large:(padding: 10px),
         medium:(padding: 7px),
         small:(padding: 7px)
+      ),
+      available:(
+        fill: secondary light dark gray,
+        outline: info success warning danger,
+        ghost:true
       )
     ),
     button:(
@@ -133,7 +138,7 @@ $config: deep-map-merge((
       800: 15%,
       900: 20%,
     ),
-    shade-states:(
+    shade-state:(
       hover: 600,
       active: 700,
       focus: 800

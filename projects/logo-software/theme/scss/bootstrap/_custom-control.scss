@@ -22,7 +22,7 @@
     }
   }
 
-  @each $size, $value in get("sizes") {
+  @each $size, $value in get("size") {
     &.#{$size} {
       label {
         @extend label.#{$size};
@@ -107,7 +107,7 @@
       }
     }
 
-    @each $size, $value in get("sizes") {
+    @each $size, $value in get("size") {
       &.#{$size} {
         $width: size(get("element.switch.size."+$size+".width"));
         $circle-padding: size(get("element.switch.size."+$size+".circle-padding"));

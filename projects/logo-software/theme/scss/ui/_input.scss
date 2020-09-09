@@ -1,0 +1,21 @@
+input {
+  &:not([type]), &[type~="text"], &[type~="password"] {
+    @each $color, $value in get("color.list") {
+      &.#{$color} {
+        @each $type in get("type") {
+          @if ($type!=outline and $type!=ghost) {
+            @include install-placeholder(
+                if($color == secondary, transparentize($secondary-font-darkened, 0.2), if($color==light, var(--dark-600), var(--white)))
+            );
+          } @else {
+            &.#{$type} {
+              @include install-placeholder(
+                  if($color == secondary, transparentize($secondary-font-darkened, 0.2), if($color==light, var(--dark-600), if($color == dark, var(--white), var(--#{$color}-600))))
+              );
+            }
+          }
+        }
+      }
+    }
+  }
+}
