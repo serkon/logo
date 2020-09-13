@@ -111,7 +111,6 @@
       right: size(888px);
 
       .cloud-group-1 {
-        @debug rgba(var(--secondary-rgb), 0.27);
         @include cloud($width: 140px, $color: var(--secondary-400), $shadow-color: rgba(var(--secondary-rgb), 0.27), $shadow-height: 135px, $timing: 42s);
         bottom: size(135px);
         left: 30px;

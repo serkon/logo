@@ -52,20 +52,23 @@ $config: deep-map-merge((
   state: (current: hover active focus, default: hover active focus),
   type: fill outline ghost,
   helper:(
-    dark-shade: 900,
-    font-darkener: 30%,
+    font:(
+      shade: 900,
+      darkener: 17%
+    ),
   ),
   element: (
     input:(
+      placeholder-opacity: 0.2,
       size:(
         large:(padding: 10px),
         medium:(padding: 7px),
         small:(padding: 7px)
       ),
-      available:(
-        fill: secondary light dark gray,
-        outline: info success warning danger,
-        ghost:true
+      render:(
+        fill: true,
+        outline: true, // secondary primary light dark gray,
+        ghost: true
       )
     ),
     button:(
@@ -73,6 +76,16 @@ $config: deep-map-merge((
         large:(padding: 24px),
         medium:(padding: 15px),
         small:(padding: 8px)
+      ),
+      render:(
+        fill: true,
+        outline: true,
+        ghost: true
+      ),
+      customize: (
+        active: false,
+        border: (default: --light-600, selected: purple),
+        font: (color: --dark-700)
       )
     ),
     switch:(
@@ -126,6 +139,7 @@ $config: deep-map-merge((
       warning: #f8aa1c,
       success: #01cc78,
     ),
+    semantic: info danger warning success,
     shades:(
       50: 50%,
       100: 40%,
@@ -143,13 +157,12 @@ $config: deep-map-merge((
       active: 700,
       focus: 800
     ),
-    disabled-opacity: 50%,
-    ghost-transparency:(
-      ghost: 0,
-      hover: 0.08,
-      active: 0.1,
-      focus: 0.08
+    state-bg-tranparency:(
+      hover: 0.2,
+      active: 0.2,
+      focus: 0.2
     ),
+    disabled-opacity: 50%,
   ),
   bootstrap:(
     status: false,
@@ -167,5 +180,9 @@ $config: deep-map-merge((
   debug: false,
   extend-colors: false,
 ), $config, true);
-$colors: ();
 
+$config: deep-map-merge((
+  color:(state: brand primary basic secondary light dark gray)
+), $config, true);
+
+$colors: ();

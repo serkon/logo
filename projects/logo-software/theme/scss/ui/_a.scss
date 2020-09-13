@@ -1,0 +1,17 @@
+/**
+Link
+ */
+a {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: size(get("size.medium.font-size"));
+  @include extender("element.button");
+
+  &[class*=logo-i] {
+    @extend .medium;
+    display: inline-flex;
+    align-items: center;
+    @include padding("element.button.size");
+  }
+}

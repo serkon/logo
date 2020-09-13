@@ -10,13 +10,13 @@
     display: flex;
     align-items: center;
     font-weight: 800;
-    color: $secondary-font-darkened;
+    color: mix-darkener();
     margin-right: size(20px);
     border-radius: size(get("size.large.height")/2);
     @extend .medium;
 
     &.secondary {
-      color: $secondary-font-darkened;
+      color: mix-darkener();
     }
 
     &.active {

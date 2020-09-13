@@ -1,0 +1,10 @@
+button {
+  border-radius: get("border.radius");
+  @extend %fill;
+  @extend %fill.secondary;
+  @extend .medium;
+  @include padding("element.button.size");
+  @include extender("element.button");
+  white-space: nowrap;
+  font-weight: normal;
+}

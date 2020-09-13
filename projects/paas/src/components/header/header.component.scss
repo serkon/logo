@@ -85,7 +85,6 @@ $header-size: size(80px);
         }
 
         input {
-          @debug var(--black-rgb);
           background-color: rgba(var(--black-rgb), 0.03);
           background-size: size(32px) size(32px);
 

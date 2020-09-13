@@ -1,0 +1,20 @@
+/**
+  All brand colors have shades(brand-50 to 900, etc.), shadowed, and selected color version.
+ */
+@each $color, $value in get("color.list") {
+  .#{$color} {
+    &.shadow {
+      box-shadow: 0 size(7px) size(10px) size(-4px) var(--#{$color});
+    }
+
+    &.selected {
+      outline: size(2px) solid var(--#{$color}-focus);
+    }
+  }
+
+  @each $name, $ratio in get("color.shades") {
+    .#{$color}-#{$name} {
+      background-color: var(--#{$color}-#{$name});
+    }
+  }
+}

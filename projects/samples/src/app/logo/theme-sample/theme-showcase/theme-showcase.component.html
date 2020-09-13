@@ -35,41 +35,42 @@
     </div>
   </div>
 
-  <div class="card">
-    <h2>BUTTONS</h2>
+  <ng-template #notFound>
+    not found
+  </ng-template>
+
+  <div class="card" *ngFor="let key of keys">
+    <h2>{{elements[key].name}}</h2>
     <div class="view" *ngFor="let type of types">
       <div class="type-text">{{type}}</div>
       <div class="group">
-        <div class="cell-container">
-          <div class="cell hidden-xs hidden-sm hidden-md split-lg-11" *ngFor="let status of statuses">
-            {{status}}
+        <ng-container *ngIf="elements[key].render[type]; else notFound">
+          <div class="cell-container">
+            <div
+              class="cell split-lg-7"
+              *ngFor="let status of elements[key].render[type]=== true ? statuses : elements[key].render[type]"
+            >
+              {{status}}
+            </div>
           </div>
-        </div>
-        <div class="cell-container">
-          <div class="cell split-xs-5 split-lg-11" *ngFor="let status of statuses">
-            <button class="{{type}} {{status}} logo-i-saved-offline-glyph"></button>
+          <div class="cell-container">
+            <div
+              class="cell split-xs-7"
+              *ngFor="let status of elements[key].render[type]=== true ? statuses : elements[key].render[type]"
+            >
+              <input
+                class="{{status}} {{type !== 'fill'? type : ''}}"
+                placeholder="search" *ngIf="elements[key].name==elementType.INPUT"
+              />
+              <button
+                class="{{status}} {{type !== 'fill'? type : ''}}"
+                *ngIf="elements[key].name==elementType.BUTTON"
+              >
+                button 1
+              </button>
+            </div>
           </div>
-        </div>
-        <div class="cell-container">
-          <div class="cell split-xs-5 split-lg-11" *ngFor="let status of statuses">
-            <button class="{{type}} {{status}}">TEXT</button>
-          </div>
-        </div>
-        <div class="cell-container">
-          <div class="cell split-xs-5 split-lg-11" *ngFor="let status of statuses">
-            <button class="{{type}} {{status}} logo-i-saved-offline-glyph icon-left">TEXT</button>
-          </div>
-        </div>
-        <div class="cell-container">
-          <div class="cell split-xs-5 split-lg-11" *ngFor="let status of statuses">
-            <button class="{{type}} {{status}} logo-i-saved-offline-glyph icon-right">TEXT</button>
-          </div>
-        </div>
-        <!--div class="cell-container" *ngFor="let state of states">
-          <div class="cell split-xs-5 split-lg-11" *ngFor="let status of statuses">
-            <button class="{{status}} {{type}} {{status}}-{{state}} {{type}}-{{state}}">{{state.toUpperCase()}}</button>
-          </div>
-        </div-->
+        </ng-container>
       </div>
     </div>
   </div>
@@ -87,25 +88,6 @@
         <div class="cell-container">
           <div class="cell split-xs-5 split-lg-11" *ngFor="let status of statuses">
             <a class="{{type}} {{status}} logo-i-saved-offline-glyph icon-left">LINK</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>INPUTS</h2>
-    <div class="view" *ngFor="let type of types">
-      <div class="type-text">{{type}}</div>
-      <div class="group">
-        <div class="cell-container">
-          <div class="cell hidden-xs hidden-sm hidden-md split-lg-11" *ngFor="let status of statuses">
-            {{status}}
-          </div>
-        </div>
-        <div class="cell-container">
-          <div class="cell split-xs-5 split-lg-11" *ngFor="let status of statuses">
-            <input class="{{status}} {{type !== 'fill'? type : ''}}" placeholder="search">
           </div>
         </div>
       </div>

@@ -1,21 +1,21 @@
+
 input {
+  border-radius: get("border.radius");
+  @extend .medium;
+
   &:not([type]), &[type~="text"], &[type~="password"] {
-    @each $color, $value in get("color.list") {
-      &.#{$color} {
-        @each $type in get("type") {
-          @if ($type!=outline and $type!=ghost) {
-            @include install-placeholder(
-                if($color == secondary, transparentize($secondary-font-darkened, 0.2), if($color==light, var(--dark-600), var(--white)))
-            );
-          } @else {
-            &.#{$type} {
-              @include install-placeholder(
-                  if($color == secondary, transparentize($secondary-font-darkened, 0.2), if($color==light, var(--dark-600), if($color == dark, var(--white), var(--#{$color}-600))))
-              );
-            }
-          }
-        }
-      }
+    @include padding("element.input.size");
+    @extend %fill;
+    @extend %fill.secondary;
+    @extend %placeholder;
+    @include extender("element.input");
+
+    &:focus {
+      background-color: var(--white) !important;
+      border: size(1px) solid var(--info) !important;
+      color: var(--dark-900) !important;
     }
   }
 }
+
+

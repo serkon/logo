@@ -1,4 +1,3 @@
-$secondary-font-darkened: darken(color(#{secondary}-600), get("helper.font-darkener"));
 $not-exist-state-list: "";
 @each $d-state in get("state.default") {
   @if index(get("state.current"), $d-state) == null {
@@ -37,7 +36,7 @@ $not-exist-state-list: "";
       background: none;
       $selected-color: '';
       @if ($color == secondary) {
-        $selected-color: $secondary-font-darkened;
+        $selected-color: mix-darkener(secondary);
       } @else if ($color == gray) {
         $selected-color: var(--#{$color}-#{get("helper.dark-shade")});
       } @else if ($color == light) {
@@ -81,7 +80,7 @@ $not-exist-state-list: "";
  */
 %border {
   @each $color, $value in get("color.list") {
-    $border: size(1px) solid if($color == light, var(--light-600), if($color== secondary, var(--secondary-600), if($color == dark, var(--white), var(--#{$color}-500))));
+    $border: size(1px) solid var(--#{$color}-500);
 
     &.#{$color} {
       border: $border;
@@ -103,7 +102,7 @@ $not-exist-state-list: "";
       @each $color, $color-value in get("color.list") {
         &.#{$color} {
           background-color: var(--#{$color}-500);
-          color: if($color == light, var(--dark-#{get("helper.dark-shade")}), if($color == secondary, $secondary-font-darkened, var(--white)));
+          color: if($color == light, var(--dark-#{get("helper.dark-shade")}), if($color == secondary, mix-darkener(secondary), var(--white)));
           @each $state in get("state.current") {
             &:#{$state} {
               background-color: var(--#{$color}-#{$state});
@@ -135,9 +134,8 @@ $not-exist-state-list: "";
   }
 
   @each $name, $ratio in get("color.shades") {
-    $tempColor: if($name >= 500, shade($value, $ratio), tint($value, $ratio));
     .#{$color}-#{$name} {
-      background-color: $tempColor;
+      background-color: var(--#{$color}-#{$name});
     }
   }
 }
@@ -167,19 +165,21 @@ $not-exist-state-list: "";
   }
 }
 
-#{get("selector")} {
-  .fill {
-    @extend %fill;
-    @extend %fill.secondary;
-  }
+@if get("extend-colors")==true {
+  #{get("selector")} {
+    .fill {
+      @extend %fill;
+      @extend %fill.secondary;
+    }
 
-  .ghost {
-    @extend %ghost;
-    @extend %ghost.secondary;
-  }
+    .ghost {
+      @extend %ghost;
+      @extend %ghost.secondary;
+    }
 
-  .outline {
-    @extend %outline;
-    @extend %outline.secondary;
+    .outline {
+      @extend %outline;
+      @extend %outline.secondary;
+    }
   }
 }

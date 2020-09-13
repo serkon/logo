@@ -13,6 +13,28 @@ Make Shade Color
 }
 
 /**
+Make more darken after shade
+ */
+@function shader($color, $percentage) {
+  $color: shade($color, $percentage);
+  // $color: darken($color, 5%);
+  // $color: saturate($color, 15%);
+  @return $color;
+}
+
+
+/**
+Make more darken after tint
+ */
+@function tinter($color, $percentage) {
+  $color: tint($color, $percentage);
+  // $color: darken($color, 5%);
+  // $color: lighten($color, 1%);
+  // $colorm: saturate($colorm, 15%);
+  @return $color;
+}
+
+/**
 Get color from map
  */
 @function color($color) {
@@ -20,7 +42,7 @@ Get color from map
 }
 
 /**
-Color status generator
+Color status generator - Color Hover Active Focus
  */
 @function CHAF($name, $color-list) {
   $map: ();
@@ -52,10 +74,10 @@ Merge color lists
   @return $collection;
 }
 
-@function shadeGenerator($color-name, $hex) {
+@function shadeAndTint($color-name, $hex) {
   $map: ("#{$color-name}": $hex);
-  @each $name, $value in get("color.shades") {
-    $map: map-merge($map, (if($name >= 500, ("#{$color-name}-#{$name}": shade($hex, $value)), ("#{$color-name}-#{$name}": tint($hex, $value)))));
+  @each $shade-name, $value in get("color.shades") {
+    $map: map-merge($map, (if($shade-name >= 500, ("#{$color-name}-#{$shade-name}": shader($hex, $value)), ("#{$color-name}-#{$shade-name}": tinter($hex, $value)))));
   }
   @return $map;
 }
@@ -65,7 +87,7 @@ Color generate
  */
 $generate: ();
 @each $color-name, $hex-value in get("color.list") {
-  $generate: map-merge($generate, shadeGenerator($color-name, $hex-value));
+  $generate: map-merge($generate, shadeAndTint($color-name, $hex-value));
   $generate: map-merge($generate, CHAF($color-name, $generate));
 }
 
@@ -79,10 +101,9 @@ $outline: (
 );
 
 $ghost: (
-  "ghost": get("color.ghost-transparency.ghost"),
-  "ghost-hover": get("color.ghost-transparency.hover"),
-  "ghost-active": get("color.ghost-transparency.active"),
-  "ghost-focus": get("color.ghost-transparency.focus"),
+  "ghost-hover": get("color.state-bg-tranparency.hover"),
+  "ghost-active": get("color.state-bg-tranparency.active"),
+  "ghost-focus": get("color.state-bg-tranparency.focus"),
 );
 
 $gray: (
