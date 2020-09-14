@@ -93,7 +93,7 @@
       }
     }
 
-    @each $color, $color-value in get("color.list") {
+    @each $color, $color-value in get("color.state") {
       &.#{$color} {
         input {
           &:checked {

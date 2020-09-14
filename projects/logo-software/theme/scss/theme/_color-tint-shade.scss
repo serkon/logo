@@ -16,9 +16,9 @@ Make Shade Color
 Make more darken after shade
  */
 @function shader($color, $percentage) {
+  $color: saturate($color, 3%);
   $color: shade($color, $percentage);
   // $color: darken($color, 5%);
-  // $color: saturate($color, 15%);
   @return $color;
 }
 
@@ -77,7 +77,7 @@ Merge color lists
 @function shadeAndTint($color-name, $hex) {
   $map: ("#{$color-name}": $hex);
   @each $shade-name, $value in get("color.shades") {
-    $map: map-merge($map, (if($shade-name >= 500, ("#{$color-name}-#{$shade-name}": shader($hex, $value)), ("#{$color-name}-#{$shade-name}": tinter($hex, $value)))));
+    $map: map-merge($map, (if($shade-name > 500, ("#{$color-name}-#{$shade-name}": shader($hex, $value)), ("#{$color-name}-#{$shade-name}": tinter($hex, $value)))));
   }
   @return $map;
 }

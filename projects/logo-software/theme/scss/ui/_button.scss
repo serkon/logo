@@ -5,6 +5,10 @@ button {
   @extend .medium;
   @include padding("element.button.size");
   @include extender("element.button");
+  @if get("customize") {
+    @extend %eylul;
+  }
+  @include semantic();
   white-space: nowrap;
   font-weight: normal;
 }

@@ -13,6 +13,7 @@
 $config: if(not variable-exists(config), (), $config);
 $config: deep-map-merge((
   selector: ":root",
+  customize: true,
   font:(
     family: "Nunito",
     alternative: "Source Sans Pro",
@@ -54,7 +55,7 @@ $config: deep-map-merge((
   helper:(
     font:(
       shade: 900,
-      darkener: 17%
+      darkener: 100%
     ),
   ),
   element: (
@@ -83,9 +84,8 @@ $config: deep-map-merge((
         ghost: true
       ),
       customize: (
-        active: false,
         border: (default: --light-600, selected: purple),
-        font: (color: --dark-700)
+        font: (color: --text-900)
       )
     ),
     switch:(
@@ -129,38 +129,39 @@ $config: deep-map-merge((
     list: (
       brand: #7500ff,
       primary: #0090ff,
-      basic: #dde8f7, // #a1b9d1, // #75899e, //#cdd7e2, //#f2f4f9,
-      secondary: #f2f4f9,
+      basic: #f2f4f9, // #a1b9d1, // #75899e, //#cdd7e2, //#f2f4f9,
+      secondary: #dde8f7,
       light: #ffffff,
-      dark: #717171,
+      dark: #6a6a6a,
       gray: #cccccc,
       info: #0090ff,
       danger: #ff3e51,
       warning: #f8aa1c,
       success: #01cc78,
+      text: #858585
     ),
     semantic: info danger warning success,
     shades:(
-      50: 50%,
-      100: 40%,
-      200: 30%,
-      300: 20%,
-      400: 10%,
+      100: 90%,
+      200: 80%,
+      300: 60%,
+      400: 30%,
       500: 0%,
-      600: 5%,
-      700: 10%,
-      800: 15%,
-      900: 20%,
+      600: 8%,
+      700: 15%,
+      800: 25%,
+      900: 40%,
+      1000: 60%
     ),
     shade-state:(
       hover: 600,
       active: 700,
-      focus: 800
+      focus: 700
     ),
     state-bg-tranparency:(
-      hover: 0.2,
-      active: 0.2,
-      focus: 0.2
+      hover: 0.08,
+      active: 0.15,
+      focus: 0.15
     ),
     disabled-opacity: 50%,
   ),
@@ -181,8 +182,20 @@ $config: deep-map-merge((
   extend-colors: false,
 ), $config, true);
 
+
+$color-state: map-get(map-get($config, color), list);
+$color-semantic: ();
+@each $item in get("color.semantic") {
+  $color-semantic: map-merge($color-semantic, ($item: map-get($color-state, $item)));
+  $color-state: map-remove($color-state, $item);
+}
+
+$color-list: map-merge($color-state, $color-semantic);
 $config: deep-map-merge((
-  color:(state: brand primary basic secondary light dark gray)
+  color:(
+    state: map-keys($color-state),
+    list: $color-list
+  )
 ), $config, true);
 
 $colors: ();

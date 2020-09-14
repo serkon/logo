@@ -4,10 +4,10 @@ input {
   @extend .medium;
 
   &:not([type]), &[type~="text"], &[type~="password"] {
-    @include padding("element.input.size");
     @extend %fill;
-    @extend %fill.secondary;
+    @extend %fill.basic;
     @extend %placeholder;
+    @include padding("element.input.size");
     @include extender("element.input");
 
     &:focus {

@@ -16,7 +16,7 @@ $not-exist-state-list: "";
  */
 %outline {
   @extend %ghost-outline;
-  @extend %border;
+  @extend %semantics;
 }
 
 
@@ -78,7 +78,7 @@ $not-exist-state-list: "";
 /**
   Template (outline): outline styles
  */
-%border {
+%semantics {
   @each $color, $value in get("color.list") {
     $border: size(1px) solid var(--#{$color}-500);
 

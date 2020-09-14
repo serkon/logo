@@ -13,15 +13,16 @@ export enum ELEMENT {
 export class ThemeShowcaseComponent implements AfterViewInit {
   statuses = ['brand', 'primary', 'secondary', 'basic', 'light', 'dark', 'gray'];
   semantic = ['success', 'info', 'warning', 'danger'];
+  colors = ['text'];
   states = ['hover', 'active', 'focus'];
   types = ['fill', 'outline', 'ghost'];
-  shades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
+  shades = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
   elements = {
     button: {
       name: ELEMENT.BUTTON,
       render: {
         fill: true,
-        outline: true, // ['primary', 'secondary', 'light', 'dark', 'gray'],
+        outline: true, // ['brand', 'primary', 'secondary', 'light', 'dark', 'gray'],
         ghost: true,
       },
     },
@@ -39,6 +40,7 @@ export class ThemeShowcaseComponent implements AfterViewInit {
 
   constructor() {
     this.keys = Object.keys(this.elements);
+    this.colors = [...this.colors, ...this.statuses, ...this.semantic];
   }
 
   ngAfterViewInit() {
