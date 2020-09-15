@@ -1,5 +1,4 @@
-
-input {
+input, textarea {
   border-radius: get("border.radius");
   @extend .medium;
   @extend %fill;
@@ -7,6 +6,7 @@ input {
   @extend %placeholder;
   @extend %padding-input;
   @extend %semantic-input;
+  cursor: pointer;
 
   &:not([type]), &[type~="text"], &[type~="password"] {
     &:focus {
@@ -16,7 +16,6 @@ input {
     }
   }
 }
-
 
 /**
 Checkbox

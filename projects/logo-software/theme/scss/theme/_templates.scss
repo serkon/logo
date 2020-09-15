@@ -7,7 +7,7 @@
 %fill {
   border: size(1px) solid transparent;
   outline: none;
-  @each $color, $value in get("color.list") {
+  @each $color, $value in get("color.state") {
     &.#{$color} {
       background-color: var(--#{$color});
       color: if($color == secondary or $color == basic or $color==light, var(--text-900), var(--white));
@@ -29,7 +29,7 @@
   Template (outline): outline styles
  */
 %outline {
-  @each $color, $value in get("color.list") {
+  @each $color, $value in get("color.state") {
     &.#{$color} {
       background-color: transparent;
       border: size(1px) solid var(--#{$color});
@@ -41,6 +41,9 @@
         &:#{$state} {
           border-color: if($color==light, var(--light), var(--#{$color}-#{$state}));
           background-color: rgba(var(--#{$color}-#{$state}-rgb), var(--ghost-#{$state}));
+          @if get("bootstrap.status") {
+            color: if($color == secondary or $color == basic, var(--text-900), var(--#{$color}));
+          }
         }
       }
     }
