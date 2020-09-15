@@ -6,7 +6,7 @@ a {
   cursor: pointer;
   text-decoration: none;
   font-size: size(get("size.medium.font-size"));
-  @extend %color-state-extender;
+  @extend %fill;
 
   &[class*=logo-i] {
     @extend .medium;

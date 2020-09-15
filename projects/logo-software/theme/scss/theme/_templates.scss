@@ -7,7 +7,7 @@
 %fill {
   border: size(1px) solid transparent;
   outline: none;
-  @each $color, $value in get("color.state") {
+  @each $color, $value in get("color.list") {
     &.#{$color} {
       background-color: var(--#{$color});
       color: if($color == secondary or $color == basic or $color==light, var(--text-900), var(--white));
@@ -19,15 +19,19 @@
       }
     }
   }
+
+  &:active, &:focus {
+    @include nb-outline(size(8px), rgba(var(--gray-600-rgb), color(ghost-hover)));
+  }
 }
 
 /**
   Template (outline): outline styles
  */
 %outline {
-  background-color: transparent;
-  @each $color, $value in get("color.state") {
+  @each $color, $value in get("color.list") {
     &.#{$color} {
+      background-color: transparent;
       border: size(1px) solid var(--#{$color});
       // color: if($color == secondary or $color == basic, mix-darkener($color), var(--#{$color}));
       @if not ($color == secondary or $color == basic) {
@@ -48,9 +52,9 @@
  */
 %ghost {
   border: size(1px) solid transparent;
-  background-color: transparent;
   @each $color, $value in get("color.state") {
     &.#{$color} {
+      background-color: transparent;
       border: size(1px) solid transparent;
       // color: if($color == secondary or $color == basic, mix-darkener($color), var(--#{$color}));
       @if not ($color == secondary or $color == basic) {
@@ -109,24 +113,10 @@
   }
 }
 
-%color-state-extender {
-  @each $type in get("type") {
-    &.#{$type} {
-      @extend %#{$type};
-    }
-    @each $color in get("color.state") {
-      $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
-      #{$selector} { // if type fill render just `color` class else render `outline.color` and `ghost.color` classes
-        @extend %#{$type}.#{$color};
-      }
-    }
-  }
-}
-
 /**
 Template semantic color borders
 */
-%semantic {
+%semantic-border {
   @each $type in get("type") {
     @each $color, $value in get("color.semantic") {
       $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
@@ -192,5 +182,15 @@ Template semantic color borders
         }
       }
     }
+  }
+}
+
+#{get("selector")} {
+  .ghost {
+    @extend %ghost;
+  }
+
+  .outline {
+    @extend %outline;
   }
 }

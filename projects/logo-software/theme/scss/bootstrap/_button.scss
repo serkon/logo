@@ -1,22 +1,11 @@
-button {
-  &.btn {
-    @each $key, $color in get("bootstrap.color-map") {
-      &.btn-#{$color} {
-        @extend button.#{$color};
-
-        &:active:focus {
-          // @extend button.#{$color}:focus;
-        }
-      }
-
-      &.btn-outline-#{$color} {
-        @extend button.outline.#{$color};
-
-        &:active:focus {
-          // @extend button.outline.#{$color};
-          // @extend button.outline.#{$color}:focus;
-        }
-      }
+.btn:not(:disabled) {
+  @each $color, $value in get("color.list") {
+    &.btn-#{$color} {
+      border-color: transparent;
+      @extend %fill.#{$color};
+    }
+    &.btn-outline-#{$color} {
+      @extend %outline.#{$color};
     }
   }
 }

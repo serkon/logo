@@ -1,4 +1,6 @@
-@import "input";
-@import "button";
-@import "label";
-@import "a";
+#{get("selector")} {
+  @import "input";
+  @import "button";
+  @import "label";
+  @import "a";
+}
