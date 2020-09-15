@@ -1,5 +1,13 @@
-@mixin padding($element) {
-  @each $item, $size in get(#{$element}) {
+%padding-button {
+  @each $item, $size in get("element.button.size") {
+    &.#{$item} {
+      padding: 0 size(map_get($size, padding));
+    }
+  }
+}
+
+%padding-input {
+  @each $item, $size in get("element.input.size") {
     &.#{$item} {
       padding: 0 size(map_get($size, padding));
     }

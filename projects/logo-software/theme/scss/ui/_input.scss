@@ -7,9 +7,9 @@ input {
     @extend %fill;
     @extend %fill.basic;
     @extend %placeholder;
-    @include padding("element.input.size");
-    @extend %extender;
-    @extend %semantic;
+    @extend %padding-input;
+    @extend %color-state-extender;
+    @extend %semantic-input;
 
     &:focus {
       background-color: var(--white) !important;

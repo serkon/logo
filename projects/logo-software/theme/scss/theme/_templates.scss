@@ -81,8 +81,7 @@
   }
 }
 
-
-%buttton-customize {
+%button-customize {
   @if get("customize") {
     @each $type in get("type") {
       @each $color in get("color.state") {
@@ -110,9 +109,7 @@
   }
 }
 
-
-%extender {
-  border-radius: get("border.radius");
+%color-state-extender {
   @each $type in get("type") {
     &.#{$type} {
       @extend %#{$type};
@@ -135,7 +132,7 @@ Template semantic color borders
       $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
       #{$selector} {
         @if $type==fill or ($type==outline and get("customize")==false) {
-          border: size(1px) solid if($color == light, var(--light), var(--#{$color}));
+          border: size(1px) solid var(--#{$color});
         }
         @if $type==outline or $type==ghost {
           color: var(--#{$color});
@@ -172,6 +169,25 @@ Template semantic color borders
             } @else if ($type == outline or $type == ghost) and get("customize") == false {
               background-color: rgba(var(--#{$color}-#{$state}-rgb), var(--ghost-#{$state}));
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+%semantic-input {
+  @each $type in get("type") {
+    @each $color, $value in get("color.semantic") {
+      $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
+      #{$selector} {
+        // @if $type==fill or $type==outline {
+        border: size(1px) solid var(--#{$color}) !important;
+        // }
+
+        @each $state in get("state.current") {
+          &:#{$state} {
+            border-color: var(--#{$color}-#{$state}-rgb);
           }
         }
       }

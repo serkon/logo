@@ -13,7 +13,7 @@
 $config: if(not variable-exists(config), (), $config);
 $config: deep-map-merge((
   selector: ":root",
-  customize: true,
+  customize: false,
   font:(
     family: "Nunito",
     alternative: "Source Sans Pro",

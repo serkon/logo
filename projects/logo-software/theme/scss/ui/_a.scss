@@ -6,12 +6,12 @@ a {
   cursor: pointer;
   text-decoration: none;
   font-size: size(get("size.medium.font-size"));
-  @extend %extender;
+  @extend %color-state-extender;
 
   &[class*=logo-i] {
     @extend .medium;
     display: inline-flex;
     align-items: center;
-    @include padding("element.button.size");
+    @extend %padding-button;
   }
 }

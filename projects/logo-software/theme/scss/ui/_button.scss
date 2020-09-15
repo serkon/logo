@@ -3,9 +3,9 @@ button {
   @extend %fill;
   @extend %fill.secondary;
   @extend .medium;
-  @include padding("element.button.size");
-  @extend %extender;
-  @extend %buttton-customize;
+  @extend %padding-button;
+  @extend %color-state-extender;
+  @extend %button-customize !optional;
   @extend %semantic;
   @extend %semantic-background;
   white-space: nowrap;
