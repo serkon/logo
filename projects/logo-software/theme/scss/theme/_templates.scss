@@ -186,6 +186,10 @@ Template semantic color borders
 }
 
 #{get("selector")} {
+  .fill {
+    @extend %fill;
+  }
+
   .ghost {
     @extend %ghost;
   }
