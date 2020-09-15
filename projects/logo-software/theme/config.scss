@@ -65,11 +65,6 @@ $config: deep-map-merge((
         large:(padding: 10px),
         medium:(padding: 7px),
         small:(padding: 7px)
-      ),
-      render:(
-        fill: true,
-        outline: true, // secondary primary light dark gray,
-        ghost: true
       )
     ),
     button:(
@@ -77,11 +72,6 @@ $config: deep-map-merge((
         large:(padding: 24px),
         medium:(padding: 15px),
         small:(padding: 8px)
-      ),
-      render:(
-        fill: true,
-        outline: true,
-        ghost: true
       ),
       customize: (
         border: (default: --light-600, selected: purple),

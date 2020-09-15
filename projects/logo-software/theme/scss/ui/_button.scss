@@ -4,11 +4,10 @@ button {
   @extend %fill.secondary;
   @extend .medium;
   @include padding("element.button.size");
-  @include extender("element.button");
-  @if get("customize") {
-    @extend %eylul;
-  }
-  @include semantic();
+  @extend %extender;
+  @extend %buttton-customize;
+  @extend %semantic;
+  @extend %semantic-background;
   white-space: nowrap;
   font-weight: normal;
 }
