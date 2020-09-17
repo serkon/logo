@@ -38,7 +38,7 @@ Make more darken after tint
 Get color from map
  */
 @function color($color) {
-  @return map-get($colors, $color);
+  @return map-get($colors, quote($color));
 }
 
 /**
@@ -48,9 +48,9 @@ Color status generator - Color Hover Active Focus
   $map: ();
   $map: map-merge($map,
     (
-      "#{$name}-hover": map-get($color-list, #{$name}-#{get("color.shade-state.hover")}),
-      "#{$name}-active": map-get($color-list, #{$name}-#{get("color.shade-state.active")}),
-      "#{$name}-focus": map-get($color-list, #{$name}-#{get("color.shade-state.focus")}),
+      "#{$name}-hover": map-get($color-list, #{$name}-#{get("state.shade.hover")}),
+      "#{$name}-active": map-get($color-list, #{$name}-#{get("state.shade.active")}),
+      "#{$name}-focus": map-get($color-list, #{$name}-#{get("state.shade.focus")}),
     )
   );
   @return $map;
@@ -101,9 +101,9 @@ $outline: (
 );
 
 $ghost: (
-  "ghost-hover": get("color.state-bg-tranparency.hover"),
-  "ghost-active": get("color.state-bg-tranparency.active"),
-  "ghost-focus": get("color.state-bg-tranparency.focus"),
+  "ghost-hover": get("state.tranparency.hover"),
+  "ghost-active": get("state.tranparency.active"),
+  "ghost-focus": get("state.tranparency.focus"),
 );
 
 $gray: (
@@ -112,7 +112,7 @@ $gray: (
   "middle-grey": color(gray-400),
   "grey": color(gray-500),
   "dark-grey": color(gray-600),
-  "black": #000000,
+  "black": #000000
 );
 
 $colors: map-collect($colors, $outline, $ghost, $gray);

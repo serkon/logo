@@ -13,7 +13,31 @@
 $config: if(not variable-exists(config), (), $config);
 $config: deep-map-merge((
   selector: ":root",
-  customize: true,
+  customize: (
+    status: false,
+    state:(
+      background: --text-900
+    ),
+    element:(
+      button: (
+        font: (
+          color: --text-900
+        ),
+        border: (
+          default: --light-600,
+          selected: (
+            color: --info-900,
+            size: 2px
+          )
+        )
+      ),
+      input: (
+        font: (
+          color: --text-900
+        )
+      )
+    ),
+  ),
   font:(
     family: "Nunito",
     alternative: "Source Sans Pro",
@@ -50,21 +74,42 @@ $config: deep-map-merge((
     medium: (font-size: 14px, icon-size: 12px, height: 32px, icon-container: 28px),
     large: (font-size: 16px, icon-size: 20px, height: 48px, icon-container: 46px)
   ),
-  state: (current: hover active focus, default: hover active focus),
+  state: (
+    current: hover active focus,
+    default: hover active focus,
+    shade: (
+      hover: 600,
+      active: 700,
+      focus: 700
+    ),
+    tranparency:(
+      hover: 0.08,
+      active: 0.15,
+      focus: 0.15
+    ),
+    disabled:(
+      opacity: 50%
+    ),
+    selected: (
+    )
+  ),
   type: fill outline ghost,
   helper:(
     font:(
       shade: 900,
-      darkener: 100%
+      darkener: 2%
     ),
   ),
   element: (
     input:(
-      placeholder-opacity: 0.2,
+      placeholder:(opacity: 0.5),
       size:(
         large:(padding: 10px),
         medium:(padding: 7px),
         small:(padding: 7px)
+      ),
+      font: (
+        color: --dark-900
       )
     ),
     button:(
@@ -72,10 +117,6 @@ $config: deep-map-merge((
         large:(padding: 24px),
         medium:(padding: 15px),
         small:(padding: 8px)
-      ),
-      customize: (
-        border: (default: --light-600, selected: purple),
-        font: (color: --text-900)
       )
     ),
     switch:(
@@ -137,23 +178,12 @@ $config: deep-map-merge((
       300: 60%,
       400: 30%,
       500: 0%,
-      600: 8%,
-      700: 15%,
-      800: 25%,
+      600: 5%, // 8
+      700: 10%, // 15
+      800: 20%, // 25
       900: 40%,
       1000: 60%
-    ),
-    shade-state:(
-      hover: 600,
-      active: 700,
-      focus: 700
-    ),
-    state-bg-tranparency:(
-      hover: 0.08,
-      active: 0.15,
-      focus: 0.15
-    ),
-    disabled-opacity: 50%,
+    )
   ),
   bootstrap:(
     status: false,

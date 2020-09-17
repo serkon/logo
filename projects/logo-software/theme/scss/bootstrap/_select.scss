@@ -1,7 +1,7 @@
 .chosen-container {
   @extend .medium;
   @extend .icon-right;
-  @extend %fill.secondary;
+  @extend %fill.basic;
   border-radius: size(get("border.radius"));
 
   @each $type in get("type") {
@@ -11,6 +11,7 @@
   }
 
   a, a:not([href]):not([tabindex]).chosen-single:not(.chosen-default) {
+    width: 100%;
     border: none;
     background-color: transparent;
     color: inherit !important;
@@ -52,7 +53,7 @@
 
   div.chosen-drop {
     border-style: solid;
-    border-width: 0 1px 1px 1px;
+    border-width: 0 size(1px) size(1px) size(1px);
     border-color: var(--info);
 
     .chosen-search {
@@ -93,7 +94,7 @@
     @each $color, $color-value in get("color.state") {
       &.#{$color} {
         a, a:not([href]):not([tabindex]) {
-          border: 1px solid var(--#{$color});
+          border: size(1px) solid var(--#{$color});
         }
       }
     }
@@ -102,7 +103,7 @@
 
 .custom-select[size]:not([size="1"]) {
   @extend %fill;
-  @extend .secondary;
+  @extend %fill.basic;
   padding: 0;
 
   @each $type in get("type") {
@@ -121,7 +122,6 @@
   @each $size, $size-map in get("size") {
     &.#{$size} {
       option {
-        // @extend .#{$size};
         height: size(get("size." + $size + ".height")) !important;
       }
     }

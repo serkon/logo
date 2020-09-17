@@ -3,6 +3,10 @@
  */
 // @debug join(get("color.state"), get("color.semantic"));
 
+@function sat($color) {
+  @return var(--#{$color}-900);
+  // @return saturate(color(#{$color}-900), 2%);
+}
 
 %fill {
   border: size(1px) solid transparent;
@@ -10,7 +14,8 @@
   @each $color, $value in get("color.state") {
     &.#{$color} {
       background-color: var(--#{$color});
-      color: if($color == secondary or $color == basic or $color==light, var(--text-900), var(--white));
+      // color: if($color == basic or $color==light or $color == secondary or $color == gray, mix-darkener($color), var(--white));
+      color: if($color == basic or $color == light or $color == secondary or $color == gray, sat($color), var(--white));
       @each $state in get("state.current") {
         &:#{$state} {
           background-color: var(--#{$color}-#{$state});
@@ -34,7 +39,7 @@
       background-color: transparent;
       border: size(1px) solid var(--#{$color});
       // color: if($color == secondary or $color == basic, mix-darkener($color), var(--#{$color}));
-      @if not ($color == secondary or $color == basic) {
+      @if not ($color == basic or $color == secondary or $color == gray) {
         color: var(--#{$color});
       }
       @each $state in get("state.current") {
@@ -42,7 +47,7 @@
           border-color: if($color==light, var(--light), var(--#{$color}-#{$state}));
           background-color: rgba(var(--#{$color}-#{$state}-rgb), var(--ghost-#{$state}));
           @if get("bootstrap.status") {
-            color: if($color == secondary or $color == basic, var(--text-900), var(--#{$color}));
+            color: if($color == secondary or $color == basic, sat($color), var(--#{$color}));
           }
         }
       }
@@ -60,7 +65,7 @@
       background-color: transparent;
       border: size(1px) solid transparent;
       // color: if($color == secondary or $color == basic, mix-darkener($color), var(--#{$color}));
-      @if not ($color == secondary or $color == basic) {
+      @if not ($color == secondary or $color == basic or $color == gray) {
         color: var(--#{$color});
       }
       @each $state in get("state.current") {
@@ -77,10 +82,10 @@
     @each $type in get("type") {
       &.#{$color} {
         @if ($type==fill) {
-          @include install-placeholder(if($color == secondary or $color==basic or $color==light, var(--#{$color}-800), var(--white)));
+          @include install-placeholder($color: if($color == secondary or $color==basic or $color==light, var(--#{$color}-900), var(--white)), $opacity: get("element.input.placeholder.opacity"));
         } @else {
           &.#{$type} {
-            @include install-placeholder(if($color == light, var(--light), var(--#{$color}-800)));
+            @include install-placeholder($color: if($color == light, var(--light), var(--#{$color}-900)), $opacity: get("element.input.placeholder.opacity"));
           }
         }
       }
@@ -89,24 +94,24 @@
 }
 
 %button-customize {
-  @if get("customize") {
+  @if get("customize.status") {
     @each $type in get("type") {
       @each $color in get("color.state") {
         $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
         #{$selector} { // if type fill render just `color` class else render `outline.color` and `ghost.color` classes
-          @if ($color == secondary or $color == basic) {
-            color: var(get("element.button.customize.font.color"));
+          @if ($color == secondary or $color==basic or $color==gray or $color==light) {
+            color: var(get("customize.element.button.font.color"));
           }
           @if $type == outline {
-            border: size(1px) solid if($color==light, var(--light), var(#{get("element.button.customize.border.default")}));
+            border: size(1px) solid if($color==light, rgba(var(--light-rgb), 0.5), var(#{get("customize.element.button.border.default")}));
             &:active, &:focus, &:hover {
-              border: size(1px) solid if($color==light, var(--light), var(#{get("element.button.customize.border.default")}));
+              border: size(1px) solid if($color==light, var(--light), var(#{get("customize.element.button.border.default")}));
             }
           }
           @if ($type==outline or $type==ghost) {
             @each $state in get('state.current') {
               &:#{$state} {
-                background-color: rgba(var(--text-500-rgb), var(--ghost-#{$state}));
+                background-color: rgba(var(--gray-900-rgb), var(--ghost-#{$state}));
               }
             }
           }
@@ -124,7 +129,7 @@ Template semantic color borders
     @each $color, $value in get("color.semantic") {
       $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
       #{$selector} {
-        @if $type==fill or ($type==outline and get("customize")==false) {
+        @if $type==fill or ($type==outline and get("customize.status")==false) {
           border: size(1px) solid var(--#{$color});
         }
         @if $type==outline or $type==ghost {
@@ -132,7 +137,7 @@ Template semantic color borders
         }
         @each $state in get("state.current") {
           &:#{$state} {
-            @if $type==fill or ($type==outline and get("customize")==false) {
+            @if $type==fill or ($type==outline and get("customize.status")==false) {
               border: size(1px) solid var(--#{$color}-#{$state});
             } @else {
               border-color: transparent;
@@ -159,7 +164,7 @@ Template semantic color borders
           &:#{$state} {
             @if $type==fill {
               background-color: var(--#{$color}-#{$state});
-            } @else if ($type == outline or $type == ghost) and get("customize") == false {
+            } @else if ($type == outline or $type == ghost) and get("customize.status") == false {
               background-color: rgba(var(--#{$color}-#{$state}-rgb), var(--ghost-#{$state}));
             }
           }

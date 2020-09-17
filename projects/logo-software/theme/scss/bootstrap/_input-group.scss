@@ -1,22 +1,14 @@
-.input-group {
-  span {
-    input {
-      // border-right: 0 !important;
-    }
-  }
+.input-group-append {
+  margin-left: size(-1px);
+}
 
-  .input-group-append {
-    margin-left: -1px;
-
-    .input-group-text {
-      margin-left: 0 !important;
-      border: 0;
-      background-color: var(--secondary-500);
-      border-left: 1px solid var(--secondary-600);
-      color: var(--dark-600);
-      z-index: 1;
-    }
-  }
+.input-group-text {
+  margin-left: 0 !important;
+  border: 0;
+  background-color: var(--basic);
+  border-left: size(1px) solid var(--basic-600);
+  color: var(--dark-600);
+  z-index: 1;
 }
 
 .form-control {

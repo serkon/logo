@@ -144,7 +144,7 @@ $not-exist-state-list: "";
   Disabled element display setting
  */
 :disabled {
-  opacity: get("color.disabled-opacity");
+  opacity: get("state.disabled.opacity");
   pointer-events: none;
 }
 

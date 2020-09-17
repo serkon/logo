@@ -4,7 +4,7 @@ button {
   @extend %fill.secondary;
   @extend .medium;
   @extend %padding-button;
-  @extend %button-customize !optional;
+  @extend %customize-button !optional;
   @extend %semantic-border;
   @extend %semantic-background;
   white-space: nowrap;

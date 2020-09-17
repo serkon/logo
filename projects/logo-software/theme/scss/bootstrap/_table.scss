@@ -16,9 +16,8 @@
     td {
       font-size: size(14px);
       font-weight: normal;
-      color: var(--dark-900);
-
-      border-right: size(1px) solid var(--secondary-200);
+      color: var(--text-500);
+      border-right: size(1px) solid var(--basic-500);
       border-left: transparent;
 
       &:last-child {
@@ -54,12 +53,11 @@
   }
 
   tr:nth-of-type(odd) {
-    background-color: var(--basic-100);
+    background-color: var(--basic-300);
   }
 }
 
 .t-grid-header {
-
   @extend %table;
 
   .t-grid-header-options {
@@ -81,7 +79,7 @@
   padding: size(10px);
 
   a {
-    @extend %fill.secondary;
+    @extend %fill.basic;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,7 +95,7 @@
   padding: 20px;
 
   .t-filterRemoveBtn {
-    @extend %fill.secondary;
+    @extend %fill.basic;
     margin-top: size(10px);
   }
 }
