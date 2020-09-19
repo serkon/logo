@@ -10,18 +10,14 @@
     display: flex;
     align-items: center;
     font-weight: 800;
-    color: mix-darkener();
     margin-right: size(20px);
     border-radius: size(get("size.large.height")/2);
     @extend .medium;
-
-    &.secondary {
-      color: mix-darkener();
-    }
+    @extend %padding-button;
 
     &.active {
       border-bottom: none;
-      @extend .info;
+      @extend %fill.primary;
     }
   }
 
