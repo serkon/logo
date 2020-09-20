@@ -35,10 +35,11 @@
     "build": "ng build $npm_package_name --prod",
     "git-commit": "git add -A . && git commit . -m $TYPE'('$npm_package_name'): upgrading to v.'$npm_package_version",
     "git-release": "git add -A . && git commit . -m $TYPE'('$npm_package_name'): cut the v.'$npm_package_version' release'",
-    "patch:commit": "npm run ver:patch && npm run build && TYPE=fix npm run git-commit",
-    "minor:commit": "npm run ver:minor && npm run build && TYPE=feat npm run git-commit",
-    "pre:commit": "npm run ver:pre && npm run build && TYPE=prerelease npm run git-commit",
-    "major:commit": "npm run ver:major && TYPE=release npm run git-release",
+    "patch:commit": "npm run ver:patch && npm run build && TYPE=fix npm run git-commit && npm run tag",
+    "minor:commit": "npm run ver:minor && npm run build && TYPE=feat npm run git-commit && npm run tag",
+    "pre:commit": "npm run ver:pre && npm run build && TYPE=prerelease npm run git-commit && npm run tag",
+    "major:commit": "npm run ver:major && npm run build && TYPE=release npm run git-release && npm run tag",
+    "tag": "git tag LanguageModule.$npm_package_version",
     "unpublish": "npm unpublish $npm_package_name@$npm_package_version"
   }
 }
