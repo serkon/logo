@@ -1,6 +1,6 @@
 {
   "name": "@logo-software/excel",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Any given data or any service that returned data can be exportable with this component to Excel.",
   "homepage": "http://developer.logo.com.tr",
   "author": {
@@ -47,7 +47,7 @@
     "minor:commit": "npm run ver:minor && npm run build && TYPE=feat npm run git-commit && npm run tag",
     "pre:commit": "npm run ver:pre && npm run build && TYPE=prerelease npm run git-commit && npm run tag",
     "major:commit": "npm run ver:major && npm run build && TYPE=release npm run git-release && npm run tag",
-    "tag": "git tag ComboboxModule.$npm_package_version",
+    "tag": "git tag ExcelModule.$npm_package_version",
     "unpublish": "npm unpublish $npm_package_name@$npm_package_version"
   }
 }
