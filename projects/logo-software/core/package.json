@@ -1,6 +1,6 @@
 {
   "name": "@logo-software/core",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "description": "Core module is main Logo Module that contains shared **directives**, **pipes**, **services** and **util** class. It also exported to the `SharedDirectiveModule` and `SharedPipeModule` for directly usage.",
   "homepage": "http://developer.logo.com.tr",
   "author": {
