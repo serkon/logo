@@ -1,6 +1,6 @@
 {
   "name": "@logo-software/language",
-  "version": "0.0.11",
+  "version": "1.0.0",
   "description": "With this module you can easily translate any text to specified language on the fly. Over HTTP or LOCAL file resource can be usable.",
   "homepage": "http://developer.logo.com.tr",
   "author": {
