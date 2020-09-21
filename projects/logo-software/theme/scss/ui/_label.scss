@@ -1,16 +1,25 @@
 /**
 Label
  */
-label {
+%label {
   display: inline-block;
   vertical-align: middle;
   cursor: pointer;
   font-size: get("size.medium.font-size");
-  @extend label.medium;
 
   @each $size, $size-map in get("size") {
-    &.#{$size} {
+    &-#{$size} {
       font-size: size(get('size.'+ $size + '.font-size'));
+      // line-height: size(map_get($size-map, height));
+    }
+  }
+}
+
+label {
+  @extend %label, %label-medium;
+  @each $size, $size-map in get("size") {
+    &.#{$size} {
+      @extend %label-#{$size};
     }
   }
 }

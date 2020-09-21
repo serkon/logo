@@ -7,73 +7,88 @@
  * of it without the prior written consent of Logo Yazılım.
  * Any reproduction of this material must contain this notice.
  */
-#{get("selector")} {
-  [class*=logo-i] {
-    position: relative;
+%icon {
+  position: relative;
 
-    &::before {
-      -webkit-mask-position: center;
-      mask-position: center;
-      // top: 0;
-      // left: 0;
-      top: size(-1px);
-      left: size(-1px);
-      content: "";
-      z-index: 1;
-    }
-
-    // &.outline {
-    //   &::before {
-    //     top: size(-1px);
-    //     left: size(-1px);
-    //   }
-    // }
-
-    &.icon-right {
-      &::before {
-        left: auto;
-      }
-
-      &::before {
-        right: 0;
-      }
-
-      &.outline {
-        &::before {
-          right: size(-1px);
-        }
-      }
-    }
+  &::before {
+    -webkit-mask-position: center;
+    mask-position: center;
+    // top: 0;
+    // left: 0;
+    top: size(-1px);
+    left: size(-1px);
+    content: "";
+    z-index: 1;
   }
 
-  @each $item, $size in get("size") {
-    $icon-size-info: size(map_get($size, icon-size) * 2);
-    .#{$item} {
-      &[class*=logo-i] {
-        &::before {
-          width: size(map_get($size, height));
-          height: size(map_get($size, height));
-          -webkit-mask-size: size(map_get($size, icon-size));
-          mask-size: size(map_get($size, icon-size));
-        }
+  // &.outline {
+  //   &::before {
+  //     top: size(-1px);
+  //     left: size(-1px);
+  //   }
+  // }
 
-        &.icon-left {
-          &::before {
-            width: size(map_get($size, icon-container));
-          }
+  &.icon-right, &-right {
+    &::before {
+      left: auto;
+    }
 
-          padding-left: size(map_get($size, icon-container));
-        }
+    &::before {
+      right: 0;
+    }
 
-        &.icon-right {
-          &::before {
-            width: size(map_get($size, icon-container));
-          }
-
-          padding-right: size(map_get($size, icon-container));
-        }
+    &.outline, &-outline {
+      &::before {
+        right: size(-1px);
       }
     }
   }
 }
 
+[class*=logo-i] {
+  @extend %icon;
+}
+
+@each $size, $map in get("size") {
+  $icon-size-info: size(map_get($map, icon-size) * 2);
+  @debug icon-#{$size};
+  %icon-#{$size} {
+    border: 1px solid red;
+
+    &::before {
+      width: size(map_get($map, height));
+      height: size(map_get($map, height));
+      -webkit-mask-size: size(map_get($map, icon-size));
+      mask-size: size(map_get($map, icon-size));
+    }
+
+    &.icon-left, &-left {
+      &::before {
+        width: size(map_get($map, icon-container));
+      }
+
+      padding-left: size(map_get($map, icon-container));
+    }
+
+    &.icon-right, &-right {
+      &::before {
+        width: size(map_get($map, icon-container));
+      }
+
+      padding-right: size(map_get($map, icon-container));
+    }
+  }
+}
+
+
+@each $size, $map in get("size") {
+  $icon-size-info: size(map_get($map, icon-size) * 2);
+  .#{$size}[class*=logo-i] {
+    @extend %icon-#{$size};
+  }
+}
+
+
+.dene{
+  @extend %icon-medium;
+}

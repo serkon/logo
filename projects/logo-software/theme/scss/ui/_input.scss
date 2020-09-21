@@ -1,10 +1,6 @@
 input, textarea {
   border-radius: get("border.radius");
-  @extend .medium;
-  @extend %fill;
-  @extend %fill.basic;
-  @extend %placeholder;
-  @extend %padding-input;
+  @extend %fill, %fill-basic, %medium, %padding-input, %placeholder;
   @extend %semantic-input;
   cursor: pointer;
 
@@ -35,6 +31,19 @@ input, textarea {
       background-color: var(--white) !important;
       border: size(1px) solid var(--info) !important;
       color: var(--dark-900) !important;
+    }
+  }
+}
+
+%inp {
+  @each $size, $value in get("size") {
+    &-#{$size} {
+      $top-bottom-size: size((map-get($value, height) - 14px) / 2);
+      margin: $top-bottom-size size(5px) $top-bottom-size 0;
+
+      & + label {
+        @extend %label-#{$size}
+      }
     }
   }
 }
@@ -78,6 +87,7 @@ input[type=radio] {
 }
 
 input[type=checkbox], input[type=radio] {
+  @extend %inp-medium;
   -moz-appearance: none;
   -webkit-appearance: none;
   -o-appearance: none;
@@ -88,18 +98,14 @@ input[type=checkbox], input[type=radio] {
   position: relative;
   padding: 0;
   vertical-align: middle;
-  @each $size, $value in get("size") {
-    &.#{$size} {
-      $top-bottom-size: size((map-get($value, height) - 14px) / 2);
-      margin: $top-bottom-size size(5px) $top-bottom-size 0;
 
-      & + label {
-        @extend label.#{$size}
-      }
+  @each $size, $value in get("size") {
+    #{$size} {
+      @extend %#{$size};
     }
   }
 
-  &:before {
+  &::before {
     display: inline-block;
     content: '';
     background: currentColor;

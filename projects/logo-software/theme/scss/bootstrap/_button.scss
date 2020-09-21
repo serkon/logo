@@ -1,22 +1,22 @@
 .btn:not(:disabled) {
   @each $color, $value in get("color.state") {
-    &.btn-#{$color} {
+    &.btn-#{"" + $color} {
       border-color: transparent;
-      @extend %fill.#{$color};
+      @extend %fill-#{"" + $color};
     }
-    &.btn-outline-#{$color} {
-      @extend %outline.#{$color};
+    &.btn-outline-#{"" + $color} {
+      @extend %outline-#{"" + $color};
     }
   }
 
   @each $color, $value in get("color.semantic") {
-    &.btn-#{$color} {
-      @extend %semantic-border.#{$color};
-      @extend %semantic-background.#{$color};
+    &.btn-#{"" + $color} {
+      @extend %semantic-border-fill-#{$color};
+      @extend %semantic-background-fill-#{$color};
     }
-    &.btn-outline-#{$color} {
-      @extend %semantic-border.outline.#{$color};
-      @extend %semantic-background.outline.#{$color};
+    &.btn-outline-#{"" + $color} {
+      @extend %semantic-border-outline-#{$color};
+      @extend %semantic-background-outline-#{$color};
     }
   }
 }

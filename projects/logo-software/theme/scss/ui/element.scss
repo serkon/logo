@@ -1,6 +1,24 @@
-#{get("selector")} {
-  @import "input";
-  @import "button";
-  @import "label";
+%element {
   @import "a";
+  @import "button";
+  @import "input";
+  @import "label";
+  @import "typography";
+}
+
+%element-bootstrap {
+  @import "a";
+  @import "button";
+  @import "input";
+  @import "label";
+  @import "typography";
+  @import "../bootstrap/bootstrap";
+}
+
+#{get("selector")} {
+  @if (get("bootstrap.status")) {
+    @extend %element-bootstrap;
+  } @else {
+    @extend %element;
+  }
 }

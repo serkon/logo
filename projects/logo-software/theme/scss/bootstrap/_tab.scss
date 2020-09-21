@@ -12,12 +12,11 @@
     font-weight: 800;
     margin-right: size(20px);
     border-radius: size(get("size.large.height")/2);
-    @extend .medium;
-    @extend %padding-button;
+    @extend %padding-button-medium, %medium;
 
     &.active {
       border-bottom: none;
-      @extend %fill.primary;
+      @extend %fill-primary;
     }
   }
 
@@ -25,18 +24,19 @@
     $height: if(get('element.tab.height') != null, size(get('element.tab.height')), size(get(#{'size.'+ $size + '.height'})));
     &.#{$size} {
       // padding: 0 size(get(#{'element.button.'+ $size + '.padding'}));
+
       .nav-link {
-        @extend .#{$size};
+        @extend %padding-button-#{$size}, %#{$size};
         border-radius: $height / 2;
       }
     }
   }
 
   @each $color, $color-value in get("color.state") {
-    &.#{$color} {
+    &.#{"" + $color} {
       .nav-link {
         &.active {
-          @extend .#{$color};
+          @extend %fill-#{"" + $color};
           // or extend everything with @extend .#{$color};
         }
       }

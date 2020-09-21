@@ -9,9 +9,8 @@ a {
   @extend %fill;
 
   &[class*=logo-i] {
-    @extend .medium;
+    @extend %medium, %padding-button;
     display: inline-flex;
     align-items: center;
-    @extend %padding-button;
   }
 }

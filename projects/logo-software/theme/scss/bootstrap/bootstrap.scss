@@ -1,18 +1,10 @@
-%loadBootstrapFile {
-  @import "./button";
-  @import "./form-group";
-  @import "./input-group";
-  @import "./text_truncate";
-  @import "./custom-control";
-  @import "./tab";
-  @import "./select";
-  @import "./modal";
-  @import "./table";
-  @import "./auto-complete";
-}
-
-#{get("selector")} {
-  @if get("bootstrap.status")==true {
-    @extend %loadBootstrapFile;
-  }
-}
+@import "button";
+@import "form-group";
+@import "input-group";
+@import "text_truncate";
+@import "custom-control";
+@import "tab";
+@import "select";
+@import "./modal";
+@import "./table";
+@import "./auto-complete";

@@ -9,7 +9,7 @@
  */
 
 @import "~@logo-software/icons/style";
-@import "~@logo-software/theme/style";
+@import "~@logo-software/theme/base";
 
 :host {
   $margin-size: size(15px);
@@ -52,7 +52,7 @@
       margin-left: auto;
       margin-top: $margin-size;
 
-      .remove {
+      .close {
         position: absolute;
         right: size(10px);
         top: size(10px);

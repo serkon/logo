@@ -79,7 +79,7 @@
   padding: size(10px);
 
   a {
-    @extend %fill.basic;
+    @extend %fill, %fill-basic;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -95,7 +95,7 @@
   padding: 20px;
 
   .t-filterRemoveBtn {
-    @extend %fill.basic;
+    @extend %fill, %fill-basic;
     margin-top: size(10px);
   }
 }

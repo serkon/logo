@@ -1,7 +1,7 @@
 $custom-control-width: size(14px);
 $custom-control-padding: 0;
-.custom-control {
 
+.custom-control {
   padding-left: $custom-control-padding;
   margin: 0;
 
@@ -23,10 +23,10 @@ $custom-control-padding: 0;
     }
   }
 
-  @each $size, $value in get("size") {
+  @each $size, $size-map in get("size") {
     &.#{$size} {
-      label {
-        @extend label.#{$size};
+      input + label {
+        @extend %label, %#{$size}, %label-#{$size};
       }
     }
   }
@@ -52,37 +52,9 @@ $custom-control-padding: 0;
   }
 }
 
-.custom-switch {
-  @extend .custom-switch.medium;
-
+%custom-switch {
   input {
     display: none;
-
-    & + label {
-      display: inline-flex;
-      align-items: center;
-
-      &::before {
-        background-color: var(--basic);
-      }
-
-      &::before, &::after {
-        position: absolute;
-        border: none;
-        pointer-events: auto;
-        display: inline-block;
-      }
-
-      &::before {
-        top: 0;
-      }
-
-      &::after {
-        background-color: var(--white);
-        border-radius: 50%;
-        box-shadow: 0 0 size(4px) 0 var(--gray-50);
-      }
-    }
 
     &:checked {
       & + label {
@@ -98,8 +70,34 @@ $custom-control-padding: 0;
     }
   }
 
+  .custom-control-label {
+    display: inline-flex;
+    align-items: center;
+
+    &::before {
+      background-color: var(--basic);
+    }
+
+    &::before, &::after {
+      position: absolute;
+      border: none;
+      pointer-events: auto;
+      display: inline-block;
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      background-color: var(--white);
+      border-radius: 50%;
+      box-shadow: 0 0 size(4px) 0 var(--gray-50);
+    }
+  }
+
   @each $color, $color-value in get("color.state") {
-    &.#{$color} {
+    &.#{"" + $color} {
       input {
         &:checked {
           & + label {
@@ -113,45 +111,46 @@ $custom-control-padding: 0;
   }
 
   @each $size, $value in get("size") {
-    &.#{$size} {
+    &.#{$size}, &-#{$size} {
       $width: size(get("element.switch.size."+$size+".width"));
       $circle-padding: size(get("element.switch.size."+$size+".circle-padding"));
       $padding-left: $width + size(5px);
       $height: size(map-get($value, height));
       $after-size: size($height - $circle-padding * 2);
       padding-left: $padding-left;
+      height: $height;
 
-      input {
-        & + label {
-          @extend .#{$size};
+      .custom-control-label {
+        line-height: size(map_get($value, height));
 
-          &::before {
-            width: $width;
-            left: $padding-left * -1;
-            height: $height;
-            border-radius: $height / 2;
-          }
-
-          &::after {
-            left: ($padding-left - $circle-padding) * -1;
-            background-color: var(--white);
-            border-radius: 50%;
-            top: $circle-padding;
-            height: $after-size;
-            width: $after-size;
-          }
+        &::before {
+          width: $width;
+          left: $padding-left * -1;
+          height: $height;
+          border-radius: $height / 2;
         }
 
-        &:checked {
-          & + label {
-            &::after {
-              left: ($after-size + size(17px) + $circle-padding) * -1;
-            }
-          }
+        &::after {
+          left: ($padding-left - $circle-padding) * -1;
+          background-color: var(--white);
+          border-radius: 50%;
+          top: $circle-padding;
+          height: $after-size;
+          width: $after-size;
+        }
+      }
+
+      input:checked + .custom-control-label {
+        &::after {
+          left: ($after-size + size(17px) + $circle-padding) * -1;
         }
       }
     }
   }
+}
+
+.custom-switch {
+  @extend %custom-switch, %custom-switch-medium;
 }
 
 th {
@@ -163,4 +162,3 @@ th {
     }
   }
 }
-

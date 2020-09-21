@@ -12,7 +12,7 @@
   border: size(1px) solid transparent;
   outline: none;
   @each $color, $value in get("color.state") {
-    &.#{$color} {
+    &-#{"" + $color}, &.#{""+ $color} {
       background-color: var(--#{$color});
       // color: if($color == basic or $color==light or $color == secondary or $color == gray, mix-darkener($color), var(--white));
       color: if($color == basic or $color == light or $color == secondary or $color == gray, sat($color), var(--white));
@@ -35,7 +35,7 @@
  */
 %outline {
   @each $color, $value in get("color.state") {
-    &.#{$color} {
+    &-#{"" + $color}, &.#{""+ $color} {
       background-color: transparent;
       border: size(1px) solid var(--#{$color});
       // color: if($color == secondary or $color == basic, mix-darkener($color), var(--#{$color}));
@@ -61,7 +61,7 @@
 %ghost {
   border: size(1px) solid transparent;
   @each $color, $value in get("color.state") {
-    &.#{$color} {
+    &-#{"" + $color}, &.#{""+ $color} {
       background-color: transparent;
       border: size(1px) solid transparent;
       // color: if($color == secondary or $color == basic, mix-darkener($color), var(--#{$color}));
@@ -80,7 +80,7 @@
 %placeholder {
   @each $color, $value in get("color.list") {
     @each $type in get("type") {
-      &.#{$color} {
+      &.#{"" + $color} {
         @if ($type==fill) {
           @include install-placeholder($color: if($color == secondary or $color==basic or $color==light, var(--#{$color}-900), var(--white)), $opacity: get("element.input.placeholder.opacity"));
         } @else {
@@ -128,7 +128,7 @@ Template semantic color borders
   @each $type in get("type") {
     @each $color, $value in get("color.semantic") {
       $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
-      #{$selector} {
+      #{$selector}, &-#{$type}-#{$color} {
         @if $type==fill or ($type==outline and get("customize.status")==false) {
           border: size(1px) solid var(--#{$color});
         }
@@ -153,7 +153,7 @@ Template semantic color borders
   @each $type in get("type") {
     @each $color, $value in get("color.semantic") {
       $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
-      #{$selector} {
+      #{$selector}, &-#{$type}-#{$color} {
         @if $type==fill {
           background-color: var(--#{$color});
           color: var(--white);

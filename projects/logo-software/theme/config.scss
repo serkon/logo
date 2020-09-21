@@ -7,9 +7,6 @@
  * of it without the prior written consent of Logo Yazılım.
  * Any reproduction of this material must contain this notice.
  */
-
-@import "./scss/helpers/deep-map-merge";
-
 $config: if(not variable-exists(config), (), $config);
 $config: deep-map-merge((
   selector: ":root",
@@ -202,7 +199,6 @@ $config: deep-map-merge((
   extend-colors: false,
 ), $config, true);
 
-
 $color-state: map-get(map-get($config, color), list);
 $color-semantic: ();
 @each $item in get("color.semantic") {
@@ -219,3 +215,6 @@ $config: deep-map-merge((
 ), $config, true);
 
 $colors: ();
+
+@if get("debug")==false {
+}

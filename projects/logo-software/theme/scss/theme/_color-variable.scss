@@ -8,13 +8,11 @@
  * Any reproduction of this material must contain this notice.
  */
 
-@if get("debug")==false {
-  :root {
-    @each $name, $hex-value in $colors {
-      --#{$name}: #{$hex-value};
-      @if (not str-index(quote($name), "ghost")) {
-        --#{$name}-rgb: #{hexToRGB($hex-value, $name)};
-      }
+:root {
+  @each $name, $hex-value in $colors {
+    --#{$name}: #{$hex-value};
+    @if (not str-index(quote($name), "ghost")) {
+      --#{$name}-rgb: #{hexToRGB($hex-value, $name)};
     }
   }
 }

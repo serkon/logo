@@ -1,6 +1,6 @@
 %padding-button {
   @each $item, $size in get("element.button.size") {
-    &.#{$item} {
+    &.#{$item}, &-#{$item} {
       padding: 0 size(map_get($size, padding));
     }
   }
@@ -8,7 +8,7 @@
 
 %padding-input {
   @each $item, $size in get("element.input.size") {
-    &.#{$item} {
+    &.#{$item}, &-#{$item} {
       padding: 0 size(map_get($size, padding));
       line-height: size(get("size." + $item + ".height") - 2px);
     }
