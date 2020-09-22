@@ -8,7 +8,6 @@
  * Any reproduction of this material must contain this notice.
  */
 
-
 @each $item, $size in get("size") {
   %#{$item} {
     box-sizing: border-box;
@@ -19,8 +18,10 @@
   }
 }
 
-@each $item, $size in get("size") {
-  .#{$item} {
-    @extend %#{$item};
+#{get("selector")} {
+  @each $item, $size in get("size") {
+    .#{$item} {
+      @extend %#{$item};
+    }
   }
 }

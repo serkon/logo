@@ -9,7 +9,7 @@ a {
   @extend %fill;
 
   &[class*=logo-i] {
-    @extend %medium, %padding-button;
+    @extend %medium, %padding-button-medium;
     display: inline-flex;
     align-items: center;
   }

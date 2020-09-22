@@ -7,4 +7,11 @@
       outline: size(2px) solid var(--#{$color}-focus);
     }
   }
+
+  // bence gerek yok .dark-500{bac...:} üretiyor
+  @each $name, $ratio in get("color.shades") {
+    .#{"" + $color}-#{$name} {
+      background-color: var(--#{$color}-#{$name});
+    }
+  }
 }

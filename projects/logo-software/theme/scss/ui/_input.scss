@@ -1,6 +1,6 @@
 input, textarea {
   border-radius: get("border.radius");
-  @extend %fill, %fill-basic, %medium, %padding-input, %placeholder;
+  @extend %fill, %fill-basic, %medium, %padding-input-medium, %placeholder;
   @extend %semantic-input;
   cursor: pointer;
 

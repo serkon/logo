@@ -45,16 +45,9 @@
   }
 }
 
-[class*=logo-i] {
-  @extend %icon;
-}
-
 @each $size, $map in get("size") {
   $icon-size-info: size(map_get($map, icon-size) * 2);
-  @debug icon-#{$size};
   %icon-#{$size} {
-    border: 1px solid red;
-
     &::before {
       width: size(map_get($map, height));
       height: size(map_get($map, height));
@@ -80,15 +73,15 @@
   }
 }
 
-
-@each $size, $map in get("size") {
-  $icon-size-info: size(map_get($map, icon-size) * 2);
-  .#{$size}[class*=logo-i] {
-    @extend %icon-#{$size};
+#{get("selector")} {
+  [class*=logo-i] {
+    @extend %icon, %icon-medium;
   }
-}
 
-
-.dene{
-  @extend %icon-medium;
+  @each $size, $map in get("size") {
+    $icon-size-info: size(map_get($map, icon-size) * 2);
+    .#{$size}[class*=logo-i] {
+      @extend %icon-#{$size};
+    }
+  }
 }
