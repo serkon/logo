@@ -8,7 +8,8 @@
   ],
   "whitelistedNonPeerDependencies": [
     "@logo-software/icons",
-    "@logo-software/theme"
+    "@logo-software/theme",
+    "fs-extra"
   ],
   "keepLifecycleScripts": true,
   "lib": {
