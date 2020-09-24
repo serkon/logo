@@ -6,11 +6,18 @@
   margin-left: 0 !important;
   border: 0;
   background-color: var(--basic);
-  border-left: size(1px) solid var(--basic-600);
   color: var(--dark-600);
   z-index: 1;
 }
 
-.form-control {
+.form-control:not(:last-child) {
   background-clip: border-box;
+  border-right: size(1px) solid var(--basic-600);
+  margin-left: size(-1px);
+  z-index: 2;
+
+  &:focus {
+    border-right: size(1px) solid var(--info);
+  }
 }
+
