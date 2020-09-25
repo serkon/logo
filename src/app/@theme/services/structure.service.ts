@@ -140,9 +140,13 @@ export class NgdStructureService {
   }
 
   protected getTocForComponent(block: any) {
-    return {
-      title: block.source.name,
-      fragment: block.source.slag,
+    try {
+      return {
+        title: block.source.name,
+        fragment: block.source.slag,
+      }
+    } catch (e) {
+      console.log(block, e);
     }
   }
 
