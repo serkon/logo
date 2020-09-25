@@ -121,11 +121,6 @@
     "@angular/compiler-cli": "~9.1.6",
     "@angular/language-service": "~9.1.6",
     "@ng-bootstrap/ng-bootstrap": "^6.1.0",
-    "@semantic-release/changelog": "^5.0.1",
-    "@semantic-release/commit-analyzer": "^8.0.1",
-    "@semantic-release/git": "^9.0.0",
-    "@semantic-release/npm": "^7.0.6",
-    "@semantic-release/release-notes-generator": "^9.0.1",
     "@types/gulp": "^4.0.6",
     "@types/highlight.js": "^9.12.3",
     "@types/jasmine": "~3.5.0",
@@ -176,7 +171,6 @@
     "rimraf": "^3.0.2",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rxjs-tslint-rules": "^4.31.0",
-    "semantic-release": "^17.1.2",
     "stylelint": "^13.3.3",
     "stylelint-config-standard": "^20.0.0",
     "through2": "^3.0.1",
@@ -189,18 +183,10 @@
     "uglifyjs-webpack-plugin": "^2.2.0"
   },
   "release": {
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      [
-        "@semantic-release/npm",
-        {
-          "npmPublish": false
-        }
-      ],
-      "@semantic-release/changelog",
-      "@semantic-release/git"
-    ],
+    "plugins": [],
     "branch": "master"
+  },
+  "bin": {
+    "prsr": "bin/prsr"
   }
 }
