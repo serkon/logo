@@ -2,11 +2,12 @@
 Link
  */
 a {
-  display: inline-block;
+  display: inline-flex; // display: inline-block;
+  align-items: center;
   cursor: pointer;
   text-decoration: none;
   font-size: size(get("size.medium.font-size"));
-  @extend %fill;
+  @extend %fill, %padding-button;
 
   &[class*=logo-i] {
     @extend %medium, %padding-button-medium;

@@ -11,7 +11,7 @@ $config: if(not variable-exists(config), (), $config);
 $config: deep-map-merge((
   selector: ":root",
   customize: (
-    status: false,
+    status: true,
     state:(
       background: --text-900
     ),

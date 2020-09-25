@@ -1,6 +1,6 @@
 button {
   border-radius: get("border.radius");
-  @extend %fill, %fill-secondary, %padding-button-medium, %medium;
+  @extend %fill, %fill-secondary, %padding-button, %padding-button-medium, %medium;
   @extend %button-customize !optional;
   @extend %semantic-border;
   @extend %semantic-background;
