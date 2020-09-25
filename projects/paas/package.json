@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@logo-software/cursor": "~0.0.1",
+    "@logo-software/cursor": "~0.0.5",
     "canvas-particle-network": "^1.5.0",
     "moment": "^2.27.0"
   }
