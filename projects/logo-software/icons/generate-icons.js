@@ -14,7 +14,7 @@ const processors = [
 const pscss = require('postcss-scss');
 
 const ICONS_DIRECTORY = './assets/icons/';
-const ICONS_TS_OUTPUT = './logo-icons.ts';
+const ICONS_TS_OUTPUT = './src/logo-icons.ts';
 const ICONS_SCSS_OUTPUT = './style.scss';
 const OUT = './';
 const ts = [];
