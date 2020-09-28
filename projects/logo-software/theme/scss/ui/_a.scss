@@ -7,11 +7,15 @@ a {
   cursor: pointer;
   text-decoration: none;
   font-size: size(get("size.medium.font-size"));
-  @extend %padding-button;
+  @extend %fill, %padding-button;
 
   &[class*=logo-i] {
     @extend %medium, %padding-button-medium;
     display: inline-flex;
     align-items: center;
+  }
+
+  &:active, &:focus {
+    box-shadow: none;
   }
 }
