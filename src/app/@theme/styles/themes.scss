@@ -54,13 +54,14 @@ $nb-themes: nb-register-theme((
   header-padding: 0 0,
   header-height: 4.25rem,
   header-fg: color-fg-heading-light,
-  menu-item-padding: 0.675rem 1rem,
+  menu-item-padding: 3px, // 0.675rem 1rem,
   menu-fg: color-fg-heading-light,
   menu-active-fg: menu-fg,
   footer-height: 18.75rem,
   footer-padding: 1.25rem 0,
   menu-font-size: 0.95rem,
   menu-font-weight: font-weight-normal,
+
   /**
   bune yaw
    */

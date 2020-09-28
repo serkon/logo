@@ -6,14 +6,12 @@
     </div>
   </div>
   <div class="footer-content row">
-    <div class="company col-xs-12 col-md-6 col-lg-5">
+    <div class="company col-xs-12 col-md-8 col-lg-6">
       <h5>Logo Software Company</h5>
       <p>
         Founded in 1984 to develop applications for personal computers, Logo is one of the biggest software companies
-        in
-        Turkey.
-        With the solutions, services, and innovations offered, Logo has become Turkey’s software industry innovation
-        leader.
+        in Turkey. With the solutions, services, and innovations offered, Logo has become Turkey’s software industry
+        innovation leader.
       </p>
       <p>
         Logo Element® is an adaptable system of guidelines, components, and tools that
@@ -22,7 +20,7 @@
         helps teams quickly build beautiful products.
       </p>
     </div>
-    <div class="links col-xs-12 col-md-6 col-lg-4">
+    <div class="links col-xs-12 col-md-2 col-lg-4 row">
       <div class="corporate col-xs-6">
         <a href="{{link.url}}" *ngFor="let link of corporate">{{link.display}}</a>
       </div>
@@ -30,7 +28,7 @@
         <a href="{{link.url}}" *ngFor="let link of legal">{{link.display}}</a>
       </div>
     </div>
-    <div class="social col-xs-12 col-md-12 col-lg-3">
+    <div class="social col-xs-12 col-md-2 col-lg-2">
       <a href="#" class="icon" *ngFor="let link of socials" [ngClass]="link.display">{{link.display}}</a>
     </div>
   </div>

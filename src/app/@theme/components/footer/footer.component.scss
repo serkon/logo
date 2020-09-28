@@ -25,15 +25,12 @@
       .author {
         font-weight: 300;
         margin-top: size(20px);
+        align-self: flex-start;
       }
     }
 
     div.footer-content {
       display: flex;
-
-      [class*=col-] {
-        padding: 0;
-      }
 
       div.company {
         flex-direction: column;
@@ -52,10 +49,10 @@
 
       div.links {
         line-height: size(35px);
-        margin-top: size(60px);
+        margin-top: size(40px);
 
         @include smaller-than(lg) {
-          margin-top: size(80px);
+          // margin-top: size(75px);
         }
 
         div.corporate, div.legal {
@@ -74,13 +71,11 @@
         margin-bottom: size(20px);
         flex-direction: column;
         line-height: size(35px);
-        margin-top: size(60px);
+        margin-top: size(40px);
 
         @include smaller-than(lg) {
           border-left: 0;
-          border-top: 1px solid rgba(var(--dark-900-rgb), 0.5);
           margin-top: size(40px);
-          padding-top: size(40px);
         }
 
         a.icon {
@@ -89,29 +84,34 @@
           align-items: center;
 
           &::before {
-            background-position: right;
+            background-color: var(--info);
+            mask-position: center;
+            mask-repeat: no-repeat;
+            mask-size: contain;
             content: '';
-            width: size(30px);
-            height: 100%;
-            background-repeat: no-repeat;
-            margin-right: size(25px);
+            width: size(20px);
+            height: 100%;;
+            margin-right: size(10px);
           }
 
           &.twitter {
             &::before {
-              background-image: url("/assets/images/twitter.svg");
+              -webkit-mask-image: url("/assets/images/twitter.svg");
+              mask-image: url("/assets/images/twitter.svg");
             }
           }
 
           &.facebook {
             &::before {
-              background-image: url("/assets/images/facebook.svg");
+              -webkit-mask-image: url("/assets/images/facebook.svg");
+              mask-image: url("/assets/images/facebook.svg");
             }
           }
 
           &.youtube {
             &::before {
-              background-image: url("/assets/images/youtube.svg");
+              -webkit-mask-image: url("/assets/images/youtube.svg");
+              mask-image: url("/assets/images/youtube.svg");
             }
           }
         }
