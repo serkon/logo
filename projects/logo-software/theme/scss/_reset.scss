@@ -13,4 +13,9 @@ html {
     color: get("font.color");
     margin: 0;
   }
+
+  :disabled {
+    pointer-events: none;
+    opacity: get("state.disabled.opacity");
+  }
 }

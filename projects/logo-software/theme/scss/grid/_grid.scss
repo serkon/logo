@@ -41,7 +41,8 @@ $container-max-widths: get("grid.container-max-widths");
         .col-#{$breakpoint}-#{$i} {
           $width: 100 / $grid-columns * $i * 1%;
           flex: 0 0 calc(100% / #{$grid-columns} * #{$i} - #{$gutter});
-          margin: 0 #{$gutter/2};
+          padding-right: #{$gutter/2};
+          padding-left: #{$gutter/2};
         }
         .size-#{$breakpoint}-#{$i} {
           flex: 0 0 auto;
@@ -81,6 +82,7 @@ $container-max-widths: get("grid.container-max-widths");
       .row {
         display: flex;
         flex-wrap: wrap;
+        flex-direction: row;
         margin: 0 -#{$gutter/2};
         width: calc(100% + #{$gutter});
         box-sizing: border-box;
@@ -88,7 +90,7 @@ $container-max-widths: get("grid.container-max-widths");
     }
   }
   [class*='column-']:last-child {
-    margin-right: 0;
+    padding-right: 0;
   }
 }
 
