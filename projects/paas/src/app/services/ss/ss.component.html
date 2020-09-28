@@ -1,1 +1,118 @@
-<p>ss works!</p>
+<logo-header></logo-header>
+<section class="one" id="main">
+  <div class="title-content">
+    <h1 class="title">Menu <span class="for">Service</span></h1>
+    <p class="description">
+      Uygulamanıza ait menüler Logo PaaS platformunda hizmet veren diğer uygulamaların menüleri ile birlikte aynı
+      ortamda kullanıcıya sunulsun. Kullanıcılar yetkisi dahilinde olan farklı uygulama menüleri ile dilediği şekilde
+      masaüstü oluştursun.
+    </p>
+    <logo-link
+      [classes]="['primary', 'large', 'get-started']"
+      external="true"
+      url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139826"
+    >
+      KEŞFET
+    </logo-link>
+  </div>
+  <div class="illustrations">
+    <div class="computer"></div>
+  </div>
+  <div class="backgrounds"></div>
+</section>
+<section class="two">
+  <div class="row">
+    <div class="content size-xs-12 size-md-6">
+      <h1>Kullanım Senaryoları</h1>
+      <p>Logo PaaS platformunda ki uygulamalar için kullanıcı dostu bir giriş kapısıdır.</p>
+      <ul>
+        <li>Uygulamalarınızın Menülerini API yoluyla ya da Arayüzlerden hızlıca kayıt edin</li>
+        <li>Kullanıcılarınız menü tanımlarınız üzerindeki yetkiler doğrultusunda görebilsin</li>
+        <li>Uygulamanıza ait Yönetici ekranlarınızı Logo PaaS yönetici yetkilendirme yapısı ile ve API yoluyla hızlıca
+          kayıt edin
+        </li>
+        <li>Javascript mesajlaşması ile uygulamanız menü servis arayüzü ile etkileşim içinde olsun</li>
+      </ul>
+    </div>
+    <div class="image size-xs-12 size-md-6"></div>
+  </div>
+</section>
+<section class="three">
+  <div class="row">
+    <div class="image size-xs-12 size-md-6"></div>
+    <div class="content size-xs-12 size-md-6">
+      <ul>
+        <li>Çalışma esnasında kişiye özel menüleriniz varsa sağlayacağınız bir API ucuyla menü servise bu menüleride
+          aktarın
+        </li>
+        <li>Yetkilendirme kontrolünü dilerseniz menü servis sizin uygulamanızdan kullansın</li>
+        <li>Kişisel masaüstünüzü oluşturup, sık kullandığınız menülere hızlıca ulaşın</li>
+      </ul>
+      <logo-link [classes]="['success', 'large']" external="true"
+                 url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139826">DETAYLARI GÖRÜNTÜLE
+      </logo-link>
+    </div>
+  </div>
+</section>
+<section class="four">
+  <h1>Özellikler</h1>
+  <p>Menu Service Özelliklerini Yakından Tanıyın</p>
+  <logo-carousel>
+    <div class="slider-item" *ngFor="let item of sliderItems">
+      <div class="icon-bg"
+           [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"></div>
+      <div class="abbr">{{item.abbr}}</div>
+      <div class="description">{{item.description}}</div>
+      <!-- a class="go" href="{{item.url}}" [ngClass]="item.classes">go →</a -->
+    </div>
+  </logo-carousel>
+</section>
+<section class="five">
+  <div class="row opinions" *ngFor="let opinion of opinions">
+    <aside class="user hidden-xs col-sm-12 col-md-3">
+      <div class="circle"></div>
+    </aside>
+    <aside class="opinion col-xs-12 col-md-9">
+      <h1>Kullanıcı Görüşleri</h1>
+      <div class="description">
+        <p>Türkiye'deki İşbaşı ve Hindistan'daki Vyapari uygulamalarımızda geliştirme sürecinin en başından bu yana IDM
+          servislerini kullanmaktayız. Hem kullanıcı arayüzü hem de servis entegrasyon arayüzlerinin kolayca
+          kullanılabilir
+          olmasından memnunuz.</p>
+        <p>Kullanıcı sayımızın artmasına rağmen performans ve güvenilirlik açısından beklentilerimizi fazlasıyla
+          karşılaşmıştır.</p>
+      </div>
+      <div class="author">
+        <div class="name">Ayhan İNAL</div>
+        <div class="title">KOBİ Bulut Ürünleri Teknik Proje Yöneticisi</div>
+      </div>
+    </aside>
+  </div>
+</section>
+<section class="six">
+  <div class="row">
+    <div class="list col-xs-12 col-lg-6">
+      <h1>Core Servisler</h1>
+      <div class="row">
+        <ul class="col-xs-12 col-md-6">
+          <li>Bulut Yönetim Servisi</li>
+          <li>Ayarlar Servisi</li>
+          <li>Yetkilendirme Servisi</li>
+        </ul>
+        <ul class="col-xs-12 col-md-6">
+          <li>Menü Servis</li>
+          <li>Yerelleştirme Servisi</li>
+        </ul>
+      </div>
+      <div class="col-xs-6 button">
+        <logo-link [classes]="['success', 'large']" external="true"
+                   url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65132817">TÜMÜNÜ GÖRÜNTÜLE
+        </logo-link>
+      </div>
+    </div>
+    <div class="picture col-xs-12 col-lg-6">
+      <div class="background"></div>
+    </div>
+  </div>
+</section>
+<logo-footer></logo-footer>

@@ -22,10 +22,11 @@
         }
       }
 
-      .author {
+      .ready {
         font-weight: 300;
         margin-top: size(20px);
         color: var(--white);
+        align-self: flex-start;
       }
     }
 
@@ -34,8 +35,9 @@
 
       div.company {
         flex-direction: column;
+        margin-right: size(20px);
 
-        h5 {
+        h2 {
           color: var(--white);
           font-weight: 200;
           margin-bottom: size(20px);
@@ -50,10 +52,10 @@
 
       div.links {
         line-height: size(35px);
-        margin-top: size(60px);
+        margin-top: size(40px);
 
         @include smaller-than(lg) {
-          margin-top: size(80px);
+          // margin-top: size(80px);
         }
 
         div.corporate, div.legal {
@@ -74,14 +76,7 @@
         margin-bottom: size(20px);
         flex-direction: column;
         line-height: size(35px);
-        margin-top: size(60px);
-
-        @include smaller-than(lg) {
-          border-left: 0;
-          border-top: 1px solid rgba(var(--dark-900-rgb), 0.5);
-          margin-top: size(40px);
-          padding-top: size(40px);
-        }
+        margin-top: size(40px);
 
         a.icon {
           display: flex;
