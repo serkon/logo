@@ -1,5 +1,6 @@
 <p>Translate text sample: <span [innerHTML]="'login-info' | translate | safeHTML"></span></p>
-
-<ng-container *ngFor="let lang of languages; last as isLast">
-  <button (click)="setLanguage(lang)" [disabled]="isLast" class="light">{{lang.toUpperCase()}}</button>
-</ng-container>
+<p style="margin-top:30px">
+  <ng-container *ngFor="let lang of languages; last as isLast">
+    <button (click)="setLanguage(lang)" [disabled]="isLast" class="light">{{lang.toUpperCase()}}</button>
+  </ng-container>
+</p>
