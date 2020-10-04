@@ -85,7 +85,7 @@ $container-max-widths: get("grid.container-max-widths");
         flex-wrap: wrap;
         flex-direction: row;
         margin: 0 -#{$gutter/2};
-        width: calc(100% + #{$gutter});
+        // width: calc(100% + #{$gutter});
         box-sizing: border-box;
       }
     }
