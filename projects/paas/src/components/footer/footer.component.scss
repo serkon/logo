@@ -5,7 +5,7 @@
 
   section.footer {
     min-height: auto !important;
-    background: #101010 0 0 no-repeat padding-box;
+    background: var(--light-700) 0 0 no-repeat padding-box;
     align-items: flex-start;
     justify-content: space-between;
     padding-bottom: 0;
@@ -13,9 +13,9 @@
     div.quotes {
       margin-bottom: size(25px);
 
-      h1.story {
-        color: var(--white);
-        font-weight: 300;
+      .story {
+        font-weight: lighter;
+        color: var(--dark-700);
 
         @include smaller-than(md) {
           font-size: size(30px);
@@ -23,9 +23,7 @@
       }
 
       .ready {
-        font-weight: 300;
         margin-top: size(20px);
-        color: var(--white);
         align-self: flex-start;
       }
     }
@@ -37,8 +35,7 @@
         flex-direction: column;
         margin-right: size(20px);
 
-        h2 {
-          color: var(--white);
+        h1 {
           font-weight: 200;
           margin-bottom: size(20px);
         }
@@ -46,13 +43,13 @@
         p {
           font-size: size(14px);
           font-weight: 200;
-          color: var(--light-900);
+          color: var(--dark-900);
         }
       }
 
       div.links {
+        margin-top: size(55px);
         line-height: size(35px);
-        margin-top: size(40px);
 
         @include smaller-than(lg) {
           // margin-top: size(80px);
@@ -62,26 +59,25 @@
           flex-direction: column;
 
           a {
-            color: var(--white);
+            color: var(--dark);
 
             &:not(:last-of-type)::after {
               content: "";
-              padding: 0 size(5px);
             }
           }
         }
       }
 
       div.social {
+        margin-top: size(55px);
         margin-bottom: size(20px);
         flex-direction: column;
         line-height: size(35px);
-        margin-top: size(40px);
 
         a.icon {
+          color: var(--dark);
           display: flex;
           background-repeat: no-repeat;
-          color: var(--white);
           align-items: center;
 
           &::before {
@@ -108,6 +104,12 @@
           &.youtube {
             &::before {
               background-image: url("/assets/images/youtube.svg");
+            }
+          }
+
+          &.instagram {
+            &::before {
+              background-image: url("/assets/images/instagram.svg");
             }
           }
         }

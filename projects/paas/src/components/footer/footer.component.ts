@@ -28,9 +28,9 @@ export class FooterComponent {
   ];
 
   socials = [
-    {url: 'https://twitter.com/logoyazilim', display: 'twitter'},
     {url: 'https://www.facebook.com/logoyazilim', display: 'facebook'},
-    {url: 'https://www.youtube.com/user/LOGOYazilim', display: 'youtube'},
+    {url: 'https://twitter.com/logoyazilim', display: 'twitter'},
+    {url: 'https://instagram.com/LOGOYazilim', display: 'instagram'},
   ];
 
   constructor(public router: Router) {
