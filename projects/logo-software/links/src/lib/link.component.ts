@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { Link } from './link';
+import { DOCUMENT } from '@angular/common';
 
 /**
  * Link component creates link. Advantage of using this component is give the control
@@ -24,14 +25,14 @@ import { Link } from './link';
     <ng-container *ngTemplateOutlet="external ? externalURL: internalURL">
     </ng-container>
     <ng-template #internalURL>
-      <a routerLink="{{url}}" [fragment]="fragment" [ngClass]="classes" (click)="onClickEvent($event)">
+      <button routerLink="{{url}}" [fragment]="fragment" [ngClass]="classes" (click)="onClickEvent($event)">
         <ng-container *ngTemplateOutlet="display ? displayHTML : contentHTML"></ng-container>
-      </a>
+      </button>
     </ng-template>
     <ng-template #externalURL>
-      <a href="{{url}}" [ngClass]="classes" (click)="onClickEvent($event)">
+      <button [ngClass]="classes" (click)="onClickEvent($event)">
         <ng-container *ngTemplateOutlet="display ? displayHTML : contentHTML"></ng-container>
-      </a>
+      </button>
     </ng-template>
     <ng-template #displayHTML>{{display}}</ng-template>
     <ng-template #contentHTML>
@@ -73,6 +74,9 @@ export class LinkComponent implements OnInit {
    */
   @Input() link: Link;
 
+  constructor(@Inject(DOCUMENT) private document) {
+  }
+
   ngOnInit() {
     if (this.link) {
       this.external = this.link.external;
@@ -94,7 +98,10 @@ export class LinkComponent implements OnInit {
     }
   }
 
-  onClickEvent($event) {
+  onClickEvent($event, extenal: boolean = false) {
+    if (extenal) {
+      this.document.location.href = this.url;
+    }
     this.scrollToAnchor();
     this.onClick && this.onClick($event);
   }
