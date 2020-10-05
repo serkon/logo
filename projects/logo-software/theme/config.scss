@@ -125,9 +125,12 @@ $config: deep-map-merge((
     ),
     head: (
       size:(
-        large: (h1: 36px, h2: 24px, h3: 20px, h4: 18px, h5: 16px, h6: 14px),
-        medium:(h1: 30px, h2: 22px, h3: 18px, h4: 16px, h5: 14px, h6: 12px),
-        small:(h1: 24px, h2: 20px, h3: 16px, h4: 14px, h5: 12px, h6: 10px),
+        large: (h1: 48px, h2: 44px, h3: 40px, h4: 38px, h5: 36px, h6: 34px),
+        medium:(h1: 32px, h2: 30px, h3: 28px, h4: 26px, h5: 24px, h6: 22px),
+        small:(h1: 24px, h2: 20px, h3: 18px, h4: 16px, h5: 14px, h6: 12px),
+        // large: (h1: 36px, h2: 24px, h3: 20px, h4: 18px, h5: 16px, h6: 14px),
+        // medium:(h1: 30px, h2: 22px, h3: 18px, h4: 16px, h5: 14px, h6: 12px),
+        // small:(h1: 24px, h2: 20px, h3: 16px, h4: 14px, h5: 12px, h6: 10px),
       )
     ),
     paragraph: (

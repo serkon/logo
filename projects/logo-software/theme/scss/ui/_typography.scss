@@ -2,12 +2,14 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   margin-top: 0;
   margin-bottom: 0;
+  line-height: normal;
 }
 
 @each $size, $items in get("element.head.size") {
   @each $item, $value in $items {
     #{$item + "." + $size} {
       font-size: size($value);
+      height: size($value);
     }
   }
 }
