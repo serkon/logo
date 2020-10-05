@@ -9,7 +9,7 @@ h1, h2, h3, h4, h5, h6 {
   @each $item, $value in $items {
     #{$item + "." + $size} {
       font-size: size($value);
-      height: size($value);
+      height: auto;
     }
   }
 }

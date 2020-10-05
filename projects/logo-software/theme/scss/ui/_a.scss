@@ -18,4 +18,8 @@ a {
   &:active, &:focus {
     box-shadow: none;
   }
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
