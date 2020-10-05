@@ -81,7 +81,7 @@ export class HomeComponent implements AfterViewInit {
         abbr: 'SS',
         title: 'Setting Service',
         description: 'Logo PaaS platformunda diğer mikro servislerin ayarlarını saklama ve gerektiğinde uygulamalara bu ayarları sağlama işlevlerini gerçekleştirir',
-        link: '#',
+        link: 'services/ss',
         class: '',
       },
     ];

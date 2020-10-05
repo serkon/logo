@@ -1,0 +1,49 @@
+@import "~@logo-software/theme/base";
+
+:host {
+  @include host();
+  background-color: #fffdee;
+  position: relative;
+  padding: size(50px) size(120px);
+
+  .list {
+    flex-direction: column;
+    color: #707070;
+    font-weight: bold;
+
+    h1 {
+      font-size: size(35px);
+      margin-bottom: size(35px);
+    }
+
+    ul {
+      font-size: size(20px);
+      font-weight: 600;
+      flex-direction: column;
+      padding-left: size(25px);
+    }
+  }
+
+  .button {
+    margin-top: size(30px);
+  }
+
+  .picture {
+    position: relative;
+    min-height: size(230px);
+
+    .background {
+      position: absolute;
+      top: size(-50px);
+      bottom: size(-50px);
+      background: url("/assets/images/core-services/core-services.png") bottom no-repeat;
+      min-height: size(230px);
+      width: 100%;
+
+      @include smaller-than(md) {
+        top: size(-40px);
+        bottom: size(-40px);
+      }
+    }
+  }
+}

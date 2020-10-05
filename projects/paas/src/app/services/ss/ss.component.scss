@@ -7,6 +7,7 @@ $header-size: size(80px);
 
   ul {
     list-style-image: url('/assets/images/services/idm/check.svg');
+    padding-left: size(25px);
 
     li {
       line-height: size(35px);
@@ -16,54 +17,50 @@ $header-size: size(80px);
 
   section.one {
     position: relative;
-    background: linear-gradient(to bottom, white, #bcd0f3 100%);
-    align-items: center;
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    background: none;
 
     div.title-content {
       position: relative;
       z-index: 2;
-      max-width: size(645px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      // margin-top: size(85px);
+      max-width: size(445px);
+      width: 100%;
+      align-self: center;
 
       h1.title {
-        font-family: get("font.family");
+        font-family: get("font.alternative");
         font-weight: 800;
+        font-size: size(60px);
         flex-direction: column;
         pointer-events: none;
-        color: var(--primary);
+        color: var(--success);
+        letter-spacing: size(-1px);
+
+        @include smaller-than("md") {
+          font-size: size(42px);
+        }
 
         .for {
-          color: #707070;
+          color: var(--dark-800);
         }
       }
 
       p.description {
-        margin: size(25px) 0 size(40px) 0;
+        margin: size(30px) 0 size(40px) 0;
         font-size: size(20px);
-        color: #707070;
+        color: var(--dark-600);
         pointer-events: none;
-        text-align: center;
       }
     }
 
-    div.backgrounds {
-      position: absolute;
-      bottom: 0;
-      margin: auto;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      background: no-repeat url("/assets/images/services/ms/section-01-gears-background.svg") center bottom / 80%, no-repeat url("/assets/images/services/ms/section-01-illustration.svg") bottom 0 center, no-repeat url("/assets/images/services/ms/section-01-left-top.png") top 80px left / 258px 141px, no-repeat url("/assets/images/services/ms/section-01-right-bttom.png") bottom right / 117px 365px;
-
-
-      @include smaller-than(md) {
-        background: no-repeat url("/assets/images/services/ms/section-01-gears-background.svg") center bottom / 80%, no-repeat url("/assets/images/services/ms/section-01-illustration.svg") bottom 0 center / contain, no-repeat url("/assets/images/services/ms/section-01-left-top.png") top 80px left / 258px 141px, no-repeat url("/assets/images/services/ms/section-01-right-bttom.png") bottom right / 117px 365px;
-      }
+    div.illustrations {
+      background-image: url("/assets/images/services/ss/section-01-illustration.svg");
+      background-repeat: no-repeat;
+      background-position: left;
+      flex-grow: 1;
+      margin-left: size(70px);
+      margin-right: size(-120px);
     }
   }
 
@@ -73,6 +70,17 @@ $header-size: size(80px);
     .row {
       @include smaller-than('md') {
         height: auto;
+      }
+
+      .image {
+        padding-right: 120px;
+        background-image: url(/assets/images/services/ss/section-02-illustration.svg);
+        background-repeat: no-repeat;
+        background-position: right;
+
+        @include smaller-than('md') {
+          min-height: size(350px);
+        }
       }
 
       .content {
@@ -87,13 +95,19 @@ $header-size: size(80px);
         h1 {
           font-size: size(40px);
           font-weight: bold;
+          font-family: get("font.alternative");
+          letter-spacing: size(-1px);
 
           &::before {
-            background: url('/assets/images/services/ms/section-02-clipboard.svg') no-repeat;
+            -webkit-mask-image: url('/assets/images/services/ms/section-02-clipboard.svg');
+            mask-image: url('/assets/images/services/ms/section-02-clipboard.svg');
+            -webkit-mask-repeat: no-repeat;
+            background-color: var(--success);
             content: '';
             width: size(50px);
             height: size(50px);
             display: block;
+            margin-bottom: size(24px);
           }
         }
 
@@ -101,73 +115,10 @@ $header-size: size(80px);
           font-size: size(30px);
         }
       }
-
-      .image {
-        padding-right: size(120x);
-        background: #e1e9f7 no-repeat url("/assets/images/services/ms/section-02-illustration.png") right -240% center/90%;
-
-        @include smaller-than('md') {
-          min-height: size(350px);
-        }
-      }
     }
   }
 
   section.three {
-    padding: 0;
-
-    .row {
-      @include smaller-than('md') {
-        flex-direction: column-reverse;
-      }
-
-      .image {
-        padding-right: size(120px);
-        background: #e1e9f7 no-repeat url("/assets/images/services/ms/section-03-illustration.svg") center/80%;
-
-        @include smaller-than('md') {
-          min-height: size(350px);
-          background-size: 60%;
-        }
-      }
-
-      .content {
-        color: #707070;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        padding: size(100px) size(120px);
-
-        @include smaller-than('sm') {
-          padding: size(40px);
-        }
-
-        ul {
-          list-style-image: url('/assets/images/services/idm/check.svg');
-
-          li {
-            margin-top: size(20px);
-            padding-left: size(10px);
-
-            h2 {
-              font-weight: bold;
-              font-size: size(20px);
-            }
-
-            p {
-              font-size: size(16px);
-            }
-          }
-        }
-
-        button {
-          margin-left: size(50px);
-        }
-      }
-    }
-  }
-
-  section.four {
     color: var(--white);
     background: no-repeat url("/assets/images/services/ms/section-04-photo.png") center/cover;
 
@@ -244,137 +195,6 @@ $header-size: size(80px);
               background-color: rgba(255, 255, 255, 0.6);;
             }
           }
-        }
-      }
-    }
-  }
-
-  section.five {
-    background: #3abf7c;
-    min-height: size(376px);
-    color: #ffffff;
-
-    .opinions {
-      position: relative;
-      z-index: 1;
-
-      aside.user {
-        @include larger-than(md) {
-          justify-content: center;
-          margin-top: size(106px);
-          margin-bottom: size(106px);
-          border-right: size(1px) solid white;
-        }
-
-        div.circle {
-          width: size(106px);
-          height: size(106px);
-          border: size(2px) solid white;
-          border-radius: 50%;
-          background-color: var(--dark-300);
-        }
-      }
-
-      aside.opinion {
-        flex-direction: column;
-        @include larger-than(md) {
-          padding-left: size(70px);
-        }
-
-        h1 {
-          font-size: size(35px);
-          font-weight: normal;
-          margin-bottom: size(30px);
-        }
-
-        div.description {
-          position: relative;
-
-          &::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: size(-15px);
-            @include larger-than(md) {
-              left: size(-50px);
-              top: size(-5px);
-            }
-            background: url("/assets/images/services/idm/section-05-quoute.svg") center no-repeat;
-            background-size: contain;
-            width: size(30px);
-            height: size(27px);
-          }
-
-          &::after {
-            position: absolute;
-            content: '';
-            background: url("/assets/images/services/idm/section-05-quoute.svg") center no-repeat;
-            transform: rotate(-180deg);
-            right: 0;
-            bottom: 0;
-            width: size(30px);
-            height: size(27px);
-          }
-
-          p {
-          }
-        }
-
-        div.author {
-          .name {
-            font-size: size(16px);
-            font-weight: bold;
-          }
-
-          .title {
-            font-size: size(12px);
-          }
-        }
-      }
-    }
-  }
-
-  section.six {
-    background-color: #fffdee;
-    position: relative;
-
-    .list {
-      flex-direction: column;
-      color: #707070;
-      font-weight: bold;
-
-      h1 {
-        font-size: size(35px);
-        margin-bottom: size(35px);
-      }
-
-      ul {
-        font-size: size(20px);
-        font-weight: 600;
-        flex-direction: column;
-      }
-    }
-
-    .button {
-      margin-top: size(30px);
-    }
-
-    .picture {
-      position: relative;
-      min-height: size(230px);
-
-      .background {
-        position: absolute;
-        top: size(-50px);
-        bottom: size(-50px);
-        background: url("/assets/images/services/idm/section-06-screenshot.png") bottom no-repeat;
-        background-size: contain;
-        min-height: size(230px);
-        width: 100%;
-
-        @include smaller-than(md) {
-          top: size(-40px);
-          bottom: size(-40px);
         }
       }
     }

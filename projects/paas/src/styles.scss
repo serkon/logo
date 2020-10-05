@@ -1,7 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+$config: (
+  grid:(
+    status: true,
+  ),
+  element:(
+    head:(
+      size: (
+        large: (h1: 60px)
+      )
+    )
+  )
+);
 
-@import "~@logo-software/icons/style";
 @import "~@logo-software/theme/style";
+@import "~@logo-software/icons/style";
 
 html {
   background: #ffffff;

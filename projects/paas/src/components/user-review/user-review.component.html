@@ -1,0 +1,26 @@
+<div class="row opinions" *ngFor="let opinion of opinions" [ngClass]="{'reverse': reverse}">
+  <aside class="user hidden-xs col-sm-12 col-md-4  " *ngIf="!imageUrl">
+    <div
+      class="circle"
+      [ngStyle]="{'backgroundImage': 'url('+ (!!opinion.author.picture ? opinion.author.picture : emptyAvatar | json)  +')'}"
+    >
+    </div>
+  </aside>
+  <aside
+    class="image hidden-xs col-sm-12 col-md-4 col-lg-3"
+    *ngIf="imageUrl"
+    [style.background-image]="'url('+ imageUrl +')'"
+    [ngStyle]="imageStyle"
+  >
+  </aside>
+  <aside class="opinion col-xs-12 col-md-8 col-lg-9">
+    <div class="review">
+      <h1>Kullanıcı Görüşleri</h1>
+      <div class="description" [innerHTML]="opinion.description"></div>
+      <div class="author">
+        <div class="name">{{opinion.author.name}}</div>
+        <div class="title">{{opinion.author.title}}</div>
+      </div>
+    </div>
+  </aside>
+</div>

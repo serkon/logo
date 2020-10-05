@@ -10,7 +10,6 @@ import { DOCUMENT } from '@angular/common';
 export class SsComponent implements AfterViewInit {
 
   public sliderItems: SliderItem[];
-  public opinions = [1];
   public boxes = [
     {
       icon: '/assets/images/services/cc/section-02-icon-01.svg',
@@ -43,65 +42,57 @@ export class SsComponent implements AfterViewInit {
     this.sliderItems = [
       {
         icon: '/assets/images/services/idm/section-04-01.svg',
-        abbr: 'Uygulamalarınızın menüleri için merkezi yönetim',
+        abbr: 'JSON Desteği',
         title: '',
-        description: 'Hesabınıza tanımlı uygulamaların menülerini bir yerden yönetin',
+        description: 'Ayarların tümü JSON formatı ile oluşturulur ve ayarlar arayüzü tamamen dinamik olarak tanımlanan bu JSON verisi üzerinden oluşturulur',
         url: '',
         classes: '',
       },
       {
         icon: '/assets/images/services/idm/section-04-02.svg',
-        abbr: 'Çoklu Hesap (Multitenant) İşlemleri',
+        abbr: 'Çoklu Dil',
         title: '',
-        description: 'Kullanıcı şifrelerinin güvenli bir şekilde (MD5, SHA1, SHA256, SHA384, SHA512 şifreleme yöntemleri ile ) tutulduğundan emin olun',
+        description: 'Ayarlarınızı tanımlarken sizin için hazırlanmış olan özellik setleri sayesinde ayarınızın açıklamalarını ve arayüzde gözükmesini istediğiniz bilgileri kolayca yönetin',
         url: '',
         classes: '',
       },
       {
         icon: '/assets/images/services/idm/section-04-03.svg',
-        abbr: 'Hızlı Kısayol İşlemleri',
+        abbr: 'Dinamik Bileşen',
         title: '',
-        description: 'Verilen yetkiler doğrultusunda kısayollarınızı görüntüleyip, sürükle, bırak ie işlemlerinizi hızlıca tamamlayın',
+        description: 'Ayarlarınız için tanımladığınız yapıda bulunan veri tiplerine göre arayüz input’ları otomatik olarak oluşsun',
         url: '',
         classes: '',
       },
       {
         icon: '/assets/images/services/idm/section-04-04.svg',
-        abbr: 'Masaüstünüzü Tasarlayın',
+        abbr: 'Veritabanı Bağlantı Testi',
         title: '',
-        description: 'Tamamen kişisel masaüstünüzü oluşturup hemen kullanmaya başlayın',
+        description: 'Servisinize özel tanımladığınız veritabanı cümleciğini sizin için hazırlanmış olan özellik sayesinde bağlantınızı test edin ve hatalı bağlantı cümleciği girişinin önüne geçin',
         url: '',
         classes: '',
       },
       {
         icon: '/assets/images/services/idm/section-04-05.svg',
-        abbr: 'Aradığınızı Bulun',
+        abbr: 'Kullanıcı Aktarımı',
         title: '',
-        description: 'Her ekranda sizi karşılayan arama çubukları yardımıyla menü ve kısayollarınıza anında hızlı erişim sağlayın',
+        description: 'Excel veya API uçları ile kullanıcılarınızı aktarın. Harici kimlik kaynaklarındaki kullanıcıları periyodik aralıklarla aktararak senkronize edin',
         url: '',
         classes: '',
       },
       {
         icon: '/assets/images/services/idm/section-04-06.svg',
-        abbr: 'Uygulamalar içerisinde arama',
+        abbr: 'Arayüz Desteği',
         title: '',
-        description: 'Menü serviste yapılan aramalar, kayıtlı uygulamalar içerisinde de gerçekleşsin',
+        description: 'Servisiniz için tanımladığınız ayarınızda açılır kutu veya bir liste verisi barınması isteniyorsa combo ve editör özelliği sayesinde ayar arayüzü dinamik oluşsun',
         url: '',
         classes: '',
       },
       {
         icon: '/assets/images/services/idm/section-04-07.svg',
-        abbr: 'Swagger UI Destekli API Uçları  ',
+        abbr: 'Farklı Ortamlarda Depolama',
         title: '',
-        description: 'Desteklenen API uçlarına Swagger UI üzerinden kolayca ulaşın',
-        url: '',
-        classes: '',
-      },
-      {
-        icon: '/assets/images/services/idm/section-04-08.svg',
-        abbr: 'Çoklu Dil Desteği',
-        title: '',
-        description: 'Menü servis ile tek bir adımda sayfalarınızın dilini değiştirin',
+        description: 'Kullanmak istediğiniz veritabanı olarak MSSQL, PostgreSQL,  MongoDB, File veya Vault desteği sayesinde farklı RDBMS üzerinde ayarlarınızı çalıştırın',
         url: '',
         classes: '',
       },

@@ -7,17 +7,21 @@ import { HeaderModule } from '@paas/src/components/header/header.module';
 import { FooterModule } from '@paas/src/components/footer/footer.module';
 import { SsRoutingModule } from './ss-routing.module';
 import { SsComponent } from './ss.component';
+import { UserReviewModule } from '@paas/src/components/user-review/user-review.module';
+import {CoreServicesModule} from '@paas/src/components/core-services/core-services.module';
 
 @NgModule({
   declarations: [SsComponent],
-  imports: [
-    CommonModule,
-    SsRoutingModule,
-    HeaderModule,
-    FooterModule,
-    CarouselModule,
-    LinksModule,
-  ],
+    imports: [
+        CommonModule,
+        SsRoutingModule,
+        HeaderModule,
+        FooterModule,
+        CarouselModule,
+        LinksModule,
+        UserReviewModule,
+        CoreServicesModule,
+    ],
   exports: [SsComponent],
 })
 export class SsModule {

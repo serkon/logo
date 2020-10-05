@@ -51,7 +51,7 @@ $header-size: size(80px);
         }
 
         span:first-child {
-          background-color: var(--primary-500);
+          background-color: var(--dark);
         }
 
         span:last-child {
@@ -63,6 +63,12 @@ $header-size: size(80px);
       ::ng-deep {
         logo-links {
           flex-grow: 1;
+
+          button {
+            font-family: get("font.alternative");
+            letter-spacing: size(-1px);
+            font-size: size(24px);
+          }
         }
 
         .docs {
