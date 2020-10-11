@@ -1,5 +1,5 @@
 .chosen-container {
-  @extend %fill, %medium, %fill-basic;
+  @extend %fill, %size-medium, %fill-basic;
   border-radius: size(get("border.radius"));
   border: none;
 
@@ -109,7 +109,7 @@
   }
 
   option {
-    @extend %medium, %padding-input-medium;
+    @extend %size-medium, %padding-input-medium;
     display: flex;
     align-items: center;
   }

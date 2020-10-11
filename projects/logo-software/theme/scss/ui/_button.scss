@@ -1,10 +1,3 @@
 button {
-  border-radius: get("border.radius");
-  @extend %fill, %fill-secondary, %padding-button, %padding-button-medium, %medium;
-  @extend %button-customize !optional;
-  @extend %semantic-border;
-  @extend %semantic-background;
-  white-space: nowrap;
-  font-weight: normal;
-  cursor: pointer;
+  @extend %button
 }

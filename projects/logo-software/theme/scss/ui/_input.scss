@@ -1,51 +1,10 @@
 input, textarea {
-  border-radius: get("border.radius");
-  @extend %fill, %fill-basic, %medium, %padding-input, %padding-input-medium, %placeholder;
-  @extend %semantic-input;
-  cursor: pointer;
-
-  @each $type in get("type") {
-    @each $color in get("color.state") {
-      @if ($type==fill) {
-        @if ($color == secondary or $color == basic) {
-          $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
-          #{$selector} {
-            $temp: if(get("customize.status"), "customize.", "");
-            color: var(#{get( $temp + "element.input.font.color")}) !important;
-          }
-        }
-      } @else {
-        @if ($color == secondary or $color == basic) {
-          $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
-          #{$selector} {
-            $temp: if(get("customize.status"), "customize.", "");
-            color: var(#{get( $temp + "element.input.font.color")}) !important;
-          }
-        }
-      }
-    }
-  }
-
-  &:not([type]), &[type~="text"], &[type~="password"] {
-    &:focus {
-      background-color: var(--white) !important;
-      border: size(1px) solid var(--info) !important;
-      color: var(--dark-900) !important;
-    }
-  }
+  @extend %input;
 }
 
-%inp {
-  @each $size, $value in get("size") {
-    &-#{$size} {
-      $top-bottom-size: size((map-get($value, height) - 14px) / 2);
-      margin: $top-bottom-size size(5px) $top-bottom-size 0;
-
-      & + label {
-        @extend %label-#{$size}
-      }
-    }
-  }
+textarea {
+  height: auto;
+  line-height: normal;
 }
 
 /**
@@ -87,7 +46,7 @@ input[type=radio] {
 }
 
 input[type=checkbox], input[type=radio] {
-  @extend %inp-medium;
+  @extend %check-radio-size-medium;
   -moz-appearance: none;
   -webkit-appearance: none;
   -o-appearance: none;
@@ -100,8 +59,8 @@ input[type=checkbox], input[type=radio] {
   vertical-align: middle;
 
   @each $size, $value in get("size") {
-    #{$size} {
-      @extend %#{$size};
+    &.#{$size} {
+      @extend %check-radio-size-#{$size};
     }
   }
 
@@ -120,5 +79,14 @@ input[type=checkbox], input[type=radio] {
   &:checked, &:checked:hover {
     background-color: var(--info) !important;
     border: size(1px) solid transparent;
+  }
+
+  @each $type in get("type") {
+    @each $color, $value in get("color.semantic") {
+      $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
+      #{$selector}:checked {
+        border: size(1px) solid var(--#{$color});
+      }
+    }
   }
 }

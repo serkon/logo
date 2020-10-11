@@ -13,23 +13,21 @@
 <div class="container">
   <div class="card colors">
     <h2>COLORS</h2>
-    <div class="view">
-      <div class="group">
-        <div class="cell-container">
-          <div class="cell split-xs-11"></div>
-          <div class="cell shade split-xs-11" *ngFor="let shade of shades">{{shade}}</div>
-        </div>
-        <div class="cell-container" *ngFor="let status of colors">
-          <div class="cell split-xs-11 color-names">{{status}}</div>
-          <div class="cell split-xs-11" *ngFor="let shade of shades">
-            <div
-              class="color {{status}} {{status}}-{{shade}}"
-              [ngClass]="{'black-color': shade<500, 'white-color': shade>=500}"
-            >
-              {{getColor('--' + status + '-' + shade)}}
-            </div>
-            <div class="color-text">{{status + '-' + shade}}</div>
+    <div class="container">
+      <div class="row title">
+        <div class="cell split-xs-11"></div>
+        <div class="cell title split-xs-11" *ngFor="let shade of shades">{{shade}}</div>
+      </div>
+      <div class="row view" *ngFor="let status of colors">
+        <div class="cell split-xs-11 color-names">{{status}}</div>
+        <div class="cell split-xs-11" *ngFor="let shade of shades">
+          <div
+            class="color {{status}} {{status}}-{{shade}}"
+            [ngClass]="{'black-color': shade<500, 'white-color': shade>=500}"
+          >
+            {{getColor('--' + status + '-' + shade)}}
           </div>
+          <div class="color-text">{{status + '-' + shade}}</div>
         </div>
       </div>
     </div>
@@ -41,118 +39,46 @@
 
   <div class="card" *ngFor="let key of keys">
     <h2>{{elements[key].name}}</h2>
-    <div class="view" *ngFor="let type of types">
-      <div class="type-text">{{type}}</div>
-      <div class="group">
+    <div class="container">
+      <div class="row title">
+        <div class="cell split-xs-12"></div>
+        <div
+          class="cell split-xs-12"
+          *ngFor="let status of elements[key].render['fill']=== true ? statuses : elements[key].render['fill'] as size; let i=index;"
+        >
+          {{status}}
+        </div>
+      </div>
+      <ng-container *ngFor="let type of types">
         <ng-container *ngIf="elements[key].render[type]; else notFound">
-          <div class="cell-container">
+          <!-- element -->
+          <div class="row view">
+            <div class="cell split-xs-12">{{type}}</div>
             <div
-              class="cell split-lg-7"
-              *ngFor="let status of elements[key].render[type]=== true ? statuses : elements[key].render[type]"
-            >
-              {{status}}
-            </div>
-          </div>
-          <div class="cell-container">
-            <div
-              class="cell split-xs-7"
-              *ngFor="let status of elements[key].render[type]=== true ? statuses : elements[key].render[type]"
+              class="cell split-xs-12"
+              *ngFor="let status of elements[key].render[type]=== true ? statuses : elements[key].render[type] as size; let i=index;"
             >
               <input
                 class="{{status}} {{type !== 'fill'? type : ''}}"
                 placeholder="search" *ngIf="elements[key].name==elementType.INPUT"
               />
-              <button
-                class="{{status}} {{type !== 'fill'? type : ''}}"
-                *ngIf="elements[key].name==elementType.BUTTON"
-              >
-                button 1
+              <button class="{{status}} {{type !== 'fill'? type : ''}}" *ngIf="elements[key].name==elementType.BUTTON">
+                BTN
               </button>
+              <a class="{{status}} {{type}} medium" href="" *ngIf="elements[key].name==elementType.LINK">LINK</a>
+              <ng-container *ngIf="elements[key].name==elementType.CHECKBOX">
+                <input
+                  class="{{status}} {{type !== 'fill'? type : ''}}"
+                  placeholder="search"
+                  type="checkbox"
+                  id="{{type}}-{{i}}"
+                >
+                <label for="{{type}}-{{i}}">near</label>
+              </ng-container>
             </div>
           </div>
         </ng-container>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>LINKS</h2>
-    <div class="view" *ngFor="let type of types">
-      <div class="type-text">{{type}}</div>
-      <div class="group">
-        <div class="cell-container">
-          <div class="cell hidden-xs hidden-sm hidden-md split-lg-11" *ngFor="let status of statuses">
-            {{status}}
-          </div>
-        </div>
-        <div class="cell-container">
-          <div class="cell split-xs-5 split-lg-11" *ngFor="let status of statuses">
-            <a class="{{type}} {{status}} logo-i-saved-offline-glyph icon-left">LINK</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>CHECKBOX</h2>
-    <div class="view" *ngFor="let type of types">
-      <div class="type-text">{{type}}</div>
-      <div class="group">
-        <div class="cell-container">
-          <div class="cell hidden-xs hidden-sm hidden-md split-lg-11" *ngFor="let status of statuses">
-            {{status}}
-          </div>
-        </div>
-        <div class="cell-container">
-          <div class="cell split-xs-5 split-lg-11" *ngFor="let status of statuses; let index = index">
-            <input
-              class="{{status}} {{type !== 'fill'? type : ''}}"
-              placeholder="search"
-              type="checkbox"
-              id="{{type}}-{{index}}"
-            >
-            <label for="{{type}}-{{index}}">near</label>
-          </div>
-        </div>
-        <div class="cell-container">
-          <div class="cell split-xs-5 split-lg-11" *ngFor="let status of statuses">
-            <label>
-              <input
-                class="{{status}} {{type !== 'fill'? type : ''}}"
-                placeholder="search"
-                type="checkbox"
-                disabled
-              >disabled
-            </label>
-          </div>
-        </div>
-        <div class="cell-container">
-          <div class="cell split-xs-5 split-lg-11" *ngFor="let status of statuses">
-            <label>
-              <input
-                class="{{status}} {{type !== 'fill'? type : ''}}"
-                placeholder="search"
-                type="checkbox"
-                checked
-              >checked
-            </label>
-          </div>
-        </div>
-        <div class="cell-container">
-          <div class="cell split-xs-5 split-lg-11" *ngFor="let status of statuses">
-            <label>
-              <input
-                class="{{status}} {{type !== 'fill'? type : ''}}"
-                placeholder="search"
-                type="checkbox"
-                checked
-                disabled
-              >che&dis
-            </label>
-          </div>
-        </div>
-      </div>
+      </ng-container>
     </div>
   </div>
 </div>

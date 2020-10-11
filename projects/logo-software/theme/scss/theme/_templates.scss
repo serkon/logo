@@ -9,10 +9,11 @@
 }
 
 %fill {
+  font-family: get("font.family");
   border: size(1px) solid transparent;
   outline: none;
   @each $color, $value in get("color.state") {
-    &-#{"" + $color}, &.#{""+ $color} {
+    &-#{"" + $color} {
       background-color: var(--#{$color});
       // color: if($color == basic or $color==light or $color == secondary or $color == gray, mix-darkener($color), var(--white));
       color: if($color == basic or $color == light or $color == secondary or $color == gray, sat($color), var(--white));
@@ -34,8 +35,9 @@
   Template (outline): outline styles
  */
 %outline {
+  content: "";
   @each $color, $value in get("color.state") {
-    &-#{"" + $color}, &.#{""+ $color} {
+    &-#{"" + $color} {
       background-color: transparent;
       border: size(1px) solid var(--#{$color});
       // color: if($color == secondary or $color == basic, mix-darkener($color), var(--#{$color}));
@@ -59,9 +61,10 @@
   Template (ghost): ghost styles
  */
 %ghost {
+  content: "";
   border: size(1px) solid transparent;
   @each $color, $value in get("color.state") {
-    &-#{"" + $color}, &.#{""+ $color} {
+    &-#{"" + $color} {
       background-color: transparent;
       border: size(1px) solid transparent;
       // color: if($color == secondary or $color == basic, mix-darkener($color), var(--#{$color}));
@@ -93,27 +96,28 @@
   }
 }
 
-%button-customize {
-  @if get("customize.status") {
-    @each $type in get("type") {
-      @each $color in get("color.state") {
-        $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
-        #{$selector} { // if type fill render just `color` class else render `outline.color` and `ghost.color` classes
-          @if ($color == secondary or $color==basic or $color==gray or $color==light) {
-            color: var(get("customize.element.button.font.color"));
-          }
-          @if $type == outline {
-            border: size(1px) solid if($color==light, rgba(var(--light-rgb), 0.5), var(#{get("customize.element.button.border.default")}));
-            &:active, &:focus, &:hover {
-              border: size(1px) solid if($color==light, var(--light), var(#{get("customize.element.button.border.default")}));
-            }
-          }
-          @if ($type==outline or $type==ghost) {
-            @each $state in get('state.current') {
-              &:#{$state} {
-                background-color: rgba(var(--gray-900-rgb), var(--ghost-#{$state}));
-              }
-            }
+/**
+Semantic border template
+*/
+@each $type in get("type") {
+  @each $color, $value in get("color.semantic") {
+    $selector: if($type==fill, ".#{$color}", ".#{$type}.#{$color}");
+    %#{$type}-#{$color} {
+      @if $type==fill or ($type==outline) {
+        border: size(1px) solid var(--#{$color});
+      }
+      @if $type==outline or $type==ghost {
+        color: var(--#{$color});
+      }
+      @if $type==ghost {
+        border-color: transparent;
+      }
+      @each $state in get("state.current") {
+        &:#{$state} {
+          @if $type==fill or ($type==outline) {
+            border: size(1px) solid var(--#{$color}-#{$state});
+          } @else {
+            border-color: transparent;
           }
         }
       }
@@ -122,26 +126,24 @@
 }
 
 /**
-Template semantic color borders
-*/
-%semantic-border {
-  @each $type in get("type") {
-    @each $color, $value in get("color.semantic") {
-      $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
-      #{$selector}, &-#{$type}-#{$color} {
-        @if $type==fill or ($type==outline and get("customize.status")==false) {
-          border: size(1px) solid var(--#{$color});
-        }
-        @if $type==outline or $type==ghost {
-          color: var(--#{$color});
-        }
-        @each $state in get("state.current") {
-          &:#{$state} {
-            @if $type==fill or ($type==outline and get("customize.status")==false) {
-              border: size(1px) solid var(--#{$color}-#{$state});
-            } @else {
-              border-color: transparent;
-            }
+Semantic background templates
+ */
+@each $type in get("type") {
+  @each $color, $value in get("color.semantic") {
+    $selector: if($type==fill, ".#{$color}", ".#{$type}.#{$color}");
+    %#{$type}-#{$color} {
+      @if $type==fill {
+        background-color: var(--#{$color});
+        color: var(--white);
+      } @else {
+        background-color: transparent;
+      }
+      @each $state in get("state.current") {
+        &:#{$state} {
+          @if $type==fill {
+            background-color: var(--#{$color}-#{$state});
+          } @else if ($type == outline or $type == ghost) {
+            background-color: rgba(var(--#{$color}-#{$state}-rgb), var(--ghost-#{$state}));
           }
         }
       }
@@ -149,38 +151,16 @@ Template semantic color borders
   }
 }
 
-%semantic-background {
-  @each $type in get("type") {
-    @each $color, $value in get("color.semantic") {
-      $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
-      #{$selector}, &-#{$type}-#{$color} {
-        @if $type==fill {
-          background-color: var(--#{$color});
-          color: var(--white);
-        } @else {
-          background-color: transparent;
-        }
-        @each $state in get("state.current") {
-          &:#{$state} {
-            @if $type==fill {
-              background-color: var(--#{$color}-#{$state});
-            } @else if ($type == outline or $type == ghost) and get("customize.status") == false {
-              background-color: rgba(var(--#{$color}-#{$state}-rgb), var(--ghost-#{$state}));
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
+/**
+Semantic input colors
+ */
 %semantic-input {
   @each $type in get("type") {
     @each $color, $value in get("color.semantic") {
       $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
       #{$selector} {
         // @if $type==fill or $type==outline {
-        border: size(1px) solid var(--#{$color}) !important;
+        border: size(1px) solid var(--#{$color});
         // }
 
         @each $state in get("state.current") {
@@ -193,16 +173,65 @@ Template semantic color borders
   }
 }
 
-#{get("selector")} {
-  .fill {
-    @extend %fill;
-  }
+/*
+Standardization: Button
+ */
+%button {
+  font-weight: normal;
+  border-radius: get("border.radius");
+  cursor: pointer;
+  white-space: nowrap;
+  @extend %padding-button, %padding-button-medium;
+  @extend %fill, %fill-secondary, %size-medium;
+  @extend %button-customize, %button-customize-fill-secondary !optional;
+}
 
-  .ghost {
-    @extend %ghost;
-  }
+/**
+Standardization: Input
+ */
+%input {
+  border-radius: get("border.radius");
+  @extend %fill, %fill-basic, %size-medium, %padding-input, %padding-input-medium, %placeholder;
+  @extend %semantic-input;
+  @extend %input-customize, %input-customize-fill-secondary !optional;
+  cursor: pointer;
 
-  .outline {
-    @extend %outline;
+  &:not([type]), &[type~="text"], &[type~="password"] {
+    &:focus {
+      background-color: var(--white) !important;
+      border: size(1px) solid var(--info) !important;
+      color: var(--dark-900) !important;
+    }
+  }
+}
+
+/**
+Standardization Checkbox and Radio
+ */
+%check-radio-size {
+  @each $size, $value in get("size") {
+    &-#{$size} {
+      $top-bottom-size: size((map-get($value, height) - 14px) / 2);
+      margin: $top-bottom-size size(5px) $top-bottom-size 0;
+
+      & + label {
+        @extend %label-#{$size}
+      }
+    }
+  }
+}
+
+/**
+Color generate
+ */
+#{get("root")} {
+  @each $type in get("type") {
+    @each $color, $value in get("color.list") {
+      $selector: if($type==fill, ".#{$color}", ".#{$type}.#{$color}");
+      #{$selector} {
+        @extend %#{$type};
+        @extend %#{$type}-#{"" + $color};
+      }
+    }
   }
 }

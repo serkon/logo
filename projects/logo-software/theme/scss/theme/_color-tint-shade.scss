@@ -116,3 +116,11 @@ $gray: (
 );
 
 $colors: map-collect($colors, $outline, $ghost, $gray);
+
+@each $color, $value in get("color.list") {
+  @each $name, $ratio in get("color.shades") {
+    .#{"" + $color}-#{$name} {
+      background-color: var(--#{$color}-#{$name});
+    }
+  }
+}

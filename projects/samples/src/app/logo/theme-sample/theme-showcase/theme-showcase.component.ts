@@ -3,6 +3,8 @@ import { AfterViewInit, Component } from '@angular/core';
 export enum ELEMENT {
   BUTTON = 'BUTTON',
   INPUT = 'INPUT',
+  LINK = 'LINK',
+  CHECKBOX = 'CHECKBOX',
 }
 
 @Component({
@@ -21,17 +23,33 @@ export class ThemeShowcaseComponent implements AfterViewInit {
     button: {
       name: ELEMENT.BUTTON,
       render: {
-        fill: true,
-        outline: true, // ['brand', 'primary', 'secondary', 'light', 'dark', 'gray'],
-        ghost: true,
+        fill: [...this.statuses, ...this.semantic], // true,
+        outline: [...this.statuses, ...this.semantic], // true, // ['brand', 'primary', 'secondary', 'light', 'dark', 'gray'],
+        ghost: [...this.statuses, ...this.semantic], // true,
       },
     },
     input: {
       name: ELEMENT.INPUT,
       render: {
-        fill: true,
-        outline: true, // ['primary', 'secondary', 'light', 'dark', 'gray'],
-        ghost: true,
+        fill: [...this.statuses, ...this.semantic], // true,
+        outline: [...this.statuses, ...this.semantic], // true, // ['brand', 'primary', 'secondary', 'light', 'dark', 'gray'],
+        ghost: [...this.statuses, ...this.semantic], // true,
+      },
+    },
+    link: {
+      name: ELEMENT.LINK,
+      render: {
+        fill: [...this.statuses, ...this.semantic], // true,
+        outline: [...this.statuses, ...this.semantic], // true, // ['brand', 'primary', 'secondary', 'light', 'dark', 'gray'],
+        ghost: [...this.statuses, ...this.semantic], // true,
+      },
+    },
+    checkbox: {
+      name: ELEMENT.CHECKBOX,
+      render: {
+        fill: [...this.statuses, ...this.semantic], // true,
+        outline: [...this.statuses, ...this.semantic], // true, // ['brand', 'primary', 'secondary', 'light', 'dark', 'gray'],
+        ghost: [...this.statuses, ...this.semantic], // true,
       },
     },
   };

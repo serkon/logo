@@ -1,0 +1,6 @@
+.v-button {
+  background-image: none;
+  box-shadow: none;
+  text-shadow: none;
+  @extend %button, %extender-size, %extender-color;
+}

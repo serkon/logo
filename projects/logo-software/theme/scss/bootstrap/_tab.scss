@@ -12,7 +12,7 @@
     font-weight: 800;
     margin-right: size(20px);
     border-radius: size(get("size.large.height")/2);
-    @extend %padding-button-medium, %medium;
+    @extend %padding-button-medium, %size-medium;
 
     &.active {
       border-bottom: none;
@@ -26,7 +26,7 @@
       // padding: 0 size(get(#{'element.button.'+ $size + '.padding'}));
 
       .nav-link {
-        @extend %padding-button-#{$size}, %#{$size};
+        @extend %padding-button-#{$size}, %size-#{$size};
         border-radius: $height / 2;
       }
     }

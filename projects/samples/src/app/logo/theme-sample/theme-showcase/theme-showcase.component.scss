@@ -14,105 +14,108 @@
   @include host();
 
   .container {
-    text-align: center;
-
     div.card {
-      padding: size(20px) 0;
-      margin: size(20px);
+      margin: size(30px) 0;
       border: size(1px) solid #efefef;
       background: white;
       box-shadow: 0 0 size(11px) 0 #efefef;
 
-      .type-text {
-        font-size: size(12px);
-        font-weight: bold;
+      h2 {
         padding: size(20px);
-        margin: size(20px) 0 0 0;
         text-align: center;
-        color: var(--gray-900);
-        border-top: size(1px) solid #efefef;
-        text-transform: uppercase;
       }
 
-      .group {
-        .cell-container {
+      .row {
+        &.view {
+          padding-top: size(10px);
+          padding-bottom: size(10px);
+          border-top: size(1px) solid var(--gray-200);
+        }
+
+        &.title {
+          font-size: size(10px);
+          font-weight: bold;
+          padding-bottom: size(5px);
+          text-align: left;
+        }
+
+        .cell {
           display: flex;
-          flex-wrap: wrap;
 
-          .cell {
-            border-left: 1px solid #efefef;
-            padding: size(5px) size(15px);
-            text-align: left;
-            font-size: size(10px);
+          &:first-of-type {
+            font-size: size(14px);
+            font-weight: bold;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: size(10px);
+          }
 
-            &:first-of-type {
-              border: 0;
-            }
+          span.status-text {
+            padding-bottom: size(5px);
+            font-size: size(12px);
+            font-family: get("font.alternative");
+          }
 
-            input:not([type]), input[type~="text"], input[type~="password"] {
-              width: 100%;
-            }
+          input:not([type]), input[type~="text"], input[type~="password"] {
+            width: 100%;
           }
         }
       }
     }
 
     div.colors {
-      .group {
-        .cell-container {
-          border-bottom: size(0.1px) solid #efefef;
-          padding-right: size(15px);
+      .row {
+        border-top: size(1px) solid var(--gray-200);
 
-          &:last-of-type {
-            border-bottom: none;
+        &:first-of-type {
+          border-top: none;
+        }
+
+        &.view {
+          padding: 0;
+        }
+
+        .cell {
+          flex-direction: column;
+          border-left: none;
+          font-size: size(10px);
+          padding: 0;
+
+          &.color-names {
+            text-align: right;
+            line-height: size(42px);
+            font-size: size(14px);
+            font-weight: bold;
+            align-items: flex-end;
+            justify-content: flex-start;
+            padding-right: size(10px);
           }
 
-          .cell {
-            padding: 0;
-            border: none;
+          &.title {
+            padding-bottom: size(5px);
+          }
 
-            &.color-names {
-              text-align: right;
-              line-height: size(42px);
-              font-size: size(14px);
-              padding: 0 size(20px);
-              font-weight: bold;
-            }
+          .color {
+            width: 100%;
+            height: size(40px);
+            line-height: size(40px);
+            text-align: center;
+            text-shadow: 0 0 size(10px) white;
+            border-radius: 0;
+          }
 
-            &.shade {
-              padding: size(5px);
-            }
+          .color-text {
+            padding: size(5px) 0;
+          }
 
-            .color {
-              height: size(40px);
-              line-height: size(40px);
-              text-align: center;
-              text-shadow: 0 0 size(10px) white;
-              border-radius: 0;
-            }
+          .white-color {
+            color: #000000;
+          }
 
-            .white-color {
-              color: #000000;
-            }
-
-            .black-color {
-              color: #000000;
-            }
+          .black-color {
+            color: #000000;
           }
         }
-      }
-
-      h2 {
-        padding-bottom: size(20px);
-      }
-
-      .shade {
-        font-weight: bold;
-      }
-
-
-      .color-text {
-        padding: size(5px) 0;
       }
     }
   }

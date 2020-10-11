@@ -26,7 +26,7 @@ $custom-control-padding: 0;
   @each $size, $size-map in get("size") {
     &.#{$size} {
       input + label {
-        @extend %label, %#{$size}, %label-#{$size};
+        @extend %label, %size-#{$size}, %label-#{$size};
       }
     }
   }

@@ -1,0 +1,62 @@
+.v-textfield, .v-textarea {
+  @extend %input;
+  box-shadow: none;
+}
+
+.v-textfield {
+  &.inline-icon {
+    @extend %icon-medium-left;
+
+    @each $size, $value in get("size") {
+      &.#{$size} {
+        @extend %icon-#{$size}-left;
+        @extend %size-#{$size};
+      }
+    }
+  }
+}
+
+.v-textarea {
+  height: auto;
+  line-height: normal;
+}
+
+.v-caption {
+  %v-captiontext {
+    @extend %label;
+    padding-bottom: size(2px);
+    color: var(--text);
+  }
+
+  .v-captiontext{
+    @extend %v-captiontext;
+  }
+
+  &.v-caption-inline-icon {
+    .v-captiontext{
+      @extend %v-captiontext;
+    }
+
+    span.v-icon {
+      width: size(get("size.medium.icon-container"));
+      height: size(get("size.medium.height"));
+      line-height: size(get("size.medium.height"));
+      font-size: size(get("size.medium.font-size"));
+      left: 0;
+      bottom: 0;
+    }
+  }
+
+  @each $size, $value in get("size") {
+    &-#{$size} {
+      &.v-caption-inline-icon {
+        span.v-icon {
+          width: size(get("size."+$size+".icon-container"));
+          height: size(get("size."+$size+".height"));
+          font-size: size(get("size."+$size+".icon-size"));
+          line-height: size(get("size."+$size+".height"));
+        }
+      }
+    }
+  }
+}

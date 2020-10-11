@@ -1,4 +1,4 @@
-%element {
+%html-elements {
   @import "a";
   @import "button";
   @import "input";
@@ -6,19 +6,32 @@
   @import "typography";
 }
 
-%element-bootstrap {
-  @import "a";
-  @import "button";
-  @import "input";
-  @import "label";
-  @import "typography";
+%bootstrap-elements {
   @import "../bootstrap/bootstrap";
 }
 
-#{get("selector")} {
-  @if (get("bootstrap.status")) {
-    @extend %element-bootstrap;
-  } @else {
-    @extend %element;
+%vaadin-elements {
+  @import "../vaadin/v8/vaadin";
+}
+
+// Import Bootstrap with default
+@if (get("bootstrap.status")) {
+  #{get("root")} {
+    @extend %html-elements;
+  }
+  #{get("selector")} {
+    @extend %bootstrap-elements;
+  }
+}
+// Import just Vaadin
+@if (get("vaadin.status")) {
+  #{get("selector")} {
+    @extend %vaadin-elements;
+  }
+}
+// Import just html
+@if (not get("bootstrap.status") and not get("vaadin.status")) {
+  #{get("root")} {
+    @extend %html-elements;
   }
 }

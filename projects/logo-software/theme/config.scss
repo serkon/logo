@@ -9,6 +9,7 @@
  */
 $config: if(not variable-exists(config), (), $config);
 $config: deep-map-merge((
+  root: ":root",
   selector: ":root",
   customize: (
     status: true,
@@ -41,7 +42,7 @@ $config: deep-map-merge((
     icon:"logo-i-font",
     size: 16px,
     size-base: 16px,
-    color: var(--dark-900),
+    color: var(--text),
     path: "~@logo-software/theme/assets/fonts",
   ),
   grid:(
@@ -68,8 +69,8 @@ $config: deep-map-merge((
   ),
   size:(
     small: (font-size: 12px, icon-size: 12px, height: 24px, icon-container: 24px),
-    medium: (font-size: 14px, icon-size: 12px, height: 32px, icon-container: 28px),
-    large: (font-size: 16px, icon-size: 20px, height: 48px, icon-container: 46px)
+    medium: (font-size: 12px, icon-size: 12px, height: 32px, icon-container: 28px),
+    large: (font-size: 14px, icon-size: 20px, height: 48px, icon-container: 46px)
   ),
   state: (
     current: hover active focus,
@@ -101,9 +102,9 @@ $config: deep-map-merge((
     input:(
       placeholder:(opacity: 0.5),
       size:(
-        large:(padding: 10px),
+        small:(padding: 7px),
         medium:(padding: 7px),
-        small:(padding: 7px)
+        large:(padding: 10px),
       ),
       font: (
         color: --dark-900
@@ -111,23 +112,23 @@ $config: deep-map-merge((
     ),
     button:(
       size:(
-        large:(padding: 24px),
+        small:(padding: 8px),
         medium:(padding: 15px),
-        small:(padding: 8px)
+        large:(padding: 24px),
       )
     ),
     switch:(
       size:(
-        large:(width: 82px, circle-padding: 4px),
+        small:(width: 38px, circle-padding: 2px),
         medium:(width: 52px, circle-padding: 2px),
-        small:(width: 38px, circle-padding: 2px)
+        large:(width: 82px, circle-padding: 4px),
       )
     ),
     head: (
       size:(
-        large: (h1: 48px, h2: 44px, h3: 40px, h4: 38px, h5: 36px, h6: 34px),
-        medium:(h1: 32px, h2: 30px, h3: 28px, h4: 26px, h5: 24px, h6: 22px),
         small:(h1: 24px, h2: 20px, h3: 18px, h4: 16px, h5: 14px, h6: 12px),
+        medium:(h1: 32px, h2: 30px, h3: 28px, h4: 26px, h5: 24px, h6: 22px),
+        large: (h1: 48px, h2: 44px, h3: 40px, h4: 38px, h5: 36px, h6: 34px),
         // large: (h1: 36px, h2: 24px, h3: 20px, h4: 18px, h5: 16px, h6: 14px),
         // medium:(h1: 30px, h2: 22px, h3: 18px, h4: 16px, h5: 14px, h6: 12px),
         // small:(h1: 24px, h2: 20px, h3: 16px, h4: 14px, h5: 12px, h6: 10px),
@@ -135,9 +136,9 @@ $config: deep-map-merge((
     ),
     paragraph: (
       size:(
-        large: (font-size: 16px),
+        small: (font-size: 12px),
         medium: (font-size: 14px),
-        small: (font-size: 12px)
+        large: (font-size: 16px),
       )
     ),
     modal: (
@@ -160,8 +161,8 @@ $config: deep-map-merge((
     list: (
       brand: #7500ff,
       primary: #0090ff,
-      basic: #f2f4f9, // #a1b9d1, // #75899e, //#cdd7e2, //#f2f4f9,
       secondary: #dde8f7,
+      basic: #f2f4f9, // #a1b9d1, // #75899e, //#cdd7e2, //#f2f4f9,
       light: #ffffff,
       dark: #6a6a6a,
       gray: #cccccc,
@@ -198,8 +199,20 @@ $config: deep-map-merge((
       dark: dark
     )
   ),
+  vaadin:(
+    status: true,
+    color-map:(
+      friendly: success,
+    ),
+    size-map:(
+      medium: small,
+      small: tiny,
+      large: large,
+      huge: huge,
+    )
+  ),
   debug: false,
-  extend-colors: false,
+  extend-colors: true,
 ), $config, true);
 
 $color-state: map-get(map-get($config, color), list);

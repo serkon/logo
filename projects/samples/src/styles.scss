@@ -3,18 +3,24 @@
 $config: (
   grid:(
     status: true,
-    breakpoints:(xl: 1300px),
-    container-max-widths: (xl: 1300px)
+    // breakpoints:(xl: 1300px),
+    // container-max-widths: (xl: 1300px)
   ),
-  bootstrap:(status: false),
+  vaadin:(status: true),
   extend-classes: true,
+  customize: (
+    status: true
+  )
 );
 @import "~@logo-software/theme/style";
 @import "~@logo-software/icons/style";
 
 body {
+  font-family: get("font.family");
   margin: 0;
   // background: #00b09b;
   // background: -webkit-linear-gradient(to right, #00b09b, #96c93d);
   // background: linear-gradient(to right, #00b09b, #96c93d);
 }
+
+

@@ -1,0 +1,5 @@
+@each $vaadin-color-name, $color in get("vaadin.color-map") {
+  #{"." + $vaadin-color-name} {
+    @extend %fill-#{$color};
+  }
+}

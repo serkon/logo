@@ -8,20 +8,22 @@
  * Any reproduction of this material must contain this notice.
  */
 
-@each $item, $size in get("size") {
-  %#{$item} {
-    box-sizing: border-box;
-    min-width: size(map_get($size, height));
-    height: size(map_get($size, height));
-    font-size: size(get('size.'+ $item + '.font-size'));
-    // line-height: size(map_get($size, height) - 2px);
+%size {
+  @each $item, $size in get("size") {
+    &-#{$item}, &.#{$item} {
+      box-sizing: border-box;
+      min-width: size(map_get($size, height));
+      height: size(map_get($size, height));
+      font-size: size(get('size.'+ $item + '.font-size'));
+      line-height: size(map_get($size, height) - 2px);
+    }
   }
 }
 
-#{get("selector")} {
+#{get("root")} {
   @each $item, $size in get("size") {
     .#{$item} {
-      @extend %#{$item};
+      @extend %size-#{$item};
     }
   }
 }
@@ -38,7 +40,6 @@
   @each $item, $size in get("element.input.size") {
     &.#{$item}, &-#{$item} {
       padding: 0 size(map_get($size, padding));
-      line-height: size(get("size." + $item + ".height") - 2px);
     }
   }
 }

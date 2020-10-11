@@ -46,7 +46,6 @@
 }
 
 @each $size, $map in get("size") {
-  $icon-size-info: size(map_get($map, icon-size) * 2);
   %icon-#{$size} {
     &::before {
       width: size(map_get($map, height));
@@ -73,13 +72,12 @@
   }
 }
 
-#{get("selector")} {
+#{get("root")} {
   [class*=logo-i] {
     @extend %icon, %icon-medium;
   }
 
   @each $size, $map in get("size") {
-    $icon-size-info: size(map_get($map, icon-size) * 2);
     .#{$size}[class*=logo-i] {
       @extend %icon-#{$size};
     }
