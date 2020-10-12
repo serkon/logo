@@ -1,0 +1,5 @@
+.v-datefield {
+  .v-textfield {
+    @extend %input;
+  }
+}

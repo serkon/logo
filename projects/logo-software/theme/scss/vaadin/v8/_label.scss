@@ -1,1 +1,37 @@
+.v-caption {
+  padding-bottom: 0;
+  padding-left: 0;
+  font-size: size(12px);
 
+  .v-captiontext {
+    @extend %v-captiontext;
+  }
+
+  &.v-caption-inline-icon {
+    .v-captiontext {
+      @extend %v-captiontext;
+    }
+
+    span.v-icon {
+      width: size(get("size.medium.icon-container"));
+      height: size(get("size.medium.height"));
+      line-height: size(get("size.medium.height"));
+      font-size: size(get("size.medium.font-size"));
+      left: 0;
+      bottom: 0;
+    }
+  }
+
+  @each $size, $value in get("size") {
+    &-#{$size} {
+      &.v-caption-inline-icon {
+        span.v-icon {
+          width: size(get("size."+$size+".icon-container"));
+          height: size(get("size."+$size+".height"));
+          font-size: size(get("size."+$size+".icon-size"));
+          line-height: size(get("size."+$size+".height"));
+        }
+      }
+    }
+  }
+}
