@@ -30,7 +30,7 @@
   }
 }
 // Import just html
-@if (not get("bootstrap.status") and not get("vaadin.status")) {
+@if (get("bootstrap.status")==false and not get("vaadin.status")==false) {
   #{get("root")} {
     @extend %html-elements;
   }
