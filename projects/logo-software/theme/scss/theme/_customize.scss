@@ -39,7 +39,7 @@ Customize: Input secondary and basic customize
         $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
         #{$selector}, &-#{$type}-#{"" + $color} {
           $temp: if(get("customize.status"), "customize.", "");
-          color: var(#{get( $temp + "element.input.font.color")}) !important;
+          color: var(#{get( $temp + "element.input.font.color")});
         }
       }
     }

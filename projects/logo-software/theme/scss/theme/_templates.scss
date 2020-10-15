@@ -35,7 +35,7 @@
   Template (outline): outline styles
  */
 %outline {
-  content: "";
+  background-color: transparent;
   @each $color, $value in get("color.state") {
     &-#{"" + $color} {
       background-color: transparent;
@@ -61,8 +61,8 @@
   Template (ghost): ghost styles
  */
 %ghost {
-  content: "";
   border: size(1px) solid transparent;
+  background-color: transparent;
   @each $color, $value in get("color.state") {
     &-#{"" + $color} {
       background-color: transparent;
@@ -81,7 +81,7 @@
 }
 
 %placeholder {
-  @each $color, $value in get("color.list") {
+  @each $color, $value in get("color.state") {
     @each $type in get("type") {
       &.#{"" + $color} {
         @if ($type==fill) {
@@ -132,18 +132,20 @@ Semantic background templates
   @each $color, $value in get("color.semantic") {
     $selector: if($type==fill, ".#{$color}", ".#{$type}.#{$color}");
     %#{$type}-#{$color} {
-      @if $type==fill {
-        background-color: var(--#{$color});
-        color: var(--white);
-      } @else {
-        background-color: transparent;
-      }
-      @each $state in get("state.current") {
-        &:#{$state} {
-          @if $type==fill {
-            background-color: var(--#{$color}-#{$state});
-          } @else if ($type == outline or $type == ghost) {
-            background-color: rgba(var(--#{$color}-#{$state}-rgb), var(--ghost-#{$state}));
+      @if (get("customize.status")==false) {
+        @if $type==fill {
+          background-color: var(--#{$color});
+          color: var(--white);
+        } @else {
+          background-color: transparent;
+        }
+        @each $state in get("state.current") {
+          &:#{$state} {
+            @if $type==fill {
+              background-color: var(--#{$color}-#{$state});
+            } @else if ($type == outline or $type == ghost) {
+              background-color: rgba(var(--#{$color}-#{$state}-rgb), var(--ghost-#{$state}));
+            }
           }
         }
       }
@@ -220,6 +222,24 @@ Standardization Checkbox and Radio
     }
   }
 }
+
+/**
+Label
+ */
+%label {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  font-size: get("size.medium.font-size");
+
+  @each $size, $size-map in get("size") {
+    &-#{$size} {
+      font-size: size(get('size.'+ $size + '.font-size'));
+      line-height: size(map_get($size-map, height));
+    }
+  }
+}
+
 
 /**
 Color generate

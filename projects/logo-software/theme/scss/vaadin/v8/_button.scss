@@ -3,4 +3,13 @@
   box-shadow: none;
   text-shadow: none;
   @extend %button, %extender-size, %extender-color;
+
+  @each $type in get("type") {
+    @each $vaadin-color-name, $color in get("vaadin.color-map") {
+      $selector: if($type==fill, "&.#{$vaadin-color-name}", "&.#{$type}.#{$vaadin-color-name}");
+      #{$selector} {
+        @extend %#{$type}-#{"" + $color};
+      }
+    }
+  }
 }

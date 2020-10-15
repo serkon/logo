@@ -1,17 +1,15 @@
 .v-textfield, .v-textarea {
-  @extend %input;
-  box-shadow: none;
+  @extend %input, %extender-color;
+  box-shadow: none !important;
 }
 
-.v-textfield {
-  &.inline-icon {
-    @extend %icon-medium-left;
+.inline-icon {
+  @extend %icon-medium-left;
 
-    @each $size, $value in get("size") {
-      &.#{$size} {
-        @extend %icon-#{$size}-left;
-        @extend %size-#{$size};
-      }
+  @each $size, $value in get("size") {
+    &.#{$size} {
+      @extend %icon-#{$size}-left;
+      @extend %size-#{$size};
     }
   }
 }

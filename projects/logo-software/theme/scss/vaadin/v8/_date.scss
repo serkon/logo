@@ -1,5 +1,75 @@
 .v-datefield {
-  .v-textfield {
-    @extend %input;
+  height: auto;
+
+  .v-datefield-textfield {
+    @extend %input; // , %extender-color;
+    padding-left: size(get("size.medium.icon-container") + get("element.input.size.medium.padding"));
+    box-shadow: none;
+
+    &:focus + .v-datefield-button {
+      border-right: size(1px) solid var(--info);
+    }
+  }
+
+  .v-datefield-button {
+    @extend %icon, %icon-medium-left;
+    position: absolute;
+    min-width: auto;
+    width: auto;
+    line-height: size(get("size.medium.height"));
+    height: size(get("size.medium.height"));
+    top: 0;
+    left: 0;
+    border-right: size(1px) solid var(--basic-600);
+    color: var(--text-600);
+    font-size: get("size.medium.icon-size");
+
+    &::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      transition: none;
+      width: 100%;
+    }
+  }
+
+  @each $size, $value in get("size") {
+    &.#{$size} {
+      .v-textfield {
+        @extend %size-#{$size};
+        @extend %icon-#{$size}-left;
+        padding-left: size(get("size."+$size+".icon-container") + get("element.input.size."+$size+".padding"));
+      }
+
+      .v-datefield-button {
+        padding-left: size(get("size."+$size+".icon-container") - 1px);
+        line-height: size(get("size."+$size+".height"));
+        height: size(get("size."+$size+".height"));
+        font-size: get("size."+$size+".icon-size");
+      }
+    }
+  }
+
+  @each $type in get("type") {
+    @each $color, $value in get("color.list") {
+      $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
+      #{$selector} {
+        .v-datefield-textfield {
+          content: "#type:" + $type;
+          @extend %extender-color-#{$type}-#{"" + $color};
+        }
+
+        .v-datefield-button {
+          @if ($type==fill) {
+            border-right: size(1px) solid var(--#{$color}-600);
+            @if ($color!=secondary and $color!=basic and $color!=warning and $color!=danger and $color!=info and $color!=success) {
+              color: var(--white);
+            }
+          } @else {
+            color: var(--#{$color}-600);
+          }
+        }
+      }
+    }
   }
 }

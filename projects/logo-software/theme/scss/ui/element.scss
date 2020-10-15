@@ -16,6 +16,7 @@
 
 // Import Bootstrap with default
 @if (get("bootstrap.status")) {
+  @debug "#################: bootstrap true";
   #{get("root")} {
     @extend %html-elements;
   }
@@ -25,12 +26,14 @@
 }
 // Import just Vaadin
 @if (get("vaadin.status")) {
+  @debug "#################: vaadin true";
   #{get("selector")} {
     @extend %vaadin-elements;
   }
 }
 // Import just html
-@if (get("bootstrap.status")==false and not get("vaadin.status")==false) {
+@if (get("bootstrap.status")==false and get("vaadin.status")==false) {
+  @debug "#################: hepsi false true";
   #{get("root")} {
     @extend %html-elements;
   }
