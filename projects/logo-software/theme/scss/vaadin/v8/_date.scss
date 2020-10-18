@@ -33,8 +33,10 @@
     }
   }
 
-  @each $size, $value in get("size") {
+  @each $size, $value in map-merge(get("size"), get("vaadin.size-map")) {
     &.#{$size} {
+      $size: if(type-of($value) == string, $value, $size);
+
       .v-textfield {
         @extend %size-#{$size};
         @extend %icon-#{$size}-left;

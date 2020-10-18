@@ -205,10 +205,8 @@ $config: deep-map-merge((
       friendly: success,
     ),
     size-map:(
-      medium: small,
-      small: tiny,
-      large: large,
-      huge: huge,
+      tiny: small,
+      huge: large,
     )
   ),
   debug: false,
@@ -223,12 +221,7 @@ $color-semantic: ();
 }
 
 $color-list: map-merge($color-state, $color-semantic);
-$config: deep-map-merge((
-  color:(
-    state: map-keys($color-state),
-    list: $color-list
-  )
-), $config, true);
+$config: deep-map-merge((color:(state: map-keys($color-state), list: $color-list)), $config, true);
 
 $colors: ();
 
