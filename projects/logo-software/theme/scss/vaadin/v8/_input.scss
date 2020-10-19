@@ -5,11 +5,13 @@
 
 .inline-icon {
   @extend %icon-medium-left;
+  padding-left: size(get("size.medium.icon-container") + get("element.input.size.medium.padding"));
 
   @each $size, $value in get("size") {
     &.#{$size} {
       @extend %icon-#{$size}-left;
       @extend %size-#{$size};
+      padding-left: size(get("size."+$size+".icon-container") + get("element.input.size."+$size+".padding"));
     }
   }
 }

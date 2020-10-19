@@ -13,12 +13,13 @@
     }
 
     span.v-icon {
-      width: size(get("size.medium.icon-container"));
+      width: size(get("size.medium.icon-container") - 1px);
       height: size(get("size.medium.height"));
       line-height: size(get("size.medium.height"));
       font-size: size(get("size.medium.font-size"));
       left: 0;
       bottom: 0;
+      border-right: size(1px) solid var(get("element.input.border.right-color"));
     }
   }
 
@@ -26,7 +27,7 @@
     &-#{$size} {
       &.v-caption-inline-icon {
         span.v-icon {
-          width: size(get("size."+$size+".icon-container"));
+          width: size(get("size."+$size+".icon-container") - 1px);
           height: size(get("size."+$size+".height"));
           font-size: size(get("size."+$size+".icon-size"));
           line-height: size(get("size."+$size+".height"));

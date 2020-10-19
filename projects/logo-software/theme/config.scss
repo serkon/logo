@@ -108,6 +108,9 @@ $config: deep-map-merge((
       ),
       font: (
         color: --dark-900
+      ),
+      border: (
+        right-color: --basic-700
       )
     ),
     button:(
@@ -115,6 +118,9 @@ $config: deep-map-merge((
         small:(padding: 8px),
         medium:(padding: 15px),
         large:(padding: 24px),
+      ),
+      border: (
+        right-color: --secondary-700
       )
     ),
     switch:(
