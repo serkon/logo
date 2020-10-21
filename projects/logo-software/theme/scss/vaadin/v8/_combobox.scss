@@ -1,0 +1,64 @@
+.v-filterselect {
+  height: auto;
+
+  .v-filterselect-input {
+    @extend %input, %extender-color;
+    box-shadow: none !important;
+    background-image: none;
+  }
+
+  .v-filterselect-button {
+    // @extend %icon-medium-right;
+    width: size(get("size.medium.icon-container"));
+    top: 0;
+  }
+
+  .v-icon {
+    margin: 0 !important;
+    left: 0;
+    top: 0;
+  }
+
+  img.v-icon {
+    padding: size(8px) size(6px);
+    min-width: auto;
+  }
+
+  span.v-icon {
+    @extend %size-medium;
+    width: size(get("size.medium.icon-container"));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: auto;
+    padding: 0;
+  }
+
+  .v-icon + .v-filterselect-input {
+    padding-left: size(get("size.medium.icon-container") + get("element.input.size.medium.padding"));
+  }
+
+  @each $size, $value in map-merge(get("size"), get("vaadin.size-map")) {
+    &.#{$size} {
+      $size: if(type-of($value) == string, $value, $size);
+
+      .v-filterselect-input {
+        @extend %size-#{$size};
+      }
+
+      .v-icon + .v-filterselect-input {
+        padding-left: size(get("size."+$size+".icon-container") + get("element.input.size."+$size+".padding"));
+      }
+
+      .v-filterselect-button {
+        // @extend %size-#{$size};
+        width: size(get("size."+$size+".icon-container"));
+      }
+
+      span.v-icon {
+        @extend %size-#{$size};
+        width: size(get("size."+$size+".icon-container"));
+      }
+    }
+  }
+}
