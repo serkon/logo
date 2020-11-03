@@ -1,17 +1,21 @@
+.v-textfield[class*="prompt"] {
+  color: var(#{get("customize.element.input.font.color")});
+}
+
 .v-textfield, .v-textarea {
-  @extend %input, %extender-color;
+  @extend %input, %extender-color, %input-customize;
   box-shadow: none !important;
 }
 
-.inline-icon {
-  @extend %icon-medium-left;
-  padding-left: size(get("size.medium.icon-container") + get("element.input.size.medium.padding"));
+.v-textfield {
+  &.inline-icon {
+    padding-left: size(get("size.medium.icon-container") + get("element.input.size.medium.padding"));
 
-  @each $size, $value in get("size") {
-    &.#{$size} {
-      @extend %icon-#{$size}-left;
-      @extend %size-#{$size};
-      padding-left: size(get("size."+$size+".icon-container") + get("element.input.size."+$size+".padding"));
+    @each $size, $value in get("size") {
+      &.#{$size} {
+        @extend %size-#{$size};
+        padding-left: size(get("size."+$size+".icon-container") + get("element.input.size."+$size+".padding"));
+      }
     }
   }
 }

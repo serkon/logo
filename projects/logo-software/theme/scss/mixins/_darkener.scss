@@ -1,5 +1,0 @@
-@function mix-darkener($color: secondary) {
-  // @debug color(#{$color}-#{get("helper.font.shade")}), get("helper.font.darkener");
-  $color: darken(color(#{$color}-#{get("helper.font.shade")}), get("helper.font.darkener"));
-  @return $color;
-}

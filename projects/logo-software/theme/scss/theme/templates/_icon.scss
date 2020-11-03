@@ -1,0 +1,60 @@
+/**
+ * @license
+ * Copyright Logo Yazılım. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of Logo Yazılım.
+ * Any reproduction of this material must contain this notice.
+ */
+%icon {
+  position: relative;
+
+  &::before {
+    -webkit-mask-position: center;
+    mask-position: center;
+    top: size(-1px);
+    left: size(-1px);
+    z-index: 1;
+  }
+
+  &-right {
+    &::before {
+      left: auto;
+      right: 0;
+    }
+
+    &-outline {
+      &::before {
+        right: size(-1px);
+      }
+    }
+  }
+}
+
+@each $size, $map in get("size") {
+  %icon-#{$size} {
+    &::before {
+      width: size(map_get($map, height));
+      height: size(map_get($map, height));
+      -webkit-mask-size: size(map_get($map, icon-size));
+      mask-size: size(map_get($map, icon-size));
+    }
+
+    &-left {
+      padding-left: size(map_get($map, icon-container));
+
+      &::before {
+        width: size(map_get($map, icon-container));
+      }
+    }
+
+    &-right {
+      padding-right: size(map_get($map, icon-container));
+
+      &::before {
+        width: size(map_get($map, icon-container));
+      }
+    }
+  }
+}

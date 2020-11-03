@@ -57,7 +57,7 @@
       $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
       #{$selector} {
         .v-datefield-textfield {
-          content: "#type:" + $type;
+          content: "#####type:" + $type;
           @extend %extender-color-#{$type}-#{"" + $color};
         }
 

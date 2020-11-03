@@ -1,0 +1,15 @@
+/**
+Standardization Checkbox and Radio
+ */
+%check-radio-size {
+  @each $size, $value in get("size") {
+    &-#{$size} {
+      $top-bottom-size: size((map-get($value, height) - 14px) / 2);
+      margin: $top-bottom-size size(5px) $top-bottom-size 0;
+
+      & + label {
+        @extend %label-#{$size}
+      }
+    }
+  }
+}

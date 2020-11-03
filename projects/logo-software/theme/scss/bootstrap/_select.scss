@@ -5,7 +5,7 @@
 
   @each $type in get("type") {
     &.#{$type} {
-      @extend %#{$type};
+      @extend %#{$type} !optional;
     }
   }
 
@@ -104,7 +104,7 @@
 
   @each $type in get("type") {
     &.#{$type} {
-      @extend %#{$type};
+      @extend %#{$type} !optional;
     }
   }
 

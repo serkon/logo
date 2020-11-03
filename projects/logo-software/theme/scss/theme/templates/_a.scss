@@ -1,0 +1,23 @@
+%a {
+  font-weight: normal;
+  border-radius: get("border.radius");
+  cursor: pointer;
+  text-decoration: none;
+  font-size: size(get("size.medium.font-size"));
+  color: var(--primary);
+  @extend %padding-button;
+
+  &[class*=logo-i] {
+    @extend %size-medium, %padding-button-medium;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &:active, &:focus {
+    box-shadow: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

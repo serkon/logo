@@ -1,0 +1,20 @@
+/*
+Standardization: Button
+ */
+%button {
+  font-weight: normal;
+  border-radius: get("border.radius");
+  cursor: pointer;
+  white-space: nowrap;
+  @extend %padding-button, %padding-button-medium;
+  @extend %fill, %fill-secondary, %size-medium, %customize-fill-secondary;
+
+  @each $type in get("type") {
+    @if ($type!=fill) {
+      &.#{$type} {
+        @extend %#{$type}-secondary;
+        @extend %customize-#{$type}-secondary;
+      }
+    }
+  }
+}

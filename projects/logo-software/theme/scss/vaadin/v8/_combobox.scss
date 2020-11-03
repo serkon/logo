@@ -3,14 +3,19 @@
 
   .v-filterselect-input {
     @extend %input, %extender-color;
+    @extend %icon-medium-right;
     box-shadow: none !important;
     background-image: none;
   }
 
   .v-filterselect-button {
-    // @extend %icon-medium-right;
     width: size(get("size.medium.icon-container"));
     top: 0;
+
+    &::before {
+      font-size: size(get("size.medium.icon-size"));
+      width: size(get("size.medium.icon-container"));
+    }
   }
 
   .v-icon {
@@ -51,8 +56,12 @@
       }
 
       .v-filterselect-button {
-        // @extend %size-#{$size};
         width: size(get("size."+$size+".icon-container"));
+
+        &::before {
+          font-size: size(get("size."+$size+".icon-size"));
+          width: size(get("size."+$size+".icon-container"));
+        }
       }
 
       span.v-icon {

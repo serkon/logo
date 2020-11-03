@@ -1,7 +1,7 @@
 .v-caption {
   padding-bottom: 0;
   padding-left: 0;
-  font-size: size(12px);
+  font-size: size(get("size.medium.font-size"));
 
   .v-captiontext {
     @extend %v-captiontext;

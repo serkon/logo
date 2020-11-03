@@ -1,0 +1,23 @@
+/**
+Typography
+ */
+
+%head {
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: normal;
+  color: get("font.color");
+}
+
+// HEAD sizes
+@each $size, $items in get("element.head.size") {
+  @each $head, $value in $items {
+    %#{$head}-#{$size} {
+      font-size: size($value);
+      height: auto;
+      margin: 0;
+      line-height: size($value);
+    }
+  }
+}

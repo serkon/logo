@@ -42,7 +42,7 @@ $config: deep-map-merge((
     icon:"logo-i-font",
     size: 16px,
     size-base: 16px,
-    color: var(--text),
+    color: var(--text-1000),
     path: "~@logo-software/theme/assets/fonts",
   ),
   grid:(
@@ -69,12 +69,11 @@ $config: deep-map-merge((
   ),
   size:(
     small: (font-size: 12px, icon-size: 12px, height: 24px, icon-container: 24px),
-    medium: (font-size: 12px, icon-size: 12px, height: 32px, icon-container: 28px),
-    large: (font-size: 14px, icon-size: 20px, height: 48px, icon-container: 46px)
+    medium: (font-size: 12px, icon-size: 12px, height: 32px, icon-container: 32px),
+    large: (font-size: 14px, icon-size: 16px, height: 48px, icon-container: 48px)
   ),
   state: (
-    current: hover active focus,
-    default: hover active focus,
+    list: hover active focus,
     shade: (
       hover: 600,
       active: 700,
@@ -92,12 +91,6 @@ $config: deep-map-merge((
     )
   ),
   type: fill outline ghost,
-  helper:(
-    font:(
-      shade: 900,
-      darkener: 2%
-    ),
-  ),
   element: (
     input:(
       placeholder:(opacity: 0.5),
@@ -107,7 +100,7 @@ $config: deep-map-merge((
         large:(padding: 10px),
       ),
       font: (
-        color: --dark-900
+        shade: 1000
       ),
       border: (
         right-color: --basic-700
@@ -161,7 +154,15 @@ $config: deep-map-merge((
         margin: 55px 23px
       ),
     ),
-    tab:(align: center, height: null)
+    tab:(align: center, height: null),
+    link:(
+      inline: (
+        color: info-500
+      ),
+      standalone: (
+        color: info-500
+      )
+    )
   ),
   color: (
     list: (
@@ -209,6 +210,7 @@ $config: deep-map-merge((
     status: false,
     color-map:(
       friendly: success,
+      error: danger,
     ),
     size-map:(
       tiny: small,

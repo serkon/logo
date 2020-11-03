@@ -1,0 +1,36 @@
+.v-label {
+  line-height: normal;
+
+  &.success {
+    border: size(1px) solid var(--success);
+    background-color: rgba(var(--success-500-rgb), 0.1);
+    padding: size(16px) size(20px);
+
+    &:before {
+      margin-left: 0;
+    }
+  }
+
+  &.failure {
+    border: size(1px) solid var(--danger);
+    background-color: rgba(var(--danger-500-rgb), 0.1);
+    padding: size(16px) size(20px);
+
+    &:before {
+      margin-left: 0;
+    }
+  }
+}
+
+@each $size, $items in get("element.head.size") {
+  @each $head, $value in $items {
+    $selector: if($size==medium, $head, $head + "." + $size);
+    .v-label-#{$selector} {
+      @extend %head, %#{$head}-#{$size};
+    }
+  }
+}
+
+.v-slot:first-child [class*="v-label-h"] {
+  margin-top: 0 !important;
+}

@@ -1,0 +1,8 @@
+// P sizes
+@each $size, $value in get("element.paragraph.size") {
+  %p-#{$size} {
+    color: get("font.color");
+    font-size: size(get("element.paragraph.size." + $size + ".font-size"));
+    line-height: size(get("element.paragraph.size." + $size + ".font-size"));
+  }
+}

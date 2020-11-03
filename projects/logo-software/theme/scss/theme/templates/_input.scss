@@ -1,0 +1,24 @@
+/**
+Standardization: Input
+ */
+%input {
+  border-radius: get("border.radius");
+  @extend %fill, %fill-basic, %size-medium, %padding-input, %padding-input-medium, %placeholder;
+  cursor: pointer;
+
+  &:not([type]), &[type~="text"], &[type~="password"] {
+    &:focus {
+      background-color: var(--white) !important;
+      border: size(1px) solid var(--info) !important;
+      color: var(--dark-900) !important;
+    }
+  }
+
+  @each $type in get("type") {
+    @if ($type!=fill) {
+      &.#{$type} {
+        @extend %#{$type}, %#{$type}-basic;
+      }
+    }
+  }
+}

@@ -1,5 +1,7 @@
 input, textarea {
   @extend %input;
+  @extend %fill;
+  @extend %fill-basic;
 }
 
 textarea {

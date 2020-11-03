@@ -24,17 +24,29 @@
     @extend %bootstrap-elements;
   }
 }
+
 // Import just Vaadin
 @if (get("vaadin.status")) {
-  @debug "#################: vaadin true";
+  // $config: deep-map-merge($config, (extend-colors:false), true);
   #{get("selector")} {
     @extend %vaadin-elements;
   }
 }
+
 // Import just html
 @if (get("bootstrap.status")==false and get("vaadin.status")==false) {
-  @debug "#################: hepsi false true";
   #{get("root")} {
     @extend %html-elements;
   }
 }
+
+@if (get("debug")) {
+  @debug "#################: vaadin: " + get("vaadin.status");
+  @debug "#################: bootstrap: " + get("bootstrap.status");
+  @debug "#################: extend colors: " + get("extend-colors");
+  @debug "#################: customize: " + get("customize.status");
+  @debug "#################: selector: " + get("selector");
+  @debug "#################: grid: " + get("grid.status");
+  @debug "#################: debug: " + get("debug");
+}
+

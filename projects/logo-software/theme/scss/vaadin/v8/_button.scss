@@ -4,11 +4,132 @@
   text-shadow: none;
   @extend %button, %extender-size, %extender-color;
 
+  &:before {
+    height: auto !important;
+  }
+
+  // MapColor
   @each $type in get("type") {
     @each $vaadin-color-name, $color in get("vaadin.color-map") {
       $selector: if($type==fill, "&.#{$vaadin-color-name}", "&.#{$type}.#{$vaadin-color-name}");
       #{$selector} {
         @extend %#{$type}-#{"" + $color};
+        @extend %customize-#{$type}-#{"" + $color};
+      }
+    }
+  }
+
+  &:hover {
+    &::after {
+      background-color: transparent;
+    }
+  }
+
+  //WithIcon
+  img.v-icon {
+    min-width: auto;
+    width: auto;
+    height: size(get("size.medium.icon-container") / 2);
+    top: size(get("size.medium.icon-container") / 4);
+    margin-left: size(get("size.medium.icon-container") / 4);
+  }
+
+  .v-icon {
+    @extend %size-medium;
+    position: absolute;
+    top: size(-1px);
+    left: size(-1px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .v-icon + .v-button-caption {
+    margin-left: 0;
+    padding-left: size(get("size.medium.icon-container") - get("element.button.size.medium.padding"));
+  }
+
+  &.icon-only {
+    width: inherit;
+  }
+
+  &.icon-align-right {
+    .v-icon {
+      left: auto;
+      right: 0;
+      margin-left: 0;
+    }
+
+    .v-icon + .v-button-caption {
+      padding-left: 0;
+      padding-right: size(get("size.medium.icon-container") - get("element.button.size.medium.padding"));;
+    }
+
+    img.v-icon {
+      margin-right: size(get("size.medium.icon-container") / 4);
+    }
+  }
+
+  @each $size, $value in get("size") {
+    &.#{$size} {
+      .v-icon {
+        @extend %size-#{$size};
+      }
+
+      .v-icon + .v-button-caption {
+        padding-left: size(get("size."+$size+".icon-container") - get("element.button.size."+$size+".padding"));
+        content: size(get("size."+$size+".icon-container") - get("element.button.size."+$size+".padding"));
+      }
+
+      img.v-icon {
+        height: size(get("size."+$size+".icon-container") / 2);
+        top: size(get("size."+$size+".icon-container") / 4);
+        margin-left: size(get("size."+$size+".icon-container") / 4);
+        min-width: auto;
+      }
+
+      &.icon-align-right {
+        img.v-icon {
+          margin-right: size(get("size."+$size+".icon-container") / 4);
+        }
+
+        .v-button-caption {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
+  // MapSize
+  @each $size, $value in get("vaadin.size-map") {
+    &.#{$size} {
+      @extend %size-#{$value};
+      @extend %padding-button-#{$value};
+
+      .v-icon {
+        @extend %size-#{$value};
+      }
+
+      .v-icon + .v-button-caption {
+        padding-left: size(get("size."+$value+".icon-container") - get("element.button.size."+$value+".padding"));
+        content: size(get("size."+$value+".icon-container") - get("element.button.size."+$value+".padding"));
+      }
+
+      img.v-icon {
+        height: size(get("size."+$value+".icon-container") / 2);
+        top: size(get("size."+$value+".icon-container") / 4);
+        margin-left: size(get("size."+$value+".icon-container") / 4);
+        min-width: auto;
+      }
+
+      &.icon-align-right {
+        img.v-icon {
+          margin-right: size(get("size."+$value+".icon-container") / 4);
+        }
+
+        .v-button-caption {
+          padding-left: 0;
+        }
       }
     }
   }
