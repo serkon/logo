@@ -3,7 +3,7 @@
 }
 
 .v-textfield, .v-textarea {
-  @extend %input, %extender-color, %input-customize;
+  @extend %input, %extender-size, %extender-color;
   box-shadow: none !important;
 }
 
