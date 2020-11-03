@@ -16,8 +16,8 @@
       height: size(map_get($size, height));
       font-size: size(get('size.'+ $item + '.font-size'));
       // line-height: size(map_get($size, height) - 2px);
-      display: flex;
-      align-items: center;
+      // display: flex;
+      // align-items: center;
     }
   }
 }

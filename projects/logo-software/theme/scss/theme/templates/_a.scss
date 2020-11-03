@@ -5,6 +5,8 @@
   text-decoration: none;
   font-size: size(get("size.medium.font-size"));
   color: var(--primary);
+  display: flex;
+  align-items: center;
   @extend %padding-button;
 
   &[class*=logo-i] {
