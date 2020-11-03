@@ -59,16 +59,19 @@
               *ngFor="let status of elements[key].render[type]=== true ? statuses : elements[key].render[type] as size; let i=index;"
             >
               <input
-                class="{{status}} {{type !== 'fill'? type : ''}}"
+                class="{{isSemantic(status) ? ' ' + status: status}} {{type !== 'fill'? type : ''}}"
                 placeholder="search" *ngIf="elements[key].name==elementType.INPUT"
               />
-              <button class="{{status}} {{type !== 'fill'? type : ''}}" *ngIf="elements[key].name==elementType.BUTTON">
+              <button
+                class="{{isSemantic(status) ? ' ' + status: status}} {{type !== 'fill'? type : ''}}"
+                *ngIf="elements[key].name==elementType.BUTTON"
+              >
                 BTN
               </button>
-              <a class="{{status}} {{type}} medium" href="" *ngIf="elements[key].name==elementType.LINK">LINK</a>
+              <a class="{{isSemantic(status) ? ' ' + status: status}} {{type}} medium" href="" *ngIf="elements[key].name==elementType.LINK">LINK</a>
               <ng-container *ngIf="elements[key].name==elementType.CHECKBOX">
                 <input
-                  class="{{status}} {{type !== 'fill'? type : ''}}"
+                  class="{{isSemantic(status) ? ' ' + status: status}} {{type !== 'fill'? type : ''}}"
                   placeholder="search"
                   type="checkbox"
                   id="{{type}}-{{i}}"

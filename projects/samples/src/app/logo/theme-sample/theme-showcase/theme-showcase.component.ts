@@ -67,4 +67,8 @@ export class ThemeShowcaseComponent implements AfterViewInit {
   getColor(item) {
     return getComputedStyle(document.documentElement).getPropertyValue(item);
   }
+
+  isSemantic(color: string) {
+    return this.semantic.includes(color);
+  }
 }
