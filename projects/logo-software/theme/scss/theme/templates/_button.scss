@@ -7,7 +7,7 @@ Standardization: Button
   cursor: pointer;
   white-space: nowrap;
   @extend %padding-button, %padding-button-medium;
-  @extend %fill, %fill-secondary, %size-medium, %customize-fill-secondary;
+  @extend %fill, %fill-secondary, %size-medium;
 
   @each $type in get("type") {
     @if ($type!=fill) {

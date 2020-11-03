@@ -4,7 +4,7 @@ Customize: Button customize colors
 
 @if (get("customize.status") and get("extend-colors")) {
   #{get("root")} {
-    @extend %customize;
+    @extend %customize, %customize-fill-secondary !optional;
   }
   %input {
     @extend %input-customize, %input-customize-fill-basic !optional;

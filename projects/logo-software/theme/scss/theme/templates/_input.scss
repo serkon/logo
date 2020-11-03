@@ -3,7 +3,8 @@ Standardization: Input
  */
 %input {
   border-radius: get("border.radius");
-  @extend %fill, %fill-basic, %size-medium, %padding-input, %padding-input-medium, %placeholder;
+  @extend %padding-input, %padding-input-medium;
+  @extend %fill, %fill-basic, %size-medium, %placeholder;
   cursor: pointer;
 
   &:not([type]), &[type~="text"], &[type~="password"] {
