@@ -12,7 +12,7 @@
   }
 
   .v-datefield-button {
-    @extend %icon, %icon-medium-left;
+    @extend %icon-medium-left;
     position: absolute;
     min-width: auto;
     width: auto;

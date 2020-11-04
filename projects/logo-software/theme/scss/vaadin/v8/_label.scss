@@ -1,15 +1,16 @@
-.v-caption {
+.v-caption, %v-caption {
   padding-bottom: 0;
   padding-left: 0;
   font-size: size(get("size.medium.font-size"));
 
   .v-captiontext {
-    @extend %v-captiontext;
+    @extend %label;
+    padding-left: 0;
   }
 
   &.v-caption-inline-icon {
     .v-captiontext {
-      @extend %v-captiontext;
+      @extend %label;
     }
 
     span.v-icon {
@@ -31,6 +32,19 @@
           height: size(get("size."+$size+".height"));
           font-size: size(get("size."+$size+".icon-size"));
           line-height: size(get("size."+$size+".height"));
+        }
+      }
+    }
+  }
+
+  @each $size, $value in get("vaadin.size-map") {
+    &-#{$size} {
+      &.v-caption-inline-icon {
+        span.v-icon {
+          width: size(get("size."+$value+".icon-container") - 1px);
+          height: size(get("size."+$value+".height"));
+          font-size: size(get("size."+$value+".icon-size"));
+          line-height: size(get("size."+$value+".height"));
         }
       }
     }

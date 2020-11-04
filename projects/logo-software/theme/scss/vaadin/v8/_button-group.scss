@@ -14,7 +14,7 @@
           @extend %extender-color-#{$type}-#{"" + $color};
           @if ($type!=ghost) {
             &:not(:first-child) {
-              border-left-color: var(--#{$color}-800) !important;
+              border-left-color: var(--#{$color}-700) !important;
             }
           }
         }

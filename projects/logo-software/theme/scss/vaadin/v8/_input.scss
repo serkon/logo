@@ -5,22 +5,55 @@
 .v-textfield, .v-textarea {
   @extend %input, %extender-size, %extender-color;
   box-shadow: none !important;
+
+  // map-size
+  @each $size, $value in get("vaadin.size-map") {
+    &.#{$size} {
+      @extend %size-#{$value};
+      @extend %padding-input-#{$value};
+    }
+  }
 }
 
-.v-textfield {
-  &.inline-icon {
+.v-textfield, %v-textfield {
+  &.inline-icon, &-icon {
     padding-left: size(get("size.medium.icon-container") + get("element.input.size.medium.padding"));
 
     @each $size, $value in get("size") {
-      &.#{$size} {
+      &.#{$size}, &-#{$size} {
         @extend %size-#{$size};
         padding-left: size(get("size."+$size+".icon-container") + get("element.input.size."+$size+".padding"));
+      }
+    }
+
+    // map-size
+    @each $size, $value in get("vaadin.size-map") {
+      &.#{$size} {
+        @extend %size-#{$value};
+        padding-left: size(get("size."+$value+".icon-container") + get("element.input.size."+$value+".padding"));
       }
     }
   }
 }
 
 .v-textarea {
-  height: auto;
-  line-height: normal;
+  @extend %textarea;
+}
+
+.v-has-caption {
+  position: relative;
+
+  @each $size, $value in get("size") {
+    &.#{$size} {
+      .v-textfield {
+        &.inline-icon {
+          @extend %v-textfield-icon-#{$size};
+        }
+      }
+
+      .v-caption {
+        @extend %v-caption-#{$size};
+      }
+    }
+  }
 }
