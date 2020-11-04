@@ -1,0 +1,17 @@
+/**
+Color generate
+ */
+@if (get("extend-colors")) {
+  #{get("root")} {
+    @debug "------#### color";
+    @each $type in get("type") {
+      @each $color, $value in get("color.list") {
+        $selector: if($type==fill, ".#{$color}, .#{$type}.#{$color}", ".#{$type}.#{$color}");
+        #{$selector} {
+          @extend %#{$type} !optional;
+          @extend %#{$type}-#{"" + $color};
+        }
+      }
+    }
+  }
+}

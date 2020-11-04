@@ -12,8 +12,7 @@ Standardization: Button
   @each $type in get("type") {
     @if ($type!=fill) {
       &.#{$type} {
-        @extend %#{$type}-secondary;
-        @extend %customize-#{$type}-secondary;
+        @extend %#{$type}, %#{$type}-secondary;
       }
     }
   }

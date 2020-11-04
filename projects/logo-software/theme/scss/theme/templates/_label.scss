@@ -6,6 +6,10 @@ Label
   vertical-align: middle;
   cursor: pointer;
   font-size: get("size.medium.font-size");
+  font-weight: 600;
+  color: var(--text);
+  padding-bottom: size(2px);
+  line-height: normal;
 
   @each $size, $size-map in get("size") {
     &-#{$size} {

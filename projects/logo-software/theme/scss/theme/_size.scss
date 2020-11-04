@@ -7,41 +7,12 @@
  * of it without the prior written consent of Logo Yazılım.
  * Any reproduction of this material must contain this notice.
  */
-
-%size {
-  @each $item, $size in get("size") {
-    &-#{$item}, &.#{$item} {
-      box-sizing: border-box;
-      min-width: size(map_get($size, height));
-      height: size(map_get($size, height));
-      font-size: size(get('size.'+ $item + '.font-size'));
-      // line-height: size(map_get($size, height) - 2px);
-      // display: flex;
-      // align-items: center;
-    }
-  }
-}
-
-#{get("root")} {
-  @each $item, $size in get("size") {
-    .#{$item} {
-      @extend %size-#{$item};
-    }
-  }
-}
-
-%padding-button {
-  @each $item, $size in get("element.button.size") {
-    &.#{$item}, &-#{$item} {
-      padding: 0 size(map_get($size, padding));
-    }
-  }
-}
-
-%padding-input {
-  @each $item, $size in get("element.input.size") {
-    &.#{$item}, &-#{$item} {
-      padding: 0 size(map_get($size, padding));
+@if (get("extend-size")) {
+  #{get("root")} {
+    @each $item, $size in get("size") {
+      .#{$item} {
+        @extend %size-#{$item};
+      }
     }
   }
 }

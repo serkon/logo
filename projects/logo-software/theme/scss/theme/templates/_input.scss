@@ -23,3 +23,15 @@ Standardization: Input
     }
   }
 }
+
+%textarea {
+  height: auto;
+  line-height: normal;
+  padding: size(get("element.input.size.medium.padding"));
+
+  @each $size, $value in get("element.input.size") {
+    &.#{$size} {
+      padding: size(map-get($value, padding));
+    }
+  }
+}

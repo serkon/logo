@@ -2,10 +2,29 @@
 Customize: Button customize colors
  */
 
-@if (get("customize.status") and get("extend-colors")) {
-  #{get("root")} {
-    @extend %customize, %customize-fill-secondary !optional;
+@if (get("customize.status")) {
+  @if (get("extend-colors")) {
+    #{get("selector")} {
+      @extend %customize;
+    }
   }
+
+  %button {
+    @each $type in get("type") {
+      @if ($type!=fill) {
+        &.#{$type} {
+          @extend %customize-#{$type}-secondary;
+        }
+      }
+      @each $color, $value in get("color.list") {
+        $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
+        #{$selector}, &-#{$type}-#{"" + $color} {
+          @extend %customize-#{$type}-#{"" + $color} !optional;
+        }
+      }
+    }
+  }
+
   %input {
     @extend %input-customize, %input-customize-fill-basic !optional;
   }
@@ -43,8 +62,6 @@ Customize: Button customize colors
 /**
 Customize: Input secondary and basic customize
  */
-
-
 %input-customize {
   color: var(#{get("customize.element.input.font.color")});
 
@@ -54,7 +71,6 @@ Customize: Input secondary and basic customize
       #{$selector}, &-#{$type}-#{"" + $color} {
         @if ($type==fill) {
           background-color: var(--basic);
-          color: sat(basic);
           @each $state in get("state.list") {
             &:#{$state}, &-#{$state} {
               background-color: var(--basic-#{$state});
@@ -63,6 +79,7 @@ Customize: Input secondary and basic customize
         }
         @if ($type!=ghost) {
           border-color: var(--#{$color});
+          color: var(#{get("customize.element.input.font.color")});
           @each $state in get("state.list") {
             &:#{$state} {
               border-color: var(--#{$color}-hover);

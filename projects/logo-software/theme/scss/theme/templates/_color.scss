@@ -2,8 +2,8 @@
   Template (fill): fill styles
  */
 
-@function sat($color) {
-  @return var(--#{$color}-#{get("element.input.font.shade")});
+@function text-color($color) {
+  @return var(--#{$color}-#{get("color.text")});
   // @return saturate(color(#{$color}-900), 2%);
 }
 
@@ -17,7 +17,7 @@
     &-#{"" + $color} {
       background-color: var(--#{$color});
       // color: if($color == basic or $color==light or $color == secondary or $color == gray, mix-darkener($color), var(--white));
-      color: if($color == basic or $color == light or $color == secondary or $color == gray, sat($color), var(--white));
+      color: if($color == basic or $color == light or $color == secondary or $color == gray, text-color($color), var(--white));
       @each $state in get("state.list") {
         &:#{$state}, &-#{$state} {
           background-color: var(--#{$color}-#{$state});
@@ -52,7 +52,7 @@
           border-color: if($color==light, var(--light), var(--#{$color}-#{$state}));
           background-color: rgba(var(--#{$color}-#{$state}-rgb), var(--ghost-#{$state}));
           @if get("bootstrap.status") {
-            color: if($color == secondary or $color == basic, sat($color), var(--#{$color}));
+            color: if($color == secondary or $color == basic, text-color($color), var(--#{$color}));
           }
         }
       }
@@ -93,29 +93,6 @@
       #{$selector}, &-#{$type}-#{"" + $color} {
         @extend %#{$type} !optional;
         @extend %#{$type}-#{"" + $color};
-
-        @if (get("customize.status")) {
-          @extend %customize-#{$type}-#{"" + $color} !optional;
-        }
-      }
-    }
-  }
-}
-
-
-/**
-Color generate
- */
-@if (get("extend-colors")) {
-  #{get("root")} {
-    @debug "------#### color";
-    @each $type in get("type") {
-      @each $color, $value in get("color.list") {
-        $selector: if($type==fill, ".#{$color}, .#{$type}.#{$color}", ".#{$type}.#{$color}");
-        #{$selector} {
-          @extend %#{$type} !optional;
-          @extend %#{$type}-#{"" + $color};
-        }
       }
     }
   }
