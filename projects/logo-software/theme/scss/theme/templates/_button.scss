@@ -11,7 +11,7 @@ Standardization: Button
 
   @each $type in get("type") {
     @if ($type!=fill) {
-      &.#{$type} {
+      &.#{$type}, &-#{$type} {
         @extend %#{$type}, %#{$type}-secondary;
       }
     }

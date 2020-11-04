@@ -3,18 +3,31 @@
   flex-direction: row;
 
   .v-button:not(:first-child) {
-    border-left-color: var(--secondary-800);
+    border-left-color: var(--secondary-700);
   }
 
   @each $type in get("type") {
+    @if ($type!=fill) {
+      &.#{$type} {
+        .v-button {
+          @extend %button-#{$type};
+          @extend %customize-#{$type}-basic !optional;
+
+          &:not(:first-child) {
+            border-left-color: if($type==outline, var(--light-600), transparent);
+          }
+        }
+      }
+    }
     @each $color, $value in get("color.list") {
       $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
       #{$selector} {
         .v-button {
           @extend %extender-color-#{$type}-#{"" + $color};
-          @if ($type!=ghost) {
+          @extend %customize-#{$type}-#{"" + $color} !optional;
+          @if ($type==fill) {
             &:not(:first-child) {
-              border-left-color: var(--#{$color}-700) !important;
+              border-left-color: var(--#{$color}-700);
             }
           }
         }
