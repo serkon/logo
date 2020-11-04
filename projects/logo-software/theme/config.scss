@@ -69,8 +69,8 @@ $config: deep-map-merge((
   ),
   size:(
     small: (font-size: 12px, icon-size: 12px, height: 24px, icon-container: 24px),
-    medium: (font-size: 12px, icon-size: 12px, height: 32px, icon-container: 32px),
-    large: (font-size: 14px, icon-size: 16px, height: 48px, icon-container: 48px)
+    medium: (font-size: 14px, icon-size: 12px, height: 32px, icon-container: 32px),
+    large: (font-size: 16px, icon-size: 16px, height: 48px, icon-container: 48px)
   ),
   state: (
     list: hover active focus,
@@ -98,9 +98,6 @@ $config: deep-map-merge((
         small:(padding: 7px),
         medium:(padding: 7px),
         large:(padding: 10px),
-      ),
-      font: (
-        shade: 1000
       ),
       border: (
         right-color: --basic-700
@@ -165,6 +162,7 @@ $config: deep-map-merge((
     )
   ),
   color: (
+    text: 1000,
     list: (
       brand: #7500ff,
       primary: #0090ff,
@@ -219,6 +217,7 @@ $config: deep-map-merge((
   ),
   debug: false,
   extend-colors: true,
+  extend-size: true,
 ), $config, true);
 
 $color-state: map-get(map-get($config, color), list);
