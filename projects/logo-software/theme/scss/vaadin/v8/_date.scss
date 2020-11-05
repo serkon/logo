@@ -1,8 +1,10 @@
-.v-datefield {
+.v-datefield, %v-datefield {
   height: auto;
+  font-family: get("font.family");
+  font-size: get("size.medium.font-size");
 
-  .v-datefield-textfield {
-    @extend %input; // , %extender-color;
+  .v-datefield-textfield, &-v-datefield-textfield {
+    @extend %v-textfield; // , %extender-color;
     padding-left: size(get("size.medium.icon-container") + get("element.input.size.medium.padding"));
     box-shadow: none;
 
@@ -11,7 +13,7 @@
     }
   }
 
-  .v-datefield-button {
+  .v-datefield-button, &-v-datefield-button {
     @extend %icon-medium-left;
     position: absolute;
     min-width: auto;
@@ -33,11 +35,13 @@
     }
   }
 
+  // Size
   @each $size, $value in map-merge(get("size"), get("vaadin.size-map")) {
-    &.#{$size} {
+    &.#{$size}, &-#{$size} {
       $size: if(type-of($value) == string, $value, $size);
 
       .v-textfield {
+        font-size: get("size."+$size+".font-size");
         @extend %size-#{$size};
         @extend %icon-#{$size}-left;
         padding-left: size(get("size."+$size+".icon-container") + get("element.input.size."+$size+".padding"));
@@ -52,13 +56,23 @@
     }
   }
 
+  // Type
   @each $type in get("type") {
+    @if ($type!=fill) {
+      &.#{$type}, &-#{$type} {
+        .v-datefield-textfield {
+          @extend %#{$type}, %#{$type}-basic;
+        }
+      }
+    }
+
+    // Color
     @each $color, $value in get("color.list") {
       $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
-      #{$selector} {
+      #{$selector}, &-#{$type}-#{"" + $color} {
         .v-datefield-textfield {
-          content: "#####type:" + $type;
-          @extend %extender-color-#{$type}-#{"" + $color};
+          @extend %#{$type}-#{"" + $color};
+          @extend %input-customize-#{$type}-#{"" + $color};
         }
 
         .v-datefield-button {
@@ -73,5 +87,18 @@
         }
       }
     }
+  }
+}
+
+// calendar
+.v-button-prevyear {
+  width: size(24px);
+  height: size(24px);
+
+  &::before {
+    color: var(--info);
+    width: size(24px);
+    height: size(24px);
+    font-size: size(24px);
   }
 }
