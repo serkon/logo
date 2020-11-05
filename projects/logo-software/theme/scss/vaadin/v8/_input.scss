@@ -2,7 +2,7 @@
   color: var(#{get("customize.element.input.font.color")});
 }
 
-.v-textfield, .v-textarea {
+.v-textfield, .v-textarea, %v-textfield {
   @extend %input, %extender-size, %extender-color;
   box-shadow: none !important;
 
