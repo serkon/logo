@@ -8,9 +8,10 @@ html {
 
   body {
     font-family: get("font.family");
+    font-size: size(get("font.size"));
+    color: get("font.color");
     min-height: 100%;
     min-width: 100%;
-    color: get("font.color");
     margin: 0;
   }
 
@@ -18,4 +19,8 @@ html {
     pointer-events: none;
     opacity: get("state.disabled.opacity");
   }
+}
+
+#{get("selector")} * {
+  font-family: get("font.family");
 }
