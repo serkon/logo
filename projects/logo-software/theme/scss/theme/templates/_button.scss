@@ -3,7 +3,7 @@ Standardization: Button
  */
 %button {
   font-weight: normal;
-  border-radius: get("border.radius");
+  border-radius: size(get("border.radius"));
   cursor: pointer;
   white-space: nowrap;
   @extend %padding-button, %padding-button-medium;

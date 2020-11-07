@@ -1,6 +1,6 @@
 %a {
   font-weight: normal;
-  border-radius: get("border.radius");
+  border-radius: size(get("border.radius"));
   cursor: pointer;
   text-decoration: none;
   font-size: size(get("size.medium.font-size"));

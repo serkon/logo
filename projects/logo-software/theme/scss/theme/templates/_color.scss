@@ -28,7 +28,7 @@
   }
 
   &:active, &:focus {
-    @include nb-outline(size(8px), rgba(var(--gray-600-rgb), color(ghost-hover)));
+    @include nb-outline();
   }
 }
 
