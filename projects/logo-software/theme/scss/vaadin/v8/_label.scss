@@ -2,6 +2,7 @@
   padding-bottom: 0;
   padding-left: 0;
   font-size: size(get("size.medium.font-size"));
+  font-family: get("font.family");
 
   .v-captiontext {
     @extend %label;

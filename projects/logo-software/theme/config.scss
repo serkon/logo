@@ -206,6 +206,7 @@ $config: deep-map-merge((
   ),
   vaadin:(
     status: false,
+    just-semantic: true,
     color-map:(
       friendly: success,
       error: danger,

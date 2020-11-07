@@ -65,7 +65,6 @@
         }
       }
     }
-
     // Color
     @each $color, $value in get("color.list") {
       $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");

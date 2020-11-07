@@ -2,6 +2,7 @@
 Standardization: Input
  */
 %input {
+  font-family: get("font.family");
   border-radius: size(get("border.radius"));
   @extend %padding-input, %padding-input-medium;
   @extend %fill, %fill-basic, %size-medium, %placeholder;

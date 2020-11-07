@@ -1,5 +1,6 @@
 .v-label {
   line-height: normal;
+  font-family: get("font.family");
 
   &.success {
     border: size(1px) solid var(--success);

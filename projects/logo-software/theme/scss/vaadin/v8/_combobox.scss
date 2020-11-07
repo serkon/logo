@@ -1,4 +1,4 @@
-.v-filterselect {
+.v-filterselect, %v-filterselect {
   height: auto;
 
   .v-filterselect-input {
@@ -6,6 +6,7 @@
     @extend %icon-medium-right;
     box-shadow: none !important;
     background-image: none;
+    padding-right: size(get("size.medium.icon-container") + get("element.input.size.medium.padding"));
   }
 
   .v-filterselect-button {
@@ -44,11 +45,12 @@
   }
 
   @each $size, $value in map-merge(get("size"), get("vaadin.size-map")) {
-    &.#{$size} {
+    &.#{$size}, &-#{$size} {
       $size: if(type-of($value) == string, $value, $size);
 
       .v-filterselect-input {
         @extend %size-#{$size};
+        padding-right: size(get("size."+#{$size}+".icon-container") + get("element.input.size."+#{$size}+".padding"));
       }
 
       .v-icon + .v-filterselect-input {
@@ -67,6 +69,26 @@
       span.v-icon {
         @extend %size-#{$size};
         width: size(get("size."+$size+".icon-container"));
+      }
+    }
+  }
+
+  @each $type in get("type") {
+    @if ($type!=fill) {
+      &.#{$type}, &-#{$type} {
+        .v-datefield-textfield {
+          @extend %#{$type}, %#{$type}-basic;
+        }
+      }
+    }
+    @each $color, $value in get(if(get("vaadin.just-semantic"), "color.semantic", "color.list")) {
+      $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
+      #{$selector}, &-#{$type}-#{"" + $color} {
+        .v-filterselect-input {
+          content: "type:color: " + #{$type} #{$color};
+          @extend %#{$type}-#{"" + $color};
+          @extend %input-customize-#{$type}-#{"" + $color};
+        }
       }
     }
   }

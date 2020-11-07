@@ -1,5 +1,3 @@
-$just-semantic: true;
-
 .v-component-group {
   display: flex;
   flex-direction: row;
@@ -22,7 +20,7 @@ $just-semantic: true;
         }
       }
     }
-    @each $color, $value in get(if($just-semantic, "color.semantic", "color.list")) {
+    @each $color, $value in get(if(get("vaadin.just-semantic"), "color.semantic", "color.list")) {
       $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
       #{$selector} {
         .v-button {
@@ -37,7 +35,6 @@ $just-semantic: true;
       }
     }
   }
-
   @each $size, $value in get("size") {
     &.#{$size} {
       .v-button {
@@ -49,12 +46,42 @@ $just-semantic: true;
 
   /* ###### DateField ###### */
   @each $type in get("type") {
-    @each $color, $value in get(if($just-semantic, "color.semantic", "color.list")) {
+    @each $color, $value in get(if(get("vaadin.just-semantic"), "color.semantic", "color.list")) {
       $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
       #{$selector} {
         .v-datefield {
           @extend %v-datefield-#{$type} !optional;
           @extend %v-datefield-#{$type}-#{"" + $color};
+        }
+      }
+    }
+  }
+  @each $size, $value in get("size") {
+    &.#{$size} {
+      .v-datefield {
+        @extend %v-datefield-#{$size};
+      }
+    }
+  }
+
+  /* ###### Combobox ###### */
+  @each $type in get("type") {
+    @each $color, $value in get(if(get("vaadin.just-semantic"), "color.semantic", "color.list")) {
+      $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
+      #{$selector} {
+        .v-filterselect {
+          @extend %v-filterselect-#{$type} !optional;
+          @extend %v-filterselect-#{$type}-#{"" + $color};
+        }
+
+        .v-button {
+          @extend %extender-color-#{$type}-#{"" + $color};
+          @extend %customize-#{$type}-#{"" + $color} !optional;
+          @if ($type==fill) {
+            &:not(:first-child) {
+              border-left-color: var(--#{$color}-700);
+            }
+          }
         }
       }
     }
