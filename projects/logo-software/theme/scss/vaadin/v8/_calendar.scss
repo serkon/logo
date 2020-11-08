@@ -1,0 +1,76 @@
+.v-datefield-popup, .v-inline-datefield-calendarpanel {
+  padding: size(10px);
+  box-shadow: 0 size(2px) size(15px) size(4px) rgba(var(--black-rgb), 0.19);
+  border-radius: size(get("border.radius"));
+
+  td[class*="year"], td[class*="month"] {
+    button {
+      width: size(24px);
+      height: size(24px);
+      color: var(--info);
+
+      &::before {
+        color: var(--info);
+        width: size(24px);
+        height: size(24px);
+        font-size: size(24px);
+      }
+
+      &.v-button-prevyear {
+      }
+    }
+  }
+
+  td {
+    padding: 0;
+    height: size(34px);
+
+    [class*=-calendarpanel-weekdays] {
+      color: var(--text-400);
+    }
+
+    [class*=-calendarpanel-month], [class*=-calendarpanel-day] {
+      color: var(--text-1000);
+      height: size(30px);
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      margin: auto;
+    }
+
+    [class*=-calendarpanel-day] {
+      height: size(30px);
+
+      &:hover {
+        background-color: var(--gray-200);
+      }
+
+      &[class*=-calendarpanel-day-selected] {
+        background-color: var(--info);
+        background-image: none;
+        box-shadow: none;
+        color: var(--white);
+
+        &:hover {
+          background-color: var(--info);
+          background-image: none;
+          box-shadow: none;
+          color: var(--white);
+        }
+      }
+    }
+
+    [class*=-calendarpanel-day-offmonth] {
+      color: var(--text-500);
+    }
+
+    &[class*=-calendarpanel-body]{
+      padding: 0;
+
+      table {
+        margin: 0;
+        width: 100%;
+      }
+    }
+  }
+}
