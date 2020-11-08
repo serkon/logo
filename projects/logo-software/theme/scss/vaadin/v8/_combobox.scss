@@ -93,3 +93,28 @@
     }
   }
 }
+
+.v-filterselect-suggestpopup [class$="suggestmenu"] {
+  padding: 0;
+  box-shadow: 0 size(2px) size(15px) size(4px) rgba(var(--black-rgb), 0.19);
+  color: var(--text-900);
+  border: size(1px) solid var(--primary);
+  border-radius: size(get("border.radius"));
+
+  table {
+    .gwt-MenuItem {
+      line-height: size(40px);
+      height: size(40px);
+      border-radius: 0;
+      font-size: size(12px);
+      padding: 0 size(10px);
+    }
+
+    .gwt-MenuItem-selected {
+      background-color: var(--primary);
+      background-image: none;
+      text-shadow: none;
+      color: var(--white);
+    }
+  }
+}
