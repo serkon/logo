@@ -1,12 +1,12 @@
 .v-panel {
   background-color: var(--white);
-  box-shadow: 0 0 size(10px) 0 #6a78f527;
+  box-shadow: 0 0 size(10px) 0 rgba(var(--primary-600-rgb), 0.1);
   border: none;
 
   .v-panel-captionwrap {
     .v-panel-caption {
       line-height: size(44px);
-      box-shadow: 0 0 size(10px) 0 #6a78f50d, 0 size(5px) size(5px) 0 #6a78f519;
+      box-shadow: 0 size(5px) size(5px) 0  rgba(var(--primary-600-rgb), 0.1);
       background-image: none;
       text-shadow: none;
       padding: 0 size(20px);
