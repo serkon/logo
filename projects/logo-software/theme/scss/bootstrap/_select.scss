@@ -117,7 +117,7 @@
   @each $size, $size-map in get("size") {
     &.#{$size} {
       option {
-        height: size(get("size." + $size + ".height")) !important;
+        height: size(get("size."+$size+".height")) !important;
       }
     }
   }

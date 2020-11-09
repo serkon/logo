@@ -10,7 +10,7 @@
   @each $item, $size in get("element.input.size") {
     &.#{$item}, &-#{$item} {
       padding: 0 size(map_get($size, padding));
-      line-height: size(get("size." + $item + ".height") - 2px);
+      line-height: size(get("size."+$item+".height") - 2px);
     }
   }
 }
