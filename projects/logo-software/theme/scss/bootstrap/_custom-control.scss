@@ -16,6 +16,8 @@ $custom-control-padding: 0;
 
     & + label {
       margin-bottom: 0;
+      padding-bottom: 0;
+      line-height: normal;
 
       &::before, &::after {
         display: none;

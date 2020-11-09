@@ -1,9 +1,4 @@
-.input-group-append {
-  margin-left: size(-1px);
-}
-
 .input-group-text {
-  margin-left: 0 !important;
   border: 0;
   background-color: var(--basic);
   color: var(--dark-600);
@@ -12,15 +7,34 @@
 
 .form-control {
   background-clip: border-box;
-  margin-left: size(-1px);
 
   &:not(:last-child) {
-    border-right: size(1px) solid var(--basic-600);
-    margin-left: size(-1px);
-    z-index: 2;
+    border-right: size(1px) solid var(--basic-700);
 
     &:focus {
-      border-right: size(1px) solid var(--info);
+      border-right: size(1px) solid var(--primary-700);
     }
+
+    & + .input-group-append {
+      margin-left: 0;
+    }
+  }
+}
+
+.with-button {
+  .input-group-append {
+    margin-left: auto;
+  }
+
+  .form-control {
+    border-right: size(1px) solid var(--basic-700);
+
+    &:focus {
+      border-right: size(1px) solid var(--primary);
+    }
+  }
+
+  .input-group-text {
+    margin-left: auto !important;
   }
 }
