@@ -50,7 +50,7 @@
 
       .v-filterselect-input {
         @extend %size-#{$size};
-        padding-right: size(get("size."+#{$size}+".icon-container") + get("element.input.size."+#{$size}+".padding"));
+        padding-right: size(get("size."+$size+".icon-container") + get("element.input.size."+$size+".padding"));
       }
 
       .v-icon + .v-filterselect-input {

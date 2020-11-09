@@ -86,6 +86,16 @@
       }
     }
   }
+
+  @each $size, $value in get("size") {
+    &.#{$size} {
+      .v-filterselect {
+        @extend %v-filterselect-#{$size};
+      }
+    }
+  }
+
+  /* DateField */
   @each $size, $value in get("size") {
     &.#{$size} {
       .v-datefield {
