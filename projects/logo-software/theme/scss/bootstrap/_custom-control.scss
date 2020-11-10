@@ -18,6 +18,7 @@ $custom-control-padding: 0;
       margin-bottom: 0;
       padding-bottom: 0;
       line-height: normal;
+      color: var(--text-900);
 
       &::before, &::after {
         display: none;

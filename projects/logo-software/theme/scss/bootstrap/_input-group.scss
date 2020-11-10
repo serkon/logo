@@ -1,40 +1,67 @@
-.input-group-text {
-  border: 0;
-  background-color: var(--basic);
-  color: var(--dark-600);
-  z-index: 1;
-}
+.input-group {
+  input.form-control {
+    background-clip: border-box;
 
-.form-control {
-  background-clip: border-box;
+    &:not(:last-child) {
+      border-right: size(1px) solid var(--basic-700);
 
-  &:not(:last-child) {
-    border-right: size(1px) solid var(--basic-700);
+      &:focus {
+        border-right: size(1px) solid var(--primary-700);
+      }
 
-    &:focus {
-      border-right: size(1px) solid var(--primary-700);
-    }
-
-    & + .input-group-append {
-      margin-left: 0;
+      & + .input-group-append {
+        margin-left: 0;
+      }
     }
   }
-}
 
-.with-button {
   .input-group-append {
-    margin-left: auto;
-  }
+    .input-group-text {
+      border: 0;
+      background-color: var(--basic);
+      color: var(--dark-600);
+      z-index: 1;
+      padding: 0 size(get("size.medium.icon-container")/2);
+      position: relative;
 
-  .form-control {
-    border-right: size(1px) solid var(--basic-700);
-
-    &:focus {
-      border-right: size(1px) solid var(--primary);
+      i {
+        position: absolute;
+        left: 50%;
+        margin-left: size(get("size.medium.font-size")/-2);
+        font-size: size(get("size.medium.font-size"));
+      }
     }
   }
 
-  .input-group-text {
-    margin-left: auto !important;
+  &.with-button {
+    input.form-control {
+      border-right: size(1px) solid var(--basic-700);
+
+      &:focus {
+        border-right: size(1px) solid var(--primary);
+      }
+    }
+
+    .input-group-append {
+      margin-left: auto;
+
+      .input-group-text {
+        margin-left: auto !important;
+      }
+    }
+  }
+
+  @each $size, $value in get("size") {
+    &.#{$size} {
+      input.form-control {
+        @extend %size-#{$size};
+      }
+
+      .input-group-append {
+        .input-group-text {
+          @extend %size-#{$size};
+        }
+      }
+    }
   }
 }

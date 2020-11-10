@@ -2,11 +2,11 @@
   width: 100%;
 
   & > label {
-    color: var(--dark-600);
+    vertical-align: bottom;
     font-size: size(12px);
     font-weight: 600;
     line-height: normal;
-    margin-bottom: size(2px);
+    margin-bottom: 0;
     height: auto;
   }
 }
