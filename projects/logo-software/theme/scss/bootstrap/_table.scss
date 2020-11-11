@@ -106,7 +106,7 @@
 
 .t-filterPanel {
   border: 0;
-  box-shadow: 0 2px 15px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 size(2px) size(15px) size(4px) rgba(var(--black-rgb), 0.19);
   padding: 20px;
 
   .t-filterRemoveBtn {
