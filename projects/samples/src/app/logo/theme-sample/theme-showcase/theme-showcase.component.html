@@ -22,8 +22,8 @@
         <div class="cell split-xs-11 color-names">{{status}}</div>
         <div class="cell split-xs-11" *ngFor="let shade of shades">
           <div
-            class="color {{status}} {{status}}-{{shade}}"
-            [ngClass]="{'black-color': shade<500, 'white-color': shade>=500}"
+            class="color {{status}}-{{shade}}"
+            [ngClass]="{'black-color': shade < (['light', 'secondary', 'basic'].includes(status)?900:500), 'white-color': shade >= (['light', 'secondary', 'basic'].includes(status)?900:500)}"
           >
             {{getColor('--' + status + '-' + shade)}}
           </div>
