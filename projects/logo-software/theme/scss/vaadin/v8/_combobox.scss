@@ -85,7 +85,6 @@
       $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
       #{$selector}, &-#{$type}-#{"" + $color} {
         .v-filterselect-input {
-          content: "type:color: " + #{$type} #{$color};
           @extend %#{$type}-#{"" + $color};
           @extend %input-customize-#{$type}-#{"" + $color};
         }

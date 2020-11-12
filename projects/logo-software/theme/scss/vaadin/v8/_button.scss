@@ -2,7 +2,7 @@
   background-image: none;
   box-shadow: none;
   text-shadow: none;
-  @extend %button, %extender-size, %extender-color;
+  @extend %button, %size, %extender-color;
 
   &:before {
     height: auto !important;
@@ -78,7 +78,6 @@
 
       .v-icon + .v-button-caption {
         padding-left: size(get("size."+$size+".icon-container") - get("element.button.size."+$size+".padding"));
-        content: size(get("size."+$size+".icon-container") - get("element.button.size."+$size+".padding"));
       }
 
       img.v-icon {
@@ -112,7 +111,6 @@
 
       .v-icon + .v-button-caption {
         padding-left: size(get("size."+$value+".icon-container") - get("element.button.size."+$value+".padding"));
-        content: size(get("size."+$value+".icon-container") - get("element.button.size."+$value+".padding"));
       }
 
       img.v-icon {

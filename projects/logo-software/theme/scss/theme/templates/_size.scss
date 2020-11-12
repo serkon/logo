@@ -37,11 +37,3 @@
     }
   }
 }
-
-%extender-size {
-  @each $item, $size in get("size") {
-    &.#{$item} {
-      @extend %size-#{$item};
-    }
-  }
-}
