@@ -103,4 +103,32 @@
       }
     }
   }
+
+  /* TextField */
+  @each $size, $value in get("size") {
+    &.#{$size} {
+      .v-caption {
+        @extend %v-caption-#{$size};
+      }
+
+      .v-textfield {
+        @extend %size-#{$size};
+
+        &.inline-icon {
+          @extend %v-textfield-icon-#{$size};
+        }
+      }
+    }
+  }
+  @each $type in get("type") {
+    @each $color, $value in get(if(get("vaadin.just-semantic"), "color.semantic", "color.list")) {
+      $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
+      #{$selector} {
+        .v-textfield {
+          @extend %#{$type}-#{"" + $color};
+          @extend %input-customize-#{$type}-#{"" + $color};
+        }
+      }
+    }
+  }
 }
