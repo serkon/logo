@@ -87,7 +87,6 @@
     "@angular/platform-browser": "~9.1.6",
     "@angular/platform-browser-dynamic": "~9.1.6",
     "@angular/router": "~9.1.6",
-    "@logo-software/excel": "^1.0.10",
     "@nebular/bootstrap": "^5.0.0",
     "@nebular/eva-icons": "^5.0.0",
     "@nebular/theme": "^5.0.0",
