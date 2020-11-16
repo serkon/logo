@@ -168,7 +168,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   /**
    * It set excel exporting. More information please look [ExcelSettingType](/#/docs/modules/excel-module#excelsettingtype)
    */
-  @Input() public excel: ExcelSettingType;
+  @Input() public excel: ExcelSettingType = {status: true};
   /**
    * It make table row draggable. Default value is false.
    */
