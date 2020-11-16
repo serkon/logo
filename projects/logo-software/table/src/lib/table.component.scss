@@ -166,7 +166,8 @@ $expanded-background-color: #dddde8;
 
                 &.expander {
                   background-color: var(--white);
-                  margin-left: 4px;
+                  margin-left: size(4px);
+                  color: var(--info);
 
                   &:focus {
                     background-color: var(--white);
@@ -181,7 +182,7 @@ $expanded-background-color: #dddde8;
               &.index {
                 text-align: center;
                 background-color: transparentize($thead-background-color, 0.2);
-                color: #ffffff;
+                color: var(--white);
               }
 
               div.content-container {
