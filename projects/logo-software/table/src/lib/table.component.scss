@@ -241,6 +241,8 @@ $expanded-background-color: #dddde8;
                     display: inline-block;
                     right: 0;
                     margin-right: 4px;
+                    color: #0090ff;
+                    border: 1px solid #e5e5e5;
                   }
                 }
               }
@@ -266,6 +268,8 @@ $expanded-background-color: #dddde8;
                         background-color: var(--white);
                         display: inline-block;
                         right: 28px;
+                        color: #ff3e51;
+                        border: 1px solid #e5e5e5;
                       }
 
                       & ~ button.edit {

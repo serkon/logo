@@ -43,7 +43,11 @@ export interface TableMeta<T> {
    */
   rows?: T[];
   /**
-   *
+   *  If its value is true, it exports all data to Excel or to a printer. Otherwise, the data currently shown will be exported.
+   */
+  exportAll: boolean;
+  /**
+   * Excel setting type define configuration of Excel Module.
    */
   excel?: ExcelSettingType;
   serverSide?: boolean;

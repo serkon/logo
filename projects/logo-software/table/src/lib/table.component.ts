@@ -162,9 +162,13 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
    */
   @Input() public service: { url: string, method?: string } = {url: null, method: 'GET'};
   /**
+   *  If its value is true, it exports all data to Excel or to a printer. Otherwise, the data currently shown will be exported.
+   */
+  @Input() public exportAll: boolean = false;
+  /**
    * It set excel exporting. More information please look [ExcelSettingType](/#/docs/modules/excel-module#excelsettingtype)
    */
-  @Input() public excel: ExcelSettingType = {status: true};
+  @Input() public excel: ExcelSettingType;
   /**
    * It make table row draggable. Default value is false.
    */
@@ -206,6 +210,10 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
    * If set true Checkbox will be visible
    */
   @Input() checkbox: boolean = true;
+  /**
+   * Trigger an event, when the excel button clicked. It sends `this.row` and `this.original` data to a given method.
+   */
+  @Output() public onExcelClick: EventEmitter<any> = new EventEmitter<any>();
   /**
    * This method accepts parameters and return values for create HttpParams values. Using this data will be generated HttpParams.
    * ```JSON
@@ -452,7 +460,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   set columns(value: TableColumn[]) {
     const options = new TableColumn();
     this._columns = value.map(column => ({...options, ...column}));
-    this.excel.columns = <ExcelTableColumn[]> value;
+    this.excel.columns = <ExcelTableColumn[]>value;
   }
 
   private _selected: any = null;
@@ -536,10 +544,10 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
 
   setExcelOptions() {
     const options: ExcelSettingType = {
-      status: !!this.excel.status,
+      status: false,
       columns: this._columns as ExcelTableColumn[],
-      name: !!this.excel.name ? this.excel.name : 'excel',
-      data: this.rows,
+      name: 'excel',
+      data: this.exportAll  ? this.original : this.rows,
       service: {
         url: this.service.url,
         method: this.service.method,
@@ -547,10 +555,10 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
           data: this.filter,
         },
       },
-      complete: this.excel.complete,
-      type: this.excel.type || 'xls',
+      complete: () => console.log('Excel export done!'),
+      type: 'xls',
     };
-    this.excel = {...this.excel, ...options};
+    this.excel = {...options, ...this.excel};
   }
 
   reloadInTime() {
@@ -561,6 +569,10 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
 
   reloadCancel() {
     clearInterval(this.timeout);
+  }
+
+  htmlExcelClick() {
+    this.onExcelClick.emit({row: this.rows, original: this.original});
   }
 
   htmlSetActionButtonClass(action: TableAction): string[] {
@@ -681,7 +693,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   }
 
   makeFilterToObject(filter: TableFilter<any>[], row?) {
-    return filter.reduce((p, c, i) => ({...p, ...Util.makeObject(this.isFunction(c.path) ? c.path(row) : <string> c.path, c.value)}), {});
+    return filter.reduce((p, c, i) => ({...p, ...Util.makeObject(this.isFunction(c.path) ? c.path(row) : <string>c.path, c.value)}), {});
   }
 
   runPathFilter(filtered) {
@@ -730,7 +742,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   }
 
   manageQueryParams(): HttpParams {
-    let sorting = this.sorting.column ? Util.makeObject(<string> this.sorting.column, this.sorting.descending ? 'desc' : 'asc') : null;
+    let sorting = this.sorting.column ? Util.makeObject(<string>this.sorting.column, this.sorting.descending ? 'desc' : 'asc') : null;
     const filter: TableFilter<string>[] = this.filter.length > 0 ? this.filter : null;
     const paging = {pageNumber: this.pageNumber, pageSize: this.pageSize};
     const queryParameter: { sort?: string, q?: string, offset?: number, limit?: number, $orderby?: string, $skip?: number, $top?: number, $filter?: string } = {};

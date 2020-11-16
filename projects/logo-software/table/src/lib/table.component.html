@@ -41,12 +41,12 @@
   <logo-excel
     (complete)="excel.complete($event)"
     [columns]="excel.columns"
-    [data]="rows"
+    [data]="excel.data"
     [header]="excel.header"
     [name]="excel.name"
     [status]="excel.status"
   >
-    <button class="outline logo-i-print"></button>
+    <button class="outline logo-i-print" (click)="htmlExcelClick()"></button>
   </logo-excel>
 </div>
 
