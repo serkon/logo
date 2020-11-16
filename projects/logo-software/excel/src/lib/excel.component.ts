@@ -90,7 +90,7 @@ export interface RequestOptions<T> {
 }
 
 /**
- * Configuration of Excel Module. Excel module configuration declaration must be below.
+ * Configuration of Excel Module.
  */
 export interface ExcelSettingType {
   /**
@@ -199,7 +199,7 @@ export class ExcelComponent {
    */
   @Input() public header: string[] = null;
   /**
-   * File name will be exported
+   * The name of the file that will be exported
    */
   @Input() public name = `Export`;
   /**
@@ -301,7 +301,7 @@ export class ExcelComponent {
   getObjectPathValue(value: any, path: string) {
     let data = value;
     if (!!path && path.constructor === String) {
-      path.split('.').forEach(function(val: any) {
+      path.split('.').forEach(function (val: any) {
         data = (data !== null && typeof data !== 'undefined') ? data[val] : null;
       });
     }
