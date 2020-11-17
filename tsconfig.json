@@ -25,7 +25,7 @@
     "types": [],
     "paths": {
       "@paas/*": [
-        "./projects/paas/*"
+        "./projects/developer.logo.com.tr/*"
       ],
       "@samples/*": [
         "./projects/samples/src/app/logo/*"
@@ -65,8 +65,6 @@
         "dist/logo-software/perspective"
       ],
       "@logo-software/cursor": [
-        "dist/logo-software/cursor/logo-software-cursor",
-        "dist/logo-software/cursor",
         "dist/logo-software/cursor/logo-software-cursor",
         "dist/logo-software/cursor"
       ],
