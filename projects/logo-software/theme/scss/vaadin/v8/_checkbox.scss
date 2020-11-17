@@ -1,0 +1,46 @@
+.v-checkbox, .v-radiobutton {
+  padding-left: 0 !important;
+  vertical-align: baseline;
+  line-height: normal;
+
+  input[type=checkbox] {
+    @extend %checkbox;
+  }
+
+  input[type=radio] {
+    border-radius: 50%;
+  }
+
+  input[type=checkbox], input[type=radio] {
+    @extend %fill-secondary;
+    @extend %check-radio;
+    @extend %check-radio-medium;
+
+    position: relative;
+    left: auto;
+    top: auto;
+    vertical-align: top;
+  }
+
+  & > input ~ label {
+    &::before, &::after {
+      display: none !important;
+    }
+  }
+
+  & > input ~ span, & > input ~ span ~ label {
+    @extend %label-medium;
+  }
+
+  @each $size, $value in get("size") {
+    &.#{$size} {
+      input[type=checkbox], input[type=radio] {
+        @extend %check-radio-#{$size};
+      }
+
+      & > input ~ span, & > input ~ span ~ label {
+        @extend %label-#{$size};
+      }
+    }
+  }
+}
