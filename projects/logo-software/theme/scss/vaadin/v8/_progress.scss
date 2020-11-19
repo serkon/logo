@@ -1,0 +1,33 @@
+.v-progressbar {
+  .v-progressbar-wrapper {
+    height: size(8px);
+    background-image: none;
+    background-color: var(--gray-300);
+
+    .v-progressbar-indicator {
+      background-color: var(--info);
+      background-image: none;
+      border: none;
+    }
+  }
+
+  &-point {
+    .v-progressbar-wrapper {
+      .v-progressbar-indicator {
+        background-color: rgba(var(--info-500-rgb), 0.3);
+
+        &::before {
+          border: none;
+          background-color: var(--info);
+          width: size(8px);
+        }
+      }
+    }
+  }
+
+  &-indeterminate {
+    border: size(2px) solid var(--gray-300);
+    border-right-color: var(--info);
+    border-top-color: var(--info);
+  }
+}
