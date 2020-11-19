@@ -2,6 +2,7 @@
   .v-slider-base {
     background-color: var(--gray-300);
     background-image: none;
+    margin: size(15px) 0;
 
     &::before {
       border: none;
@@ -28,7 +29,6 @@
       }
 
       &::after {
-        @include nb-outline();
         width: size(30px);
         height: size(30px);
         border: none;
@@ -36,6 +36,34 @@
         margin-top: size(4px);
         margin-left: size(-13px);
         border-radius: 50%;
+        box-shadow: none;
+      }
+    }
+  }
+
+  &:focus {
+    .v-slider-base {
+      .v-slider-handle {
+
+        &::before {
+          @include nb-outline();
+        }
+
+        &::after {
+          width: 0;
+          height: 0;
+          border-left: size(10px) solid transparent;
+          border-right: size(10px) solid transparent;
+          border-bottom: size(10px) solid transparent;
+          border-top: size(10px) solid var(--dark-1000);
+          content: "";
+          position: fixed;
+          z-index: 10;
+          margin-left: size(-10px);
+          margin-top: size(-8px);
+          border-radius: 0;
+          transition: opacity 0ms;
+        }
       }
     }
   }
@@ -55,6 +83,32 @@
       }
     }
   }
+
+  &:focus {
+    .v-slider-base {
+      .v-slider-handle {
+        &::before {
+          @include nb-outline();
+        }
+
+        &::after {
+          width: 0;
+          height: 0;
+          border-left: size(10px) solid transparent;
+          border-right: size(10px) solid var(--dark-1000);
+          border-bottom: size(10px) solid transparent;
+          border-top: size(10px) solid transparent;
+          content: "";
+          position: fixed;
+          z-index: 10;
+          margin-left: size(18px);
+          margin-top: size(-16px);
+          border-radius: 0;
+          transition: opacity 0ms;
+        }
+      }
+    }
+  }
 }
 
 .v-slider-feedback {
@@ -64,9 +118,10 @@
   color: var(--white);
   border-radius: size(get("border.radius"));
   padding: size(6px) size(10px) size(7px) size(10px);
-  margin-top: size(-8px) !important;
+  margin-top: size(-7px) !important;
+  margin-left: size(1px) !important;
   text-align: center;
-  box-shadow: 0 size(2px) size(4px) 0 #6a78f550;
+  // box-shadow: 0 size(2px) size(4px) 0 #6a78f550;
 
   &.popupContent {
     min-width: size(16px);
