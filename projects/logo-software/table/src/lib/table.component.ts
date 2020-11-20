@@ -572,7 +572,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   }
 
   htmlExcelClick() {
-    this.onExcelClick.emit({row: this.rows, original: this.original});
+    this.onExcelClick.emit({rows: this.rows, original: this.original});
   }
 
   htmlSetActionButtonClass(action: TableAction): string[] {
