@@ -21,6 +21,7 @@ html {
   }
 }
 
-#{get("selector")} * {
-  // font-family: get("font.family");
+#{get("selector")} {
+  font-family: get("font.family");
+  font-size: size(get("font.size"));
 }

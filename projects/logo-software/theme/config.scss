@@ -12,7 +12,7 @@ $config: deep-map-merge((
   root: ":root",
   selector: ":root",
   customize: (
-    status: true,
+    status: false,
     state:(
       background: --text-900
     ),
