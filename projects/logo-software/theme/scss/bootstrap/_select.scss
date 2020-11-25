@@ -68,7 +68,7 @@
       height: size(14px);
       margin-right: size(32px);
       background: none;
-      background: rgba(0,0,0,0.1);
+      background: rgba(0, 0, 0, 0.1);
       border-radius: 50%;
 
       &::before {
@@ -93,6 +93,28 @@
     .chosen-search {
       .chosen-search-input {
         @extend %fill, %fill-secondary;
+      }
+    }
+
+    .chosen-results {
+      .active-result {
+        position: relative;
+        line-height: size(40px);
+        height: size(40px);
+        padding: 0 size(get("size.medium.height")) 0 size(get("size.medium.height") + 10px);
+
+        &::before {
+          background-size: 12px 12px;
+          background-position: center center;
+          background-repeat: no-repeat;
+          width: size(get("size.medium.height") + 10px);
+          height: size(get("size.medium.height") + 10px);
+          position: absolute;
+          left: 0;
+          top: 0;
+          margin-left: 0;
+        }
+
       }
     }
   }
