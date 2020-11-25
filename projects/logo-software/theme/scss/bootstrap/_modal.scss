@@ -45,33 +45,39 @@
   margin: get("element.modal.body.margin");
   padding: 0;
   font-size: size(16px);
-}
 
-.message-icon {
-  width: size(40px);
-  height: size(40px);
-  top: size(-5px) !important;
-  text-align: center;
+  .message-icon {
+    width: size(40px);
+    height: size(40px);
+    top: size(-5px) !important;
+    text-align: center;
 
-  .fa-check-circle {
-    color: var(--success) !important;
+    .fa-check-circle {
+      color: var(--success) !important;
+    }
+
+    .fa-info-circle, .fa-question-circle {
+      color: var(--info) !important;
+    }
+
+    .fa-exclamation {
+      color: var(--warning) !important;
+    }
+
+    .fa-exclamation-circle {
+      color: var(--danger) !important;
+    }
   }
 
-  .fa-info-circle, .fa-question-circle {
-    color: var(--info) !important;
+  .message-text {
+    padding-left: size(45px) !important;
   }
 
-  .fa-exclamation {
-    color: var(--warning) !important;
+  .message-detail-text {
+    border: size(1px) solid var(--gray-300);
+    font-size: size(12px);
+    padding: size(15px);
   }
-
-  .fa-exclamation-circle {
-    color: var(--danger) !important;
-  }
-}
-
-.message-text {
-  padding-left: size(45px) !important;
 }
 
 .modal-footer {
