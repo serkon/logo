@@ -1,0 +1,54 @@
+
+.btn-group {
+  .dropdown-menu {
+    &.show {
+      border: size(1px) solid var(--primary);
+      padding: 0;
+      border-radius: size(2px);
+    }
+
+    .dropdown-item {
+      line-height: size(40px);
+      height: size(40px);
+      background-color: var(--white);
+      padding-left: size(10px);
+      border-radius: size(2px);
+      overflow: hidden;
+
+      &:hover {
+        background-color: var(--primary);
+        color: var(--white);
+      }
+    }
+
+    .dropdown-header {
+      height: size(25px);
+      font-size: size(12px);
+      font-weight: 800;
+      color: var(--light-800);
+      padding: 0 size(10px);
+      background-color: var(--basic-500);
+    }
+
+    .dropdown-divider {
+      margin: 0;
+    }
+  }
+
+  button ~ button.dropdown-toggle {
+    $radius: size(get("border.radius"));
+    border-radius: 0 $radius $radius 0;
+    border-left: size(1px) solid var(--secondary-700);
+
+    @each $color, $value in get("color.list") {
+      &.#{"" + $color} {
+        border-left: size(1px) solid var(--#{"" + $color}-700);
+      }
+    }
+  }
+
+  .btn:not(:last-child):not(.dropdown-toggle) {
+    $radius: size(get("border.radius"));
+    border-radius: $radius 0 0 $radius;
+  }
+}
