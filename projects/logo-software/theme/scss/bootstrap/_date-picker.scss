@@ -1,0 +1,53 @@
+.datepicker {
+  table.table {
+    border-collapse: separate;
+    border-spacing: size(5px);
+
+    thead {
+      th.dow {
+        font-weight: 400;
+        font-size: size(14px);
+        color: var(--text-400);
+      }
+
+      th.picker-switch {
+        color: var(--text-1000);
+        font-weight: 400;
+        font-size: size(14px);
+      }
+
+      th.prev, th.next {
+        color: var(--primary);
+        font-size: size(12px);
+      }
+    }
+
+    tbody {
+      td {
+        border-radius: size(get("border.radius"));
+        background-color: var(--gray-100);
+        color: var(--text-1000);
+        font-size: size(14px);
+        width: size(32px);
+        min-width: size(32px);
+        height: size(30px);
+        vertical-align: middle;
+        padding: 0;
+        text-shadow: none;
+
+        &.active {
+          background-color: var(--primary);
+          color: var(--white);
+
+          &::before {
+            display: none;
+          }
+        }
+
+        &.new {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
