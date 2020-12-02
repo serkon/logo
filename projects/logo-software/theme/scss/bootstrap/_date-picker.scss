@@ -1,5 +1,5 @@
 .datepicker {
-  table.table {
+  table {
     border-collapse: separate;
     border-spacing: size(5px);
 
@@ -19,6 +19,8 @@
       th.prev, th.next {
         color: var(--primary);
         font-size: size(12px);
+        width: size(32px);
+        height: size(32px);
       }
     }
 
@@ -28,12 +30,15 @@
         background-color: var(--gray-100);
         color: var(--text-1000);
         font-size: size(14px);
-        width: size(32px);
-        min-width: size(32px);
         height: size(30px);
         vertical-align: middle;
         padding: 0;
         text-shadow: none;
+
+        &.day {
+          width: size(32px);
+          min-width: size(32px);
+        }
 
         &.active {
           background-color: var(--primary);
@@ -49,5 +54,82 @@
         }
       }
     }
+  }
+
+  .datepicker-months, .datepicker-years, .datepicker-decades {
+    table.table-condensed {
+      tbody {
+        td {
+          background-color: transparent;
+
+          .month, .year, .decade {
+            margin: size(5px);
+            background-color: var(--gray-100);
+
+            &:hover {
+              background-color: var(--primary-300);
+            }
+
+            &.active {
+              background-color: var(--primary);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .datepicker-months {
+    width: size(274px);
+
+    table.table-condensed {
+      tbody {
+        td {
+          .month {
+            width: size(81px);
+
+            &:nth-child(3n+1) {
+              margin-left: 0;
+            }
+
+            &:nth-child(3n+3) {
+              margin-right: 0;
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+  .datepicker-years, .datepicker-decades {
+    table.table-condensed {
+      tbody {
+        td {
+          .year, .decade {
+            width: size(58px);
+
+            &:nth-child(4n+1) {
+              margin-left: 0;
+            }
+
+            &:nth-child(4n+4) {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.bootstrap-datetimepicker-widget {
+  width: size(274px);
+
+  &.dropdown-menu {
+    width: size(276px);
+    border: size(1px) solid var(--primary);
+    padding: 0;
   }
 }

@@ -1,0 +1,90 @@
+.note-editor {
+  border: none;
+
+  .note-toolbar {
+    background-color: transparent;
+    box-shadow: 0 0 size(10px) 0 #6a78f50d, 0 size(5px) size(5px) 0 #6a78f519;
+    padding: size(10px);
+    border: none;
+
+    & > .note-btn-group {
+      margin-right: size(10px);
+    }
+
+    .note-btn-group {
+      margin-top: 0;
+
+      .note-btn {
+        @extend %outline-gray;
+        @extend %customize-outline-gray;
+
+        &:not(:last-child):not(.dropdown-toggle) {
+          border-right: 0;
+        }
+      }
+
+      .note-btn-group:not(:last-child) {
+        .note-btn {
+          border-right: 0;
+        }
+      }
+
+      .note-dropdown-menu {
+        .dropdown-item {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          text-decoration: none;
+
+          &:hover {
+            * {
+              color: var(--white);
+            }
+          }
+        }
+
+        &.note-check {
+          .dropdown-item {
+            position: relative;
+            padding-left: size(42px);
+
+            .note-icon-menu-check {
+              position: absolute;
+              left: 0;
+              width: 42px;
+              height: 42px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .note-editing-area {
+    border: size(1px) solid var(--gray-300);
+    border-top: none;
+    border-bottom: none;
+  }
+
+  .note-statusbar {
+    border-top: none;
+    background-color: var(--secondary-300);
+
+    .note-resizebar {
+      padding: size(3px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+
+      .note-icon-bar {
+        width: size(15px);
+        border-top: size(1px) solid var(--secondary-700);
+      }
+    }
+  }
+}

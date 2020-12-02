@@ -52,7 +52,7 @@
           border-color: if($color==light, var(--light), var(--#{$color}-#{$state}));
           background-color: rgba(var(--#{$color}-#{$state}-rgb), var(--ghost-#{$state}));
           @if get("bootstrap.status") {
-            color: if($color == secondary or $color == basic, text-color($color), var(--#{$color}));
+            color: if($color == secondary or $color == basic or $color == gray, text-color($color), var(--#{$color}));
           }
         }
       }
