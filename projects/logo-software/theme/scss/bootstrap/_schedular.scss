@@ -1,0 +1,262 @@
+.fc {
+  .fc-header-toolbar {
+    .fc-toolbar-chunk {
+      &:first-child {
+        .fc-button-group {
+          button {
+            @extend %button;
+            @extend %ghost-primary;
+            @extend %customize-ghost-primary;
+            position: relative;
+            justify-content: center;
+
+            span {
+              position: absolute;
+              font-size: size(get("size.medium.font-size"));
+            }
+          }
+        }
+
+        .fc-today-button {
+          @extend %button;
+          @extend %outline-primary;
+          @extend %customize-outline-primary;
+        }
+      }
+
+      .fc-toolbar-title {
+        font-size: size(16px);
+        color: var(--text-1000);
+      }
+
+      &:last-child {
+        .fc-button-group {
+          button {
+            @extend %button;
+            @extend %outline-primary;
+            @extend %customize-outline-primary;
+          }
+        }
+      }
+    }
+  }
+
+  .fc-daygrid {
+    table.fc-scrollgrid {
+      border: none;
+
+      thead {
+        td {
+          border: none;
+
+          table {
+            tr {
+              th.fc-day {
+                border: none;
+                border-bottom: size(1px) solid var(--gray-300);
+
+                a {
+                  color: var(--text-700);
+                  text-transform: uppercase;
+                  font-size: size(12px);
+                  font-weight: 800;
+                  line-height: 100%;
+                  padding-bottom: size(5px);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          td {
+            border: none;
+
+            table {
+              border-style: initial;
+
+              tbody {
+                tr {
+                  td {
+                    border: size(1px) solid var(--gray-300);
+                    background-color: transparent;
+                    height: size(130px);
+
+                    .fc-daygrid-day-frame {
+                      .fc-daygrid-day-top {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        .fc-daygrid-day-number {
+                          font-size: size(12px);
+                          color: var(--secondary-700);
+                          font-weight: bold;
+                          width: size(32px);
+                          height: size(32px);
+                          display: flex;
+                          align-items: center;
+                          justify-content: center;
+                          padding: 0;
+                          margin-top: size(5px);
+                        }
+                      }
+
+                      .fc-daygrid-day-events {
+                        .fc-daygrid-event-harness {
+                          .fc-daygrid-event {
+                            font-size: size(12px);
+                            color: var(--text-900);
+                            height: size(25px);
+                            margin: size(1px) size(5px);
+
+                            &:hover {
+                              background-color: var(--gray-200);
+                            }
+
+                            .fc-daygrid-event-dot {
+                              width: size(10px);
+                              height: size(10px);
+                              border: none;
+                              border-radius: 50%;
+                              background-color: var(--primary);
+                            }
+
+
+                            .fc-event-time {
+
+                            }
+
+                            .fc-event-title {
+                              font-weight: bold;
+                            }
+                          }
+                        }
+                      }
+
+                      .fc-daygrid-day-bg {
+                        .fc-daygrid-bg-harness {
+                          .fc-non-business {
+                            background-color: var(--gray-100);
+                            z-index: -1;
+                          }
+
+                          .fc-highlight {
+                            background-color: var(--primary-100);
+                          }
+                        }
+                      }
+                    }
+
+                    &.fc-day-other {
+                      .fc-daygrid-day-frame {
+                        .fc-daygrid-day-top {
+                          opacity: 1;
+
+                          .fc-daygrid-day-number {
+                            color: var(--secondary-700);
+                            opacity: 0.5;
+                          }
+                        }
+                      }
+                    }
+
+                    &.fc-day-today {
+                      // background-color: var(--warning-100);
+
+                      .fc-daygrid-day-top {
+                        .fc-daygrid-day-number {
+                          border-radius: 50%;
+                          background-color: var(--primary);
+                          color: var(--white);
+                        }
+                      }
+                    }
+                  }
+
+                  &:first-child {
+                    td {
+                      border-top: none;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .fc-timegrid {
+    table.fc-scrollgrid {
+      border: none;
+
+      thead {
+        td {
+          border: none;
+
+          table {
+            tr {
+              th {
+                border: none;
+                border-bottom: size(1px) solid var(--gray-300);
+
+                a {
+                  color: var(--text-700);
+                  text-transform: uppercase;
+                  font-size: size(12px);
+                  font-weight: 800;
+                  line-height: 100%;
+                  padding-bottom: size(5px);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          td {
+            border: none;
+
+            table {
+              tbody {
+                tr {
+                  td {
+                    border: size(1px) solid var(--gray-300);
+                    background-color: transparent;
+                    border-bottom: 0;
+
+                    &.fc-timegrid-slot-minor {
+                      border-top-style: dotted;
+                    }
+
+
+                    .fc-timegrid-col-bg {
+                      z-index: -1;
+
+                      .fc-timegrid-bg-harness {
+                        .fc-non-business {
+                          background-color: var(--gray-100);
+                        }
+
+                        .fc-highlight {
+                          background-color: var(--primary-100);
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+    }
+  }
+}

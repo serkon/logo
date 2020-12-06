@@ -1,7 +1,7 @@
-.btn:not(:disabled) {
+.btn:not(:disabled), .btn {
   @each $color, $value in get("color.list") {
     &.btn-#{"" + $color} {
-      // border-color: transparent;
+      border-color: transparent;
       @extend %fill-#{"" + $color};
     }
     &.btn-outline-#{"" + $color} {

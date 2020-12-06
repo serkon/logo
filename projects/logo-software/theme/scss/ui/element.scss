@@ -16,7 +16,6 @@
 
 // Import Bootstrap with default
 @if (get("bootstrap.status")) {
-  @debug "#################: bootstrap true";
   #{get("root")} {
     @extend %html-elements;
   }
