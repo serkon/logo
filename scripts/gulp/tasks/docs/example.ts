@@ -6,7 +6,6 @@ import { join } from 'path';
 const del = require('del');
 const replace = require('gulp-replace');
 const typedoc = require('gulp-typedoc');
-const sass = require('gulp-sass');
 const exec = require('child_process').execSync;
 
 /**

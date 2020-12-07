@@ -147,6 +147,7 @@ export class NgdStructureService {
       }
     } catch (e) {
       console.log(block, e);
+      return null;
     }
   }
 

@@ -152,7 +152,7 @@ export class NgdVisibilityService {
   private findTopmostElement(options: IntersectionObserverInit): Element | undefined {
     const visibleElements = this.visibleElements.get(options);
     if (!visibleElements) {
-      return;
+      return undefined;
     }
 
     let topmost: Element;
