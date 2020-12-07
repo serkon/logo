@@ -28,7 +28,6 @@
     "tslib": "^1.10.0"
   },
   "dependencies": {
-    "@logo-software/theme": "~2.0.1"
   },
   "scripts": {
     "ver:patch": "npm version patch",
