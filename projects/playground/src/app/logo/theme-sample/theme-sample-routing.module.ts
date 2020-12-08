@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ThemeShowcaseComponent } from '@samples/theme-sample/theme-showcase/theme-showcase.component';
+import { ThemeShowcaseComponent } from '@playground/theme-sample/theme-showcase/theme-showcase.component';
 
 
 const routes: Routes = [{

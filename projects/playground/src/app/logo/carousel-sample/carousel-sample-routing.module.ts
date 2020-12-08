@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CarouselShowcaseComponent } from '@samples/carousel-sample/carousel-showcase/carousel-showcase.component';
+import { CarouselShowcaseComponent } from '@playground/carousel-sample/carousel-showcase/carousel-showcase.component';
 
 
 const routes: Routes = [

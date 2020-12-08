@@ -16,7 +16,7 @@ const exec = require('child_process').execSync;
  * instead of @stacked-example(..., layout/button/button-showcase.component)
  */
 const EXAMPLES_SRC = [
-  './projects/samples/src/app/**/*.*',
+  './projects/playground/src/app/**/*.*',
 ];
 const EXAMPLES_DEST = './src/assets/examples';
 

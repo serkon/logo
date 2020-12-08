@@ -89,12 +89,12 @@ Gösterim `Tab` olarak tercih edilirse bir liste olarak `source` değişkenine g
 
 ###### 3. Playground örneğinin oluşturulması
 
-Bizim playground örneklerimiz `projects/samples/src/app/logo` altında durmaktadır. Dokumanstasyon içerisinde bir playground örneği oluşturmak için aşağıdaki adımlar izlenir. Örnek zaten varsa bu adım atlanabilir.
+Bizim playground örneklerimiz `projects/playground/src/app/logo` altında durmaktadır. Dokumanstasyon içerisinde bir playground örneği oluşturmak için aşağıdaki adımlar izlenir. Örnek zaten varsa bu adım atlanabilir.
 
-1. `projects/samples/src/app/logo` altında bir örnek oluşturulur. Bunun oluşturulması için gereken adımlar aşağıdaki gibidir.
+1. `projects/playground/src/app/logo` altında bir örnek oluşturulur. Bunun oluşturulması için gereken adımlar aşağıdaki gibidir.
 
-    **a.**  `ng generate module logo/table-sample/table-sample --routing --project=samples` module oluşturulur.
-    **b.**  `ng generate component logo/table-sample/table-showcase --project=samples` component oluşturulur.
+    **a.**  `ng generate module logo/table-sample/table-sample --routing --project=playground` module oluşturulur.
+    **b.**  `ng generate component logo/table-sample/table-showcase --project=playground` component oluşturulur.
     **c.**  Oluşturulan `TableSampleModule`'e `TableShowCaseComponent` declare edilir.
     **d.** Oluşturulan `TableShowCaseComponent` routing'i `TableSampleModuleRoting` altına eklenir.
     ```json
@@ -103,7 +103,7 @@ Bizim playground örneklerimiz `projects/samples/src/app/logo` altında durmakta
         "component": TableShowcaseComponent
       }
     ```
-    **e.**  `projects/samples/src/app/logo/logo-routing.module.ts`'e routing verilir. Burada dikkat edilmesi gereken nokta `path` parametresinin komponentin oluşturulduğu **klasör ismi** ile aynı olmasıdır. `{path: 'table-sample'}` olmalı. Compile ederken bu path'in olup olmadığına bakıyor.
+    **e.**  `projects/playground/src/app/logo/logo-routing.module.ts`'e routing verilir. Burada dikkat edilmesi gereken nokta `path` parametresinin komponentin oluşturulduğu **klasör ismi** ile aynı olmasıdır. `{path: 'table-sample'}` olmalı. Compile ederken bu path'in olup olmadığına bakıyor.
     ```typescript
     {path: 'table', loadChildren: './table-sample/table-sample.module#TableSampleModule'},
     ```
@@ -132,6 +132,6 @@ Bizim playground örneklerimiz `projects/samples/src/app/logo` altında durmakta
 ###### 4. Çalıştırmak için kullanılan komutlar
   - `npm run docs:build` ile `docs` projesi `docs/dist` altına derlenir.
   - `gulp docs` ve ardından `ng build --project=docs` ile de aynı şekilde derlenebilir.
-  - Yukarıdaki iki method da `docs` projesinin altına `docs.json` ve `output.json` oluşmasını sağlar. Ayrıca, `docs/assets/examples` altına da `projects/samples` altındaki örneklerin yüklenmesi sağlanır. Bu sayede `@stacked-example` lar kullanılır hale getirilmiş olur.
+  - Yukarıdaki iki method da `docs` projesinin altına `docs.json` ve `output.json` oluşmasını sağlar. Ayrıca, `docs/assets/examples` altına da `projects/playground` altındaki örneklerin yüklenmesi sağlanır. Bu sayede `@stacked-example` lar kullanılır hale getirilmiş olur.
   - `npm run docs:prepare` ile `docs` altında `docs.json` ve `output.json` lar oluşturuluyor.
 

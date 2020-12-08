@@ -17,7 +17,7 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('../../../projects/samples/src/app/logo/logo.module').then(m => m.LogoModule),
+        loadChildren: () => import('../../../projects/playground/src/app/logo/logo.module').then(m => m.LogoModule),
       },
       {
         path: '**',

@@ -116,7 +116,4 @@ $nb-themes: nb-register-theme((
   footer-text-color: color-fg-heading-light,
 ), docs-page, docs-home);
 
-
 @import '~@nebular/theme/styles/themes/mapping';
-
-//$v: export('output.json', $nb-themes-export, $eva-mapping);

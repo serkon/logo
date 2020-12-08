@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ToastShowcaseComponent } from '@samples/toast-sample/toast-showcase/toast-showcase.component';
+import { ToastShowcaseComponent } from '@playground/toast-sample/toast-showcase/toast-showcase.component';
 
 const routes: Routes = [
   {

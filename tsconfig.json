@@ -29,10 +29,10 @@
     "types": [],
     "paths": {
       "@paas/*": [
-        "./projects/developer.logo.com.tr/*"
+        "./projects/paas/*"
       ],
-      "@samples/*": [
-        "./projects/samples/src/app/logo/*"
+      "@playground/*": [
+        "./projects/playground/src/app/logo/*"
       ],
       "@logo-software/core": [
         "./dist/logo-software/core"
