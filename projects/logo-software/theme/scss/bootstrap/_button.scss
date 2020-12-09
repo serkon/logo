@@ -1,4 +1,6 @@
 .btn:not(:disabled), .btn {
+  @extend %button;
+
   @each $color, $value in get("color.list") {
     &.btn-#{"" + $color} {
       border-color: transparent;

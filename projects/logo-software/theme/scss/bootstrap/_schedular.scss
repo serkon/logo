@@ -35,6 +35,15 @@
             @extend %button;
             @extend %outline-primary;
             @extend %customize-outline-primary;
+            border-radius: 0;
+
+            &:first-child {
+              border-radius: size(get("border.radius")) 0 0 size(get("border.radius"));
+            }
+
+            &:last-child {
+              border-radius: 0 size(get("border.radius")) size(get("border.radius")) 0;
+            }
           }
         }
       }
@@ -93,7 +102,7 @@
                         .fc-daygrid-day-number {
                           font-size: size(12px);
                           color: var(--secondary-700);
-                          font-weight: bold;
+                          font-weight: 800;
                           width: size(32px);
                           height: size(32px);
                           display: flex;
@@ -130,7 +139,7 @@
                             }
 
                             .fc-event-title {
-                              font-weight: bold;
+                              font-weight: 800;
                             }
                           }
                         }
@@ -164,7 +173,7 @@
                     }
 
                     &.fc-day-today {
-                      // background-color: var(--warning-100);
+                      background-color: var(--warning-100);
 
                       .fc-daygrid-day-top {
                         .fc-daygrid-day-number {
@@ -220,8 +229,21 @@
 
       tbody {
         tr {
+
+          &.fc-scrollgrid-section {
+
+            & > td {
+              border-bottom: 0;
+            }
+
+            td.fc-timegrid-divider {
+              padding: 0;
+            }
+          }
+
           td {
-            border: none;
+            border: size(1px) solid var(--gray-300);
+            border-top: 0;
 
             table {
               tbody {
@@ -230,11 +252,19 @@
                     border: size(1px) solid var(--gray-300);
                     background-color: transparent;
                     border-bottom: 0;
+                    height: size(25px);
 
                     &.fc-timegrid-slot-minor {
                       border-top-style: dotted;
                     }
 
+                    &.fc-timegrid-slot {
+                      border-left: size(1px) solid var(--gray-300);
+                    }
+
+                    &.fc-day-today {
+                      background-color: var(--warning-100);
+                    }
 
                     .fc-timegrid-col-bg {
                       z-index: -1;
@@ -249,6 +279,47 @@
                         }
                       }
                     }
+
+                    .fc-timegrid-col-events {
+                      .fc-timegrid-event-harness {
+                        .fc-timegrid-event {
+                          background-color: var(--info);
+                          font-size: size(12px);
+                          border: none;
+                          bottom: 0;
+
+                          .fc-event-main {
+                            padding: size(2px);
+
+                            .fc-event-main-frame {
+                              display: flex;
+                              align-items: center;
+
+                              .fc-event-time {
+                              }
+
+                              .fc-event-title-container {
+                                font-weight: 800;
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+
+                    .fc-timegrid-slot-label-frame, .fc-scrollgrid-shrink-frame {
+                      .fc-scrollgrid-shrink-cushion {
+                        color: var(--secondary-700);
+                        font-size: size(12px);
+                        font-weight: 800;
+                      }
+                    }
+
+                    .fc-timegrid-slot-label-frame {
+                      .fc-scrollgrid-shrink-cushion {
+                        text-transform: uppercase;
+                      }
+                    }
                   }
                 }
               }
@@ -256,7 +327,123 @@
           }
         }
       }
+    }
+  }
 
+  .fc-list {
+    border: size(1px) solid var(--gray-300);
+
+    table {
+      tbody {
+        th {
+          border: size(1px) solid var(--gray-300);
+
+          .fc-list-day-cushion {
+            background-color: var(--gray-300);
+            border: none;
+
+            .fc-list-day-text {
+              color: var(--text-1000);
+              font-weight: 800;
+              font-size: size(16px);
+            }
+
+            .fc-list-day-side-text {
+              font-size: size(12px);
+            }
+          }
+        }
+
+        td {
+          border: size(1px) solid var(--gray-300);
+          border-left: 0;
+          border-right: 0;
+          font-size: size(12px);
+
+          &.fc-list-event-time {
+
+          }
+
+          &.fc-list-event-graphic {
+            .fc-list-event-dot {
+              width: size(10px);
+              height: size(10px);
+              border: none;
+              border-radius: 50%;
+              background-color: var(--primary);
+            }
+          }
+
+          &.fc-list-event-title {
+            a {
+              font-size: size(12px);
+            }
+          }
+        }
+      }
     }
   }
 }
+
+.popover {
+  border: size(1px) solid var(--primary);
+  border-radius: size(get("border.radius"));
+
+  .popover-header {
+    margin: size(10px);
+    padding: size(10px);
+    border: none;
+    border-radius: size(get("border.radius") * 2);
+    background-color: var(--gray-100);
+    color: var(--text-600);
+    font-size: size(14px);
+  }
+
+  .popover-body {
+    padding: size(10px);
+
+    .d-flex:first-child {
+      i.far {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .d-flex:last-child {
+      padding-top: size(20px);
+
+      .btn {
+        width: size(32px);
+        height: size(32px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @extend %fill-light;
+      }
+    }
+  }
+
+  &.bs-popover-right {
+    & > .arrow::before {
+      left: size(1px);
+      border-right-color: var(--primary);
+    }
+
+    & > .arrow::after {
+      left: size(2px);
+    }
+  }
+
+  &.bs-popover-left {
+    & > .arrow::before {
+      right: size(1px);
+      border-left-color: var(--primary);
+    }
+
+    & > .arrow::after {
+      right: size(2px);
+    }
+  }
+}
+
+
