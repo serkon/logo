@@ -1,0 +1,48 @@
+.v-tree {
+  .v-tree-node {
+    &:before {
+      // Click area, opacity is zero
+      width: size(32px);
+      height: size(32px);
+    }
+
+    .v-tree-node-caption {
+      line-height: size(32px);
+      height: size(32px);
+      color: var(--text-1000);
+      font-size: size(14px);
+
+      &::after {
+        height: size(32px);
+        margin-top: size(-32px);
+        background-color: rgba(var(--text-500-rgb), 0.15);
+        border-radius: size(get('border.radius'));
+        background-image: none;
+        border-left: 2px solid var(--primary);
+      }
+
+      & > div {
+        display: flex;
+
+        &:before {
+          order: 1;
+        }
+
+        .v-icon {
+          font-size: size(14px);
+          min-width: size(32px);
+          height: size(32px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-sizing: border-box;
+          padding: size(10px);
+        }
+      }
+    }
+
+    .v-tree-node-selected {
+      color: var(--text-1000);
+    }
+  }
+}
