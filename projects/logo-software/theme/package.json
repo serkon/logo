@@ -1,8 +1,8 @@
 {
   "name": "@logo-software/theme",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "description": "The Logo Design Guide based theme for Angular projects",
-  "homepage": "http://developer.logo.com.tr",
+  "homepage": "http://design.logo.com.tr",
   "author": {
     "email": "konakci@mail.com",
     "name": "Serkan Konakcı",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/logobs/ng-logo"
+    "url": "https://github.com/logo-group/logo-elements"
   },
   "keywords": [
     "theme",
@@ -26,8 +26,8 @@
   ],
   "license": "See license in LICENSE file",
   "peerDependencies": {
-    "@angular/common": "^9.1.6",
-    "@angular/core": "^9.1.6"
+    "@angular/common": "^7.0.0",
+    "@angular/core": "^7.0.0"
   },
   "dependencies": {
     "tslib": "^1.10.0"
