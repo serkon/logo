@@ -2,23 +2,24 @@
   .v-tree-node {
     &:before {
       // Click area, opacity is zero
-      width: size(32px);
-      height: size(32px);
+      width: size(get('size.medium.height'));
+      height: size(get('size.medium.height'));
+      right: 0;
     }
 
     .v-tree-node-caption {
-      line-height: size(32px);
-      height: size(32px);
       color: var(--text-1000);
-      font-size: size(14px);
+      line-height: size(get('size.medium.height'));
+      height: size(get('size.medium.height'));
+      font-size: size(get('size.medium.font-size'));
 
       &::after {
-        height: size(32px);
-        margin-top: size(-32px);
         background-color: rgba(var(--text-500-rgb), 0.15);
         border-radius: size(get('border.radius'));
         background-image: none;
-        border-left: 2px solid var(--primary);
+        border-left: size(2px) solid var(--primary);
+        height: size(get('size.medium.height'));
+        margin-top: size(get('size.medium.height')) * -1;
       }
 
       & > div {
@@ -26,23 +27,87 @@
 
         &:before {
           order: 1;
+          width: size(get('size.medium.height'));
+          height: size(get('size.medium.height'));
         }
 
         .v-icon {
-          font-size: size(14px);
-          min-width: size(32px);
-          height: size(32px);
           display: flex;
           align-items: center;
           justify-content: center;
           box-sizing: border-box;
           padding: size(10px);
+          font-size: size(get('size.medium.icon-size'));
+          min-width: size(get('size.medium.height'));
+          height: size(get('size.medium.height'));
         }
       }
     }
 
     .v-tree-node-selected {
       color: var(--text-1000);
+    }
+  }
+
+  @each $size, $value in get("size") {
+    &.#{$size} {
+      .v-tree-node {
+        &:before {
+          width: size(get('size.'+$size+'.height'));
+          height: size(get('size.'+$size+'.height'));
+        }
+
+        .v-tree-node-caption {
+          line-height: size(get('size.'+$size+'.height'));
+          height: size(get('size.'+$size+'.height'));
+          font-size: size(get('size.'+$size+'.font-size'));
+
+          &::after {
+            height: size(get('size.'+$size+'.height'));
+            margin-top: size(get('size.'+$size+'.height')) * -1;
+          }
+
+          & > div {
+            &::before {
+              width: size(get('size.'+$size+'.height'));
+              height: size(get('size.'+$size+'.height'));
+            }
+
+            .v-icon {
+              content: $size;
+              font-size: if($size=="large", size(get('size.'+$size+'.icon-size') + get('size.'+$size+'.icon-size')/4), size(get('size.'+$size+'.icon-size')));
+              min-width: size(get('size.'+$size+'.height'));
+              height: size(get('size.'+$size+'.height'));
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.v-contextmenu {
+  border: size(1px) solid var(--primary);
+  border-radius: size(get("border.radius")) !important;
+  box-shadow: get('element.menu.item.box-shadow') !important;
+  padding: 0 !important;
+
+  .popupContent {
+    .gwt-MenuBar {
+      .gwt-MenuItem {
+        line-height: size(get('element.menu.item.height'));
+        height: size(get('element.menu.item.height'));
+        border-radius: 0;
+        font-size: size(get("size.small.font-size"));
+        padding: 0 size(10px);
+      }
+
+      .gwt-MenuItem-selected {
+        background-color: var(--primary);
+        background-image: none;
+        text-shadow: none;
+        color: var(--white);
+      }
     }
   }
 }

@@ -8,6 +8,9 @@
     }
 
     .dropdown-item {
+      // TODO: menu item bilgileri config.scss den gelecek şekilde ayarlanmalı
+      // line-height: size(get('element.menu.item.height'));
+      // height: size(get('element.menu.item.height'));
       line-height: size(40px);
       height: size(40px);
       background-color: var(--white);

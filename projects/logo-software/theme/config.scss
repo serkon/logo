@@ -68,9 +68,9 @@ $config: deep-map-merge((
     radius: 2px
   ),
   size:(
-    small: (font-size: 12px, icon-size: 12px, height: 24px, icon-container: 24px),
-    medium: (font-size: 14px, icon-size: 12px, height: 32px, icon-container: 32px),
-    large: (font-size: 16px, icon-size: 16px, height: 48px, icon-container: 48px)
+    small: (font-size: 12px, icon-size: 14px, height: 24px, icon-container: 24px),
+    medium: (font-size: 12px, icon-size: 14px, height: 32px, icon-container: 32px),
+    large: (font-size: 14px, icon-size: 24px, height: 48px, icon-container: 48px)
   ),
   state: (
     list: hover active focus,
@@ -158,6 +158,12 @@ $config: deep-map-merge((
       ),
       standalone: (
         color: info-500
+      )
+    ),
+    menu:(
+      item:(
+        height: 40px,
+        box-shadow: 0 size(2px) size(15px) size(4px) rgba(var(--primary-rgb), 0.1)
       )
     )
   ),

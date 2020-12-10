@@ -99,6 +99,9 @@
     .chosen-results {
       .active-result {
         position: relative;
+        // TODO: menu item bilgileri config.scss den gelecek şekilde ayarlanmalı
+        // line-height: size(get('element.menu.item.height'));
+        // height: size(get('element.menu.item.height'));
         line-height: size(40px);
         height: size(40px);
         padding: 0 size(get("size.medium.height")) 0 size(get("size.medium.height") + 10px);
