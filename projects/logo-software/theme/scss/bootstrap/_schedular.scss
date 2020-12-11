@@ -402,23 +402,27 @@
   .popover-body {
     padding: size(10px);
 
-    .d-flex:first-child {
-      i.far {
-        display: flex;
-        align-items: center;
+    .d-flex {
+      font-size: size(12px);
+
+      &:first-child {
+        i.far {
+          display: flex;
+          align-items: center;
+        }
       }
-    }
 
-    .d-flex:last-child {
-      padding-top: size(20px);
+      &:last-child {
+        padding-top: size(20px);
 
-      .btn {
-        width: size(32px);
-        height: size(32px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        @extend %fill-light;
+        .btn {
+          width: size(32px);
+          height: size(32px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          @extend %fill-light;
+        }
       }
     }
   }
