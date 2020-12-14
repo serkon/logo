@@ -131,5 +131,44 @@
     width: size(276px);
     border: size(1px) solid var(--primary);
     padding: 0;
+    display: inline-block !important;
+
+    table.table-condensed {
+      border-spacing: size(5px);
+      border-collapse: separate;
+
+      tbody {
+        tr {
+          td {
+            height: auto;
+            width: auto;
+            line-height: normal;
+
+            a {
+              @extend %ghost-primary;
+              display: inline-block;
+              width: 100%;
+              padding: 0;
+              text-decoration: none;
+              border: none;
+
+              span {
+                margin: auto;
+              }
+            }
+
+            span {
+              height: size(get("size.medium.height"));
+              line-height: size(get("size.medium.height"));
+              width: auto;
+
+              &:hover {
+                background-color: transparent;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
