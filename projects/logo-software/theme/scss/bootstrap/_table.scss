@@ -55,16 +55,20 @@
 }
 
 .table-bordered-style .t-grid-header {
+  background-color: var(--primary);
+
   table {
     @extend %table;
   }
 
   .t-grid-header-options {
-    display: none;
+    // Filtre alanı için kapatıldı
+    // display: none;
   }
 
   .t-grid-header-wrap {
-    margin-right: 0 !important;
+    // Filtre alanı için kapatıldı
+    // margin-right: 0 !important;
   }
 }
 
