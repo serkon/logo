@@ -65,5 +65,17 @@ select[class*=v-select] {
       }
     }
   }
+}
 
+
+.v-select-optiongroup {
+  line-height: normal;
+
+  .v-radiobutton, .v-checkbox {
+    margin: 0 size(20px) 0 0;
+  }
+
+  .v-radiobutton:first-child, .v-checkbox:first-child, .v-radiobutton:last-child, .v-checkbox:last-child {
+    margin: 0 size(20px) 0 0;
+  }
 }

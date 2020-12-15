@@ -8,6 +8,17 @@
     height: auto !important;
   }
 
+  &:after {
+    background: none;
+    transition: none;
+  }
+
+  &:focus:after {
+    border: none;
+    box-shadow: none;
+    background: none;
+  }
+
   // MapColor
   @each $type in get("type") {
     @each $vaadin-color-name, $color in get("vaadin.color-map") {

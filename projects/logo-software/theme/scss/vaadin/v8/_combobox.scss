@@ -7,15 +7,33 @@
     box-shadow: none !important;
     background-image: none;
     padding-right: size(get("size.medium.icon-container") + get("element.input.size.medium.padding"));
+    vertical-align: top;
   }
 
   .v-filterselect-button {
     width: size(get("size.medium.icon-container"));
     top: 0;
+    bottom: 0;
+    border: none;
+    border-left-width: size(1px);
+    border-left-style: solid;
+    border-color: var(--basic-600);
+    color: var(--secondary-900);
+    opacity: 1;
 
     &::before {
       font-size: size(get("size.medium.icon-size"));
       width: size(get("size.medium.icon-container"));
+    }
+  }
+
+  .v-filterselect-input {
+    &:hover + .v-filterselect-button {
+      border-color: var(--basic-700);
+    }
+
+    &:focus + .v-filterselect-button {
+      border-color: var(--primary-600);
     }
   }
 
@@ -47,6 +65,7 @@
   @each $size, $value in map-merge(get("size"), get("vaadin.size-map")) {
     &.#{$size}, &-#{$size} {
       $size: if(type-of($value) == string, $value, $size);
+      height: size(get("size."+$size+".height"));
 
       .v-filterselect-input {
         @extend %size-#{$size};
@@ -87,6 +106,18 @@
         .v-filterselect-input {
           @extend %#{$type}-#{"" + $color};
           @extend %input-customize-#{$type}-#{"" + $color};
+
+          & + .v-filterselect-button {
+            border-color: var(--#{$color}-600);
+          }
+
+          &:hover + .v-filterselect-button {
+            border-color: var(--#{$color}-700);
+          }
+
+          &:focus + .v-filterselect-button {
+            border-color: var(--primary-600);
+          }
         }
       }
     }

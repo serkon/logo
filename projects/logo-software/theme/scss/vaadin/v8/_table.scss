@@ -29,7 +29,7 @@
 
             .v-table-caption-container {
               font-size: size(get("size.medium.font-size"));
-              font-weight: bold;
+              font-weight: 800;
               border-left: size(1px) solid var(--primary-600);
               color: var(--white);
               line-height: 1;
@@ -53,9 +53,58 @@
         }
       }
     }
+
+    .v-table-column-selector {
+      border: size(1px) solid red;
+    }
   }
 
-  .v-table-body {
+  .v-table-body-wrapper {
     border: none;
+
+    table.v-table-table {
+      box-shadow: none;
+      line-height: size(get("size.medium.height"));
+
+      tbody {
+        tr {
+          td {
+            height: size(get("size.medium.height"));
+            border-top: none;
+            border-left-color: transparent;
+
+            div.v-table-cell-wrapper {
+              display: flex;
+              font-size: size(get("size.medium.font-size"));
+              line-height: size(get("size.medium.height"));
+              font-weight: 400;
+              padding: 0 size(5px);
+              color: var(--text-900);
+              margin: 0;
+
+              .v-widget{
+                margin: 0;
+              }
+            }
+          }
+
+          &.v-table-row-odd {
+            background-color: var(--basic);
+          }
+
+          &.v-selected {
+            background-color: var(--primary-700);
+            background-image: none;
+
+            td {
+              border-color: transparent;
+              div.v-table-cell-wrapper {
+                color: var(--white);
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
