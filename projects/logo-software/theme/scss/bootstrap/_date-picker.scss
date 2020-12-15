@@ -11,7 +11,7 @@
       }
 
       th.picker-switch {
-        color: var(--text-1000);
+        color: get("font.color");
         font-weight: 400;
         font-size: size(14px);
       }
@@ -28,7 +28,7 @@
       td {
         border-radius: size(get("border.radius"));
         background-color: var(--gray-100);
-        color: var(--text-1000);
+        color: get("font.color");
         font-size: size(14px);
         height: size(30px);
         vertical-align: middle;

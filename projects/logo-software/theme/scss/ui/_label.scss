@@ -3,6 +3,9 @@ Label
  */
 label {
   @extend %label;
+  padding-bottom: size(2px);
+  color: var(--text);
+
   @each $size, $size-map in get("size") {
     &.#{$size} {
       @extend %label-#{$size};

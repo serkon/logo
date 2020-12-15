@@ -7,14 +7,12 @@ Label
   cursor: pointer;
   font-size: get("size.medium.font-size");
   font-weight: 600;
-  color: var(--text);
-  padding-bottom: size(2px);
   line-height: normal;
 
   @each $size, $size-map in get("size") {
     &-#{$size} {
       font-size: size(get('size.'+ $size + '.font-size'));
-      line-height: size(map_get($size-map, height));
+      line-height: size(get("size."+$size+".height"));
     }
   }
 }

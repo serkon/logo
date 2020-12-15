@@ -7,6 +7,8 @@
   .v-captiontext {
     @extend %label;
     padding-left: 0;
+    padding-bottom: size(2px);
+    color: var(--text);
   }
 
   &.v-caption-inline-icon {

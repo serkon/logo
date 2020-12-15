@@ -1,18 +1,20 @@
 /**
 Standardization Checkbox and Radio
  */
+
 %check-radio {
   -moz-appearance: none;
   -webkit-appearance: none;
   -o-appearance: none;
-  min-width: auto;
-  min-height: auto;
+  min-width: size(14px);
+  min-height: size(14px);
   width: size(14px);
   height: size(14px);
   position: relative;
   padding: 0;
-  vertical-align: middle;
+  vertical-align: top;
   border-radius: size(get("border.radius"));
+  float: left;
 
   &::before {
     display: inline-block;
@@ -31,6 +33,15 @@ Standardization Checkbox and Radio
     border: size(1px) solid transparent;
   }
 
+  + label {
+    @extend %label-medium;
+    white-space: normal;
+    vertical-align: text-top;
+    height: auto;
+    padding-bottom: 0;
+    color: get("font.color");
+  }
+
   @each $type in get("type") {
     @each $color, $value in get("color.semantic") {
       $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
@@ -46,7 +57,7 @@ Standardization Checkbox and Radio
       margin: $margin-size size(5px) $margin-size 0;
 
       & + label {
-        @extend %label-#{$size}
+        @extend %label-#{$size};
       }
     }
   }

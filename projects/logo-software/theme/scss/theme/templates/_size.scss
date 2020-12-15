@@ -15,9 +15,9 @@
       min-width: size(map_get($size, height));
       height: size(map_get($size, height));
       font-size: size(get('size.'+ $item + '.font-size'));
-      // line-height: size(map_get($size, height) - 2px);
-      display: inline-flex;
-      align-items: center;
+      line-height: size(map_get($size, height) - 2px);
+      // display: inline-flex;
+      // align-items: center;
     }
   }
 }

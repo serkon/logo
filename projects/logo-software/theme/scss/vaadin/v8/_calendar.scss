@@ -30,7 +30,7 @@
     }
 
     [class*=-calendarpanel-month], [class*=-calendarpanel-day] {
-      color: var(--text-1000);
+      color: get("font.color");
       height: size(30px);
       align-items: center;
       display: flex;

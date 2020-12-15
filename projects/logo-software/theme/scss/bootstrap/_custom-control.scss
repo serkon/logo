@@ -4,6 +4,9 @@ $custom-control-padding: 0;
 .custom-control {
   padding-left: $custom-control-padding;
   margin: 0;
+  white-space: nowrap;
+  height: auto;
+  line-height: normal;
 
   &-inline {
     align-items: center;
@@ -15,10 +18,7 @@ $custom-control-padding: 0;
     z-index: 0;
 
     & + label {
-      margin-bottom: 0;
       padding-bottom: 0;
-      line-height: normal;
-      color: var(--text-900);
 
       &::before, &::after {
         display: none;
@@ -26,10 +26,16 @@ $custom-control-padding: 0;
     }
   }
 
-  @each $size, $size-map in get("size") {
+  @each $size, $value in get("size") {
     &.#{$size} {
+      $margin-size: size((map-get($value, height) - 14px) / 2);
+
+      input {
+        margin: $margin-size size(5px) $margin-size 0;
+      }
+
       input + label {
-        @extend %label, %size-#{$size}, %label-#{$size};
+        @extend %label, %label-#{$size};
       }
     }
   }

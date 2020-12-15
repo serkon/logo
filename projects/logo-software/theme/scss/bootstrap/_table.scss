@@ -15,7 +15,7 @@
   td {
     font-size: size(14px);
     font-weight: normal;
-    color: var(--text-900);
+    color: get("font.color");
     border-right: size(1px) solid var(--basic-500);
     border-left: transparent;
 
@@ -89,7 +89,8 @@
     align-items: center;
     justify-content: center;
     margin-right: size(10px);
-    color: var(--text-900);
+    color: get("font.color");
+    Border: 10px solid red !important;
     border-radius: size(get("border.radius")) !important;
     font-size: size(get("size.medium.font-size"));
     padding: 0 size(get("size.medium.icon-container")/2 - 1px);

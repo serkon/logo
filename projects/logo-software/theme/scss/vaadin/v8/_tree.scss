@@ -8,7 +8,7 @@
     }
 
     .v-tree-node-caption {
-      color: var(--text-1000);
+      color: get("font.color");
       line-height: size(get('size.medium.height'));
       height: size(get('size.medium.height'));
       font-size: size(get('size.medium.font-size'));
@@ -45,7 +45,7 @@
     }
 
     .v-tree-node-selected {
-      color: var(--text-1000);
+      color: get("font.color");
     }
   }
 

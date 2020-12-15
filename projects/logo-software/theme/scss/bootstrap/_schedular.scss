@@ -26,7 +26,7 @@
 
       .fc-toolbar-title {
         font-size: size(16px);
-        color: var(--text-1000);
+        color: get("font.color");
       }
 
       &:last-child {
@@ -117,7 +117,7 @@
                         .fc-daygrid-event-harness {
                           .fc-daygrid-event {
                             font-size: size(12px);
-                            color: var(--text-900);
+                            color: get("font.color");
                             height: size(25px);
                             margin: size(1px) size(5px);
 
@@ -343,7 +343,7 @@
             border: none;
 
             .fc-list-day-text {
-              color: var(--text-1000);
+              color: get("font.color");
               font-weight: 800;
               font-size: size(16px);
             }
