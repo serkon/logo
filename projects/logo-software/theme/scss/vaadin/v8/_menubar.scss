@@ -111,13 +111,17 @@
       .v-menubar-menuitem {
         height: size(40px);
         line-height: size(40px);
-        padding: 0 size(get("size.medium.icon-container")) 0 size(get("size.medium.icon-container") + 10px);
+        padding: 0 size(get("size.medium.icon-container"));
         font-size: size(get("size.small.font-size"));
 
         .v-menubar-menuitem-caption {
           &:before {
-            margin-left: size(-27px);
+            margin-left: size(get("size.medium.icon-container") * -1);
             left: auto;
+            width: size(get("size.medium.height"));
+            display: flex;
+            align-items: center;
+            justify-content: center;
           }
 
           &::after {

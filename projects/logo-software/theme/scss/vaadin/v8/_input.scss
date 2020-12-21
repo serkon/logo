@@ -2,37 +2,10 @@
   color: var(#{get("customize.element.input.font.color")});
 }
 
-.v-textfield, .v-textarea, %v-textfield {
-  @extend %input, %size, %extender-color;
-  box-shadow: none !important;
-
-  // map-size
-  @each $size, $value in get("vaadin.size-map") {
-    &.#{$size}, &-#{$size} {
-      @extend %size-#{$value};
-      @extend %padding-input-#{$value};
-    }
-  }
+.v-textfield, .v-textarea {
+  @extend %v-textfield;
 }
 
-.v-textfield, %v-textfield {
-  &.inline-icon, &-icon {
-    padding-left: size(get("size.medium.icon-container") + get("element.input.size.medium.padding"));
-
-    @each $size, $value in get("size") {
-      &.#{$size}, &-#{$size} {
-        padding-left: size(get("size."+$size+".icon-container") + get("element.input.size."+$size+".padding"));
-      }
-    }
-
-    // map-size
-    @each $size, $value in get("vaadin.size-map") {
-      &.#{$size} {
-        padding-left: size(get("size."+$value+".icon-container") + get("element.input.size."+$value+".padding"));
-      }
-    }
-  }
-}
 
 .v-textarea {
   @extend %textarea;

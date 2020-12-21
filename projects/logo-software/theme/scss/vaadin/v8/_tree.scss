@@ -87,27 +87,5 @@
 }
 
 .v-contextmenu {
-  border: size(1px) solid var(--primary);
-  border-radius: size(get("border.radius")) !important;
-  box-shadow: get('element.menu.item.box-shadow') !important;
-  padding: 0 !important;
-
-  .popupContent {
-    .gwt-MenuBar {
-      .gwt-MenuItem {
-        line-height: size(get('element.menu.item.height'));
-        height: size(get('element.menu.item.height'));
-        border-radius: 0;
-        font-size: size(get("size.small.font-size"));
-        padding: 0 size(10px);
-      }
-
-      .gwt-MenuItem-selected {
-        background-color: var(--primary);
-        background-image: none;
-        text-shadow: none;
-        color: var(--white);
-      }
-    }
-  }
+  @extend %v-contextmenu;
 }

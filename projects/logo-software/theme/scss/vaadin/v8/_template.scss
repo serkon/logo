@@ -1,0 +1,368 @@
+%v-contextmenu {
+  border: size(1px) solid var(--primary);
+  border-radius: size(get("border.radius")) !important;
+  box-shadow: get('element.menu.item.box-shadow') !important;
+  padding: 0 !important;
+
+  .popupContent, &-popup {
+    padding: 0;
+    margin: 0;
+
+    .gwt-MenuBar, &-gwt {
+      .gwt-MenuItem {
+        line-height: size(get('element.menu.item.height'));
+        height: size(get('element.menu.item.height'));
+        border-radius: 0;
+        font-size: size(get("size.small.font-size"));
+        padding: 0;
+
+        span:not(.v-icon), div {
+          padding: 0 size(10px);
+        }
+
+        span.v-icon {
+          width: size(32px);
+          min-height: size(32px);
+          line-height: size(32px);
+          margin-right: 0;
+
+          & + span {
+            padding: 0;
+            margin-left: 0;
+            margin-right: size(10px);
+          }
+        }
+      }
+
+      .gwt-MenuItem-selected {
+        background-color: var(--primary);
+        background-image: none;
+        text-shadow: none;
+        color: var(--white);
+      }
+    }
+  }
+}
+
+%v-caption {
+  padding-bottom: 0;
+  padding-left: 0;
+  font-size: size(get("size.medium.font-size"));
+  font-family: get("font.family");
+
+  .v-captiontext {
+    @extend %label;
+    padding-left: 0;
+    padding-bottom: size(2px);
+    color: var(--text);
+  }
+
+  &.v-caption-inline-icon {
+    .v-captiontext {
+      @extend %label;
+    }
+
+    span.v-icon {
+      width: size(get("size.medium.icon-container") - 1px);
+      height: size(get("size.medium.height"));
+      line-height: size(get("size.medium.height"));
+      font-size: size(get("size.medium.font-size"));
+      left: 0;
+      bottom: 0;
+      border-right: size(1px) solid var(get("element.input.border.right-color"));
+    }
+  }
+
+  @each $size, $value in get("size") {
+    &-#{$size} {
+      &.v-caption-inline-icon {
+        span.v-icon {
+          width: size(get("size."+$size+".icon-container") - 1px);
+          height: size(get("size."+$size+".height"));
+          font-size: size(get("size."+$size+".icon-size"));
+          line-height: size(get("size."+$size+".height"));
+        }
+      }
+    }
+  }
+
+  @each $size, $value in get("vaadin.size-map") {
+    &-#{$size} {
+      &.v-caption-inline-icon {
+        span.v-icon {
+          width: size(get("size."+$value+".icon-container") - 1px);
+          height: size(get("size."+$value+".height"));
+          font-size: size(get("size."+$value+".icon-size"));
+          line-height: size(get("size."+$value+".height"));
+        }
+      }
+    }
+  }
+}
+
+%v-checkbox {
+  &[type=checkbox] {
+    @extend %checkbox;
+  }
+
+  &[type=radio] {
+    border-radius: 50%;
+  }
+
+  &[type=checkbox], &[type=radio] {
+    @extend %fill-secondary;
+    @extend %check-radio;
+    @extend %check-radio-medium;
+    position: relative;
+    left: auto;
+    top: auto;
+    vertical-align: top;
+  }
+}
+
+%v-filterselect {
+  height: auto;
+
+  .v-filterselect-input {
+    @extend %input, %extender-color;
+    @extend %icon-medium-right;
+    box-shadow: none !important;
+    background-image: none;
+    padding-right: size(get("size.medium.icon-container") + get("element.input.size.medium.padding"));
+    vertical-align: top;
+  }
+
+  .v-filterselect-button {
+    width: size(get("size.medium.icon-container"));
+    top: 0;
+    bottom: 0;
+    border: none;
+    border-left-width: size(1px);
+    border-left-style: solid;
+    border-color: var(--basic-600);
+    color: var(--secondary-900);
+    opacity: 1;
+
+    &::before {
+      font-size: size(get("size.medium.icon-size"));
+      width: size(get("size.medium.icon-container"));
+    }
+  }
+
+  .v-filterselect-input {
+    &:hover + .v-filterselect-button {
+      border-color: var(--basic-700);
+    }
+
+    &:focus + .v-filterselect-button {
+      border-color: var(--primary-600);
+    }
+  }
+
+  .v-icon {
+    margin: 0 !important;
+    left: 0;
+    top: 0;
+  }
+
+  img.v-icon {
+    padding: size(8px) size(6px);
+    min-width: auto;
+  }
+
+  span.v-icon {
+    @extend %size-medium;
+    width: size(get("size.medium.icon-container"));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: auto;
+    padding: 0;
+  }
+
+  .v-icon + .v-filterselect-input {
+    padding-left: size(get("size.medium.icon-container") + get("element.input.size.medium.padding"));
+  }
+
+  @each $size, $value in map-merge(get("size"), get("vaadin.size-map")) {
+    &.#{$size}, &-#{$size} {
+      $size: if(type-of($value) == string, $value, $size);
+      height: size(get("size."+$size+".height"));
+
+      .v-filterselect-input {
+        @extend %size-#{$size};
+        padding-right: size(get("size."+$size+".icon-container") + get("element.input.size."+$size+".padding"));
+      }
+
+      .v-icon + .v-filterselect-input {
+        padding-left: size(get("size."+$size+".icon-container") + get("element.input.size."+$size+".padding"));
+      }
+
+      .v-filterselect-button {
+        width: size(get("size."+$size+".icon-container"));
+
+        &::before {
+          font-size: size(get("size."+$size+".icon-size"));
+          width: size(get("size."+$size+".icon-container"));
+        }
+      }
+
+      span.v-icon {
+        @extend %size-#{$size};
+        width: size(get("size."+$size+".icon-container"));
+      }
+    }
+  }
+
+  @each $type in get("type") {
+    @if ($type!=fill) {
+      &.#{$type}, &-#{$type} {
+        .v-datefield-textfield {
+          @extend %#{$type}, %#{$type}-basic;
+        }
+      }
+    }
+    @each $color, $value in get(if(get("vaadin.just-semantic"), "color.semantic", "color.list")) {
+      $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
+      #{$selector}, &-#{$type}-#{"" + $color} {
+        .v-filterselect-input {
+          @extend %#{$type}-#{"" + $color};
+          @extend %input-customize-#{$type}-#{"" + $color};
+
+          & + .v-filterselect-button {
+            border-color: var(--#{$color}-600);
+          }
+
+          &:hover + .v-filterselect-button {
+            border-color: var(--#{$color}-700);
+          }
+
+          &:focus + .v-filterselect-button {
+            border-color: var(--primary-600);
+          }
+        }
+      }
+    }
+  }
+}
+
+%v-textfield {
+  @extend %input, %size, %extender-color;
+  box-shadow: none !important;
+
+  // map-size
+  @each $size, $value in get("vaadin.size-map") {
+    &.#{$size}, &-#{$size} {
+      @extend %size-#{$value};
+      @extend %padding-input-#{$value};
+    }
+  }
+
+  &.inline-icon, &-icon {
+    padding-left: size(get("size.medium.icon-container") + get("element.input.size.medium.padding"));
+
+    @each $size, $value in get("size") {
+      &.#{$size}, &-#{$size} {
+        padding-left: size(get("size."+$size+".icon-container") + get("element.input.size."+$size+".padding"));
+      }
+    }
+
+    // map-size
+    @each $size, $value in get("vaadin.size-map") {
+      &.#{$size} {
+        padding-left: size(get("size."+$value+".icon-container") + get("element.input.size."+$value+".padding"));
+      }
+    }
+  }
+}
+
+%v-datefield {
+  height: auto;
+  font-family: get("font.family");
+  font-size: get("size.medium.font-size");
+
+  .v-datefield-textfield, &-v-datefield-textfield {
+    @extend %v-textfield; // , %extender-color;
+    padding-left: size(get("size.medium.icon-container") + get("element.input.size.medium.padding"));
+    box-shadow: none;
+
+    &:focus + .v-datefield-button {
+      // border-right: size(1px) solid var(--info);
+    }
+  }
+
+  .v-datefield-button, &-v-datefield-button {
+    @extend %icon-medium-left;
+    position: absolute;
+    min-width: auto;
+    width: auto;
+    line-height: size(get("size.medium.height"));
+    height: size(get("size.medium.height"));
+    top: 0;
+    left: 0;
+    border-right: size(1px) solid var(get("element.input.border.right-color"));
+    color: var(--text-600);
+    font-size: get("size.medium.icon-size");
+
+    &::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      transition: none;
+      width: 100%;
+    }
+  }
+
+  // Size
+  @each $size, $value in map-merge(get("size"), get("vaadin.size-map")) {
+    &.#{$size}, &-#{$size} {
+      $size: if(type-of($value) == string, $value, $size);
+
+      .v-textfield {
+        font-size: get("size."+$size+".font-size");
+        @extend %size-#{$size};
+        @extend %icon-#{$size}-left;
+        padding-left: size(get("size."+$size+".icon-container") + get("element.input.size."+$size+".padding"));
+      }
+
+      .v-datefield-button {
+        padding-left: size(get("size."+$size+".icon-container") - 1px);
+        line-height: size(get("size."+$size+".height"));
+        height: size(get("size."+$size+".height"));
+        font-size: get("size."+$size+".icon-size");
+      }
+    }
+  }
+
+  // Type
+  @each $type in get("type") {
+    @if ($type!=fill) {
+      &.#{$type}, &-#{$type} {
+        .v-datefield-textfield {
+          @extend %#{$type}, %#{$type}-basic;
+        }
+      }
+    }
+    // Color
+    @each $color, $value in get("color.list") {
+      $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
+      #{$selector}, &-#{$type}-#{"" + $color} {
+        .v-datefield-textfield {
+          @extend %#{$type}-#{"" + $color};
+          @extend %input-customize-#{$type}-#{"" + $color};
+        }
+
+        .v-datefield-button {
+          @if ($type==fill) {
+            // border-right: size(1px) solid var(--#{$color}-600);
+            @if ($color!=secondary and $color!=basic and $color!=warning and $color!=danger and $color!=info and $color!=success) {
+              color: var(--white);
+            }
+          } @else {
+            color: var(--#{$color}-600);
+          }
+        }
+      }
+    }
+  }
+}
