@@ -1,24 +1,43 @@
-# Icons
+Icon module uses for add icons to project.
+Just download and import `scss` to your project main `style.scss`
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
+__Usage Example__
 
-## Code scaffolding
+<sub>style.scss</style>
+```scss
+@import "~@logo-software/icons/style";
+```
 
-Run `ng generate component component-name --project icons` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project icons`.
-> Note: Don't forget to add `--project icons` or else it will be added to the default project in your `angular.json` file. 
+### Installation
+There are two way to install Logo Icons to the project.
+1. Download Icons's scss from [GitHub](https://github.com/logo-group/logo-elements/blame/master/projects/logo-software/icons/style.scss).
+2. Install it to project using through NPM Package Manager
+All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
+To install Icons Module:
 
-## Build
+```bash
+$ npm set registry https://registry.npmjs.org/
+$ npm install @logo-software/icons -s
+```
 
-Run `ng build icons` to build the project. The build artifacts will be stored in the `dist/` directory.
+__Usage Example__
 
-## Publishing
+<sub>app.component.scss</sub>
+```scss
+// import icon style here
+@import "~@logo-software/icons/style";
+:host{
+  // component custom css goes here
+}
+```
+<sub>app.component.html</sub>
+```html
+ // this will add search icon to input to right side of it.
+  <button class="le-search icon-right">Right</button>
+// This code add search icon to the left side
+  <button class="le-search icon-left">Left</button
+// This code add search icon to the center (default)
+  <button class="le-save">Center</button>
+```
 
-After building your library with `ng build icons`, go to the dist folder `cd dist/icons` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test icons` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+For more detail please visit: [Icons Module](http://design.logo.com.tr/#/docs/components/icons-module#iconsmodule)

@@ -17,22 +17,11 @@ import { Component, OnInit } from '@angular/core';
  * <sub>app.component.html</sub>
  * ```html
  *  // this will add search icon to input to right side of it.
- * <div>
- *   To add icon to right:<br/>
- *   <input class="logo-i-search icon-right"/>
- * </div>
- * <div>
- *   To add icon to left:<br/>
- *   <input class="logo-i-search icon-left"/>
- * </div>
- * <div>
- *   button with icon (the default is center):<br/>
- *   <button class="logo-i-save"></button>
- * </div>
- * <div>
- *   button with icon and text:<br/>
- *   <button class="logo-i-save large icon-left">SAVE</button>
- * </div>
+ *   <button class="le-search icon-right">Right</button>
+ * // This code add search icon to the left side
+ *   <button class="le-search icon-left">Left</button
+ * // This code add search icon to the center (default)
+ *   <button class="le-save">Center</button>
  * ```
  * @stacked-example(Icons Showcase, logo/icons-sample/icons-showcase/icons-showcase.component)
  */

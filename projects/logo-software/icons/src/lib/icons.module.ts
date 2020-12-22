@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IconsComponent } from './icons.component';
 
 /**
- * Icon module uses for add icons to project
+ * Icon module uses for add icons to project.
  * Just import `scss` to your project main `style.scss`
  *
  * __Usage Example__
@@ -16,8 +16,11 @@ import { IconsComponent } from './icons.component';
  * ```
  *
  * ### Installation
+ * One SCSS file is enough for get all 500 icons. There are two way to install Logo Icons to the project.
+ * 1. Download Icons's `SCSS` from [https://github.com/logo-group/logo-elements/blame/master/projects/logo-software/icons/style.scss](GitHub).
+ * 2. Install it to project using through NPM Package Manager
  * All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
- * To install Cursor Module:
+ * To install Icons Module:
  *
  * ```bash
  * $ npm set registry https://registry.npmjs.org/
