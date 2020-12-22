@@ -20,7 +20,7 @@ import { Toast, ToastAction } from './toast';
  *
  * <sub>**app.component.html**</sub>
  * ```html
- * <logo-toast></logo-table>
+ * <logo-toast></logo-toast>
  * ```
  *
  * @stacked-example(Table Showcase, logo/toast-sample/toast-showcase/toast-showcase.component)

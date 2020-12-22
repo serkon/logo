@@ -30,7 +30,7 @@
 
   .app-toast {
     @include animate();
-    position: absolute;
+    position: fixed;
     z-index: 2;
     top: 0;
     right: 0;

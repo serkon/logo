@@ -17,7 +17,7 @@
       *ngFor="let toast of toastService.toasts; let i=index;"
       class="toast-{{toast.width}} {{toast.type === 'error' ? 'danger' : toast.type}} toast shadow flip-in-x"
     >
-      <div class="small close logo-i-small-cross" (click)="close(toast)" #closeRef></div>
+      <div class="small close le-cross" (click)="close(toast)" #closeRef></div>
       <div class="content" [innerHTML]="toast.message"></div>
       <div class="actions" *ngIf="toast.actions">
         <button
