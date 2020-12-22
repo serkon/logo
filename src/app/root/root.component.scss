@@ -2,7 +2,7 @@
 
 :host {
   @include host();
-  $header-size: size(80px);
+  $header-size: size(60px);
 
   header {
     position: absolute;
@@ -29,7 +29,6 @@
 
       .logo {
         display: flex;
-        flex-grow: 1;
 
         span {
           display: flex;
@@ -57,8 +56,13 @@
       }
 
       ::ng-deep logo-links {
-        a {
+        padding-left: 30px;
+        flex-grow: 1;
+
+        button {
           text-decoration: none;
+          font-weight: 600;
+          font-family: get("font.alternative");
         }
       }
 

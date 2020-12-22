@@ -21,21 +21,31 @@ export class RootComponent implements AfterViewInit {
     this.links = {
       one: [
         {
-          display: 'GUIDE',
-          description: `Based on Eva Design System, with 4 visual themes & handy variables to create your own. With hot-reload out of the box`,
+          display: 'GUIDELINE',
+          description: `Logo Elements Design System`,
           url: 'http://wiki.logo.com.tr/display/PAAS/UI+Elements',
           external: true,
         },
         {
-          display: 'DOCS',
-          description: `Based on Eva Design System, with 4 visual themes & handy variables to create your own. With hot-reload out of the box`,
+          display: 'ICONS',
+          description: 'Logo Icon Library',
+          url: 'docs/components/icons-module',
+        },
+        {
+          display: 'ANGULAR',
+          description: 'Native Angular components with configurable styles',
+          url: 'docs/components/components-overview',
+        },
+        {
+          display: 'VAADIN',
+          description: `Logo Elements Vaadin Theme`,
           url: '/docs',
           classes: ['docs'],
         },
         {
-          display: 'COMPONENTS',
-          description: 'Native Angular components with configurable styles',
-          url: 'docs/components/components-overview',
+          display: 'LOWCODE',
+          description: 'Logo Elements .Net & Bootstrap Theme',
+          url: '/docs',
         },
         {
           display: 'BLOG',
