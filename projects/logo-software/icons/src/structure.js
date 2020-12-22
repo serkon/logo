@@ -1,0 +1,22 @@
+module.exports = {
+  folders: [
+    {name: 'Interface Essentials', path: '1. Interface Essentials'},
+    {name: 'Library Essentials', path: '2. Library Essentials'},
+    {name: 'Finance', path: '3. Finance'},
+    {name: 'Travel', path: '4. Travel'},
+    {name: 'Programing', path: '5. Programing'},
+    {name: 'Technology', path: '6. Technology'},
+    {name: 'Business and Products', path: '7. Business and Products'},
+    {name: 'Work Office', path: '8. Work Office'},
+    {name: 'Phones', path: '9. Phones'},
+    {name: 'Files and Folders', path: '10. Files and Folders'},
+    {name: 'Computers and Devices', path: '11. Computers and Devices'},
+    {name: 'Emails', path: '12. Emails'},
+    {name: 'Design', path: '13. Design'},
+    {name: 'Wayfinding', path: '14. Wayfinding'},
+    {name: 'Logos', path: '15. Logos'},
+    {name: 'Education', path: '16. Education'},
+    {name: 'Building and Construction', path: '17. Building and Construction'},
+    {name: 'Arrows Diagrams', path: '18. Arrows Diagrams'},
+  ],
+}

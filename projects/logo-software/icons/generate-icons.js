@@ -1,3 +1,4 @@
+const {folders} = require('./src/structure');
 const {series, task, src, dest, pipe} = require('gulp');
 const fs = require('fs');
 const path = require('path');
@@ -13,12 +14,13 @@ const processors = [
 ];
 const pscss = require('postcss-scss');
 
+const PREFIX = 'le';
 const ICONS_DIRECTORY = './assets/icons/';
 const ICONS_TS_OUTPUT = './src/logo-icons.ts';
 const ICONS_SCSS_OUTPUT = './style.scss';
 const OUT = './';
 const ts = [];
-let scss = `[class*=logo-i] {
+let scss = `[class*=${PREFIX}] {
   position: relative;
 
   &::before {
@@ -29,27 +31,30 @@ let scss = `[class*=logo-i] {
 `;
 
 task('string', (cb) => {
-  fs.readdirSync(ICONS_DIRECTORY).forEach(file => {
-    const fileObj = path.parse(file);
-    if (fileObj.ext === '.svg') {
-      const name = fileObj.name;
-      ts.push(name);
-      scss = `${scss}
-.logo-i-${name} {
-  &::before{
-    -webkit-mask-image:  svg-load("assets/icons/${name}.svg", fill=currentColor);
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    display: inline-block;
-    content: '';
-    // width: 100%;
-    // height: 100%;
-    position: absolute;
-    background: currentColor;
-  }
-}
-`;
+  folders.forEach((dirName, index) => {
+    ts[index] = {name: dirName.name, icons: []};
+    fs.readdirSync(`${ICONS_DIRECTORY}/${dirName.path}`).forEach(file => {
+      const fileObj = path.parse(file);
+      if (fileObj.ext === '.svg') {
+        const name = fileObj.name;
+        ts[index]["icons"].push(name);
+        scss = `${scss}
+  .${PREFIX}-${name} {
+    &::before{
+      -webkit-mask-image:  svg-load("${ICONS_DIRECTORY}/${dirName.path}/${name}.svg", fill=currentColor);
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      display: inline-block;
+      content: '';
+      // width: 100%;
+      // height: 100%;
+      position: absolute;
+      background: currentColor;
     }
+  }
+  `;
+      }
+    });
   });
   cb();
 });

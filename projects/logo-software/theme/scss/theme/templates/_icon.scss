@@ -13,9 +13,16 @@
   &::before {
     -webkit-mask-position: center;
     mask-position: center;
-    top: size(-1px);
-    left: size(-1px);
+    top: 0;
+    left:0;
     z-index: 1;
+  }
+
+  &-left {
+    &::before {
+      top: 0;
+      left: 0;
+    }
   }
 
   &-right {
@@ -26,7 +33,7 @@
 
     &-outline {
       &::before {
-        right: size(-1px);
+        right: 0;
       }
     }
   }
@@ -35,8 +42,8 @@
 @each $size, $map in get("size") {
   %icon-#{$size} {
     &::before {
-      width: size(map_get($map, height));
-      height: size(map_get($map, height));
+      // width: size(map_get($map, icon-container));
+      // height: size(map_get($map, height));
       -webkit-mask-size: size(map_get($map, icon-size));
       mask-size: size(map_get($map, icon-size));
     }

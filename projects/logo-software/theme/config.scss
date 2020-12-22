@@ -11,6 +11,7 @@ $config: if(not variable-exists(config), (), $config);
 $config: deep-map-merge((
   root: ":root",
   selector: ":root",
+  icon:(prefix: 'le'),
   customize: (
     status: false,
     state:(

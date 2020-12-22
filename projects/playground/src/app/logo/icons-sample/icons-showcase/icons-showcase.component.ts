@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LOGO_ICONS } from '@logo-software/icons';
+import { ToastService } from '@logo-software/toast';
 
 /**
  * This component just usage example of icon module.
@@ -43,25 +44,24 @@ import { LOGO_ICONS } from '@logo-software/icons';
   styleUrls: ['./icons-showcase.component.scss'],
 })
 export class IconsShowcaseComponent implements OnInit {
-  icons: string[];
+  packs: { name: string; icons: string[]; }[];
   filter: string;
-  filtered: string[];
+  filtered: { name: string; icons: string[]; }[];
   clipboard: string;
 
-  constructor() {
-    /**
-     * LOGO_ICONS is an array of list of icons
-     */
-    this.icons = LOGO_ICONS;
-    this.filtered = this.icons;
+  constructor(private toast: ToastService) {
+    this.packs = LOGO_ICONS;
+    this.filtered = this.packs;
   }
 
   ngOnInit(): void {
   }
 
   onFilter(value: string) {
-    this.filtered = this.icons.filter(item => item.includes(value));
-    console.log(this.filtered);
+    this.filtered = this.packs.map((pack) => ({
+      name: pack.name,
+      icons: pack.icons.filter(icon => icon.includes(value)),
+    }));
   }
 
   /**
@@ -72,9 +72,15 @@ export class IconsShowcaseComponent implements OnInit {
     this.clipboard = text;
     const tempInput = document.createElement('input');
     document.body.appendChild(tempInput);
-    tempInput.value = text || (<any> event).target.innerText;
+    tempInput.value = text || (<any>event).target.innerText;
     tempInput.select();
     document.execCommand('copy');
     tempInput.remove();
+    this.toast.success(
+      `
+        <div class="large icon ${this.clipboard}"></div>
+        <p class="icon-name">${this.clipboard}</p>
+        <h6>Copied to clipboard</h6>
+      `, {autoClose: true});
   }
 }

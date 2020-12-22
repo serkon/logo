@@ -4,22 +4,30 @@
       class="large light"
       placeholder="search" list="browser"
       [(ngModel)]="filter"
-      (keyup)="onFilter($event.target.value)"
+      (keyup)="onFilter(($event.target).value)"
     />
     <datalist id="browser">
-      <option [value]="icon" *ngFor="let icon of icons" (click)="copyToClipboard('logo-i-' + icon)">
-        logo-i-{{icon}}</option>
+      <ng-container *ngFor="let pack of packs">
+        <option [value]="icon" (click)="copyToClipboard('le-' + icon)" *ngFor="let icon of pack.icons">
+          logo-i-{{icon}}
+        </option>
+      </ng-container>
     </datalist>
   </label>
-  <span class="clipboard" *ngIf="clipboard">Copied: <span class="text large">.{{clipboard}}</span></span>
 </section>
 
-<div class="grid">
-  <button
-    class="logo-i-{{icon}} icon large light"
-    *ngFor="let icon of filtered"
-    (click)="copyToClipboard('logo-i-' + icon)"
-    title="{{icon}}"
-  >
-  </button>
-</div>
+<ng-container *ngFor="let pack of filtered">
+  <ng-container *ngIf="pack.icons.length>0">
+    <h3 class="pack-title">{{pack.name}}</h3>
+    <div class="grid">
+      <button
+        class="le-{{icon}} icon large light"
+        *ngFor="let icon of pack.icons"
+        (click)="copyToClipboard('le-' + icon)"
+        title="{{icon}}"
+      >
+      </button>
+    </div>
+  </ng-container>
+</ng-container>
+<logo-toast></logo-toast>

@@ -25,7 +25,7 @@
 %padding-button {
   @each $item, $size in get("element.button.size") {
     &.#{$item}, &-#{$item} {
-      padding: 0 size(map_get($size, padding));
+      padding: 0 size(map_get($size, padding) - 1px);
     }
   }
 }
@@ -33,7 +33,7 @@
 %padding-input {
   @each $item, $size in get("element.input.size") {
     &.#{$item}, &-#{$item} {
-      padding: 0 size(map_get($size, padding));
+      padding: 0 size(map_get($size, padding) - 1px);
     }
   }
 }
