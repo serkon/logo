@@ -174,7 +174,7 @@ export interface ExcelSettingType {
   template: `
     <ng-container *ngIf="status">
       <span (click)="download()" class="wrapper"><ng-content></ng-content></span>
-      <button class="default-content outline logo-i-print" (click)="download()">Excel</button>
+      <button class="default-content outline le-print" (click)="download()"></button>
     </ng-container>
   `,
   styleUrls: ['./excel.component.scss'],
