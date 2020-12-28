@@ -11,7 +11,7 @@ $config: if(not variable-exists(config), (), $config);
 $config: deep-map-merge((
   root: ":root",
   selector: ":root",
-  icon:(prefix: 'le'),
+  icon:(prefix: 'le-'),
   customize: (
     status: false,
     state:(
@@ -69,9 +69,9 @@ $config: deep-map-merge((
     radius: 2px
   ),
   size:(
-    small: (font-size: 12px, icon-size: 14px, height: 24px, icon-container: 24px),
-    medium: (font-size: 12px, icon-size: 14px, height: 32px, icon-container: 32px),
-    large: (font-size: 14px, icon-size: 24px, height: 48px, icon-container: 48px)
+    small: (font-size: 14px, icon-size: 14px, height: 24px, icon-container: 24px),
+    medium: (font-size: 14px, icon-size: 14px, height: 32px, icon-container: 32px),
+    large: (font-size: 16px, icon-size: 24px, height: 48px, icon-container: 48px)
   ),
   state: (
     list: hover active focus,
@@ -93,10 +93,11 @@ $config: deep-map-merge((
   ),
   type: fill outline ghost,
   element: (
+    label: (font-size: 12px),
     input:(
       placeholder:(opacity: 0.5),
       size:(
-        small:(padding: 7px),
+        small:(padding: 5px),
         medium:(padding: 7px),
         large:(padding: 10px),
       ),

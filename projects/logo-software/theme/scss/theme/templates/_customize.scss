@@ -50,7 +50,7 @@ Customize: Button customize colors
         @if ($type==outline or $type==ghost) {
           @each $state in get("state.list") {
             &:#{$state} {
-              background-color: rgba(var(--gray-900-rgb), var(--ghost-#{$state}));
+              background-color: rgba(var(--dark-900-rgb), var(--ghost-#{$state}));
             }
           }
         }

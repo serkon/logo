@@ -35,12 +35,12 @@
 
 
 #{get("root")} {
-  .icon, [class*=#{get("icon.prefix")}] {
+  .icon, [class^='#{get("icon.prefix")}'], [class*=' #{get("icon.prefix")}'] {
     @extend %icon, %icon-medium;
   }
 
   @each $size, $map in get("size") {
-    .#{$size}[class*=#{get("icon.prefix")}] {
+    .#{$size}[class*='#{get("icon.prefix")}'] {
       @extend %icon-#{$size};
     }
   }

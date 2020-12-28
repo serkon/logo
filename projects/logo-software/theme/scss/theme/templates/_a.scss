@@ -9,7 +9,7 @@
   // align-items: center;
   @extend %padding-button;
 
-  &[class*=logo-i] {
+  &[class^='#{get("icon.prefix")}'], &[class*=' #{get("icon.prefix")}'] {
     @extend %size-medium, %padding-button-medium;
     display: inline-flex;
     align-items: center;

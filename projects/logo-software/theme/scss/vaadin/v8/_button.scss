@@ -58,6 +58,10 @@
   .v-icon + .v-button-caption {
     margin-left: 0;
     padding-left: size(get("size.medium.icon-container") - get("element.button.size.medium.padding"));
+
+    &:empty {
+      padding: 0;
+    }
   }
 
   &.icon-only {
@@ -73,7 +77,11 @@
 
     .v-icon + .v-button-caption {
       padding-left: 0;
-      padding-right: size(get("size.medium.icon-container") - get("element.button.size.medium.padding"));;
+      padding-right: size(get("size.medium.icon-container") - get("element.button.size.medium.padding"));
+
+      &:empty {
+        padding: 0;
+      }
     }
 
     img.v-icon {
