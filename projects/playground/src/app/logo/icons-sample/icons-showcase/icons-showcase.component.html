@@ -1,7 +1,7 @@
 <section>
   <label>
     <input
-      class="large light"
+      class="large"
       placeholder="search" list="browser"
       [(ngModel)]="filter"
       (keyup)="onFilter(($event.target).value)"
@@ -9,7 +9,7 @@
     <datalist id="browser">
       <ng-container *ngFor="let pack of packs">
         <option [value]="icon" (click)="copyToClipboard('le-' + icon)" *ngFor="let icon of pack.icons">
-          logo-i-{{icon}}
+          le-{{icon}}
         </option>
       </ng-container>
     </datalist>

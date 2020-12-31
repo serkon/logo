@@ -81,6 +81,6 @@ export class IconsShowcaseComponent implements OnInit {
         <div class="large icon ${this.clipboard}"></div>
         <p class="icon-name">${this.clipboard}</p>
         <h6>Copied to clipboard</h6>
-      `, {autoClose: true});
+      `, {autoClose: false});
   }
 }

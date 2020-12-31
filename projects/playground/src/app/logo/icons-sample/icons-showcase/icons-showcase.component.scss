@@ -29,10 +29,17 @@ $grid: 12;
   ::ng-deep {
     .icon {
       margin-bottom: 20px;
+      min-width: 32px;
+      min-height: 32px;
+      position: relative;
 
       &:before {
-        -webkit-mask-size: 38px;
-        mask-size: 38px;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        -webkit-mask-size: 14px;
+        mask-size: 14px;
       }
     }
 

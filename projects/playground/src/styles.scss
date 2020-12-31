@@ -11,8 +11,9 @@ $config: (
   customize: (status: true),
   debug: true
 );
-@import "~@logo-software/theme/style";
-@import "~@logo-software/icons/style";
+
+// @import "~@logo-software/theme/style";
+// @import "~@logo-software/icons/style";
 
 body {
   font-family: get("font.family");

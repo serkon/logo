@@ -36,7 +36,7 @@ export class TableShowcaseComponent {
         table.load();
       },
       display: ``,
-      className: 'logo-i-person',
+      className: 'le-user',
       classFunction: (table) => table.serverSide ? 'button-selected' : '',
       disable: false,
     },
