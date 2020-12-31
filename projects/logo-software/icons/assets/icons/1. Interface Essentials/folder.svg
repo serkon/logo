@@ -1,8 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>1. Interface Essentials/folder</title>
-    <g id="1.-Interface-Essentials/folder" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M20.4210526,6.5 L10.4210526,6.5 C10.2784729,6.49973223 10.1421081,6.4445216 10.0431579,6.347 L8.63157895,4.959 C8.33303893,4.66576805 7.92205018,4.5 7.49263158,4.5 L3.88,4.5 C2.84259592,4.501101 2.00173996,5.29946689 2,6.285 L2,17.715 C2.00173996,18.7005331 2.84259592,19.498899 3.88,19.5 L20.12,19.5 C21.1574041,19.498899 21.99826,18.7005331 22,17.715 L22,8 C22,7.17157288 21.2930812,6.5 20.4210526,6.5 Z" id="🖍-Color" fill="#5A5A5A"></path>
-        <rect id="_Transparent_Rectangle_" x="0" y="0" width="24" height="24"></rect>
-    </g>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="folder">
+<path id="Shape" fill-rule="evenodd" clip-rule="evenodd" d="M20.4211 6.5H10.4211C10.2785 6.49973 10.1421 6.44452 10.0432 6.347L8.63158 4.959C8.33304 4.66577 7.92205 4.50014 7.49263 4.5H3.88C2.8426 4.5011 2.00174 5.29947 2 6.285V17.715C2.00174 18.7005 2.8426 19.4989 3.88 19.5H20.12C21.1574 19.4989 21.9983 18.7005 22 17.715V8C22 7.17157 21.2931 6.5 20.4211 6.5Z" fill="#5A5A5A"/>
+</g>
 </svg>

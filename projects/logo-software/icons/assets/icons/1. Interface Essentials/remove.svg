@@ -1,8 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>1. Interface Essentials/remove</title>
-    <g id="1.-Interface-Essentials/remove" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect id="🖍-Color" fill="#5A5A5A" x="2" y="10.3333333" width="20" height="4.16666667" rx="2.08333333"></rect>
-        <rect id="_Transparent_Rectangle_" x="0" y="0" width="24" height="24"></rect>
-    </g>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="remove">
+<rect id="Shape" x="2" y="10.3333" width="20" height="4.16667" rx="2.08333" fill="#5A5A5A"/>
+</g>
 </svg>

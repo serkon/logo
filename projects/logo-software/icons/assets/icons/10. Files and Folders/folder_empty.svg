@@ -1,8 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>10. Files and Folders/folder_empty</title>
-    <g id="10.-Files-and-Folders/folder_empty" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M20.75,5.7500062 L11.78,5.7500062 C11.6223153,5.7499938 11.4781427,5.66098159 11.4075,5.5200062 L10.6183333,3.93667287 C10.4062396,3.51394856 9.97294307,3.2479006 9.5,3.2499938 L3.25,3.2499938 C2.55964406,3.2499938 2,3.80965027 2,4.5000062 L2,19.5000062 C2,20.1903621 2.55964406,20.7500062 3.25,20.7500062 L20.75,20.7500062 C21.4403559,20.7500062 22,20.1903621 22,19.5000062 L22,7.0000062 C22,6.30965027 21.4403559,5.7500062 20.75,5.7500062 Z" id="🖍-Color" fill="#5A5A5A"></path>
-        <rect id="_Transparent_Rectangle_" x="0" y="0" width="24" height="24"></rect>
-    </g>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="folder_empty">
+<path id="Shape" fill-rule="evenodd" clip-rule="evenodd" d="M20.75 5.75001H11.78C11.6223 5.75001 11.4781 5.66099 11.4075 5.52001L10.6183 3.93668C10.4062 3.51395 9.97294 3.24791 9.5 3.25001H3.25C2.55964 3.25001 2 3.80966 2 4.50001V19.5C2 20.1904 2.55964 20.75 3.25 20.75H20.75C21.4404 20.75 22 20.1904 22 19.5V7.00001C22 6.30966 21.4404 5.75001 20.75 5.75001Z" fill="#5A5A5A"/>
+</g>
 </svg>
