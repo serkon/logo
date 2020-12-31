@@ -27,6 +27,7 @@ import {
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { Pager } from '@logo-software/paging';
 import { ExcelSettingType, ExcelTableColumn } from '@logo-software/excel';
+import { OrderPipe, Util } from '@logo-software/core';
 import { Events } from './types/event.model';
 import { ExpanderComponent } from './expander.component';
 import { TableMeta } from './types/table.meta';
@@ -37,7 +38,6 @@ import { TableFilter } from './types/table.filter';
 import { TableColumn } from './types/table.column';
 import { TableAction } from './types/table.action';
 import { TableSorting } from './types/table.sorting';
-import { OrderPipe, Util } from '@logo-software/core';
 import { TablePaging } from './types/table.paging';
 import { forkJoin } from 'rxjs';
 

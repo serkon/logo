@@ -7,38 +7,7 @@ There are three steps:
 
  - Install package using `npm install @logo-software/table` 
  - Add `TableModule` to target module imports `@NgModule({..., imports: [BrowserModule, TableModule...], ...})`
- - Open `angular.json` file
- - Add below code to `projects.YOUR_PROJECT_NAME.architect.build.options.assets` path to make images available of TableModule.
-   ```JSON
-    {
-     "glob": "**/*",
-     "input": "node_modules/@logo-software/table/src/lib/assets/icons",
-     "output": "assets/icons"
-    }
-   ```
- - It will be end of this like:
-    ```JSON
-    {
-     "outputPath": "dist/logo-ng-library",
-     "index": "src/index.html",
-     "main": "src/main.ts",
-     "polyfills": "src/polyfills.ts",
-     "tsConfig": "src/tsconfig.app.json",
-     "assets": [
-       "src/favicon.ico",
-       "src/assets",
-       {
-         "glob": "**/*",
-         "input": "node_modules/@logo-software/table/src/lib/assets/icons",
-         "output": "assets/icons"
-       }
-     ],
-     "styles": [
-       "src/styles.scss"
-     ],
-     "scripts": []
-    }
-    ```
+
 ### Configuration
 
 There is no configuration need just plug and play

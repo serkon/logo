@@ -7,8 +7,7 @@
  * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
  * Any reproduction of this material must contain this notice.
  */
-
-@import "~@logo-software/icons/style";
+@import "icons";
 
 $font-family: 'Nunito', sans-serif;
 $thead-background-color: #0090ff;
@@ -29,6 +28,7 @@ $border-radius: 2px;
 $border-width: 1px;
 $button-selected: #0090ff;
 $expanded-background-color: #dddde8;
+$success-color: #01cc78;
 
 @mixin animate($time:0.1s, $event: all, $animate:linear) {
   transition: $event $time $animate;
@@ -151,7 +151,7 @@ $expanded-background-color: #dddde8;
         tbody {
           tr {
             td {
-              color: var(--black);
+              color: black;
               font-weight: normal;
               font-stretch: normal;
               font-style: normal;
@@ -165,12 +165,15 @@ $expanded-background-color: #dddde8;
                 margin-right: 4px;
 
                 &.expander {
-                  background-color: var(--white);
-                  margin-left: size(4px);
-                  color: var(--info);
+                  background-color: white;
+                  margin-left: 4px;
+                  color: $thead-background-color;
+                  min-width: 24px;
+                  min-height: 24px;
+                  border: none;
 
                   &:focus {
-                    background-color: var(--white);
+                    background-color: white;
                   }
                 }
               }
@@ -182,7 +185,7 @@ $expanded-background-color: #dddde8;
               &.index {
                 text-align: center;
                 background-color: transparentize($thead-background-color, 0.2);
-                color: var(--white);
+                color: white;
               }
 
               div.content-container {
@@ -231,6 +234,7 @@ $expanded-background-color: #dddde8;
                     width: 24px;
                     height: 24px;
                     box-sizing: border-box;
+                    background-color: white;
                   }
                 }
 
@@ -238,7 +242,6 @@ $expanded-background-color: #dddde8;
                   box-shadow: $box-shadow;
 
                   button.edit-pen {
-                    background-color: var(--white);
                     display: inline-block;
                     right: 0;
                     margin-right: 4px;
@@ -259,6 +262,8 @@ $expanded-background-color: #dddde8;
                       & ~ button.edit-accept {
                         display: inline-block;
                         right: 0;
+                        background-color: $success-color;
+                        border: none;
 
                         &::before {
                           background-color: white;
@@ -266,7 +271,6 @@ $expanded-background-color: #dddde8;
                       }
 
                       & ~ button.edit-cancel {
-                        background-color: var(--white);
                         display: inline-block;
                         right: 28px;
                         color: #ff3e51;
@@ -274,7 +278,7 @@ $expanded-background-color: #dddde8;
                       }
 
                       & ~ button.edit {
-                        background-color: var(--white);
+                        background-color: white;
                         display: none;
                       }
                     }
@@ -385,9 +389,9 @@ $expanded-background-color: #dddde8;
 
     button {
       margin-right: 10px;
-      background-color: white;
       width: 32px;
       height: 32px;
+      cursor: pointer;
     }
 
     :last-child {
