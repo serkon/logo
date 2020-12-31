@@ -15,18 +15,20 @@
     <div
       #reference
       *ngFor="let toast of toastService.toasts; let i=index;"
-      class="toast-{{toast.width}} {{toast.type === 'error' ? 'danger' : toast.type}} toast shadow flip-in-x"
+      class="toast-container flip-in-x toast-{{toast.width}}"
     >
-      <div class="small close le-cross" (click)="close(toast)" #closeRef></div>
-      <div class="content" [innerHTML]="toast.message"></div>
-      <div class="actions" *ngIf="toast.actions">
-        <button
-          class="ghost dark"
-          (click)="eventHandler(toast, i, action)"
-          *ngFor="let action of toast.actions"
-        >
-          {{action.display}}
-        </button>
+      <div class="toast {{toast.type === 'error' ? 'danger-bg' : toast.type + '-bg'}}">
+        <div class="small close le-cross" (click)="close(toast)" #closeRef></div>
+        <div class="content" [innerHTML]="toast.message"></div>
+        <div class="actions" *ngIf="toast.actions">
+          <button
+            class="ghost light"
+            (click)="eventHandler(toast, i, action)"
+            *ngFor="let action of toast.actions"
+          >
+            {{action.display}}
+          </button>
+        </div>
       </div>
     </div>
   </div>

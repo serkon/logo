@@ -8,23 +8,22 @@
  * Any reproduction of this material must contain this notice.
  */
 
-@import "~@logo-software/icons/style";
 @import "~@logo-software/theme/base";
 
 :host {
-  $margin-size: size(15px);
+  $margin-size: size(20px);
 
   @mixin modalBody($color: rgba(255,255,255,0)) {
     border-radius: size(4px);
     overflow: auto;
 
     .content {
-      background-color: map_get($colors, $color);
+      background-color: var(--#{$color});
       color: var(--white);
     }
 
     .actions {
-      background-color: color(#{$color}-hover);
+      background-color: var(--#{$color}-hover);
     }
   }
 
@@ -34,38 +33,21 @@
     z-index: 2;
     top: 0;
     right: 0;
+    max-height: calc(100% - #{$margin-size * 2});
+    padding: $margin-size;
+    display: flex;
+    flex-direction: column;
 
-    &:first-child {
-      margin: $margin-size;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .toast {
+    .toast-container {
+      @include animate();
       position: relative;
       transition: all 0.35s;
       left: 0;
       z-index: -1;
-      opacity: 1;
       display: flex;
       flex-direction: column;
+      flex-shrink: 0;
       margin-left: auto;
-      margin-top: $margin-size;
-
-      .close {
-        position: absolute;
-        right: size(10px);
-        top: size(10px);
-        z-index: 1;
-        line-height: size(30px);
-        text-align: center;
-        background-color: rgba(var(--black-rgb), 0.1);
-        background-repeat: initial;
-        color: color(white);
-        font-size: size(14px);
-        border-radius: 50%;
-        cursor: pointer;
-      }
 
       &.erase {
         transition: all 0.55s !important;
@@ -93,20 +75,51 @@
         width: size(700px);
       }
 
-      &.success {
-        @include modalBody(success);
-      }
+      .toast {
+        position: relative;
+        margin-bottom: $margin-size;
+        box-shadow: 0 2px 15px 4px rgba(var(--black-rgb), 0.19);
 
-      &.danger {
-        @include modalBody(danger);
-      }
+        .close {
+          position: absolute;
+          right: size(10px);
+          top: size(10px);
+          z-index: 1;
+          line-height: size(30px);
+          text-align: center;
+          background-color: rgba(var(--black-rgb), 0.1);
+          background-repeat: initial;
+          color: var(--white);
+          font-size: size(14px);
+          border-radius: 50%;
+          cursor: pointer;
+        }
 
-      &.warning {
-        @include modalBody(warning);
-      }
+        .le-cross::before {
+          -webkit-mask-image: url("data:image/svg+xml;charset=utf-8,%3C?xml version='1.0' encoding='UTF-8'?%3E %3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' fill='currentColor'%3E %3Ctitle%3E1. Interface Essentials/cross%3C/title%3E %3Cg id='1.-Interface-Essentials/cross' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E %3Cpath d='M18.488125,16.179 L14.309125,12.001 L18.487125,7.823 C19.124125,7.186 19.124125,6.15 18.487125,5.513 C18.178125,5.204 17.768125,5.034 17.332125,5.034 C16.895125,5.034 16.485125,5.205 16.177125,5.513 L12.000125,9.691 L7.821125,5.512 C7.513125,5.204 7.103125,5.033 6.666125,5.033 C6.230125,5.033 5.820125,5.203 5.511125,5.512 C4.875125,6.149 4.875125,7.185 5.511125,7.822 L9.690125,12.001 L5.511125,16.179 C4.876125,16.815 4.875125,17.851 5.511125,18.49 C5.820125,18.797 6.230125,18.966 6.666125,18.966 C7.102125,18.966 7.512125,18.797 7.821125,18.489 L12.000125,14.31 L16.178125,18.489 C16.487125,18.797 16.897125,18.967 17.334125,18.967 C17.769125,18.967 18.179125,18.797 18.488125,18.489 C19.125125,17.851 19.125125,16.815 18.488125,16.179' id='🖍-Color' fill='%235A5A5A'/%3E %3Crect id='_Transparent_Rectangle_' x='0' y='0' width='24' height='24'/%3E %3C/g%3E %3C/svg%3E");
+          -webkit-mask-repeat: no-repeat;
+          -webkit-mask-position: center;
+          display: inline-block;
+          content: '';
+          position: absolute;
+          background: currentColor;
+        }
 
-      &.info {
-        @include modalBody(info);
+        &.success-bg {
+          @include modalBody(success);
+        }
+
+        &.danger-bg {
+          @include modalBody(danger);
+        }
+
+        &.warning-bg {
+          @include modalBody(warning);
+        }
+
+        &.info-bg {
+          @include modalBody(info);
+        }
       }
 
       .content {

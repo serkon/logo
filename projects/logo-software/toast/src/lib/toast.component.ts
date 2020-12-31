@@ -121,6 +121,6 @@ export class ToastComponent implements OnDestroy, OnInit, AfterViewInit {
   }
 
   private moveTop(element) {
-    element.style.marginTop = parseInt(getComputedStyle(element)['height'], 10) * -1 - 15 + 'px';
+    element.style.marginTop = parseInt(getComputedStyle(element)['height'], 10) * -1 + 'px';
   }
 }

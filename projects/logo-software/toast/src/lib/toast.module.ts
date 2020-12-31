@@ -12,8 +12,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ToastComponent } from './toast.component';
-import { ThemeModule } from "@logo-software/theme";
-import { IconsModule } from "@logo-software/icons";
 
 /**
  * Toast messages inform users of a process that an app has performed or will perform.
@@ -45,7 +43,7 @@ import { IconsModule } from "@logo-software/icons";
  * ```
  */
 @NgModule({
-  imports: [CommonModule, ThemeModule, IconsModule],
+  imports: [CommonModule],
   declarations: [ToastComponent],
   exports: [ToastComponent],
 })
