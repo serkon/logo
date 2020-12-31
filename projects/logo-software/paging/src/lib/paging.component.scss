@@ -1,4 +1,4 @@
-@import "~@logo-software/icons/style";
+@import "icons";
 
 $link-color: #4a4a4a;
 $link-hover-background: rgba(0, 0, 0, 0.06);
@@ -95,6 +95,7 @@ $select-box-color: #4a4a4a;
           height: 32px;
           margin-right: 10px;
           padding: 0;
+          cursor: pointer;
 
           &:last-of-type {
             margin-right: 0;
