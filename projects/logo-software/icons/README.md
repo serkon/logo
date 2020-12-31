@@ -9,7 +9,7 @@ Our licence placed at [License](http://design.logo.com.tr/assets/guideline/icon/
 There are several ways to install Logo Icons to the project.
 
 ###### 1. Font Icon
-Our icons also can be usable as Font Icon. You can download Font Icon version to your project from [here](http://design.logo.com.tr/assets/guideline/icon/LogoElements-v1.4.1.zip).
+Our icons also can be usable as Font Icon. You can download Font Icon version to your project from [here](http://design.logo.com.tr/assets/guideline/icon/LogoElements-v1.5.1.zip).
 
 ###### 2. Bitbucket
 1. Download Icons's `scss` file from [Bitbucket](http://stash.logo.com.tr/projects/FD/repos/theme/browse/projects/logo-software/icons/style.scss).
