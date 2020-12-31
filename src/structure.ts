@@ -357,9 +357,14 @@ export const structure = [
         children: [
           {
             type: 'block',
-            block: 'component',
-            source: 'IconsModule',
+            block: 'markdown',
+            source: 'logo/modules/icons-module.md',
           },
+          // {
+          //   type: 'block',
+          //   block: 'component',
+          //   source: 'IconsModule',
+          // },
           {
             type: 'block',
             block: 'component',

@@ -10,7 +10,7 @@ developer.logo.com.tr adresinde [Docs](http://developer.logo.com.tr/#/docs) link
 
 ###### 2. Structure.ts dosyasına eklemesi
 
-`docs/structure.js` dosyasının içerisinde yer alan `Logo Business Solution` section’ına aşağıdaki şekilde dokumanın tanımı yapılır.
+`/src/structure.ts` dosyasının içerisinde yer alan `Logo Business Solution` section’ına aşağıdaki şekilde dokumanın tanımı yapılır.
 
 ```json
 {
