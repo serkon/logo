@@ -167,6 +167,10 @@ $config: deep-map-merge((
         height: 40px,
         box-shadow: 0 size(2px) size(15px) size(4px) rgba(var(--primary-rgb), 0.1)
       )
+    ),
+    split:(
+      margin: 6px,
+      width: 4px
     )
   ),
   color: (

@@ -1,0 +1,46 @@
+.v-splitpanel-horizontal, .v-splitpanel-vertical {
+  background-color: var(--gray-100);
+
+  > div > {
+    .v-splitpanel-first-container {
+
+    }
+
+    .v-splitpanel-hsplitter, .v-splitpanel-vsplitter {
+      background-color: var(--gray-300);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .v-splitpanel-hsplitter {
+      width: size(get("element.split.width")) !important;
+      top: size(get("element.split.margin")) !important;
+      bottom: size(get("element.split.margin"));
+      height: auto !important;
+      border-radius: size(2px);
+
+      div {
+        height: size(20px);
+        width: size(2px);
+        border-radius: size(1px);
+
+        &::before {
+          background-image: none;
+          background-color: var(--gray-500);
+        }
+      }
+    }
+
+    .v-splitpanel-vsplitter {
+      height: size(get("element.split.width")) !important;
+      right: size(get("element.split.margin")) !important;
+      margin: 0 size(get("element.split.margin")) !important;
+      width: auto;
+    }
+
+    .v-splitpanel-second-container {
+
+    }
+  }
+}
