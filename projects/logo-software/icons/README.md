@@ -44,7 +44,7 @@ $ npm install @logo-software/icons -s
 ```
 
 ### Usage Example
-Below code sample  created for Angular based application. Our icon module is not depend any platform file. You can use every web application.
+Below code sample was created for Angular based applications. Our icon module is not dependent on any platform file. You can use it in every web application.
 
 <sub>your-main-style.scss</sub>
 ```scss
