@@ -28,7 +28,7 @@ To install Icons Module throught npm:
 
 1. Set your npm registry to Logo Nexus Repository Manager if not [https://dregistry.logo.com.tr/](dregistry.logo.com.tr).
 ```shell
-$ npm set registry https://dregistry.logo.com.tr/repository/npm-group/
+$ npm set registry https://dregistry.logo.com.tr/repository/npm-logofe/
 ```
 2. Please login for authentication, if you are not signed in.
 ```shell
