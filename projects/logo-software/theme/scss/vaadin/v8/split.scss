@@ -1,46 +1,237 @@
 .v-splitpanel-horizontal, .v-splitpanel-vertical {
   background-color: var(--gray-100);
 
-  > div > {
+  & > div > {
     .v-splitpanel-first-container {
-
+      & > div {
+        padding: size(34px);
+      }
     }
 
     .v-splitpanel-hsplitter, .v-splitpanel-vsplitter {
-      background-color: var(--gray-300);
       display: flex;
       align-items: center;
       justify-content: center;
-    }
 
-    .v-splitpanel-hsplitter {
-      width: size(get("element.split.width")) !important;
-      top: size(get("element.split.margin")) !important;
-      bottom: size(get("element.split.margin"));
-      height: auto !important;
-      border-radius: size(2px);
+      &::before {
+        position: absolute;
+        content: "";
+        background-color: var(--gray-300);
+        border-radius: size(get("element.split.medium.width")/2);
+      }
 
-      div {
-        height: size(20px);
-        width: size(2px);
-        border-radius: size(1px);
+      & > div {
+        border-radius: size(get("element.split.medium.width")/4);
+        background-color: var(--gray-500) !important;
+        overflow: visible;
 
         &::before {
-          background-image: none;
-          background-color: var(--gray-500);
+          border-radius: 50% !important;
+          border: none !important;
+          background-image: none !important;
+          background-color: var(--gray-500) !important;
+        }
+
+        &::after {
+          border-radius: 50% !important;
+          background-color: var(--gray-500) !important;
+          margin-left: 0 !important;
+          left: 0 !important;
+          top: 0 !important;
+          border: none !important;
+          display: block;
         }
       }
     }
 
-    .v-splitpanel-vsplitter {
-      height: size(get("element.split.width")) !important;
-      right: size(get("element.split.margin")) !important;
-      margin: 0 size(get("element.split.margin")) !important;
-      width: auto;
-    }
 
     .v-splitpanel-second-container {
+      & > div {
+        padding: size(34px);
+      }
+    }
+  }
 
+  &.large {
+    padding: size(20px);
+    background-color: var(--gray-200);
+
+    & > div > {
+      .v-splitpanel-first-container, .v-splitpanel-second-container {
+        background-color: var(--white);
+
+        & > div {
+          padding: size(18px);
+        }
+      }
+
+      .v-splitpanel-first-container {
+      }
+
+      .v-splitpanel-second-container {
+      }
+    }
+  }
+}
+
+.v-splitpanel-horizontal {
+  .v-splitpanel-hsplitter {
+    width: size(get("element.split.medium.margin.left") + get("element.split.medium.width") + get("element.split.medium.margin.right")) !important;
+    top: size(get("element.split.medium.margin.top")) !important;
+    bottom: size(get("element.split.medium.margin.bottom"));
+    height: auto !important;
+
+    &::before {
+      width: size(get("element.split.medium.width")) !important;
+      height: 100% !important;
+      margin-left: size(get("element.split.medium.margin.left"));
+      margin-right: size(get("element.split.medium.margin.right"));
+    }
+
+    & > div {
+      width: size(get("element.split.medium.width")/2) !important;
+      height: 20px !important;
+
+      &:before {
+        width: size(get("element.split.medium.width")/2) !important;
+        height: size(get("element.split.medium.width")/2) !important;
+        margin-top: size(get("element.split.medium.width"));
+      }
+
+      &:after {
+        width: size(get("element.split.medium.width")/2) !important;
+        height: size(get("element.split.medium.width")/2) !important;
+        margin-top: size(get("element.split.medium.width")*2) !important;
+      }
+    }
+
+    &::after {
+      // border: 1px solid red;
+    }
+  }
+
+  .v-splitpanel-second-container {
+    margin-left: size(get("element.split.medium.width")) !important;
+  }
+
+  @each $size, $value in get("element.split") {
+    &.#{$size} {
+      .v-splitpanel-hsplitter {
+        top: size(get("element.split."+#{$size}+".margin.top")) !important;
+        bottom: size(get("element.split."+#{$size}+".margin.bottom"));
+        border-radius: size(get("element.split."+#{$size}+".width")/2);
+        width: size(get("element.split."+#{$size}+".margin.left") + get("element.split."+#{$size}+".width") + get("element.split."+#{$size}+".margin.right")) !important;
+
+        &::before {
+          border-radius: size(get("element.split."+#{$size}+".width")/2);
+          width: size(get("element.split."+#{$size}+".width")) !important;
+          margin-left: size(get("element.split."+#{$size}+".margin.left"));
+          margin-right: size(get("element.split."+#{$size}+".margin.right"));
+        }
+
+        div {
+          border-radius: size(get("element.split."+#{$size}+".width")/2);
+          width: size(get("element.split."+#{$size}+".width")/2) !important;
+          height: size(get("element.split."+#{$size}+".width")/2) !important;
+          margin-left: size(get("element.split."+#{$size}+".margin.left"));
+          margin-right: size(get("element.split."+#{$size}+".margin.right"));
+          overflow: visible;
+
+          &:before {
+            width: size(get("element.split."+#{$size}+".width")/2) !important;
+            height: size(get("element.split."+#{$size}+".width")/2) !important;
+            margin-top: size(get("element.split."+#{$size}+".width") * -1 + 2px);
+            content: "";
+          }
+
+          &:after {
+            width: size(get("element.split."+#{$size}+".width")/2) !important;
+            height: size(get("element.split."+#{$size}+".width")/2) !important;
+            margin-top: size(get("element.split."+#{$size}+".width") - 2px) !important;
+            content: "";
+          }
+        }
+
+        &::after {
+        }
+      }
+
+      .v-splitpanel-second-container {
+        margin-left: size(get("element.split."+#{$size}+".margin.left") + get("element.split."+#{$size}+".width") + get("element.split."+#{$size}+".margin.right")) !important;
+      }
+    }
+  }
+
+}
+
+.v-splitpanel-vertical {
+  .v-splitpanel-vsplitter {
+    height: size(get("element.split.medium.margin.left") + get("element.split.medium.width") + get("element.split.medium.margin.right")) !important;
+    right: size(get("element.split.medium.margin.right")) !important;
+    margin-left: size(get("element.split.medium.margin.top"));
+    margin-right: size(get("element.split.medium.margin.bottom"));
+    width: auto !important;
+
+    &::before {
+      height: size(get("element.split.medium.width")) !important;
+      width: 100% !important;
+    }
+
+    & > div {
+      width: size(get("element.split.medium.width")/2) !important;
+      height: 20px !important;
+      transform: rotate(90deg);
+
+      &:before {
+        width: size(get("element.split.medium.width")/2) !important;
+        height: size(get("element.split.medium.width")/2) !important;
+        margin-top: size(get("element.split.medium.width"));
+      }
+
+      &:after {
+        width: size(get("element.split.medium.width")/2) !important;
+        height: size(get("element.split.medium.width")/2) !important;
+        margin-top: size(get("element.split.medium.width")*2) !important;
+      }
+    }
+  }
+
+  @each $size, $value in get("element.split") {
+    &.#{$size} {
+      .v-splitpanel-vsplitter {
+        height: size(get("element.split."+#{$size}+".margin.left") + get("element.split."+#{$size}+".width") + get("element.split."+#{$size}+".margin.right")) !important;
+        margin-left: size(get("element.split."+#{$size}+".margin.top"));
+        margin-right: size(get("element.split."+#{$size}+".margin.bottom"));
+
+        &::before {
+          border-radius: size(get("element.split."+#{$size}+".width")/2);
+          height: size(get("element.split."+#{$size}+".width")) !important;
+        }
+
+        div {
+          border-radius: size(get("element.split."+#{$size}+".width")/2);
+          width: size(get("element.split."+#{$size}+".width")/2) !important;
+          height: size(get("element.split."+#{$size}+".width")/2) !important;
+          margin-left: size(get("element.split."+#{$size}+".margin.left"));
+          margin-right: size(get("element.split."+#{$size}+".margin.right"));
+          overflow: visible;
+          transform: rotate(90deg);
+
+          &:before {
+            width: size(get("element.split."+#{$size}+".width")/2) !important;
+            height: size(get("element.split."+#{$size}+".width")/2) !important;
+            margin-top: size(get("element.split."+#{$size}+".width") * -1 + 2px);
+            content: "";
+          }
+
+          &:after {
+            width: size(get("element.split."+#{$size}+".width")/2) !important;
+            height: size(get("element.split."+#{$size}+".width")/2) !important;
+            margin-top: size(get("element.split."+#{$size}+".width") - 2px) !important;
+            content: "";
+          }
+        }
+      }
     }
   }
 }

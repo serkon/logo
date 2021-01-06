@@ -168,9 +168,17 @@ $config: deep-map-merge((
         box-shadow: 0 size(2px) size(15px) size(4px) rgba(var(--primary-rgb), 0.1)
       )
     ),
-    split:(
-      margin: 6px,
-      width: 4px
+    split: (
+      medium: (
+        margin: (top: 6px, right: 0, bottom: 6px, left: 0),
+        width: 4px,
+        sepertor: (height: 20px, width: 2px)
+      ),
+      large: (
+        margin: (top: 0, right: 12px, bottom: 0, left: 12px),
+        width: 8px,
+        sepertor: (height: 12px, width: 2px)
+      )
     )
   ),
   color: (
