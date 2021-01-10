@@ -153,7 +153,19 @@ $config: deep-map-merge((
         margin: 20px
       ),
     ),
-    tab:(align: center, height: null),
+    tab:(
+      align: center,
+      shadow: "0 0 10px 0 rgba(106, 120, 245, 0.05), 0 5px 5px 0 rgba(106, 120, 245, 0.1)",
+      margin: 20px,
+      size: (
+        medium: (height: 26px, padding: 4px 10px, font-size: 14px, margin: 13px),
+        large: (height: 40px, padding: 11px 20px, font-size: 14px, margin: 14px)
+      ),
+      color: (secondary:700, primary:500),
+      close:(
+        font-size: 12px
+      )
+    ),
     link:(
       inline: (
         color: info-500
