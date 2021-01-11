@@ -83,6 +83,10 @@
       "@logo-software/combobox": [
         "dist/logo-software/combobox/logo-software-combobox",
         "dist/logo-software/combobox"
+      ],
+      "@logo-software/accordion": [
+        "dist/logo-software/accordion/logo-software-accordion",
+        "dist/logo-software/accordion"
       ]
     }
   },

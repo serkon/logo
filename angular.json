@@ -935,6 +935,46 @@
           }
         }
       }
+    },
+    "@logo-software/accordion": {
+      "projectType": "library",
+      "root": "projects/logo-software/accordion",
+      "sourceRoot": "projects/logo-software/accordion/src",
+      "prefix": "logo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/logo-software/accordion/tsconfig.lib.json",
+            "project": "projects/logo-software/accordion/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/logo-software/accordion/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/logo-software/accordion/src/test.ts",
+            "tsConfig": "projects/logo-software/accordion/tsconfig.spec.json",
+            "karmaConfig": "projects/logo-software/accordion/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/logo-software/accordion/tsconfig.lib.json",
+              "projects/logo-software/accordion/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "documentation"

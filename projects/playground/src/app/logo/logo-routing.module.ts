@@ -55,6 +55,10 @@ const routes: Routes = [
         path: 'combobox-sample',
         loadChildren: () => import('./combobox-sample/combobox-sample.module').then(m => m.ComboboxSampleModule),
       },
+      {
+        path: 'accordion-sample',
+        loadChildren: () => import('./accordion-sample/accordion-sample.module').then(m => m.AccordionSampleModule),
+      },
     ],
   },
 ];
