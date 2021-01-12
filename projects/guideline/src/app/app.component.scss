@@ -12,4 +12,7 @@
 @import "~@logo-software/theme/base";
 
 :host {
+  button {
+    width: size(200px);
+  }
 }
