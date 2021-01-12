@@ -87,6 +87,10 @@
       "@logo-software/accordion": [
         "dist/logo-software/accordion/logo-software-accordion",
         "dist/logo-software/accordion"
+      ],
+      "@logo-software/markdown": [
+        "dist/logo-software/markdown/logo-software-markdown",
+        "dist/logo-software/markdown"
       ]
     }
   },
