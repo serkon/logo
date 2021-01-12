@@ -4,6 +4,7 @@
     "codelyzer"
   ],
   "rules": {
+    "no-consecutive-blank-lines": [true, 1],
     "space-within-parens": true,
     "max-line-length": [
       true,
