@@ -13,13 +13,14 @@ import { Component } from '@angular/core';
 /**
  * This component just usage example of icon module.
  * You can easily apply it with importing to component scss
- *
+ * \
  * __Usage Example__
  *
  * <sub>app.component.scss</sub>
  * ```scss
- * // import icon style here
- * @import "~@logo-software/theme/style";
+ * // if you customize the config add first `config.scss` file
+ * @import "/src/config";
+ * @import "~@logo-software/theme/base";
  * :host{
  *   // component custom css goes here
  * }
