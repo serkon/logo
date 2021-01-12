@@ -1,56 +1,17 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
 
 $config: (
   grid:(status: true),
   bootstrap:(status: false),
   extend-colors: true,
   customize: (status: true),
-  font:(
-    size: 16px,
-    size-base: 16px
-  ),
   debug: true
-) !default;
-
-@import "~@logo-software/theme/base";
-
-
-$base-size: 16;
-
-@mixin smaller-than($point-name) {
-  $width: get("grid.breakpoints." + $point-name);
-  @media (max-width: $width) {
-    @content;
-  }
-}
-
-@mixin larger-than($point-name) {
-  $width: get("grid.breakpoints." + $point-name);
-  @media (min-width: $width) {
-    @content;
-  }
-}
-
-// set default size for all cases;
-:root {
-  --size: 16
-}
-
-// if it's smaller then LG it will set size rate to 16/16;
-// example: if size set to 14px, it will be 14px * 16 / 16 = 14px
-@include larger-than(lg) {
-  :root {
-    --size: 30
-  }
-}
-
-// if it is bigger then XL it will set size rate to 24/16;
-// example: if size set to 14px, it will be 14px * 24 / 16 = 21px
-@include smaller-than(xl) {
-  :root {
-    --size: 55
-  }
-}
-
-@function ff($px) {
-  @return calc($px / $base-size * var(--size));
-}
+);
