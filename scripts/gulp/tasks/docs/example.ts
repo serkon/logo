@@ -86,7 +86,7 @@ task(
     'copy-examples',
     'validate-examples',
     'generate-output-json',
-    'delete-examples',
+    //'delete-examples',
   ),
 );
 
