@@ -12,6 +12,10 @@ export const routes: Routes = [
     loadChildren: () => import('./root/root.module').then(m => m.RootModule),
   },
   {
+    path: 'old',
+    loadChildren: () => import('./home/home.module').then(m => m.NgdHomeModule),
+  },
+  {
     path: 'docs',
     loadChildren: () => import('./documentation/documentation.module').then(m => m.NgdDocumentationModule),
   },
