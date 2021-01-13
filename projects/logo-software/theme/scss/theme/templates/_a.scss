@@ -15,6 +15,14 @@
     align-items: center;
   }
 
+  @each $size, $value in get("size") {
+    &.#{$size} {
+      &[class^='#{get("icon.prefix")}'], &[class*=' #{get("icon.prefix")}'] {
+        @extend %size-#{$size}, %padding-button-#{$size};
+      }
+    }
+  }
+
   &:active, &:focus {
     box-shadow: none;
   }
