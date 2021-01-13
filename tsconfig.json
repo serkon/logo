@@ -34,63 +34,8 @@
       "@playground/*": [
         "./projects/playground/src/app/logo/*"
       ],
-      "@logo-software/core": [
-        "./dist/logo-software/core"
-      ],
-      "@logo-software/language": [
-        "./dist/logo-software/language"
-      ],
-      "@logo-software/excel": [
-        "./dist/logo-software/excel"
-      ],
-      "@logo-software/paging": [
-        "./dist/logo-software/paging"
-      ],
-      "@logo-software/table": [
-        "./dist/logo-software/table"
-      ],
-      "@logo-software/toast": [
-        "dist/logo-software/toast"
-      ],
-      "@logo-software/icons": [
-        "dist/logo-software/icons"
-      ],
-      "@logo-software/theme": [
-        "dist/logo-software/theme"
-      ],
-      "@logo-software/input": [
-        "dist/logo-software/input"
-      ],
       "@logo-software/*": [
-        "./projects/logo-software/*"
-      ],
-      "@logo-software/perspective": [
-        "dist/logo-software/perspective/logo-software-perspective",
-        "dist/logo-software/perspective"
-      ],
-      "@logo-software/cursor": [
-        "dist/logo-software/cursor/logo-software-cursor",
-        "dist/logo-software/cursor"
-      ],
-      "@logo-software/carousel": [
-        "dist/logo-software/carousel/logo-software-carousel",
-        "dist/logo-software/carousel"
-      ],
-      "@logo-software/link": [
-        "dist/logo-software/link/logo-software-link",
-        "dist/logo-software/link"
-      ],
-      "@logo-software/combobox": [
-        "dist/logo-software/combobox/logo-software-combobox",
-        "dist/logo-software/combobox"
-      ],
-      "@logo-software/accordion": [
-        "dist/logo-software/accordion/logo-software-accordion",
-        "dist/logo-software/accordion"
-      ],
-      "@logo-software/markdown": [
-        "dist/logo-software/markdown/logo-software-markdown",
-        "dist/logo-software/markdown"
+        "./projects/logo-software/*/src/public-api"
       ]
     }
   },
@@ -100,5 +45,8 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true,
     "enableIvy": false
-  }
+  },
+  "include": [
+    "./src/assets/examples/**/*"
+  ]
 }
