@@ -59,6 +59,10 @@ const routes: Routes = [
         path: 'accordion-sample',
         loadChildren: () => import('./accordion-sample/accordion-sample.module').then(m => m.AccordionSampleModule),
       },
+      {
+        path: 'drawer-sample',
+        loadChildren: () => import('./drawer-sample/drawer-sample.module').then(m => m.DrawerSampleModule),
+      },
     ],
   },
 ];

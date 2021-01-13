@@ -406,6 +406,23 @@ export const structure = [
           },
         ],
       },
+      {
+        type: 'page',
+        name: 'Drawer Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'DrawerModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'DrawerComponent',
+          },
+        ],
+      },
     ],
   },
   {

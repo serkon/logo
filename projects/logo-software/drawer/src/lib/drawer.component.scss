@@ -1,0 +1,198 @@
+/*
+* Copyright 2017 HepsiExpress Limited. All Rights Reserved.
+*
+* Save to the extent permitted by law, you may not use, copy, modify,
+* distribute or create derivative works of this material or any part
+* of it without the prior written consent of HepsiExpress Limited.
+* Any reproduction of this material must contain this notice.
+*/
+
+@function size($size) {
+  @return $size;
+}
+
+@mixin animate( $event: all, $time:0.2s, $animate:linear) {
+  transition: $event $time $animate;
+}
+
+:host {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  $le-drawer-side-menu-size: size(300px);
+  $le-drawer-left-background: #1c1d22;
+  $le-drawer-right-background: #f5f5f7; // #2a2b30 #f5f5f7
+  $le-drawer-header-background: #ffffff;
+  $le-drawer-color: #a5abb2; // #bdbdbd;
+  $le-drawer-line-height: size(65px);
+
+  .drawer-container {
+    .drawer-left {
+      @include animate();
+      position: absolute;
+      width: $le-drawer-side-menu-size;
+      transform: translateX(0);
+      top: 0;
+      bottom: 0;
+      left: 0;
+      background-color: $le-drawer-left-background;
+      overflow-y: auto;
+    }
+
+    .drawer-right {
+      @include animate();
+      position: absolute;
+      left: $le-drawer-side-menu-size;
+      right: 0;
+      top: 0;
+      height: 100%;
+      background-color: $le-drawer-right-background;
+
+      header.drawer-header {
+        position: relative;
+        border-bottom: 1px solid darken($le-drawer-right-background, 8);
+        box-sizing: border-box;
+        font-size: size(14px);
+        background-color: $le-drawer-header-background;
+        overflow: hidden;
+        height: size(65px);
+        text-overflow: ellipsis;
+        display: flex;
+        align-items: center;
+
+        a.drawer-menu {
+          position: relative;
+          margin: 0 10px;
+          width: 48px;
+          height: 48px;
+          cursor: pointer;
+
+          &::before {
+            height: 100%;
+            width: 100%;
+          }
+        }
+
+        a.le-search_filter::before {
+          -webkit-mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='currentColor' xmlns='http://www.w3.org/2000/svg'%3E %3Cg id='search_filter'%3E %3Cpath id='Shape' fill-rule='evenodd' clip-rule='evenodd' d='M20.4211 3.66666H3.57895C2.70692 3.66666 2 4.41285 2 5.33332C2 6.2538 2.70692 6.99999 3.57895 6.99999H20.4211C21.2931 6.99999 22 6.2538 22 5.33332C22 4.41285 21.2931 3.66666 20.4211 3.66666ZM13.6358 10.6667H3.57895C2.70692 10.6667 2 11.4128 2 12.3333C2 13.2538 2.70692 14 3.57895 14H13.6358C14.5078 14 15.2147 13.2538 15.2147 12.3333C15.2147 11.4128 14.5078 10.6667 13.6358 10.6667ZM3.5 17H7.17948C8.00791 17 8.67948 17.7462 8.67948 18.6667C8.67948 19.5871 8.00791 20.3333 7.17948 20.3333H3.5C2.67157 20.3333 2 19.5871 2 18.6667C2 17.7462 2.67157 17 3.5 17Z' fill='%235A5A5A'/%3E %3C/g%3E %3C/svg%3E");
+          -webkit-mask-repeat: no-repeat;
+          -webkit-mask-position: center;
+          display: inline-block;
+          content: '';
+          position: absolute;
+          background: currentColor;
+        }
+
+        h1.route-name {
+          display: inline-block;
+        }
+
+        nav {
+          max-height: size(65px);
+          overflow: hidden;
+          text-align: right;
+
+          ul {
+            display: inline-block;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+              float: left;
+              width: size(70px);
+              text-align: center;
+              box-sizing: border-box;
+              border-right: size(1px) solid darken($le-drawer-header-background, 3);
+              color: $le-drawer-color;
+
+              a {
+                display: inline-block;
+                width: 100%;
+                box-sizing: border-box;
+                padding: 0 size(20px);
+              }
+            }
+
+            li.language {
+              width: auto;
+
+              span {
+                // display: inline-block;
+                width: auto;
+                padding: 0 size(10px);
+                cursor: pointer;
+                border-right: size(1px) solid darken($le-drawer-header-background, 3);
+
+                &.selected {
+                  color: darken($le-drawer-color, 15);
+                  cursor: pointer;
+                }
+              }
+
+              span:nth-last-of-type(1) {
+                padding-right: size(15px);
+                border: none;
+              }
+            }
+
+            li.le-setting {
+              width: auto;
+
+              .le-user {
+                height: size(30px);
+                display: inline-block;
+                line-height: size(30px);
+                text-align: center;
+                position: relative;
+
+                &::before {
+                  width: size(30px);
+                  height: size(30px);
+                  background-color: #efefef;
+                  border: size(1px) solid #cccccc;
+                  line-height: size(30px);
+                  margin: 0 size(10px);
+                  border-radius: 50%;
+                }
+
+                &::after {
+                  content: "\f104";
+                  width: size(10px);
+                  height: size(10px);
+                  line-height: size(30px);
+                  margin-left: size(10px);
+                }
+              }
+            }
+
+            li.logout {
+              width: auto;
+            }
+          }
+        }
+      }
+
+      main.drawer-main {
+        padding: size(20px);
+        left: 0;
+        bottom: 0;
+        top: $le-drawer-line-height + size(0.6px);
+        position: absolute;
+        right: 0;
+        overflow: auto;
+      }
+    }
+
+    .drawer-closed {
+      @include animate();
+      transform: translateX(size(-80px));
+    }
+
+    .drawer-closed ~ .drawer-right {
+      @include animate();
+      left: 0;
+    }
+  }
+}

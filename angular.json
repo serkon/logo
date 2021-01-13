@@ -53,7 +53,6 @@
               "node_modules/pace-js/templates/pace-theme-flash.tmpl.css",
               "node_modules/docsearch.js/dist/cdn/docsearch.min.css",
               "node_modules/highlight.js/styles/dracula.css",
-              "node_modules/@logo-software/icons/style.scss"
             ],
             "scripts": [
               "node_modules/pace-js/pace.min.js",
@@ -1133,6 +1132,46 @@
             "tsConfig": [
               "projects/logo-software/markdown/tsconfig.lib.json",
               "projects/logo-software/markdown/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@logo-software/drawer": {
+      "projectType": "library",
+      "root": "projects/logo-software/drawer",
+      "sourceRoot": "projects/logo-software/drawer/src",
+      "prefix": "logo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/logo-software/drawer/tsconfig.lib.json",
+            "project": "projects/logo-software/drawer/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/logo-software/drawer/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/logo-software/drawer/src/test.ts",
+            "tsConfig": "projects/logo-software/drawer/tsconfig.spec.json",
+            "karmaConfig": "projects/logo-software/drawer/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/logo-software/drawer/tsconfig.lib.json",
+              "projects/logo-software/drawer/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

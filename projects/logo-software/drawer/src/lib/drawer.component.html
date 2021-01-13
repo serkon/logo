@@ -1,0 +1,15 @@
+<div class="drawer-container">
+  <div class="drawer-left" [ngClass]="{'drawer-closed': menuClose}">
+    <ng-content select="[drawer-left]"></ng-content>
+  </div>
+  <div class="drawer-right">
+    <header class="drawer-header">
+      <a class="drawer-menu large ghost dark le-search_filter" (click)="onClickHandler()"></a>
+      <ng-content select="[drawer-top]"></ng-content>
+    </header>
+    <main class="drawer-main">
+      <ng-content select="[drawer-right]"></ng-content>
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

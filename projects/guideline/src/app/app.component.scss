@@ -12,7 +12,26 @@
 @import "~@logo-software/theme/base";
 
 :host {
-  button {
-    width: size(200px);
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid darken(#1c1d22, 8);
+    color: #6d6d6d;
+    font-size: 20px;
+    font-weight: 300;
+    height: 65px;
+
+    span {
+      padding-left: 5px;
+      color: white;
+    }
+
+    img {
+      width: 150px;
+      text-align: center;
+    }
   }
 }
