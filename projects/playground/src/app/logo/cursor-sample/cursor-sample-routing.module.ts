@@ -6,7 +6,6 @@ const routes: Routes = [{
   path: 'cursor-showcase/cursor-showcase.component',
   component: CursorShowcaseComponent,
 }];
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
