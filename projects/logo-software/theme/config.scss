@@ -191,6 +191,9 @@ $config: deep-map-merge((
         width: 8px,
         sepertor: (height: 12px, width: 2px)
       )
+    ),
+    panel: (
+      padding: (status: true, size: 20px)
     )
   ),
   color: (

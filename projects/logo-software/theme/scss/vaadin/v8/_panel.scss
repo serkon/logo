@@ -6,7 +6,7 @@
   .v-panel-captionwrap {
     .v-panel-caption {
       line-height: size(44px);
-      box-shadow: 0 size(5px) size(5px) 0  rgba(var(--primary-600-rgb), 0.1);
+      box-shadow: 0 size(5px) size(5px) 0 rgba(var(--primary-600-rgb), 0.1);
       background-image: none;
       text-shadow: none;
       padding: 0 size(20px);
@@ -16,9 +16,11 @@
     }
   }
 
-  .v-panel-content {
-    .v-layout {
-      padding: size(20px);
+  & > .v-panel-content {
+    & > .v-layout {
+      @if (get("element.panel.padding.status")==true) {
+        padding: size(get("element.panel.padding.size"));
+      }
     }
   }
 
