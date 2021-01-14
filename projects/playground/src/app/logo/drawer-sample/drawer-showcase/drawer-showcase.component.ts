@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { DrawerService } from '@logo-software/drawer';
 
 @Component({
   selector: 'logo-drawer-showcase',
   templateUrl: './drawer-showcase.component.html',
   styleUrls: ['./drawer-showcase.component.scss'],
 })
-export class DrawerShowcaseComponent implements OnInit {
+export class DrawerShowcaseComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private drawerService: DrawerService) {
   }
 
+  close() {
+    this.drawerService.menu = !this.drawerService.menu;
+  }
 }

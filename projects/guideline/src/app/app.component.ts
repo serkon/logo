@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DrawerService } from '../../../logo-software/drawer/src/lib/drawer.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'guideline';
+
+  constructor(private drawerService: DrawerService) {
+  }
+
+  close() {
+    this.drawerService.menu = !this.drawerService.menu;
+  }
 }

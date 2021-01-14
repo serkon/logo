@@ -1,4 +1,4 @@
-<logo-drawer>
+<logo-drawer height="65px" width="200px" [closed]="false">
   <ng-container drawer-left>
     <div class="logo">LOGO<span>ELEMENTS</span></div>
   </ng-container>
@@ -6,6 +6,6 @@
     <h1>Title</h1>
   </ng-container>
   <ng-container drawer-right>
-    content goes here
+    content goes here. <button (click)="close()">menu</button>
   </ng-container>
 </logo-drawer>
