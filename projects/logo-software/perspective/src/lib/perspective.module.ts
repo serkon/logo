@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { PerspectiveComponent } from './perspective.component';
 
-
-
 @NgModule({
   declarations: [PerspectiveComponent],
-  imports: [
-  ],
+  imports: [],
   exports: [PerspectiveComponent],
 })
-export class PerspectiveModule { }
+export class PerspectiveModule {
+}
