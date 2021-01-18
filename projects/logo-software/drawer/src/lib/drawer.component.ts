@@ -1,9 +1,8 @@
-import { Component, ElementRef, Input } from '@angular/core';
-import * as Color from 'color';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { DrawerService } from './drawer.service';
 
 /**
- * Drawer creates main layout of the application
+ * The drawer component is designed to add side content to a small section of your app. Left side menu can be opened or closed using the open(), close() and toggle() methods.
  *
  * @stacked-example(Drawer Showcase, logo/drawer-sample/drawer-showcase/drawer-showcase.component)
  */
@@ -12,7 +11,10 @@ import { DrawerService } from './drawer.service';
   templateUrl: './drawer.component.html',
   styleUrls: ['./drawer.component.scss'],
 })
-export class DrawerComponent {
+export class DrawerComponent implements OnInit {
+  /**
+   * left menu visibility, default is open.
+   */
   @Input() closed = false;
 
   constructor(private elementRef: ElementRef, public drawerService: DrawerService) {
@@ -23,6 +25,10 @@ export class DrawerComponent {
 
   private _height = '65px';
 
+  /**
+   * header height, default is 65px
+   * @param value
+   */
   @Input() set height(value: string) {
     this._height = value;
     this.setProperty(`--drawer-height`, value);
@@ -30,13 +36,20 @@ export class DrawerComponent {
 
   private _width = '300px';
 
-  set width(value: string) {
+  /**
+   * left menu with, default is 300px
+   * @private
+   */
+  @Input() set width(value: string) {
     this._width = value;
     this.setProperty(`--drawer-width`, value);
   }
 
   private _bgColors: { [key: string]: string } = {left: '#1c1d22', top: '#ffffff', right: '#f5f5f7'};
 
+  /**
+   * layout background color can chane with parameter. Default is {left: '#1c1d22', top: '#ffffff', right: '#f5f5f7'}
+   */
   @Input() get bgColors() {
     return this._bgColors;
   }
@@ -57,9 +70,6 @@ export class DrawerComponent {
   setColors(colors: { [key: string]: string }) {
     Object.keys(colors).forEach((key, i) => {
       this.elementRef.nativeElement.style.setProperty(`--drawer-${key}`, colors[key]);
-      if (key === 'top') {
-        this.elementRef.nativeElement.style.setProperty(`--drawer-${key}-bottom`, Color(colors[key]).darken(0.08));
-      }
     });
   }
 
@@ -67,7 +77,24 @@ export class DrawerComponent {
     return getComputedStyle(document.documentElement).getPropertyValue(item);
   }
 
-  onClickHandler() {
+  /**
+   * the left menu status will be toggled
+   */
+  toggle() {
     return this.drawerService.menu = !this.drawerService.menu;
+  }
+
+  /**
+   * the left menu status will be changed to the closed
+   */
+  open() {
+    return this.drawerService.menu = false;
+  }
+
+  /**
+   * left menu status will be changed to the opened
+   */
+  close() {
+    return this.drawerService.menu = true;
   }
 }
