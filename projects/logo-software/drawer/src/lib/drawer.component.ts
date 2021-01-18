@@ -15,7 +15,11 @@ export class DrawerComponent implements OnInit {
   /**
    * left menu visibility, default is open.
    */
-  @Input() closed = false;
+  @Input() menu: boolean = false;
+  /**
+   * menu opener button visibility configuration, default is visible
+   */
+  @Input() public opener: boolean = true;
 
   constructor(private elementRef: ElementRef, public drawerService: DrawerService) {
     this.setColors(this.bgColors);
@@ -23,7 +27,7 @@ export class DrawerComponent implements OnInit {
     this.setProperty(`--drawer-height`, this._height);
   }
 
-  private _height = '65px';
+  private _height:string = '65px';
 
   /**
    * header height, default is 65px
@@ -60,7 +64,7 @@ export class DrawerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.drawerService.menu = this.closed;
+    this.drawerService.menu = this.menu;
   }
 
   setProperty(property, value) {
