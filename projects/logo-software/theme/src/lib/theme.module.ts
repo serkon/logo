@@ -14,10 +14,10 @@ import { CommonModule } from '@angular/common';
 import { ThemeComponent } from './theme.component';
 
 /**
- * Theme module customize UI of the elements with Logo Design Standart. It also change bootstrap based projects to Logo Design Guide UI sytle.\
- * \
- * Create `_config.scss` file, if you change some settings then just import `scss` to your project main `style.scss`\
- * \
+ * Theme module customize UI of the elements with Logo Design Standart. It also change bootstrap based projects to Logo Design Guide UI sytle.
+ *
+ * Create `_config.scss` file, if you change some settings then just import `scss` to your project main `style.scss`
+ *
  * __Usage Example__
  *
  * <sub>_config.scss</sub>
@@ -37,7 +37,7 @@ import { ThemeComponent } from './theme.component';
  * @import "~@logo-software/theme/style";
  * ```
  * <sub>any.component.scss</sub>\
- * \
+ *
  * And additionally if you use in a component just add base `scss` file.
  * ```scss
  * @import "~@logo-software/theme/base"
