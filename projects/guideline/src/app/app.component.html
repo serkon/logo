@@ -12,10 +12,19 @@
 <logo-drawer height="65px" width="200px" [closed]="false">
   <ng-container drawer-left>
     <div class="logo">LOGO<span>ELEMENTS</span></div>
+    <nav>
+      <li>
+        <logo-link [url]="'docs/detail/spacing'">Spacing</logo-link>
+      </li>
+    </nav>
   </ng-container>
-  <h5 drawer-top>Spacing</h5>
+  <ng-container drawer-top>
+    <logo-header>
+      <h5>{{this.headerService.headerText}}</h5>
+    </logo-header>
+  </ng-container>
   <ng-container drawer-right>
-    <logo-markdown url="/assets/docs/abc.md"></logo-markdown>
+    <router-outlet></router-outlet>
   </ng-container>
 </logo-drawer>
 

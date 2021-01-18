@@ -34,8 +34,23 @@
       "@playground/*": [
         "./projects/playground/src/app/logo/*"
       ],
+      "@guideline/*": [
+        "./projects/guideline/*"
+      ],
       "@logo-software/*": [
         "./projects/logo-software/*/src/public-api"
+      ],
+      "@logo-software/playground": [
+        "dist/logo-software/playground/logo-software-playground",
+        "dist/logo-software/playground"
+      ],
+      "@logo-software/dynamic": [
+        "dist/logo-software/dynamic/logo-software-dynamic",
+        "dist/logo-software/dynamic"
+      ],
+      "@logo-software/title": [
+        "dist/logo-software/title/logo-software-title",
+        "dist/logo-software/title"
       ]
     }
   },
@@ -44,7 +59,8 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true,
-    "enableIvy": false
+    "enableIvy": false,
+    "strictMetadataEmit": false
   },
   "include": [
     "./src/assets/examples/**/*"

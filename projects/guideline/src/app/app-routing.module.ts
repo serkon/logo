@@ -9,9 +9,16 @@
  */
 
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { DocsComponent } from './docs/docs.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'docs',
+    component: DocsComponent,
+    loadChildren: () => import('./docs/docs.module').then(m => m.DocsModule),
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

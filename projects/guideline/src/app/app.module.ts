@@ -10,17 +10,22 @@
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MarkdownComponent, MarkdownModule } from '@logo-software/markdown';
+import { RouterModule } from '@angular/router';
+import { MarkdownModule } from '@logo-software/markdown';
+import { DrawerModule } from '@logo-software/drawer';
+import { LinksModule } from '@logo-software/links';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RouterModule } from '@angular/router';
-import { DrawerModule } from '@logo-software/drawer';
+import { DocsService } from './docs/docs.service';
+import { HeaderModule } from './components/header/header.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, MarkdownModule, RouterModule, DrawerModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, MarkdownModule, RouterModule, DrawerModule, LinksModule, HeaderModule],
+  providers: [
+    DocsService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {
