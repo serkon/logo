@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ComboboxShowcaseComponent } from '@playground/combobox-sample/combobox-showcase/combobox-showcase.component';
+import { ComboboxShowcaseComponent } from './combobox-showcase/combobox-showcase.component';
 
 const routes: Routes = [{
   path: 'combobox-showcase/combobox-showcase.component',

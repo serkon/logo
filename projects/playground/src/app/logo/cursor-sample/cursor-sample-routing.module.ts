@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CursorShowcaseComponent } from '@playground/cursor-sample/cursor-showcase/cursor-showcase.component';
+import { CursorShowcaseComponent } from './cursor-showcase/cursor-showcase.component';
 
 const routes: Routes = [{
   path: 'cursor-showcase/cursor-showcase.component',

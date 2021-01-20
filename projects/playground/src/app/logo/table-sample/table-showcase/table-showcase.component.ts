@@ -3,25 +3,6 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { FilterType, TableAction, TableComponent, TableMeta, TableUpdateDataType } from '@logo-software/table';
 import { ToastService } from '@logo-software/toast';
 
-const data = [
-  {id: 0, zone: {name: 'Çorum'}, percentage: 0.133191, hour: '2019-01-13', surname: 'konakcı', because: 2132131},
-  {id: 1, zone: {name: 'Adana'}, percentage: 633, hour: '2019-12-22', surname: 'meydancı', because: 1235},
-  {id: 2, zone: {name: 'İstanbul'}, percentage: 314, hour: '2018-03-13', surname: 'uyar', because: 54466},
-  {id: 3, zone: {name: 'Samsun'}, percentage: 554, hour: '2017-06-15', surname: 'güler', because: 65467},
-  {id: 4, zone: {name: 'Çorum'}, percentage: 219, hour: '2019-12-31', surname: 'sevim', because: 9876543},
-  {id: 5, zone: {name: 'Ceyhan'}, percentage: 641, hour: '2013-05-11', surname: 'çakmak', because: 4556132},
-  {id: 6, zone: {name: 'Şile'}, percentage: 134, hour: '2014-06-05', surname: 'duran', because: 543567},
-  {id: 7, zone: {name: 'Konya'}, percentage: 455, hour: '2019-05-23', surname: 'güleç', because: 743567},
-  {id: 8, zone: {name: 'Diyarbakır'}, percentage: 148, hour: '2019-07-05', surname: 'toraman', because: 98723567},
-  {id: 9, zone: {name: 'Malatya'}, percentage: 316, hour: '2019-03-15', surname: 'kandır', because: 43787654},
-  {id: 10, zone: {name: 'Kastamonu'}, percentage: 334, hour: '2019-08-13', surname: 'misafir', because: 123824},
-  {id: 11, zone: {name: 'Bitlis'}, percentage: 545, hour: '2019-02-03', surname: 'deneme', because: 234567},
-  {id: 12, zone: {name: 'Polatlı'}, percentage: 195, hour: '2019-09-21', surname: 'deneme', because: 23589},
-  {id: 13, zone: {name: 'Van'}, percentage: 161, hour: '2011-11-19', surname: 'deneme', because: 354353},
-  {id: 14, zone: {name: 'Bartın'}, percentage: 314, hour: '2011-03-23', surname: 'deneme', because: 34539},
-  {id: 15, zone: {name: 'Kadıköy'}, percentage: 13425, hour: '2016-02-27', surname: 'deneme', because: 93922},
-];
-
 @Component({
   selector: 'logo-table-showcase',
   templateUrl: './table-showcase.component.html',

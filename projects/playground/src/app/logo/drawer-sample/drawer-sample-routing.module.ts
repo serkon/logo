@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DrawerShowcaseComponent } from '@playground/drawer-sample/drawer-showcase/drawer-showcase.component';
+import { DrawerShowcaseComponent } from './drawer-showcase/drawer-showcase.component';
 
 const routes: Routes = [{
   path: 'drawer-showcase/drawer-showcase.component',
