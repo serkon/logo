@@ -126,7 +126,7 @@ export interface ExcelSettingType {
   /**
    * This function will be triggered when data is received from server.
    */
-  complete?: Function;
+  complete?: (response?: any) => any;
 }
 
 /**
@@ -301,7 +301,7 @@ export class ExcelComponent {
   getObjectPathValue(value: any, path: string) {
     let data = value;
     if (!!path && path.constructor === String) {
-      path.split('.').forEach(function (val: any) {
+      path.split('.').forEach((val: any) => {
         data = (data !== null && typeof data !== 'undefined') ? data[val] : null;
       });
     }

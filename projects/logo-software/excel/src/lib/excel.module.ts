@@ -14,7 +14,7 @@ import { ExcelComponent } from './excel.component';
  * $ npm install @logo-software/excel -s
  * ```
  *
- *__Usage Example__
+ * __Usage Example__
  *
  * ```typescript
  * import { NgModule } from '@angular/core';
