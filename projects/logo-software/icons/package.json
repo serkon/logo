@@ -27,9 +27,11 @@
     "progress"
   ],
   "license": "See license in LICENSE file",
-  "peerDependencies": {
-    "tslib": "^1.10.0",
+  "dependencies": {
     "fs-extra": "^9.0.1"
+  },
+  "peerDependencies": {
+    "tslib": "^1.10.0"
   },
   "scripts": {
     "icons": "node generate-icons.js",
