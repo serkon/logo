@@ -4,6 +4,7 @@
     "codelyzer"
   ],
   "rules": {
+    "max-classes-per-file": false,
     "no-consecutive-blank-lines": [
       true,
       1
@@ -189,7 +190,7 @@
   },
   "linterOptions": {
     "exclude": [
-      "src/assets/**/*"
+      "./src/assets/**/*.spec.ts"
     ]
   }
 }
