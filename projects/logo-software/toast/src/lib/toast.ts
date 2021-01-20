@@ -94,7 +94,7 @@ export class Toast {
   /**
    * The message will be displayed.
    */
-  public message?: string;
+  public message?: string | null;
   /**
    * There are four type width `'small' | 'medium' | 'large' | 'big'` you can set one.
    */
@@ -108,13 +108,13 @@ export class Toast {
    * It not accept manually input from user, it defined by toast itself.
    * But you can handle audio graping the toast element with ViewContentRef.
    */
-  public audio?: HTMLAudioElement;
+  public audio?: HTMLAudioElement | null;
   /**
    * Actions is optional. If user interaction needs actions can be use.
    * There are two parameter. First one is display text. Second is function when clicked.
    * Sample action is {display: 'close', events:()=>console.log('close clicked')}
    */
-  public actions?: ToastAction[];
+  public actions?: ToastAction[] | null;
 
   constructor(item: Toast) {
     this.type = item.type || ToastMessageTypes.ERROR;

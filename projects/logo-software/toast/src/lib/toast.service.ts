@@ -37,11 +37,11 @@ import { Toast, ToastMessageTypes } from './toast';
 @Injectable()
 export class ToastService {
   public watch: Subject<Toast> = new Subject<Toast>();
-  public soundType: string;
+  public soundType: string = '';
   /**
    * When closeAction function given, this method will be triggered before the close button clicked.
    */
-  public closeAction: null | Function = null;
+  public closeAction: null | (() => void) = null;
   /**
    * Close focus value is true. It will focus when toast message appears.
    */
@@ -73,7 +73,7 @@ export class ToastService {
    * @param options
    */
   public error(message: string, options?: Toast) {
-    this.show({...{message: message, type: ToastMessageTypes.ERROR, autoClose: false}, ...options});
+    this.show({...{message, type: ToastMessageTypes.ERROR, autoClose: false}, ...options});
   }
 
   /**
@@ -82,7 +82,7 @@ export class ToastService {
    * @param options
    */
   public success(message: string, options?: Toast) {
-    this.show({...{message: message, type: ToastMessageTypes.SUCCESS, autoClose: true}, ...options});
+    this.show({...{message, type: ToastMessageTypes.SUCCESS, autoClose: true}, ...options});
   }
 
   /**
