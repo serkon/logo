@@ -14,9 +14,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TableComponent } from './table.component';
 import { ExpanderComponent } from './expander.component';
-import { PagingModule } from '@logo-software/paging';
 import { ExcelModule } from '@logo-software/excel';
 import { CoreModule } from '@logo-software/core';
+import { PagingModule } from '@logo-software/paging';
 
 /**
  * This module generates a table using the given data. The table can generate data using server-side Http requests or given direct data using the client-side feature.

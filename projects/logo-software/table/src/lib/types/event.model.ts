@@ -9,7 +9,7 @@
  */
 
 export class Events {
-  public drag?: { start?: Function, complete: Function };
+  public drag?: { start?: ((response: any) => any), complete: ((response: any) => any) };
 
   constructor(events ?: Events) {
     this.drag = {

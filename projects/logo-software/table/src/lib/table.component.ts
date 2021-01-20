@@ -460,7 +460,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   set columns(value: TableColumn[]) {
     const options = new TableColumn();
     this._columns = value.map(column => ({...options, ...column}));
-    this.excel.columns = <ExcelTableColumn[]>value;
+    this.excel.columns = (value as ExcelTableColumn[]);
   }
 
   private _selected: any = null;
@@ -547,7 +547,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
       status: false,
       columns: this._columns as ExcelTableColumn[],
       name: 'excel',
-      data: this.exportAll  ? this.original : this.rows,
+      data: this.exportAll ? this.original : this.rows,
       service: {
         url: this.service.url,
         method: this.service.method,
@@ -679,7 +679,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   }
 
   filterGenerate(column, value) {
-    const search = {path: column.variableFunction || column.variablePath, value: value, filterType: column.filterType};
+    const search = {path: column.variableFunction || column.variablePath, value, filterType: column.filterType};
     if (this.isFunction(column.variablePath)) {
       const index = this.variablePathFilter.findIndex(item => item.path === search.path);
       index >= 0 ? search.value.length <= 0 ? this.variablePathFilter.splice(index, 1) : Object.assign(this.variablePathFilter[index], search) : this.variablePathFilter.push(search);
@@ -693,7 +693,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   }
 
   makeFilterToObject(filter: TableFilter<any>[], row?) {
-    return filter.reduce((p, c, i) => ({...p, ...Util.makeObject(this.isFunction(c.path) ? c.path(row) : <string>c.path, c.value)}), {});
+    return filter.reduce((p, c, i) => ({...p, ...Util.makeObject(this.isFunction(c.path) ? c.path(row) : c.path as string, c.value)}), {});
   }
 
   runPathFilter(filtered) {
@@ -742,7 +742,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   }
 
   manageQueryParams(): HttpParams {
-    let sorting = this.sorting.column ? Util.makeObject(<string>this.sorting.column, this.sorting.descending ? 'desc' : 'asc') : null;
+    let sorting = this.sorting.column ? Util.makeObject(this.sorting.column as string, this.sorting.descending ? 'desc' : 'asc') : null;
     const filter: TableFilter<string>[] = this.filter.length > 0 ? this.filter : null;
     const paging = {pageNumber: this.pageNumber, pageSize: this.pageSize};
     const queryParameter: { sort?: string, q?: string, offset?: number, limit?: number, $orderby?: string, $skip?: number, $top?: number, $filter?: string } = {};
@@ -799,6 +799,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
             }
           });
         } else {
+          // tslint:disable-next-line:no-unused-expression
           filter && filter.forEach(
             item => item.value && text.push(item.filterType === 'custom' ? `${item.path} '${item.value}'` : `${item.path}=${item.value}`),
           );
@@ -816,7 +817,6 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
     Util.clearNullAndUndefined(queryParameter, true);
     return this.generateHttpParams(queryParameter);
   }
-
 
   generateHttpHeaders(): HttpHeaders {
     const header = {};
@@ -938,14 +938,14 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
             this.list.push(row);
           }
         }
-        this.onTrClicked.emit({row: row, event: $event, index: i});
+        this.onTrClicked.emit({row, event: $event, index: i});
       }
     }, 260);
   }
 
   htmlOnDblClick(row: any, $event: MouseEvent, i) {
     window.clearTimeout(this.clickDelay);
-    this.onTrDblClicked.emit({row: row, event: $event, index: i});
+    this.onTrDblClicked.emit({row, event: $event, index: i});
   }
 
   /**
@@ -987,7 +987,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
     }
   }
 
-  actionHtmlDeleteRow(row: Object) {
+  actionHtmlDeleteRow(row: any) {
     this.oDataHandler(CRUD.DELETE, row);
     this.onDeleteClicked.emit(this.multiSelect ? this.list : row);
   }
@@ -1102,7 +1102,17 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
     });
   }
 
-  htmlUpdateCancel({column, row, showingCurrently, showingOriginal, fullOriginal, index, parentRow, parentIndex}: TableUpdateDataType) {
+  htmlUpdateCancel(
+    {
+      column,
+      row,
+      showingCurrently,
+      showingOriginal,
+      fullOriginal,
+      index,
+      parentRow,
+      parentIndex,
+    }: TableUpdateDataType) {
     const path = this.getColumnPath(row, column);
     const value = Util.getObjectPathValue(this.showing[index], path);
     Util.setObjectPathValue(row, path, value);
@@ -1110,9 +1120,9 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
     this.onUpdateCancel.emit({
       column,
       row,
-      showingCurrently: showingCurrently,
-      showingOriginal: showingOriginal,
-      fullOriginal: fullOriginal,
+      showingCurrently,
+      showingOriginal,
+      fullOriginal,
       index,
       parentRow: this.parentRow,
       parentIndex: this.parentIndex,
@@ -1238,7 +1248,13 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   htmlMultiSelect(event) {
     this.rows.filter(row => {
       const index = this.list.indexOf(row);
-      event.target.checked && index < 0 ? this.list.push(row) : !event.target.checked ? this.list.splice(index, 1) : null;
+      if (event.target.checked && index < 0) {
+        this.list.push(row)
+      } else {
+        if (!event.target.checked) {
+          this.list.splice(index, 1);
+        }
+      }
     });
   }
 }
