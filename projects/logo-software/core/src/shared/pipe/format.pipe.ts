@@ -20,7 +20,7 @@ import { DomSanitizer } from '@angular/platform-browser';
  * <div>{{"34" | format: 'percent: 1.1-3:"it"'}}</div>
  * <div>{{"235146" | format: 'number: 1.1-3'}}</div>
  * <div>{{"5000113" | format: 'currency: 1.1-3:"en"'}}</div>
- *```
+ * ```
  */
 @Pipe({
   name: 'format',

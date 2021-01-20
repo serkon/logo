@@ -16,12 +16,16 @@ export class Util {
   /**
    * https://gist.github.com/barlas/760cbf77b31c6922d159
    * This method returns turkish chars to english lowercase version
-   * Usage: Util.turkishToLower("türkçeişğİIiıŞÜĞ");
+   *
+   * __Usage:__
+   * ```javascript
+   * Util.turkishToLower("türkçeişğİIiıŞÜĞ");
+   * ```
    */
   static turkishToLower(value: any) {
     let string = value;
     const letters: any = {'İ': 'i', 'I': 'ı', 'Ş': 'ş', 'Ğ': 'ğ', 'Ü': 'ü', 'Ö': 'ö', 'Ç': 'ç'};
-    string = string.replace(/(([İIŞĞÜÇÖ]))/g, function (letter: string) {
+    string = string.replace(/(([İIŞĞÜÇÖ]))/g, (letter: string) => {
       return letters[letter];
     });
     return string.toLowerCase();
@@ -35,7 +39,7 @@ export class Util {
   static turkishToUpper(value: any) {
     let string = value;
     const letters: any = {'i': 'İ', 'ş': 'Ş', 'ğ': 'Ğ', 'ü': 'Ü', 'ö': 'Ö', 'ç': 'Ç', 'ı': 'I'};
-    string = string.replace(/(([iışğüçö]))/g, function (letter: string) {
+    string = string.replace(/(([iışğüçö]))/g, (letter: string) => {
       return letters[letter];
     });
     return string.toUpperCase();
@@ -61,7 +65,7 @@ export class Util {
       'Ç': 'C',
       'Ö': 'O',
     };
-    return value.replace(/(([ışğüçöİŞĞÜÇÖ]))/g, function (letter: string) {
+    return value.replace(/(([ışğüçöİŞĞÜÇÖ]))/g, (letter: string) => {
       return letters[letter];
     });
   }
@@ -82,7 +86,7 @@ export class Util {
   static copyToClipboard(text: any) {
     const tempInput = document.createElement('input');
     document.body.appendChild(tempInput);
-    tempInput.value = text || (<any>event).target.innerText;
+    tempInput.value = text || (event as any).target.innerText;
     tempInput.select();
     document.execCommand('copy');
     tempInput.remove();
@@ -132,7 +136,7 @@ export class Util {
    * Usage:
    * Util.range(13, 4); // result: [13, 14, 15, 16]
    */
-  static range(start = 0, count = 0): Array<number> {
+  static range(start = 0, count = 0): number[] {
     const boost = (u, i) => start + i;
     return [...Array(count)].map(boost);
   }
@@ -214,7 +218,7 @@ export class Util {
    * @param value - variable will be find index
    * @returns - Array<number>
    */
-  static findAllIndex(array: Array<any>, value: any): Array<number> {
+  static findAllIndex(array: any[], value: any): number[] {
     const method = (a: any, e: number, i: any) => {
       if (e === value) {
         a.push(i);
@@ -285,7 +289,7 @@ export class Util {
   static getObjectPathValue(value: any, path: string) {
     let data = value;
     if (!!path && path.constructor === String) {
-      path.split('.').forEach(function (val: any) {
+      path.split('.').forEach((val: any) => {
         data = (data !== null && typeof data !== 'undefined') ? data[val] : null;
       });
     }
@@ -316,10 +320,10 @@ export class Util {
    * @Usage
    * Util.makeObject("a.b.c", 'some value');  will return {a: {b: {c: 'some value'}}};
    */
-  static makeObject(prop: string, value: any): Object {
+  static makeObject(prop: string, value: any): { [key: string]: any } {
     const props = prop.split('.');
     let temp = {};
-    props.reverse().forEach(function (key, index) {
+    props.reverse().forEach((key, index) => {
       if (index === 0) {
         temp[key] = !Util.isNullOrUndef(value) ? value : null;
       } else {
@@ -345,7 +349,7 @@ export class Util {
    * const {s,c} = Util.objectKeysValues(data,keys);
    * console.log(s); // [144, 10, 21]
    */
-  static getObjectKeysValues(data, keys): Object {
+  static getObjectKeysValues(data, keys): { [key: string]: string } {
     const result = {};
     keys.map((prop, propKey) => {
       result[prop] = (data.map((item, itemKey) => {
@@ -395,7 +399,7 @@ export class Util {
    * @param exact - I can't remember why I add this feature
    * @param debug - If it is true, will generate output for debugging to the console
    */
-  static isContained(value: Object, filter: Object, exact = true, debug = false): boolean {
+  static isContained(value: any, filter: any, exact = true, debug = false): boolean {
     const method = key => {
       let nValue = value[key];
       let nFilter = filter[key];

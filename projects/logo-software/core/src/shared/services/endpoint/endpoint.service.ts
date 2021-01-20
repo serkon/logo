@@ -127,7 +127,7 @@ export class EndpointService {
     // options.observe = options && options.observe ? options.observe : 'response';
     options.responseType = options.responseType ? options.responseType : ResponseContentEnum.Json;
     const headers = new HttpHeaders({...{'Content-Type': 'application/json'}, ...options.headers});
-    return this.http.request(method, url, {...options, headers: headers});
+    return this.http.request(method, url, {...options, headers});
   }
 
   /**
@@ -160,6 +160,6 @@ export class EndpointService {
     // options.observe = options && options.observe ? options.observe : 'response';
     options.responseType = options.responseType ? options.responseType : ResponseContentEnum.Json;
     const headers = new HttpHeaders({...{'Content-Type': 'application/json'}, ...options.headers});
-    return this.http.post(url, body, {...options, headers: headers});
+    return this.http.post(url, body, {...options, headers});
   }
 }
