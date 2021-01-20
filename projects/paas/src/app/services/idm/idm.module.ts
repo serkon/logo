@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CarouselModule } from '@logo-software/carousel';
+import { LinksModule } from '@logo-software/links';
 
 import { IdmRoutingModule } from './idm-routing.module';
 import { IdmComponent } from './idm.component';
-import { CarouselModule } from '@logo-software/carousel/src/lib/carousel.module';
-import { HeaderModule } from '../../../components/header/header.module';
-import { FooterModule } from '../../../components/footer/footer.module';
-import { LinksModule } from '@logo-software/links';
+import { HeaderModule } from '@paas/src/components/header/header.module';
+import { FooterModule } from '@paas/src/components/footer/footer.module';
 
 @NgModule({
   declarations: [IdmComponent],
