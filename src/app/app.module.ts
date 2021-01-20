@@ -4,7 +4,6 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 import { BrowserModule, Title } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -26,6 +25,7 @@ import {
   NbThemeModule,
 } from '@nebular/theme';
 import { RootModule } from './root/root.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const docs = require('../output.json');
 

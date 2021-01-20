@@ -9,7 +9,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgdExampleComponent } from './example.component';
 import { NgdExample404Component } from './example-404.component';
 
-
 export const routes: Routes = [
   {
     path: '',
