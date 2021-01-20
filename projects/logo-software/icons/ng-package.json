@@ -8,5 +8,8 @@
   "keepLifecycleScripts": true,
   "assets": [
     "style.scss"
+  ],
+  "whitelistedNonPeerDependencies": [
+    "fs-extra"
   ]
 }
