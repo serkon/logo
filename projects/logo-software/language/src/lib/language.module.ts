@@ -88,7 +88,7 @@ export class LanguageModule {
   constructor(@Optional() @SkipSelf() parentModule: LanguageModule) {
   }
 
-  static forRoot(config?: LanguageInitSetting): ModuleWithProviders<any> {
+  static forRoot(config?: LanguageInitSetting): ModuleWithProviders<LanguageModule> {
     return {
       ngModule: LanguageModule,
       providers: [
@@ -101,7 +101,7 @@ export class LanguageModule {
     };
   }
 
-  static forChild(config?: LanguageInitSetting): ModuleWithProviders<any> {
+  static forChild(config?: LanguageInitSetting): ModuleWithProviders<LanguageModule> {
     return <ModuleWithProviders<any>> {
       ngModule: LanguageModule,
       providers: [LanguageService],
