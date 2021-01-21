@@ -10,12 +10,15 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DocsComponent } from './docs/docs.component';
 
 const routes: Routes = [
   {
+    path: '',
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
+    pathMatch: 'full',
+  },
+  {
     path: 'docs',
-    component: DocsComponent,
     loadChildren: () => import('./docs/docs.module').then(m => m.DocsModule),
   },
 ];
