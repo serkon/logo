@@ -1,3 +1,4 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -14,18 +15,12 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "es2020",
+    "strict": false,
     "lib": [
       "es2018",
       "dom"
     ],
-    "rootDir": "./",
-    "emitDecoratorMetadata": true,
     "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "types": [],
     "paths": {
       "@paas/*": [
         "./projects/paas/*"
@@ -37,28 +32,24 @@
         "./projects/guideline/*"
       ],
       "@logo-software/*": [
-        "./projects/logo-software/*/src/public-api"
+        "./projects/logo-software/*/src/public-api",
+        "dist/logo-software/*"
       ],
       "@logo-software/playground": [
-        "dist/logo-software/playground/logo-software-playground",
         "dist/logo-software/playground"
       ],
       "@logo-software/dynamic": [
-        "dist/logo-software/dynamic/logo-software-dynamic",
         "dist/logo-software/dynamic"
       ]
     }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
+    "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true,
     "enableIvy": false,
     "strictMetadataEmit": false
-  },
-  "exclude": [
-    "node_modules/**/*",
-    "**/*.spec.ts"
-  ]
+  }
 }
