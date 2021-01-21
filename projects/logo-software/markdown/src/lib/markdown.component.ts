@@ -11,9 +11,9 @@ import { DynamicService } from '@logo-software/dynamic';
 })
 export class MarkdownComponent implements OnChanges, AfterViewInit {
 
-  @ViewChild('container', {read: ViewContainerRef}) container: ViewContainerRef;
+  @ViewChild('container', {read: ViewContainerRef}) container!: ViewContainerRef;
   @Input() url = '/assets/docs/abc.md';
-  public string: SafeHtml;
+  public string!: SafeHtml;
 
   constructor(private dynamicService: DynamicService, private http: HttpClient, private sanitize: DomSanitizer) {
   }
