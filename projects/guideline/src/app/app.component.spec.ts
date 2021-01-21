@@ -9,7 +9,6 @@ import { RouterTestingModule } from '@angular/router/testing';
  * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
  * Any reproduction of this material must contain this notice.
  */
-
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
