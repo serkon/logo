@@ -1,6 +1,5 @@
 import { ChangeDetectorRef, Directive, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-
 /**
  * Base64 string converter: if base64 string was given, it will automatically
  * emit decoded string otherwise it will emit encoded string
