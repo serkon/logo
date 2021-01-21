@@ -9,7 +9,15 @@
  * Any reproduction of this material must contain this notice.
  */
 -->
-<logo-drawer height="65px" width="200px" [menu]="false" [opener]="false">
+<logo-drawer height="65px" width="200px" [menu]="true" [opener]="false">
+  <ng-container drawer-top>
+    <logo-header headerType="main">
+      <span>LOGO</span>
+      <div>
+        Menu Items
+      </div>
+    </logo-header>
+  </ng-container>
   <ng-container drawer-left>
     <div class="logo">LOGO<span>ELEMENTS</span></div>
     <nav>
@@ -17,11 +25,6 @@
         <logo-link [url]="'docs/detail/spacing'">Spacing</logo-link>
       </li>
     </nav>
-  </ng-container>
-  <ng-container drawer-top>
-    <logo-header>
-      <h5>{{this.headerService.headerText}}</h5>
-    </logo-header>
   </ng-container>
   <ng-container drawer-right>
     <router-outlet></router-outlet>

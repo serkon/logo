@@ -1,8 +1,6 @@
 import { AfterContentChecked, ChangeDetectorRef, Compiler, Component } from '@angular/core';
 import { DrawerService } from '@logo-software/drawer';
 
-import { HeaderService } from './components/header/header.service';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,8 +8,7 @@ import { HeaderService } from './components/header/header.service';
 })
 export class AppComponent implements AfterContentChecked {
 
-  constructor(private compiler: Compiler, private drawerService: DrawerService, public headerService: HeaderService, private cdr: ChangeDetectorRef) {
-    this.headerService.setHeaderTitle('Home');
+  constructor(private compiler: Compiler, private drawerService: DrawerService, private cdr: ChangeDetectorRef) {
   }
 
   ngAfterContentChecked() {
