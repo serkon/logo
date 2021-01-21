@@ -1,4 +1,4 @@
-import { Compiler, Component, ComponentFactory, Injectable, Injector, NgModule } from '@angular/core';
+import { Compiler, Component, ComponentFactory, Injectable, Injector, ModuleWithComponentFactories, NgModule } from '@angular/core';
 import { Subject } from 'rxjs';
 import { PlaygroundModule } from '@logo-software/playground';
 
@@ -17,7 +17,6 @@ export class DynamicService {
     /**
      * TemplateComponent Creating
      */
-      // tslint:disable-next-line:max-classes-per-file
     @Component({
       template: htmlText || 'empty',
     })
@@ -27,7 +26,6 @@ export class DynamicService {
     /**
      * TemplateModule Creating
      */
-      // tslint:disable-next-line:max-classes-per-file
     @NgModule({
       declarations: [TemplateComponent],
       imports: [PlaygroundModule],
@@ -35,7 +33,7 @@ export class DynamicService {
     class TemplateModule {
     }
 
-    const mod = this.compiler.compileModuleAndAllComponentsSync(TemplateModule);
+    const mod: ModuleWithComponentFactories<TemplateModule> = this.compiler.compileModuleAndAllComponentsSync(TemplateModule);
     return mod.componentFactories.find(comp => comp.componentType === TemplateComponent);
   }
 
