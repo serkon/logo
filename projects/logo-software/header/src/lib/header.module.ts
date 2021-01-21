@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
-import { HeaderService } from './header.service';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [HeaderComponent],
-  imports: [CommonModule],
-  providers: [HeaderService],
+  imports: [
+    CommonModule,
+  ],
   exports: [HeaderComponent],
 })
 export class HeaderModule {
