@@ -80,7 +80,7 @@ export class CoreModule {
     StorageClass = this.storageService || new StorageService();
   }
 
-  static forRoot(storageTypes?: STORAGE_TYPES): ModuleWithProviders<any> {
+  static forRoot(storageTypes?: STORAGE_TYPES): ModuleWithProviders<CoreModule> {
     return {
       ngModule: CoreModule,
       providers: [
