@@ -2,23 +2,21 @@
 Typography
  */
 
-%head {
-  font-weight: 400;
+%gtypo {
   margin-top: 0;
   margin-bottom: 0;
-  line-height: normal;
   color: get("font.color");
 }
 
-// HEAD sizes
-@each $size, $items in get("element.head.size") {
+// G sizes
+@each $size, $items in get("element.g-typography.size") {
   @each $head, $value in $items {
     %#{$head}-#{$size} {
       font-size: size(map-get($value,"font-size"));
       height: auto;
       margin: 0;
       line-height: size(map-get($value, "line-height"));
-
+      font-weight: map-get($value, "font-weight");
     }
   }
 }

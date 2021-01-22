@@ -124,9 +124,18 @@ $config: deep-map-merge((
     ),
     head: (
       size:(
-        small:(h1: 24px, h2: 20px, h3: 18px, h4: 16px, h5: 14px, h6: 12px),
-        medium:(h1: 32px, h2: 30px, h3: 28px, h4: 26px, h5: 24px, h6: 22px),
-        large: (h1: 48px, h2: 44px, h3: 40px, h4: 38px, h5: 36px, h6: 34px),
+        small:(h1: (font-size : 32px, line-height : 44px), h2: (font-size : 24px, line-height : 32px), h3: (font-size : 20px, line-height : 26px), h4: (font-size : 28px, line-height : 24px), h5: (font-size : 26px, line-height : 22px), h6: (font-size : 14px, line-height : 18px)),
+        medium:(h1: (font-size : 32px, line-height : 44px), h2: (font-size : 24px, line-height : 32px), h3: (font-size : 20px, line-height : 26px), h4: (font-size : 28px, line-height : 24px), h5: (font-size : 26px, line-height : 22px), h6: (font-size : 14px, line-height : 18px)),
+        large: (h1: (font-size : 32px, line-height : 44px), h2: (font-size : 24px, line-height : 32px), h3: (font-size : 20px, line-height : 26px), h4: (font-size : 28px, line-height : 24px), h5: (font-size : 26px, line-height : 22px), h6: (font-size : 14px, line-height : 18px)),
+        // large: (h1: 36px, h2: 24px, h3: 20px, h4: 18px, h5: 16px, h6: 14px),
+        // medium:(h1: 30px, h2: 22px, h3: 18px, h4: 16px, h5: 14px, h6: 12px),
+        // small:(h1: 24px, h2: 20px, h3: 16px, h4: 14px, h5: 12px, h6: 10px),
+      )
+    ),
+    g-typography: (
+      size:(
+        bold:(g1: (font-size : 92px, line-height : 124px, font-weight : bold), g2: (font-size : 84px, line-height : 114px,font-weight : bold), g3: (font-size : 76px, line-height : 104px,font-weight : bold), g4: (font-size : 68px, line-height : 92px,font-weight : bold), g5: (font-size : 60px, line-height : 82px,font-weight : bold), g6: (font-size : 54px, line-height : 74px,font-weight : bold), g7: (font-size : 48px, line-height : 66px,font-weight : bold),g8: (font-size : 42px, line-height : 56px,font-weight : bold)),
+        medium:(g1: (font-size : 92px, line-height : 124px,font-weight : normal), g2: (font-size : 84px, line-height : 114px,font-weight : normal), g3: (font-size : 76px, line-height : 104px,font-weight : normal), g4: (font-size : 68px, line-height : 92px,font-weight: normal), g5: (font-size : 60px, line-height : 82px,font-weight : normal), g6: (font-size : 54px, line-height : 74px,font-weight : normal), g7: (font-size : 48px, line-height : 66px, font-weight : normal),g8: (font-size : 42px, line-height : 56px,font-weight : normal)),
         // large: (h1: 36px, h2: 24px, h3: 20px, h4: 18px, h5: 16px, h6: 14px),
         // medium:(h1: 30px, h2: 22px, h3: 18px, h4: 16px, h5: 14px, h6: 12px),
         // small:(h1: 24px, h2: 20px, h3: 16px, h4: 14px, h5: 12px, h6: 10px),
@@ -134,9 +143,9 @@ $config: deep-map-merge((
     ),
     paragraph: (
       size:(
-        small: (font-size: 12px),
-        medium: (font-size: 14px),
-        large: (font-size: 16px),
+        small: (font-size: 12px, line-height : 16px),
+        medium: (font-size: 14px, line-height : 18px),
+        large: (font-size: 16px , line-height : 22px),
       )
     ),
     modal: (
