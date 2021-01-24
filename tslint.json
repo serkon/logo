@@ -140,12 +140,6 @@
     ],
     "directive-selector": [
       true,
-      "attribute",
-      [
-        "nb",
-        "ngd",
-        "ngx"
-      ],
       "camelCase"
     ],
     "component-selector": [
@@ -155,9 +149,7 @@
         "attribute"
       ],
       [
-        "nb",
-        "ngd",
-        "ngx"
+        "logo"
       ],
       [
         "kebab-case",
