@@ -25,9 +25,6 @@
       "@paas/*": [
         "./projects/paas/*"
       ],
-      "@playground/*": [
-        "./projects/playground/src/app/logo/*"
-      ],
       "@guideline/*": [
         "./projects/guideline/*"
       ],
