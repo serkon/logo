@@ -1,0 +1,22 @@
+[class^=le-], [class*=' le-'] {
+  position: relative;
+}
+
+[class^=le-]::before, [class*=' le-']::before {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  -webkit-mask-size: 14px;
+  mask-size: 14px;
+}
+
+.le-arrow_right::before {
+  -webkit-mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='currentColor' xmlns='http://www.w3.org/2000/svg'%3E %3Cg id='arrow_right'%3E %3Cpath id='Shape' fill-rule='evenodd' clip-rule='evenodd' d='M14.5713 12C14.5713 11.8762 14.5351 11.7657 14.4628 11.6686L14.4017 11.5982L10.4017 7.59823C10.2886 7.48514 10.1547 7.42859 9.9999 7.42859C9.84513 7.42859 9.7112 7.48514 9.59811 7.59823C9.50763 7.68871 9.45335 7.79252 9.43525 7.90966L9.42847 8.00002V16C9.42847 16.1548 9.48501 16.2887 9.59811 16.4018C9.7112 16.5149 9.84513 16.5714 9.9999 16.5714C10.1237 16.5714 10.2342 16.5353 10.3313 16.4629L10.4017 16.4018L14.4017 12.4018C14.5148 12.2887 14.5713 12.1548 14.5713 12Z' fill='%235A5A5A'/%3E %3C/g%3E %3C/svg%3E");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  display: inline-block;
+  content: '';
+  position: absolute;
+  background: currentColor;
+}

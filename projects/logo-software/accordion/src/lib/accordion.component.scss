@@ -1,0 +1,131 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+@import "scss/icons";
+@import "scss/config";
+@import "~@logo-software/theme/style";
+
+$accordion-menu-count: 8;
+$accordion-menu-background: red;
+$accordion-menu-padding: 10px;
+$accordion-menu-line-height: 45px;
+$selected: red;
+
+:host {
+  display: block;
+  padding: 0;
+  margin: 0;
+  font-family: get("font.family");
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      label, a {
+        // border: 1px solid red;
+        display: flex;
+        color: get("element.tree.font.color");
+        padding-left: get("element.tree.size.medium.padding.left");
+        padding-right: get("element.tree.size.medium.padding.right");
+        font-size: get("element.tree.size.medium.font-size");
+        line-height: get("element.tree.size.medium.height");
+        height: get("element.tree.size.medium.height");
+        box-sizing: border-box;
+        cursor: pointer;
+        transition: max-height 0.5s ease-in, color 0.1s ease-in;
+        -webkit-transition: max-height 0.5s ease-in, color 0.1s ease-in;
+
+        &:hover {
+          background-color: rgba(var(--ghost-hover));
+          -webkit-transition: color 0.1s ease-in;
+          transition: color 0.1s ease-in;
+        }
+
+        &.accordion-active {
+          color: $selected;
+        }
+      }
+
+      label {
+        align-items: center;
+        justify-content: space-between;
+
+        .icon {
+        }
+
+        .title {
+          font-weight: bold;
+        }
+
+        .arrow {
+          width: 14px;
+          height: 14px;
+          display: inline-block;
+        }
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      input[type=checkbox] {
+        &:checked + label {
+          background-color: var(--basic);
+
+          & > span.arrow {
+            -webkit-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+          }
+
+          + logo-accordion {
+            -webkit-transition: max-height 0.5s ease-out;
+            transition: max-height 0.5s ease-out;
+            max-height: initial;
+          }
+        }
+      }
+
+      logo-accordion {
+        height: 100%;
+        max-height: 0;
+        overflow: hidden;
+        -webkit-transition: max-height 0.5s;
+        transition: max-height 0.5s;
+        padding-left: get("element.tree.padding-left");
+
+        &.show {
+          max-height: initial;
+          padding-left: 0;
+        }
+
+        li {
+          // border-left: 1px solid darken(blue, 5);
+          -webkit-transition: border 0.1s ease-in;
+          transition: border 0.1s ease-in;
+
+          &:hover {
+            // border-left: 1px solid darken(blue, 10);
+            -webkit-transition: max-height 0.5s ease-in, color 0.1s ease-in;
+            transition: max-height 0.5s ease-in, color 0.1s ease-in;
+          }
+        }
+      }
+    }
+  }
+
+  .level-1 > label {
+    // background: red;
+  }
+
+  a.router-link-active {
+    color: #106cc8;
+  }
+}
