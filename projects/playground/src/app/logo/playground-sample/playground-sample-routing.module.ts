@@ -1,10 +1,17 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { PlaygroundShowcaseComponent } from './playground-showcase/playground-showcase.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'playground-showcase/playground-showcase.component',
+    component: PlaygroundShowcaseComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class PlaygroundSampleRoutingModule { }
+export class PlaygroundSampleRoutingModule {
+}

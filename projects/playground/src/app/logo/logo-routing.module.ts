@@ -63,6 +63,22 @@ const routes: Routes = [
         path: 'drawer-sample',
         loadChildren: () => import('./drawer-sample/drawer-sample.module').then(m => m.DrawerSampleModule),
       },
+      {
+        path: 'playground-sample',
+        loadChildren: () => import('./playground-sample/playground-sample.module').then(m => m.PlaygroundSampleModule),
+      },
+      {
+        path: 'dynamic-sample',
+        loadChildren: () => import('./dynamic-sample/dynamic-sample.module').then(m => m.DynamicSampleModule),
+      },
+      {
+        path: 'markdown-sample',
+        loadChildren: () => import('./markdown-sample/markdown-sample.module').then(m => m.MarkdownSampleModule),
+      },
+      {
+        path: 'perspective-sample',
+        loadChildren: () => import('./perspective-sample/perspective-sample.module').then(m => m.PerspectiveSampleModule),
+      },
     ],
   },
 ];

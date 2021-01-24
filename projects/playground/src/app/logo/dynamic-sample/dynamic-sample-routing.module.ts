@@ -1,10 +1,17 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { DynamicShowcaseComponent } from './dynamic-showcase/dynamic-showcase.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'dynamic-showcase/dynamic-showcase.component',
+    component: DynamicShowcaseComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class DynamicSampleRoutingModule { }
+export class DynamicSampleRoutingModule {
+}

@@ -7,8 +7,25 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'playground';
-  hidden = true;
+  hidden = false;
   components = [
+    {name: 'accordion'},
+    {name: 'carousel'},
+    {name: 'combobox'},
+    {name: 'cursor'},
+    {name: 'drawer'},
+    {name: 'dynamic'},
+    {name: 'excel'},
+    {name: 'icons'},
+    {name: 'language'},
+    {name: 'link'},
+    {name: 'markdown'},
+    {name: 'paging'},
+    {name: 'perspective'},
+    {name: 'playground'},
+    {name: 'table'},
+    {name: 'theme'},
+    {name: 'toast'},
     {
       name: 'core',
       hide: true,
@@ -18,14 +35,6 @@ export class AppComponent {
         {name: 'storage-class'},
       ],
     },
-    {name: 'excel'},
-    {name: 'icons'},
-    {name: 'language'},
-    {name: 'paging'},
-    {name: 'table'},
-    {name: 'theme'},
-    {name: 'toast'},
-    {name: 'input'},
   ];
 
   toUpperCase(value) {

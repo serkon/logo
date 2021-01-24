@@ -1,10 +1,17 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { MarkdownShowcaseComponent } from './markdown-showcase/markdown-showcase.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'markdown-showcase/markdown-showcase.component',
+    component: MarkdownShowcaseComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class MarkdownSampleRoutingModule { }
+export class MarkdownSampleRoutingModule {
+}
