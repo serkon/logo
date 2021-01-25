@@ -22,3 +22,18 @@ p {
     }
   }
 }
+
+.g1, .g2, .g3, .g4, .g5, .g6, .g7, .g8 {
+  @extend %gtypo;
+}
+
+
+
+@each $size, $items in get("element.g-typography.size") {
+  @each $head, $value in $items {
+    $selector: if($size==medium, $head, $head + "." + $size);
+    #{$selector} {
+      @extend %#{$head}-#{$size};
+    }
+  }
+}
