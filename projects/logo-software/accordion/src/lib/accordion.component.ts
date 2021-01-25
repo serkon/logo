@@ -8,12 +8,12 @@
  * Any reproduction of this material must contain this notice.
  */
 
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { RouterLinkActive } from '@angular/router';
 import { HttpClient, HttpRequest, HttpResponse } from '@angular/common/http';
 
 export class MenuItem {
-  id: any;
+  id?: any;
   name: string;
   classes?: string;
   iconClasses?: string;
@@ -21,21 +21,24 @@ export class MenuItem {
   params?: { [key: string]: any };
   children?: MenuItem[];
   role?: string;
+  open?: boolean;
 }
 
 @Component({
   selector: 'logo-accordion',
   templateUrl: './accordion.component.html',
   styleUrls: ['./accordion.component.scss'],
-  // encapsulation: ViewEncapsulation.None,
 })
 export class AccordionComponent implements OnInit {
 
   @Input() public items: MenuItem[] = [];
-  @Input() public forChildItems: any = [];
-  @Input() public elementId = '0';
-  @Input() public start = 1;
+  @Input() public start = 0;
+  @Input() public paddingLeft: number = 25;
   @Input() request?: HttpRequest<any>;
+  @Output() public itemClick: EventEmitter<MenuItem> = new EventEmitter<MenuItem>();
+  @Output() public categoryClick: EventEmitter<MenuItem> = new EventEmitter<MenuItem>();
+  @Input() public elementId = '0';
+  @Input() private forChildItems: any = [];
 
   constructor(private http: HttpClient) {
   }
@@ -70,7 +73,9 @@ export class AccordionComponent implements OnInit {
     if (parent) {
       const input = parent.querySelector('input');
       input.checked = true;
+      // if (!(element as any).closest('ul.top-level-accordion')) {
       this.recursiveParent(parent);
+      // }
     }
   }
 
@@ -82,5 +87,29 @@ export class AccordionComponent implements OnInit {
 
   onSuccessHandler(response: HttpResponse<MenuItem>) {
     this.items = response.body.children;
+  }
+
+  htmlItemOnClick(item: MenuItem, $event?: MouseEvent) {
+    if (event) {
+      event.cancelBubble = true;
+      event.stopPropagation();
+    }
+    this.$onItemClick(item);
+  }
+
+  $onItemClick(item: MenuItem) {
+    this.itemClick.emit(item);
+  }
+
+  htmlCategoryOnClick(item: MenuItem, $event?: MouseEvent) {
+    if (event) {
+      event.cancelBubble = true;
+      event.stopPropagation();
+    }
+    this.$onCategoryClick(item);
+  }
+
+  $onCategoryClick(item: MenuItem) {
+    this.categoryClick.emit(item);
   }
 }

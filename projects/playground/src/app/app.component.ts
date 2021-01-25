@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MenuItem } from '@logo-software/accordion';
+import { DrawerService } from '@logo-software/drawer';
 
 @Component({
   selector: 'logo-root',
@@ -8,27 +10,51 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'playground';
   hidden = false;
-  components = [
-    {name: 'accordion'},
-    {name: 'carousel'},
-    {name: 'combobox'},
-    {name: 'cursor'},
-    {name: 'drawer'},
-    {name: 'dynamic'},
-    {name: 'excel'},
-    {name: 'icons'},
-    {name: 'language'},
-    {name: 'link'},
-    {name: 'markdown'},
-    {name: 'paging'},
-    {name: 'perspective'},
-    {name: 'playground'},
-    {name: 'table'},
-    {name: 'theme'},
-    {name: 'toast'},
+  components: MenuItem[] = [
+    {
+      name: 'basic',
+      children: [
+        {
+          name: 'test',
+          children: [
+            {name: 'combobox'},
+            {name: 'link'},
+            {name: 'carousel'},
+            {name: 'accordion'},
+            {name: 'drawer'},
+          ],
+        },
+      ],
+    },
+    {
+      name: 'custom',
+      children: [
+        {name: 'perspective'},
+        {name: 'cursor'},
+      ],
+    },
+    {
+      name: 'top',
+      children: [
+        {name: 'excel'},
+        {name: 'icons'},
+        {name: 'language'},
+        {name: 'table'},
+        {name: 'theme'},
+        {name: 'toast'},
+      ],
+    },
+    {
+      name: 'other',
+      children: [
+        {name: 'dynamic'},
+        {name: 'markdown'},
+        {name: 'paging'},
+        {name: 'playground'},
+      ],
+    },
     {
       name: 'core',
-      hide: true,
       children: [
         {name: 'mask-directive'},
         {name: 'endpoint-service'},
@@ -37,7 +63,33 @@ export class AppComponent {
     },
   ];
 
+  constructor(private drawerService: DrawerService) {
+    this.refactor(this.components);
+  }
+
   toUpperCase(value) {
     return `${value[0].toUpperCase()}${value.slice(1)}`;
+  }
+
+  setLink(name) {
+    return '/logo/' + name + '-sample/' + name + '-showcase/' + name + '-showcase.component';
+  }
+
+  refactor(items) {
+    items.forEach((item) => {
+      item['link'] = this.setLink(item.name);
+      item['name'] = this.toUpperCase(item.name + ' Module');
+      if (item.children) {
+        this.refactor(item.children);
+      }
+    });
+  }
+
+  htmlMenuClick(item: MenuItem) {
+    this.drawerService.setHeaderTitle(item.name);
+  }
+
+  htmlCategoryClick(item: MenuItem) {
+    console.log(item.name);
   }
 }

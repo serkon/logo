@@ -6,7 +6,7 @@ import { MenuItem } from '@logo-software/accordion';
   templateUrl: './accordion-showcase.component.html',
   styleUrls: ['./accordion-showcase.component.scss'],
 })
-export class AccordionShowcaseComponent implements OnInit {
+export class AccordionShowcaseComponent {
 
   public items: MenuItem[] = [{
     'id': 0,
@@ -14,34 +14,34 @@ export class AccordionShowcaseComponent implements OnInit {
     'children': [
       {
         'id': 1,
-        'name': 'Control Tower',
+        'name': 'Components',
         'children': [
           {
             'id': 12,
-            'name': 'Raporlar ve Bildirimler',
+            'name': 'Basics',
             'children': [
               {
                 'id': 2003,
-                'name': 'Sefer Raporu',
-                'link': '/main/report/operation',
+                'name': 'AccordionModule',
+                'link': '/logo/accordion-sample/accordion-showcase/accordion-showcase.component',
                 'role': 'ROLE_MENU_TOUR_REPORT',
               },
               {
                 'id': 2004,
-                'name': 'Sipariş Raporu',
-                'link': '/main/report/order-stats',
+                'name': 'CarouselModule',
+                'link': '/logo/carousel-sample/carousel-showcase/carousel-showcase.component',
                 'role': 'ROLE_MENU_ORDER_STATS',
               },
               {
                 'id': 2012,
-                'name': 'SLA Raporu',
-                'link': '/main/report/sla',
+                'name': 'PagingModule',
+                'link': '/logo/paging-sample/paging-showcase/paging-showcase.component',
                 'role': 'ROLE_SLA_REPORT',
               },
               {
                 'id': 2013,
-                'name': 'SLA Detay Raporu',
-                'link': '/main/report/sladetail',
+                'name': 'PerspectiveModule',
+                'link': '/logo/perspective-sample/perspective-showcase/perspective-showcase.component',
                 'role': 'ROLE_SLA_DETAIL_REPORT',
               },
             ],
@@ -49,18 +49,18 @@ export class AccordionShowcaseComponent implements OnInit {
           },
           {
             'id': 2024,
-            'name': 'Operasyonlar',
+            'name': 'Layout',
             'children': [
               {
                 'id': 47,
-                'name': 'Gönderi Sorgula',
-                'link': '/main/domain/delivery/transaction',
+                'name': 'DrawerModule',
+                'link': '/logo/drawer-sample/drawer-showcase/drawer-showcase.component',
                 'role': 'ROLE_MENU_DELIVERY_QUERY',
               },
               {
                 'id': 48,
-                'name': 'Sorunlu Adres',
-                'link': '/main/domain/delivery/update',
+                'name': 'MarkdownModule',
+                'link': '/logo/markdown-sample/markdown-showcase/markdown-showcase.component',
                 'role': 'ROLE_MENU_DELIVERY_UPDATE',
               },
             ],
@@ -211,11 +211,4 @@ export class AccordionShowcaseComponent implements OnInit {
     ],
     'role': 'ROLE_MENU_ROOT',
   }];
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
-
 }
