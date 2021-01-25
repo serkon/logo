@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { DrawerService } from './drawer.service';
 
 /**
@@ -11,7 +11,7 @@ import { DrawerService } from './drawer.service';
   templateUrl: './drawer.component.html',
   styleUrls: ['./drawer.component.scss'],
 })
-export class DrawerComponent implements OnInit {
+export class DrawerComponent implements OnInit, OnDestroy {
   /**
    * left menu visibility, default is open.
    */
@@ -100,5 +100,9 @@ export class DrawerComponent implements OnInit {
    */
   close() {
     return this.drawerService.menu = true;
+  }
+
+  ngOnDestroy() {
+    this.drawerService.$changeTitle.unsubscribe();
   }
 }

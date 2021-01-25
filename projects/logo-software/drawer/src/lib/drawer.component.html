@@ -4,6 +4,7 @@
 <div class="drawer-content">
   <header class="drawer-top">
     <a class="drawer-menu large ghost dark le-search_filter" (click)="toggle()" *ngIf="opener"></a>
+    <h3 *ngIf="drawerService.headerText">{{drawerService.headerText}}</h3>
     <ng-content select="[drawer-top]"></ng-content>
   </header>
   <main class="drawer-right">
