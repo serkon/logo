@@ -103,6 +103,8 @@
           content: '';
           position: absolute;
           background: currentColor;
+          width: 100%;
+          height: 100%;
         }
 
         &.success-bg {
