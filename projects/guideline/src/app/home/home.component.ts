@@ -9,11 +9,10 @@ import { DrawerService } from '../../../../logo-software/drawer/src/lib/drawer.s
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private drawerService: DrawerService) {
+  constructor() {
   }
 
   ngOnInit(): void {
-    this.drawerService.toggle.next(false);
   }
 
 }

@@ -1,0 +1,264 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+@import 'vars';
+@import "/projects/guideline/src/assets/scss/temp/elements";
+
+html body{
+  overflow-x: hidden!important;
+  background: var(--light);
+}
+
+button, a, input{
+  @include transition(all, 0.20s, ease-in-out);
+}
+
+.header{
+  padding: size(10px) size(30px);
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  @include transition(all, 0.20s, ease-in-out);
+  &.default{
+    background: transparent;
+    .logo{
+      background: url('#{$gfx-path}/logo-white.png') no-repeat;
+      background-image: url('#{$gfx-path}/logo-white.svg');
+      background-position: top left;
+    }
+    .menu{
+      button{
+        @extend .light;
+      }
+      .header-cta{
+        @extend .light;
+      }
+    }
+  }
+  &.darked{
+    background: var(--basic-200);
+    @include drop-shadow(0, size(2px), size(4px), rgba(var(--black-rgb), 0.08));
+    .logo{
+      background: url('#{$gfx-path}/logo-dark.png') no-repeat;
+      background-image: url('#{$gfx-path}/logo-dark.svg');
+      background-position: top left;
+    }
+    .menu{
+      .header-cta{
+        @extend .primary;
+      }
+    }
+  }
+  .logo{
+    display: inline-block;
+    float: left;
+    width: size(135px);
+    height: size(36px);
+    margin: size(5px) 0;
+  }
+  .menu{
+    float: right;
+    logo-link{
+      display: inline-block;
+    }
+    .ghost{
+      font-weight: bold;
+    }
+    .header-cta{
+      position: relative;
+      .custom-icon{
+        position: absolute;
+        left: 14px;
+        top: 7px;
+      }
+    }
+  }
+}
+
+.led-jumbotron{
+  .section-map{
+    .map-item{
+      color: var(--primary-300);
+      height: size(56px)!important;
+      border-right: 1px solid var(--light)!important;
+      &.last{
+        border: 0 transparent!important;
+        display: flex;
+      }
+      span{
+        display: inline-block;
+        &.counter{
+          float: left;
+        }
+        &.name{
+          padding: size(10px) 0 0 size(3px);
+          h6{
+            text-align: left;
+            color: var(--primary-300);
+          }
+        }
+      }
+      &:hover{
+        color: var(--light)!important;
+        background: transparent;
+        span{
+          &.name{
+            h6{
+              color: var(--light);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+logo-carousel {
+  .slider {
+    overflow: hidden;
+  }
+}
+
+.led-card{
+  background: var(--light);
+  @include border-radius(size(10px));
+  overflow:hidden;
+  @include drop-shadow(0, size(24px), size(48px), rgba(var(--gray-1000-rgb), 0.1));
+  padding: size(30px);
+  position: relative;
+  .card-title-image{
+    display: block;
+    position: relative;
+    margin: size(-30px) size(-30px) 0 size(-30px);
+    .overlay{
+      display: block;
+      position: absolute;
+      z-index: 1;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+    img{
+      width: 100%;
+    }
+  }
+  .card-icon{
+    display: block;
+    text-align: center;
+    margin-top: size(-55px);
+    z-index: 2;
+    position: relative;
+    .icon-placer{
+      display: inline-block;
+      width: size(110px);
+      height: size(110px);
+      background: var(--light);
+      text-align: center;
+      vertical-align: middle;
+      line-height: size(110px);
+      @include drop-shadow(0, 0, size(4px), rgba(0,0,0, 0.08));
+      @include border-radius(size(10px));
+      img{
+        vertical-align: middle;
+      }
+    }
+  }
+  .card-info{
+    display: block;
+    padding: size(30px) 0;
+    p{
+      padding: size(15px) 0;
+    }
+  }
+}
+
+.point-item{
+  .icon-base{
+    span{
+      &:before{
+        -webkit-mask-size: size(45px)!important;
+        mask-size: size(45px)!important;
+      }
+    }
+  }
+}
+
+.led-footer{
+  padding-top: size(175px);
+  .footer-base{
+    padding: size(50px) 0;
+    background: var(--basic-300);
+    overflow: hidden;
+    margin-right: size(-20px);
+    margin-left: size(-20px);
+    .container{
+      position: relative;
+    }
+    .gfx-flight-dots{
+      display: inline-block;
+      width: size(340px);
+      position: absolute;
+      top: size(-15px);
+      right: 72%;
+      z-index: 1;
+      img{
+        width: 100%;
+      }
+    }
+    .gfx-bg-plane{
+      display: inline-block;
+      position: absolute;
+      right: 0;
+      bottom: size(-120px);
+      z-index: 1;
+      height: size(250px);
+      img{
+        height: 100%;
+      }
+    }
+    .subscribe-area{
+      text-align: center;
+      .subscribe{
+        display: inline-block;
+        padding-left: size(110px);
+        position: relative;
+        z-index: 2;
+        .gfx-plane{
+          display: inline-block;
+          position: absolute;
+          left: 0;
+          width: size(85px);
+          img{
+            width: 100%;
+          }
+        }
+        .subscribe-text{
+          display: block;
+          text-align: left;
+          padding-bottom: size(20px);
+        }
+        .subscribe-form{
+          display: block;
+          input{
+            width: size(300px);
+            margin-right: size(20px);
+          }
+        }
+      }
+    }
+  }
+  .copyright{
+    text-align: center;
+    padding: size(30px) 0;
+  }
+}
+
