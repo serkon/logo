@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { DocsService } from '../docs.service';
 
 @Component({
-  // tslint:disable-next-line:component-selector
   selector: 'logo-detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss'],
