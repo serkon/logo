@@ -1,23 +1,34 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { HeaderService } from './header.service';
+import { Component, Input, AfterViewInit } from '@angular/core';
+import { fromEvent } from 'rxjs';
 
 @Component({
   selector: 'logo-header',
   template: `
-    <div class="lde-header {{headerType}}" [ngClass]="headerFunction">
+    <div class="header {{headerTheme}}" [ngClass]="headerFunction">
       <ng-content></ng-content>
     </div>
   `,
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
-  @Input() headerType: string = 'minimized';
-  public headerFunction: string;
+export class HeaderComponent implements AfterViewInit {
+  @Input() headerDefaultTheme: string = 'default';
+  @Input() headerScrolledTheme: string = 'scrolled';
+  @Input() watchElement: string = 'drawer-right';
+  public headerFunction: string = 'spied';
+  public headerTheme = this.headerDefaultTheme;
 
-  constructor(private headerController: HeaderService) {
+  constructor() {
   }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    const content = document.querySelector('.drawer-right');
+    const scroll$ = fromEvent(content, 'scroll');
+    scroll$.subscribe(dir => {
+      if (content.scrollTop >= 100) {
+        this.headerTheme = this.headerScrolledTheme;
+      } else if (content.scrollTop < 100) {
+        this.headerTheme = this.headerDefaultTheme;
+      }
+    });
   }
-
 }
