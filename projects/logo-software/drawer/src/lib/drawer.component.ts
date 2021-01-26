@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { DrawerService } from './drawer.service';
 
 /**
@@ -11,27 +11,23 @@ import { DrawerService } from './drawer.service';
   templateUrl: './drawer.component.html',
   styleUrls: ['./drawer.component.scss'],
 })
-export class DrawerComponent implements OnInit {
+export class DrawerComponent implements OnInit, OnDestroy {
   /**
    * left menu visibility, default is open.
    */
-  @Input() menu: boolean;
+  @Input() menu: boolean = false;
   /**
    * menu opener button visibility configuration, default is visible
    */
-  @Input() public opener: boolean;
+  @Input() public opener: boolean = true;
 
   constructor(private elementRef: ElementRef, public drawerService: DrawerService) {
     this.setColors(this.bgColors);
     this.setProperty(`--drawer-width`, this._width);
     this.setProperty(`--drawer-height`, this._height);
-    this.drawerService.toggle.subscribe(() => {
-      this.close()
-      console.log('TESTING')
-    });
   }
 
-  private _height: string = '65px';
+  private _height:string = '65px';
 
   /**
    * header height, default is 65px
@@ -104,5 +100,9 @@ export class DrawerComponent implements OnInit {
    */
   close() {
     return this.drawerService.menu = true;
+  }
+
+  ngOnDestroy() {
+    this.drawerService.$changeTitle.unsubscribe();
   }
 }
