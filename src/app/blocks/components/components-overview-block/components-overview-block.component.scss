@@ -1,7 +1,6 @@
-@import '../../../@theme/styles/themes';
+@import "../../../@theme/styles/themes";
 
 @include nb-install-component() {
-
   .header-card .page-heading {
     margin-bottom: 0;
   }
@@ -53,6 +52,7 @@
       &:hover {
         box-shadow: 0 15px 37px 0 #dbe2eb;
         transform: translateY(-1rem);
+
         .component-name {
           color: nb-theme(color-fg);
         }
@@ -62,7 +62,6 @@
 
   @include media-breakpoint-up(is) {
     .components-list {
-
       .component-card-wrapper {
         flex: 1 0 auto;
         width: 50%;

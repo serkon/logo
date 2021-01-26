@@ -15,7 +15,7 @@
 // @return Anything
 // ---------------------------------------------------------
 @function exist ($key, $map: $config) {
-  $keys: str-explode($key, '.');
+  $keys: str-explode($key, ".");
 
   @if not deep-map-check($map, $keys...) {
     @return false;

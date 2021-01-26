@@ -91,7 +91,7 @@
   section.one {
     padding: ($header-size + size(100px)) size(100px) size(100px) size(120px);
     min-height: size(400px);
-    background: url('images/landscape.svg') right size(-200px) bottom size(-56px) no-repeat;
+    background: url("images/landscape.svg") right size(-200px) bottom size(-56px) no-repeat;
 
     div.title-content {
       h1.title {
@@ -116,12 +116,14 @@
 
       .cloud-group-1 {
         @include cloud($width: 140px, $color: var(--secondary-400), $shadow-color: rgba(var(--secondary-rgb), 0.27), $shadow-height: 135px, $timing: 42s);
+
         bottom: size(135px);
         left: 30px;
       }
 
       .cloud-group-2 {
         @include cloud($width: 90px, $shadow-color: rgba(var(--secondary-rgb), 0.27), $shadow-height: 90px, $timing: 20s, $animation-number: 2);
+
         bottom: size(90px);
         left: size(150px);
       }
@@ -129,13 +131,13 @@
   }
 
   section.two {
-    background: var(--light-600) url('images/leaf.svg') no-repeat left top;
+    background: var(--light-600) url("images/leaf.svg") no-repeat left top;
     align-items: center;
 
     .background-image {
       width: size(165px);
       height: size(103px);
-      background: transparent url('images/code.svg') 0 0 no-repeat padding-box;
+      background: transparent url("images/code.svg") 0 0 no-repeat padding-box;
     }
 
     h2, h5, p {
@@ -188,17 +190,17 @@
         }
 
         span.brush {
-          background-image: url('images/brush.svg');
+          background-image: url("images/brush.svg");
           background-size: size(31px);
         }
 
         span.laptop {
-          background-image: url('images/laptop.svg');
+          background-image: url("images/laptop.svg");
           background-size: size(54px);
         }
 
         span.mobile {
-          background-image: url('images/mobile.svg');
+          background-image: url("images/mobile.svg");
           background-size: size(61px);
         }
       }
@@ -273,7 +275,7 @@
         color: var(--white);
 
         &:not(:last-of-type)::after {
-          content: '|';
+          content: "|";
           padding: 0 size(5px);
         }
       }
@@ -287,7 +289,7 @@
         color: var(--dark-700);
 
         &:not(:last-of-type)::after {
-          content: '|';
+          content: "|";
           padding: 0 size(5px);
         }
       }
@@ -318,16 +320,16 @@
         color: var(--white);
 
         &.twitter {
-          background-image: url('images/twitter.svg');
+          background-image: url("images/twitter.svg");
           width: size(19px);
         }
 
         &.facebook {
-          background-image: url('images/facebook.svg');
+          background-image: url("images/facebook.svg");
         }
 
         &.youtube {
-          background-image: url('images/youtube.svg');
+          background-image: url("images/youtube.svg");
           width: size(22px);
         }
       }
@@ -341,7 +343,7 @@
         color: var(--light-800);
         font-size: size(10px);
         font-weight: 200;
-        font-family: get("font.alternative");;
+        font-family: get("font.alternative");
         margin-bottom: size(30px);
       }
 

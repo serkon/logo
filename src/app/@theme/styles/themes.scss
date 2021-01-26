@@ -1,7 +1,7 @@
-@import '~@nebular/theme/styles/theming';
-@import '~@nebular/theme/styles/themes/default';
-@import '~@nebular/theme/styles/global/breakpoints';
-@import 'mapping';
+@import "~@nebular/theme/styles/theming";
+@import "~@nebular/theme/styles/themes/default";
+@import "~@nebular/theme/styles/global/breakpoints";
+@import "mapping";
 
 $nb-enable-css-custom-properties: false;
 
@@ -116,4 +116,4 @@ $nb-themes: nb-register-theme((
   footer-text-color: color-fg-heading-light,
 ), docs-page, docs-home);
 
-@import '~@nebular/theme/styles/themes/mapping';
+@import "~@nebular/theme/styles/themes/mapping";

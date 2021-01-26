@@ -7,13 +7,13 @@
   color: get("font.color");
   border: size(1px) solid var(--primary);
   border-radius: size(get("border.radius"));
-  box-shadow: get('element.menu.item.box-shadow');
+  box-shadow: get("element.menu.item.box-shadow");
 
   table {
     @extend %v-contextmenu-popup-gwt;
   }
 
-  /*table {
+  /* table {
     .gwt-MenuItem {
       line-height: size(get('element.menu.item.height'));
       height: size(get('element.menu.item.height'));
@@ -28,5 +28,5 @@
       text-shadow: none;
       color: var(--white);
     }
-  }*/
+  } */
 }

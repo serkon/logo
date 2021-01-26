@@ -1,34 +1,34 @@
 .v-tree {
   .v-tree-node {
-    &:before {
+    &::before {
       // Click area, opacity is zero
-      width: size(get('size.medium.height'));
-      height: size(get('size.medium.height'));
+      width: size(get("size.medium.height"));
+      height: size(get("size.medium.height"));
       right: 0;
     }
 
     .v-tree-node-caption {
       color: get("font.color");
-      line-height: size(get('size.medium.height'));
-      height: size(get('size.medium.height'));
-      font-size: size(get('size.medium.font-size'));
+      line-height: size(get("size.medium.height"));
+      height: size(get("size.medium.height"));
+      font-size: size(get("size.medium.font-size"));
 
       &::after {
         background-color: rgba(var(--text-500-rgb), 0.15);
-        border-radius: size(get('border.radius'));
+        border-radius: size(get("border.radius"));
         background-image: none;
         border-left: size(2px) solid var(--primary);
-        height: size(get('size.medium.height'));
-        margin-top: size(get('size.medium.height')) * -1;
+        height: size(get("size.medium.height"));
+        margin-top: size(get("size.medium.height")) * -1;
       }
 
       & > div {
         display: flex;
 
-        &:before {
+        &::before {
           order: 1;
-          width: size(get('size.medium.height'));
-          height: size(get('size.medium.height'));
+          width: size(get("size.medium.height"));
+          height: size(get("size.medium.height"));
         }
 
         .v-icon {
@@ -37,9 +37,9 @@
           justify-content: center;
           box-sizing: border-box;
           padding: size(10px);
-          font-size: size(get('size.medium.icon-size'));
-          min-width: size(get('size.medium.height'));
-          height: size(get('size.medium.height'));
+          font-size: size(get("size.medium.icon-size"));
+          min-width: size(get("size.medium.height"));
+          height: size(get("size.medium.height"));
         }
       }
     }
@@ -52,32 +52,32 @@
   @each $size, $value in get("size") {
     &.#{$size} {
       .v-tree-node {
-        &:before {
-          width: size(get('size.'+$size+'.height'));
-          height: size(get('size.'+$size+'.height'));
+        &::before {
+          width: size(get("size."+$size+".height"));
+          height: size(get("size."+$size+".height"));
         }
 
         .v-tree-node-caption {
-          line-height: size(get('size.'+$size+'.height'));
-          height: size(get('size.'+$size+'.height'));
-          font-size: size(get('size.'+$size+'.font-size'));
+          line-height: size(get("size."+$size+".height"));
+          height: size(get("size."+$size+".height"));
+          font-size: size(get("size."+$size+".font-size"));
 
           &::after {
-            height: size(get('size.'+$size+'.height'));
-            margin-top: size(get('size.'+$size+'.height')) * -1;
+            height: size(get("size."+$size+".height"));
+            margin-top: size(get("size."+$size+".height")) * -1;
           }
 
           & > div {
             &::before {
-              width: size(get('size.'+$size+'.height'));
-              height: size(get('size.'+$size+'.height'));
+              width: size(get("size."+$size+".height"));
+              height: size(get("size."+$size+".height"));
             }
 
             .v-icon {
               content: $size;
-              font-size: if($size=="large", size(get('size.'+$size+'.icon-size') + get('size.'+$size+'.icon-size')/4), size(get('size.'+$size+'.icon-size')));
-              min-width: size(get('size.'+$size+'.height'));
-              height: size(get('size.'+$size+'.height'));
+              font-size: if($size=="large", size(get("size."+$size+".icon-size") + get("size."+$size+".icon-size")/4), size(get("size."+$size+".icon-size")));
+              min-width: size(get("size."+$size+".height"));
+              height: size(get("size."+$size+".height"));
             }
           }
         }

@@ -40,7 +40,6 @@
 
         @include larger-than("md") {
           margin-left: size(120px);
-
         }
       }
     }
@@ -66,14 +65,16 @@
           position: relative;
 
           &::before {
-            content: '';
+            content: "";
             position: absolute;
             left: 0;
             top: size(-30px);
+
             @include larger-than(md) {
               left: size(-50px);
               top: size(-5px);
             }
+
             background: url("/assets/images/services/idm/section-05-quoute.svg") center no-repeat;
             background-size: contain;
             width: size(30px);
@@ -82,7 +83,7 @@
 
           &::after {
             position: absolute;
-            content: '';
+            content: "";
             background: url("/assets/images/services/idm/section-05-quoute.svg") center no-repeat;
             transform: rotate(-180deg);
             right: size(-30px);

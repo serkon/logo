@@ -11,7 +11,7 @@ Label
 
   @each $size, $size-map in get("size") {
     &-#{$size} {
-      font-size: size(get('size.'+ $size + '.font-size'));
+      font-size: size(get("size."+ $size + ".font-size"));
       line-height: size(get("size."+$size+".height"));
     }
   }

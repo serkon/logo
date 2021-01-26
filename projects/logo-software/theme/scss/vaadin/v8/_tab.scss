@@ -49,7 +49,7 @@
 
 .v-tabsheet {
   .v-tabsheet-tabcontainer {
-    &:before {
+    &::before {
       display: none;
     }
 
@@ -111,7 +111,7 @@
     }
 
     .v-tabsheet-scroller {
-      &:after {
+      &::after {
         display: none;
       }
 
@@ -132,7 +132,6 @@
       background-color: transparent;
     }
   }
-
 
   @extend %v-tabsheet-medium;
   @extend %v-tabsheet-primary;

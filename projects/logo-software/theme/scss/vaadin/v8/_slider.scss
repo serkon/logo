@@ -26,6 +26,7 @@
         border-radius: 50%;
         margin-top: size(12px);
         margin-left: size(-6px);
+
         @include animate();
       }
 
@@ -50,6 +51,7 @@
           height: size(30px);
           margin-top: size(4px);
           margin-left: size(-13px);
+
           @include animate();
           @include nb-outline();
         }
@@ -105,6 +107,7 @@
           &::before {
             margin-top: size(-12px);
             margin-left: size(-12px);
+
             @include nb-outline();
           }
 

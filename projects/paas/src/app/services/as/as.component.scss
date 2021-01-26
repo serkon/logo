@@ -6,7 +6,7 @@ $header-size: size(80px);
   display: block;
 
   ul {
-    list-style-image: url('/assets/images/services/idm/check.svg');
+    list-style-image: url("/assets/images/services/idm/check.svg");
 
     li {
       line-height: size(35px);
@@ -71,7 +71,7 @@ $header-size: size(80px);
   }
 
   section.two {
-    background: linear-gradient(0deg, #CAD9F3 0%, #FFFFFF 100%);
+    background: linear-gradient(0deg, #cad9f3 0%, #ffffff 100%);
     align-items: center;
 
     h1 {
@@ -138,6 +138,7 @@ $header-size: size(80px);
       ::ng-deep {
         .arrow-with-animation .slider-arrow {
           color: var(--white);
+
           --active: #636363;
           --border: rgb(134 134 134 / 12%);
         }
@@ -147,7 +148,7 @@ $header-size: size(80px);
             border-color: #ffffff;
 
             &::after {
-              background-color: rgba(255, 255, 255, 0.6);;
+              background-color: rgba(255, 255, 255, 0.6);
             }
           }
         }
@@ -227,7 +228,7 @@ $header-size: size(80px);
     padding: 0;
 
     .row {
-      @include smaller-than('md') {
+      @include smaller-than("md") {
         height: auto;
       }
 
@@ -236,7 +237,7 @@ $header-size: size(80px);
         flex-direction: column;
         padding: size(100px) size(120px);
 
-        @include smaller-than('sm') {
+        @include smaller-than("sm") {
           padding: size(40px);
         }
 
@@ -246,7 +247,7 @@ $header-size: size(80px);
         }
 
         ul {
-          list-style-image: url('/assets/images/services/idm/check.svg');
+          list-style-image: url("/assets/images/services/idm/check.svg");
 
           li {
             margin-top: size(20px);
@@ -268,7 +269,7 @@ $header-size: size(80px);
         padding-right: size(120x);
         background: no-repeat url("/assets/images/services/as/section-03-photo.png") left center / cover;
 
-        @include smaller-than('md') {
+        @include smaller-than("md") {
           min-height: size(350px);
         }
       }
@@ -279,14 +280,14 @@ $header-size: size(80px);
     padding: 0;
 
     .row {
-      @include smaller-than('md') {
+      @include smaller-than("md") {
         flex-direction: column-reverse;
       }
 
       .image {
         background: no-repeat url("/assets/images/services/as/section-04-photo.png") right center / cover;
 
-        @include smaller-than('md') {
+        @include smaller-than("md") {
           min-height: size(350px);
           background-size: 60%;
         }
@@ -299,12 +300,12 @@ $header-size: size(80px);
         justify-content: center;
         padding: size(100px) size(120px);
 
-        @include smaller-than('sm') {
+        @include smaller-than("sm") {
           padding: size(40px);
         }
 
         ul {
-          list-style-image: url('/assets/images/services/idm/check.svg');
+          list-style-image: url("/assets/images/services/idm/check.svg");
 
           li {
             margin-top: size(20px);
@@ -356,6 +357,7 @@ $header-size: size(80px);
 
       aside.opinion {
         flex-direction: column;
+
         @include larger-than(md) {
           padding-left: size(70px);
         }
@@ -370,14 +372,16 @@ $header-size: size(80px);
           position: relative;
 
           &::before {
-            content: '';
+            content: "";
             position: absolute;
             left: 0;
             top: size(-15px);
+
             @include larger-than(md) {
               left: size(-50px);
               top: size(-5px);
             }
+
             background: url("/assets/images/services/idm/section-05-quoute.svg") center no-repeat;
             background-size: contain;
             width: size(30px);
@@ -386,7 +390,7 @@ $header-size: size(80px);
 
           &::after {
             position: absolute;
-            content: '';
+            content: "";
             background: url("/assets/images/services/idm/section-05-quoute.svg") center no-repeat;
             transform: rotate(-180deg);
             right: 0;

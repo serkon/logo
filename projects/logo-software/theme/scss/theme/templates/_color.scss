@@ -13,11 +13,13 @@
   border-width: size(1px);
   border-style: solid;
   outline: none;
+
   @each $color, $value in get("color.list") {
     &-#{"" + $color} {
       background-color: var(--#{$color});
       // color: if($color == basic or $color==light or $color == secondary or $color == gray, mix-darkener($color), var(--white));
       color: if($color == basic or $color == light or $color == secondary or $color == gray, text-color($color), var(--white));
+
       @each $state in get("state.list") {
         &:#{$state}, &-#{$state} {
           background-color: var(--#{$color}-#{$state});
@@ -39,6 +41,7 @@
   background-color: transparent;
   border-style: solid;
   border-width: size(1px);
+
   @each $color, $value in get("color.list") {
     &-#{"" + $color} {
       background-color: transparent;
@@ -47,10 +50,12 @@
       @if not ($color == basic or $color == secondary or $color == gray) {
         color: var(--#{$color});
       }
+
       @each $state in get("state.list") {
         &:#{$state}, &-#{$state} {
           border-color: if($color==light, var(--light), var(--#{$color}-#{$state}));
           background-color: rgba(var(--#{$color}-#{$state}-rgb), var(--ghost-#{$state}));
+
           @if get("bootstrap.status") {
             color: if($color == secondary or $color == basic or $color == gray, text-color($color), var(--#{$color}));
           }
@@ -69,6 +74,7 @@
   // border: size(1px) solid transparent;
   background-color: transparent;
   border-color: transparent;
+
   @each $color, $value in get("color.list") {
     &-#{"" + $color} {
       background-color: transparent;
@@ -77,6 +83,7 @@
       @if not ($color == secondary or $color == basic or $color == gray) {
         color: var(--#{$color});
       }
+
       @each $state in get("state.list") {
         &:#{$state}, &-#{$state} {
           background-color: rgba(var(--#{$color}-#{$state}-rgb), var(--ghost-#{$state}));

@@ -1,4 +1,4 @@
-@import '../../../@theme/styles/themes';
+@import "../../../@theme/styles/themes";
 
 @include nb-install-component() {
 
@@ -43,7 +43,7 @@
 
     > ul {
       padding: 0;
-      margin-bottom: 0!important; // TODO: check selectors
+      margin-bottom: 0 !important; // TODO: check selectors
       border-radius: 0.5rem 0.5rem 0 0;
       background-color: $tabs-bb;
       overflow: hidden;
@@ -51,7 +51,7 @@
       li {
         padding: 0.4rem;
         width: 20%;
-        margin-bottom: 0!important; // TODO: check selectors
+        margin-bottom: 0 !important; // TODO: check selectors
 
         &:first-child {
           margin-left: 0;
@@ -70,6 +70,7 @@
         }
       }
     }
+
     .container {
       border-radius: 0 0 0.5rem 0.5rem;
     }
@@ -81,4 +82,3 @@
     }
   }
 }
-

@@ -16,6 +16,7 @@ Customize: Button customize colors
           @extend %customize-#{$type}-secondary;
         }
       }
+
       @each $color, $value in get("color.list") {
         $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
         #{$selector}, &-#{$type}-#{"" + $color} {
@@ -38,15 +39,19 @@ Customize: Button customize colors
         @if ($color == secondary or $color==basic or $color==gray or ($type==fill and $color==light)) {
           color: var(get("customize.element.button.font.color"));
         }
+
         @if (index(get("color.semantic"), $color)) {
           color: if($type==fill, var(--white), var(--#{$color}));
         }
+
         @if $type == outline {
           border-color: if($color==light, rgba(var(--light-rgb), 0.5), var(#{get("customize.element.button.border.default")}));
+
           &:active, &:focus, &:hover {
             border-color: if($color==light, var(--light), var(#{get("customize.element.button.border.default")}));
           }
         }
+
         @if ($type==outline or $type==ghost) {
           @each $state in get("state.list") {
             &:#{$state} {
@@ -71,38 +76,48 @@ Customize: Input secondary and basic customize
       #{$selector}, &-#{$type}-#{"" + $color} {
         @if ($type==fill) {
           background-color: var(--basic);
+
           @each $state in get("state.list") {
             &:#{$state}, &-#{$state} {
               background-color: var(--basic-#{$state});
             }
           }
         }
+
         @if ($type!=ghost) {
           border-color: var(--#{$color});
           color: var(#{get("customize.element.input.font.color")});
+
           @each $state in get("state.list") {
             &:#{$state} {
               border-color: var(--#{$color}-hover);
             }
           }
-        } @else {
+        }
+
+        @else {
           border-color: transparent;
         }
       }
     }
+
     @each $color, $value in get("color.state") {
       $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
       #{$selector}, &-#{$type}-#{"" + $color} {
         $temp: secondary basic gray;
+
         @if ($type==fill) {
           color: if(index($temp, $color), var(#{get("customize.element.input.font.color")}), var(--white));
           background-color: var(--#{$color}); // !important;
+
           @each $state in get("state.list") {
             &:#{$state} {
               background-color: var(--#{$color}-hover);
             }
           }
-        } @else {
+        }
+
+        @else {
           background-color: transparent; // !important;
         }
       }

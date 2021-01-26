@@ -6,7 +6,7 @@ $header-size: size(80px);
   display: block;
 
   ul {
-    list-style-image: url('/assets/images/services/idm/check.svg');
+    list-style-image: url("/assets/images/services/idm/check.svg");
 
     li {
       line-height: size(35px);
@@ -52,19 +52,18 @@ $header-size: size(80px);
       height: size(388px);
       z-index: 1;
 
-
       div.computer {
         width: 100%;
         height: 100%;
         background: url("/assets/images/services/cc/section-01-illustration.svg") center center no-repeat;
         background-size: contain;
 
-        @include smaller-than('sm') {
+        @include smaller-than("sm") {
           background-position: right 10% bottom 10%;
         }
       }
 
-      @include smaller-than('xl') {
+      @include smaller-than("xl") {
         width: 400px;
         height: 400px;
         right: 0;
@@ -81,7 +80,7 @@ $header-size: size(80px);
       z-index: 0;
       background: url("/assets/images/services/cc/photo.png") right top no-repeat;
 
-      @include smaller-than('lg') {
+      @include smaller-than("lg") {
         display: none;
       }
     }
@@ -173,13 +172,14 @@ $header-size: size(80px);
   }
 
   section.three {
-    @include smaller-than('md') {
+    @include smaller-than("md") {
       padding-bottom: 0;
     }
 
     .row {
       min-height: size(500px);
-      @include smaller-than('md') {
+
+      @include smaller-than("md") {
         min-height: auto;
       }
 
@@ -199,7 +199,7 @@ $header-size: size(80px);
         }
 
         ul {
-          list-style-image: url('/assets/images/services/idm/check.svg');
+          list-style-image: url("/assets/images/services/idm/check.svg");
 
           li {
             margin-top: size(20px);
@@ -230,7 +230,7 @@ $header-size: size(80px);
           margin-bottom: size(-50px);
           margin-right: size(-120px);
 
-          @include smaller-than('md') {
+          @include smaller-than("md") {
             display: none;
           }
         }
@@ -239,13 +239,14 @@ $header-size: size(80px);
   }
 
   section.four {
-    @include smaller-than('md') {
+    @include smaller-than("md") {
       padding-top: 0;
     }
 
     .row {
       min-height: size(500px);
-      @include smaller-than('md') {
+
+      @include smaller-than("md") {
         min-height: auto;
       }
 
@@ -259,15 +260,20 @@ $header-size: size(80px);
           left: 0;
           top: 0;
           background: center / 50% no-repeat url(/assets/images/services/cc/section-04-illustrasyon.png), right center / cover no-repeat url(/assets/images/services/cc/section-04-photo.png);
+
           /* margin-top: -50px; */
+
           /* margin-left: -120px; */
+
           /* width: 100%; */
+
           /* height: 100%; */
+
           /* background-size: cover; */
           margin-left: -120px;
           margin-top: -50px;
 
-          @include smaller-than('md') {
+          @include smaller-than("md") {
             display: none;
           }
         }
@@ -289,9 +295,9 @@ $header-size: size(80px);
         }
 
         ul {
-          list-style-image: url('/assets/images/services/idm/check.svg');
+          list-style-image: url("/assets/images/services/idm/check.svg");
 
-          @include smaller-than('md') {
+          @include smaller-than("md") {
             margin-top: 0;
           }
 
@@ -346,6 +352,7 @@ $header-size: size(80px);
 
       aside.opinion {
         flex-direction: column;
+
         @include larger-than(md) {
           padding-left: size(70px);
         }
@@ -360,14 +367,16 @@ $header-size: size(80px);
           position: relative;
 
           &::before {
-            content: '';
+            content: "";
             position: absolute;
             left: 0;
             top: size(-15px);
+
             @include larger-than(md) {
               left: size(-50px);
               top: size(-5px);
             }
+
             background: url("/assets/images/services/idm/section-05-quoute.svg") center no-repeat;
             background-size: contain;
             width: size(30px);
@@ -376,7 +385,7 @@ $header-size: size(80px);
 
           &::after {
             position: absolute;
-            content: '';
+            content: "";
             background: url("/assets/images/services/idm/section-05-quoute.svg") center no-repeat;
             transform: rotate(-180deg);
             right: 0;

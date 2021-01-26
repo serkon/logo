@@ -12,8 +12,8 @@
  */
 
 .swing-out {
-  -webkit-animation: swing-out-top-bck 0.45s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
-  animation: swing-out-top-bck 0.45s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
+  -webkit-animation: swing-out-top-bck 0.45s cubic-bezier(0.6, -0.28, 0.735, 0.045) both;
+  animation: swing-out-top-bck 0.45s cubic-bezier(0.6, -0.28, 0.735, 0.045) both;
 }
 
 @-webkit-keyframes swing-out-top-bck {
@@ -24,6 +24,7 @@
     transform-origin: top;
     opacity: 1;
   }
+
   100% {
     -webkit-transform: rotateX(-100deg);
     transform: rotateX(-100deg);
@@ -41,6 +42,7 @@
     transform-origin: top;
     opacity: 1;
   }
+
   100% {
     -webkit-transform: rotateX(-100deg);
     transform: rotateX(-100deg);

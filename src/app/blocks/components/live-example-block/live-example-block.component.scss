@@ -1,4 +1,4 @@
-@import '../../../@theme/styles/themes';
+@import "../../../@theme/styles/themes";
 
 @include nb-install-component() {
 
@@ -148,6 +148,7 @@
     from {
       -webkit-transform: rotate(0deg);
     }
+
     to {
       -webkit-transform: rotate(359deg);
     }
@@ -159,6 +160,7 @@
         padding: 0.5rem 1rem;
         color: $action-fg;
       }
+
       select.action-item {
         padding: 0 2.5rem;
       }
@@ -174,4 +176,3 @@
     }
   }
 }
-

@@ -14,13 +14,10 @@ Typography
 @each $size, $items in get("element.head.size") {
   @each $head, $value in $items {
     %#{$head}-#{$size} {
-      font-size: size(map-get($value,"font-size"));
+      font-size: size(map-get($value, "font-size"));
       height: auto;
       margin: 0;
       line-height: size(map-get($value, "line-height"));
-
     }
   }
 }
-
-

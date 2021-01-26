@@ -12,8 +12,8 @@
  */
 
 .slide-out-blurred-top {
-  -webkit-animation: slide-out-blurred-top 0.45s cubic-bezier(0.755, 0.050, 0.855, 0.060) both;
-  animation: slide-out-blurred-top 0.45s cubic-bezier(0.755, 0.050, 0.855, 0.060) both;
+  -webkit-animation: slide-out-blurred-top 0.45s cubic-bezier(0.755, 0.05, 0.855, 0.06) both;
+  animation: slide-out-blurred-top 0.45s cubic-bezier(0.755, 0.05, 0.855, 0.06) both;
 }
 
 @keyframes slide-out-blurred-top {
@@ -26,6 +26,7 @@
     filter: blur(0);
     opacity: 1;
   }
+
   100% {
     -webkit-transform: translateY(-1000px) scaleY(2) scaleX(0.2);
     transform: translateY(-1000px) scaleY(2) scaleX(0.2);

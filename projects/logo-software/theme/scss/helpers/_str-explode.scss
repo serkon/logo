@@ -11,11 +11,13 @@
 //
 // @return List
 // ---------------------------------------------------------
-@function str-explode ($string, $delimiter: '') {
-  @if type-of($string) != 'string' {
-    @warn 'The argument $string: `#{$string}` is of incorrect type: `#{type-of($string)}`. Type of `String` is required!';
-  } @else if type-of($delimiter) != 'string' {
-    @warn 'The argument $string: `#{$string}` is of incorrect type: `#{type-of($string)}`. Type of `String` is required!';
+@function str-explode ($string, $delimiter: "") {
+  @if type-of($string) != "string" {
+    @warn "The argument $string: `#{$string}` is of incorrect type: `#{type-of($string)}`. Type of `String` is required!";
+  }
+
+  @else if type-of($delimiter) != "string" {
+    @warn "The argument $string: `#{$string}` is of incorrect type: `#{type-of($string)}`. Type of `String` is required!";
   }
 
   $result: ();
@@ -36,7 +38,9 @@
       $item: str-slice($string, 1, ($index - 1));
       $result: append($result, $item);
       $string: str-slice($string, ($index + str-length($delimiter)));
-    } @else {
+    }
+
+    @else {
       $running: false;
     }
   }

@@ -10,11 +10,11 @@
   }
 
   .default-content {
-    [class^=le-], [class*=' le-'] {
+    [class^=le-], [class*=" le-"] {
       position: relative;
     }
 
-    [class^=le-]::before, [class*=' le-']::before {
+    [class^=le-]::before, [class*=" le-"]::before {
       width: 100%;
       height: 100%;
       left: 0;
@@ -28,7 +28,7 @@
       -webkit-mask-repeat: no-repeat;
       -webkit-mask-position: center;
       display: inline-block;
-      content: '';
+      content: "";
       position: absolute;
       background: currentColor;
     }

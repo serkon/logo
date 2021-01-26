@@ -1,6 +1,7 @@
 @import "~@logo-software/theme/base";
 
 $header-size: size(80px);
+
 :host {
   display: block;
 
@@ -25,6 +26,7 @@ $header-size: size(80px);
       padding: ($header-size + size(50px)) size(120px) size(50px) size(120px);
       min-height: size(400px);
       background: url("/assets/images/section-01-horizontal-line.svg") right 0 bottom 1px repeat-x;
+
       @include smaller-than(md) {
         padding: ($header-size + size(40px)) size(40px) size(40px) size(40px);
       }

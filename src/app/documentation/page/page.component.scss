@@ -1,4 +1,4 @@
-@import '../../@theme/styles/themes';
+@import "../../@theme/styles/themes";
 
 @include nb-install-component() {
   display: flex;
@@ -31,7 +31,6 @@
     }
 
     ::ng-deep nb-card {
-
       nb-card-body {
         padding: 2rem 1rem;
 
@@ -175,7 +174,7 @@
             margin-bottom: 0;
 
             &::before {
-              content: '-';
+              content: "-";
               position: absolute;
               left: -1.25rem;
             }
@@ -237,6 +236,7 @@
       // overflow: visible;
     }
   }
+
   .settings-column {
     display: none;
   }

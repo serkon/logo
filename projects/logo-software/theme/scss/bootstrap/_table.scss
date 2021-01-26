@@ -85,6 +85,7 @@
 
   a {
     @extend %fill, %fill-basic;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -116,6 +117,7 @@
 
   .t-filterRemoveBtn {
     @extend %fill, %fill-basic;
+
     margin-top: size(10px);
   }
 }

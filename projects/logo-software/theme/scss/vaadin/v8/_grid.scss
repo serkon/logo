@@ -1,5 +1,4 @@
 .v-grid {
-
   .v-grid-scroller {
     border: none;
   }
@@ -81,6 +80,7 @@
 
   .v-grid-sidebar.v-contextmenu {
     @extend %v-contextmenu;
+
     background-color: transparent;
     background-image: none;
     border: size(1px) solid transparent;
@@ -91,11 +91,12 @@
 
     button {
       @extend %button;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      width:  size(get("size.medium.height")) !important;
-      height:  size(get("size.medium.height")) !important;
+      width: size(get("size.medium.height")) !important;
+      height: size(get("size.medium.height")) !important;
       background-color: transparent;
       margin-top: size(-1px);
       border-radius: 0;
@@ -124,8 +125,8 @@
 
       .gwt-MenuBar {
         .gwt-MenuItem {
-          line-height: size(get('element.menu.item.height'));
-          height: size(get('element.menu.item.height'));
+          line-height: size(get("element.menu.item.height"));
+          height: size(get("element.menu.item.height"));
           font-size: size(get("size.small.font-size"));
           border-radius: 0;
           padding: 0;
@@ -133,10 +134,10 @@
           span {
             display: inline-block;
 
-            &:before {
-              width:  size(get("size.medium.height"));
-              height:  size(get("size.medium.height"));
-              line-height:  size(get("size.medium.height"));
+            &::before {
+              width: size(get("size.medium.height"));
+              height: size(get("size.medium.height"));
+              line-height: size(get("size.medium.height"));
               text-align: center;
               margin-right: 0;
               display: inline-block;

@@ -12,9 +12,10 @@
   position: relative;
   background: $bg-color;
   border: 1px solid $border-color;
+
   @include border-radius(5px);
 
-  &:after, &:before {
+  &::after, &::before {
     #{$side}: 100%;
     border: solid transparent;
     content: " ";
@@ -24,7 +25,7 @@
     pointer-events: none;
   }
 
-  &:after {
+  &::after {
     border-color: rgba($bg-color, 0);
     border-#{$side}-color: $bg-color;
     border-width: $size;
@@ -32,7 +33,7 @@
     margin-#{$position}: -($size);
   }
 
-  &:before {
+  &::before {
     border-color: rgba($border-color, 0);
     border-#{$side}-color: $border-color;
     border-width: ($size + 1);

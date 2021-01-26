@@ -4,7 +4,9 @@
       &.#{"" + $color} {
         @if ($type==fill) {
           @include install-placeholder($color: if($color == secondary or $color==basic or $color==light, var(--#{$color}-900), var(--white)), $opacity: get("element.input.placeholder.opacity"));
-        } @else {
+        }
+
+        @else {
           &.#{$type} {
             @include install-placeholder($color: if($color == light, var(--light), var(--#{$color}-900)), $opacity: get("element.input.placeholder.opacity"));
           }

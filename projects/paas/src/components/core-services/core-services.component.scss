@@ -2,6 +2,7 @@
 
 :host {
   @include host();
+
   background-color: #fffdee;
   position: relative;
   padding: size(50px) size(120px);

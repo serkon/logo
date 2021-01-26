@@ -7,7 +7,7 @@
     background-color: rgba(var(--success-500-rgb), 0.1);
     padding: size(16px) size(20px);
 
-    &:before {
+    &::before {
       margin-left: 0;
     }
   }
@@ -17,7 +17,7 @@
     background-color: rgba(var(--danger-500-rgb), 0.1);
     padding: size(16px) size(20px);
 
-    &:before {
+    &::before {
       margin-left: 0;
     }
   }

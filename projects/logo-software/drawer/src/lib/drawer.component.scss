@@ -25,6 +25,7 @@
 
   .drawer-left {
     @include animate();
+
     position: absolute;
     width: var(--drawer-width);
     transform: translateX(0);
@@ -37,6 +38,7 @@
 
   .drawer-content {
     @include animate();
+
     position: absolute;
     left: var(--drawer-width);
     right: 0;
@@ -74,7 +76,7 @@
         -webkit-mask-repeat: no-repeat;
         -webkit-mask-position: center;
         display: inline-block;
-        content: '';
+        content: "";
         position: absolute;
         background: currentColor;
       }
@@ -182,11 +184,13 @@
 
   .drawer-closed {
     @include animate();
+
     transform: translateX(size(-80px));
   }
 
   .drawer-closed ~ .drawer-content {
     @include animate();
+
     left: 0;
   }
 }

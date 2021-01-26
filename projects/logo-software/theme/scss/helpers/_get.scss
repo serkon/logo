@@ -15,10 +15,10 @@
 // @return Anything
 // ---------------------------------------------------------
 @function get ($key, $map: $config) {
-  $keys: str-explode($key, '.');
+  $keys: str-explode($key, ".");
 
   @if not deep-map-check($map, $keys...) {
-    @warn 'The argument $map: `#{$map}` doesn\'t has some of the $keys: `#{$keys}`!';
+    @warn "The argument $map: `#{$map}` doesn\'t has some of the $keys: `#{$keys}`!";
   }
 
   @return deep-map-get($map, $keys...);

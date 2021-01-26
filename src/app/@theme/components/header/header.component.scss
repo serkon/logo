@@ -1,4 +1,4 @@
-@import '../../../@theme/styles/themes';
+@import "../../../@theme/styles/themes";
 
 @include nb-install-component() {
 
@@ -48,6 +48,7 @@
 
   ::ng-deep nb-menu {
     flex: 1;
+
     .menu-items {
       display: flex;
       justify-content: flex-end;
@@ -62,7 +63,7 @@
 
           &:hover, &.active, &:focus {
             color: $menu-item-fg-active;
-            outline: none!important;
+            outline: none !important;
           }
         }
       }
@@ -138,6 +139,7 @@
       a {
         margin-right: 0.5rem;
       }
+
       .version {
         display: inline;
       }
@@ -158,6 +160,7 @@
         margin-left: 0;
       }
     }
+
     ::ng-deep nb-menu .menu-items li:nth-child(2) {
       display: list-item;
     }
@@ -182,15 +185,18 @@
   &.docs-page {
     margin-left: 0;
     margin-right: 0;
+
     .section {
       &.left {
         align-items: center;
         padding-left: 0;
         width: auto;
       }
+
       &.middle {
         justify-content: space-between;
       }
+
       &.right {
         display: none;
         margin-left: 0;
@@ -198,6 +204,7 @@
         text-align: right;
       }
     }
+
     ::ng-deep nb-menu {
       flex-grow: 0;
       flex-shrink: 1;
@@ -210,9 +217,11 @@
         }
       }
     }
+
     ngd-search {
       display: none;
     }
+
     .version-select {
       margin-left: 1rem;
     }
@@ -235,6 +244,7 @@
       .section.right {
         display: block;
       }
+
       .stars {
         width: 95px;
         height: 20px;
@@ -246,6 +256,7 @@
       .section.middle {
         justify-content: space-around;
       }
+
       ::ng-deep nb-menu {
         min-width: 28rem;
 
@@ -260,6 +271,7 @@
         padding-left: 1.125rem;
         width: nb-theme(sidebar-width);
       }
+
       ::ng-deep nb-menu {
         flex: 1;
       }

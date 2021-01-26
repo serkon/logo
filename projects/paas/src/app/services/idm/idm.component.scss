@@ -6,7 +6,7 @@ $header-size: size(80px);
   display: block;
 
   ul {
-    list-style-image: url('/assets/images/services/idm/check.svg');
+    list-style-image: url("/assets/images/services/idm/check.svg");
 
     li {
       line-height: size(35px);
@@ -18,7 +18,7 @@ $header-size: size(80px);
     position: relative;
     background: none;
 
-    @include smaller-than('sm') {
+    @include smaller-than("sm") {
       justify-content: flex-start;
     }
 
@@ -57,7 +57,6 @@ $header-size: size(80px);
       height: size(475px);
       z-index: 1;
 
-
       div.people {
         width: 100%;
         height: 100%;
@@ -73,7 +72,7 @@ $header-size: size(80px);
       height: 100%;
       z-index: 0;
 
-      @include smaller-than('md') {
+      @include smaller-than("md") {
         display: none;
       }
 
@@ -83,7 +82,7 @@ $header-size: size(80px);
         top: 0;
         width: 100%;
         height: 100%;
-        background: transparent linear-gradient(180deg, #9986F9 0, #7163D5 100%) 0 0 no-repeat padding-box;
+        background: transparent linear-gradient(180deg, #9986f9 0, #7163d5 100%) 0 0 no-repeat padding-box;
         transform-origin: left top;
         font-size: 60px;
         padding-top: 100px;
@@ -92,12 +91,12 @@ $header-size: size(80px);
         &.one {
           opacity: 1;
           z-index: -3;
-          transform: perspective(1640px) rotateY(10deg) translateX(0px) translateY(-150px) scaleX(5);
+          transform: perspective(1640px) rotateY(10deg) translateX(0) translateY(-150px) scaleX(5);
         }
 
         &.two {
           z-index: -4;
-          transform: perspective(1640px) rotateY(10deg) translateX(0px) translateY(-100px) scaleX(5);
+          transform: perspective(1640px) rotateY(10deg) translateX(0) translateY(-100px) scaleX(5);
         }
 
         &.three {
@@ -109,7 +108,7 @@ $header-size: size(80px);
         &.four {
           z-index: -2;
           // background: #36bef4;
-          transform: perspective(1640px) rotateY(10deg) translateX(0px) translateY(-100px) scaleX(5);
+          transform: perspective(1640px) rotateY(10deg) translateX(0) translateY(-100px) scaleX(5);
           mix-blend-mode: color;
         }
       }
@@ -120,7 +119,7 @@ $header-size: size(80px);
     padding-top: size(100px);
 
     .row {
-      @include smaller-than('md') {
+      @include smaller-than("md") {
         height: auto;
       }
 
@@ -133,8 +132,8 @@ $header-size: size(80px);
           font-weight: bold;
 
           &::before {
-            background: url('/assets/images/services/idm/clipboard.svg') no-repeat;
-            content: '';
+            background: url("/assets/images/services/idm/clipboard.svg") no-repeat;
+            content: "";
             width: size(50px);
             height: size(50px);
             display: block;
@@ -147,7 +146,7 @@ $header-size: size(80px);
       }
 
       .seperator {
-        @include smaller-than('md') {
+        @include smaller-than("md") {
           display: none;
         }
       }
@@ -156,7 +155,7 @@ $header-size: size(80px);
         background: url("/assets/images/services/idm/section-02.svg") center no-repeat;
         background-size: contain;
 
-        @include smaller-than('md') {
+        @include smaller-than("md") {
           display: none;
         }
       }
@@ -168,7 +167,8 @@ $header-size: size(80px);
 
     .row {
       min-height: size(500px);
-      @include smaller-than('md') {
+
+      @include smaller-than("md") {
         min-height: auto;
       }
 
@@ -179,7 +179,7 @@ $header-size: size(80px);
         justify-content: center;
 
         ul {
-          list-style-image: url('/assets/images/services/idm/check.svg');
+          list-style-image: url("/assets/images/services/idm/check.svg");
 
           li {
             margin-top: size(20px);
@@ -194,7 +194,7 @@ $header-size: size(80px);
       }
 
       .seperator {
-        @include smaller-than('md') {
+        @include smaller-than("md") {
           display: none;
         }
       }
@@ -203,7 +203,7 @@ $header-size: size(80px);
         background: url("/assets/images/services/idm/section-03.svg") left center no-repeat;
         background-size: contain;
 
-        @include smaller-than('md') {
+        @include smaller-than("md") {
           display: none;
         }
       }
@@ -263,7 +263,7 @@ $header-size: size(80px);
             background-size: contain;
 
             &::after {
-              content: '';
+              content: "";
               background: url("/assets/images/services/idm/section-04-icon-background.svg") no-repeat;
               position: absolute;
               left: 0;
@@ -292,6 +292,7 @@ $header-size: size(80px);
       ::ng-deep {
         .arrow-with-animation .slider-arrow {
           color: var(--white);
+
           --active: var(--white);
           --border: rgba(255, 255, 255, 0.12);
         }
@@ -301,7 +302,7 @@ $header-size: size(80px);
             border-color: #ffffff;
 
             &::after {
-              background-color: rgba(255, 255, 255, 0.6);;
+              background-color: rgba(255, 255, 255, 0.6);
             }
           }
         }
@@ -317,7 +318,7 @@ $header-size: size(80px);
 
     &::after {
       background: rgba(58, 191, 124, 0.9);
-      content: '';
+      content: "";
       position: absolute;
       z-index: 0;
       left: 0;
@@ -349,6 +350,7 @@ $header-size: size(80px);
 
       aside.opinion {
         flex-direction: column;
+
         @include larger-than(md) {
           padding-left: size(70px);
         }
@@ -363,14 +365,16 @@ $header-size: size(80px);
           position: relative;
 
           &::before {
-            content: '';
+            content: "";
             position: absolute;
             left: 0;
             top: size(-15px);
+
             @include larger-than(md) {
               left: size(-50px);
               top: size(-5px);
             }
+
             background: url("/assets/images/services/idm/section-05-quoute.svg") center no-repeat;
             background-size: contain;
             width: size(30px);
@@ -379,7 +383,7 @@ $header-size: size(80px);
 
           &::after {
             position: absolute;
-            content: '';
+            content: "";
             background: url("/assets/images/services/idm/section-05-quoute.svg") center no-repeat;
             transform: rotate(-180deg);
             right: 0;

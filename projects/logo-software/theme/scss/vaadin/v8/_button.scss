@@ -2,18 +2,19 @@
   background-image: none;
   box-shadow: none;
   text-shadow: none;
+
   @extend %button, %size, %extender-color;
 
-  &:before {
+  &::before {
     height: auto !important;
   }
 
-  &:after {
+  &::after {
     background: none;
     transition: none;
   }
 
-  &:focus:after {
+  &:focus::after {
     border: none;
     box-shadow: none;
     background: none;
@@ -47,6 +48,7 @@
 
   .v-icon {
     @extend %size-medium;
+
     position: absolute;
     top: size(-1px);
     left: size(-1px);

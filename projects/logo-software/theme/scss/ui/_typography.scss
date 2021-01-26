@@ -14,6 +14,7 @@ h1, h2, h3, h4, h5, h6 {
 p {
   font-weight: 400;
   margin: 0;
+
   @extend %p-medium;
 
   @each $size, $value in get("element.paragraph.size") {
@@ -26,8 +27,6 @@ p {
 .g1, .g2, .g3, .g4, .g5, .g6, .g7, .g8 {
   @extend %gtypo;
 }
-
-
 
 @each $size, $items in get("element.g-typography.size") {
   @each $head, $value in $items {

@@ -1,5 +1,4 @@
-@import '../../../@theme/styles/themes';
-
+@import "../../../@theme/styles/themes";
 
 @include nb-install-component() {
 
@@ -36,6 +35,7 @@
         color: $arrow-fg;
         margin-top: 0.3rem;
       }
+
       span {
         word-wrap: normal;
       }
@@ -64,10 +64,12 @@
       a {
         padding: 2rem 3rem 2rem 2rem;
       }
+
       .page-title {
         font-size: 1.5rem;
         margin-bottom: 0.6rem;
       }
+
       .description {
         display: block;
       }

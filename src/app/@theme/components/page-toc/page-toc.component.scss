@@ -1,4 +1,4 @@
-@import '../../../@theme/styles/themes';
+@import "../../../@theme/styles/themes";
 
 @include nb-install-component() {
 
@@ -27,6 +27,7 @@
       margin-bottom: 0.9375rem;
       font-size: 10px;
     }
+
     a {
       color: $item-fg;
     }
@@ -37,7 +38,7 @@
       position: relative;
 
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         left: -25px;
         top: 50%;

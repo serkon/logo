@@ -13,7 +13,7 @@
   $tipPositionOffset: 13px;
   $tipWidth: 380px;
   $tipBackgroundColor: transparentize(#333333, 0);
-  $tipColor: #fff;
+  $tipColor: #ffffff;
   $tipPointerSize: 7px;
   $linkColor: #e94a34;
   $triangle-base: $tipPointerSize solid transparent;
@@ -64,6 +64,7 @@
         size: 14px;
         style: normal;
       }
+
       line-height: 1.4;
       text-align: left;
       border-radius: 3px;
@@ -74,23 +75,24 @@
       z-index: 10;
       opacity: 0;
       visibility: hidden;
-      transition: all .25s ease-in;
+      transition: all 0.25s ease-in;
 
-      &:after {
+      &::after {
         position: absolute;
         width: 0;
         height: 0;
-        content: '';
+        content: "";
       }
 
       &.on-top {
         bottom: $tipPosition + $tipPositionOffset;
         left: -16px;
 
-        &:after {
+        &::after {
           bottom: -$tipPointerSize;
           left: 18px;
           border-top: $triangle-fill;
+
           @extend %triangle-vertical;
         }
       }
@@ -99,10 +101,11 @@
         top: -100%;
         left: 103%;
 
-        &:after {
+        &::after {
           top: 37%;
           left: -$tipPointerSize;
           border-right: $triangle-fill;
+
           @extend %triangle-horizontal;
         }
       }
@@ -111,10 +114,11 @@
         top: $tipPosition + $tipPositionOffset;
         left: -18px;
 
-        &:after {
+        &::after {
           top: -$tipPointerSize;
           left: 18px;
           border-bottom: $triangle-fill;
+
           @extend %triangle-vertical;
         }
       }
@@ -123,10 +127,11 @@
         top: -100%;
         right: 103%;
 
-        &:after {
+        &::after {
           top: 37%;
           right: -$tipPointerSize;
           border-left: $triangle-fill;
+
           @extend %triangle-horizontal;
         }
       }
@@ -135,17 +140,17 @@
         top: 0;
         right: 0;
 
-        &:after {
+        &::after {
           top: -$tipPointerSize + 1px;
           right: 18px;
           border-bottom: $triangle-fill;
+
           @extend %triangle-vertical;
         }
       }
     }
 
     &:hover {
-
       .tip {
         opacity: 1;
         visibility: visible;

@@ -6,6 +6,7 @@ Standardization: Button
   border-radius: size(get("border.radius"));
   cursor: pointer;
   white-space: nowrap;
+
   @extend %padding-button, %padding-button-medium;
   @extend %fill, %fill-secondary, %size-medium;
 

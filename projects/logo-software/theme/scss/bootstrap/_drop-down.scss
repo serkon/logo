@@ -40,6 +40,7 @@
 
   button ~ button.dropdown-toggle {
     $radius: size(get("border.radius"));
+
     border-radius: 0 $radius $radius 0;
     border-left: size(1px) solid var(--secondary-700);
 
@@ -52,6 +53,7 @@
 
   .btn:not(:last-child):not(.dropdown-toggle) {
     $radius: size(get("border.radius"));
+
     border-radius: $radius 0 0 $radius;
   }
 }
