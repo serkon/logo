@@ -1,1 +1,354 @@
-@import "~@logo-software/icons/style";
+@import "/projects/guideline/src/assets/scss/temp/elements";
+@import "~@logo-software/theme/style";
+
+$gradient-colors: var(--primary-500), var(--primary-700);
+:host {
+  .led-landing{
+    margin: size(-20px);
+    .led-jumbotron{
+      @include gradient(180deg, $gradient-colors);
+      height: 90vh;
+      position: relative;
+      .gfx-base{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        z-index: 0;
+        .item{
+          position: absolute;
+          img{
+            height: 100%;
+          }
+        }
+        .left{
+          float: left;
+          .item{
+            height: 36vh;
+            &:nth-child(1){
+              top:size(50px);
+              left: 0;
+            }
+            &:nth-child(2){
+              top:size(230px);
+              left: size(-30px);
+            }
+          }
+        }
+        .right{
+          float: right;
+          .item{
+            height: 65vh;
+            right: size(7px);
+            top: size(120px);
+          }
+        }
+      }
+      .container{
+        position: relative;
+        height: 100%;
+      }
+      .welcome-message{
+        position: relative;
+        z-index: 1;
+        height: 100%;
+        padding: size(50px) 0 0 0;
+        .message{
+          color: var(--light);
+          margin-top:size(100px);
+          h5{
+            color: var(--light);
+          }
+          p.large{
+            color: var(--light);
+            padding: size(15px) 0;
+            box-sizing: content-box;
+          }
+          .g6{
+            line-height: size(47px);
+          }
+          .cta-base{
+            display: block;
+            padding: size(40px) 0;
+          }
+        }
+        .gfx{
+          overflow: hidden;
+          text-align: center;
+          img{
+            width: 56vw;
+            margin-left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+      }
+      .section-map{
+        position: absolute;
+        left: 0;
+        bottom: size(90px);
+        z-index: 2;
+        logo-link{
+          display: inline-block;
+        }
+
+      }
+    }
+    .led-section{
+      padding: size(190px) 0 0 0;
+      .led-section-info{
+        .section-number{
+          display: inline-block;
+          font-size: size(100px);
+          font-weight: 900;
+          color: var(--text-100);
+        }
+        .section-title{
+          display: block;
+          margin-top: size(-52px);
+        }
+        .section-motto{
+          display: block;
+        }
+        .section-details{
+          padding: size(25px) 0;
+        }
+        .cta-base{
+          display: block;
+          padding: size(50px) 0;
+        }
+      }
+      .led-feature-introduction{
+        padding-bottom: size(150px);
+        logo-carousel{
+          .slider-item{
+            display: inline-block;
+            width: 32vw;
+            overflow:hidden;
+            margin:0 size(35px);
+            height: size(400px);
+            .feature-1{
+              position: relative;
+              span{
+                display: block;
+              }
+              .gfx-code{
+                display: inline-block;
+                position: absolute;
+                top: size(110px);
+                right: size(-15px);
+              }
+            }
+            .feature-2{
+              padding-top: size(100px);
+              .button-row{
+                display: block;
+                padding: size(25px) 0;
+                text-align: center;
+                img{
+                  margin-right: size(50px);
+                  &:last-child{
+                    margin-right: 0;
+                  }
+                }
+              }
+            }
+            .feature-3{
+              position: relative;
+              span{
+                display: inline-block;
+                position: absolute;
+              }
+              .cp-center{
+                top:size(100px);
+                left: size(100px);
+                width: size(200px);
+                height: size(200px);
+                line-height: size(160px);
+                vertical-align: middle;
+                color: var(--light);
+                background: var(--primary);
+                @include border-radius(100%);
+                span{
+                  display: block;
+                  width: 100%;
+                  text-align: center;
+                  font-weight: 700;
+                  &.name{
+                    font-size: size(16px);
+                  }
+                  &.code{
+                    padding: size(30px) 0;
+                    font-size: size(20px);
+                  }
+                }
+              }
+              .cp-item{
+                top:size(100px);
+                left: size(160px);
+                width: size(80px);
+                height: size(200px);
+                &:before{
+                  width: size(80px);
+                  height: size(80px);
+                  position: absolute;
+                  top: size(-100px);
+                  content: "";
+                  @include border-radius(100%);
+                  background: var(--primary-100);
+                }
+                &:nth-child(2){
+                  @include rotate(45deg);
+                  &:before{
+                    background: var(--primary-200);
+                  }
+                }
+                &:nth-child(3){
+                  @include rotate(90deg);
+                  &:before{
+                    background: var(--primary-300);
+                  }
+                }
+                &:nth-child(4){
+                  @include rotate(135deg);
+                  &:before{
+                    background: var(--primary-400);
+                  }
+                }
+                &:nth-child(5){
+                  @include rotate(180deg);
+                  &:before{
+                    background: var(--primary-600);
+                  }
+                }
+                &:nth-child(6){
+                  @include rotate(225deg);
+                  &:before{
+                    background: var(--primary-700);
+                  }
+                }
+                &:nth-child(7){
+                  @include rotate(270deg);
+                  &:before{
+                    background: var(--primary-800);
+                  }
+                }
+                &:nth-child(8){
+                  @include rotate(315deg);
+                  &:before{
+                    background: var(--primary-900);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .led-features-showcase{
+        padding-bottom: size(180px);
+        .led-card{
+          height: size(450px);
+          .card-title-image{
+            .overlay{
+              &.icons{
+                background: rgba(var(--primary-rgb), 0.5);
+              }
+              &.figma{
+                background: rgba(var(--basic-900-rgb), 0.5);
+              }
+              &.inspect{
+                background: rgba(var(--success-700-rgb), 0.5);
+              }
+            }
+          }
+        }
+      }
+      .led-features-points{
+        .point-item{
+          text-align: center;
+          .icon-base{
+            display: inline-block;
+            width: size(160px);
+            height: size(160px);
+            background: var(--light);
+            text-align: center;
+            line-height: size(160px);
+            vertical-align: middle;
+            margin: 0 auto;
+            overflow:hidden;
+            @include border-radius(100%);
+            @include drop-shadow(0, size(24px), size(48px), rgba(var(--gray-1000-rgb), 0.1));
+            span{
+              display: inline-block;
+              width: size(160px);
+              height: size(160px);
+              color: var(--primary);
+            }
+          }
+          .info-base{
+            padding: size(30px) 0;
+            p{
+              padding-top: size(20px);
+            }
+          }
+        }
+      }
+    }
+    .led-setup{
+      .section-general-info{
+        .gfx-base{
+          overflow:hidden;
+          img{
+            width: size(990px);
+            margin-left: size(-300px);
+          }
+        }
+        .info-base{
+          padding-top: size(100px);
+        }
+      }
+      .led-colorgenerator{
+        .info-base{
+          position: relative;
+          z-index: 1;
+          padding-top: size(60px);
+          color: var(--light);
+          h5{
+            color: var(--light);
+          }
+          p.large{
+            color: var(--light);
+            padding: size(7px) 0;
+          }
+          .cta-base{
+            display: block;
+            padding: size(20px) 0;
+          }
+        }
+        .gfx-base{
+          position: relative;
+          overflow: visible;
+          .led-blue-strip{
+            position: absolute;
+            display: inline-block;
+            width: size(5000px);
+            height: size(365px);
+            background: var(--primary);
+            @include border-radius(size(40px));
+            top: 0;
+            right: size(250px);
+            z-index: 0;
+          }
+          img{
+            z-index:1;
+            width: 120%;
+            margin-left: size(-60px);
+          }
+        }
+      }
+    }
+  }
+}
+
+
