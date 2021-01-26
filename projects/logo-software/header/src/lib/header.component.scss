@@ -1,13 +1,5 @@
 :host{
-  width: 100%;
-  .lde-header{
-    padding: 0 15px;
-    &.main{
-      position: absolute;
-      z-index: 2;
-      width: 100%;
-      top: 0;
-      left: 0;
-    }
+  .header{
+    padding: 0 size(20px);
   }
 }
