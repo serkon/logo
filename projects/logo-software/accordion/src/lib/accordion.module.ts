@@ -10,19 +10,22 @@
 
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
-import { AccordionComponent } from './accordion.component';
-import { IsActiveRouteDirective } from './is-active-route.directive';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 
+import { AccordionComponent } from './accordion.component';
+import { IsActiveRouteDirective } from './is-active-route.directive';
+
+/**
+ * A tree view represents a hierarchical view of information, where each item can have a number of subitems.
+ * Click on the arrow(s) to open or close the tree branches.
+ */
 @NgModule({
   imports: [CommonModule, RouterModule],
   declarations: [AccordionComponent, IsActiveRouteDirective],
   exports: [AccordionComponent],
   providers: [],
 })
-
 export class AccordionModule {
   constructor(@Optional() @SkipSelf() parentModule: AccordionModule, @Optional() private http: HttpClient) {
     if (!http) {

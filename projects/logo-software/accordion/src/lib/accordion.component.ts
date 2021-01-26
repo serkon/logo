@@ -12,16 +12,46 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { RouterLinkActive } from '@angular/router';
 import { HttpClient, HttpRequest, HttpResponse } from '@angular/common/http';
 
-export class MenuItem {
+/**
+ * Accordion item interface
+ */
+export interface MenuItem {
+  /**
+   * Optional, id of the item if it comes from database,
+   */
   id?: any;
+  /**
+   * Menu item text to be displayed to the user
+   */
   name: string;
+  /**
+   * Class names to be added to menu item
+   */
   classes?: string;
+  /**
+   * Class names to be added to menu item icons
+   */
   iconClasses?: string;
+  /**
+   * Route information to be directed when clicked
+   */
   link?: string;
+  /**
+   * Sets query parameters to the URL.
+   */
   params?: { [key: string]: any };
+  /**
+   * sub menu container
+   */
   children?: MenuItem[];
+  /**
+   * Enum values required for authorization and authentication operations
+   */
   role?: string;
-  open?: boolean;
+  /**
+   * The variable that defines whether the menu item is open or not.
+   */
+  isOpen?: boolean;
 }
 
 @Component({
@@ -31,16 +61,58 @@ export class MenuItem {
 })
 export class AccordionComponent implements OnInit {
 
+  /**
+   * Specifies one or more CSS classes to be used by the element. When set, this class will also be used by all child elements that don't have their own class.
+   */
+  @Input() classes: string = '';
+  /**
+   * Specifies one or more CSS classes to be used by the element's icons. When set, this class will also be used by all child elements icons that don't have their own class.
+   */
+  @Input() iconClasses?: string = '';
+  /**
+   * Menu items to show
+   */
   @Input() public items: MenuItem[] = [];
+  /**
+   * It indicates the starting level of the items to be displayed
+   */
   @Input() public start = 0;
-  @Input() public paddingLeft: number = 25;
+  /**
+   * Specifies the amount of indentation, in pixels, used to offset successive menu leaf levels in a hierarchy. The default value is 10 pixels.
+   */
+  @Input() public paddingLeft: number = 15;
+  /**
+   * http request will be get items from server for each category opened
+   */
   @Input() request?: HttpRequest<any>;
+  /**
+   * Role information about which authorized people can view this menu item. Example: roles: ['ROLE_ADMIN', 'ROLE_DEVELOPER']
+   */
+  @Input() roles: string[] = [];
+  /**
+   * Item click event trigger. When clicked on any item this event will be called and pushes the item information to the given method.
+   */
   @Output() public itemClick: EventEmitter<MenuItem> = new EventEmitter<MenuItem>();
+  /**
+   * Category click event trigger. When clicked on any category item, this event will be called and pushes the item information to the given method.
+   */
   @Output() public categoryClick: EventEmitter<MenuItem> = new EventEmitter<MenuItem>();
-  @Input() public elementId = '0';
-  @Input() private forChildItems: any = [];
+  @Input() public elementId;
 
-  constructor(private http: HttpClient) {
+  /**
+   * Give HttpClient to the component. First import HttpClientModule to main Module of the app. For example.
+   *  ```typescript
+   * @NgModule({ imports: [
+   *   BrowserModule,
+   *   HttpClientModule, // Add HttpClientModule
+   * ]
+   * })
+   * export class AppModule {
+   * }
+   * ```
+   * @param http
+   */
+  constructor(private http?: HttpClient) {
   }
 
   private _level = 0;
@@ -56,12 +128,15 @@ export class AccordionComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('leve: ', this.level);
-    if (this.level <= 1) {
-      // this.getMenuList();
-      // } else {
-      // this.items = this.forChildItems;
+    if (!this.elementId) {
+      this.elementId = this.generateElementId();
     }
+  }
+
+  generateElementId() {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 97)
+      + Math.random().toString(16).slice(2)
+      + Date.now().toString(16).slice(4);
   }
 
   open(routerLinkActive: RouterLinkActive) {
