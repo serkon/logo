@@ -8,8 +8,8 @@
  * Any reproduction of this material must contain this notice.
  */
 
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { MarkdownModule } from '@logo-software/markdown';
 import { DrawerModule } from '@logo-software/drawer';
