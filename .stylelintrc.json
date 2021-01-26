@@ -1,0 +1,46 @@
+{
+  "extends": "stylelint-config-standard",
+  "plugins": [
+    "stylelint-scss"
+  ],
+  "rules": {
+    "color-hex-length": "long",
+    "function-comma-newline-after": null,
+    "function-parentheses-newline-inside": null,
+    "selector-list-comma-newline-after": null,
+    "selector-type-no-unknown": null,
+    "selector-pseudo-element-no-unknown": [
+      true,
+      {
+        "ignorePseudoElements": [
+          "ng-deep", "host"
+        ]
+      }
+    ],
+    "at-rule-disallowed-list": [
+      "debug"
+    ],
+    "scss/at-extend-no-missing-placeholder": true,
+    "scss/at-function-pattern": [
+      "^[a-z]+(-[a-z]+)*$",
+      {
+        "message": "Function should be written in lowercase with hyphens"
+      }
+    ],
+    "scss/at-import-no-partial-leading-underscore": true,
+    "scss/at-import-partial-extension-blacklist": [
+      "scss"
+    ],
+    "scss/at-mixin-pattern": [
+      "^[a-z]+(-[a-z]+)*$",
+      {
+        "message": "Mixin should be written in lowercase with hyphens"
+      }
+    ],
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "scss/dollar-variable-colon-space-after": "at-least-one-space",
+    "scss/dollar-variable-colon-space-before": "never",
+    "scss/selector-no-redundant-nesting-selector": true
+  }
+}

@@ -16,6 +16,7 @@
       // background: red;
     }
   }
+
   @if $option == "xs" {
     h1 {
       // background: blue;
@@ -36,6 +37,7 @@
  */
 @mixin smaller-than($point-name) {
   $width: get("grid.breakpoints." + $point-name);
+
   @media (max-width: $width) {
     @content;
   }
@@ -43,6 +45,7 @@
 
 @mixin larger-than($point-name) {
   $width: get("grid.breakpoints." + $point-name);
+
   @media (min-width: $width) {
     @content;
   }

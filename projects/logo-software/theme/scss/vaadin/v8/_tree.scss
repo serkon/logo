@@ -1,6 +1,6 @@
 .v-tree {
   .v-tree-node {
-    &:before {
+    &::before {
       // Click area, opacity is zero
       width: size(get('size.medium.height'));
       height: size(get('size.medium.height'));
@@ -25,7 +25,7 @@
       & > div {
         display: flex;
 
-        &:before {
+        &::before {
           order: 1;
           width: size(get('size.medium.height'));
           height: size(get('size.medium.height'));
@@ -52,7 +52,7 @@
   @each $size, $value in get("size") {
     &.#{$size} {
       .v-tree-node {
-        &:before {
+        &::before {
           width: size(get('size.'+$size+'.height'));
           height: size(get('size.'+$size+'.height'));
         }

@@ -18,6 +18,7 @@
   .v-menubar-menuitem {
     @extend %button;
     @extend %customize-fill-basic !optional;
+
     border-radius: 0;
     background-image: none;
     border-right: 0 !important;
@@ -71,12 +72,14 @@
         }
       }
     }
+
     @each $color, $value in get("color.list") {
       $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
       #{$selector} {
         .v-menubar-menuitem {
           @extend %extender-color-#{$type}-#{"" + $color};
           @extend %customize-#{$type}-#{"" + $color} !optional;
+
           @if ($type==fill) {
             &:not(:first-child) {
               border-left-color: var(--#{$color}-700);
@@ -86,6 +89,7 @@
       }
     }
   }
+
   @each $size, $value in get("size") {
     &.#{$size} {
       .v-menubar-menuitem {
@@ -115,7 +119,7 @@
         font-size: size(get("size.small.font-size"));
 
         .v-menubar-menuitem-caption {
-          &:before {
+          &::before {
             margin-left: size(get("size.medium.icon-container") * -1);
             left: auto;
             width: size(get("size.medium.height"));
@@ -144,7 +148,7 @@
     }
   }
 
-  & ~ .v-menubar-popup {
+  ~ .v-menubar-popup {
     margin-top: size(-1px) !important;
     margin-left: 0 !important;
     border-radius: 0 size(get("border.radius")) size(get("border.radius")) 0;

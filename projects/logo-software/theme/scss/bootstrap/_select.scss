@@ -1,5 +1,6 @@
 .chosen-container {
   @extend %fill, %size-medium, %fill-basic;
+
   border-radius: size(get("border.radius"));
   border: none;
 
@@ -20,7 +21,9 @@
     line-height: inherit;
     box-shadow: none;
     border-color: transparent;
+
     @include animate();
+
     @extend %icon, %icon-medium, %icon-right;
 
     &::before {
@@ -117,7 +120,6 @@
           top: 0;
           margin-left: 0;
         }
-
       }
     }
   }
@@ -145,6 +147,7 @@
 
       &::before {
         @include animate();
+
         transform: rotate(180deg);
       }
     }
@@ -157,11 +160,11 @@
       }
     }
   }
-
 }
 
 .custom-select[size]:not([size="1"]) {
   @extend %fill, %fill-basic;
+
   padding: 0;
 
   @each $type in get("type") {
@@ -172,6 +175,7 @@
 
   option {
     @extend %size-medium, %padding-input-medium;
+
     display: flex;
     align-items: center;
   }

@@ -13,7 +13,7 @@
 :host {
   $margin-size: size(20px);
 
-  @mixin modalBody($color: rgba(255,255,255,0)) {
+  @mixin modal-body($color: rgba(255,255,255,0)) {
     border-radius: size(4px);
     overflow: auto;
 
@@ -29,6 +29,7 @@
 
   .app-toast {
     @include animate();
+
     position: fixed;
     z-index: 2;
     top: 0;
@@ -40,6 +41,7 @@
 
     .toast-container {
       @include animate();
+
       position: relative;
       transition: all 0.35s;
       left: 0;
@@ -108,19 +110,19 @@
         }
 
         &.success-bg {
-          @include modalBody(success);
+          @include modal-body(success);
         }
 
         &.danger-bg {
-          @include modalBody(danger);
+          @include modal-body(danger);
         }
 
         &.warning-bg {
-          @include modalBody(warning);
+          @include modal-body(warning);
         }
 
         &.info-bg {
-          @include modalBody(info);
+          @include modal-body(info);
         }
       }
 

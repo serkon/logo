@@ -44,7 +44,6 @@
       }
     }
 
-
     .v-splitpanel-second-container {
       & > div {
         padding: size(34px);
@@ -92,16 +91,16 @@
       width: size(get("element.split.medium.width")/2) !important;
       height: 20px !important;
 
-      &:before {
+      &::before {
         width: size(get("element.split.medium.width")/2) !important;
         height: size(get("element.split.medium.width")/2) !important;
         margin-top: size(get("element.split.medium.width"));
       }
 
-      &:after {
+      &::after {
         width: size(get("element.split.medium.width")/2) !important;
         height: size(get("element.split.medium.width")/2) !important;
-        margin-top: size(get("element.split.medium.width")*2) !important;
+        margin-top: size(get("element.split.medium.width") *2) !important;
       }
     }
 
@@ -137,14 +136,14 @@
           margin-right: size(get("element.split."+#{$size}+".margin.right"));
           overflow: visible;
 
-          &:before {
+          &::before {
             width: size(get("element.split."+#{$size}+".width")/2) !important;
             height: size(get("element.split."+#{$size}+".width")/2) !important;
             margin-top: size(get("element.split."+#{$size}+".width") * -1 + 2px);
             content: "";
           }
 
-          &:after {
+          &::after {
             width: size(get("element.split."+#{$size}+".width")/2) !important;
             height: size(get("element.split."+#{$size}+".width")/2) !important;
             margin-top: size(get("element.split."+#{$size}+".width") - 2px) !important;
@@ -161,7 +160,6 @@
       }
     }
   }
-
 }
 
 .v-splitpanel-vertical {
@@ -182,16 +180,16 @@
       height: 20px !important;
       transform: rotate(90deg);
 
-      &:before {
+      &::before {
         width: size(get("element.split.medium.width")/2) !important;
         height: size(get("element.split.medium.width")/2) !important;
         margin-top: size(get("element.split.medium.width"));
       }
 
-      &:after {
+      &::after {
         width: size(get("element.split.medium.width")/2) !important;
         height: size(get("element.split.medium.width")/2) !important;
-        margin-top: size(get("element.split.medium.width")*2) !important;
+        margin-top: size(get("element.split.medium.width") *2) !important;
       }
     }
   }
@@ -217,14 +215,14 @@
           overflow: visible;
           transform: rotate(90deg);
 
-          &:before {
+          &::before {
             width: size(get("element.split."+#{$size}+".width")/2) !important;
             height: size(get("element.split."+#{$size}+".width")/2) !important;
             margin-top: size(get("element.split."+#{$size}+".width") * -1 + 2px);
             content: "";
           }
 
-          &:after {
+          &::after {
             width: size(get("element.split."+#{$size}+".width")/2) !important;
             height: size(get("element.split."+#{$size}+".width")/2) !important;
             margin-top: size(get("element.split."+#{$size}+".width") - 2px) !important;

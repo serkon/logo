@@ -88,6 +88,7 @@ $success-color: #01cc78;
               &.logo-arrow-down {
                 &::before {
                   @include animate();
+
                   height: 7px;
                   width: 10px;
                 }
@@ -96,6 +97,7 @@ $success-color: #01cc78;
               &.logo-arrow-up {
                 &::before {
                   @include animate();
+
                   height: 7px;
                   width: 10px;
                 }
@@ -259,7 +261,7 @@ $success-color: #01cc78;
                     input {
                       margin-right: 60px;
 
-                      & ~ button.edit-accept {
+                      ~ button.edit-accept {
                         display: inline-block;
                         right: 0;
                         background-color: $success-color;
@@ -270,14 +272,14 @@ $success-color: #01cc78;
                         }
                       }
 
-                      & ~ button.edit-cancel {
+                      ~ button.edit-cancel {
                         display: inline-block;
                         right: 28px;
                         color: #ff3e51;
                         border: 1px solid #e5e5e5;
                       }
 
-                      & ~ button.edit {
+                      ~ button.edit {
                         background-color: white;
                         display: none;
                       }
@@ -337,29 +339,23 @@ $success-color: #01cc78;
   .table {
     margin-bottom: 0;
 
+    label {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      margin-bottom: 0;
+    }
+
     thead {
       th {
         border-top: 0;
         border-bottom: 0;
         vertical-align: inherit;
         margin: 0;
-
-        label {
-          margin-bottom: 0;
-        }
       }
     }
   }
 
-  label {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    margin-bottom: 0;
-  }
-}
-
-:host ::ng-deep {
   table.table-editing tbody tr td {
     $effect: 0 dotted rgba(0, 0, 0, 0.21);
 

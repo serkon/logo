@@ -12,29 +12,40 @@ $test-02: (h: 41);
 
 @function remove-nth($list, $index) {
   $result: null;
+
   @if type-of($index) != number {
     @warn "$index: #{quote($index)} is not a number for `remove-nth`.";
-  } @else if $index == 0 {
+  }
+
+  @else if $index == 0 {
     @warn "List index 0 must be a non-zero integer for `remove-nth`.";
-  } @else if abs($index) > length($list) {
+  }
+
+  @else if abs($index) > length($list) {
     @warn "List index is #{$index} but list is only #{length($list)} item long for `remove-nth`.";
-  } @else {
+  }
+
+  @else {
     $result: ();
     $index: if($index < 0, length($list) + $index + 1, $index);
+
     @for $i from 1 through length($list) {
       @if $i != $index {
         $result: append($result, nth($list, $i));
       }
     }
   }
+
   @return $result;
 }
 
 @function slice($list, $start: 1, $end: length($list)) {
   $result: ();
+
   @for $i from $start through $end {
     $result: append($result, nth($list, $i));
   }
+
   @return $result;
 }
 
@@ -42,24 +53,28 @@ $test-02: (h: 41);
   @each $key in $keys {
     $m: map-get($m, $key);
   }
+
   @return $m;
 }
 
 @function map-set($map, $path, $value, $deep: true) {
-  $pop: if(length($path) > 1, slice($path, 1, length($path)-1), $path);
+  $pop: if(length($path) > 1, slice($path, 1, length($path) -1), $path);
   $last: last($path);
+
   @if ($deep and type-of(find($path))==map and type-of($value)) {
     $value: map-merge(find($path), $value);
   }
   $temp: ($last: $value);
-  @if(length($path) > 1){
+
+  @if (length($path) > 1) {
     $temp: map-merge(find($pop), $temp);
-    @debug $temp;
+
     @for $i from (length($path) * -1 + 1) through -1 {
       $other: find(slice($path, 1, $i * -1));
       $temp: (nth($path, $i * -1): map-merge($other, $temp));
     }
   }
+
   @return map-merge($map, $temp);
 }
 

@@ -13,7 +13,9 @@
     -webkit-box-shadow: inset $left $top $blur $spread $color;
     -moz-box-shadow: inset $left $top $blur $spread $color;
     box-shadow: inset $left $top $blur $spread $color;
-  } @else {
+  }
+
+  @else {
     -webkit-box-shadow: $left $top $blur $spread $color;
     -moz-box-shadow: $left $top $blur $spread $color;
     box-shadow: $left $top $blur $spread $color;

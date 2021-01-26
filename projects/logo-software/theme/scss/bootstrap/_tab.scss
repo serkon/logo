@@ -2,6 +2,7 @@
   .nav.#{$size}, %bootstrap-nav-#{$size} {
     .nav-link {
       @extend %padding-button-#{$size}, %size-#{$size};
+
       border-radius: get("element.tab.size."+$size+".height") / 2;
     }
   }
@@ -31,10 +32,12 @@
     font-weight: 800;
     margin-right: size(20px);
     border-radius: size(get("size.large.height")/2);
+
     @extend %padding-button-medium, %size-medium;
 
     &.active {
       border-bottom: none;
+
       @extend %fill-primary;
     }
   }

@@ -18,5 +18,5 @@
   animation-duration: calc(var(--animate-duration) * 0.75);
   animation-name: flipOutX;
   backface-visibility: visible !important;
-  animation: flipOutX 0.45s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
+  animation: flipOutX 0.45s cubic-bezier(0.6, -0.28, 0.735, 0.045) both;
 }

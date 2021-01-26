@@ -3,6 +3,7 @@ Label
  */
 label {
   @extend %label;
+
   padding-bottom: size(2px);
   color: var(--text);
 

@@ -26,6 +26,7 @@ $container-max-widths: get("grid.container-max-widths");
     $col-list: null;
     $i: index($breakpoints, $breakpoint $value);
     $child: 0;
+
     @if $i > 0 and $i < length($breakpoints) {
       @media (min-width: $value) and (max-width: map-get($breakpoints, nth($keys, ($i + 1)))) {
         .hidden-#{$breakpoint} {
@@ -36,6 +37,7 @@ $container-max-widths: get("grid.container-max-widths");
         }
       }
     }
+
     @media (min-width: $value) {
       @for $i from 1 through $grid-columns {
         .col-#{$breakpoint}-#{$i} {
@@ -62,15 +64,16 @@ $container-max-widths: get("grid.container-max-widths");
           padding-left: #{$gutter/2};
         }
         $col-list: append(
-            $col-list,
-            unquote('.col-#{$breakpoint}-#{$i}, .flex-#{$breakpoint}-#{$i}, .size-#{$breakpoint}-#{$i}'),
-            comma
+          $col-list,
+          unquote('.col-#{$breakpoint}-#{$i}, .flex-#{$breakpoint}-#{$i}, .size-#{$breakpoint}-#{$i}'),
+          comma
         );
       }
-      @include breakpoint(//Responsive Design Mixin
-          $breakpoint,
-          $grid-columns,
-          $gutter
+
+      @include breakpoint(
+        $breakpoint,
+        $grid-columns,
+        $gutter
       );
       #{$col-list} {
         // display: initial !important;
@@ -79,6 +82,7 @@ $container-max-widths: get("grid.container-max-widths");
         flex-direction: column;
         box-sizing: border-box;
       }
+
       .container {
         max-width: map-get($max-widths, $breakpoint);
         width: 100%;
@@ -86,6 +90,7 @@ $container-max-widths: get("grid.container-max-widths");
         box-sizing: border-box;
         padding: 0 #{$gutter/2};
       }
+
       .row {
         display: flex;
         flex-wrap: wrap;
@@ -96,6 +101,7 @@ $container-max-widths: get("grid.container-max-widths");
       }
     }
   }
+
   [class*='column-']:last-child {
     padding-right: 0;
   }

@@ -28,14 +28,18 @@ Casts a string into a number
     $character: str-slice($value, $i, $i);
 
     @if not (index(map-keys($numbers), $character) or $character == '.') {
-      @return to-length(if($minus, -$result, $result), str-slice($value, $i))
+      @return to-length(if($minus, -$result, $result), str-slice($value, $i));
     }
 
     @if $character == '.' {
       $digits: 1;
-    } @else if $digits == 0 {
+    }
+
+    @else if $digits == 0 {
       $result: $result * 10 + map-get($numbers, $character);
-    } @else {
+    }
+
+    @else {
       $digits: $digits * 10;
       $result: $result + map-get($numbers, $character) / $digits;
     }
@@ -62,4 +66,3 @@ Casts a string into a number
 
   @return $value * map-get($units, $unit);
 }
-

@@ -27,10 +27,12 @@
         transform: rotate(-180deg);
         stroke-dashoffset: 0;
       }
+
       52.1% {
         transform: rotate(-360deg);
         stroke-dashoffset: 0;
       }
+
       100% {
         transform: rotate(-180deg);
         stroke-dashoffset: 126;
@@ -43,15 +45,18 @@
         transform: translateX(0);
         opacity: 1;
       }
+
       23% {
         transform: translateX(17px);
         opacity: 1;
       }
+
       24%,
       80% {
         transform: translateX(-22px);
         opacity: 0;
       }
+
       81% {
         opacity: 1;
         transform: translateX(-22px);
@@ -63,9 +68,10 @@
       100% {
         transform: rotate(-40deg) scaleX(1);
       }
+
       20%,
       80% {
-        transform: rotate(0deg) scaleX(.1);
+        transform: rotate(0deg) scaleX(0.1);
       }
     }
 
@@ -74,15 +80,17 @@
       100% {
         transform: rotate(40deg) scaleX(1);
       }
+
       20%,
       80% {
-        transform: rotate(0deg) scaleX(.1);
+        transform: rotate(0deg) scaleX(0.1);
       }
     }
 
     .slider-arrow {
-      --active: #000;
+      --active: #000000;
       --border: rgba(0, 0, 0, 0.12);
+
       display: block;
       position: relative;
       width: 44px;
@@ -101,8 +109,8 @@
         left: 50%;
         top: 50%;
 
-        &:before,
-        &:after {
+        &::before,
+        &::after {
           content: '';
           width: 10px;
           height: 2px;
@@ -116,17 +124,17 @@
           transform-origin: 9px 50%;
         }
 
-        &:before {
+        &::before {
           transform: rotate(-40deg);
         }
 
-        &:after {
+        &::after {
           transform: rotate(40deg);
         }
       }
 
-      &:before,
-      &:after {
+      &::before,
+      &::after {
         content: '';
         display: block;
         position: absolute;
@@ -153,17 +161,17 @@
 
       &.animate {
         svg {
-          animation: stroke 1s ease forwards .3s;
+          animation: stroke 1s ease forwards 0.3s;
         }
 
         i {
           animation: arrow 1.6s ease forwards;
 
-          &:before {
+          &::before {
             animation: arrowUp 1.6s ease forwards;
           }
 
-          &:after {
+          &::after {
             animation: arrowDown 1.6s ease forwards;
           }
         }

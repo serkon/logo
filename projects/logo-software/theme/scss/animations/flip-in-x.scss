@@ -27,5 +27,5 @@
 .flip-in-x {
   backface-visibility: visible !important;
   animation-name: flipInX;
-  animation: flipInX 0.45s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
+  animation: flipInX 0.45s cubic-bezier(0.6, -0.28, 0.735, 0.045) both;
 }
