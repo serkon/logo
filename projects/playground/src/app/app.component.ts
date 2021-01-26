@@ -17,7 +17,7 @@ export class AppComponent {
         {
           name: 'test',
           children: [
-            {name: 'combobox'},
+            {name: 'combobox', params:{patates: 3}},
             {name: 'link'},
             {name: 'carousel'},
             {name: 'accordion'},

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MenuItem } from '@logo-software/accordion';
 
 @Component({
@@ -11,6 +11,7 @@ export class AccordionShowcaseComponent {
   public items: MenuItem[] = [{
     'id': 0,
     'name': 'Root',
+    'iconClasses': 'le-alarm_bell_1',
     'children': [
       {
         'id': 1,
