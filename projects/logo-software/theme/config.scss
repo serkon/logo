@@ -194,6 +194,17 @@ $config: deep-map-merge((
     ),
     panel: (
       padding: (status: true, size: 20px)
+    ),
+    tree:(
+      padding-left:25px,
+      font: (
+          color: var(--text-900)
+      ),
+      size: (
+        small: (height: 32px, font-size: 14px, line-height: 18px, padding: (left: 10px, right: 5px)),
+        medium: (height: 48px, font-size: 14px, line-height: 18px, padding: (left: 10px, right: 5px)),
+        large:(height: 64px, font-size: 14px, line-height: 18px, padding: (left: 10px, right: 5px)),
+      )
     )
   ),
   color: (

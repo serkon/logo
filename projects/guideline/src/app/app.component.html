@@ -9,26 +9,35 @@
  * Any reproduction of this material must contain this notice.
  */
 -->
-<logo-drawer height="65px" width="200px" [menu]="true" [opener]="false">
-  <ng-container drawer-top>
-    <logo-header headerType="main">
-      <span>LOGO</span>
-      <div>
-        Menu Items
-      </div>
-    </logo-header>
-  </ng-container>
-  <ng-container drawer-left>
-    <div class="logo">LOGO<span>ELEMENTS</span></div>
-    <nav>
-      <li>
-        <logo-link [url]="'docs/detail/spacing'">Spacing</logo-link>
-      </li>
-    </nav>
-  </ng-container>
-  <ng-container drawer-right>
-    <router-outlet></router-outlet>
-  </ng-container>
-</logo-drawer>
-
-
+<div class="led-web-base">
+  <logo-drawer height="0" width="200px" [menu]="true" [opener]="false" [bgColors]="{left: '#ffffff', top: 'transparent', right: '#ffffff'}">
+    <ng-container drawer-top>
+      <logo-header headerDefaultTheme="default" headerScrolledTheme="darked">
+        <a routerLink="/" class="logo"></a>
+        <div class="menu">
+          <logo-link [classes]="'ghost large'" [url]="'/'">Home</logo-link>
+          <logo-link [classes]="'ghost large'" [url]="'/docs/started'">Documentation</logo-link>
+          <logo-link [classes]="'ghost large'" [url]="'/'">Icons</logo-link>
+          <button class="ghost disabled large" disabled>Color Generator</button>
+          <logo-link [classes]="'ghost large'" [url]="'/'">Contact</logo-link>
+          <logo-link [classes]="'header-cta icon-left large'" [url]="'/'">
+            <span class="custom-icon">
+              <img src="/assets/img/ico_btn_figma.png"/>
+            </span>
+            Inspect
+          </logo-link>
+        </div>
+      </logo-header>
+    </ng-container>
+    <ng-container drawer-left>
+      <nav>
+        <li>
+          <logo-link [url]="'docs/detail/spacing'">Spacing</logo-link>
+        </li>
+      </nav>
+    </ng-container>
+    <ng-container drawer-right>
+      <router-outlet></router-outlet>
+    </ng-container>
+  </logo-drawer>
+</div>
