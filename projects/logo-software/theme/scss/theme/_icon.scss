@@ -24,7 +24,6 @@
   @each $size, $map in get("size") {
     .icon-left.#{$size} {
       @extend %icon-#{$size}, %icon-#{$size}-left;
-
     }
 
     .icon-right.#{$size} {
