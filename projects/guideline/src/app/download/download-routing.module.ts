@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {DownloadComponent} from '@guideline/src/app/download/download.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {DownloadComponent} from './download.component';
 
 const routes: Routes = [
   {
-    path : 'download',
-    component : DownloadComponent,
+    path: '',
+    component: DownloadComponent,
   },
 ];
 
@@ -13,4 +13,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class DownloadRoutingModule { }
+export class DownloadRoutingModule {
+}

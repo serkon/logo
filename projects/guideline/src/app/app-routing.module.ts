@@ -8,23 +8,22 @@
  * Any reproduction of this material must contain this notice.
  */
 
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    children: [
-      {
-        path: '',
-        loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
-      },
-      {
-        path: 'docs',
-        loadChildren: () => import('./docs/docs.module').then(m => m.DocsModule),
-      },
-    ],
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
+    pathMatch: 'full',
+  },
+  {
+    path: 'docs',
+    loadChildren: () => import('./docs/docs.module').then(m => m.DocsModule),
+  },
+  {
+    path: 'download',
+    loadChildren: () => import('./download/download.module').then(m => m.DownloadModule),
   },
 ];
 
