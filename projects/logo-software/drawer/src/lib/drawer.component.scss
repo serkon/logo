@@ -44,6 +44,7 @@
     right: 0;
     top: 0;
     height: 100%;
+    overflow-x: hidden;
     background-color: var(--drawer-right);
 
     header.drawer-top {
