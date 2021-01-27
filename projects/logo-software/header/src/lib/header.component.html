@@ -1,0 +1,9 @@
+<div class="header {{headerTheme}} {{mobileSupport}}">
+  <a routerLink="/" class="logo"></a>
+  <div class="menu" [ngClass]="{'opened': this.headerService.mobileMenu}">
+    <ng-content></ng-content>
+  </div>
+  <span class="mobile-opener" *ngIf="isMobilized" [ngClass]="{'opened': this.headerService.mobileMenu}">
+    <button class="ghost le-icon_list" (click)="toggleMobileMenu()"></button>
+  </span>
+</div>
