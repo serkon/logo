@@ -54,7 +54,7 @@
   <div class="led-features led-section">
     <div class="container" name="02">
       <div class="row led-feature-introduction">
-        <div class="col-md-6">
+        <div class="col-lg-6 col-xs-12" >
           <logo-carousel [count]="1" [arrow]="false" [dots]="true">
             <div class="slider-item">
               <div class="feature-1">
@@ -100,7 +100,7 @@
             </div>
           </logo-carousel>
         </div>
-        <div class="col-md-6">
+        <div class="col-lg-6 col-xs-12">
           <div class="led-section-info">
             <span class="section-number">02</span>
             <span class="section-title">
@@ -125,83 +125,96 @@
         </div>
       </div>
       <div class="led-features-showcase row">
-        <div class="col-md-4">
-          <div class="led-card landing">
-            <span class="card-title-image">
-              <span class="overlay icons"></span>
-              <span class="gfx-base">
-                <img src="/assets/img/gfx_landing_icons.png"/>
+        <div class="slider-item col-xs-12 col-md-6 col-lg-4">
+            <div class="led-card landing">
+              <span class="card-title-image">
+                <span class="overlay icons"></span>
+                <span class="gfx-base">
+                  <img src="/assets/img/gfx_landing_icons.png"/>
+                </span>
               </span>
-            </span>
-            <span class="card-icon">
-              <span class="icon-placer">
-                <img src="/assets/img/ico_icons.svg" alt="Icons"/>
+              <span class="card-icon">
+                <span class="icon-placer">
+                  <img src="/assets/img/ico_icons.svg" alt="Icons"/>
+                </span>
               </span>
-            </span>
-            <span class="card-info">
-              <h3>Icons</h3>
-              <p class="large">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pellentesque nibh ut nulla porttitor
-              </p>
-            </span>
-            <span class="card-cta">
-              <logo-link [url]="'/icons'" [classes]="'primary icon-left le-eye large'">See Icons</logo-link>
-            </span>
+              <span class="card-info">
+                <h3>Icons</h3>
+                <p class="large">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pellentesque nibh ut nulla porttitor
+                </p>
+              </span>
+              <span class="card-cta">
+                <logo-link
+                  [url]="'/icons'"
+                  [classes]="'primary icon-left le-eye large'"
+                >
+                  See Icons
+                </logo-link>
+              </span>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="led-card landing">
-            <span class="card-title-image">
-              <span class="overlay figma"></span>
-              <span class="gfx-base">
-                <img src="/assets/img/gfx_landing_figmasource.png"/>
+        <div class="slider-item col-xs-12 col-md-6 col-lg-4">
+            <div class="led-card landing">
+              <span class="card-title-image">
+                <span class="overlay figma"></span>
+                <span class="gfx-base">
+                  <img src="/assets/img/gfx_landing_figmasource.png"/>
+                </span>
               </span>
-            </span>
-            <span class="card-icon">
-              <span class="icon-placer">
-                <img src="/assets/img/ico_figma.svg" alt="Figma Source"/>
+              <span class="card-icon">
+                <span class="icon-placer">
+                  <img src="/assets/img/ico_figma.svg" alt="Figma Source"/>
+                </span>
               </span>
-            </span>
-            <span class="card-info">
-              <h3>Figma Source</h3>
-              <p class="large">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pellentesque nibh ut nulla porttitor
-              </p>
-            </span>
-            <span class="card-cta">
-              <logo-link [url]="'/download'"
-                         [classes]="'primary icon-left le-download large'">Download Figma Source</logo-link>
-            </span>
+              <span class="card-info">
+                <h3>Figma Source</h3>
+                <p class="large">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pellentesque nibh ut nulla porttitor
+                </p>
+              </span>
+              <span class="card-cta">
+                <logo-link
+                  [url]="'/download'"
+                  [classes]="'primary icon-left le-download large'"
+                >
+                  Download Figma Source
+                </logo-link>
+              </span>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="led-card landing">
-            <span class="card-title-image">
-              <span class="overlay inspect"></span>
-              <span class="gfx-base">
-                <img src="/assets/img/gfx_landing_inspect.png"/>
+        <div class="slider-item col-xs-12 hidden-md col-lg-4">
+            <div class="led-card landing">
+              <span class="card-title-image">
+                <span class="overlay inspect"></span>
+                <span class="gfx-base">
+                  <img src="/assets/img/gfx_landing_inspect.png"/>
+                </span>
               </span>
-            </span>
-            <span class="card-icon">
-              <span class="icon-placer">
-                <img src="/assets/img/ico_inspect.svg" alt="Inspect"/>
+              <span class="card-icon">
+                <span class="icon-placer">
+                  <img src="/assets/img/ico_inspect.svg" alt="Inspect"/>
+                </span>
               </span>
-            </span>
-            <span class="card-info">
-              <h3>Inspect</h3>
-              <p class="large">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pellentesque nibh ut nulla porttitor
-              </p>
-            </span>
-            <span class="card-cta">
-              <logo-link [url]="'/docs/getstarted'"
-                         [classes]="'primary icon-left le-iris_scan_approved large'">Inspect</logo-link>
-            </span>
+              <span class="card-info">
+                <h3>Inspect</h3>
+                <p class="large">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pellentesque nibh ut nulla porttitor
+                </p>
+              </span>
+              <span class="card-cta">
+                <logo-link
+                  [url]="'/docs/getstarted'"
+                  [classes]="'primary icon-left le-iris_scan_approved large'"
+                >
+                  Inspect
+                </logo-link>
+              </span>
+            </div>
           </div>
-        </div>
       </div>
       <div class="led-features-points row">
-        <div class="col-md-3 point-item">
+        <div class="col-xs-12 col-md-6 col-lg-3 point-item">
           <span class="icon-base">
             <span class="le-checklist"></span>
           </span>
@@ -212,7 +225,7 @@
             </p>
           </span>
         </div>
-        <div class="col-md-3 point-item">
+        <div class="col-xs-12 col-md-6 col-lg-3 point-item">
           <span class="icon-base">
             <span class="le-code_view"></span>
           </span>
@@ -223,7 +236,7 @@
             </p>
           </span>
         </div>
-        <div class="col-md-3 point-item">
+        <div class="col-xs-12 col-md-6 col-lg-3 point-item">
           <span class="icon-base">
             <span class="le-copy"></span>
           </span>
@@ -234,7 +247,7 @@
             </p>
           </span>
         </div>
-        <div class="col-md-3 point-item">
+        <div class="col-xs-12 col-md-6 col-lg-3 point-item">
           <span class="icon-base">
             <span class="icon npm le-tags_1"></span>
           </span>
@@ -251,10 +264,10 @@
   <div class="led-setup led-section">
     <div class="container section-general-info" name="03">
       <div class="row">
-        <div class="col-md-7 gfx-base">
+        <div class="col-xs-12 col-lg-7 gfx-base">
           <img src="/assets/img/gfx_landing_setup.png"/>
         </div>
-        <div class="col-md-5 info-base">
+        <div class="col-xs-12 col-lg-5 info-base">
           <div class="led-section-info">
             <span class="section-number">03</span>
             <span class="section-title">
@@ -276,7 +289,7 @@
         </div>
       </div>
       <div class="row led-colorgenerator">
-        <div class="col-md-6 info-base">
+        <div class="col-xs-12 col-md-6 info-base">
           <h5>Color Generator</h5>
           <span class="g8">Customize your app with color generator</span>
           <p class="large">
@@ -286,7 +299,7 @@
             <button class="light large disabled" disabled>Will be ready soon!</button>
           </span>
         </div>
-        <div class="col-md-6 gfx-base">
+        <div class="col-xs-12 col-md-6 gfx-base">
           <span class="led-blue-strip"></span>
           <img src="/assets/img/gfx_landing_colorgenerator.png"/>
         </div>
@@ -296,10 +309,10 @@
   <div class="led-preview led-section">
     <div class="container" name="04">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-xs-12 col-lg-8">
           <img src="/assets/img/gfx_landing_preview.png"/>
         </div>
-        <div class="col-md-4">
+        <div class="col-xs-12 col-lg-4">
           <div class="led-section-info">
             <span class="section-number">04</span>
             <span class="section-title">
