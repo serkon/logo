@@ -1,0 +1,125 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
+@import "scss/icons";
+@import "scss/config";
+@import "~@logo-software/theme/style";
+
+:host {
+  display: block;
+  padding: 0;
+  margin: 0;
+  font-family: get("font.family");
+  opacity: 1;
+  transition: all 0.5s ease-out;
+  overflow: hidden;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      label {
+        // border: 1px solid red;
+        display: flex;
+        color: get("element.tree.font.color");
+        padding-left: get("element.tree.size.medium.padding.left");
+        padding-right: get("element.tree.size.medium.padding.right");
+        font-size: get("element.tree.size.medium.font-size");
+        line-height: get("element.tree.size.medium.height");
+        height: get("element.tree.size.medium.height");
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: space-between;
+        cursor: auto;
+
+        &:hover {
+          background-color: rgba(var(--dark-rgb), var(--ghost-hover));
+          transition: color 0.1s ease-in;
+        }
+
+        &.router-link-active {
+          background-color: rgba(var(--dark-rgb), var(--ghost-hover));
+        }
+
+        .icon {
+          //@TODO add tree icon scss before the items
+        }
+
+        .title {
+          width: 100%;
+          font-weight: bold;
+          padding-left: 10px;
+          cursor: pointer;
+        }
+
+        .arrow {
+          width: 14px;
+          height: 14px;
+          display: inline-block;
+        }
+
+        a {
+          width: 100%;
+          color: get("element.tree.font.color");
+          text-decoration: none;
+          padding-left: 10px;
+          cursor: pointer;
+        }
+      }
+
+      logo-tree {
+        height: 100%;
+        max-height: 0;
+        opacity: 0;
+        transition: all 0.5s ease-out;
+        // padding-left: get("element.tree.padding-left");
+
+        &.show {
+          max-height: initial;
+          opacity: 1;
+          padding-left: 0;
+          transition: all 0.5s ease-out;
+        }
+
+        li {
+          // border-left: 1px solid darken(blue, 5);
+
+          &:hover {
+            // border-left: 1px solid darken(blue, 10);
+          }
+        }
+      }
+
+      input[type=checkbox] {
+        &:checked + label {
+          // color: $selected;
+          > span.arrow {
+            transform: rotate(90deg);
+          }
+
+          + logo-tree {
+            max-height: initial;
+            opacity: 1;
+            transition: all 0.5s ease-out;
+          }
+        }
+      }
+    }
+  }
+
+  .emitter {
+    background: rgba(200, 20, 20, 0.1);
+    // position: absolute;
+    width: 100%;
+    height: 48px;
+    // z-index: -1;
+  }
+}

@@ -21,6 +21,7 @@ export class AppComponent {
             {name: 'link'},
             {name: 'carousel'},
             {name: 'accordion'},
+            {name: 'tree'},
             {name: 'drawer'},
           ],
         },

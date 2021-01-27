@@ -79,6 +79,10 @@ const routes: Routes = [
         path: 'perspective-sample',
         loadChildren: () => import('./perspective-sample/perspective-sample.module').then(m => m.PerspectiveSampleModule),
       },
+      {
+        path: 'tree-sample',
+        loadChildren: () => import('./tree-sample/tree-sample.module').then(m => m.TreeSampleModule),
+      },
     ],
   },
 ];

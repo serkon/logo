@@ -1299,6 +1299,46 @@
           }
         }
       }
+    },
+    "@logo-software/tree": {
+      "projectType": "library",
+      "root": "projects/logo-software/tree",
+      "sourceRoot": "projects/logo-software/tree/src",
+      "prefix": "logo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/logo-software/tree/tsconfig.lib.json",
+            "project": "projects/logo-software/tree/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/logo-software/tree/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/logo-software/tree/src/test.ts",
+            "tsConfig": "projects/logo-software/tree/tsconfig.spec.json",
+            "karmaConfig": "projects/logo-software/tree/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/logo-software/tree/tsconfig.lib.json",
+              "projects/logo-software/tree/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "documentation"

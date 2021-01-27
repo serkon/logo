@@ -391,23 +391,23 @@ export const structure = [
       },
       {
         type: 'page',
-        name: 'Accordion Module',
+        name: 'Tree Module',
         icon: 'toastr.svg',
         children: [
           {
             type: 'block',
             block: 'component',
-            source: 'AccordionModule',
+            source: 'TreeModule',
           },
           {
             type: 'block',
             block: 'component',
-            source: 'AccordionComponent',
+            source: 'TreeComponent',
           },
           {
             type: 'block',
             block: 'component',
-            source: 'MenuItem',
+            source: 'Tree',
           },
         ],
       },

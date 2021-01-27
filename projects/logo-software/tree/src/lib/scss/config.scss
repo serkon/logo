@@ -1,0 +1,25 @@
+/**
+ * @license
+ * Copyright Logo Yazılım. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of Logo Yazılım.
+ * Any reproduction of this material must contain this notice.
+ */
+
+$dfr_base_config: (
+  element: (
+    tree:(
+      padding-left:25px,
+      font: (
+        color: var(--text-900)
+      ),
+      size: (
+        small: (height: 32px, font-size: 14px, line-height: 18px, padding: (left: 10px, right: 5px)),
+        medium: (height: 48px, font-size: 14px, line-height: 18px, padding: (left: 10px, right: 5px)),
+        large:(height: 64px, font-size: 14px, line-height: 18px, padding: (left: 10px, right: 5px)),
+      )
+    )
+  )
+);
