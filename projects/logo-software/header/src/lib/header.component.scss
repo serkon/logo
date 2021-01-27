@@ -1,5 +1,87 @@
+@import "~@logo-software/theme/base";
+@import "~@logo-software/icons/style";
+
+@mixin transition($property, $duration, $easing: linear) {
+  transition: $property $duration $easing;
+}
+
 :host{
   .header{
-    padding: 0 size(20px);
+    .mobile-opener{
+      display: none;
+    }
+    &.mobilized{
+      .mobile-opener{
+        position: absolute;
+        right: size(30px);
+        z-index: 12;
+        padding: size(5px);
+        top: size(12px);
+
+        button{
+          &::before{
+            mask-size: size(24px);
+          }
+        }
+
+        @include smaller-than(lg){
+          display: inline-block;
+        }
+
+        @include smaller-than(md){
+          right: size(15px);
+        }
+
+        &.opened{
+          button{
+            @extend .le-cross;
+          }
+        }
+      }
+
+      .menu{
+        @include transition(all, 0.25s, ease-in-out);
+        ::ng-deep{
+          @include smaller-than(lg){
+            position: absolute;
+            top: 0;
+            right: -45vw;
+            width: 35vw;
+            height: 100vh;
+            padding-left: size(15px);
+            padding-right: size(15px);
+            z-index: 11;
+            float: none;
+
+            logo-link{
+              display: block!important;
+            }
+
+            button{
+              width: 100%;
+            }
+          }
+
+          @include smaller-than(sm){
+            right: -110vw;
+            width: 90vw;
+
+            logo-link{
+              display: block!important;
+            }
+
+            button{
+              width: 100%;
+            }
+          }
+        }
+        @include smaller-than(lg){
+          &.opened{
+            right: 0;
+          }
+        }
+      }
+    }
+
   }
 }

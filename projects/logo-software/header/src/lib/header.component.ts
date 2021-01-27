@@ -1,34 +1,46 @@
 import { Component, Input, AfterViewInit } from '@angular/core';
 import { fromEvent } from 'rxjs';
+import { HeaderService } from './header.service';
 
 @Component({
   selector: 'logo-header',
-  template: `
-    <div class="header {{headerTheme}}" [ngClass]="headerFunction">
-      <ng-content></ng-content>
-    </div>
-  `,
+  templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements AfterViewInit {
-  @Input() headerDefaultTheme: string = 'default';
-  @Input() headerScrolledTheme: string = 'scrolled';
+  @Input() defaultTheme: string = 'default';
+  @Input() scrolledTheme: string = 'scrolled';
   @Input() watchElement: string = 'drawer-right';
-  public headerFunction: string = 'spied';
-  public headerTheme = this.headerDefaultTheme;
+  @Input() isMobilized: boolean = true;
+  @Input() scrollSpy: boolean = true;
+  @Input() scrollPoint: number = 100;
+  public headerTheme: string = '';
+  public mobileSupport: string = this.isMobilized ? 'mobilized' : 'standart';
 
-  constructor() {
+  constructor(public headerService: HeaderService) {
   }
 
   ngAfterViewInit(): void {
-    const content = document.querySelector('.drawer-right');
-    const scroll$ = fromEvent(content, 'scroll');
-    scroll$.subscribe(dir => {
-      if (content.scrollTop >= 100) {
-        this.headerTheme = this.headerScrolledTheme;
-      } else if (content.scrollTop < 100) {
-        this.headerTheme = this.headerDefaultTheme;
-      }
-    });
+    this.headerService.startTheme = this.defaultTheme;
+    this.headerService.scrollTheme = this.scrolledTheme;
+    this.headerService.catchPoint = this.scrollPoint;
+    this.headerService.isScrollSpy = this.scrollSpy;
+    this.headerTheme = this.headerService.startTheme;
+
+    if (this.headerService.isScrollSpy) {
+      const content = document.querySelector('.' + this.watchElement);
+      const scroll$ = fromEvent(content, 'scroll');
+      scroll$.subscribe(dir => {
+        if (content.scrollTop >= this.headerService.catchPoint) {
+          this.headerTheme = this.headerService.scrollTheme;
+        } else if (content.scrollTop < this.headerService.catchPoint) {
+          this.headerTheme = this.headerService.startTheme;
+        }
+      });
+    }
+  }
+
+  toggleMobileMenu() {
+    return this.headerService.mobileMenu = !this.headerService.mobileMenu;
   }
 }
