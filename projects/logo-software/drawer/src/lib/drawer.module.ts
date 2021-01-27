@@ -23,7 +23,7 @@ import { DrawerComponent } from './drawer.component';
  *
  * ### Installation
  * All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
- * To install Carousel Module:
+ * To install Drawer Module:
  *
  * ```bash
  * $ npm set registry https://registry.npmjs.org/
