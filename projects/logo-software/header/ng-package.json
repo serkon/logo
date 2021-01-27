@@ -3,5 +3,9 @@
   "dest": "../../../dist/logo-software/header",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "whitelistedNonPeerDependencies": [
+    "@logo-software/theme",
+    "@logo-software/icons"
+  ]
 }
