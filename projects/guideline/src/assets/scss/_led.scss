@@ -8,19 +8,22 @@
  * Any reproduction of this material must contain this notice.
  */
 @import 'vars';
-@import "/projects/guideline/src/assets/scss/temp/elements";
+@import '/projects/guideline/src/assets/scss/temp/elements';
 
 html body {
   overflow-x: hidden !important;
   background: var(--light);
 }
 
-button, a, input {
-  @include transition(all, 0.20s, ease-in-out);
+button,
+a,
+input {
+  @include transition(all, .2s, ease-in-out);
 }
 
 .header {
-  @include transition(all, 0.20s, ease-in-out);
+  @include transition(all, .2s, ease-in-out);
+
   padding: size(10px) size(30px);
   position: absolute;
   z-index: 10;
@@ -46,14 +49,15 @@ button, a, input {
       }
     }
 
-    &.mobilized{
-      .mobile-opener{
+    &.mobilized {
+      .mobile-opener {
         button {
           @extend .light;
         }
-        &.opened{
-          button{
-            color: var(--text-900)!important;
+
+        &.opened {
+          button {
+            color: var(--text-900) !important;
           }
         }
       }
@@ -61,7 +65,8 @@ button, a, input {
   }
 
   &.darked {
-    @include drop-shadow(0, size(2px), size(4px), rgba(var(--black-rgb), 0.08));
+    @include drop-shadow(0, size(2px), size(4px), rgba(var(--black-rgb), .08));
+
     background: var(--basic-200);
 
     .logo {
@@ -105,24 +110,25 @@ button, a, input {
       }
     }
 
-    @include smaller-than(lg){
-      @include drop-shadow(0, size(2px), size(4px), rgba(var(--black-rgb), 0.08));
+    @include smaller-than(lg) {
+      @include drop-shadow(0, size(2px), size(4px), rgba(var(--black-rgb), .08));
+
       background: var(--basic-200);
       padding-top: size(65px);
 
-      .ghost{
-        color: var(--text-900)!important;
+      .ghost {
+        color: var(--text-900) !important;
       }
 
       .header-cta {
-        background: var(--primary)!important;
-        color: var(--light)!important;
+        background: var(--primary) !important;
+        color: var(--light) !important;
       }
     }
   }
 
-  @include smaller-than(sm){
-    padding-left: size(15px)!important;
+  @include smaller-than(sm) {
+    padding-left: size(15px) !important;
   }
 }
 
@@ -178,8 +184,9 @@ logo-carousel {
 }
 
 .led-card {
-  @include drop-shadow(0, size(24px), size(48px), rgba(var(--gray-1000-rgb), 0.1));
+  @include drop-shadow(0, size(24px), size(48px), rgba(var(--gray-1000-rgb), .1));
   @include border-radius(size(10px));
+
   background: var(--light);
   overflow: hidden;
   padding: size(30px);
@@ -214,8 +221,9 @@ logo-carousel {
     position: relative;
 
     .icon-placer {
-      @include drop-shadow(0, 0, size(4px), rgba(0, 0, 0, 0.08));
+      @include drop-shadow(0, 0, size(4px), rgba(0, 0, 0, .08));
       @include border-radius(size(10px));
+
       display: inline-block;
       width: size(110px);
       height: size(110px);
@@ -243,8 +251,8 @@ logo-carousel {
 .point-item {
   .icon-base {
     span {
-      &:before {
-        -webkit-mask-size: size(45px) !important;
+      &::before {
+        mask-size: size(45px) !important;
         mask-size: size(45px) !important;
       }
     }

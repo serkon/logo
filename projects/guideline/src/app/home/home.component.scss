@@ -92,12 +92,12 @@ $gradient-colors: var(--primary-500), var(--primary-700);
             padding: size(40px) 0;
           }
 
-          @include smaller-than(lg){
+          @include smaller-than(lg) {
             position: absolute;
             bottom: size(180px);
           }
 
-          @include smaller-than(sm){
+          @include smaller-than(sm) {
             position: absolute;
             bottom: size(40px);
           }
@@ -112,11 +112,11 @@ $gradient-colors: var(--primary-500), var(--primary-700);
             margin-left: 50%;
             transform: translateX(-50%);
 
-            @include smaller-than(lg){
+            @include smaller-than(lg) {
               width: 90%;
             }
 
-            @include smaller-than(sm){
+            @include smaller-than(sm) {
               display: none;
             }
           }
@@ -133,7 +133,7 @@ $gradient-colors: var(--primary-500), var(--primary-700);
           display: inline-block;
         }
 
-        @include smaller-than(sm){
+        @include smaller-than(sm) {
           display: none;
         }
       }
@@ -193,7 +193,7 @@ $gradient-colors: var(--primary-500), var(--primary-700);
             }
 
             @include smaller-than(sm) {
-              width: 85vw!important;
+              width: 85vw !important;
               margin: 0 size(10px);
               height: size(320px);
             }
@@ -294,7 +294,7 @@ $gradient-colors: var(--primary-500), var(--primary-700);
                   }
                 }
 
-                @include smaller-than(lg){
+                @include smaller-than(lg) {
                   left: 25vw;
                 }
 
@@ -393,13 +393,13 @@ $gradient-colors: var(--primary-500), var(--primary-700);
                   }
                 }
 
-                @include smaller-than(lg){
+                @include smaller-than(lg) {
                   left: 33vw;
                 }
               }
             }
 
-            @include smaller-than(lg){
+            @include smaller-than(lg) {
               width: 80vw;
             }
           }
@@ -474,7 +474,7 @@ $gradient-colors: var(--primary-500), var(--primary-700);
         }
       }
 
-      @include smaller-than(sm){
+      @include smaller-than(sm) {
         padding-top: size(120px);
       }
     }
@@ -498,7 +498,7 @@ $gradient-colors: var(--primary-500), var(--primary-700);
         .info-base {
           padding-top: size(100px);
 
-          @include smaller-than(lg){
+          @include smaller-than(lg) {
             padding-top: 0;
             margin-top: size(-100px);
           }
@@ -535,12 +535,12 @@ $gradient-colors: var(--primary-500), var(--primary-700);
             padding: size(20px) 0;
           }
 
-          @include smaller-than(lg){
+          @include smaller-than(lg) {
             padding-top: size(30px);
             margin-top: 0;
           }
 
-          @include smaller-than(sm){
+          @include smaller-than(sm) {
             margin-top: size(230px);
           }
         }
@@ -560,10 +560,10 @@ $gradient-colors: var(--primary-500), var(--primary-700);
             right: size(250px);
             z-index: 0;
 
-            @include smaller-than(lg){
+            @include smaller-than(lg) {
               height: size(420px);
             }
-            @include smaller-than(sm){
+            @include smaller-than(sm) {
               top: auto;
               right: size(-250px);
               bottom: size(-360px);
@@ -576,19 +576,19 @@ $gradient-colors: var(--primary-500), var(--primary-700);
             width: 120%;
             margin-left: size(-60px);
 
-            @include smaller-than(lg){
+            @include smaller-than(lg) {
               width: 150%;
               margin-top: size(70px);
               margin-left: 50%;
               transform: translateX(-50%);
             }
 
-            @include smaller-than(sm){
+            @include smaller-than(sm) {
               width: 120%;
             }
           }
 
-          @include smaller-than(sm){
+          @include smaller-than(sm) {
             position: absolute;
             top: 0;
           }
@@ -596,7 +596,7 @@ $gradient-colors: var(--primary-500), var(--primary-700);
       }
     }
 
-    .led-preview{
+    .led-preview {
       @include smaller-than(md) {
         padding-top: size(120px);
       }

@@ -1,0 +1,35 @@
+//Use with color list like $colors: $blue, $green - Directions are left = LTR, right = RTL, top = TTB, bottom = BTT
+@mixin gradient($direction, $colors) {
+  background: linear-gradient($direction, $colors);
+  background: linear-gradient($direction, $colors);
+  background: linear-gradient($direction, $colors);
+  background: linear-gradient($direction, $colors);
+}
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin transition($property, $duration, $easing: linear) {
+  transition: $property $duration $easing;
+}
+
+@mixin rotate($degrees) {
+  transform: rotate($degrees);
+  transform: rotate($degrees);
+  transform: rotate($degrees);
+  transform: rotate($degrees);
+  transform: rotate($degrees);
+  filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=#{-1*sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
+  filter: progid:dximagetransform.microsoft.matrix(sizingMethod='auto expand', m11=#{cos($degrees)}, m12=#{-1*sin($degrees)}, m21=#{sin($degrees)}, m22=#{cos($degrees)});
+}
+
+@mixin drop-shadow($x, $y, $blur, $shadowcolor) {
+  box-shadow: $x $y $blur $shadowcolor;
+  box-shadow: $x $y $blur $shadowcolor;
+  box-shadow: $x $y $blur $shadowcolor;
+  box-shadow: $x $y $blur $shadowcolor;
+  box-shadow: $x $y $blur $shadowcolor;
+}
