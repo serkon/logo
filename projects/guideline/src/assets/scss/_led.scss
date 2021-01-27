@@ -10,108 +10,158 @@
 @import 'vars';
 @import "/projects/guideline/src/assets/scss/temp/elements";
 
-html body{
-  overflow-x: hidden!important;
+html body {
+  overflow-x: hidden !important;
   background: var(--light);
 }
 
-button, a, input{
+button, a, input {
   @include transition(all, 0.20s, ease-in-out);
 }
 
-.header{
+.header {
+  @include transition(all, 0.20s, ease-in-out);
   padding: size(10px) size(30px);
   position: absolute;
   z-index: 10;
   top: 0;
   left: 0;
   right: 0;
-  @include transition(all, 0.20s, ease-in-out);
-  &.default{
+
+  &.default {
     background: transparent;
-    .logo{
-      background: url('#{$gfx-path}/logo-white.png') no-repeat;
+
+    .logo {
       background-image: url('#{$gfx-path}/logo-white.svg');
       background-position: top left;
     }
-    .menu{
-      button{
+
+    .menu {
+      button {
         @extend .light;
       }
-      .header-cta{
+
+      .header-cta {
         @extend .light;
+      }
+    }
+
+    &.mobilized{
+      .mobile-opener{
+        button {
+          @extend .light;
+        }
+        &.opened{
+          button{
+            color: var(--text-900)!important;
+          }
+        }
       }
     }
   }
-  &.darked{
-    background: var(--basic-200);
+
+  &.darked {
     @include drop-shadow(0, size(2px), size(4px), rgba(var(--black-rgb), 0.08));
-    .logo{
-      background: url('#{$gfx-path}/logo-dark.png') no-repeat;
+    background: var(--basic-200);
+
+    .logo {
       background-image: url('#{$gfx-path}/logo-dark.svg');
       background-position: top left;
     }
-    .menu{
-      .header-cta{
+
+    .menu {
+      .header-cta {
         @extend .primary;
       }
     }
   }
-  .logo{
+
+  .logo {
     display: inline-block;
     float: left;
     width: size(135px);
     height: size(36px);
     margin: size(5px) 0;
   }
-  .menu{
+
+  .menu {
     float: right;
-    logo-link{
+
+    logo-link {
       display: inline-block;
     }
-    .ghost{
+
+    .ghost {
       font-weight: bold;
     }
-    .header-cta{
+
+    .header-cta {
       position: relative;
-      .custom-icon{
+
+      .custom-icon {
         position: absolute;
         left: 14px;
         top: 7px;
       }
     }
+
+    @include smaller-than(lg){
+      @include drop-shadow(0, size(2px), size(4px), rgba(var(--black-rgb), 0.08));
+      background: var(--basic-200);
+      padding-top: size(65px);
+
+      .ghost{
+        color: var(--text-900)!important;
+      }
+
+      .header-cta {
+        background: var(--primary)!important;
+        color: var(--light)!important;
+      }
+    }
+  }
+
+  @include smaller-than(sm){
+    padding-left: size(15px)!important;
   }
 }
 
-.led-jumbotron{
-  .section-map{
-    .map-item{
+.led-jumbotron {
+  .section-map {
+    .map-item {
       color: var(--primary-300);
-      height: size(56px)!important;
-      border-right: 1px solid var(--light)!important;
-      &.last{
-        border: 0 transparent!important;
+      height: size(56px) !important;
+      border-right: 1px solid var(--light) !important;
+
+      &.last {
+        border: 0 transparent !important;
         display: flex;
       }
-      span{
+
+      span {
         display: inline-block;
-        &.counter{
+
+        &.counter {
           float: left;
         }
-        &.name{
+
+        &.name {
           padding: size(10px) 0 0 size(3px);
-          h6{
+
+          h6 {
             text-align: left;
             color: var(--primary-300);
           }
         }
       }
-      &:hover{
-        color: var(--light)!important;
+
+      &:hover {
+        color: var(--light) !important;
         background: transparent;
-        span{
-          &.name{
-            h6{
+
+        span {
+          &.name {
+            h6 {
               color: var(--light);
             }
           }
@@ -127,18 +177,21 @@ logo-carousel {
   }
 }
 
-.led-card{
-  background: var(--light);
-  @include border-radius(size(10px));
-  overflow:hidden;
+.led-card {
   @include drop-shadow(0, size(24px), size(48px), rgba(var(--gray-1000-rgb), 0.1));
+  @include border-radius(size(10px));
+  background: var(--light);
+  overflow: hidden;
   padding: size(30px);
   position: relative;
-  .card-title-image{
+  margin-bottom: size(50px);
+
+  .card-title-image {
     display: block;
     position: relative;
     margin: size(-30px) size(-30px) 0 size(-30px);
-    .overlay{
+
+    .overlay {
       display: block;
       position: absolute;
       z-index: 1;
@@ -147,17 +200,22 @@ logo-carousel {
       top: 0;
       left: 0;
     }
-    img{
+
+    img {
       width: 100%;
     }
   }
-  .card-icon{
+
+  .card-icon {
     display: block;
     text-align: center;
     margin-top: size(-55px);
     z-index: 2;
     position: relative;
-    .icon-placer{
+
+    .icon-placer {
+      @include drop-shadow(0, 0, size(4px), rgba(0, 0, 0, 0.08));
+      @include border-radius(size(10px));
       display: inline-block;
       width: size(110px);
       height: size(110px);
@@ -165,100 +223,30 @@ logo-carousel {
       text-align: center;
       vertical-align: middle;
       line-height: size(110px);
-      @include drop-shadow(0, 0, size(4px), rgba(0,0,0, 0.08));
-      @include border-radius(size(10px));
-      img{
+
+      img {
         vertical-align: middle;
       }
     }
   }
-  .card-info{
+
+  .card-info {
     display: block;
     padding: size(30px) 0;
-    p{
+
+    p {
       padding: size(15px) 0;
     }
   }
 }
 
-.point-item{
-  .icon-base{
-    span{
-      &:before{
-        -webkit-mask-size: size(45px)!important;
-        mask-size: size(45px)!important;
+.point-item {
+  .icon-base {
+    span {
+      &:before {
+        -webkit-mask-size: size(45px) !important;
+        mask-size: size(45px) !important;
       }
     }
   }
 }
-
-.led-footer{
-  padding-top: size(175px);
-  .footer-base{
-    padding: size(50px) 0;
-    background: var(--basic-300);
-    overflow: hidden;
-    margin-right: size(-20px);
-    margin-left: size(-20px);
-    .container{
-      position: relative;
-    }
-    .gfx-flight-dots{
-      display: inline-block;
-      width: size(340px);
-      position: absolute;
-      top: size(-15px);
-      right: 72%;
-      z-index: 1;
-      img{
-        width: 100%;
-      }
-    }
-    .gfx-bg-plane{
-      display: inline-block;
-      position: absolute;
-      right: 0;
-      bottom: size(-120px);
-      z-index: 1;
-      height: size(250px);
-      img{
-        height: 100%;
-      }
-    }
-    .subscribe-area{
-      text-align: center;
-      .subscribe{
-        display: inline-block;
-        padding-left: size(110px);
-        position: relative;
-        z-index: 2;
-        .gfx-plane{
-          display: inline-block;
-          position: absolute;
-          left: 0;
-          width: size(85px);
-          img{
-            width: 100%;
-          }
-        }
-        .subscribe-text{
-          display: block;
-          text-align: left;
-          padding-bottom: size(20px);
-        }
-        .subscribe-form{
-          display: block;
-          input{
-            width: size(300px);
-            margin-right: size(20px);
-          }
-        }
-      }
-    }
-  }
-  .copyright{
-    text-align: center;
-    padding: size(30px) 0;
-  }
-}
-

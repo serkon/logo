@@ -1,15 +1,18 @@
 @import "/projects/guideline/src/assets/scss/temp/elements";
-@import "~@logo-software/theme/style";
+@import "~@logo-software/theme/base";
 
 $gradient-colors: var(--primary-500), var(--primary-700);
+
 :host {
-  .led-landing{
+  .led-landing {
     margin: size(-20px);
-    .led-jumbotron{
+
+    .led-jumbotron {
       @include gradient(180deg, $gradient-colors);
       height: 90vh;
       position: relative;
-      .gfx-base{
+
+      .gfx-base {
         position: absolute;
         top: 0;
         left: 0;
@@ -17,151 +20,256 @@ $gradient-colors: var(--primary-500), var(--primary-700);
         bottom: 0;
         overflow: hidden;
         z-index: 0;
-        .item{
+
+        .item {
           position: absolute;
-          img{
+
+          img {
             height: 100%;
           }
         }
-        .left{
+
+        .left {
           float: left;
-          .item{
+
+          .item {
             height: 36vh;
-            &:nth-child(1){
-              top:size(50px);
+
+            &:nth-child(1) {
+              top: size(50px);
               left: 0;
             }
-            &:nth-child(2){
-              top:size(230px);
+
+            &:nth-child(2) {
+              top: size(230px);
               left: size(-30px);
             }
           }
         }
-        .right{
+
+        .right {
           float: right;
-          .item{
+
+          .item {
             height: 65vh;
             right: size(7px);
             top: size(120px);
           }
         }
       }
-      .container{
+
+      .container {
         position: relative;
         height: 100%;
       }
-      .welcome-message{
+
+      .welcome-message {
         position: relative;
         z-index: 1;
         height: 100%;
         padding: size(50px) 0 0 0;
-        .message{
+
+        .message {
           color: var(--light);
-          margin-top:size(100px);
-          h5{
+          margin-top: size(100px);
+
+          h5 {
             color: var(--light);
           }
-          p.large{
+
+          p.large {
             color: var(--light);
             padding: size(15px) 0;
             box-sizing: content-box;
           }
-          .g6{
+
+          .g6 {
             line-height: size(47px);
           }
-          .cta-base{
+
+          .cta-base {
             display: block;
             padding: size(40px) 0;
           }
+
+          @include smaller-than(lg){
+            position: absolute;
+            bottom: size(180px);
+          }
+
+          @include smaller-than(sm){
+            position: absolute;
+            bottom: size(40px);
+          }
         }
-        .gfx{
+
+        .gfx {
           overflow: hidden;
           text-align: center;
-          img{
+
+          img {
             width: 56vw;
             margin-left: 50%;
             transform: translateX(-50%);
+
+            @include smaller-than(lg){
+              width: 90%;
+            }
+
+            @include smaller-than(sm){
+              display: none;
+            }
           }
         }
       }
-      .section-map{
+
+      .section-map {
         position: absolute;
         left: 0;
         bottom: size(90px);
         z-index: 2;
-        logo-link{
+
+        logo-link {
           display: inline-block;
         }
 
+        @include smaller-than(sm){
+          display: none;
+        }
       }
     }
-    .led-section{
+
+    .led-section {
       padding: size(190px) 0 0 0;
-      .led-section-info{
-        .section-number{
+
+      .led-section-info {
+        .section-number {
           display: inline-block;
           font-size: size(100px);
           font-weight: 900;
           color: var(--text-100);
         }
-        .section-title{
+
+        .section-title {
           display: block;
           margin-top: size(-52px);
         }
-        .section-motto{
+
+        .section-motto {
           display: block;
         }
-        .section-details{
+
+        .section-details {
           padding: size(25px) 0;
+
+          @include smaller-than(sm) {
+            padding: size(25px) size(15px);
+          }
         }
-        .cta-base{
+
+        .cta-base {
           display: block;
           padding: size(50px) 0;
         }
       }
-      .led-feature-introduction{
+
+      .led-feature-introduction {
         padding-bottom: size(150px);
-        logo-carousel{
-          .slider-item{
+
+        @include smaller-than(sm) {
+          padding-bottom: size(60px);
+        }
+
+        logo-carousel {
+          .slider-item {
             display: inline-block;
             width: 32vw;
-            overflow:hidden;
-            margin:0 size(35px);
+            overflow: hidden;
+            margin: 0 size(35px);
             height: size(400px);
-            .feature-1{
+
+            @include smaller-than(lg) {
+              width: 80vw;
+            }
+
+            @include smaller-than(sm) {
+              width: 85vw!important;
+              margin: 0 size(10px);
+              height: size(320px);
+            }
+
+            .feature-1 {
               position: relative;
-              span{
+
+              span {
                 display: block;
               }
-              .gfx-code{
+
+              @include smaller-than(sm) {
+                .gfx-btn {
+                  img {
+                    width: 100%;
+                  }
+                }
+              }
+
+              .gfx-code {
                 display: inline-block;
                 position: absolute;
                 top: size(110px);
                 right: size(-15px);
-              }
-            }
-            .feature-2{
-              padding-top: size(100px);
-              .button-row{
-                display: block;
-                padding: size(25px) 0;
-                text-align: center;
-                img{
-                  margin-right: size(50px);
-                  &:last-child{
-                    margin-right: 0;
+
+                @include smaller-than(sm) {
+                  top: size(75px);
+                  width: size(170px);
+
+                  img {
+                    width: 100%;
                   }
                 }
               }
             }
-            .feature-3{
+
+            .feature-2 {
+              padding-top: size(100px);
+
+              .button-row {
+                display: block;
+                padding: size(25px) 0;
+                text-align: center;
+
+                img {
+                  margin-right: size(50px);
+
+                  &:last-child {
+                    margin-right: 0;
+                  }
+                }
+              }
+
+              @include smaller-than(sm) {
+                padding-top: size(50px);
+
+                .button-row {
+                  img {
+                    margin-right: size(15px);
+                    height: size(50px);
+                  }
+                }
+              }
+            }
+
+            .feature-3 {
               position: relative;
-              span{
+
+              span {
                 display: inline-block;
                 position: absolute;
               }
-              .cp-center{
-                top:size(100px);
+
+              .cp-center {
+                @include border-radius(100%);
+                top: size(100px);
                 left: size(100px);
                 width: size(200px);
                 height: size(200px);
@@ -169,105 +277,170 @@ $gradient-colors: var(--primary-500), var(--primary-700);
                 vertical-align: middle;
                 color: var(--light);
                 background: var(--primary);
-                @include border-radius(100%);
-                span{
+
+                span {
                   display: block;
                   width: 100%;
                   text-align: center;
                   font-weight: 700;
-                  &.name{
+
+                  &.name {
                     font-size: size(16px);
                   }
-                  &.code{
+
+                  &.code {
                     padding: size(30px) 0;
                     font-size: size(20px);
                   }
                 }
+
+                @include smaller-than(lg){
+                  left: 25vw;
+                }
+
+                @include smaller-than(sm) {
+                  top: size(80px);
+                  left: 20vw;
+                  width: size(160px);
+                  height: size(160px);
+                  line-height: size(120px);
+                }
               }
-              .cp-item{
-                top:size(100px);
+
+              .cp-item {
+                top: size(100px);
                 left: size(160px);
                 width: size(80px);
                 height: size(200px);
-                &:before{
+
+                &:before {
+                  @include border-radius(100%);
                   width: size(80px);
                   height: size(80px);
                   position: absolute;
                   top: size(-100px);
                   content: "";
-                  @include border-radius(100%);
                   background: var(--primary-100);
                 }
-                &:nth-child(2){
+
+                @include smaller-than(sm) {
+                  top: size(80px);
+                  left: 35vw;
+                  width: size(50px);
+                  height: size(160px);
+
+                  &:before {
+                    width: size(50px);
+                    height: size(50px);
+                    top: size(-60px);
+                    content: "";
+                  }
+                }
+
+                &:nth-child(2) {
                   @include rotate(45deg);
-                  &:before{
+
+                  &:before {
                     background: var(--primary-200);
                   }
                 }
-                &:nth-child(3){
+
+                &:nth-child(3) {
                   @include rotate(90deg);
-                  &:before{
+
+                  &:before {
                     background: var(--primary-300);
                   }
                 }
-                &:nth-child(4){
+
+                &:nth-child(4) {
                   @include rotate(135deg);
-                  &:before{
+
+                  &:before {
                     background: var(--primary-400);
                   }
                 }
-                &:nth-child(5){
+
+                &:nth-child(5) {
                   @include rotate(180deg);
-                  &:before{
+
+                  &:before {
                     background: var(--primary-600);
                   }
                 }
-                &:nth-child(6){
+
+                &:nth-child(6) {
                   @include rotate(225deg);
-                  &:before{
+
+                  &:before {
                     background: var(--primary-700);
                   }
                 }
-                &:nth-child(7){
+
+                &:nth-child(7) {
                   @include rotate(270deg);
-                  &:before{
+
+                  &:before {
                     background: var(--primary-800);
                   }
                 }
-                &:nth-child(8){
+
+                &:nth-child(8) {
                   @include rotate(315deg);
-                  &:before{
+
+                  &:before {
                     background: var(--primary-900);
                   }
                 }
+
+                @include smaller-than(lg){
+                  left: 33vw;
+                }
               }
+            }
+
+            @include smaller-than(lg){
+              width: 80vw;
             }
           }
         }
       }
-      .led-features-showcase{
+
+      .led-features-showcase {
         padding-bottom: size(180px);
-        .led-card{
+
+        @include smaller-than(md) {
+          padding-bottom: size(60px);
+        }
+
+        .led-card {
           height: size(450px);
-          .card-title-image{
-            .overlay{
-              &.icons{
+
+          .card-title-image {
+            .overlay {
+              &.icons {
                 background: rgba(var(--primary-rgb), 0.5);
               }
-              &.figma{
+
+              &.figma {
                 background: rgba(var(--basic-900-rgb), 0.5);
               }
-              &.inspect{
+
+              &.inspect {
                 background: rgba(var(--success-700-rgb), 0.5);
               }
             }
           }
         }
       }
-      .led-features-points{
-        .point-item{
+
+      .led-features-points {
+        .point-item {
           text-align: center;
-          .icon-base{
+
+          .icon-base {
+            @include border-radius(100%);
+            @include drop-shadow(0, size(24px), size(48px), rgba(var(--gray-1000-rgb), 0.1));
             display: inline-block;
             width: size(160px);
             height: size(160px);
@@ -276,76 +449,156 @@ $gradient-colors: var(--primary-500), var(--primary-700);
             line-height: size(160px);
             vertical-align: middle;
             margin: 0 auto;
-            overflow:hidden;
-            @include border-radius(100%);
-            @include drop-shadow(0, size(24px), size(48px), rgba(var(--gray-1000-rgb), 0.1));
-            span{
+            overflow: hidden;
+
+            span {
               display: inline-block;
               width: size(160px);
               height: size(160px);
               color: var(--primary);
             }
           }
-          .info-base{
+
+          .info-base {
             padding: size(30px) 0;
-            p{
+            display: block;
+
+            @include smaller-than(sm) {
+              padding: size(30px) size(50px);
+            }
+
+            p {
               padding-top: size(20px);
             }
           }
         }
       }
+
+      @include smaller-than(sm){
+        padding-top: size(120px);
+      }
     }
-    .led-setup{
-      .section-general-info{
-        .gfx-base{
-          overflow:hidden;
-          img{
+
+    .led-setup {
+      .section-general-info {
+        .gfx-base {
+          overflow: hidden;
+
+          img {
             width: size(990px);
             margin-left: size(-300px);
+
+            @include smaller-than(md) {
+              width: 150%;
+              margin-left: size(-150px);
+            }
           }
         }
-        .info-base{
+
+        .info-base {
           padding-top: size(100px);
+
+          @include smaller-than(lg){
+            padding-top: 0;
+            margin-top: size(-100px);
+          }
+
+          @include smaller-than(sm) {
+            margin-top: size(-50px);
+          }
         }
       }
-      .led-colorgenerator{
-        .info-base{
+
+      .led-colorgenerator {
+        @include smaller-than(sm) {
+          margin-top: size(120px);
+          position: relative;
+        }
+
+        .info-base {
           position: relative;
           z-index: 1;
           padding-top: size(60px);
           color: var(--light);
-          h5{
+
+          h5 {
             color: var(--light);
           }
-          p.large{
+
+          p.large {
             color: var(--light);
             padding: size(7px) 0;
           }
-          .cta-base{
+
+          .cta-base {
             display: block;
             padding: size(20px) 0;
           }
+
+          @include smaller-than(lg){
+            padding-top: size(30px);
+            margin-top: 0;
+          }
+
+          @include smaller-than(sm){
+            margin-top: size(230px);
+          }
         }
-        .gfx-base{
+
+        .gfx-base {
           position: relative;
           overflow: visible;
-          .led-blue-strip{
+
+          .led-blue-strip {
+            @include border-radius(size(40px));
             position: absolute;
             display: inline-block;
             width: size(5000px);
             height: size(365px);
             background: var(--primary);
-            @include border-radius(size(40px));
             top: 0;
             right: size(250px);
             z-index: 0;
+
+            @include smaller-than(lg){
+              height: size(420px);
+            }
+            @include smaller-than(sm){
+              top: auto;
+              right: size(-250px);
+              bottom: size(-360px);
+              height: size(510px);
+            }
           }
-          img{
-            z-index:1;
+
+          img {
+            z-index: 1;
             width: 120%;
             margin-left: size(-60px);
+
+            @include smaller-than(lg){
+              width: 150%;
+              margin-top: size(70px);
+              margin-left: 50%;
+              transform: translateX(-50%);
+            }
+
+            @include smaller-than(sm){
+              width: 120%;
+            }
+          }
+
+          @include smaller-than(sm){
+            position: absolute;
+            top: 0;
           }
         }
+      }
+    }
+
+    .led-preview{
+      @include smaller-than(md) {
+        padding-top: size(120px);
       }
     }
   }
