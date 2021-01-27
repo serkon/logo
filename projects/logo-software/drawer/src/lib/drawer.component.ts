@@ -15,19 +15,23 @@ export class DrawerComponent implements OnInit, OnDestroy {
   /**
    * left menu visibility, default is open.
    */
-  @Input() menu: boolean = false;
+  @Input() menu: boolean;
   /**
    * menu opener button visibility configuration, default is visible
    */
-  @Input() public opener: boolean = true;
+  @Input() public opener: boolean;
 
   constructor(private elementRef: ElementRef, public drawerService: DrawerService) {
     this.setColors(this.bgColors);
     this.setProperty(`--drawer-width`, this._width);
     this.setProperty(`--drawer-height`, this._height);
+    this.drawerService.toggle.subscribe(() => {
+      this.close()
+      console.log('TESTING')
+    });
   }
 
-  private _height:string = '65px';
+  private _height: string = '65px';
 
   /**
    * header height, default is 65px

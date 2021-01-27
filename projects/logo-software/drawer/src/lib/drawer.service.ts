@@ -5,14 +5,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class DrawerService {
-  public menu: boolean = true;
-  public $changeTitle = new Subject();
-  public headerText = '';
-
-  setHeaderTitle(text, changeTitle = true) {
-    this.headerText = text;
-    if (changeTitle) {
-      this.$changeTitle.next(text);
-    }
-  }
+  menu: boolean = true;
+  opener: boolean = true;
+  toggle = new Subject();
 }
