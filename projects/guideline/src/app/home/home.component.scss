@@ -9,6 +9,7 @@ $gradient-colors: var(--primary-500), var(--primary-700);
 
     .led-jumbotron {
       @include gradient(180deg, $gradient-colors);
+
       height: 90vh;
       position: relative;
 
@@ -29,6 +30,16 @@ $gradient-colors: var(--primary-500), var(--primary-700);
           }
         }
 
+        .right {
+          float: right;
+
+          .item {
+            height: 65vh;
+            right: size(7px);
+            top: size(120px);
+          }
+        }
+
         .left {
           float: left;
 
@@ -44,16 +55,6 @@ $gradient-colors: var(--primary-500), var(--primary-700);
               top: size(230px);
               left: size(-30px);
             }
-          }
-        }
-
-        .right {
-          float: right;
-
-          .item {
-            height: 65vh;
-            right: size(7px);
-            top: size(120px);
           }
         }
       }
@@ -269,6 +270,7 @@ $gradient-colors: var(--primary-500), var(--primary-700);
 
               .cp-center {
                 @include border-radius(100%);
+
                 top: size(100px);
                 left: size(100px);
                 width: size(200px);
@@ -313,8 +315,9 @@ $gradient-colors: var(--primary-500), var(--primary-700);
                 width: size(80px);
                 height: size(200px);
 
-                &:before {
+                &::before {
                   @include border-radius(100%);
+
                   width: size(80px);
                   height: size(80px);
                   position: absolute;
@@ -329,7 +332,7 @@ $gradient-colors: var(--primary-500), var(--primary-700);
                   width: size(50px);
                   height: size(160px);
 
-                  &:before {
+                  &::before {
                     width: size(50px);
                     height: size(50px);
                     top: size(-60px);
@@ -340,7 +343,7 @@ $gradient-colors: var(--primary-500), var(--primary-700);
                 &:nth-child(2) {
                   @include rotate(45deg);
 
-                  &:before {
+                  &::before {
                     background: var(--primary-200);
                   }
                 }
@@ -348,7 +351,7 @@ $gradient-colors: var(--primary-500), var(--primary-700);
                 &:nth-child(3) {
                   @include rotate(90deg);
 
-                  &:before {
+                  &::before {
                     background: var(--primary-300);
                   }
                 }
@@ -356,7 +359,7 @@ $gradient-colors: var(--primary-500), var(--primary-700);
                 &:nth-child(4) {
                   @include rotate(135deg);
 
-                  &:before {
+                  &::before {
                     background: var(--primary-400);
                   }
                 }
@@ -364,7 +367,7 @@ $gradient-colors: var(--primary-500), var(--primary-700);
                 &:nth-child(5) {
                   @include rotate(180deg);
 
-                  &:before {
+                  &::before {
                     background: var(--primary-600);
                   }
                 }
@@ -372,7 +375,7 @@ $gradient-colors: var(--primary-500), var(--primary-700);
                 &:nth-child(6) {
                   @include rotate(225deg);
 
-                  &:before {
+                  &::before {
                     background: var(--primary-700);
                   }
                 }
@@ -380,7 +383,7 @@ $gradient-colors: var(--primary-500), var(--primary-700);
                 &:nth-child(7) {
                   @include rotate(270deg);
 
-                  &:before {
+                  &::before {
                     background: var(--primary-800);
                   }
                 }
@@ -388,7 +391,7 @@ $gradient-colors: var(--primary-500), var(--primary-700);
                 &:nth-child(8) {
                   @include rotate(315deg);
 
-                  &:before {
+                  &::before {
                     background: var(--primary-900);
                   }
                 }
@@ -441,6 +444,7 @@ $gradient-colors: var(--primary-500), var(--primary-700);
           .icon-base {
             @include border-radius(100%);
             @include drop-shadow(0, size(24px), size(48px), rgba(var(--gray-1000-rgb), 0.1));
+
             display: inline-block;
             width: size(160px);
             height: size(160px);
@@ -551,6 +555,7 @@ $gradient-colors: var(--primary-500), var(--primary-700);
 
           .led-blue-strip {
             @include border-radius(size(40px));
+
             position: absolute;
             display: inline-block;
             width: size(5000px);
@@ -563,6 +568,7 @@ $gradient-colors: var(--primary-500), var(--primary-700);
             @include smaller-than(lg) {
               height: size(420px);
             }
+
             @include smaller-than(sm) {
               top: auto;
               right: size(-250px);
@@ -603,5 +609,3 @@ $gradient-colors: var(--primary-500), var(--primary-700);
     }
   }
 }
-
-

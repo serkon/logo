@@ -1,6 +1,6 @@
 @import "~@logo-software/theme/base";
 
-:host{
+:host {
   .led-footer {
     padding-top: size(175px);
 
@@ -27,11 +27,11 @@
           width: 100%;
         }
 
-        @include smaller-than(lg){
+        @include smaller-than(lg) {
           right: 87%;
         }
 
-        @include smaller-than(sm){
+        @include smaller-than(sm) {
           display: none;
         }
       }
@@ -48,11 +48,11 @@
           height: 100%;
         }
 
-        @include smaller-than(lg){
+        @include smaller-than(lg) {
           right: -10%;
         }
 
-        @include smaller-than(sm){
+        @include smaller-than(sm) {
           display: none;
         }
       }
@@ -110,7 +110,7 @@
               }
             }
 
-            button{
+            button {
               @include smaller-than(sm) {
                 width: 100%;
               }
