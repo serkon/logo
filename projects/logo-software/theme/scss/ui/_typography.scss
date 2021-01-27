@@ -31,7 +31,7 @@ p {
 @each $size, $items in get("element.g-typography.size") {
   @each $head, $value in $items {
     $selector: if($size==medium, $head, $head + "." + $size);
-    #{$selector} {
+    .#{$selector} {
       @extend %#{$head}-#{$size};
     }
   }
