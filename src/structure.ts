@@ -404,6 +404,11 @@ export const structure = [
             block: 'component',
             source: 'AccordionComponent',
           },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'MenuItem',
+          },
         ],
       },
       {

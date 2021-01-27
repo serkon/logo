@@ -54,6 +54,9 @@ export interface MenuItem {
   isOpen?: boolean;
 }
 
+/**
+ * Accordion Componente hoş geldiniz
+ */
 @Component({
   selector: 'logo-accordion',
   templateUrl: './accordion.component.html',
