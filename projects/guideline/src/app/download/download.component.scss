@@ -1,0 +1,77 @@
+@import '~@logo-software/theme/base';
+
+.download-main {
+  margin: size(-20px)
+}
+
+.showcase {
+  display: flex;
+  background: linear-gradient(180deg, #0090FF 0%, #007AD9 100%);
+  justify-content: center;
+}
+
+.col-md-4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.showcase-img {
+  width: size(20px);​
+}
+
+.g7 {
+  margin-top: size(20px);
+}
+
+.design-system {
+  max-width: size(681px);
+}
+
+.large {
+  margin-top: size(45px);
+}
+
+.figma-source {
+  margin-top: size(21px);
+  font-size: size(18px);
+  color: var(--light)
+}
+
+.version {
+  color: var(--light);
+  margin-top: size(10px);
+}
+
+button {
+  background-color: var(--primary);
+  color: var(--light);
+}
+
+.ux-team {
+  color: var(--neutral-700);
+
+  margin-top: size(63px);
+}
+
+.content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  margin-top: size(97px);
+  width: size(73px);
+  height: size(40px);
+  justify-content: center;
+  color: var(--light);
+  text-align: center;
+  background: var(--secondary-active);
+  border-radius: size(24px);
+}
