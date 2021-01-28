@@ -41,7 +41,9 @@
 
 @each $size, $map in get("size") {
   %icon-#{$size} {
-    width: size(map_get($map, icon-container));
+    // width: size(map_get($map, icon-container));
+    width: auto;
+    min-width: size(map_get($map, icon-container));
 
     &::before {
       // width: size(map_get($map, icon-container));
