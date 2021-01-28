@@ -1,0 +1,228 @@
+@if (get("vaadin.element.split.status")) {
+  .v-splitpanel-horizontal, .v-splitpanel-vertical {
+    background-color: var(--gray-100);
+
+    > div > {
+      .v-splitpanel-first-container {
+        > div {
+          padding: size(34px);
+        }
+      }
+
+      .v-splitpanel-hsplitter, .v-splitpanel-vsplitter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &::before {
+          position: absolute;
+          content: "";
+          background-color: var(--gray-300);
+          border-radius: size(get("vaadin.element.split.size.medium.width")/2);
+        }
+
+        > div {
+          border-radius: size(get("vaadin.element.split.size.medium.width")/4);
+          background-color: var(--gray-500) !important;
+          overflow: visible;
+
+          &::before {
+            border-radius: 50% !important;
+            border: none !important;
+            background-image: none !important;
+            background-color: var(--gray-500) !important;
+          }
+
+          &::after {
+            border-radius: 50% !important;
+            background-color: var(--gray-500) !important;
+            margin-left: 0 !important;
+            left: 0 !important;
+            top: 0 !important;
+            border: none !important;
+            display: block;
+          }
+        }
+      }
+
+      .v-splitpanel-second-container {
+        > div {
+          padding: size(34px);
+        }
+      }
+    }
+
+    &.large {
+      padding: size(20px);
+      background-color: var(--gray-200);
+
+      > div > {
+        .v-splitpanel-first-container, .v-splitpanel-second-container {
+          background-color: var(--white);
+
+          > div {
+            padding: size(18px);
+          }
+        }
+      }
+    }
+  }
+
+  .v-splitpanel-horizontal {
+    .v-splitpanel-hsplitter {
+      width: size(get("vaadin.element.split.size.medium.margin.left") + get("vaadin.element.split.size.medium.width") + get("vaadin.element.split.size.medium.margin.right")) !important;
+      top: size(get("vaadin.element.split.size.medium.margin.top")) !important;
+      bottom: size(get("vaadin.element.split.size.medium.margin.bottom"));
+      height: auto !important;
+
+      &::before {
+        width: size(get("vaadin.element.split.size.medium.width")) !important;
+        height: 100% !important;
+        margin-left: size(get("vaadin.element.split.size.medium.margin.left"));
+        margin-right: size(get("vaadin.element.split.size.medium.margin.right"));
+      }
+
+      > div {
+        width: size(get("vaadin.element.split.size.medium.width")/2) !important;
+        height: 20px !important;
+
+        &::before {
+          width: size(get("vaadin.element.split.size.medium.width")/2) !important;
+          height: size(get("vaadin.element.split.size.medium.width")/2) !important;
+          margin-top: size(get("vaadin.element.split.size.medium.width"));
+        }
+
+        &::after {
+          width: size(get("vaadin.element.split.size.medium.width")/2) !important;
+          height: size(get("vaadin.element.split.size.medium.width")/2) !important;
+          margin-top: size(get("vaadin.element.split.size.medium.width") *2) !important;
+        }
+      }
+
+      &::after {
+        // border: 1px solid red;
+      }
+    }
+
+    .v-splitpanel-second-container {
+      margin-left: size(get("vaadin.element.split.size.medium.width")) !important;
+    }
+
+    @each $size, $value in get("vaadin.element.split.size") {
+      &.#{$size} {
+        .v-splitpanel-hsplitter {
+          top: size(get("vaadin.element.split.size."+#{$size}+".margin.top")) !important;
+          bottom: size(get("vaadin.element.split.size."+#{$size}+".margin.bottom"));
+          border-radius: size(get("vaadin.element.split.size."+#{$size}+".width")/2);
+          width: size(get("vaadin.element.split.size."+#{$size}+".margin.left") + get("vaadin.element.split.size."+#{$size}+".width") + get("vaadin.element.split.size."+#{$size}+".margin.right")) !important;
+
+          &::before {
+            border-radius: size(get("vaadin.element.split.size."+#{$size}+".width")/2);
+            width: size(get("vaadin.element.split.size."+#{$size}+".width")) !important;
+            margin-left: size(get("vaadin.element.split.size."+#{$size}+".margin.left"));
+            margin-right: size(get("vaadin.element.split.size."+#{$size}+".margin.right"));
+          }
+
+          div {
+            border-radius: size(get("vaadin.element.split.size."+#{$size}+".width")/2);
+            width: size(get("vaadin.element.split.size."+#{$size}+".width")/2) !important;
+            height: size(get("vaadin.element.split.size."+#{$size}+".width")/2) !important;
+            margin-left: size(get("vaadin.element.split.size."+#{$size}+".margin.left"));
+            margin-right: size(get("vaadin.element.split.size."+#{$size}+".margin.right"));
+            overflow: visible;
+
+            &::before {
+              width: size(get("vaadin.element.split.size."+#{$size}+".width")/2) !important;
+              height: size(get("vaadin.element.split.size."+#{$size}+".width")/2) !important;
+              margin-top: size(get("vaadin.element.split.size."+#{$size}+".width") * -1 + 2px);
+              content: "";
+            }
+
+            &::after {
+              width: size(get("vaadin.element.split.size."+#{$size}+".width")/2) !important;
+              height: size(get("vaadin.element.split.size."+#{$size}+".width")/2) !important;
+              margin-top: size(get("vaadin.element.split.size."+#{$size}+".width") - 2px) !important;
+              content: "";
+            }
+          }
+        }
+
+        .v-splitpanel-second-container {
+          margin-left: size(get("vaadin.element.split.size."+#{$size}+".margin.left") + get("vaadin.element.split.size."+#{$size}+".width") + get("vaadin.element.split.size."+#{$size}+".margin.right")) !important;
+        }
+      }
+    }
+  }
+
+  .v-splitpanel-vertical {
+    .v-splitpanel-vsplitter {
+      height: size(get("vaadin.element.split.size.medium.margin.left") + get("vaadin.element.split.size.medium.width") + get("vaadin.element.split.size.medium.margin.right")) !important;
+      right: size(get("vaadin.element.split.size.medium.margin.right")) !important;
+      margin-left: size(get("vaadin.element.split.size.medium.margin.top"));
+      margin-right: size(get("vaadin.element.split.size.medium.margin.bottom"));
+      width: auto !important;
+
+      &::before {
+        height: size(get("vaadin.element.split.size.medium.width")) !important;
+        width: 100% !important;
+      }
+
+      & > div {
+        width: size(get("vaadin.element.split.size.medium.width")/2) !important;
+        height: 20px !important;
+        transform: rotate(90deg);
+
+        &::before {
+          width: size(get("vaadin.element.split.size.medium.width")/2) !important;
+          height: size(get("vaadin.element.split.size.medium.width")/2) !important;
+          margin-top: size(get("vaadin.element.split.size.medium.width"));
+        }
+
+        &::after {
+          width: size(get("vaadin.element.split.size.medium.width")/2) !important;
+          height: size(get("vaadin.element.split.size.medium.width")/2) !important;
+          margin-top: size(get("vaadin.element.split.size.medium.width") *2) !important;
+        }
+      }
+    }
+
+    @each $size, $value in get("vaadin.element.split.size") {
+      &.#{$size} {
+        .v-splitpanel-vsplitter {
+          height: size(get("vaadin.element.split.size."+#{$size}+".margin.left") + get("vaadin.element.split.size."+#{$size}+".width") + get("vaadin.element.split.size."+#{$size}+".margin.right")) !important;
+          margin-left: size(get("vaadin.element.split.size."+#{$size}+".margin.top"));
+          margin-right: size(get("vaadin.element.split.size."+#{$size}+".margin.bottom"));
+
+          &::before {
+            border-radius: size(get("vaadin.element.split.size."+#{$size}+".width")/2);
+            height: size(get("vaadin.element.split.size."+#{$size}+".width")) !important;
+          }
+
+          div {
+            border-radius: size(get("vaadin.element.split.size."+#{$size}+".width")/2);
+            width: size(get("vaadin.element.split.size."+#{$size}+".width")/2) !important;
+            height: size(get("vaadin.element.split.size."+#{$size}+".width")/2) !important;
+            margin-left: size(get("vaadin.element.split.size."+#{$size}+".margin.left"));
+            margin-right: size(get("vaadin.element.split.size."+#{$size}+".margin.right"));
+            overflow: visible;
+            transform: rotate(90deg);
+
+            &::before {
+              width: size(get("vaadin.element.split.size."+#{$size}+".width")/2) !important;
+              height: size(get("vaadin.element.split.size."+#{$size}+".width")/2) !important;
+              margin-top: size(get("vaadin.element.split.size."+#{$size}+".width") * -1 + 2px);
+              content: "";
+            }
+
+            &::after {
+              width: size(get("vaadin.element.split.size."+#{$size}+".width")/2) !important;
+              height: size(get("vaadin.element.split.size."+#{$size}+".width")/2) !important;
+              margin-top: size(get("vaadin.element.split.size."+#{$size}+".width") - 2px) !important;
+              content: "";
+            }
+          }
+        }
+      }
+    }
+  }
+}

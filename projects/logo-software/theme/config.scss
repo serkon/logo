@@ -40,8 +40,8 @@ $config: deep-map-merge((
     ),
   ),
   font:(
-    family: "Nunito Sans",
-    alternative: "Source Sans Pro",
+    family: "Nunito Sans" !important,
+    alternative: "Source Sans Pro" !important,
     icon:"logo-i-font",
     size: 16px,
     size-base: 16px,
@@ -191,21 +191,6 @@ $config: deep-map-merge((
         box-shadow: 0 size(2px) size(15px) size(4px) rgba(var(--primary-rgb), 0.1)
       )
     ),
-    split: (
-      medium: (
-        margin: (top: 6px, right: 0, bottom: 6px, left: 0),
-        width: 4px,
-        sepertor: (height: 20px, width: 2px)
-      ),
-      large: (
-        margin: (top: 0, right: 12px, bottom: 0, left: 12px),
-        width: 8px,
-        sepertor: (height: 12px, width: 2px)
-      )
-    ),
-    panel: (
-      padding: (status: true, size: 20px)
-    ),
     tree:(
       padding-left:25px,
       font: (
@@ -271,6 +256,27 @@ $config: deep-map-merge((
     size-map:(
       tiny: small,
       huge: large,
+    ),
+    element: (
+      panel: (
+        status: true,
+        padding: (status: true, size: 20px)
+      ),
+      menubar: (status: true),
+      slider: (status: true),
+      split: (status: true,
+        size: (
+          medium: (
+            margin: (top: 6px, right: 0, bottom: 6px, left: 0),
+            width: 4px,
+            sepertor: (height: 20px, width: 2px)
+          ),
+          large: (
+            margin: (top: 0, right: 12px, bottom: 0, left: 12px),
+            width: 8px,
+            sepertor: (height: 12px, width: 2px)
+          )
+        )),
     )
   ),
   debug: false,
