@@ -4,5 +4,7 @@
     color: get("font.color");
     font-size: size(map-get($value, "font-size"));
     line-height: size(map-get($value, "line-height"));
+    box-sizing: content-box;
+    height: auto;
   }
 }
