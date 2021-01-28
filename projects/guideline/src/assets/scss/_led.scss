@@ -143,9 +143,11 @@ button, a, input {
 
       span {
         display: inline-block;
+        @include animate(all, 0.2s, ease-in-out);
 
         &.counter {
           float: left;
+          color: var(--primary-300);
         }
 
         &.name {
@@ -163,6 +165,10 @@ button, a, input {
         background: transparent;
 
         span {
+          &.counter {
+            color: var(--light);
+          }
+
           &.name {
             h6 {
               color: var(--light);
