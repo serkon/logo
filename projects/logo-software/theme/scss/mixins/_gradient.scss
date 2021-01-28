@@ -1,0 +1,4 @@
+//Use with color list like $colors: $blue, $green - Directions are in number as degree
+@mixin gradient($direction: 180deg, $colors) {
+  background: linear-gradient($direction, $colors);
+}
