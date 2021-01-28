@@ -18,6 +18,7 @@ Typography
       height: auto;
       margin: 0;
       line-height: size(map-get($value, "line-height"));
+      font-weight: size(map-get($value, "font-weight"));
     }
   }
 }

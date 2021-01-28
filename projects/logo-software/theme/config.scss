@@ -40,7 +40,7 @@ $config: deep-map-merge((
     ),
   ),
   font:(
-    family: "Nunito",
+    family: "Nunito Sans",
     alternative: "Source Sans Pro",
     icon:"logo-i-font",
     size: 16px,
@@ -126,9 +126,9 @@ $config: deep-map-merge((
     ),
     head: (
       size:(
-        small:(h1: (font-size : 32px, line-height : 44px), h2: (font-size : 24px, line-height : 32px), h3: (font-size : 20px, line-height : 26px), h4: (font-size : 28px, line-height : 24px), h5: (font-size : 26px, line-height : 22px), h6: (font-size : 14px, line-height : 18px)),
-        medium:(h1: (font-size : 32px, line-height : 44px), h2: (font-size : 24px, line-height : 32px), h3: (font-size : 20px, line-height : 26px), h4: (font-size : 28px, line-height : 24px), h5: (font-size : 26px, line-height : 22px), h6: (font-size : 14px, line-height : 18px)),
-        large: (h1: (font-size : 32px, line-height : 44px), h2: (font-size : 24px, line-height : 32px), h3: (font-size : 20px, line-height : 26px), h4: (font-size : 28px, line-height : 24px), h5: (font-size : 26px, line-height : 22px), h6: (font-size : 14px, line-height : 18px)),
+        small:(h1: (font-size : 32px, line-height : 44px, font-weight : 400), h2: (font-size : 24px, line-height : 32px, font-weight : 400), h3: (font-size : 20px, line-height : 26px, font-weight : 600), h4: (font-size : 18px, line-height : 24px, font-weight : 600), h5: (font-size : 16px, line-height : 22px, font-weight : 700), h6: (font-size : 14px, line-height : 18px, font-weight : 700)),
+        medium:(h1: (font-size : 32px, line-height : 44px, font-weight : 400), h2: (font-size : 24px, line-height : 32px, font-weight : 400), h3: (font-size : 20px, line-height : 26px, font-weight : 600), h4: (font-size : 18px, line-height : 24px, font-weight : 600), h5: (font-size : 16px, line-height : 22px, font-weight : 700), h6: (font-size : 14px, line-height : 18px, font-weight : 700)),
+        large: (h1: (font-size : 32px, line-height : 44px, font-weight : 400), h2: (font-size : 24px, line-height : 32px, font-weight : 400), h3: (font-size : 20px, line-height : 26px, font-weight : 600), h4: (font-size : 18px, line-height : 24px, font-weight : 600), h5: (font-size : 16px, line-height : 22px, font-weight : 700), h6: (font-size : 14px, line-height : 18px, font-weight : 700)),
         // large: (h1: 36px, h2: 24px, h3: 20px, h4: 18px, h5: 16px, h6: 14px),
         // medium:(h1: 30px, h2: 22px, h3: 18px, h4: 16px, h5: 14px, h6: 12px),
         // small:(h1: 24px, h2: 20px, h3: 16px, h4: 14px, h5: 12px, h6: 10px),
