@@ -1,125 +1,127 @@
-.v-table {
-  .v-table-header-wrap {
-    background-image: none;
-    background-color: var(--primary);
-    border: none;
+@if (get("vaadin.element.table.status")) {
+  .v-table {
+    .v-table-header-wrap {
+      background-image: none;
+      background-color: var(--primary);
+      border: none;
 
-    .v-table-header {
-      table {
-        line-height: size(get("size.medium.height"));
+      .v-table-header {
+        table {
+          line-height: size(get("size.medium.height"));
 
-        tbody {
-          td {
-            .v-table-resizer {
-              line-height: size(get("size.medium.height"));
-              height: size(get("size.medium.height"));
-            }
-
-            .v-table-sort-indicator {
-              line-height: size(get("size.medium.height"));
-              height: size(get("size.medium.height"));
-
-              &::before {
-                color: var(--white);
+          tbody {
+            td {
+              .v-table-resizer {
+                line-height: size(get("size.medium.height"));
                 height: size(get("size.medium.height"));
-                padding-top: size(3px);
-                box-sizing: border-box;
               }
-            }
 
-            .v-table-caption-container {
-              font-size: size(get("size.medium.font-size"));
-              font-weight: 800;
-              border-left: size(1px) solid var(--primary-600);
-              color: var(--white);
-              line-height: 1;
-              height: size(get("size.medium.height"));
-              min-height: size(get("size.medium.height"));
-              display: flex;
-              align-items: center;
-              padding: 0 size(5px);
-            }
-
-            &.v-table-header-cell-desc {
               .v-table-sort-indicator {
+                line-height: size(get("size.medium.height"));
+                height: size(get("size.medium.height"));
+
                 &::before {
-                  top: size(-3px);
-                  position: relative;
-                  padding-top: 0;
+                  color: var(--white);
+                  height: size(get("size.medium.height"));
+                  padding-top: size(3px);
+                  box-sizing: border-box;
+                }
+              }
+
+              .v-table-caption-container {
+                font-size: size(get("size.medium.font-size"));
+                font-weight: 800;
+                border-left: size(1px) solid var(--primary-600);
+                color: var(--white);
+                line-height: 1;
+                height: size(get("size.medium.height"));
+                min-height: size(get("size.medium.height"));
+                display: flex;
+                align-items: center;
+                padding: 0 size(5px);
+              }
+
+              &.v-table-header-cell-desc {
+                .v-table-sort-indicator {
+                  &::before {
+                    top: size(-3px);
+                    position: relative;
+                    padding-top: 0;
+                  }
                 }
               }
             }
           }
         }
       }
+
+      .v-table-column-selector {
+        width: size(get("size.medium.height"));
+        height: size(get("size.medium.height"));
+        border: none;
+        background-image: none;
+        background: transparent;
+        background-image: none;
+        text-shadow: none;
+        box-shadow: none;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
     }
 
-    .v-table-column-selector {
-      width: size(get("size.medium.height"));
-      height: size(get("size.medium.height"));
+    .v-table-body-wrapper {
       border: none;
-      background-image: none;
-      background: transparent;
-      background-image: none;
-      text-shadow: none;
-      box-shadow: none;
-      display: flex !important;
-      align-items: center;
-      justify-content: center;
-      color: white;
-    }
-  }
 
-  .v-table-body-wrapper {
-    border: none;
+      table.v-table-table {
+        box-shadow: none;
+        line-height: size(get("size.medium.height"));
 
-    table.v-table-table {
-      box-shadow: none;
-      line-height: size(get("size.medium.height"));
-
-      tbody {
-        tr {
-          td {
-            height: auto;
-            border: none;
-
-            div.v-table-cell-wrapper {
-              display: flex;
-              font-size: size(get("size.medium.font-size"));
-              line-height: size(get("size.medium.height"));
-              font-weight: 400;
-              padding: 0 size(5px);
-              color: var(--text-900);
-              margin: 0;
-
-              .v-widget {
-                margin: 0;
-              }
-
-              span.icon {
-                height: size(get("size.medium.height"));
-                width: size(get("size.medium.height"));
-              }
-
-              input {
-                background-color: transparent;
-              }
-            }
-          }
-
-          &.v-table-row-odd {
-            background-color: var(--basic);
-          }
-
-          &.v-selected {
-            background-color: var(--primary-700);
-            background-image: none;
-
+        tbody {
+          tr {
             td {
-              border-color: transparent;
+              height: auto;
+              border: none;
 
               div.v-table-cell-wrapper {
-                color: var(--white);
+                display: flex;
+                font-size: size(get("size.medium.font-size"));
+                line-height: size(get("size.medium.height"));
+                font-weight: 400;
+                padding: 0 size(5px);
+                color: var(--text-900);
+                margin: 0;
+
+                .v-widget {
+                  margin: 0;
+                }
+
+                span.icon {
+                  height: size(get("size.medium.height"));
+                  width: size(get("size.medium.height"));
+                }
+
+                input {
+                  background-color: transparent;
+                }
+              }
+            }
+
+            &.v-table-row-odd {
+              background-color: var(--basic);
+            }
+
+            &.v-selected {
+              background-color: var(--primary-700);
+              background-image: none;
+
+              td {
+                border-color: transparent;
+
+                div.v-table-cell-wrapper {
+                  color: var(--white);
+                }
               }
             }
           }

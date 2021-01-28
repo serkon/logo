@@ -263,6 +263,7 @@ $config: deep-map-merge((
         padding: (status: true, size: 20px)
       ),
       menubar: (status: true),
+      grid: (status: true),
       slider: (status: true),
       split: (status: true,
         size: (
@@ -277,6 +278,8 @@ $config: deep-map-merge((
             sepertor: (height: 12px, width: 2px)
           )
         )),
+      table: (status: true),
+      tree: (status: true),
     )
   ),
   debug: false,

@@ -1,155 +1,157 @@
-.v-grid {
-  .v-grid-scroller {
-    border: none;
-  }
+@if (get("vaadin.element.grid.status")) {
+  .v-grid {
+    .v-grid-scroller {
+      border: none;
+    }
 
-  .v-grid-tablewrapper {
-    border: none;
-    background-color: var(--white);
+    .v-grid-tablewrapper {
+      border: none;
+      background-color: var(--white);
 
-    table {
-      thead.v-grid-header {
-        background-color: var(--primary);
+      table {
+        thead.v-grid-header {
+          background-color: var(--primary);
 
-        tr {
-          th {
-            background-image: none;
-            background-color: var(--primary);
-            border: none;
-            border-left: size(1px) solid var(--primary-600);
-            font-size: size(get("size.medium.font-size"));
-            font-weight: 800;
-            color: var(--white);
-            padding: 0 size(5px);
-            text-shadow: none;
-            height: size(get("size.medium.height")) !important;
-            line-height: size(get("size.medium.height")) !important;
+          tr {
+            th {
+              background-image: none;
+              background-color: var(--primary);
+              border: none;
+              border-left: size(1px) solid var(--primary-600);
+              font-size: size(get("size.medium.font-size"));
+              font-weight: 800;
+              color: var(--white);
+              padding: 0 size(5px);
+              text-shadow: none;
+              height: size(get("size.medium.height")) !important;
+              line-height: size(get("size.medium.height")) !important;
+            }
           }
         }
-      }
 
-      tbody.v-grid-body {
-        tr {
-          td {
-            line-height: size(get("size.medium.height"));
-            height: size(get("size.medium.height"));
+        tbody.v-grid-body {
+          tr {
+            td {
+              line-height: size(get("size.medium.height"));
+              height: size(get("size.medium.height"));
+              display: flex;
+              font-size: size(get("size.medium.font-size"));
+              font-weight: 400;
+              padding: 0 size(5px);
+              color: var(--text-900);
+              margin: 0;
+              border: none;
+
+              input {
+                background-color: transparent;
+              }
+            }
+
+            &.v-grid-row-stripe {
+              td {
+                background-color: var(--basic);
+              }
+            }
+
+            &.v-grid-row-selected {
+              background-color: var(--primary-700);
+              background-image: none;
+
+              td {
+                color: var(--white);
+                background-color: transparent;
+                background-image: none;
+              }
+            }
+          }
+        }
+
+        tr, th {
+          span.v-grid-select-all-checkbox, span.v-grid-selection-checkbox {
             display: flex;
-            font-size: size(get("size.medium.font-size"));
-            font-weight: 400;
-            padding: 0 size(5px);
-            color: var(--text-900);
-            margin: 0;
-            border: none;
+            align-items: center;
 
             input {
-              background-color: transparent;
+              @extend %v-checkbox;
             }
-          }
-
-          &.v-grid-row-stripe {
-            td {
-              background-color: var(--basic);
-            }
-          }
-
-          &.v-grid-row-selected {
-            background-color: var(--primary-700);
-            background-image: none;
-
-            td {
-              color: var(--white);
-              background-color: transparent;
-              background-image: none;
-            }
-          }
-        }
-      }
-
-      tr, th {
-        span.v-grid-select-all-checkbox, span.v-grid-selection-checkbox {
-          display: flex;
-          align-items: center;
-
-          input {
-            @extend %v-checkbox;
           }
         }
       }
     }
-  }
 
-  .v-grid-sidebar.v-contextmenu {
-    @extend %v-contextmenu;
+    .v-grid-sidebar.v-contextmenu {
+      @extend %v-contextmenu;
 
-    background-color: transparent;
-    background-image: none;
-    border: size(1px) solid transparent;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    flex-direction: column;
-
-    button {
-      @extend %button;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: size(get("size.medium.height")) !important;
-      height: size(get("size.medium.height")) !important;
       background-color: transparent;
-      margin-top: size(-1px);
-      border-radius: 0;
-
-      &:hover, &:focus, &:active {
-        background-color: var(--primary);
-        color: var(--white);
-      }
-    }
-
-    &.closed {
-      button {
-        color: var(--white);
-      }
-    }
-
-    &.open {
+      background-image: none;
+      border: size(1px) solid transparent;
+      display: flex;
       align-items: flex-end;
-      background-color: var(--white);
-      border: size(1px) solid var(--primary);
-    }
+      justify-content: flex-end;
+      flex-direction: column;
 
-    .v-grid-sidebar-content {
-      padding: 0;
-      margin: 0;
+      button {
+        @extend %button;
 
-      .gwt-MenuBar {
-        .gwt-MenuItem {
-          line-height: size(get("element.menu.item.height"));
-          height: size(get("element.menu.item.height"));
-          font-size: size(get("size.small.font-size"));
-          border-radius: 0;
-          padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: size(get("size.medium.height")) !important;
+        height: size(get("size.medium.height")) !important;
+        background-color: transparent;
+        margin-top: size(-1px);
+        border-radius: 0;
 
-          span {
-            display: inline-block;
+        &:hover, &:focus, &:active {
+          background-color: var(--primary);
+          color: var(--white);
+        }
+      }
 
-            &::before {
-              width: size(get("size.medium.height"));
-              height: size(get("size.medium.height"));
-              line-height: size(get("size.medium.height"));
-              text-align: center;
-              margin-right: 0;
+      &.closed {
+        button {
+          color: var(--white);
+        }
+      }
+
+      &.open {
+        align-items: flex-end;
+        background-color: var(--white);
+        border: size(1px) solid var(--primary);
+      }
+
+      .v-grid-sidebar-content {
+        padding: 0;
+        margin: 0;
+
+        .gwt-MenuBar {
+          .gwt-MenuItem {
+            line-height: size(get("element.menu.item.height"));
+            height: size(get("element.menu.item.height"));
+            font-size: size(get("size.small.font-size"));
+            border-radius: 0;
+            padding: 0;
+
+            span {
               display: inline-block;
+
+              &::before {
+                width: size(get("size.medium.height"));
+                height: size(get("size.medium.height"));
+                line-height: size(get("size.medium.height"));
+                text-align: center;
+                margin-right: 0;
+                display: inline-block;
+              }
             }
           }
-        }
 
-        .gwt-MenuItem-selected {
-          background-color: var(--primary);
-          background-image: none;
-          text-shadow: none;
-          color: var(--white);
+          .gwt-MenuItem-selected {
+            background-color: var(--primary);
+            background-image: none;
+            text-shadow: none;
+            color: var(--white);
+          }
         }
       }
     }
