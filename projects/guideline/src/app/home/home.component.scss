@@ -1,7 +1,5 @@
-@import "/projects/guideline/src/assets/scss/temp/elements";
 @import "~@logo-software/theme/base";
-
-$gradient-colors: var(--primary-500), var(--primary-700);
+@import "../../assets/scss/vars";
 
 :host {
   .led-landing {
@@ -443,7 +441,7 @@ $gradient-colors: var(--primary-500), var(--primary-700);
 
           .icon-base {
             @include border-radius(100%);
-            @include drop-shadow(0, size(24px), size(48px), rgba(var(--gray-1000-rgb), 0.1));
+            @include box-shadow(0, size(24px), size(48px), 0, rgba(var(--gray-1000-rgb), 0.1), false);
 
             display: inline-block;
             width: size(160px);

@@ -8,7 +8,6 @@
  * Any reproduction of this material must contain this notice.
  */
 @import "vars";
-@import "/projects/guideline/src/assets/scss/temp/elements";
 
 html body {
   overflow-x: hidden !important;
@@ -16,11 +15,11 @@ html body {
 }
 
 button, a, input {
-  @include transition(all, 0.2s, ease-in-out);
+  @include animate(all, 0.2s, ease-in-out);
 }
 
 .header {
-  @include transition(all, 0.2s, ease-in-out);
+  @include animate(all, 0.2s, ease-in-out);
 
   padding: size(10px) size(30px);
   position: absolute;
@@ -63,7 +62,7 @@ button, a, input {
   }
 
   &.darked {
-    @include drop-shadow(0, size(2px), size(4px), rgba(var(--black-rgb), 0.08));
+    @include box-shadow(0, size(2px), size(4px), 0, rgba(var(--black-rgb), 0.08), false);
 
     background: var(--basic-200);
 
@@ -109,7 +108,7 @@ button, a, input {
     }
 
     @include smaller-than(lg) {
-      @include drop-shadow(0, size(2px), size(4px), rgba(var(--black-rgb), 0.08));
+      @include box-shadow(0, size(2px), size(4px), 0, rgba(var(--black-rgb), 0.08), false);
 
       background: var(--basic-200);
       padding-top: size(65px);
@@ -182,7 +181,7 @@ logo-carousel {
 }
 
 .led-card {
-  @include drop-shadow(0, size(24px), size(48px), rgba(var(--gray-1000-rgb), 0.1));
+  @include box-shadow(0, size(24px), size(48px), 0, rgba(var(--gray-1000-rgb), 0.1), false);
   @include border-radius(size(10px));
 
   background: var(--light);
@@ -219,7 +218,7 @@ logo-carousel {
     position: relative;
 
     .icon-placer {
-      @include drop-shadow(0, 0, size(4px), rgba(0, 0, 0, 0.08));
+      @include box-shadow(0, 0, size(4px), 0, rgba(var(--black-rgb), 0.08), false);
       @include border-radius(size(10px));
 
       display: inline-block;
