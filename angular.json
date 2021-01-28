@@ -444,7 +444,7 @@
               "projects/guideline/src/styles.scss"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": []
+              "includePaths": ["projects/guideline/src/assets/scss"]
             },
             "scripts": []
           },
