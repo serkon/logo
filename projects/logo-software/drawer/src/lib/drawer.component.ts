@@ -65,6 +65,7 @@ export class DrawerComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.drawerService.menu = this.menu;
+    this.drawerService.isOpenerActive = this.opener;
   }
 
   setProperty(property, value) {
