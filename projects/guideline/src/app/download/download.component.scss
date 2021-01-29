@@ -7,33 +7,48 @@
 .showcase {
   display: flex;
   background: linear-gradient(180deg, #0090FF 0%, #007AD9 100%);
-  justify-content: center;
+  flex-direction: row;
 }
 
-.col-md-4 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media (max-width: size(800px)) {
+  .showcase {
+    flex-direction: column;
+  }
+  .figma-source {
+    margin : size(30px)
+  }
 }
 
-
-
-.g7 {
+.download-design {
   margin-top: size(20px);
 }
 
 .design-system {
   max-width: size(681px);
-}
-
-.large {
   margin-top: size(45px);
 }
 
-.figma-source {
+.all-components {
+  margin-top: size(10px) !important;
+}
+
+.download-button {
+  display: flex;
+  margin-top: size(45px);
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary);
+  color: var(--light);
+}
+
+.figma-source-text {
   margin-top: size(21px);
   font-size: size(18px);
   color: var(--light)
+}
+
+.figma-small {
+  margin-right: size(9px);
 }
 
 .version {
@@ -41,14 +56,8 @@
   margin-top: size(10px);
 }
 
-button {
-  background-color: var(--primary);
-  color: var(--light);
-}
-
 .ux-team {
   color: var(--neutral-700);
-
   margin-top: size(63px);
 }
 
