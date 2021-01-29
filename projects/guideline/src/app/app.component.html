@@ -9,15 +9,16 @@
  * Any reproduction of this material must contain this notice.
  */
 -->
-<div class="led-web-base">
-  <logo-drawer height="0" width="200px" [menu]="true" [opener]="false" [bgColors]="{left: '#ffffff', top: 'transparent', right: '#ffffff'}">
+<div [ngClass]="{'led-drawer-opened' : !this.drawerService.menu}" class="led-web-base">
+  <logo-drawer [bgColors]="{left: '#ffffff', top: 'transparent', right: '#ffffff'}" [menu]="true" [opener]="false"
+               height="0" width="20vw">
     <ng-container drawer-top>
       <logo-header defaultTheme="default" scrolledTheme="darked" [isMobilized]="true">
         <logo-link [classes]="'ghost large'" [url]="'/'">Home</logo-link>
-        <logo-link [classes]="'ghost large'" [url]="'/docs/started'">Documentation</logo-link>
-        <logo-link [classes]="'ghost large'" [url]="'/'">Icons</logo-link>
+        <logo-link [classes]="'ghost large'" [url]="'/docs/detail/getstarted'">Documentation</logo-link>
+        <logo-link [classes]="'ghost large'" [url]="'/Icons'">Icons</logo-link>
         <button class="ghost disabled large" disabled>Color Generator</button>
-        <logo-link [classes]="'ghost large'" [url]="'/'">Contact</logo-link>
+        <logo-link [classes]="'ghost large'" [url]="'/contact'">Contact</logo-link>
         <logo-link [classes]="'header-cta icon-left large'" [url]="'/'">
             <span class="custom-icon">
               <img src="/assets/img/ico_btn_figma.png"/>
@@ -27,11 +28,12 @@
       </logo-header>
     </ng-container>
     <ng-container drawer-left>
-      <nav>
-        <li>
-          <logo-link [url]="'docs/detail/spacing'">Spacing</logo-link>
-        </li>
-      </nav>
+      <div class="drawer-header">
+        <a class="logo" href="/"></a>
+      </div>
+      <div class="drawer-left-content">
+        <logo-tree [iconClasses]="" [items]="items" [start]="0"></logo-tree>
+      </div>
     </ng-container>
     <ng-container drawer-right></ng-container>
   </logo-drawer>

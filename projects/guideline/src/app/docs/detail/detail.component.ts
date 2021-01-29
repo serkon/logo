@@ -1,5 +1,7 @@
-import { AfterViewInit, Compiler, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Compiler, Component, ElementRef, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { HeaderService } from '@logo-software/header';
+import { DrawerService } from '@logo-software/drawer';
 
 import { DocsService } from '../docs.service';
 
@@ -12,11 +14,22 @@ export class DetailComponent implements OnInit, AfterViewInit {
 
   public component;
 
-  constructor(private compiler: Compiler, public docsService: DocsService, private route: ActivatedRoute) {
+  constructor(
+    private compiler: Compiler,
+    public docsService: DocsService,
+    private route: ActivatedRoute,
+    public headerService: HeaderService,
+    public drawerService: DrawerService,
+    private elementRef: ElementRef,
+  ) {
   }
 
   ngOnInit(): void {
     this.paramChanges();
+    this.headerService.isScrollSpy = false;
+    this.headerService.setDefaultTheme('darked');
+    this.drawerService.isOpenerActive = true;
+    this.drawerService.menu = false;
   }
 
   ngAfterViewInit() {

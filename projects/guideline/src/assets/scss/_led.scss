@@ -7,6 +7,7 @@
  * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
  * Any reproduction of this material must contain this notice.
  */
+@import "~@logo-software/theme/base";
 @import "vars";
 
 html body {
@@ -16,6 +17,10 @@ html body {
 
 button, a, input {
   @include animate(all, 0.2s, ease-in-out);
+}
+
+header {
+  height: size(65px) !important;
 }
 
 .header {
@@ -79,6 +84,8 @@ button, a, input {
   }
 
   .logo {
+    @include animate();
+
     display: inline-block;
     float: left;
     width: size(135px);
@@ -128,6 +135,43 @@ button, a, input {
     padding-left: size(15px) !important;
   }
 }
+
+.led-drawer-opened {
+  .header {
+    .logo {
+      display: none;
+    }
+  }
+}
+
+.drawer-header {
+  @include box-shadow(0, size(2px), size(4px), 0, rgba(var(--black-rgb), 0.08), false);
+
+  background: var(--basic-200);
+  display: inline-block;
+  height: size(68px);
+  width: 100%;
+  padding: size(10px) size(0) size(10px) size(30px);
+  overflow: hidden;
+  box-sizing: border-box;
+
+  .logo {
+    @include animate();
+
+    display: inline-block;
+    float: left;
+    width: size(135px);
+    height: size(36px);
+    margin: size(5px) 0;
+    background-image: url("#{$gfx-path}/logo-dark.svg");
+    background-position: top left;
+  }
+}
+
+.drawer-left {
+  @include box-shadow(0, 0, size(4px), size(1px), rgba(var(--black-rgb), 0.08), true);
+}
+
 
 .led-jumbotron {
   .section-map {

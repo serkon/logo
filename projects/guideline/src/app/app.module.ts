@@ -15,6 +15,7 @@ import { MarkdownModule } from '@logo-software/markdown';
 import { DrawerModule } from '@logo-software/drawer';
 import { LinksModule } from '@logo-software/links';
 import { HeaderModule } from '@logo-software/header';
+import { TreeModule } from '@logo-software/tree';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,7 +23,7 @@ import { DocsService } from './docs/docs.service';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, MarkdownModule, RouterModule, DrawerModule, LinksModule, HeaderModule],
+  imports: [BrowserModule, AppRoutingModule, MarkdownModule, RouterModule, DrawerModule, LinksModule, HeaderModule, TreeModule],
   providers: [
     DocsService,
   ],
