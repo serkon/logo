@@ -1,4 +1,4 @@
-import { Component, Input, AfterViewInit } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { HeaderService } from './header.service';
 
@@ -14,7 +14,6 @@ export class HeaderComponent implements AfterViewInit {
   @Input() isMobilized: boolean = true;
   @Input() scrollSpy: boolean = true;
   @Input() scrollPoint: number = 100;
-  public headerTheme: string = '';
   public mobileSupport: string = this.isMobilized ? 'mobilized' : 'standart';
 
   constructor(public headerService: HeaderService) {
@@ -25,16 +24,15 @@ export class HeaderComponent implements AfterViewInit {
     this.headerService.scrollTheme = this.scrolledTheme;
     this.headerService.catchPoint = this.scrollPoint;
     this.headerService.isScrollSpy = this.scrollSpy;
-    this.headerTheme = this.headerService.startTheme;
 
     if (this.headerService.isScrollSpy) {
       const content = document.querySelector('.' + this.watchElement);
       const scroll$ = fromEvent(content, 'scroll');
       scroll$.subscribe(dir => {
         if (content.scrollTop >= this.headerService.catchPoint) {
-          this.headerTheme = this.headerService.scrollTheme;
+          this.headerService.settedTheme = this.headerService.scrollTheme;
         } else if (content.scrollTop < this.headerService.catchPoint) {
-          this.headerTheme = this.headerService.startTheme;
+          this.headerService.settedTheme = this.headerService.startTheme;
         }
       });
     }

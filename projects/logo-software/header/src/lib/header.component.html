@@ -1,5 +1,5 @@
-<div class="header {{headerTheme}} {{mobileSupport}}">
-  <a routerLink="/" class="logo"></a>
+<div [ngClass]="this.headerService.settedTheme" class="header {{mobileSupport}}">
+  <a class="logo" href="/"></a>
   <div class="menu" [ngClass]="{'opened': this.headerService.mobileMenu}">
     <ng-content></ng-content>
   </div>
