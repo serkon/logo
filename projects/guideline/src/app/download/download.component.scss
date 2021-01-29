@@ -1,84 +1,93 @@
 @import '~@logo-software/theme/base';
 
-.download-main {
-  margin: size(-20px)
-}
+:host {
+  display: block;
 
-.showcase {
-  display: flex;
-  background: linear-gradient(180deg, #0090FF 0%, #007AD9 100%);
-  flex-direction: row;
+  .download-main {
+    margin: size(-20px);
+
+    .showcase {
+      display: flex;
+      background: linear-gradient(180deg, #0090FF 0%, #007AD9 100%);
+      flex-direction: row;
+
+      .figma-source-text {
+        margin-top: size(21px);
+        font-size: size(18px);
+        color: var(--light);
+      }
+
+      .version {
+        color: var(--light);
+        margin-top: size(10px);
+      }
+    }
+
+    .content {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+
+      .badge {
+        display: flex;
+        align-items: center;
+        margin-top: size(97px);
+        width: size(73px);
+        height: size(40px);
+        justify-content: center;
+        color: var(--light);
+        text-align: center;
+        background: var(--secondary-active);
+        border-radius: size(24px);
+      }
+
+      .download-design {
+        margin-top: size(20px);
+      }
+
+      .all-components {
+        margin-top: size(10px) !important;
+      }
+
+      .design-system {
+        max-width: size(681px);
+        margin-top: size(45px);
+      }
+
+      .download-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--primary);
+        color: var(--light);
+        margin-top: size(45px);
+
+        .figma-small {
+          margin-right: size(9px);
+        }
+      }
+
+      .ux-team {
+        color: var(--neutral-700);
+        margin-top: size(63px);
+      }
+    }
+  }
 }
 
 @media (max-width: size(800px)) {
-  .showcase {
-    flex-direction: column;
+  :host {
+    .download-main {
+      .showcase {
+        flex-direction: column;
+      }
+
+      .figma-source {
+        margin: size(30px);
+      }
+    }
   }
-  .figma-source {
-    margin : size(30px)
-  }
-}
-
-.download-design {
-  margin-top: size(20px);
-}
-
-.design-system {
-  max-width: size(681px);
-  margin-top: size(45px);
-}
-
-.all-components {
-  margin-top: size(10px) !important;
-}
-
-.download-button {
-  display: flex;
-  margin-top: size(45px);
-  justify-content: center;
-  align-items: center;
-  background-color: var(--primary);
-  color: var(--light);
-}
-
-.figma-source-text {
-  margin-top: size(21px);
-  font-size: size(18px);
-  color: var(--light)
-}
-
-.figma-small {
-  margin-right: size(9px);
-}
-
-.version {
-  color: var(--light);
-  margin-top: size(10px);
-}
-
-.ux-team {
-  color: var(--neutral-700);
-  margin-top: size(63px);
-}
-
-.content {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-}
-
-.badge {
-  display: flex;
-  align-items: center;
-  margin-top: size(97px);
-  width: size(73px);
-  height: size(40px);
-  justify-content: center;
-  color: var(--light);
-  text-align: center;
-  background: var(--secondary-active);
-  border-radius: size(24px);
 }
