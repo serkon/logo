@@ -426,6 +426,11 @@ export const structure = [
             block: 'component',
             source: 'DrawerComponent',
           },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'DrawerService',
+          },
         ],
       },
     ],

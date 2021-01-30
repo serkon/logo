@@ -10,6 +10,11 @@ export class DrawerService {
   public headerText = '';
   public isOpenerActive: boolean = true;
 
+  /**
+   * Drawer title changer
+   * @param text
+   * @param changeTitle
+   */
   setHeaderTitle(text, changeTitle = true) {
     this.headerText = text;
     if (changeTitle) {

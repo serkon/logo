@@ -49,7 +49,7 @@
 
     header.drawer-top {
       position: relative;
-      border-bottom: 1px solid var(--drawer-top-bottom);
+      border-bottom: size(1px) solid var(--drawer-top-bottom);
       box-sizing: border-box;
       font-size: size(14px);
       background-color: var(--drawer-top);
