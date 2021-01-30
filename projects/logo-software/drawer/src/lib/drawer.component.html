@@ -2,7 +2,10 @@
   <ng-content select="[drawer-left]"></ng-content>
 </div>
 <div class="drawer-content">
-  <header [ngClass]="{'drawer-active': this.drawerService.isOpenerActive}" class="drawer-top">
+  <header
+    [ngClass]="{'drawer-active': this.drawerService.isOpenerActive}"
+    class="drawer-top"
+  >
     <a (click)="toggle()" *ngIf="this.drawerService.isOpenerActive"
        class="drawer-menu large ghost dark le-search_filter"></a>
     <ng-content select="[drawer-top]"></ng-content>
