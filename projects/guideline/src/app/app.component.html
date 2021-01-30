@@ -10,8 +10,13 @@
  */
 -->
 <div [ngClass]="{'led-drawer-opened' : !this.drawerService.menu}" class="led-web-base">
-  <logo-drawer [bgColors]="{left: '#ffffff', top: 'transparent', right: '#ffffff'}" [menu]="true" [opener]="false"
-               height="0" width="20vw">
+  <logo-drawer
+    [bgColors]="{left: '#ffffff', top: 'transparent', right: '#ffffff'}"
+    [menu]="true"
+    [opener]="false"
+    height="0"
+    width="20vw"
+  >
     <ng-container drawer-top>
       <logo-header defaultTheme="default" scrolledTheme="darked" [isMobilized]="true">
         <logo-link [classes]="'ghost large'" [url]="'/'">Home</logo-link>
