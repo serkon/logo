@@ -24,17 +24,7 @@ header {
 }
 
 .header {
-  @include animate(all, 0.2s, ease-in-out);
-
-  padding: size(10px) size(30px);
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  right: 0;
   height: size(68px);
-  box-sizing: border-box;
-  overflow: hidden;
 
   &.default {
     background: transparent;
@@ -130,6 +120,7 @@ header {
       .header-cta {
         background: var(--primary) !important;
         color: var(--light) !important;
+        padding-right: size(48px);
       }
     }
   }
@@ -175,7 +166,6 @@ header {
   @include box-shadow(0, 0, size(4px), size(1px), rgba(var(--black-rgb), 0.08), true);
 }
 
-
 .led-jumbotron {
   .section-map {
     .map-item {
@@ -189,8 +179,9 @@ header {
       }
 
       span {
-        display: inline-block;
         @include animate(all, 0.2s, ease-in-out);
+
+        display: inline-block;
 
         &.counter {
           float: left;
@@ -267,8 +258,8 @@ logo-carousel {
     display: block;
     text-align: center;
     margin-top: size(-55px);
-    z-index: 2;
     position: relative;
+    z-index: 1;
 
     .icon-placer {
       @include box-shadow(0, 0, size(4px), 0, rgba(var(--black-rgb), 0.08), false);
@@ -302,7 +293,6 @@ logo-carousel {
   .icon-base {
     span {
       &::before {
-        mask-size: size(45px) !important;
         mask-size: size(45px) !important;
       }
     }

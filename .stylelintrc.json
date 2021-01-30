@@ -4,6 +4,7 @@
     "stylelint-scss"
   ],
   "rules": {
+    "no-descending-specificity": null,
     "color-hex-length": "long",
     "function-comma-newline-after": null,
     "function-parentheses-newline-inside": null,
@@ -20,7 +21,7 @@
     "at-rule-disallowed-list": [
       "debug"
     ],
-    "scss/at-extend-no-missing-placeholder": true,
+    "scss/at-extend-no-missing-placeholder": null,
     "scss/at-function-pattern": [
       "^[a-z]+(-[a-z]+)*$",
       {

@@ -9,9 +9,6 @@ import { Tree } from '@logo-software/tree';
 })
 export class AppComponent implements AfterContentChecked {
 
-  constructor(private compiler: Compiler, private drawerService: DrawerService, private cdr: ChangeDetectorRef) {
-  }
-
   public items: Tree[] = [
     {
       'id': 1,
@@ -268,6 +265,9 @@ export class AppComponent implements AfterContentChecked {
       'role': 'ROLE_MENU_ROOT',
     },
   ];
+
+  constructor(public drawerService: DrawerService, private compiler: Compiler, private cdr: ChangeDetectorRef) {
+  }
 
   ngAfterContentChecked() {
     this.cdr.detectChanges();

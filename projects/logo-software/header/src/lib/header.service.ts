@@ -17,8 +17,7 @@ export class HeaderService {
   constructor() {
     this.headerThemeChange.subscribe((val) => {
       this.settedTheme = val;
-      console.log('###' + this.settedTheme);
-    })
+    });
   }
 
   setDefaultTheme(cssClass: string) {
