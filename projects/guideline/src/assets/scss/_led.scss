@@ -32,6 +32,9 @@ header {
   top: 0;
   left: 0;
   right: 0;
+  height: size(68px);
+  box-sizing: border-box;
+  overflow: hidden;
 
   &.default {
     background: transparent;
