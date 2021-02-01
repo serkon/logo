@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { ChangeDetectorRef, Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -14,13 +14,9 @@ export class HeaderService {
 
   headerThemeChange: Subject<string> = new Subject<string>();
 
-  constructor() {
-    this.headerThemeChange.subscribe((val) => {
-      this.settedTheme = val;
-    });
-  }
-
   setDefaultTheme(cssClass: string) {
-    this.headerThemeChange.next(cssClass);
+    setTimeout(() => {
+      this.headerThemeChange.next(cssClass);
+    },0);
   }
 }

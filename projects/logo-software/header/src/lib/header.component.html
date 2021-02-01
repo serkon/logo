@@ -1,9 +1,9 @@
-<div [ngClass]="this.headerService.settedTheme" class="header {{mobileSupport}}">
+<div class="header {{mobileSupport}}">
   <a class="logo" href="/"></a>
-  <div class="menu" [ngClass]="{'opened': this.headerService.mobileMenu}">
+  <div class="menu">
     <ng-content></ng-content>
   </div>
-  <span class="mobile-opener" *ngIf="isMobilized" [ngClass]="{'opened': this.headerService.mobileMenu}">
-    <button class="ghost le-icon_list" (click)="toggleMobileMenu()"></button>
-  </span>
+</div>
+<div class="mobile-opener" *ngIf="isMobilized">
+  <button class="ghost le-icon_list large" (click)="toggleMobileMenu()"></button>
 </div>

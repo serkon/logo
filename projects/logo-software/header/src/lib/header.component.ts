@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostBinding, HostListener, Input } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { HeaderService } from './header.service';
 
@@ -16,7 +16,27 @@ export class HeaderComponent implements AfterViewInit {
   @Input() scrollPoint: number = 100;
   public mobileSupport: string = this.isMobilized ? 'mobilized' : 'standart';
 
-  constructor(public headerService: HeaderService) {
+  constructor(public headerService: HeaderService, private cd: ChangeDetectorRef) {
+    this.headerService.headerThemeChange.subscribe((val) => {
+      this.headerService.settedTheme = val;
+    });
+  }
+
+  @HostBinding('class.darked') get darked() {
+    return this.headerService.settedTheme === this.headerService.scrollTheme;
+  }
+
+  @HostBinding('class.default') get default() {
+    return this.headerService.settedTheme === this.headerService.startTheme;
+  }
+
+  @HostBinding('class.opened') get opened() {
+    return this.headerService.mobileMenu;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.headerService.mobileMenu = false;
   }
 
   ngAfterViewInit(): void {
@@ -29,11 +49,7 @@ export class HeaderComponent implements AfterViewInit {
       const content = document.querySelector('.' + this.watchElement);
       const scroll$ = fromEvent(content, 'scroll');
       scroll$.subscribe(dir => {
-        if (content.scrollTop >= this.headerService.catchPoint) {
-          this.headerService.settedTheme = this.headerService.scrollTheme;
-        } else if (content.scrollTop < this.headerService.catchPoint) {
-          this.headerService.settedTheme = this.headerService.startTheme;
-        }
+        this.headerService.settedTheme = (content.scrollTop >= this.headerService.catchPoint) ? this.headerService.scrollTheme : this.headerService.startTheme;
       });
     }
   }
