@@ -1,0 +1,95 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+@import "~@logo-software/theme/base";
+
+.led-docs {
+  .docs-hero {
+    background: var(--basic-300);
+    height: size(465px);
+    padding-left: size(50px);
+    position: relative;
+    margin-bottom: size(50px);
+
+    span {
+      width: 40%;
+      margin-top: size(180px);
+      margin-bottom: size(15px);
+      display: inline-block;
+    }
+
+    h4 {
+      width: 40%;
+    }
+
+    .hero-gfx {
+      display: inline-block;
+      position: absolute;
+      right: 0;
+      bottom: size(-65px);
+      width: 55%;
+      overflow: hidden;
+
+      img {
+        width: 130%;
+      }
+    }
+  }
+
+  .led-cards {
+    .card {
+      @include box-shadow(0, 0, size(4px), size(1px), rgba(var(--black-rgb), 0.08), false);
+      @include border-radius(size(10px));
+
+      background: var(--white);
+      padding: size(30px) size(30px) size(40px) size(30px);
+      margin-bottom: size(50px);
+      overflow: hidden;
+      height: size(250px);
+      position: relative;
+
+      .card-gfx {
+        display: block;
+        margin: size(-30px) size(-30px) size(10px) size(-30px);
+        overflow: hidden;
+        position: relative;
+        height: size(150px);
+
+        .overlay {
+          position: absolute;
+          z-index: 1;
+          display: inline-block;
+          width: 100%;
+          height: size(150px);
+          background: rgba(var(--primary-200-rgb), .5);
+          top: 0;
+          left: 0;
+        }
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .card-link {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+
+      h3 {
+        padding: size(10px) 0;
+      }
+    }
+  }
+}
