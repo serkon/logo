@@ -15,7 +15,7 @@ import { LedFooterComponent } from '../components/led-footer/led-footer.componen
     LinksModule,
     CarouselModule,
   ],
-  exports: [HomeComponent],
+  exports: [HomeComponent, LedFooterComponent],
 })
 export class HomeModule {
 }

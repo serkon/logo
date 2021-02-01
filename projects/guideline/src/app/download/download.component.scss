@@ -1,5 +1,5 @@
 @import '~@logo-software/theme/base';
-
+@import '../../assets/scss/vars';
 :host {
   display: block;
 
@@ -7,9 +7,17 @@
     margin: size(-20px);
 
     .showcase {
+      padding-top: size(65px);
       display: flex;
-      background: linear-gradient(180deg, #0090FF 0%, #007AD9 100%);
+      @include gradient(180deg,$gradient-colors);
+
       flex-direction: row;
+
+      .figma-source {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
       .figma-source-text {
         margin-top: size(21px);

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HeaderService} from '../../../../logo-software/header/src/lib/header.service';
 
 @Component({
   selector: 'logo-download',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DownloadComponent implements OnInit {
 
-  constructor() { }
+  constructor(private headerService: HeaderService) { }
 
   ngOnInit(): void {
+    // this.headerService.setDefaultTheme('darked');
   }
 
 }
