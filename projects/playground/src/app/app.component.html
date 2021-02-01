@@ -18,13 +18,13 @@
 
 <logo-drawer [bgColors]="{left: 'var(--white)'}">
   <ng-container drawer-left>
-    <logo-accordion
+    <logo-tree
       [items]="components"
       [start]="0"
       (itemClick)="htmlMenuClick($event)"
       (categoryClick)="htmlCategoryClick($event)"
     >
-    </logo-accordion>
+    </logo-tree>
   </ng-container>
   <ng-container drawer-top></ng-container>
   <ng-container drawer-right>

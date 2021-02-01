@@ -6,11 +6,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToastModule, ToastService } from '@logo-software/toast';
 import { DrawerModule } from '@logo-software/drawer';
-import { AccordionModule } from '@logo-software/accordion';
+import { TreeModule } from '@logo-software/tree';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, ToastModule, DrawerModule, AccordionModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, ToastModule, DrawerModule, TreeModule],
   providers: [ToastService],
   bootstrap: [AppComponent],
 })
