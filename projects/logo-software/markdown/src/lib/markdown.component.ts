@@ -1,8 +1,9 @@
 import { AfterViewInit, Component, Input, OnChanges, SimpleChanges, ViewChild, ViewContainerRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import * as marked from 'marked';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { DynamicService } from '@logo-software/dynamic';
+
+import * as marked from 'marked';
 
 @Component({
   selector: 'logo-markdown',
@@ -12,7 +13,7 @@ import { DynamicService } from '@logo-software/dynamic';
 export class MarkdownComponent implements OnChanges, AfterViewInit {
 
   @ViewChild('container', {read: ViewContainerRef}) container!: ViewContainerRef;
-  @Input() url = '/assets/docs/abc.md';
+  @Input() url = '/assets/docs/getstarted.md';
   public string!: SafeHtml;
 
   constructor(private dynamicService: DynamicService, private http: HttpClient, private sanitize: DomSanitizer) {
