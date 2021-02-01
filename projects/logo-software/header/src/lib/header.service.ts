@@ -17,6 +17,6 @@ export class HeaderService {
   setDefaultTheme(cssClass: string) {
     setTimeout(() => {
       this.headerThemeChange.next(cssClass);
-    },0);
+    },10);
   }
 }
