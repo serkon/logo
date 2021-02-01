@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { DrawerComponent } from './drawer.component';
+import { DrawerService } from './drawer.service';
 
 /**
  * The drawer creates the main layout of the application. There are 3 parts of the layout which include left, top, right sides.

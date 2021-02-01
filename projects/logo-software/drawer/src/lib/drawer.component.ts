@@ -23,11 +23,13 @@ export class DrawerComponent implements OnInit, OnDestroy {
 
   constructor(private elementRef: ElementRef, public drawerService: DrawerService) {
     this.setColors(this.bgColors);
-    this.setProperty(`--drawer-width`, this._width);
-    this.setProperty(`--drawer-height`, this._height);
+    this.width = this._width;
+    this.height = this._height;
   }
 
-  private _height:string = '65px';
+  @Input() overflow: boolean = false;
+
+  private _height: string = '65px';
 
   /**
    * header height, default is 65px
@@ -36,6 +38,7 @@ export class DrawerComponent implements OnInit, OnDestroy {
   @Input() set height(value: string) {
     this._height = value;
     this.setProperty(`--drawer-height`, value);
+    this.setProperty(`--drawer-top-height`, this.overflow ? 0 : this._height);
   }
 
   private _width = '300px';
