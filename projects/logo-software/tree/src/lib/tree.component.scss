@@ -10,7 +10,7 @@
 
 @import "scss/icons";
 @import "scss/config";
-@import "~@logo-software/theme/style";
+@import "~@logo-software/theme/base";
 
 :host {
   display: block;
@@ -19,7 +19,8 @@
   font-family: get("font.family");
   opacity: 1;
   transition: all 0.5s ease-out;
-  overflow: hidden;
+  overflow: auto;
+  height: 100%;
 
   ul {
     list-style: none;
