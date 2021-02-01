@@ -10,11 +10,18 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DocsComponent } from '@guideline/src/app/docs/docs.component';
 
 const routes: Routes = [
     {
-      path: 'detail',
-      loadChildren: () => import('./detail/detail.module').then(m => m.DetailModule),
+      path: '',
+      component: DocsComponent,
+      children: [
+        {
+          path: 'detail',
+          loadChildren: () => import('./detail/detail.module').then(m => m.DetailModule),
+        },
+      ],
     },
   ]
 ;

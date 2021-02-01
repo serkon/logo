@@ -7,7 +7,6 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { LedFooterComponent } from '../components/led-footer/led-footer.component';
 
-
 @NgModule({
   declarations: [HomeComponent, LedFooterComponent],
   imports: [

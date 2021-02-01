@@ -30,19 +30,18 @@ export class DetailComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     public headerService: HeaderService,
     public drawerService: DrawerService,
-    private elementRef: ElementRef,
   ) {
   }
 
   ngOnInit(): void {
     this.paramChanges();
+  }
+
+  ngAfterViewInit() {
     this.headerService.isScrollSpy = false;
     this.headerService.setDefaultTheme('darked');
     this.drawerService.isOpenerActive = true;
     this.drawerService.menu = false;
-  }
-
-  ngAfterViewInit() {
   }
 
   paramChanges() {

@@ -8,12 +8,27 @@
  * Any reproduction of this material must contain this notice.
  */
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HeaderService } from '@logo-software/header';
+import { DrawerService } from '@logo-software/drawer';
 
 @Component({
   selector: 'logo-docs',
   templateUrl: './docs.component.html',
   styleUrls: ['./docs.component.scss'],
 })
-export class DocsComponent {
+export class DocsComponent implements OnInit {
+  constructor(
+    public headerService: HeaderService,
+    public drawerService: DrawerService,
+  ) {
+  }
+
+  ngOnInit() {
+    this.headerService.isScrollSpy = false;
+    this.headerService.setDefaultTheme('darked');
+    this.drawerService.isOpenerActive = true;
+    this.drawerService.menu = false;
+  }
+
 }
