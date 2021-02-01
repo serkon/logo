@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostBinding, HostListener, Input } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, HostBinding, HostListener, Input } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { HeaderService } from './header.service';
 
@@ -45,13 +45,13 @@ export class HeaderComponent implements AfterViewInit {
     this.headerService.catchPoint = this.scrollPoint;
     this.headerService.isScrollSpy = this.scrollSpy;
 
-    if (this.headerService.isScrollSpy) {
-      const content = document.querySelector('.' + this.watchElement);
-      const scroll$ = fromEvent(content, 'scroll');
-      scroll$.subscribe(dir => {
+    const content = document.querySelector('.' + this.watchElement);
+    const scroll$ = fromEvent(content, 'scroll');
+    scroll$.subscribe(dir => {
+      if (this.headerService.isScrollSpy) {
         this.headerService.settedTheme = (content.scrollTop >= this.headerService.catchPoint) ? this.headerService.scrollTheme : this.headerService.startTheme;
-      });
-    }
+      }
+    });
   }
 
   toggleMobileMenu() {
