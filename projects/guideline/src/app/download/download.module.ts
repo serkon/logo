@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 
 import {DownloadRoutingModule} from './download-routing.module';
 import {DownloadComponent} from './download.component';
-import {HomeModule} from '@guideline/src/app/home/home.module';
+import {HomeModule} from './../home/home.module';
 
 @NgModule({
   declarations: [DownloadComponent],

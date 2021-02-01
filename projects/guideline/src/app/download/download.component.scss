@@ -1,5 +1,6 @@
 @import '~@logo-software/theme/base';
-@import '../../assets/scss/vars';
+@import 'vars';
+
 :host {
   display: block;
 
@@ -9,7 +10,7 @@
     .showcase {
       padding-top: size(65px);
       display: flex;
-      @include gradient(180deg,$gradient-colors);
+      @include gradient(180deg, $gradient-colors);
 
       flex-direction: row;
 
