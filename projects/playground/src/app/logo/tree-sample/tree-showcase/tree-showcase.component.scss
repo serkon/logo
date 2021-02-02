@@ -1,0 +1,7 @@
+:host {
+  ::ng-deep {
+    .demo-class {
+      border: 1px solid red;
+    }
+  }
+}

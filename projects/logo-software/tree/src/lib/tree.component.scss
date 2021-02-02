@@ -27,6 +27,12 @@
     padding: 0;
 
     li {
+      &.group {
+        > label {
+          background-color: var(--basic-600);
+        }
+      }
+
       label {
         // border: 1px solid red;
         display: flex;

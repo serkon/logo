@@ -10,12 +10,13 @@ export class TreeShowcaseComponent implements OnInit {
 
   public items: Tree[] = [{
     'id': 0,
-    'name': 'Root',
-    'iconClasses': 'le-alarm_bell_1',
+    'name': 'Root 1',
+    'iconClasses': 'le-alarm_bell_1 danger',
     'children': [
       {
         'id': 1,
         'name': 'Components',
+        'group': true,
         'children': [
           {
             'id': 12,
@@ -26,6 +27,27 @@ export class TreeShowcaseComponent implements OnInit {
                 'name': 'AccordionModule',
                 'link': '/logo/accordion-sample/accordion-showcase/accordion-showcase.component',
                 'role': 'ROLE_MENU_TOUR_REPORT',
+                'children': [
+                  {
+                    'id': 2046,
+                    'name': 'Raporlar ve Bildirimler',
+                    'role': 'ROLE_MENU_DM_DESCRIPTION',
+                    'link': '/main/domain/delivery/form',
+                  },
+                  {
+                    'id': 2047,
+                    'name': 'Tanımlar',
+                    'children': [
+                      {
+                        'id': 33,
+                        'name': 'Tutanak',
+                        'link': '/main/domain/delivery/form',
+                        'role': 'ROLE_MENU_DELIVERY_FORM',
+                      },
+                    ],
+                    'role': 'ROLE_MENU_DM_TRANSACTIONS',
+                  },
+                ],
               },
               {
                 'id': 2004,
@@ -73,6 +95,7 @@ export class TreeShowcaseComponent implements OnInit {
       {
         'id': 2,
         'name': 'Saha Yönetimi',
+        'group': true,
         'children': [
           {
             'id': 2028,
@@ -181,6 +204,7 @@ export class TreeShowcaseComponent implements OnInit {
             'role': 'ROLE_MENU_FM_TRANSACTIONS',
           },
         ],
+        'classes': 'demo-class',
         'role': 'ROLE_MENU_FIELD_OP',
       },
       {

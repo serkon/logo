@@ -30,7 +30,10 @@ import { Tree } from './tree';
   styleUrls: ['./tree.component.scss'],
 })
 export class TreeComponent implements OnInit {
-
+  /**
+   * group
+   */
+  @Input() group: boolean = false;
   /**
    * Specifies one or more CSS classes to be used by the element. When set, this class will also be used by all child elements that don't have their own class.
    */
@@ -156,5 +159,11 @@ export class TreeComponent implements OnInit {
 
   $onCategoryClick(item: Tree) {
     this.categoryClick.emit(item);
+  }
+
+  setPadding(level, start) {
+    const val = Number(level) - (Number(start) + (this.group ? 1 : 0));
+    const padding = val <= 0 ? 0 : val * this.paddingLeft + 'px';
+    return level >=  start ? padding : this.paddingLeft + 'px'
   }
 }

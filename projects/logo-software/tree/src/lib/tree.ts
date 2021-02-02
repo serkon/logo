@@ -21,6 +21,10 @@ export interface Tree {
    */
   name: string;
   /**
+   * group
+   */
+  group?: boolean;
+  /**
    * Class names to be added to menu item
    */
   classes?: string;
