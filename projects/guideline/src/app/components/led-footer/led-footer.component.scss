@@ -15,7 +15,7 @@
   .led-footer {
     padding-top: size(175px);
 
-    .footer-base {
+    .subscribe-base {
       padding: size(50px) 0;
       background: var(--basic-300);
       overflow: hidden;
@@ -75,6 +75,7 @@
           display: inline-block;
           padding-left: size(110px);
           position: relative;
+          z-index: 2;
 
           @include smaller-than(sm) {
             display: block;
@@ -130,9 +131,43 @@
       }
     }
 
+    .links-base {
+      background: var(--basic);
+      margin-left: size(-20px);
+      margin-right: size(-20px);
+      margin-bottom: size(-20px);
+
+      .footer-links {
+        padding-top: size(100px);
+        padding-bottom: size(100px);
+
+        .footer-col {
+          .title {
+            display: block;
+            padding-bottom: size(25px);
+            padding-left: size(15px);
+          }
+
+          .menu-group {
+            ::ng-deep {
+              .icon-left {
+                margin-left: size(5px);
+              }
+            }
+
+            p {
+              padding-bottom: size(25px);
+              padding-left: size(15px);
+            }
+          }
+        }
+      }
+    }
+
     .copyright {
       text-align: center;
       padding: size(30px) 0;
+      border-top: 1px solid var(--basic-600);
     }
   }
 }
