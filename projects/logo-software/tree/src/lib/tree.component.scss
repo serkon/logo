@@ -28,7 +28,7 @@
 
     li {
       &.group {
-        > label {
+        .label-group {
           background-color: var(--basic-600);
         }
       }

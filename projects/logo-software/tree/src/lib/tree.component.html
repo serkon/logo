@@ -17,9 +17,9 @@
         <ng-container *ngIf="level >=  start">
           <input id="{{elementId}}{{i}}" type="checkbox" hidden/>
           <label
-            class="label label-category"
+            class="label label-category {{item.group ? 'label-group': ''}}"
             for="{{elementId}}{{i}}"
-            [style.paddingLeft]="setPadding(level, start)"
+            [style.paddingLeft]="htmlSetPadding(level, start)"
             (click)="htmlCategoryOnClick(item)"
           >
             <span class="{{iconClasses}}" [ngClass]="item.iconClasses"></span>
@@ -52,7 +52,7 @@
           #reference="routerLinkActive"
           class="label label-link"
           for="{{elementId}}{{i}}"
-          [style.paddingLeft]="setPadding(level, start)"
+          [style.paddingLeft]="htmlSetPadding(level, start)"
           (click)="htmlItemOnClick(item)"
           [isActiveRoute]="reference"
           (isActiveRouteEmitter)="htmlItemOnClick(item)"

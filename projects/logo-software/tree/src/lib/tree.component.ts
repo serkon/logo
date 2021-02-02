@@ -161,9 +161,17 @@ export class TreeComponent implements OnInit {
     this.categoryClick.emit(item);
   }
 
-  setPadding(level, start) {
+  htmlSetPadding(level, start) {
     const val = Number(level) - (Number(start) + (this.group ? 1 : 0));
     const padding = val <= 0 ? 0 : val * this.paddingLeft + 'px';
-    return level >=  start ? padding : this.paddingLeft + 'px'
+    return level >= start ? padding : this.paddingLeft + 'px';
+  }
+
+  /**
+   * set left padding size programmatically for collapsed menus.
+   * @param value
+   */
+  setPadding(value: number = 0) {
+    this.paddingLeft = value;
   }
 }

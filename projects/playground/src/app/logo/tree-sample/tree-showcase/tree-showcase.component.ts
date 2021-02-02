@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Tree } from '@logo-software/tree';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Tree, TreeComponent } from '@logo-software/tree';
 
 @Component({
   selector: 'logo-tree-showcase',
@@ -236,11 +236,16 @@ export class TreeShowcaseComponent implements OnInit {
     ],
     'role': 'ROLE_MENU_ROOT',
   }];
+  @ViewChild(TreeComponent, {read: TreeComponent}) tree: TreeComponent;
 
   constructor() {
   }
 
   ngOnInit(): void {
+  }
+
+  padding(value: string | number) {
+    this.tree.setPadding(Number(value));
   }
 
 }
