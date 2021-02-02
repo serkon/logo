@@ -11,20 +11,42 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
 import { MarkdownModule } from '@logo-software/markdown';
-import { DrawerModule, DrawerService } from '@logo-software/drawer';
+import { DrawerModule } from '@logo-software/drawer';
 import { LinksModule } from '@logo-software/links';
 import { HeaderModule } from '@logo-software/header';
 import { TreeModule } from '@logo-software/tree';
+import { ToastModule, ToastService } from '@logo-software/toast';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DocsService } from './docs/docs.service';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, MarkdownModule, RouterModule, DrawerModule, LinksModule, HeaderModule, TreeModule],
-  providers: [DocsService],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    MarkdownModule,
+    RouterModule,
+    DrawerModule,
+    LinksModule,
+    HeaderModule,
+    TreeModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
+    ToastModule,
+    ToastModule,
+  ],
+  providers: [DocsService, AngularFireModule, ToastService],
   bootstrap: [AppComponent],
 })
 export class AppModule {
