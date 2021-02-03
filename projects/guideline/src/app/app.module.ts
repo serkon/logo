@@ -10,7 +10,6 @@
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -35,7 +34,6 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     FormsModule,
     MarkdownModule,
-    RouterModule,
     DrawerModule,
     LinksModule,
     HeaderModule,
@@ -43,7 +41,6 @@ import { environment } from '../environments/environment';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
-    ToastModule,
     ToastModule,
   ],
   providers: [DocsService, AngularFireModule, ToastService],
