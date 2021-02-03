@@ -1,7 +1,7 @@
-<div class="drawer-left" [ngClass]="{'drawer-closed': this.drawerService.menu}">
+<div class="drawer-left" [ngClass]="{'drawer-closed': this.drawerService.menu}" id="drawer-left">
   <ng-content select="[drawer-left]"></ng-content>
 </div>
-<div class="drawer-content">
+<div class="drawer-content" id="drawer-content">
   <header
     [ngClass]="{'drawer-active': this.drawerService.isOpenerActive}"
     class="drawer-top"
@@ -14,7 +14,7 @@
     </a>
     <ng-content select="[drawer-top]"></ng-content>
   </header>
-  <main class="drawer-right" id="pageContent">
+  <main class="drawer-right" id="drawer-main">
     <ng-content select="[drawer-right]"></ng-content>
     <router-outlet></router-outlet>
   </main>
