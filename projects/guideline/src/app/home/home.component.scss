@@ -109,10 +109,10 @@
           text-align: center;
 
           img {
-            width: 56vw;
+            width: 47vw;
             margin-left: 50%;
             transform: translateX(-50%);
-
+            object-fit: scale-down;
             @include smaller-than(lg) {
               width: 90%;
             }
