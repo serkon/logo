@@ -8,6 +8,23 @@ import { DOCUMENT } from '@angular/common';
  *
  * __Usage Example__
  *
+ * Before use add below options to NgModule annotation
+ *
+ * ```typescript
+ * @NgModule({
+ * imports: [RouterModule.forRoot(routes, {
+ *   scrollPositionRestoration: 'enabled',
+ *   anchorScrolling: 'enabled',
+ *   scrollOffset: [0, 0],
+ * })],
+ * exports: [RouterModule],
+ * })
+ * export class AppRoutingModule {
+ * }
+ * ```
+ *
+ * Then use in your *.component.html below code snippet:
+ *
  * <sub>sample.component.html</sub>
  * ```html
  * <logo-link
@@ -25,12 +42,12 @@ import { DOCUMENT } from '@angular/common';
     <ng-container *ngTemplateOutlet="external ? externalURL: internalURL">
     </ng-container>
     <ng-template #internalURL>
-      <button routerLink="{{url}}" [fragment]="fragment" [ngClass]="classes" (click)="onClickEvent($event)">
+      <button routerLink="{{url}}" [fragment]="fragment" [ngClass]="classes" (click)="onClickEvent($event, false)">
         <ng-container *ngTemplateOutlet="display ? displayHTML : contentHTML"></ng-container>
       </button>
     </ng-template>
     <ng-template #externalURL>
-      <button [ngClass]="classes" (click)="onClickEvent($event)">
+      <button [ngClass]="classes" (click)="onClickEvent($event, external)">
         <ng-container *ngTemplateOutlet="display ? displayHTML : contentHTML"></ng-container>
       </button>
     </ng-template>
@@ -98,9 +115,9 @@ export class LinkComponent implements OnInit {
     }
   }
 
-  onClickEvent($event, extenal: boolean = false) {
-    if (extenal) {
-      this.document.location.href = this.url;
+  onClickEvent($event, external: boolean = false) {
+    if (external) {
+      this.document.location.href = `${this.url}${this.fragment ? `#${this.fragment}`: ``}`;
     }
     this.scrollToAnchor();
     this.onClick && this.onClick($event);
