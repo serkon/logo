@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col-xs-6">
-    <logo-tree [items]="items" [start]="0" [iconClasses]="" [group]="true" [paddingLeft]="0"></logo-tree>
+    <logo-tree [items]="items" [start]="0" [iconClasses]="" [group]="false" [paddingLeft]="0"></logo-tree>
   </div>
   <div class="col-xs-6">
     <h4>Configuration</h4>
     <p>Set your tree configuration with below parameters</p>
-    <label for="padding" class="with-xs-12">Padding Size</label>
-    <input type="text" #input id="padding"/>
+    <label for="padding" class="size-xs-12">Padding Size</label>
+    <input type="number" #input id="padding" min="0" max="100"/>
     <button (click)="padding(input.value)">SET</button>
   </div>
 </div>
