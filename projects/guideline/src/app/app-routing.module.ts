@@ -25,6 +25,10 @@ const routes: Routes = [
     path: 'download',
     loadChildren: () => import('./download/download.module').then(m => m.DownloadModule),
   },
+  {
+    path: 'icons',
+    loadChildren: () => import('./icons/icons.module').then(m => m.IconsModule),
+  },
 ];
 
 @NgModule({
