@@ -28,11 +28,11 @@
             Available for and Figma component libraries, based on Logo Elements Design System.
           </p>
           <span class="cta-base">
-            <logo-link [classes]="['success large']" [url]="'docs/info/getstarted'">Get Started</logo-link>
+            <logo-link [classes]="['success large']" [url]="'docs/detail/getstarted'">Get Started</logo-link>
           </span>
         </div>
         <div class="gfx col-lg-7 col-xs-12">
-          <img src="/assets/img/Isometric Perspective Mock-Up 1.png"/>
+          <img src="/assets/img/gfx_landing_image.png"/>
         </div>
         <div class="section-map">
           <logo-link [classes]="['ghost map-item']" [fragment]="'section02'">
@@ -117,7 +117,7 @@
                   and users.
                   LEDS enables you to turn new ideas into great apps as quickly as the market demands.</p>
                 <span class="cta-base">
-                  <logo-link [classes]="'primary large'" [url]="'/docs/components'">Details</logo-link>
+                  <logo-link [classes]="'primary large'" [url]="'docs/detail/getstarted'">Details</logo-link>
                 </span>
               </div>
             </div>
@@ -177,6 +177,7 @@
             <span class="card-cta">
                 <logo-link
                   [url]="'/download'"
+                  [fragment]="'drawer-main'"
                   [classes]="'primary icon-left le-download large'"
                 >
                   Download Figma Source
@@ -206,7 +207,8 @@
               </span>
             <span class="card-cta">
                 <logo-link
-                  [url]="'/docs/getstarted'"
+                  [external]="true"
+                  [url]="'https://www.figma.com/file/cEgo4uHf1COutYlM2X0ket/Showcase?node-id=2%3A15'"
                   [classes]="'primary icon-left le-iris_scan_approved large'"
                 >
                   Inspect

@@ -13,6 +13,7 @@ export class DownloadComponent implements OnInit {
 
   ngOnInit(): void {
     // this.headerService.setDefaultTheme('darked');
+    window.location.href = window.location.origin + '/assets/led/v1.0.0.fig'
   }
 
 }
