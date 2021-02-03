@@ -4,6 +4,7 @@
     "codelyzer"
   ],
   "rules": {
+    "no-unused-expression": false,
     "max-classes-per-file": false,
     "no-consecutive-blank-lines": [
       true,
