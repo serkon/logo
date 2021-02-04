@@ -8,10 +8,9 @@
     margin: size(-20px);
 
     .showcase {
+      @include gradient(180deg, $gradient-colors);
       padding-top: size(65px);
       display: flex;
-      @include gradient(180deg, $gradient-colors);
-
       flex-direction: row;
 
       showcase-figma-logo {
@@ -58,7 +57,7 @@
       justify-content: center;
       align-content: center;
       align-items: center;
-      padding: 0px size(20px) 0px size(20px);
+      padding: 0 size(20px) 0 size(20px);
 
       .badge {
         display: flex;
