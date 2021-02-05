@@ -14,5 +14,11 @@
 :host {
   .led-detail-page {
     padding-top: size(65px);
+
+    ::ng-deep {
+      logo-markdown {
+        @import "markdown";
+      }
+    }
   }
 }
