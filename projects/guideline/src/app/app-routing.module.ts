@@ -8,14 +8,17 @@
  * Any reproduction of this material must contain this notice.
  */
 
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'example',
+    loadChildren: () => import('./example/example.module').then(m => m.ExampleModule),
+  },
+  {
+    path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
-    pathMatch: 'full',
   },
   {
     path: 'docs',
@@ -29,10 +32,19 @@ const routes: Routes = [
     path: 'icons',
     loadChildren: () => import('./icons/icons.module').then(m => m.IconsModule),
   },
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {
+    path: '**',
+    loadChildren: () => import('./error/error.module').then(m => m.ErrorModule),
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled',
+    anchorScrolling: 'enabled',
+    scrollOffset: [0, 0],
+  })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {
