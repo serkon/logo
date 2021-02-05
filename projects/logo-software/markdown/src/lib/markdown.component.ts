@@ -14,17 +14,22 @@ export class MarkdownComponent implements OnChanges, AfterViewInit {
 
   @ViewChild('container', {read: ViewContainerRef}) container!: ViewContainerRef;
   @Input() url = '/assets/docs/getstarted.md';
-  public string!: SafeHtml;
+  public string: SafeHtml = '';
 
   constructor(private dynamicService: DynamicService, private http: HttpClient, private sanitize: DomSanitizer) {
   }
 
   async ngOnChanges(changes: SimpleChanges) {
-    console.log(this.url);
+    this.init();
   }
 
-  async ngAfterViewInit() {
+  ngAfterViewInit() {
+    // this.init();
+  }
+
+  async init() {
     this.string = await this.resolve();
+    this.container.clear();
     this.container.createComponent(this.dynamicService.factory(this.string));
   }
 
@@ -33,7 +38,7 @@ export class MarkdownComponent implements OnChanges, AfterViewInit {
   }
 
   convertToHtml(content): string {
-    const md = marked.setOptions();
+    const md = marked.setOptions({gfm: true});
     return md.parse(content);
   }
 
@@ -42,7 +47,7 @@ export class MarkdownComponent implements OnChanges, AfterViewInit {
       this.http.get(this.url, {responseType: 'text'}).subscribe((v) => {
         resolve(v);
       });
-    })
+    });
   }
 
 }
