@@ -1,9 +1,10 @@
-import { AfterViewInit, Component, Input, OnChanges, SimpleChanges, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, Component, EmbeddedViewRef, Input, OnChanges, SimpleChanges, ViewChild, ViewContainerRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { DynamicService } from '@logo-software/dynamic';
 
 import * as marked from 'marked';
+import * as hljs from 'highlight.js';
 
 @Component({
   selector: 'logo-markdown',
@@ -14,7 +15,7 @@ export class MarkdownComponent implements OnChanges, AfterViewInit {
 
   @ViewChild('container', {read: ViewContainerRef}) container!: ViewContainerRef;
   @Input() url = '/assets/docs/getstarted.md';
-  public string: SafeHtml = '';
+  public string: string = '';
 
   constructor(private dynamicService: DynamicService, private http: HttpClient, private sanitize: DomSanitizer) {
   }
@@ -30,16 +31,25 @@ export class MarkdownComponent implements OnChanges, AfterViewInit {
   async init() {
     this.string = await this.resolve();
     this.container.clear();
-    this.container.createComponent(this.dynamicService.factory(this.string));
+    const componentRef = this.container.createComponent(this.dynamicService.factory(this.string));
+    // const componentNode = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
   }
 
   async resolve() {
     return this.convertToHtml(await this.getFile());
   }
 
-  convertToHtml(content): string {
-    const md = marked.setOptions({gfm: true});
-    return md.parse(content);
+  convertToHtml(markdown): string {
+    const md = marked.setOptions({
+      gfm: true,
+      langPrefix: 'hljs ',
+      highlight: (code) => this.highlight(code),
+    });
+    return md.parse(markdown.trim());
+  }
+
+  public highlight(code: string): string {
+    return hljs.highlightAuto(code).value;
   }
 
   getFile(): Promise<string> {

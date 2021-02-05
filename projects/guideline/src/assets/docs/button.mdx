@@ -15,6 +15,28 @@ interacts **with** it.
   _Alttan boşluk bırakmana gerek yok_
 </div>
 
+```scss
+b { color: red; }
+```
+
+```typescript
+@Component({
+  encapsulation: ViewEncapsulation.None,
+  selector: 'site_table',
+  template: require('./site_table.html'),
+  styleUrls: ['./site_table.scss', '@swimlane/ngx-datatable/release/index.css']
+})
+class Test{
+ convertToHtml(markdown): string {
+    const md = marked.setOptions({
+      gfm: true,
+      langPrefix: 'hljs ',
+      highlight: (code) => this.highlight(code),
+    });
+    return md.parse(markdown.trim());
+  }
+}
+```
 
 <logo-playground
   path="example/logo/tree-sample/tree-showcase/tree-showcase.component"

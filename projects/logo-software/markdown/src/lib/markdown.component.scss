@@ -1,3 +1,11 @@
 :host {
   // @TODO add markdown component css
+  ::ng-deep {
+    @import "~highlight.js/scss/stackoverflow-light";
+
+    code {
+      font-size: 14px;
+      border-radius: 3px;
+    }
+  }
 }
