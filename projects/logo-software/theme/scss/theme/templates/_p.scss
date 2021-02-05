@@ -6,5 +6,6 @@
     line-height: size(map-get($value, "line-height"));
     box-sizing: content-box;
     height: auto;
+    margin: get("element.paragraph.margin.top") get("element.paragraph.margin.right") get("element.paragraph.margin.bottom") get("element.paragraph.margin.left");
   }
 }

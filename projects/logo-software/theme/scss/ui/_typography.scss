@@ -12,10 +12,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  font-weight: 400;
-  margin: 0;
-
   @extend %p-medium;
+
+  font-weight: 400;
 
   @each $size, $value in get("element.paragraph.size") {
     &.#{$size} {
