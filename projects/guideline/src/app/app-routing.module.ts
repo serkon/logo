@@ -13,12 +13,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'example',
-    loadChildren: () => import('./example/example.module').then(m => m.ExampleModule),
+    path: '',
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
   },
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
+    path: 'example',
+    loadChildren: () => import('./example/example.module').then(m => m.ExampleModule),
   },
   {
     path: 'docs',
@@ -32,7 +32,7 @@ const routes: Routes = [
     path: 'icons',
     loadChildren: () => import('./icons/icons.module').then(m => m.IconsModule),
   },
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  // {path: '', redirectTo: '/home', pathMatch: 'full'},
   {
     path: '**',
     loadChildren: () => import('./error/error.module').then(m => m.ErrorModule),
