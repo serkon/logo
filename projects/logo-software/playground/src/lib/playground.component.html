@@ -1,0 +1,13 @@
+<div class="playground">
+  <div class="playground-tool">
+    <ng-content></ng-content>
+    <h5>{{context.title}}</h5>
+    <ng-container *ngIf="context.button">
+      <button (click)="code()" class="playground-code basic le-code_view"></button>
+      <button (click)="tab()" class="playground-tab basic le-component_tabs"></button>
+    </ng-container>
+  </div>
+  <div [style.height]="height">
+    <iframe [src]="path" frameborder="0" width="100%" height="100%"></iframe>
+  </div>
+</div>

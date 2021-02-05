@@ -1,9 +1,24 @@
 :host {
   display: block;
-  margin-top: 20px;
 
-  .code {
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: 20px;
+  .playground {
+    padding: 0 20px 20px;
+    background-color: var(--basic-300);
+    border-radius: 3px;
+
+    .playground-tool {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 10px 0;
+
+      h5 {
+        flex-grow: 1;
+      }
+
+      button {
+        margin-left: 5px;
+      }
+    }
   }
 }

@@ -1,20 +1,13 @@
-import { Compiler, COMPILER_OPTIONS, CompilerFactory, NgModule } from '@angular/core';
-import { PlaygroundComponent } from './playground.component';
-import { JitCompilerFactory } from '@angular/platform-browser-dynamic';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
-export function createCompiler(compilerFactory: CompilerFactory) {
-  return compilerFactory.createCompiler();
-}
+import { PlaygroundComponent } from './playground.component';
 
 @NgModule({
   declarations: [PlaygroundComponent],
-  imports: [CommonModule],
-  providers: [
-    {provide: COMPILER_OPTIONS, useValue: {}, multi: true},
-    {provide: CompilerFactory, useClass: JitCompilerFactory, deps: [COMPILER_OPTIONS]},
-    {provide: Compiler, useFactory: createCompiler, deps: [CompilerFactory]},
-  ],
+  imports: [CommonModule, RouterModule],
+  providers: [],
   exports: [PlaygroundComponent],
 })
 export class PlaygroundModule {
