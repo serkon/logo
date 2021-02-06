@@ -11,12 +11,12 @@ import { DrawerService } from '@logo-software/drawer';
 export class HomeComponent implements OnInit {
 
   constructor(public headerService: HeaderService, public drawerService: DrawerService) {
-  }
-
-  ngOnInit(): void {
     this.headerService.isScrollSpy = true;
     this.headerService.setDefaultTheme(HeaderTheme.START);
     this.drawerService.isOpenerActive = false;
-    this.drawerService.menu = true;
+    this.drawerService.menu = false;
+  }
+
+  ngOnInit(): void {
   }
 }

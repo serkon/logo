@@ -36,7 +36,7 @@ export class DetailComponent implements OnInit, AfterViewInit {
     this.headerService.isScrollSpy = false;
     this.headerService.setDefaultTheme(HeaderTheme.SCROLL);
     this.drawerService.isOpenerActive = true;
-    this.drawerService.menu = false;
+    this.drawerService.menu = true;
   }
 
   paramChanges() {

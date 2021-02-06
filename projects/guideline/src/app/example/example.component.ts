@@ -10,7 +10,8 @@
 
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
-import { HeaderService, HeaderTheme } from '@logo-software/header';
+
+import { HeaderService } from '@logo-software/header';
 import { DrawerService } from '@logo-software/drawer';
 
 @Component({
@@ -18,23 +19,13 @@ import { DrawerService } from '@logo-software/drawer';
   template: '<router-outlet></router-outlet>',
   styleUrls: ['./example.component.scss'],
 })
-export class ExampleComponent implements OnInit, AfterViewInit, OnDestroy {
+export class ExampleComponent implements OnDestroy {
   private destroy$ = new Subject<void>();
 
-  constructor(
-    public headerService: HeaderService,
-    public drawerService: DrawerService,
-  ) {
-  }
-
-  ngOnInit() {
-    this.headerService.isScrollSpy = false;
-    this.headerService.setDefaultTheme(HeaderTheme.SCROLL);
+  constructor(public headerService: HeaderService, public drawerService: DrawerService) {
     this.drawerService.isOpenerActive = false;
-    this.drawerService.menu = true;
-  }
-
-  ngAfterViewInit() {
+    this.drawerService.menu = false;
+    this.drawerService.hideHeader = true;
   }
 
   ngOnDestroy() {

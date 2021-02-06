@@ -9,7 +9,7 @@
  * Any reproduction of this material must contain this notice.
  */
 -->
-<div [ngClass]="{'led-drawer-opened' : !this.drawerService.menu}" class="led-web-base">
+<div [ngClass]="{'led-drawer-opened' : this.drawerService.menu}" class="led-web-base">
   <logo-drawer
     [bgColors]="{left: 'var(--white)', top: 'transparent', right: 'var(--white)'}"
     [menu]="true"

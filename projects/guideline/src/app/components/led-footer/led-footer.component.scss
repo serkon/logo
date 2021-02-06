@@ -75,7 +75,6 @@
           display: inline-block;
           padding-left: size(110px);
           position: relative;
-          z-index: 2;
 
           @include smaller-than(sm) {
             display: block;

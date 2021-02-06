@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeaderService, HeaderTheme } from '@logo-software/header';
+import { DrawerService } from '@logo-software/drawer';
 
 @Component({
   selector: 'logo-download',
@@ -8,12 +9,11 @@ import { HeaderService, HeaderTheme } from '@logo-software/header';
 })
 export class DownloadComponent implements OnInit {
 
-  constructor(private headerService: HeaderService) {
+  constructor(private headerService: HeaderService, private drawerService: DrawerService) {
+    this.drawerService.menu = false;
   }
 
   ngOnInit(): void {
-    this.headerService.setDefaultTheme(HeaderTheme.SCROLL);
-    this.headerService.isScrollSpy = false;
     window.location.href = window.location.origin + '/assets/led/v1.0.0.fig'
   }
 
