@@ -81,6 +81,7 @@
       top: var(--drawer-top-height);
       position: absolute;
       right: 0;
+      overflow: auto;
       // overflow-x: hidden;
       // overflow-y: auto;
     }

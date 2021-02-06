@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HeaderService} from '@logo-software/header';
+import { HeaderService, HeaderTheme } from '@logo-software/header';
 
 @Component({
   selector: 'logo-download',
@@ -12,7 +12,7 @@ export class DownloadComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.headerService.setDefaultTheme('darked');
+    this.headerService.setDefaultTheme(HeaderTheme.SCROLL);
     this.headerService.isScrollSpy = false;
     window.location.href = window.location.origin + '/assets/led/v1.0.0.fig'
   }

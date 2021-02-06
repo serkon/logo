@@ -1,22 +1,27 @@
-import { ChangeDetectorRef, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+
+export enum HeaderTheme {
+  START = 'default',
+  SCROLL = 'scroll',
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class HeaderService {
   public mobileMenu: boolean = false;
-  public startTheme: string = 'default';
-  public scrollTheme: string = 'scrolled';
+  public startTheme = HeaderTheme.START;
+  public scrollTheme = HeaderTheme.SCROLL;
+  public activeTheme: HeaderTheme = this.startTheme;
   public catchPoint: number = 100;
   public isScrollSpy: boolean = true;
-  public settedTheme: string = this.startTheme;
 
-  headerThemeChange: Subject<string> = new Subject<string>();
+  headerThemeChange: Subject<HeaderTheme> = new Subject<HeaderTheme>();
 
-  setDefaultTheme(cssClass: string) {
+  setDefaultTheme(cssClass: HeaderTheme) {
     setTimeout(() => {
       this.headerThemeChange.next(cssClass);
-    },10);
+    }, 10);
   }
 }

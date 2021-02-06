@@ -9,7 +9,7 @@
  */
 
 import { Component, OnInit } from '@angular/core';
-import { HeaderService } from '@logo-software/header';
+import { HeaderService, HeaderTheme } from '@logo-software/header';
 import { DrawerService } from '@logo-software/drawer';
 
 @Component({
@@ -26,7 +26,7 @@ export class DocsComponent implements OnInit {
 
   ngOnInit() {
     this.headerService.isScrollSpy = false;
-    this.headerService.setDefaultTheme('darked');
+    this.headerService.setDefaultTheme(HeaderTheme.SCROLL);
     this.drawerService.isOpenerActive = true;
     this.drawerService.menu = false;
   }

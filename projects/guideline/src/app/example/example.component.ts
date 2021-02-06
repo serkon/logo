@@ -10,7 +10,7 @@
 
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
-import { HeaderService } from '@logo-software/header';
+import { HeaderService, HeaderTheme } from '@logo-software/header';
 import { DrawerService } from '@logo-software/drawer';
 
 @Component({
@@ -29,7 +29,7 @@ export class ExampleComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.headerService.isScrollSpy = false;
-    this.headerService.setDefaultTheme('darked');
+    this.headerService.setDefaultTheme(HeaderTheme.SCROLL);
     this.drawerService.isOpenerActive = false;
     this.drawerService.menu = true;
   }

@@ -1,6 +1,7 @@
 import { AfterViewInit, ChangeDetectorRef, Component, HostBinding, HostListener, Input } from '@angular/core';
 import { fromEvent } from 'rxjs';
-import { HeaderService } from './header.service';
+
+import { HeaderService, HeaderTheme } from './header.service';
 
 @Component({
   selector: 'logo-header',
@@ -8,8 +9,8 @@ import { HeaderService } from './header.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements AfterViewInit {
-  @Input() defaultTheme: string = 'default';
-  @Input() scrolledTheme: string = 'scrolled';
+  @Input() defaultTheme: HeaderTheme = HeaderTheme.START;
+  @Input() scrolledTheme: HeaderTheme = HeaderTheme.SCROLL;
   @Input() watchElement: string = 'drawer-right';
   @Input() isMobilized: boolean = true;
   @Input() scrollSpy: boolean = true;
@@ -18,16 +19,17 @@ export class HeaderComponent implements AfterViewInit {
 
   constructor(public headerService: HeaderService, private cd: ChangeDetectorRef) {
     this.headerService.headerThemeChange.subscribe((val) => {
-      this.headerService.settedTheme = val;
+      console.log(val);
+      this.headerService.activeTheme = val;
     });
   }
 
-  @HostBinding('class.darked') get darked() {
-    return this.headerService.settedTheme === this.headerService.scrollTheme;
+  @HostBinding('class.scroll') get scroll() {
+    return this.headerService.activeTheme === this.headerService.scrollTheme;
   }
 
   @HostBinding('class.default') get default() {
-    return this.headerService.settedTheme === this.headerService.startTheme;
+    return this.headerService.activeTheme === this.headerService.startTheme;
   }
 
   @HostBinding('class.opened') get opened() {
@@ -49,7 +51,7 @@ export class HeaderComponent implements AfterViewInit {
     const scroll$ = fromEvent(content, 'scroll');
     scroll$.subscribe(dir => {
       if (this.headerService.isScrollSpy) {
-        this.headerService.settedTheme = (content.scrollTop >= this.headerService.catchPoint) ? this.headerService.scrollTheme : this.headerService.startTheme;
+        this.headerService.activeTheme = (content.scrollTop >= this.headerService.catchPoint) ? this.headerService.scrollTheme : this.headerService.startTheme;
       }
     });
   }

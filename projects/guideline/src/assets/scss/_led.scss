@@ -81,7 +81,7 @@ logo-header {
     }
   }
 
-  &.darked {
+  &.scroll {
     @include box-shadow(0, size(2px), size(4px), 0, rgba(var(--black-rgb), 0.08), false);
 
     background: var(--basic-200);

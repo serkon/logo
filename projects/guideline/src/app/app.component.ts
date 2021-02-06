@@ -1,6 +1,8 @@
 import { AfterContentChecked, ChangeDetectorRef, Compiler, Component } from '@angular/core';
+
 import { DrawerService } from '@logo-software/drawer';
 import { Tree } from '@logo-software/tree';
+import { HeaderTheme } from '@logo-software/header';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +11,7 @@ import { Tree } from '@logo-software/tree';
 })
 export class AppComponent implements AfterContentChecked {
 
+  public headerTheme = HeaderTheme;
   public items: Tree[] = [
     {
       'id': 1,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderService } from '../../../../logo-software/header/src/lib/header.service';
+
+import { HeaderService, HeaderTheme } from '@logo-software/header';
 import { DrawerService } from '@logo-software/drawer';
 
 @Component({
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.headerService.isScrollSpy = true;
-    this.headerService.setDefaultTheme('default');
+    this.headerService.setDefaultTheme(HeaderTheme.START);
     this.drawerService.isOpenerActive = false;
     this.drawerService.menu = true;
   }

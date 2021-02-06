@@ -10,7 +10,7 @@
 
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HeaderService } from '@logo-software/header';
+import { HeaderService, HeaderTheme } from '@logo-software/header';
 import { DrawerService } from '@logo-software/drawer';
 
 import { DocsService } from '../docs.service';
@@ -34,7 +34,7 @@ export class DetailComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.headerService.isScrollSpy = false;
-    this.headerService.setDefaultTheme('darked');
+    this.headerService.setDefaultTheme(HeaderTheme.SCROLL);
     this.drawerService.isOpenerActive = true;
     this.drawerService.menu = false;
   }

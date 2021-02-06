@@ -19,7 +19,7 @@
     [overflow]="true"
   >
     <ng-container drawer-top>
-      <logo-header defaultTheme="default" scrolledTheme="darked" [isMobilized]="true">
+      <logo-header [defaultTheme]="headerTheme.START" [scrolledTheme]="headerTheme.SCROLL" [isMobilized]="true">
         <logo-link [classes]="'ghost large'" [url]="'/'">Home</logo-link>
         <logo-link [classes]="'ghost large'" [url]="'/docs/detail/getstarted'">Documentation</logo-link>
         <logo-link [classes]="'ghost large'" [url]="'/icons'">Icons</logo-link>
