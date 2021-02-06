@@ -18,7 +18,7 @@ import { Link } from './link';
  *  link: '',
  *  class: '',
  *  onClick: (event)=> console.log(event)
- *}]
+ * }]
  * ```
  *
  * <sub>header.component.html</sub>
