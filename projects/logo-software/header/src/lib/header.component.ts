@@ -19,7 +19,6 @@ export class HeaderComponent implements AfterViewInit {
 
   constructor(public headerService: HeaderService, private cd: ChangeDetectorRef) {
     this.headerService.headerThemeChange.subscribe((val) => {
-      console.log(val);
       this.headerService.activeTheme = val;
     });
   }
