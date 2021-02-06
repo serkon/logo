@@ -5,10 +5,11 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class DrawerService {
-  public menu: boolean = true;
+  public menu: boolean = false;
   public $changeTitle = new Subject();
   public headerText = '';
   public isOpenerActive: boolean = true;
+  public hideHeader: boolean = false;
 
   /**
    * Drawer title changer

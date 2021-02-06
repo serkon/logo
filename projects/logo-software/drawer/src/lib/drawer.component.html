@@ -1,8 +1,9 @@
-<div class="drawer-left" [ngClass]="{'drawer-closed': this.drawerService.menu}" id="drawer-left">
+<div class="drawer-left drawer-closed" [ngClass]="{'drawer-closed': !this.drawerService.menu}" id="drawer-left">
   <ng-content select="[drawer-left]"></ng-content>
 </div>
 <div class="drawer-content" id="drawer-content">
   <header
+    *ngIf="!drawerService.hideHeader"
     [ngClass]="{'drawer-active': this.drawerService.isOpenerActive}"
     class="drawer-top"
   >

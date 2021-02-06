@@ -96,14 +96,14 @@ export class DrawerComponent implements OnInit, OnDestroy {
    * the left menu status will be changed to the closed
    */
   open() {
-    return this.drawerService.menu = false;
+    return this.drawerService.menu = true;
   }
 
   /**
    * left menu status will be changed to the opened
    */
   close() {
-    return this.drawerService.menu = true;
+    return this.drawerService.menu = false;
   }
 
   ngOnDestroy() {
