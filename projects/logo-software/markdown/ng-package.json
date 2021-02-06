@@ -2,7 +2,13 @@
   "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../../dist/logo-software/markdown",
   "lib": {
-    "entryFile": "src/public-api.ts"
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "marked": "marked",
+      "highlight.js": "hljs",
+      "@logo-software/playground": "playground",
+      "@logo-software/dynamic": "dynamic"
+    }
   },
   "whitelistedNonPeerDependencies": [
     "marked",

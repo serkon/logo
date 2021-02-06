@@ -1,10 +1,20 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
 import { AfterViewInit, Component, EmbeddedViewRef, Input, OnChanges, SimpleChanges, ViewChild, ViewContainerRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
-import { DynamicService } from '@logo-software/dynamic';
-
 import * as marked from 'marked';
 import * as hljs from 'highlight.js';
+
+import { DynamicService } from '@logo-software/dynamic';
 
 @Component({
   selector: 'logo-markdown',
@@ -14,7 +24,10 @@ import * as hljs from 'highlight.js';
 export class MarkdownComponent implements OnChanges, AfterViewInit {
 
   @ViewChild('container', {read: ViewContainerRef}) container!: ViewContainerRef;
-  @Input() url = '/assets/docs/getstarted.md';
+  /**
+   * @Input() url = '/assets/docs/getstarted.md'
+   */
+  @Input() url;
   public string: string = '';
 
   constructor(private dynamicService: DynamicService, private http: HttpClient, private sanitize: DomSanitizer) {
