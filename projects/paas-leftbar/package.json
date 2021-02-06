@@ -1,0 +1,15 @@
+{
+  "name": "paas-leftbar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "karma.conf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@logo-software/tree": "0.0.1",
+    "@logo-software/theme": "^3.6.0"
+  }
+}
