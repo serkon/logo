@@ -25,9 +25,18 @@ export interface PaasUser {
     ],
     tanents?: {
       default: string;
-      btnAction?: string;
       options?: [
         {
+          name: string;
+          id: string;
+        }
+      ]
+    },
+    applications?: {
+      default: string;
+      options?: [
+        {
+          logo: string;
           name: string;
           id: string;
         }

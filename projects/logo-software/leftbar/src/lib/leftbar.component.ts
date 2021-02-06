@@ -20,4 +20,16 @@ export class LeftbarComponent implements OnInit {
     console.log(id);
   }
 
+  public homeEmitter() {
+    console.log('Home Button');
+  }
+
+  public selectTanentEmitter(id: string) {
+    console.log(id);
+  }
+
+  public selectAppEmitter(id: string) {
+    console.log(id);
+  }
+
 }

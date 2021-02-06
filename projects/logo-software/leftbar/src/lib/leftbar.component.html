@@ -8,8 +8,12 @@
             <img src="{{this.leftbarApi.userInfo.user.avatar}}">
           </span>
         </span>
-        <span *ngIf="this.leftbarApi.userInfo.user.notifications"
-              class="badge danger">{{this.leftbarApi.userInfo.user.notifications}}</span>
+        <span
+          *ngIf="this.leftbarApi.userInfo.user.notifications"
+          class="badge danger"
+        >
+          {{this.leftbarApi.userInfo.user.notifications}}
+        </span>
         <div class="details">
           <h6>{{this.leftbarApi.userInfo.user.name}}</h6>
           <p class="small">{{this.leftbarApi.userInfo.user.title}}</p>
@@ -17,33 +21,50 @@
       </div>
       <div class="expandable-content">
         <div class="row infos">
-          <div *ngFor="let item of this.leftbarApi.userInfo.user.infos"
-               class="col-{{item.col}} {{item.reference}} item">
+          <div
+            *ngFor="let item of this.leftbarApi.userInfo.user.infos"
+            class="col-{{item.col}} {{item.reference}} item"
+          >
             <a (click)="item.action" routerLink="{{item.link}}"></a>
-            <span *ngIf="item.title" class="title">{{item.title}} <span *ngIf="item.badge"
-                                                                        class="badge">{{item.count}}</span></span>
+            <span *ngIf="item.title" class="title">
+              {{item.title}}
+              <span *ngIf="item.badge" class="badge">{{item.count}}</span>
+            </span>
             <span *ngIf="item.icon" class="title {{item.icon}}"></span>
             <p *ngIf="item.desc; else countTemp" class="small">{{item.desc}}</p>
             <ng-template #countTemp>{{item.count}}</ng-template>
           </div>
         </div>
         <div *ngFor="let option of this.leftbarApi.userInfo.user.links" class="item">
-          <a [ngClass]="option.name ==='Çıkış yap'?'danger':''" class="ghost large"
-             routerLink="{{option.link}}">{{option.name}}</a>
+          <a
+            [ngClass]="option.name ==='Çıkış yap'?'danger':''"
+            class="ghost large"
+            routerLink="{{option.link}}"
+          >
+            {{option.name}}
+          </a>
         </div>
       </div>
     </div>
     <div class="tanent-base">
       <span class="le-login_key item"></span>
       <span class="item">
-        <button (click)="showPopover('tanentOptions');"
-                class="ghost small icon-right le-arrow_down">{{this.leftbarApi.userInfo.user.tanents.default}}</button>
+        <button
+          (click)="showPopover('tanentOptions');"
+          class="ghost small icon-right le-arrow_down"
+        >
+          {{this.leftbarApi.userInfo.user.tanents.default}}
+        </button>
         <div class="popover" id="tanentOptions">
           <span class="triangle"></span>
           <span class="list">
-            <button (click)="this.leftbarApi.selectTanent(tanent.id)"
-                    *ngFor="let tanent of this.leftbarApi.userInfo.user.tanents.options"
-                    class="ghost large">{{tanent.name}}</button>
+            <button
+              (click)="selectTanentEmitter(tanent.id)"
+              *ngFor="let tanent of this.leftbarApi.userInfo.user.tanents.options"
+              class="ghost large icon-right le-arrow_down"
+            >
+              {{tanent.name}}
+            </button>
           </span>
         </div>
       </span>
@@ -51,21 +72,33 @@
     <div class="search-base">
       <span class="input-w-icon">
         <span class="le-search"></span>
-        <input class="icon-left le-search" placeholder="Placeholder">
+        <input class="icon-left" placeholder="Placeholder">
       </span>
     </div>
     <div class="shortcuts-base">
       <div class="standarts">
-        <span class="home item">
-          <button class="ghost le-home"></button>
-        </span>
-        <span class="apps item">
-          <button class="ghost icon-right le-arrow_down">
-            <img src="/assets/data/sample-app-logo.png"/>
+        <div class="home item">
+          <button (click)="homeEmitter()" class="ghost le-home"></button>
+        </div>
+        <div class="apps item">
+          <button (click)="showPopover('appOptions');" class="ghost small icon-right le-arrow_down">
+            <img src="{{this.leftbarApi.userInfo.user.applications.default}}"/>
           </button>
-        </span>
+          <div class="popover" id="appOptions">
+            <span class="triangle"></span>
+            <span class="list">
+              <button
+                (click)="selectAppEmitter(app.id)"
+                *ngFor="let app of this.leftbarApi.userInfo.user.applications.options"
+                class="ghost large"
+              >
+                <img src="{{app.logo}}"/>
+              </button>
+            </span>
+          </div>
+        </div>
       </div>
-      <div class="customs">
+      <div class="customshortcuts">
         <button class="brand le-bookmarks_1"></button>
         <button class="brand le-folder_lock"></button>
         <button class="light le-add"></button>
