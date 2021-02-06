@@ -85,6 +85,16 @@
         }
       ]
     },
+    "applications": {
+      "default": "/assets/data/sample-app-logo.png",
+      "options": [
+        {
+          "logo": "/assets/data/sample-app-logo.png",
+          "name": "J-Platform",
+          "id": "1234567890"
+        }
+      ]
+    },
     "shortcuts": [
       {
         "icon": "/assets/data/sample-app-icon.svg",
