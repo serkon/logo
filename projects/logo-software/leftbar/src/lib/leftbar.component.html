@@ -1,3 +1,15 @@
+<!--
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+-->
+
 <div class="le-leftbar">
   <div class="info-card">
     <div class="user-base">
@@ -5,24 +17,21 @@
         <a (click)="$event"></a>
         <span class="avatar-base">
           <span class="avatar">
-            <img src="{{this.leftbarApi.userInfo.user.avatar}}">
+            <img src="{{this.leftbarService.userInfo.user.avatar}}">
           </span>
         </span>
-        <span
-          *ngIf="this.leftbarApi.userInfo.user.notifications"
-          class="badge danger"
-        >
-          {{this.leftbarApi.userInfo.user.notifications}}
+        <span *ngIf="this.leftbarService.userInfo.user.notifications" class="badge danger">
+          {{this.leftbarService.userInfo.user.notifications}}
         </span>
         <div class="details">
-          <h6>{{this.leftbarApi.userInfo.user.name}}</h6>
-          <p class="small">{{this.leftbarApi.userInfo.user.title}}</p>
+          <h6>{{this.leftbarService.userInfo.user.name}}</h6>
+          <p class="small">{{this.leftbarService.userInfo.user.title}}</p>
         </div>
       </div>
       <div class="expandable-content">
         <div class="row infos">
           <div
-            *ngFor="let item of this.leftbarApi.userInfo.user.infos"
+            *ngFor="let item of this.leftbarService.userInfo.user.infos"
             class="col-{{item.col}} {{item.reference}} item"
           >
             <a (click)="item.action" routerLink="{{item.link}}"></a>
@@ -35,7 +44,7 @@
             <ng-template #countTemp>{{item.count}}</ng-template>
           </div>
         </div>
-        <div *ngFor="let option of this.leftbarApi.userInfo.user.links" class="item">
+        <div *ngFor="let option of this.leftbarService.userInfo.user.links" class="item">
           <a
             [ngClass]="option.name ==='Çıkış yap'?'danger':''"
             class="ghost large"
@@ -49,18 +58,15 @@
     <div class="tanent-base">
       <span class="le-login_key item"></span>
       <span class="item">
-        <button
-          (click)="showPopover('tanentOptions');"
-          class="ghost small icon-right le-arrow_down"
-        >
-          {{this.leftbarApi.userInfo.user.tanents.default}}
+        <button (click)="showPopover('tanentOptions');" class="ghost small icon-right le-arrow_down">
+          {{this.leftbarService.userInfo.user.tanents.default}}
         </button>
         <div class="popover" id="tanentOptions">
           <span class="triangle"></span>
           <span class="list">
             <button
               (click)="selectTanentEmitter(tanent.id)"
-              *ngFor="let tanent of this.leftbarApi.userInfo.user.tanents.options"
+              *ngFor="let tanent of this.leftbarService.userInfo.user.tanents.options"
               class="ghost large icon-right le-arrow_down"
             >
               {{tanent.name}}
@@ -82,14 +88,14 @@
         </div>
         <div class="apps item">
           <button (click)="showPopover('appOptions');" class="ghost small icon-right le-arrow_down">
-            <img src="{{this.leftbarApi.userInfo.user.applications.default}}"/>
+            <img src="{{this.leftbarService.userInfo.user.applications.default}}"/>
           </button>
           <div class="popover" id="appOptions">
             <span class="triangle"></span>
             <span class="list">
               <button
                 (click)="selectAppEmitter(app.id)"
-                *ngFor="let app of this.leftbarApi.userInfo.user.applications.options"
+                *ngFor="let app of this.leftbarService.userInfo.user.applications.options"
                 class="ghost large"
               >
                 <img src="{{app.logo}}"/>

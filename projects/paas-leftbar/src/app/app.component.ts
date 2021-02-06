@@ -11,8 +11,9 @@ import { LeftbarService } from '@logo-software/leftbar';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  title: string = 'PaaS Demo';
 
-  constructor(public http: HttpClient, public leftbarApi: LeftbarService) {
+  constructor(public http: HttpClient, public leftbarService: LeftbarService) {
   }
 
   ngOnInit(): void {
@@ -27,7 +28,7 @@ export class AppComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
-          this.leftbarApi.userInfo = data;
+          this.leftbarService.userInfo = data;
         },
       );
   }
@@ -36,9 +37,7 @@ export class AppComponent implements OnInit {
     if (error.error instanceof ErrorEvent) {
       console.error('Hata Oluştu:', error.error.message);
     } else {
-      console.error(
-        `Backend Hata Kodu: ${error.status}, ` +
-        `Hata Mesajı: ${error.error}`);
+      console.error(`Backend Hata Kodu: ${error.status}, ` + `Hata Mesajı: ${error.error}`);
     }
     return throwError(
       'Bir hata oluştu. Lütfen daha sonra tekrar deneyiniz.');

@@ -1,4 +1,15 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
 import { LeftbarService } from './leftbar.service';
 
 @Component({
@@ -9,7 +20,7 @@ import { LeftbarService } from './leftbar.service';
 export class LeftbarComponent implements OnInit {
   @Output() public onInit: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(public leftbarApi: LeftbarService) {
+  constructor(public leftbarService: LeftbarService) {
   }
 
   ngOnInit(): void {
