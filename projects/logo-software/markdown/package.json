@@ -9,8 +9,7 @@
     "highlight.js": "^10.5.0",
     "marked": "^1.2.7",
     "tslib": "^2.0.0",
-    "@logo-software/dynamic":"^0.0.1",
-    "@logo-software/playground": "^0.0.1"
+    "@logo-software/dynamic":"^0.0.1"
   },
   "description": "Dynamic markdown loader from MD/MDX files and parser for Angular.io projects. This library also has Playground Module for display showcase of the any component.",
   "homepage": "http://developer.logo.com.tr",

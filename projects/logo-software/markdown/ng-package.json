@@ -6,12 +6,12 @@
     "umdModuleIds": {
       "marked": "marked",
       "highlight.js": "hljs",
-      "@logo-software/playground": "playground",
       "@logo-software/dynamic": "dynamic"
     }
   },
   "whitelistedNonPeerDependencies": [
     "marked",
-    "highlight.js"
+    "highlight.js",
+    "@logo-software/dynamic"
   ]
 }

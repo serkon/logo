@@ -11,7 +11,6 @@
 import { CompilerFactory, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
-import { PlaygroundModule } from '@logo-software/playground';
 import { DynamicModule } from '@logo-software/dynamic';
 
 import { MarkdownComponent } from './markdown.component';
@@ -22,7 +21,7 @@ export function createCompiler(compilerFactory: CompilerFactory) {
 
 @NgModule({
   declarations: [MarkdownComponent],
-  imports: [HttpClientModule, PlaygroundModule, DynamicModule],
+  imports: [HttpClientModule, DynamicModule],
   exports: [MarkdownComponent],
 })
 export class MarkdownModule {
