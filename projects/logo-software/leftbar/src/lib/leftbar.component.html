@@ -1,0 +1,81 @@
+<div class="le-leftbar">
+  <div class="info-card">
+    <div class="user-base">
+      <div class="item">
+        <a (click)="$event"></a>
+        <span class="avatar-base">
+          <span class="avatar">
+            <img src="{{this.leftbarApi.userInfo.user.avatar}}">
+          </span>
+        </span>
+        <span *ngIf="this.leftbarApi.userInfo.user.notifications"
+              class="badge danger">{{this.leftbarApi.userInfo.user.notifications}}</span>
+        <div class="details">
+          <h6>{{this.leftbarApi.userInfo.user.name}}</h6>
+          <p class="small">{{this.leftbarApi.userInfo.user.title}}</p>
+        </div>
+      </div>
+      <div class="expandable-content">
+        <div class="row infos">
+          <div *ngFor="let item of this.leftbarApi.userInfo.user.infos"
+               class="col-{{item.col}} {{item.reference}} item">
+            <a (click)="item.action" routerLink="{{item.link}}"></a>
+            <span *ngIf="item.title" class="title">{{item.title}} <span *ngIf="item.badge"
+                                                                        class="badge">{{item.count}}</span></span>
+            <span *ngIf="item.icon" class="title {{item.icon}}"></span>
+            <p *ngIf="item.desc; else countTemp" class="small">{{item.desc}}</p>
+            <ng-template #countTemp>{{item.count}}</ng-template>
+          </div>
+        </div>
+        <div *ngFor="let option of this.leftbarApi.userInfo.user.links" class="item">
+          <a [ngClass]="option.name ==='Çıkış yap'?'danger':''" class="ghost large"
+             routerLink="{{option.link}}">{{option.name}}</a>
+        </div>
+      </div>
+    </div>
+    <div class="tanent-base">
+      <span class="le-login_key item"></span>
+      <span class="item">
+        <button (click)="showPopover('tanentOptions');"
+                class="ghost small icon-right le-arrow_down">{{this.leftbarApi.userInfo.user.tanents.default}}</button>
+        <div class="popover" id="tanentOptions">
+          <span class="triangle"></span>
+          <span class="list">
+            <button (click)="this.leftbarApi.selectTanent(tanent.id)"
+                    *ngFor="let tanent of this.leftbarApi.userInfo.user.tanents.options"
+                    class="ghost large">{{tanent.name}}</button>
+          </span>
+        </div>
+      </span>
+    </div>
+    <div class="search-base">
+      <span class="input-w-icon">
+        <span class="le-search"></span>
+        <input class="icon-left le-search" placeholder="Placeholder">
+      </span>
+    </div>
+    <div class="shortcuts-base">
+      <div class="standarts">
+        <span class="home item">
+          <button class="ghost le-home"></button>
+        </span>
+        <span class="apps item">
+          <button class="ghost icon-right le-arrow_down">
+            <img src="/assets/data/sample-app-logo.png"/>
+          </button>
+        </span>
+      </div>
+      <div class="customs">
+        <button class="brand le-bookmarks_1"></button>
+        <button class="brand le-folder_lock"></button>
+        <button class="light le-add"></button>
+        <button class="light le-add"></button>
+        <button class="light le-add"></button>
+        <button class="ghost le-settings"></button>
+      </div>
+    </div>
+  </div>
+  <div class="menu-base">
+    <ng-content></ng-content>
+  </div>
+</div>
