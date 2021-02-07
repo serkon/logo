@@ -18,7 +18,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class DynamicService {
 
-  public $compile = new Subject();
+  public compile$ = new Subject();
 
   constructor(private compiler: Compiler, private sanitizer: DomSanitizer) {
   }
@@ -58,7 +58,7 @@ export class DynamicService {
 
     const mod: ModuleWithComponentFactories<TemplateModule> = this.compiler.compileModuleAndAllComponentsSync(TemplateModule);
     const compFactory = mod.componentFactories.find(comp => comp.componentType === TemplateComponent);
-    this.$compile.next(compFactory);
+    this.compile$.next(compFactory);
     return compFactory;
   }
 
