@@ -11,7 +11,6 @@ import { LeftbarService } from '@logo-software/leftbar';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title: string = 'PaaS Demo';
 
   constructor(public http: HttpClient, public leftbarService: LeftbarService) {
   }
@@ -27,8 +26,7 @@ export class AppComponent implements OnInit {
       )
       .subscribe(
         data => {
-          console.log(data);
-          this.leftbarService.userInfo = data;
+          this.leftbarService.userDataLoad.next(data);
         },
       );
   }
