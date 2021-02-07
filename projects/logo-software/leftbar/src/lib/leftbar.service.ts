@@ -11,14 +11,19 @@
 import { Injectable } from '@angular/core';
 
 import { PaasUser } from './user';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LeftbarService {
   public userInfo: PaasUser = null;
+  public userDataLoad: Subject<PaasUser> = new Subject<PaasUser>();
 
   constructor() {
+    this.userDataLoad.subscribe((data) => {
+      this.userInfo = data;
+    });
   }
 
   public selectTenant(id: string) {

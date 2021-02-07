@@ -9,15 +9,14 @@
  */
 
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { LeftbarComponent } from './leftbar.component';
 
 @NgModule({
   declarations: [LeftbarComponent],
-  imports: [BrowserModule, HttpClientModule, RouterModule],
+  imports: [RouterModule, CommonModule],
   exports: [LeftbarComponent],
 })
 export class LeftbarModule {

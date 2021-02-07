@@ -11,5 +11,8 @@
 @import "~@logo-software/theme/style";
 
 :host {
-  // @TODO add leftbar component scss
+  .le-leftbar {
+    width: size(280px);
+    padding: size(10px);
+  }
 }

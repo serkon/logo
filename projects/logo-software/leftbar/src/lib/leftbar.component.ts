@@ -20,11 +20,17 @@ import { LeftbarService } from './leftbar.service';
 export class LeftbarComponent implements OnInit {
   @Output() public onInit: EventEmitter<boolean> = new EventEmitter<boolean>();
 
+  public emptyShortcutSlots: any;
+
   constructor(public leftbarService: LeftbarService) {
   }
 
   ngOnInit(): void {
     this.onInit.emit(true);
+    this.leftbarService.userDataLoad.subscribe(data => {
+      const emptySlots: number = 5 - this.leftbarService.userInfo.user.shortcuts.length || 0;
+      this.emptyShortcutSlots = Array.from(Array(emptySlots).keys());
+    });
   }
 
   public showPopover(id: string) {
@@ -41,6 +47,14 @@ export class LeftbarComponent implements OnInit {
 
   public selectAppEmitter(id: string) {
     console.log(id);
+  }
+
+  public shortcutSettingsEmitter() {
+    console.log('Shortcut Settings');
+  }
+
+  public addShortcutEmitter() {
+    console.log('Add Shortcut Settings');
   }
 
 }
