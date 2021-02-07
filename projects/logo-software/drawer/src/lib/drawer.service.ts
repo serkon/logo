@@ -6,7 +6,8 @@ import { Subject } from 'rxjs';
 })
 export class DrawerService {
   public menu: boolean = false;
-  public $changeTitle = new Subject();
+  public changeTitle$ = new Subject();
+  public setMenuWidth$ = new Subject();
   public headerText = '';
   public isOpenerActive: boolean = true;
   public hideHeader: boolean = false;
@@ -19,7 +20,7 @@ export class DrawerService {
   setHeaderTitle(text, changeTitle = true) {
     this.headerText = text;
     if (changeTitle) {
-      this.$changeTitle.next(text);
+      this.changeTitle$.next(text);
     }
   }
 }

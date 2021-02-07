@@ -8,7 +8,8 @@
  * Any reproduction of this material must contain this notice.
  */
 
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
 import { HeaderService, HeaderTheme } from '@logo-software/header';
 import { DrawerService } from '@logo-software/drawer';
 
@@ -17,18 +18,13 @@ import { DrawerService } from '@logo-software/drawer';
   templateUrl: './docs.component.html',
   styleUrls: ['./docs.component.scss'],
 })
-export class DocsComponent implements OnInit {
-  constructor(
-    public headerService: HeaderService,
-    public drawerService: DrawerService,
-  ) {
-  }
-
-  ngOnInit() {
+export class DocsComponent {
+  constructor(public headerService: HeaderService, public drawerService: DrawerService) {
     this.headerService.isScrollSpy = false;
     this.headerService.setDefaultTheme(HeaderTheme.SCROLL);
     this.drawerService.isOpenerActive = true;
     this.drawerService.menu = true;
+    this.drawerService.setMenuWidth$.next('20vw');
   }
 
 }

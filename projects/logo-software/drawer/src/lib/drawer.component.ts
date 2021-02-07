@@ -20,14 +20,16 @@ export class DrawerComponent implements OnInit, OnDestroy {
    * menu opener button visibility configuration, default is visible
    */
   @Input() public opener: boolean = true;
+  @Input() overflow: boolean = false;
 
   constructor(private elementRef: ElementRef, public drawerService: DrawerService) {
     this.setColors(this.bgColors);
     this.width = this._width;
     this.height = this._height;
+    this.drawerService.setMenuWidth$.subscribe((width: string) => {
+      this.width = width;
+    });
   }
-
-  @Input() overflow: boolean = false;
 
   private _height: string = '65px';
 
@@ -107,6 +109,6 @@ export class DrawerComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.drawerService.$changeTitle.unsubscribe();
+    this.drawerService.changeTitle$.unsubscribe();
   }
 }
