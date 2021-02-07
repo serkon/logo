@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  padding-top: var(--drawer-height);
+
+  logo-icons-sample {
+    margin: 0;
+    max-height: 600px;
+    overflow: auto;
+    box-shadow: 0 0 10px rgba(var(--dark-rgb), 0.2);
+    padding: 30px;
+
+    ::ng-deep {
+      label {
+        width: 100%;
+
+        input {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
