@@ -1,6 +1,8 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { Link } from './link';
 import { DOCUMENT } from '@angular/common';
+
+import { Link } from './link';
+import { LinkService } from './link.service';
 
 /**
  * Link component creates link. Advantage of using this component is give the control
@@ -91,7 +93,7 @@ export class LinkComponent implements OnInit {
    */
   @Input() link: Link;
 
-  constructor(@Inject(DOCUMENT) private document) {
+  constructor(@Inject(DOCUMENT) private document, private linkService: LinkService) {
   }
 
   ngOnInit() {
@@ -105,21 +107,11 @@ export class LinkComponent implements OnInit {
     }
   }
 
-  scrollToAnchor() {
-    if (this.fragment) {
-      const anc = document.getElementById(this.fragment);
-      anc && window.setTimeout(() => anc.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      }), 100);
-    }
-  }
-
   onClickEvent($event, external: boolean = false) {
     if (external) {
-      this.document.location.href = `${this.url}${this.fragment ? `#${this.fragment}`: ``}`;
+      this.document.location.href = `${this.url}${this.fragment ? `#${this.fragment}` : ``}`;
     }
-    this.scrollToAnchor();
+    this.linkService.fragment = this.fragment;
     this.onClick && this.onClick($event);
   }
 }

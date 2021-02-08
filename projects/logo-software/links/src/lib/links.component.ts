@@ -1,5 +1,4 @@
-import { AfterViewChecked, Component, Input, OnDestroy } from '@angular/core';
-import { Router, Scroll } from '@angular/router';
+import { Component, Input } from '@angular/core';
 
 import { Link } from './link';
 
@@ -33,23 +32,11 @@ import { Link } from './link';
   templateUrl: './links.component.html',
   styleUrls: ['./links.component.scss'],
 })
-export class LinksComponent implements AfterViewChecked, OnDestroy {
+export class LinksComponent {
   /**
    * add css classes to links
    */
   @Input() classes = [];
-  anchor: string = null;
-  status: boolean = false;
-  subscription = null;
-
-  constructor(private router: Router) {
-    this.subscription = this.router.events.subscribe(event => {
-      this.status = true;
-      if (event instanceof Scroll && !!event.anchor) {
-        this.anchor = event.anchor;
-      }
-    });
-  }
 
   private _links: Link[] = [];
 
@@ -64,30 +51,8 @@ export class LinksComponent implements AfterViewChecked, OnDestroy {
     this._links = value || [];
   }
 
-  ngAfterViewChecked(): void {
-    if (this.anchor && this.status) {
-      this.status = false;
-      this.scrollToAnchor();
-    }
-  }
-
-  public ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
-  }
-
   setClasses(classes = []) {
     return [...classes, ...this.classes];
   }
 
-  scrollToAnchor() {
-    if (this.anchor) {
-      const anc = document.getElementById(this.anchor);
-      anc && window.setTimeout(() => anc.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      }), 100);
-    }
-  }
 }
