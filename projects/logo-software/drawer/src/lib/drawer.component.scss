@@ -75,15 +75,20 @@
     }
 
     main.drawer-right {
+      position: absolute;
       padding: size(20px);
+      top: var(--drawer-top-height);
       left: 0;
       bottom: 0;
-      top: var(--drawer-top-height);
-      position: absolute;
       right: 0;
       overflow: auto;
       // overflow-x: hidden;
       // overflow-y: auto;
+
+      .drawer-main-top {
+        position: absolute;
+        top: 0;
+      }
     }
   }
 
