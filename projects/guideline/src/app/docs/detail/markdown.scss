@@ -1,8 +1,84 @@
-h1.test {
-  color: red;
+h2,h3,h5,p,img {
+  margin: size(15px);
+}
+.title-wrapper {
+  display: flex;
+  width: size(1800px);
+  height: size(240px);
+  background-color: var(--basic-300);
+  align-items: center;
+}
+.overview {
+  padding-top: size(86px);
+}
+
+.title {
+  padding-left: size(60px);
+  padding-bottom: size(16px);
+}
+.wtu {
+  padding-top : size(40px)
+}
+.wtnu {
+  padding-top : size(40px)
+}
+
+.main {
+  padding: size(20px);
+  width: size(740px);
+}
+
+.nesting {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+}
+
+div.right div:nth-child(1) {
+  margin-left: size(-20px)
+}
+
+div.left div:nth-child(1) {
+  margin-left: size(-20px)
 }
 
 .foo {
-  border: 1px solid red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--basic-300);
+  width: 740px;
+  height: 348px;
+  align-items: center;
   padding: 0 10px;
 }
+
+.bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--basic-300);
+  width: 740px;
+  height: 348px;
+  align-items: start;
+  padding: 20px;
+}
+
+th {
+  background-color: var(--basic-600);
+}
+
+td {
+  padding: size(32px);
+}
+
