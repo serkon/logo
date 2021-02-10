@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="content col-xs-10">
+    <select
+      [disabled]="disabled"
+      class="{{selectedSize}}"
+      placeholder="Placeholder"
+    >
+      <option value="Placeholder" selected>Placeholder</option>
+      <option value="Placeholder" selected>Placeholder 2</option>
+      <option value="Placeholder" selected>Placeholder 3</option>
+
+    </select>
+  </div>
+  <div class="settings col-xs-2">
+    <div>
+      Modifiers
+      <div>
+        <input [(ngModel)]="disabled" type="checkbox" id="disable">
+        <label for="disable">Disabled</label>
+      </div>
+    </div>
+    <div>
+      Size
+      <div *ngFor="let sizeType of sizeTypes;index as i">
+        <input
+          [(ngModel)]="sizeType.selected"
+          type="checkbox"
+          id="{{sizeType.class}}-{{i}}"
+          (change)="changeSizeType(sizeType.class)"
+        >
+        <label for="{{sizeType.class}}-{{i}}">{{sizeType.class}}</label>
+      </div>
+    </div>
+  </div>
+</div>
+
