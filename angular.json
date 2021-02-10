@@ -1594,8 +1594,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "15kb",
+                  "maximumError": "20kb"
                 }
               ]
             }
@@ -1695,6 +1695,46 @@
             "tsConfig": [
               "projects/logo-software/leftbar/tsconfig.lib.json",
               "projects/logo-software/leftbar/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@logo-software/modal": {
+      "projectType": "library",
+      "root": "projects/logo-software/modal",
+      "sourceRoot": "projects/logo-software/modal/src",
+      "prefix": "logo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/logo-software/modal/tsconfig.lib.json",
+            "project": "projects/logo-software/modal/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/logo-software/modal/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/logo-software/modal/src/test.ts",
+            "tsConfig": "projects/logo-software/modal/tsconfig.spec.json",
+            "karmaConfig": "projects/logo-software/modal/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/logo-software/modal/tsconfig.lib.json",
+              "projects/logo-software/modal/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
