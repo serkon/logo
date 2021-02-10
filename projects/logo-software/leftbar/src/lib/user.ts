@@ -33,7 +33,7 @@ export interface PaasUser {
         link: string;
       }
     ],
-    tanents?: {
+    tenants?: {
       default: string;
       options?: [
         {
@@ -44,6 +44,7 @@ export interface PaasUser {
     },
     applications?: {
       default: string;
+      defaultIcon: string;
       options?: [
         {
           logo: string;
@@ -56,6 +57,7 @@ export interface PaasUser {
       {
         icon: string;
         class?: string;
+        name: string;
         link: string;
       }
     ]

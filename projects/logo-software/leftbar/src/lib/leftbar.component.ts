@@ -8,9 +8,11 @@
  * Any reproduction of this material must contain this notice.
  */
 
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { TreeComponent } from '@logo-software/tree';
 
 import { LeftbarService } from './leftbar.service';
+import { PaasUser } from './user';
 
 @Component({
   selector: 'logo-leftbar',
@@ -18,9 +20,30 @@ import { LeftbarService } from './leftbar.service';
   templateUrl: './leftbar.component.html',
 })
 export class LeftbarComponent implements OnInit {
+  @Output() public onAddShortCut: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() public onHomeButton: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() public onTenantSelected: EventEmitter<string> = new EventEmitter<string>();
+
   @Output() public onInit: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() public onAppSelected: EventEmitter<string> = new EventEmitter<string>();
+  @Output() public onSettingsButton: EventEmitter<boolean> = new EventEmitter<boolean>();
+  public showUserDetails: boolean = false;
+  public popoverStatus: boolean = false;
+  public activePopover: string = '';
 
   public emptyShortcutSlots: any;
+  @ViewChild(TreeComponent, {read: TreeComponent}) tree: TreeComponent;
+
+  private _data: PaasUser
+
+  get data(): PaasUser {
+    return this._data;
+  }
+
+  @Input() set data(value: PaasUser) {
+    this._data = value;
+    console.log(value);
+  }
 
   constructor(public leftbarService: LeftbarService) {
   }
@@ -33,28 +56,41 @@ export class LeftbarComponent implements OnInit {
     });
   }
 
-  public showPopover(id: string) {
-    console.log(id);
+  public toggleUserDetails() {
+    this.showUserDetails = !this.showUserDetails;
+  }
+
+  public togglePopover(id: string) {
+    this.leftbarService.isSlim ? this.leftbarService.isSlim = false : '';
+    if (id !== this.activePopover && this.activePopover !== '' && this.popoverStatus) {
+      this.popoverStatus = !this.popoverStatus;
+    }
+    this.activePopover = id;
+    this.popoverStatus = !this.popoverStatus;
+  }
+
+  public toggleMenu() {
+    this.popoverStatus ? this.popoverStatus = false : '';
+    this.leftbarService.isSlim = !this.leftbarService.isSlim;
   }
 
   public homeEmitter() {
-    console.log('Home Button');
+    this.onHomeButton.emit(true);
   }
 
-  public selectTanentEmitter(id: string) {
-    console.log(id);
+  public selectTenantEmitter(id: string) {
+    this.onTenantSelected.emit(id);
   }
 
   public selectAppEmitter(id: string) {
-    console.log(id);
+    this.onAppSelected.emit(id);
   }
 
   public shortcutSettingsEmitter() {
-    console.log('Shortcut Settings');
+    this.onSettingsButton.emit(true);
   }
 
   public addShortcutEmitter() {
-    console.log('Add Shortcut Settings');
+    this.onAddShortCut.emit(true);
   }
-
 }

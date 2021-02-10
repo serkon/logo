@@ -11,12 +11,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { LinksModule } from '@logo-software/links';
 
 import { LeftbarComponent } from './leftbar.component';
 
 @NgModule({
   declarations: [LeftbarComponent],
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, LinksModule],
   exports: [LeftbarComponent],
 })
 export class LeftbarModule {

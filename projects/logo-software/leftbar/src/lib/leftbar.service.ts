@@ -19,6 +19,7 @@ import { Subject } from 'rxjs';
 export class LeftbarService {
   public userInfo: PaasUser = null;
   public userDataLoad: Subject<PaasUser> = new Subject<PaasUser>();
+  public isSlim: boolean = false;
 
   constructor() {
     this.userDataLoad.subscribe((data) => {
