@@ -17,90 +17,6 @@ export class AppComponent implements OnInit {
 
   public menuItems: Tree[];
   public shortcutItems: Tree[];
-  /*public shortcutItems: Tree[] = [
-    {
-      'id': 0,
-      'name': 'Örnek Menü 1',
-      'optional': true,
-      'iconClasses': 'success',
-      'iconPath': '/assets/data/sample-app-icon.svg',
-      'children': [
-        {
-          'id': 1,
-          'name': 'Components',
-          'iconClasses': 'brand',
-          'optional': true,
-          'iconPath': '/assets/data/sample-app-icon.svg',
-          'role': 'ROLE_MENU_CONTROL_TOWER',
-        },
-        {
-          'id': 2,
-          'name': 'Saha Yönetimi',
-          'iconClasses': 'success',
-          'optional': true,
-          'iconPath': '/assets/data/sample-app-icon2.svg',
-          'children': [
-            {
-              'id': 2028,
-              'name': 'Operasyonlar',
-              'iconClasses': 'success',
-              'optional': true,
-              'iconPath': '/assets/data/sample-app-icon3.svg',
-              'role': 'ROLE_MENU_FM_TRANSACTIONS',
-            },
-          ],
-          'classes': 'demo-class',
-          'role': 'ROLE_MENU_FIELD_OP',
-        },
-        {
-          'id': 7,
-          'name': 'Döküman Yönetimi',
-          'iconClasses': 'warning',
-          'optional': true,
-          'iconPath': '/assets/data/sample-app-icon3.svg',
-          'children': [
-            {
-              'id': 2046,
-              'name': 'Raporlar ve Bildirimler',
-              'role': 'ROLE_MENU_DM_DESCRIPTION',
-              'link': '/main/domain/delivery/form',
-              'optional': true,
-              'iconClasses': 'success',
-              'iconPath': '/assets/data/sample-app-icon.svg',
-            },
-            {
-              'id': 2047,
-              'name': 'Tanımlar',
-              'optional': true,
-              'iconClasses': 'warning',
-              'iconPath': '/assets/data/sample-app-icon2.svg',
-              'role': 'ROLE_MENU_DM_TRANSACTIONS',
-            },
-          ],
-          'role': 'ROLE_MENU_DOCUMENT_MGN',
-        },
-      ],
-      'role': 'ROLE_MENU_ROOT',
-    },
-    {
-      'id': 34,
-      'name': 'Örnek Menü 2',
-      'iconClasses': 'danger',
-      'optional': true,
-      'iconPath': '/assets/data/sample-app-icon.svg',
-      'children': [
-        {
-          'id': 1,
-          'name': 'Components',
-          'iconClasses': 'success',
-          'optional': true,
-          'iconPath': '/assets/data/sample-app-icon3.svg',
-          'role': 'TEST USER',
-        },
-      ],
-      'role': 'TEST USER',
-    },
-  ];*/
 
   @ViewChild(TreeComponent, {read: TreeComponent}) tree: TreeComponent;
 
@@ -122,11 +38,6 @@ export class AppComponent implements OnInit {
           this.sampleMenuDataGet();
         },
       );
-  }
-
-
-  public async sampleUserDataGet2() {
-    return await this.http.request('GET', '/assets/data/sample-user.json');
   }
 
   private handleError(error: HttpErrorResponse) {

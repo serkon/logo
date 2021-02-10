@@ -1,10 +1,10 @@
 <logo-leftbar
+  (onInit)="sampleUserDataGet()"
   (onAddShortCut)="sampleAddShortcut()"
   (onAppSelected)="sampleAppAction($event)"
   (onHomeButton)="sampleHomeAction()"
   (onSettingsButton)="sampleSettingsAction()"
   (onTenantSelected)="sampleTenantAction($event)"
-  [data]="sampleUserDataGet2()"
 >
   <logo-tree
     (itemClick)="sampleItemDataGet($event);"
@@ -16,6 +16,7 @@
   >
   </logo-tree>
 </logo-leftbar>
+
 <logo-modal (onOpened)="sampleShorcutDataGet()" modalId="logo-modal" title="Kısayol Ekle">
   <ng-container body>
     <div class="shortcut-editable">
@@ -32,4 +33,5 @@
     <button (click)="sampleSaveAction()" class="primary">Kaydet</button>
   </ng-container>
 </logo-modal>
+
 <logo-toast></logo-toast>
