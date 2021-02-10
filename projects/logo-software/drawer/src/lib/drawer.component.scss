@@ -22,6 +22,8 @@
 
   $le-drawer-color: #a5abb2;
   $le-drawer-line-height: var(--drawer-height);
+  --drawer-width-md: 40vw;
+  --drawer-width-sm: 85vw;
 
   .drawer-left {
     @include animate();
@@ -34,6 +36,14 @@
     left: 0;
     background-color: var(--drawer-left);
     overflow: hidden;
+
+    @media (max-width: 768px) {
+      width: var(--drawer-width-md);
+    }
+
+    @media (max-width: 576px) {
+      width: var(--drawer-width-sm);
+    }
   }
 
   .drawer-content {
@@ -46,6 +56,14 @@
     height: 100%;
     overflow-x: hidden;
     background-color: var(--drawer-right);
+
+    @media (max-width: 768px) {
+      left: var(--drawer-width-md);
+    }
+
+    @media (max-width: 576px) {
+      left: var(--drawer-width-sm);
+    }
 
     header.drawer-top {
       position: relative;
