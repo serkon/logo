@@ -1,6 +1,7 @@
-h2,h3,h5,p,img {
+h2, h3, h5, p, img {
   margin: size(15px);
 }
+
 .title-wrapper {
   display: flex;
   width: size(1800px);
@@ -8,6 +9,7 @@ h2,h3,h5,p,img {
   background-color: var(--basic-300);
   align-items: center;
 }
+
 .overview {
   padding-top: size(86px);
 }
@@ -16,11 +18,13 @@ h2,h3,h5,p,img {
   padding-left: size(60px);
   padding-bottom: size(16px);
 }
+
 .wtu {
-  padding-top : size(40px)
+  padding-top: size(40px);
 }
+
 .wtnu {
-  padding-top : size(40px)
+  padding-top: size(40px);
 }
 
 .main {
@@ -45,11 +49,11 @@ h2,h3,h5,p,img {
 }
 
 div.right div:nth-child(1) {
-  margin-left: size(-20px)
+  margin-left: size(-20px);
 }
 
 div.left div:nth-child(1) {
-  margin-left: size(-20px)
+  margin-left: size(-20px);
 }
 
 .foo {
@@ -81,4 +85,3 @@ th {
 td {
   padding: size(32px);
 }
-
