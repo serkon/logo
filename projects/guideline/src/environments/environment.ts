@@ -5,11 +5,11 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: 'AIzaSyAPhZsYahSDXKSCWXHo38gfMe0adr3n83Q',
-    authDomain: 'logo-elements-subs.firebaseapp.com',
-    databaseURL: 'https://logo-elements-subs-default-rtdb.firebaseio.com/',
-    projectId: 'logo-elements-subs',
-    storageBucket: 'logo-elements-subs.appspot.com',
-    messagingSenderId: '966439164151',
+    apiKey: 'AIzaSyAS9btdNCWMqaWOC79OpI0Vy1pZVJYDL5U',
+    authDomain: 'logoelements.firebaseapp.com',
+    databaseURL: 'https://logoelements-default-rtdb.firebaseio.com/',
+    projectId: 'logoelements',
+    storageBucket: 'logoelements.appspot.com',
+    messagingSenderId: '989863561349',
   },
 };
