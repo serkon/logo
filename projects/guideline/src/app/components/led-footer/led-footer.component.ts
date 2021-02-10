@@ -56,7 +56,6 @@ export class LedFooterComponent implements OnInit {
 
   showToast(type: string) {
     if (type === 'success') {
-      console.log('Success');
       this.toast.success('Thank you. We have got your email and we will be in-touch with you for further updates.', {autoClose: true});
     } else if (type === 'error') {
       this.toast.error('Uppsss! We have got an error at system. Please try again a little bit later', {autoClose: false});

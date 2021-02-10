@@ -75,6 +75,13 @@
           display: inline-block;
           padding-left: size(110px);
           position: relative;
+          z-index: 1;
+
+          @include smaller-than(md) {
+            @media (orientation: landscape) {
+              display: block;
+            }
+          }
 
           @include smaller-than(sm) {
             display: block;
@@ -96,6 +103,12 @@
             text-align: left;
             padding-bottom: size(20px);
 
+            @include smaller-than(md) {
+              @media (orientation: landscape) {
+                padding-bottom: size(10px);
+              }
+            }
+
             @include smaller-than(sm) {
               padding-bottom: size(10px);
             }
@@ -103,6 +116,13 @@
 
           .subscribe-form {
             display: block;
+
+            @include smaller-than(md) {
+              @media (orientation: landscape) {
+                margin-left: size(-110px);
+                margin-top: size(50px);
+              }
+            }
 
             @include smaller-than(sm) {
               margin-left: size(-110px);
@@ -113,6 +133,14 @@
               width: size(300px);
               margin-right: size(20px);
 
+              @include smaller-than(md) {
+                @media (orientation: landscape) {
+                  width: 100%;
+                  margin-right: 0;
+                  margin-bottom: size(10px);
+                }
+              }
+
               @include smaller-than(sm) {
                 width: 100%;
                 margin-right: 0;
@@ -121,6 +149,12 @@
             }
 
             button {
+              @include smaller-than(md) {
+                @media (orientation: landscape) {
+                  width: 100%;
+                }
+              }
+
               @include smaller-than(sm) {
                 width: 100%;
               }
