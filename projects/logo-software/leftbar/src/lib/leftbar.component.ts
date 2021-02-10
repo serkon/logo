@@ -8,11 +8,10 @@
  * Any reproduction of this material must contain this notice.
  */
 
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { TreeComponent } from '@logo-software/tree';
 
 import { LeftbarService } from './leftbar.service';
-import { PaasUser } from './user';
 
 @Component({
   selector: 'logo-leftbar',
@@ -33,17 +32,6 @@ export class LeftbarComponent implements OnInit {
 
   public emptyShortcutSlots: any;
   @ViewChild(TreeComponent, {read: TreeComponent}) tree: TreeComponent;
-
-  private _data: PaasUser
-
-  get data(): PaasUser {
-    return this._data;
-  }
-
-  @Input() set data(value: PaasUser) {
-    this._data = value;
-    console.log(value);
-  }
 
   constructor(public leftbarService: LeftbarService) {
   }
