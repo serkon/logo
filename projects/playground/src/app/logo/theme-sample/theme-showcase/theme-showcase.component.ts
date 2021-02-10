@@ -13,9 +13,9 @@ export enum ELEMENT {
   styleUrls: ['./theme-showcase.component.scss'],
 })
 export class ThemeShowcaseComponent implements AfterViewInit {
-  statuses = ['brand', 'primary', 'secondary', 'basic', 'light', 'dark', 'gray'];
+  statuses = ['primary', 'secondary', 'basic', 'light', 'dark', 'gray', 'neutral'];
   semantic = ['success', 'info', 'warning', 'danger'];
-  colors = ['text'];
+  colors = [];
   states = ['hover', 'active', 'focus'];
   types = ['fill', 'outline', 'ghost'];
   shades = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
