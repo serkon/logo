@@ -17,15 +17,56 @@
     position: relative;
     margin-bottom: size(50px);
 
+    @include smaller-than(xl) {
+      height: size(315px);
+      margin-bottom: size(35px);
+    }
+
+    @include smaller-than(lg) {
+      padding-left: size(35px);
+    }
+
+    @include smaller-than(md) {
+      height: size(285px);
+      padding-left: size(15px);
+
+      @media (orientation: landscape) {
+        height: size(235px);
+        margin-bottom: size(15px);
+      }
+    }
+
     span {
       width: 40%;
       margin-top: size(180px);
       margin-bottom: size(15px);
       display: inline-block;
+
+      @include smaller-than(xl) {
+        margin-top: size(50px);
+      }
+
+      @include smaller-than(lg) {
+        margin-top: size(35px);
+        width: 60%;
+      }
+
+      @include smaller-than(md) {
+        font-size: size(36px);
+        margin-top: size(15px);
+      }
     }
 
     h4 {
       width: 40%;
+
+      @include smaller-than(lg) {
+        width: 60%;
+      }
+
+      @include smaller-than(md) {
+        width: 98%;
+      }
     }
 
     .hero-gfx {
@@ -35,6 +76,14 @@
       bottom: size(-65px);
       width: 55%;
       overflow: hidden;
+
+      @include smaller-than(lg) {
+        width: 50%;
+      }
+
+      @include smaller-than(md) {
+        display: none;
+      }
 
       img {
         width: 130%;
@@ -54,12 +103,21 @@
       height: size(250px);
       position: relative;
 
+      @include smaller-than(xl) {
+        padding: size(30px) size(20px) size(20px) size(20px);
+      }
+
       .card-gfx {
         display: block;
         margin: size(-30px) size(-30px) size(10px) size(-30px);
         overflow: hidden;
         position: relative;
         height: size(150px);
+
+        @include smaller-than(xl) {
+          height: size(100px);
+          margin-bottom: 0;
+        }
 
         .overlay {
           position: absolute;
