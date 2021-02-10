@@ -9,7 +9,8 @@
  * Any reproduction of this material must contain this notice.
  */
 -->
-<div [ngClass]="{'led-drawer-opened' : this.drawerService.menu}" class="led-web-base">
+<div [ngClass]="{'led-drawer-opened' : this.drawerService.menu, 'led-no-opener' : !this.drawerService.isOpenerActive}"
+     class="led-web-base">
   <logo-drawer
     [bgColors]="{left: 'var(--white)', top: 'transparent', right: 'var(--white)'}"
     [menu]="true"
@@ -24,15 +25,14 @@
         <logo-link [classes]="'ghost large'" [url]="'/docs/detail/getstarted'">Documentation</logo-link>
         <logo-link [classes]="'ghost large'" [url]="'/icons'">Icons</logo-link>
         <button class="ghost disabled large" disabled>Color Generator</button>
-        <logo-link [classes]="'ghost large'" [url]="'/contact'">Contact</logo-link>
         <logo-link
           [classes]="'header-cta icon-left large'"
           [external]="true"
           [url]="'https://www.figma.com/file/cEgo4uHf1COutYlM2X0ket/Showcase?node-id=2%3A15'"
         >
-            <span class="custom-icon">
-              <img src="/assets/img/ico_btn_figma.png"/>
-            </span>
+          <span class="custom-icon">
+            <img src="/assets/img/ico_btn_figma.png"/>
+          </span>
           Inspect
         </logo-link>
       </logo-header>
