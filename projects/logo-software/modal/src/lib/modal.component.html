@@ -1,0 +1,27 @@
+<!--
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+-->
+<div [ngClass]="modal.show ? 'show' : ''" class="modal" id="{{modalId}}" tabindex="-1">
+  <div class="dialog">
+    <div class="base">
+      <div class="header">
+        <button (click)="modal.closeModal(this.modalId)" class="close le-cross small"></button>
+        <h5>{{title}}</h5>
+      </div>
+      <div class="content">
+        <ng-content select="[body]"></ng-content>
+      </div>
+      <div #dialogFooter [ngClass]="!hasFooter ? 'none': ''" class="footer">
+        <ng-content select="[footer]"></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

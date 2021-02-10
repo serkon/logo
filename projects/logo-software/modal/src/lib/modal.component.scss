@@ -1,0 +1,84 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
+@import "~@logo-software/theme/base";
+
+:host {
+  .modal {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(var(--black-rgb), 0.5);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999999;
+    display: none;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 100vh;
+
+    .dialog {
+      background: var(--white);
+      width: 70vw;
+      display: inline-block;
+      text-align: left;
+      vertical-align: middle;
+      line-height: normal;
+
+      .base {
+        display: flex;
+        flex-flow: column;
+      }
+
+      .header {
+        padding: size(15px);
+        text-align: center;
+        flex: 0 1 auto;
+
+        .close {
+          @include border-radius(50%);
+
+          float: right;
+        }
+      }
+
+      .content {
+        padding: size(30px);
+        overflow: auto;
+        max-height: 70vh;
+        flex: 1 1 auto;
+      }
+
+      .footer {
+        padding: size(10px);
+        text-align: right;
+        flex: 0 1 auto;
+
+        &.none {
+          display: none;
+        }
+
+        button {
+          margin-right: size(10px) !important;
+
+          &:nth-last-of-type(button) {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+
+    &.show {
+      display: table-cell;
+    }
+  }
+}
