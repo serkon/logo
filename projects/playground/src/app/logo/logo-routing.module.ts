@@ -8,6 +8,22 @@ const routes: Routes = [
     component: LogoComponent,
     children: [
       {
+        path: 'select-sample',
+        loadChildren: () => import('./select-sample/select-sample.module').then(m => m.SelectSampleModule),
+      },
+      {
+        path: 'datepicker-sample',
+        loadChildren: () => import('./datepicker-sample/datepicker-sample.module').then(m => m.DatepickerSampleModule),
+      },
+      {
+        path: 'input-sample',
+        loadChildren: () => import('./input-sample/input-sample.module').then(m => m.InputSampleModule),
+      },
+      {
+        path: 'button-sample',
+        loadChildren: () => import('./button-sample/button-sample.module').then(m => m.ButtonSampleModule),
+      },
+      {
         path: 'core-sample',
         loadChildren: () => import('./core-sample/core-sample.module').then(m => m.CoreSampleModule),
       },

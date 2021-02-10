@@ -27,12 +27,32 @@
       "@guideline/*": [
         "./projects/guideline/*"
       ],
+      "@logo-software/badge": [
+        "dist/logo-software/badge/logo-software-badge",
+        "dist/logo-software/badge"
+      ],
+      "@logo-software/button": [
+        "dist/logo-software/button/logo-software-button",
+        "dist/logo-software/button"
+      ],
+      "@logo-software/datepicker": [
+        "dist/logo-software/datepicker/logo-software-datepicker",
+        "dist/logo-software/datepicker"
+      ],
       "@logo-software/*": [
         "dist/logo-software/*",
         "./projects/logo-software/*/src/public-api"
       ],
+      "@logo-software/input": [
+        "dist/logo-software/input/logo-software-input",
+        "dist/logo-software/input"
+      ],
       "@logo-software/playground": [
         "dist/logo-software/playground"
+      ],
+      "@logo-software/select": [
+        "dist/logo-software/select/logo-software-select",
+        "dist/logo-software/select"
       ],
       "@logo-software/dynamic": [
         "dist/logo-software/dynamic"
