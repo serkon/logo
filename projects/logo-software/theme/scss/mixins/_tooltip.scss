@@ -1,21 +1,26 @@
-/**
- * @license
- * Copyright Logo Yazılım. All Rights Reserved.
- *
- * Save to the extent permitted by law, you may not use, copy, modify,
- * distribute or create derivative works of this material or any part
- * of it without the prior written consent of Logo Yazılım.
- * Any reproduction of this material must contain this notice.
- */
+/*
+  Usage Sample:
+  <span class="logo-tooltip">
+    SOME TEXT THAT NEEDS TOOLTIP
+    <span class="tip on-top/on-right/on-bottom/on-left">
+      TOOLTIP OF THE TEXT
+    </span>
+  </span>
+*/
 
+
+// Global Variables
+$tipPosition: 8px;
+$tipPositionOffset: 10px;
+$tipWidth: 180px;
+$tipBackgroundColor: #333;
+$tipColor: #fff;
+$tipPointerSize: 7px;
+$linkColor: #e94a34;
+
+
+// Tooltip Mixin
 @mixin ferret-tooltip() {
-  $tipPosition: 4px;
-  $tipPositionOffset: 13px;
-  $tipWidth: 380px;
-  $tipBackgroundColor: transparentize(#333333, 0);
-  $tipColor: #ffffff;
-  $tipPointerSize: 7px;
-  $linkColor: #e94a34;
   $triangle-base: $tipPointerSize solid transparent;
   $triangle-fill: $tipPointerSize solid $tipBackgroundColor;
 
@@ -29,96 +34,70 @@
     border-bottom: $triangle-base;
   }
 
-  .tooltip {
+  .logo-tooltip {
     position: relative;
     color: $linkColor;
     cursor: pointer;
 
-    p {
-      b {
-        font-weight: 900;
-        border-bottom: 1px dotted #ffffff;
-      }
-    }
-
-    ul {
-      margin: 0;
-      padding-left: 20px;
-
-      li {
-        margin: 10px 0;
-
-        b {
-          font-weight: 900;
-          border-bottom: 1px dotted #ffffff;
-        }
-      }
-    }
-
     .tip {
       position: absolute;
-      max-width: $tipWidth + 100px;
-      min-width: $tipWidth;
+      width: $tipWidth;
       color: $tipColor;
       font: {
         size: 14px;
         style: normal;
       }
-
       line-height: 1.4;
-      text-align: left;
+      text-align: center;
       border-radius: 3px;
       background: $tipBackgroundColor;
-      padding: 20px 10px 20px 25px;
+      padding: 8px 12px;
       box-sizing: border-box;
       cursor: auto;
       z-index: 10;
       opacity: 0;
       visibility: hidden;
-      transition: all 0.25s ease-in;
+      transition: all .25s ease-in;
 
-      &::after {
+      &:after {
         position: absolute;
         width: 0;
         height: 0;
-        content: "";
+        content: '';
       }
 
       &.on-top {
         bottom: $tipPosition + $tipPositionOffset;
-        left: -16px;
+        left: 0;
 
-        &::after {
+        &:after {
           bottom: -$tipPointerSize;
-          left: 18px;
+          left: 20px;
           border-top: $triangle-fill;
-
           @extend %triangle-vertical;
         }
       }
 
       &.on-right {
-        top: -100%;
+        top: size(-5px);
         left: 103%;
 
-        &::after {
+        &:after {
           top: 37%;
           left: -$tipPointerSize;
           border-right: $triangle-fill;
-
           @extend %triangle-horizontal;
         }
       }
 
       &.on-bottom {
         top: $tipPosition + $tipPositionOffset;
-        left: -18px;
+        left: 0;
 
-        &::after {
+        &:after {
           top: -$tipPointerSize;
-          left: 18px;
+          left: 20px;
           border-bottom: $triangle-fill;
-
           @extend %triangle-vertical;
         }
       }
@@ -127,30 +106,17 @@
         top: -100%;
         right: 103%;
 
-        &::after {
+        &:after {
           top: 37%;
           right: -$tipPointerSize;
           border-left: $triangle-fill;
-
           @extend %triangle-horizontal;
-        }
-      }
-
-      &.on-right-bottom {
-        top: 0;
-        right: 0;
-
-        &::after {
-          top: -$tipPointerSize + 1px;
-          right: 18px;
-          border-bottom: $triangle-fill;
-
-          @extend %triangle-vertical;
         }
       }
     }
 
     &:hover {
+
       .tip {
         opacity: 1;
         visibility: visible;
@@ -169,10 +135,6 @@
 
         &.on-left {
           transform: translateX(-$tipPositionOffset);
-        }
-
-        &.on-right-bottom {
-          transform: translate(0, 70%);
         }
       }
     }
