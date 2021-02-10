@@ -12,6 +12,20 @@
       height: 90vh;
       position: relative;
 
+      @include smaller-than(lg) {
+        @media (orientation: landscape) {
+          height: 95vh;
+        }
+      }
+
+      @include smaller-than(md) {
+        height: 95vh;
+      }
+
+      @include smaller-than(md) {
+        height: 95vh;
+      }
+
       .gfx-base {
         position: absolute;
         top: 0;
@@ -79,7 +93,6 @@
 
           p.large {
             color: var(--light);
-            padding: size(15px) 0;
             box-sizing: content-box;
           }
 
@@ -95,7 +108,20 @@
 
           @include smaller-than(lg) {
             position: absolute;
-            bottom: size(180px);
+            bottom: size(140px);
+
+            @media (orientation: landscape) {
+              bottom: size(-25px);
+            }
+          }
+
+          @include smaller-than(md) {
+            bottom: size(60px);
+
+            @media (orientation: landscape) {
+              bottom: size(-25px);
+              left: size(-50px)
+            }
           }
 
           @include smaller-than(sm) {
@@ -107,6 +133,7 @@
         .gfx {
           overflow: hidden;
           text-align: center;
+          margin-top: 10vh;
 
           img {
             width: 47vw;
@@ -121,17 +148,46 @@
               display: none;
             }
           }
+
+          @include smaller-than(lg) {
+            margin-top: -1vh;
+
+            @media (orientation: landscape) {
+              display: none;
+            }
+          }
+
+          @include smaller-than(md) {
+            margin-top: -5vh;
+          }
         }
       }
 
       .section-map {
         position: absolute;
         left: 0;
-        bottom: size(90px);
+        bottom: size(70px);
         z-index: 2;
 
         logo-link {
           display: inline-block;
+        }
+
+        @include smaller-than(lg) {
+          @media (orientation: landscape) {
+            bottom: size(10px);
+            left: auto;
+            right: 0;
+          }
+        }
+
+        @include smaller-than(md) {
+          bottom: size(15px);
+
+          @media (orientation: landscape) {
+            bottom: size(10px);
+            right: size(-50px);;
+          }
         }
 
         @include smaller-than(sm) {
@@ -142,6 +198,16 @@
 
     .led-section {
       padding: size(190px) 0 0 0;
+
+      @include smaller-than(md) {
+        @media (orientation: landscape) {
+          padding-top: size(120px);
+        }
+      }
+
+      @include smaller-than(sm) {
+        padding-top: size(100px);
+      }
 
       .led-section-info {
         .section-number {
@@ -163,6 +229,12 @@
         .section-details {
           padding: size(25px) 0;
 
+          @include smaller-than(md) {
+            @media (orientation: landscape) {
+              padding: 0 size(15px);
+            }
+          }
+
           @include smaller-than(sm) {
             padding: size(25px) size(15px);
           }
@@ -177,7 +249,7 @@
       .led-feature-introduction {
         padding-bottom: size(150px);
 
-        @include smaller-than(sm) {
+        @include smaller-than(md) {
           padding-bottom: size(60px);
         }
 
@@ -191,6 +263,25 @@
 
             @include smaller-than(lg) {
               width: 80vw;
+
+              @media (orientation: landscape) {
+                width: 70vw !important;
+                box-sizing: border-box;
+              }
+            }
+
+            @include smaller-than(md) {
+              @media (orientation: landscape) {
+                width: 70vw !important;
+                box-sizing: border-box;
+              }
+            }
+
+            @include smaller-than(md) {
+              @media (orientation: landscape) {
+                width: 75vw !important;
+                margin: 0;
+              }
             }
 
             @include smaller-than(sm) {
@@ -478,9 +569,6 @@
         }
       }
 
-      @include smaller-than(sm) {
-        padding-top: size(120px);
-      }
     }
 
     .led-setup {
@@ -514,6 +602,13 @@
       }
 
       .led-colorgenerator {
+        @include smaller-than(md) {
+          @media (orientation: landscape) {
+            margin-top: size(120px);
+            position: relative;
+          }
+        }
+
         @include smaller-than(sm) {
           margin-top: size(120px);
           position: relative;
@@ -548,6 +643,12 @@
             margin-top: 0;
           }
 
+          @include smaller-than(md) {
+            @media (orientation: landscape) {
+              margin-top: size(350px);
+            }
+          }
+
           @include smaller-than(sm) {
             margin-top: size(230px);
           }
@@ -556,6 +657,18 @@
         .gfx-base {
           position: relative;
           overflow: visible;
+
+          @include smaller-than(md) {
+            @media (orientation: landscape) {
+              position: absolute;
+              top: 0;
+            }
+          }
+
+          @include smaller-than(sm) {
+            position: absolute;
+            top: 0;
+          }
 
           .led-blue-strip {
             @include border-radius(size(40px));
@@ -571,6 +684,18 @@
 
             @include smaller-than(lg) {
               height: size(420px);
+
+              @media (orientation: landscape) {
+                height: size(470px);
+              }
+            }
+            @include smaller-than(md) {
+              @media (orientation: landscape) {
+                top: auto;
+                right: size(-250px);
+                bottom: size(-300px);
+                height: size(400px);
+              }
             }
 
             @include smaller-than(sm) {
@@ -593,15 +718,17 @@
               transform: translateX(-50%);
             }
 
+            @include smaller-than(md) {
+              @media (orientation: landscape) {
+                width: 120%;
+              }
+            }
+
             @include smaller-than(sm) {
               width: 120%;
             }
           }
 
-          @include smaller-than(sm) {
-            position: absolute;
-            top: 0;
-          }
         }
       }
     }
