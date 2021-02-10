@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@logo-software/leftbar": "^0.0.1",
     "@logo-software/tree": "0.0.1",
     "@logo-software/theme": "^3.6.0"
   }

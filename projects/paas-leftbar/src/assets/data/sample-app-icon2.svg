@@ -1,0 +1,24 @@
+<svg fill="none" height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+  <g filter="url(#filter0_d)">
+    <path clip-rule="evenodd"
+          d="M11.3846 10.2307C11.066 10.2307 10.8077 10.489 10.8077 10.8076V20.9038C10.8077 21.2224 11.066 21.4807 11.3846 21.4807H15.4231V20.3269C15.4231 20.0082 15.6814 19.7499 16 19.7499C16.3186 19.7499 16.5769 20.0082 16.5769 20.3269V21.4807H20.6154C20.934 21.4807 21.1923 21.2224 21.1923 20.9038V10.8076C21.1923 10.489 20.934 10.2307 20.6154 10.2307H11.3846ZM14.2692 17.1538H12.5385V18.0192H14.2692V17.1538ZM12.5385 15.423H14.2692V16.2884H12.5385V15.423ZM14.2692 18.8846H12.5385V19.7499H14.2692V18.8846ZM15.1346 17.1538H16.8654V18.0192H15.1346V17.1538ZM16.8654 15.423H15.1346V16.2884H16.8654V15.423ZM19.4615 17.1538H17.7308V18.0192H19.4615V17.1538ZM17.7308 15.423H19.4615V16.2884H17.7308V15.423ZM14.2692 13.6923H12.5385V14.5576H14.2692V13.6923ZM15.1346 13.6923H16.8654V14.5576H15.1346V13.6923ZM19.4615 13.6923H17.7308V14.5576H19.4615V13.6923ZM12.5385 11.9615H14.2692V12.8269H12.5385V11.9615ZM16.8654 11.9615H15.1346V12.8269H16.8654V11.9615ZM17.7308 11.9615H19.4615V12.8269H17.7308V11.9615ZM19.4615 18.8846H17.7308V19.7499H19.4615V18.8846Z"
+          fill="url(#paint0_linear)" fill-rule="evenodd"/>
+  </g>
+  <defs>
+    <filter color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="31.25" id="filter0_d"
+            width="30.3846" x="0.807693" y="0.230713">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+      <feOffset/>
+      <feGaussianBlur stdDeviation="5"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+      <feBlend in2="BackgroundImageFix" mode="normal" result="effect1_dropShadow"/>
+      <feBlend in="SourceGraphic" in2="effect1_dropShadow" mode="normal" result="shape"/>
+    </filter>
+    <linearGradient gradientUnits="userSpaceOnUse" id="paint0_linear" x1="21.1855" x2="21.1855" y1="21.4659"
+                    y2="10.2307">
+      <stop stop-color="white" stop-opacity="0.65"/>
+      <stop offset="1" stop-color="white" stop-opacity="0.803158"/>
+    </linearGradient>
+  </defs>
+</svg>

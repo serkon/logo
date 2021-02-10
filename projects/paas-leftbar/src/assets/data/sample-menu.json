@@ -1,0 +1,23 @@
+[
+  {
+    "id": 0,
+    "name": "Örnek Menü 1",
+    "iconClasses": "success",
+    "iconPath": "/assets/data/sample-app-icon.svg",
+    "role": "ROLE_MENU_ROOT"
+  },
+  {
+    "id": 1,
+    "name": "Örnek Menü 2",
+    "iconClasses": "warning",
+    "iconPath": "/assets/data/sample-app-icon2.svg",
+    "role": "TEST USER"
+  },
+  {
+    "id": 2,
+    "name": "Örnek Menü 3",
+    "iconClasses": "brand",
+    "iconPath": "/assets/data/sample-app-icon3.svg",
+    "role": "TEST USER"
+  }
+]

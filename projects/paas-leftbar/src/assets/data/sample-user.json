@@ -3,7 +3,7 @@
     "name": "Oprah Winfrey",
     "title": "HR Director",
     "avatar": "/assets/data/sample-avatar.jpg",
-    "notifications": 12,
+    "notifications": 13,
     "infos": [
       {
         "col": 12,
@@ -11,14 +11,14 @@
         "desc": "HR, Ayna, Jplatform",
         "title": "BİLDİRİMLER",
         "badge": true,
-        "count": 12,
+        "count": 13,
         "link": "path/to/notifications"
       },
       {
         "col": 6,
         "reference": "language",
         "desc": "Türkçe",
-        "title": "DİL",
+        "title": "TEST",
         "action": "sampleLangAction()"
       },
       {
@@ -71,7 +71,7 @@
         "link": "/logout"
       }
     ],
-    "tanents": {
+    "tenants": {
       "default": "LOGO YAZILIM CORP.",
       "btnAction": "showTanents()",
       "options": [
@@ -87,6 +87,7 @@
     },
     "applications": {
       "default": "/assets/data/sample-app-logo.png",
+      "defaultIcon": "/assets/data/sample-app-icon.png",
       "options": [
         {
           "logo": "/assets/data/sample-app-logo.png",
@@ -109,16 +110,19 @@
       {
         "icon": "/assets/data/sample-app-icon.svg",
         "class": "brand",
+        "name": "Saha Yönetimi",
         "link": "/path/to/app"
       },
       {
         "icon": "/assets/data/sample-app-icon.svg",
         "class": "success",
+        "name": "Veri Analizi",
         "link": "/path/to/app"
       },
       {
         "icon": "/assets/data/sample-app-icon.svg",
         "class": "warning",
+        "name": "Kurumsal Kaynak Yönetimi",
         "link": "/path/to/app"
       }
     ]
