@@ -438,12 +438,7 @@
             "aot": true,
             "assets": [
               "projects/guideline/src/favicon.ico",
-              "projects/guideline/src/assets",
-              {
-                "glob": "**/*",
-                "input": "projects/playground/src/app",
-                "output": "assets/examples"
-              }
+              "projects/guideline/src/assets"
             ],
             "styles": [
               "projects/guideline/src/styles.scss"
@@ -1709,8 +1704,5 @@
       }
     }
   },
-  "defaultProject": "documentation",
-  "cli": {
-    "analytics": false
-  }
+  "defaultProject": "documentation"
 }
