@@ -241,6 +241,10 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
    */
   @Output() public onHttpHeaders: EventEmitter<any> = new EventEmitter<any>();
   /**
+   * It changes HttpBody for HttpRequest
+   */
+  @Output() public onHttpBody: EventEmitter<any> = new EventEmitter<any>();
+  /**
    * It will necessary if data wants to change by client before the set table rows. Triggered when http request was completed.
    * This event triggered only if server-side set to true.
    */
@@ -735,6 +739,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
     this.api.request(this.service.method, this.service.url, {
       params: this.manageQueryParams(),
       headers: this.generateHttpHeaders(),
+      body: this.generateBody(),
     }).subscribe(
       (response: { data: any, totalCount?: number, totalPages?: number }) => this.onLoadSuccessHandler(response),
       (error: HttpErrorResponse) => this.onLoadErrorHandler(error),
@@ -836,6 +841,12 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
       params = params.append(key, queryParameter[key]);
     });
     return params;
+  }
+
+  generateBody() {
+    const body = {};
+    this.onHttpBody.emit(body);
+    return body;
   }
 
   htmlRendered(row?: any) {
@@ -1249,7 +1260,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
     this.rows.filter(row => {
       const index = this.list.indexOf(row);
       if (event.target.checked && index < 0) {
-        this.list.push(row)
+        this.list.push(row);
       } else {
         if (!event.target.checked) {
           this.list.splice(index, 1);

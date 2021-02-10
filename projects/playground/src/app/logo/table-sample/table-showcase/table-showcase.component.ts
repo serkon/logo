@@ -214,7 +214,14 @@ export class TableShowcaseComponent {
   onHttpHeaders(headers) {
     headers['Content-Type'] = 'application/json';
     headers['Authorization'] = 'Bearer application/json';
-    headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0;) Gecko/20100101 Firefox/68.0';
+    // headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0;) Gecko/20100101 Firefox/68.0';
+  }
+
+  onHttpBody(body) {
+    console.log(body, 'sdsdsd');
+    body['country'] = 'TR';
+    body['age'] = 23;
+    body['gender'] = 'male';
   }
 
   onHttpResponseModifier(response: { data: any, totalCount?: number, totalPages?: number }) {
