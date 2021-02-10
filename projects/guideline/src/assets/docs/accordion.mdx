@@ -2,92 +2,91 @@
   <div class="title-wrapper">
     <h1 class="title">Accordion</h1>
   </div>
-<div class="content">
-  <div class="intro">
+  <div class="content">
+    <div class="intro">
+      <p>
+        Accordion generates a vertically positioned list of information that reveals or hides the content of the titles.
+      </p>
+      <ul>
+        <li>Overview</li>
+        <li>Demo</li>
+        <li>Formatting</li>
+        <li>Content</li>
+        <li>Behavior</li>
+      </ul>
+    </div>
+    <h2>Overiew</h2>
     <p>
-      Accordion generates a vertically positioned list of information that reveals or hides the content of the titles.
+      An accordion menu is a vertically stacked list of headers that can be clicked to reveal or hide content
+      associated with them. Accordion allows the display of only one collapsed item at a time.
     </p>
-    <ul>
-      <li>Overview</li>
-      <li>Demo</li>
-      <li>Formatting</li>
-      <li>Content</li>
-      <li>Behavior</li>
-    </ul>
-  </div>
-  <h2>Overiew</h2>
-  <p>
-    An accordion menu is a vertically stacked list of headers that can be clicked to reveal or hide content
-    associated with them. Accordion allows the display of only one collapsed item at a time.
-  </p>
-  <div class="wtu">
-    <h3>When to use</h3>
+    <div class="wtu">
+      <h3>When to use</h3>
+      <p>
+        It is used to present multiple items, read the entire content or shorten some. When space is vertically limited
+        and long content cannot be displayed all at once, like on
+        a mobile interface or in a side panel.
+      </p>
+    </div>
+    <div class="wtnu">
+      <h3>When not to use</h3>
+      <p>
+        If users need to open a lot of the subtopics to reach the information they need or the accordion is not the way
+        to go to get the whole story. In this case, it is better to spread the entire content on the page. It is easier
+        to scroll down the page than decide which tab to click.
+      </p>
+      <p>
+        Accordions are not suitable for situations where the user needs to print the page.
+        It is not recommended to use acerdion on pages where this is needed.
+      </p>
+    </div>
+    <logo-playground
+      path="example/logo/accordion-sample/accordion-showcase/accordion-showcase.component"
+      context='{"title": "Accordion Demo", "button": true}'
+      height="400px">
+    </logo-playground>
+    <div class="formatting">
+      <h3>Anatomy</h3>
+      <img src="../assets/img/docs_accordion_anatomy.png" alt=""/>
+      <p>1.Header: This field contains the title of the text. It can be narrowed or expanded.</p>
+      <p>1.Icon: Collapse icon can open or close this panel.</p>
+      <p>1.Panel: Content that occurs when the header is expanded.</p>
+    </div>
+    <h3>Alignment</h3>
+    <p>Text is always justified to the left and icon is always right aligned.</p>
+    <img src="../assets/img/docs_accordion_alignment.png" alt=""/>
+    <h2>Content</h2>
+    <h3>Title</h3>
     <p>
-      It is used to present multiple items, read the entire content or shorten some. When space is vertically limited
-      and long content cannot be displayed all at once, like on
-      a mobile interface or in a side panel.
+      Each title must be wrapped in a role title (h1-h6) appropriate to the information architecture.
+      Title should be kept as short as possible.
     </p>
-  </div>
-  <div class="wtnu">
-    <h3>When not to use</h3>
+    <h3>Body</h3>
     <p>
-      If users need to open a lot of the subtopics to reach the information they need or the accordion is not the way
-      to go to get the whole story. In this case, it is better to spread the entire content on the page. It is easier
-      to scroll down the page than decide which tab to click.
+      The content under the title can be divided into paragraphs and include subheadings if needed.
+    </p>
+    <h3>Scrolling Content</h3>
+    <p>
+      When the accordion content stretches, the entire accordion should scroll vertically. Content should be scrolled
+      down in bulk. Content should never scroll horizontally within the accordion.
+    </p>
+    <h2>Behavior</h2>
+    <h3>States</h3>
+    <p>
+      Thanks to the icon to the right of the component, we collapse or expand the content. Accordions start collapsed by
+      default and all content panels are closed. Allows users to master all titles while in a collapsed state.
     </p>
     <p>
-      Accordions are not suitable for situations where the user needs to print the page.
-      It is not recommended to use acerdion on pages where this is needed.
+      Also user can expand multiple titles.
     </p>
+    <img src="../assets/img/docs_anatomy_state.png" alt=""/>
+    <p>1. Collapsed</p>
+    <p>2. Expanded</p>
+    <p>2. Multiple open sections</p>
+    <h2>Interactions</h2>
+    <h3>Mouse</h3>
+    <p>Users can expand or collapse by clicking on the icon.</p>
+    <h3>Keyboard</h3>
+    <p>Users can expand or collapse by clicking on the icon.</p>
   </div>
-  <logo-playground
-    path="example/logo/accordion-sample/accordion-showcase/accordion-showcase.component"
-    context='{"title": "Accordion Demo", "button": true}'
-    height="400px">
-  </logo-playground>
-  <div class="formatting">
-    <h3>Anatomy</h3>
-    <img src="../assets/img/docs_accordion_anatomy.png" alt=""/>
-    <p>1.Header: This field contains the title of the text. It can be narrowed or expanded.</p>
-    <p>1.Icon: Collapse icon can open or close this panel.</p>
-    <p>1.Panel: Content that occurs when the header is expanded.</p>
-  </div>
-  <h3>Alignment</h3>
-  <p>Text is always justified to the left and icon is always right aligned.</p>
-  <img src="../assets/img/docs_accordion_alignment.png" alt=""/>
-  <h2>Content</h2>
-  <h3>Title</h3>
-  <p>
-    Each title must be wrapped in a role title (h1-h6) appropriate to the information architecture.
-    Title should be kept as short as possible.
-  </p>
-  <h3>Body</h3>
-  <p>
-    The content under the title can be divided into paragraphs and include subheadings if needed.
-  </p>
-  <h3>Scrolling Content</h3>
-  <p>
-    When the accordion content stretches, the entire accordion should scroll vertically. Content should be scrolled
-    down in bulk. Content should never scroll horizontally within the accordion.
-  </p>
-  <h2>Behavior</h2>
-  <h3>States</h3>
-  <p>
-    Thanks to the icon to the right of the component, we collapse or expand the content. Accordions start collapsed by
-    default and all content panels are closed. Allows users to master all titles while in a collapsed state.
-  </p>
-  <p>
-    Also user can expand multiple titles.
-  </p>
-  <img src="../assets/img/docs_anatomy_state.png" alt=""/>
-  <p>1. Collapsed</p>
-  <p>2. Expanded</p>
-  <p>2. Multiple open sections</p>
-  <h2>Interactions</h2>
-  <h3>Mouse</h3>
-  <p>Users can expand or collapse by clicking on the icon.</p>
-  <h3>Keyboard</h3>
-  <p>Users can expand or collapse by clicking on the icon.</p>
-
-
-
+</div>
