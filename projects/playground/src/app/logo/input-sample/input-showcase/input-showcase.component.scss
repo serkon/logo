@@ -1,19 +1,21 @@
 :host {
   .content {
-    display : flex;
-    justify-content : center;
+    display: flex;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
   }
+
   .settings {
     display: flex;
     flex-direction: column;
   }
+
   label {
-    text-transform:capitalize;
+    text-transform: capitalize;
   }
+
   .symbols {
     color: var(--primary);
-    alignment: left;
   }
 }
