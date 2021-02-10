@@ -33,6 +33,14 @@ export interface Tree {
    */
   iconClasses?: string;
   /**
+   * Checkbox will/won't be shown before item
+   */
+  optional?: boolean;
+  /**
+   * Custom icon images such as SVGs can be set to the item
+   */
+  iconPath?: string;
+  /**
    * Route information to be directed when clicked
    */
   link?: string;

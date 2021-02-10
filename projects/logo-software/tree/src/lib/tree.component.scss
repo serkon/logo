@@ -129,4 +129,12 @@
     height: 48px;
     // z-index: -1;
   }
+
+  .item-icon {
+    @include border-radius(size(8px));
+
+    display: inline-block;
+    width: size(30px);
+    height: size(30px);
+  }
 }
