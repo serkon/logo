@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'logo-button-showcase',
@@ -33,7 +33,7 @@ export class ButtonShowcaseComponent implements OnInit {
       if (sizeType !== x.class) {
         x.selected = false;
       }
-    })
+    });
   }
 
   changeKindType(kindType: string) {
@@ -42,6 +42,6 @@ export class ButtonShowcaseComponent implements OnInit {
       if (kindType !== x.class) {
         x.selected = false;
       }
-    })
+    });
   }
 }

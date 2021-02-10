@@ -1,11 +1,6 @@
 <div class="row">
   <div class="content col-xs-10">
-    <button
-      [disabled]="disabled"
-      class="{{selectedSize}}  {{selectedKind}}"
-    >
-      Primary Button
-    </button>
+    <button [disabled]="disabled" class="{{selectedSize}} {{selectedKindType}}">Primary Button</button>
   </div>
   <div class="settings col-xs-2">
     <div>
@@ -19,9 +14,9 @@
       Size
       <div *ngFor="let sizeType of sizeTypes;index as i">
         <input
-          [(ngModel)]="sizeType.selected"
           type="checkbox"
           id="{{sizeType.class}}-{{i}}"
+          [(ngModel)]="sizeType.selected"
           (change)="changeSizeType(sizeType.class)"
         >
         <label for="{{sizeType.class}}-{{i}}">{{sizeType.class}}</label>
@@ -31,9 +26,9 @@
       Kind
       <div *ngFor="let kindType of kindTypes;index as i">
         <input
-          [(ngModel)]="kindType.selected"
           type="checkbox"
           id="{{kindType.class}}-{{i}}"
+          [(ngModel)]="kindType.selected"
           (change)="changeKindType(kindType.class)"
         >
         <label for="{{kindType.class}}-{{i}}">{{kindType.class}}</label>

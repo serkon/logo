@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { ButtonShowcaseComponent } from './button-showcase/button-showcase.component';
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ButtonSampleRoutingModule { }
+export class ButtonSampleRoutingModule {
+}
