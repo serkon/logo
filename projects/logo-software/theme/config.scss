@@ -16,13 +16,10 @@ $config: deep-map-merge((
   icon:(prefix: 'le-'),
   customize: (
     status: false,
-    state:(
-      background: --text-900
-    ),
     element:(
       button: (
         font: (
-          color: --text-900
+          color: --neutral-900
         ),
         border: (
           default: --gray-300,
@@ -34,7 +31,7 @@ $config: deep-map-merge((
       ),
       input: (
         font: (
-          color: --text-900
+          color: --neutral-900
         )
       )
     ),
@@ -45,8 +42,8 @@ $config: deep-map-merge((
     icon:"logo-i-font",
     size: 16px,
     size-base: 16px,
-    color: var(--text-1000),
     path: "~@logo-software/theme/assets/fonts",
+    color:(name: "neutral", value: 1000)
   ),
   grid:(
     status: true,
@@ -230,7 +227,7 @@ $config: deep-map-merge((
     tree:(
       padding-left:25px,
       font: (
-        color: var(--text-900)
+        color: var(--neutral-900)
       ),
       size: (
         small: (height: 32px, font-size: 14px, line-height: 18px, padding: (left: 10px, right: 5px)),
@@ -240,20 +237,18 @@ $config: deep-map-merge((
     )
   ),
   color: (
-    text: 1000,
     list: (
-      brand: #7500ff,
       primary: #0090ff,
       secondary: #dde8f7,
       basic: #f2f4f9, // #a1b9d1, // #75899e, //#cdd7e2, //#f2f4f9,
       light: #ffffff,
       dark: #6a6a6a,
       gray: #cccccc,
-      info: #0090ff,
+      info: #47bdff,
       danger: #ff3e51,
       warning: #f8aa1c,
       success: #01cc78,
-      text: #858585,
+      neutral: #858585,
     ),
     semantic: info danger warning success,
     shades:(

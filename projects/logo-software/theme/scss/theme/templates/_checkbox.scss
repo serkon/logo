@@ -39,7 +39,7 @@ Standardization Checkbox and Radio
     vertical-align: text-top;
     height: auto;
     padding-bottom: 0;
-    color: get("font.color");
+    color: var(--#{get("font.color.name")}-#{get("font.color.value")});
   }
 
   @each $type in get("type") {

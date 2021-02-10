@@ -7,11 +7,11 @@
       th.dow {
         font-weight: 400;
         font-size: size(14px);
-        color: var(--text-400);
+        color: var(--#{get("font.color.name")}-400);
       }
 
       th.picker-switch {
-        color: get("font.color");
+        color: var(--#{get("font.color.name")}-#{get("font.color.value")});
         font-weight: 400;
         font-size: size(14px);
       }
@@ -28,7 +28,7 @@
       td {
         border-radius: size(get("border.radius"));
         background-color: var(--gray-100);
-        color: get("font.color");
+        color: var(--#{get("font.color.name")}-#{get("font.color.value")});
         font-size: size(14px);
         height: size(30px);
         vertical-align: middle;

@@ -1,7 +1,7 @@
 // P sizes
 @each $size, $value in get("element.paragraph.size") {
   %p-#{$size} {
-    color: get("font.color");
+    color: var(--#{get("font.color.name")}-#{get("font.color.value")});
     font-size: size(map-get($value, "font-size"));
     line-height: size(map-get($value, "line-height"));
     box-sizing: content-box;

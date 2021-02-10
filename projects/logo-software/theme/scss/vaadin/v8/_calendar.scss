@@ -23,11 +23,11 @@
     height: size(34px);
 
     [class*=-calendarpanel-weekdays] {
-      color: var(--text-400);
+      color: var(--#{get("font.color.name")}-400);
     }
 
     [class*=-calendarpanel-month], [class*=-calendarpanel-day] {
-      color: get("font.color");
+      color: var(--#{get("font.color.name")}-#{get("font.color.value")});
       height: size(30px);
       align-items: center;
       display: flex;
@@ -58,7 +58,7 @@
     }
 
     [class*=-calendarpanel-day-offmonth] {
-      color: var(--text-500);
+      color: var(--#{get("font.color.name")}-500);
     }
 
     &[class*=-calendarpanel-body] {

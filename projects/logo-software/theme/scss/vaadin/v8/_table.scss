@@ -90,7 +90,7 @@
                 line-height: size(get("size.medium.height"));
                 font-weight: 400;
                 padding: 0 size(5px);
-                color: var(--text-900);
+                color: var(--#{get("font.color.name")}-900);
                 margin: 0;
 
                 .v-widget {

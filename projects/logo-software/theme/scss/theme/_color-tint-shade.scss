@@ -15,8 +15,12 @@ Make Shade Color
 /**
 Make more darken after shade
  */
-@function shader($color, $percentage) {
-  $color: saturate($color, 3%);
+@function shader($color, $percentage, $name) {
+  $list: dark neutral gray;
+
+  @if (null == index($list, $name)) {
+    $color: saturate($color, 3%);
+  }
   $color: shade($color, $percentage);
   // $color: darken($color, 5%);
   @return $color;
@@ -25,7 +29,7 @@ Make more darken after shade
 /**
 Make more darken after tint
  */
-@function tinter($color, $percentage) {
+@function tinter($color, $percentage, $name) {
   $color: tint($color, $percentage);
   // $color: darken($color, 5%);
   // $color: lighten($color, 1%);
@@ -45,13 +49,10 @@ Color status generator - Color Hover Active Focus
  */
 @function chaf($name, $color-list) {
   $map: ();
-  $map: map-merge(
-    $map,
-    (
-      "#{$name}-hover": map-get($color-list, #{$name}-#{get("state.shade.hover")}),
-      "#{$name}-active": map-get($color-list, #{$name}-#{get("state.shade.active")}),
-      "#{$name}-focus": map-get($color-list, #{$name}-#{get("state.shade.focus")}),
-    )
+  $map: map-merge($map, (
+    "#{$name}-hover": map-get($color-list, #{$name}-#{get("state.shade.hover")}),
+    "#{$name}-active": map-get($color-list, #{$name}-#{get("state.shade.active")}),
+    "#{$name}-focus": map-get($color-list, #{$name}-#{get("state.shade.focus")}))
   );
 
   @return $map;
@@ -81,7 +82,7 @@ Merge color lists
   $map: ("#{$color-name}": $hex);
 
   @each $shade-name, $value in get("color.shades") {
-    $map: map-merge($map, (if($shade-name > 500, ("#{$color-name}-#{$shade-name}": shader($hex, $value)), ("#{$color-name}-#{$shade-name}": tinter($hex, $value)))));
+    $map: map-merge($map, (if($shade-name > 500, ("#{$color-name}-#{$shade-name}": shader($hex, $value, $color-name)), ("#{$color-name}-#{$shade-name}": tinter($hex, $value, $color-name)))));
   }
 
   @return $map;

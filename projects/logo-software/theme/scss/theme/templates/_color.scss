@@ -1,14 +1,12 @@
 /**
   Template (fill): fill styles
  */
-
 @function text-color($color) {
-  @return var(--#{$color}-#{get("color.text")});
+  @return var(--#{$color}-#{get("font.color.value")});
   // @return saturate(color(#{$color}-900), 2%);
 }
 
 %fill {
-  font-family: get("font.family");
   border-color: transparent;
   border-width: size(1px);
   border-style: solid;

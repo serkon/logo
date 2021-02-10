@@ -9,13 +9,13 @@
       }
 
       .v-tree-node-caption {
-        color: get("font.color");
+        color: var(--#{get("font.color.name")}-#{get("font.color.value")});
         line-height: size(get("size.medium.height"));
         height: size(get("size.medium.height"));
         font-size: size(get("size.medium.font-size"));
 
         &::after {
-          background-color: rgba(var(--text-500-rgb), 0.15);
+          background-color: rgba(var(--neutral-500-rgb), 0.15);
           border-radius: size(get("border.radius"));
           background-image: none;
           border-left: size(2px) solid var(--primary);
@@ -46,7 +46,7 @@
       }
 
       .v-tree-node-selected {
-        color: get("font.color");
+        color: var(--#{get("font.color.name")}-#{get("font.color.value")});
       }
     }
 
