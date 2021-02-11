@@ -11,6 +11,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DocsComponent } from '@guideline/src/app/docs/docs.component';
+import { GetstartedComponent } from '@guideline/src/app/docs/getstarted/getstarted.component';
 
 const routes: Routes = [
     {
@@ -20,6 +21,10 @@ const routes: Routes = [
         {
           path: 'detail',
           loadChildren: () => import('./detail/detail.module').then(m => m.DetailModule),
+        },
+        {
+          path: 'getstarted',
+          component: GetstartedComponent,
         },
       ],
     },

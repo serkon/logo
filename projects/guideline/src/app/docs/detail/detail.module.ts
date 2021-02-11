@@ -14,11 +14,13 @@ import { MarkdownModule } from '@logo-software/markdown';
 
 import { DetailRoutingModule } from './detail-routing.module';
 import { DetailComponent } from './detail.component';
+import { SpacingComponent } from './spacing/spacing.component';
+import { PlaygroundModule } from '@logo-software/playground';
 
 @NgModule({
-  declarations: [DetailComponent],
-  imports: [CommonModule, DetailRoutingModule, MarkdownModule],
-  exports: [DetailComponent],
+  declarations: [DetailComponent, SpacingComponent],
+  imports: [CommonModule, DetailRoutingModule, MarkdownModule, PlaygroundModule],
+  exports: [DetailComponent, SpacingComponent],
 })
 export class DetailModule {
 }

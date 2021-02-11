@@ -38,7 +38,7 @@ export class AppComponent implements AfterContentChecked {
         {
           'id': 23,
           'name': 'Icons',
-          'link': '/docs/detail/icons',
+          'link': '/icons',
           'role': 'ROLE_MENU_CONTROL_TOWER',
         },
         {

@@ -11,8 +11,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DetailComponent } from './detail.component';
+import { SpacingComponent } from './spacing/spacing.component';
 
 const routes: Routes = [
+  {
+    path: 'spacing',
+    component: SpacingComponent,
+  },
   {
     path: ':name',
     component: DetailComponent,

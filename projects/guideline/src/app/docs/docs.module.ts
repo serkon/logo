@@ -13,11 +13,12 @@ import { CommonModule } from '@angular/common';
 
 import { DocsRoutingModule } from './docs-routing.module';
 import { DocsComponent } from './docs.component';
+import { GetstartedComponent } from './getstarted/getstarted.component';
 
 @NgModule({
-  declarations: [DocsComponent],
+  declarations: [DocsComponent, GetstartedComponent],
   imports: [CommonModule, DocsRoutingModule],
-  exports: [DocsComponent],
+  exports: [DocsComponent, GetstartedComponent],
 })
 export class DocsModule {
 }
