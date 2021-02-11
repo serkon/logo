@@ -2,7 +2,6 @@
   .content {
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
   }
 
@@ -13,9 +12,15 @@
 
   label {
     text-transform: capitalize;
+    color: var(--neutral);
   }
 
   .symbols {
     color: var(--primary);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 2px;
   }
 }

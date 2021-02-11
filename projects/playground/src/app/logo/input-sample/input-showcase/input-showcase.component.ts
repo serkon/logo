@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./input-showcase.component.scss'],
 })
 export class InputShowcaseComponent implements OnInit {
+
   sizeTypes = [
     {class: 'medium', selected: true},
     {class: 'large', selected: false},
@@ -18,7 +19,7 @@ export class InputShowcaseComponent implements OnInit {
     {class: 'success', selected: false},
   ];
   selectedSize: string = 'medium';
-  selectedKind: string = 'primary';
+  selectedKind: string = 'basic';
   selectedDisableState: boolean = true;
   input: any;
   disabled: any;
@@ -31,20 +32,20 @@ export class InputShowcaseComponent implements OnInit {
 
   changeSizeType(sizeType: string) {
     this.selectedSize = sizeType;
-    this.sizeTypes.map((x)=> {
-      if(sizeType !== x.class) {
+    this.sizeTypes.map((x) => {
+      if (sizeType !== x.class) {
         x.selected = false;
       }
-    })
+    });
   }
 
   changeStateType(kindType: string) {
     this.selectedKind = kindType;
-    this.stateTypes.map((x)=> {
-      if(kindType !== x.class) {
+    this.stateTypes.map((x) => {
+      if (kindType !== x.class) {
         x.selected = false;
       }
-    })
+    });
   }
 
 }

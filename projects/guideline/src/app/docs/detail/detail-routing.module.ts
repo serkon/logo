@@ -10,6 +10,7 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { DetailComponent } from './detail.component';
 import { SpacingComponent } from './pages/spacing/spacing.component';
 import { AccordionComponent } from './pages/accordion/accordion.component';
@@ -27,16 +28,23 @@ import { CardComponent } from './pages/card/card.component';
 import { CheckboxComponent } from './pages/checkbox/checkbox.component';
 import { DatepickerComponent } from './pages/datepicker/datepicker.component';
 import { FormComponent } from './pages/form/form.component';
+import { TabComponent } from './pages/tab/tab.component';
+import { SwitchComponent } from './pages/switch/switch.component';
+import { SliderComponent } from './pages/slider/slider.component';
+import { RadioButtonComponent } from './pages/radio-button/radio-button.component';
+import { SelectComponent } from './pages/select/select.component';
+import { PopupComponent } from './pages/popup/popup.component';
+import { PopoverComponent } from './pages/popover/popover.component';
+import { PaginationComponent } from './pages/pagination/pagination.component';
+import { MultiselectComponent } from './pages/multiselect/multiselect.component';
+import { InputComponent } from './pages/input/input.component';
+import { InfoContainerComponent } from './pages/info-container/info-container.component';
 
 const routes: Routes = [
   {
     path: '',
     component: DetailComponent,
     children: [
-      {
-        path: 'spacing',
-        component: SpacingComponent,
-      },
       {
         path: 'accordion',
         component: AccordionComponent,
@@ -96,6 +104,54 @@ const routes: Routes = [
       {
         path: 'form',
         component: FormComponent,
+      },
+      {
+        path: 'info-container',
+        component: InfoContainerComponent,
+      },
+      {
+        path: 'input',
+        component: InputComponent,
+      },
+      {
+        path: 'multiselect',
+        component: MultiselectComponent,
+      },
+      {
+        path: 'pagination',
+        component: PaginationComponent,
+      },
+      {
+        path: 'popover',
+        component: PopoverComponent,
+      },
+      {
+        path: 'popup',
+        component: PopupComponent,
+      },
+      {
+        path: 'radiobutton',
+        component: RadioButtonComponent,
+      },
+      {
+        path: 'select',
+        component: SelectComponent,
+      },
+      {
+        path: 'slider',
+        component: SliderComponent,
+      },
+      {
+        path: 'spacing',
+        component: SpacingComponent,
+      },
+      {
+        path: 'switch',
+        component: SwitchComponent,
+      },
+      {
+        path: 'tab',
+        component: TabComponent,
       },
     ],
   },

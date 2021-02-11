@@ -31,11 +31,51 @@ import { CardComponent } from './pages/card/card.component';
 import { CheckboxComponent } from './pages/checkbox/checkbox.component';
 import { DatepickerComponent } from './pages/datepicker/datepicker.component';
 import { FormComponent } from './pages/form/form.component';
+import { TabComponent } from './pages/tab/tab.component';
+import { SwitchComponent } from './pages/switch/switch.component';
+import { SliderComponent } from './pages/slider/slider.component';
+import { RadioButtonComponent } from './pages/radio-button/radio-button.component';
+import { SelectComponent } from './pages/select/select.component';
+import { PopupComponent } from './pages/popup/popup.component';
+import { PopoverComponent } from './pages/popover/popover.component';
+import { PaginationComponent } from './pages/pagination/pagination.component';
+import { MultiselectComponent } from './pages/multiselect/multiselect.component';
+import { InputComponent } from './pages/input/input.component';
+import { InfoContainerComponent } from './pages/info-container/info-container.component';
 
 @NgModule({
-  declarations: [DetailComponent, SpacingComponent, AccordionComponent, ActionBarComponent, AzIndexComponent, ActivitySheetComponent, AppfaceComponent, BadgeComponent, BreadcrumbComponent, BulletPointComponent, ButtonComponent, ButtonGroupComponent, CalendarComponent, CardComponent, CheckboxComponent, DatepickerComponent, FormComponent],
+  declarations: [
+    DetailComponent,
+    SpacingComponent,
+    AccordionComponent,
+    ActionBarComponent,
+    AzIndexComponent,
+    ActivitySheetComponent,
+    AppfaceComponent,
+    BadgeComponent,
+    BreadcrumbComponent,
+    BulletPointComponent,
+    ButtonComponent,
+    ButtonGroupComponent,
+    CalendarComponent,
+    CardComponent,
+    CheckboxComponent,
+    DatepickerComponent,
+    FormComponent,
+    TabComponent,
+    SwitchComponent,
+    SliderComponent,
+    RadioButtonComponent,
+    SelectComponent,
+    PopupComponent,
+    PopoverComponent,
+    PaginationComponent,
+    MultiselectComponent,
+    InputComponent,
+    InfoContainerComponent,
+  ],
   imports: [CommonModule, DetailRoutingModule, MarkdownModule, PlaygroundModule],
-  exports: [DetailComponent, SpacingComponent, AccordionComponent, ActionBarComponent, AzIndexComponent, ActivitySheetComponent, AppfaceComponent, BadgeComponent, BreadcrumbComponent, BulletPointComponent, ButtonComponent, ButtonGroupComponent, CalendarComponent, CardComponent, CheckboxComponent, DatepickerComponent, FormComponent],
+  exports: [DetailComponent],
 })
 export class DetailModule {
 }

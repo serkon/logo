@@ -153,7 +153,7 @@ export class AppComponent implements AfterContentChecked {
         {
           'id': 326,
           'name': 'Info Container',
-          'link': '/docs/detail/infocontainer',
+          'link': '/docs/detail/info-container',
           'role': 'ROLE_MENU_CONTROL_TOWER',
         },
         {
