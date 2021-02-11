@@ -91,7 +91,7 @@
               padding: size(25px) size(10px) 0 size(105px);
 
               p {
-                margin: 0px;
+                margin: 0;
               }
             }
 
@@ -117,7 +117,7 @@
             .title {
               display: inline-block;
               width: 100%;
-              color: var(--text-400);
+              color: var(--neutral-400);
               font-size: size(12px);
               margin-bottom: size(5px);
 
@@ -205,7 +205,7 @@
                 display: inline-block;
                 width: size(14px);
                 height: size(14px);
-                color: var(--text-400);
+                color: var(--neutral-400);
                 position: absolute;
                 top: size(4px);
                 left: size(20px);
@@ -213,7 +213,6 @@
             }
           }
         }
-
       }
 
       .search-base {
@@ -225,6 +224,11 @@
           input {
             width: 100%;
           }
+        }
+
+        .search-btn {
+          background: var(--basic);
+          display: none;
         }
       }
 
@@ -325,7 +329,7 @@
       width: 100%;
       overflow: auto;
       box-sizing: border-box;
-      padding: 0 0 0 size(10px);
+      padding: 0;
       position: relative;
 
       ::ng-deep {
@@ -336,6 +340,7 @@
           width: size(30px);
           height: size(30px);
           text-align: center;
+          margin-left: size(10px);
         }
 
         label {
@@ -353,6 +358,7 @@
 
           .title {
             white-space: nowrap;
+            font-weight: 400 !important;
           }
         }
       }
@@ -390,7 +396,6 @@
       &.left {
         left: size(10px);
       }
-
     }
 
     .popover {
@@ -401,7 +406,8 @@
       &.opened {
         @include box-shadow(0, size(2px), size(15px), size(4px), rgba(var(--black-rgb), 0.15), false);
 
-        display: inline-block;
+        display: flex;
+        flex-flow: column;
         position: absolute;
         right: 0;
         left: 0;
@@ -410,6 +416,15 @@
         padding: size(10px);
         border: 1px solid var(--primary-400);
         z-index: 5;
+        max-height: 55vh;
+      }
+
+      .search-base {
+        flex: 0 1 auto;
+      }
+
+      .result-base {
+        flex: 1 1 auto;
       }
 
       .input-w-icon {
@@ -489,7 +504,17 @@
         }
 
         .search-base {
-          display: none;
+          padding: size(5px);
+
+          .search-btn {
+            background: var(--basic);
+            display: block;
+            width: size(40px);
+          }
+
+          .input-w-icon {
+            display: none;
+          }
         }
 
         .tenant-base {
@@ -505,7 +530,7 @@
         }
 
         .shortcuts-base {
-          padding: size(5px);
+          padding: 0 size(5px);
 
           .standarts {
             .home {
@@ -543,13 +568,30 @@
 
         ::ng-deep {
           .item-icon {
-            margin-left: size(5px);
+            margin-left: 0;
           }
 
           .label-category, .label-link {
             padding: 0 !important;
           }
 
+          label {
+            @include border-radius(8px);
+
+            justify-content: center;
+
+            a {
+              display: none;
+            }
+
+            .title {
+              display: none;
+            }
+
+            .arrow {
+              display: none;
+            }
+          }
         }
       }
 
@@ -560,7 +602,7 @@
         }
 
         &.left {
-          left: size(5px);
+          left: size(7px);
         }
       }
     }
@@ -580,4 +622,3 @@
     }
   }
 }
-

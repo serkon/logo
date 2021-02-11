@@ -17,7 +17,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class LeftbarService {
-  public userInfo: PaasUser = null;
+  public userInfo: PaasUser;
   public userDataLoad: Subject<PaasUser> = new Subject<PaasUser>();
   public isSlim: boolean = false;
 
@@ -25,9 +25,5 @@ export class LeftbarService {
     this.userDataLoad.subscribe((data) => {
       this.userInfo = data;
     });
-  }
-
-  public selectTenant(id: string) {
-    console.log(id);
   }
 }

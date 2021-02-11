@@ -22,10 +22,12 @@ export class LeftbarComponent implements OnInit {
   @Output() public onAddShortCut: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() public onHomeButton: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() public onTenantSelected: EventEmitter<string> = new EventEmitter<string>();
-
   @Output() public onInit: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() public onAppSelected: EventEmitter<string> = new EventEmitter<string>();
   @Output() public onSettingsButton: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() public onSearch: EventEmitter<string> = new EventEmitter<string>();
+  @Output() public onInfoRequest: EventEmitter<string> = new EventEmitter<string>();
+
   public showUserDetails: boolean = false;
   public popoverStatus: boolean = false;
   public activePopover: string = '';
@@ -39,7 +41,7 @@ export class LeftbarComponent implements OnInit {
   ngOnInit(): void {
     this.onInit.emit(true);
     this.leftbarService.userDataLoad.subscribe(data => {
-      const emptySlots: number = 5 - this.leftbarService.userInfo.user.shortcuts.length || 0;
+      const emptySlots: number = 5 - this.leftbarService.userInfo.shortcuts.length || 0;
       this.emptyShortcutSlots = Array.from(Array(emptySlots).keys());
     });
   }
@@ -80,5 +82,13 @@ export class LeftbarComponent implements OnInit {
 
   public addShortcutEmitter() {
     this.onAddShortCut.emit(true);
+  }
+
+  public doSearchEmitter(val: string) {
+    val.length > 2 ? this.onSearch.emit(val) : '';
+  }
+
+  public infoReqEmitter(id: string) {
+    this.onInfoRequest.emit(id);
   }
 }

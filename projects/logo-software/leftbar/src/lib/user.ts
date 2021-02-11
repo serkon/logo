@@ -9,57 +9,55 @@
  */
 
 export interface PaasUser {
-  user?: {
-    name: string;
-    title: string;
-    avatar?: string;
-    notifications?: number;
-    infos: [
-      {
-        col: number;
-        reference: string;
-        title?: string;
-        desc?: string;
-        badge?: boolean;
-        count?: number;
-        link?: string;
-        action?: string;
-        icon?: string;
-      }
-    ]
-    links?: [
+  name: string;
+  title: string;
+  avatar?: string;
+  notifications?: number;
+  infos: [
+    {
+      col: number;
+      reference: string;
+      title?: string;
+      desc?: string;
+      badge?: boolean;
+      count?: number;
+      link?: string;
+      actionParam?: string;
+      icon?: string;
+    }
+  ]
+  links?: [
+    {
+      name: string;
+      link: string;
+    }
+  ],
+  tenants?: {
+    default: string;
+    options?: [
       {
         name: string;
-        link: string;
-      }
-    ],
-    tenants?: {
-      default: string;
-      options?: [
-        {
-          name: string;
-          id: string;
-        }
-      ]
-    },
-    applications?: {
-      default: string;
-      defaultIcon: string;
-      options?: [
-        {
-          logo: string;
-          name: string;
-          id: string;
-        }
-      ]
-    },
-    shortcuts?: [
-      {
-        icon: string;
-        class?: string;
-        name: string;
-        link: string;
+        id: string;
       }
     ]
-  }
+  },
+  applications?: {
+    default: string;
+    defaultIcon: string;
+    options?: [
+      {
+        logo: string;
+        name: string;
+        id: string;
+      }
+    ]
+  },
+  shortcuts?: [
+    {
+      icon: string;
+      class?: string;
+      name: string;
+      link: string;
+    }
+  ]
 }
