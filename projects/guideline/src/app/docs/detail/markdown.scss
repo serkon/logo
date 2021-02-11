@@ -1,4 +1,4 @@
-h2, h3, h5, h6, p, img {
+h2, h3, h4, h5, h6, p, img {
   margin: size(15px);
 }
 
@@ -14,25 +14,14 @@ div {
   align-items: center;
 }
 
-.overview {
-  padding-top: size(86px);
-}
-
 .title {
   padding-left: size(60px);
   padding-bottom: size(16px);
 }
 
-.wtu {
-  padding-top: size(40px);
-}
-
-.wtnu {
-  padding-top: size(40px);
-}
-
 .main {
-  padding: size(20px);
+  padding-left: size(10px);
+  margin-top: size(-30px);
   width: size(740px);
 }
 
