@@ -614,15 +614,15 @@
           overflow: hidden;
 
           img {
-            width: 165%;
+            width: 150%;
             margin-left: size(-300px);
 
             @include smaller-than(lg) {
-              width: 150%;
+              width: 140%;
             }
 
             @include smaller-than(md) {
-              width: 150%;
+              width: 140%;
             }
 
             @include smaller-than(sm) {
