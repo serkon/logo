@@ -1,191 +1,195 @@
-# Button
+<div class="main">
+  <div class="title-wrapper">
+    <h1 class="title">Button</h1>
+  </div>
 
-Buttons communicate actions that users can take. They are typically placed throughout your UI, in places like:
-Dialogs, Forms, Toolbars, etc.
+  Buttons communicate actions that users can take. They are typically placed throughout your UI, in places like:
+  Dialogs, Forms, Toolbars, etc.
 
-## Overview
+  ## Overview
 
-Buttons are clickable elements that are used to trigger actions. They communicate calls to action to the user
-and allow users to interact with pages in a variety of ways.
-Button labels express what action will occur when the user interacts with it.
+  Buttons are clickable elements that are used to trigger actions. They communicate calls to action to the user
+  and allow users to interact with pages in a variety of ways.
+  Button labels express what action will occur when the user interacts with it.
 
-### When to use
+  ### When to use
 
-Use buttons to communicate actions users can take and to allow users to interact with the page. Each page should have
-one primary button, and any remaining calls to action should be represented as lower emphasis buttons.
+  Use buttons to communicate actions users can take and to allow users to interact with the page. Each page should have
+  one primary button, and any remaining calls to action should be represented as lower emphasis buttons.
 
-### When not to use
+  ### When not to use
 
-Do not use buttons as navigational elements. Instead, use links when the desired action is to take the user to
-a new page.
+  Do not use buttons as navigational elements. Instead, use links when the desired action is to take the user to
+  a new page.
 
-## Button Types
+  ## Button Types
 
-Do not use buttons as navigational elements. Instead, use links when the desired action is to take the user to a
-new page.
+  Do not use buttons as navigational elements. Instead, use links when the desired action is to take the user to a
+  new page.
 
-<div class="foo">
-  <button class="primary">Primary</button>
-  <button class="secondary">Secondary</button>
-  <button class="danger">Danger</button>
-  <button class="ghost">Ghost</button>
-</div>
+  <div class="foo">
+    <button class="primary">Primary</button>
+    <button class="secondary">Secondary</button>
+    <button class="danger">Danger</button>
+    <button class="ghost">Ghost</button>
+  </div>
 
-<table>
-  <tr>
-    <th>Type</th>
-    <th>Purpose</th>
-  </tr>
-  <tr>
-    <td>Primary</td>
-    <td>For the principal call to action on the page. Primary buttons should only appear once per screen
-      (not including the application header or in a modal dialog).
-    </td>
-  </tr>
-  <tr>
-    <td>Secondary</td>
-    <td>For secondary actions on each page; these can only be used in conjunction with a primary button.</td>
-  </tr>
-  <tr>
-    <td>Tertiary</td>
-    <td>For less prominent actions; tertiary buttons can be used in isolation or paired with a primary button
-      when there are multiple calls to action.
-    </td>
-  </tr>
-  <tr>
-    <td>Danger</td>
-    <td>For actions that could have destructive effects on the user’s data (delete, remove, etc.).</td>
-  </tr>
-  <tr>
-    <td>Ghost</td>
-    <td>For the least pronounced actions; often used in conjunction with a primary button.</td>
-  </tr>
-</table>
+  <table>
+    <tr>
+      <th>Type</th>
+      <th>Purpose</th>
+    </tr>
+    <tr>
+      <td>Primary</td>
+      <td>For the principal call to action on the page. Primary buttons should only appear once per screen
+        (not including the application header or in a modal dialog).
+      </td>
+    </tr>
+    <tr>
+      <td>Secondary</td>
+      <td>For secondary actions on each page; these can only be used in conjunction with a primary button.</td>
+    </tr>
+    <tr>
+      <td>Tertiary</td>
+      <td>For less prominent actions; tertiary buttons can be used in isolation or paired with a primary button
+        when there are multiple calls to action.
+      </td>
+    </tr>
+    <tr>
+      <td>Danger</td>
+      <td>For actions that could have destructive effects on the user’s data (delete, remove, etc.).</td>
+    </tr>
+    <tr>
+      <td>Ghost</td>
+      <td>For the least pronounced actions; often used in conjunction with a primary button.</td>
+    </tr>
+  </table>
 
-## Demo
-<logo-playground
-  path="example/logo/button-sample/button-showcase/button-showcase.component"
-  context='{"title": "Button Demo", "button": true}'
-  height="400px">
-</logo-playground>
+  ## Demo
+  <logo-playground
+    path="example/logo/button-sample/button-showcase/button-showcase.component"
+    context='{"title": "Button Demo", "button": true}'
+    height="400px">
+  </logo-playground>
 
-## Formatting
+  ## Formatting
 
-### Anatomy
+  ### Anatomy
 
-<img src="../assets/img/docs_button_anatomy.png" alt=""/>
+  <img src="../assets/img/docs_button_anatomy.png" alt=""/>
 
-# Size
+  # Size
 
-Buttons are named according to their size: small, medium and large
+  Buttons are named according to their size: small, medium and large
 
-<div class="foo">
-  <button class="primary small">Button</button>
-  <button class="primary medium">Button</button>
-  <button class="primary large">Button</button>
-</div>
+  <div class="foo">
+    <button class="primary small">Button</button>
+    <button class="primary medium">Button</button>
+    <button class="primary large">Button</button>
+  </div>
 
-<table>
-  <tr>
-    <th>Type</th>
-    <th>Size</th>
-    <th>Usecase</th>
-  </tr>
-  <tr>
-    <td>Small</td>
-    <td>24px</td>
-    <td>Use when there is not enough vertical space for the medium button.
-      Useful cases are small tables and small popovers.
-    </td>
-  </tr>
-  <tr>
-    <td>Medium</td>
-    <td>32px</td>
-    <td>Use as primary page actions and other standalone actions. This is the default size in web applications.</td>
-  </tr>
-  <tr>
-    <td>Large</td>
-    <td>48px</td>
-    <td>Use when building a form with a single, simple purpose like sign in and sign up forms. This is the default
-      size in mobile applications.
-    </td>
-  </tr>
-</table>
+  <table>
+    <tr>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Usecase</th>
+    </tr>
+    <tr>
+      <td>Small</td>
+      <td>24px</td>
+      <td>Use when there is not enough vertical space for the medium button.
+        Useful cases are small tables and small popovers.
+      </td>
+    </tr>
+    <tr>
+      <td>Medium</td>
+      <td>32px</td>
+      <td>Use as primary page actions and other standalone actions. This is the default size in web applications.</td>
+    </tr>
+    <tr>
+      <td>Large</td>
+      <td>48px</td>
+      <td>Use when building a form with a single, simple purpose like sign in and sign up forms. This is the default
+        size in mobile applications.
+      </td>
+    </tr>
+  </table>
 
-## Alignment
+  ## Alignment
 
-Alignment refers to whether the buttons are aligned to the right or the left of a window, container,
-or layout and the paddings between buttons.
+  Alignment refers to whether the buttons are aligned to the right or the left of a window, container,
+  or layout and the paddings between buttons.
 
-Buttons are aligned with 10 pixel paddings next to each other. Ghost buttons are exceptions.
-They are aligned without padding.
+  Buttons are aligned with 10 pixel paddings next to each other. Ghost buttons are exceptions.
+  They are aligned without padding.
 
-<img src="../assets/img/docs_button_alignment_1.png" alt=""/>
-<img src="../assets/img/docs_button_alignment_2.png" alt=""/>
-<img src="../assets/img/docs_button_alignment_3.png" alt=""/>
-<img src="../assets/img/docs_button_alignment_4.png" alt=""/>
+  <img src="../assets/img/docs_button_alignment_1.png" alt=""/>
+  <img src="../assets/img/docs_button_alignment_2.png" alt=""/>
+  <img src="../assets/img/docs_button_alignment_3.png" alt=""/>
+  <img src="../assets/img/docs_button_alignment_4.png" alt=""/>
 
-Fill and outline button alignment
+  Fill and outline button alignment
 
-<img src="../assets/img/docs_button_alignment_5.png" alt=""/>
+  <img src="../assets/img/docs_button_alignment_5.png" alt=""/>
 
-Ghost button alignment
+  Ghost button alignment
 
-<img src="../assets/img/docs_button_alignment_6.png" alt=""/>
+  <img src="../assets/img/docs_button_alignment_6.png" alt=""/>
 
-## Content
+  ## Content
 
-A button’s text label is the most important element on a button, as it communicates the action that will be performed
-when the user interacts with it. Buttons need to be clear and predictable.
+  A button’s text label is the most important element on a button, as it communicates the action that will be performed
+  when the user interacts with it. Buttons need to be clear and predictable.
 
-Button labels should clearly indicate the action of the button. To provide enough context, use the {verb} + {noun}
-content formula on buttons except in the case of common actions like “Done”, “Close”, “Cancel”, “Add”, or “Delete”.
+  Button labels should clearly indicate the action of the button. To provide enough context, use the {verb} + {noun}
+  content formula on buttons except in the case of common actions like “Done”, “Close”, “Cancel”, “Add”, or “Delete”.
 
-There are exceptions to this rule for situations in which button length could cause problems
-in compact UIs or negatively impact translation, but the {verb} + {noun} formula is still best practice.
+  There are exceptions to this rule for situations in which button length could cause problems
+  in compact UIs or negatively impact translation, but the {verb} + {noun} formula is still best practice.
 
-## Behaviors
+  ## Behaviors
 
-### Interactions
+  ### Interactions
 
-#### Mouse
+  #### Mouse
 
-Users can trigger a button by clicking anywhere within the button container.
+  Users can trigger a button by clicking anywhere within the button container.
 
-#### Keyboard
+  #### Keyboard
 
-Users can trigger a button by clicking anywhere within the button container.
+  Users can trigger a button by clicking anywhere within the button container.
 
-## Modifiers
+  ## Modifiers
 
-### Icon only buttons
+  ### Icon only buttons
 
-Icon buttons allow users to take actions, and make choices, with a single tap. Mostly used in groups
-where a lot of quick actions needs to be accessed in a small layout.
-Tooltips appear when the user hovers on an icon only button by default.
+  Icon buttons allow users to take actions, and make choices, with a single tap. Mostly used in groups
+  where a lot of quick actions needs to be accessed in a small layout.
+  Tooltips appear when the user hovers on an icon only button by default.
 
-<div class="bar">
-  <button class="le-bell"></button>
-  <button class="le-bell"></button>
-  <button class="le-bell"></button>
-</div>
+  <div class="bar">
+    <button class="le-bell"></button>
+    <button class="le-bell"></button>
+    <button class="le-bell"></button>
+  </div>
 
-### Icon and text buttons
+  ### Icon and text buttons
 
-Icons can be placed next to labels to both clarify an action and call attention to a button.
+  Icons can be placed next to labels to both clarify an action and call attention to a button.
 
-<div class="bar">
-  <button class="primary le-bell">Button</button>
-  <button class="le-bell">Button</button>
-  <button class="ghost le-bell">Button</button>
-</div>
+  <div class="bar">
+    <button class="primary le-bell">Button</button>
+    <button class="le-bell">Button</button>
+    <button class="ghost le-bell">Button</button>
+  </div>
 
-### Option buttons
+  ### Option buttons
 
-Option buttons reveal a popover when clicked. When an action has more than one options, option buttons can be used.
+  Option buttons reveal a popover when clicked. When an action has more than one options, option buttons can be used.
 
-<div class="bar">
-  <button class="primary le-bell">Button</button>
-  <button class="le-bell">Button</button>
-  <button class="ghost le-bell">Button</button>
+  <div class="bar">
+    <button class="primary le-bell">Button</button>
+    <button class="le-bell">Button</button>
+    <button class="ghost le-bell">Button</button>
+  </div>
 </div>

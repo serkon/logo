@@ -1,34 +1,73 @@
-# Spacing
-
-Spacing is one of the most important principles of design. In order to create accurate and consistent visual
-hierarchies, 2 different spacing scales were defined.
-
-## Scales
-
-We have 2 different spacing scales. One is used to determine the hierarchy between the elements of a component and the
-other is used to define spacing between page elements.
-<table>
-  <tr>
-    <th>Spacing</th>
-    <th>Purpose</th>
-  </tr>
-  <tr>
-    <td>Spacing Scale</td>
-    <td>
-      Used in smaller spaces, more detailed spacing needs, especially within a component.
-      (i.e. the space between text inbut and component title)
-    </td>
-  </tr>
-  <tr>
-    <td>Layout Scale</td>
-    <td>
-      It is mainly used when positioning components within the page.
-      (i.e. the space between header and a form component)
-    </td>
-  </tr>
-</table>
-<logo-playground
-  path="example/logo/tree-sample/tree-showcase/tree-showcase.component"
-  context='{"title": "Spacing Demo", "buttons": true}'
-  height="500px">
-</logo-playground>
+<div class="main">
+  <div class="title-wrapper">
+    <h1 class="title">Spacing</h1>
+  </div>
+  <div class="intro">
+    <p>
+      Spacing is one of the most important principles of design. In order to create accurate and consistent visual
+      hierarchies, 2 different spacing scales were defined.
+    </p>
+    <ul>
+      <li>Scales</li>
+      <li>Spacing Scale</li>
+      <li>Layout Scale</li>
+    </ul>
+  </div>
+  <div class="overview">
+    <h2>Scales</h2>
+    <p>
+      We have 2 different spacing scales. One is used to determine the hierarchy between the elements of a component and
+      the other is used to define spacing between page elements.
+    </p>
+  </div>
+  <div>
+    <table>
+      <tr>
+        <th>Spacing</th>
+        <th>Purpose</th>
+      </tr>
+      <tr>
+        <td>Spacing Scale</td>
+        <td>
+          Used in smaller spaces, more detailed spacing needs, especially within a component. (i.e. the space between
+          text inbut and component title)
+        </td>
+      </tr>
+      <tr>
+        <td>Layout Scale</td>
+        <td>
+          It is mainly used when positioning components within the page. (i.e. the space between header and a form
+          component)
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <h2>Spacing Scale</h2>
+    <p>
+      It is the scale used in the creation of all components. Small increments are included. Thus, it is possible to
+      create high detail components. It is very important to adhere to this scaling for a consistent design.
+    </p>
+    <img src="../assets/img/docs_spacing_1t.png" alt=""/>
+  </div>
+  <div>
+    <img src="../assets/img/docs_spacing_1.png" alt=""/>
+    <p>Example of spacing scales applied</p>
+  </div>
+  <div>
+    <h2>Layout Scale</h2>
+    <p>
+      This scale is used to create relationships between components in the page or to create hierarchical groups by
+      separating components. Increments in this scale are greater than the spacing scale. By using larger scales, white
+      space can be created. More dense designs can be created by using smaller scales.
+    </p>
+    <img src="../assets/img/docs_spacing_3.png" alt=""/>
+  </div>
+  <div>
+    <img src="../assets/img/docs_spacing_2.png" alt=""/>
+  </div>
+  <div>
+    <img src="../assets/img/docs_spacing_4.png" alt=""/>
+    <p>Example of layout scales applied</p>
+  </div>
+</div>
