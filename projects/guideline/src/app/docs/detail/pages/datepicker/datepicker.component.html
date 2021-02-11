@@ -1,0 +1,136 @@
+<div class="main">
+  <div class="title-wrapper">
+    <h1 class="title">Datepicker</h1>
+  </div>
+  <div class="content">
+    <div class="intro section">
+      <p>
+        Checkbox is an interface element that allows the user make multiple selections from a finite set of
+        options.
+      </p>
+      <ul>
+        <li>Overview</li>
+        <li>Demo</li>
+        <li>Formatting</li>
+        <li>Content</li>
+        <li>Datepicker types</li>
+      </ul>
+    </div>
+    <div class="overview section">
+      <h2>Overview</h2>
+      <p>
+        Datepickers are used to display past, present, or future dates or times.
+        The kind of date (exact, approximate, memorable) you are requesting from the user will determine which picker
+        is best to use. Each picker’s format can be customized depending on location or need.
+      </p>
+    </div>
+    <div class="wtu">
+      <h3>When to use</h3>
+      <p>Use date and time pickers when you are asking the user for a time or date, or for scheduling tasks.</p>
+    </div>
+    <h3>Types</h3>
+    <table>
+      <tr>
+        <th>Type</th>
+        <th>Purpose</th>
+      </tr>
+      <tr>
+        <td>Single datepicker</td>
+        <td>Allows user to pick a single date from the calendar.</td>
+      </tr>
+      <tr>
+        <td>Range datepicker</td>
+        <td>Allows user to pick two consecutive dates from two calendars.</td>
+      </tr>
+      <tr>
+        <td>Yearpicker</td>
+        <td>Allows user to pick only the year of a date.</td>
+      </tr>
+      <tr>
+        <td>Monthpicker</td>
+        <td>Allows user to pick only the month of a date.</td>
+      </tr>
+      <tr>
+        <td>Timepicker</td>
+        <td>Allows user to pick a specific time.</td>
+      </tr>
+    </table>
+    <logo-playground
+      context='{"title": "Datepicker Demo", "button": true}'
+      height="400px"
+      path="example/logo/datepicker-sample/datepicker-showcase/datepicker-showcase.component">
+    </logo-playground>
+    <div class="formatting section">
+      <h2>Formatting</h2>
+      <h3>Anatomy</h3>
+      <img alt="" src="/assets/img/docs_datepicker_anatomy.png"/>
+      <p>1. Label: Instructs the user what to do with the control.</p>
+      <p>2. Date fields: A date field where the user displays their date selection.</p>
+      <p>3. Calendar: The menu where a date may be selected.</p>
+      <p>4. Month and year controls: Allows the user to navigate through past and future time frames.</p>
+      <p>5. Day: Days in the month.</p>
+      <p>6. Time: Specific time picker</p>
+    </div>
+    <div class="section">
+      <h2>
+        Anatomy of range datepicker
+      </h2>
+      <img alt="" src="/assets/img/docs_checkbox_anatomy_1.png"/>
+      <p>1. Label: Instructs the user what to do with the control.</p>
+      <p>2. Date fields: A date field where the user displays their date selection.</p>
+      <p>3. Calendar: The menu where a date may be selected.</p>
+      <p>4. Month and year controls: Allows the user to navigate through past and future time frames.</p>
+      <p>5. Day: Days in the month.</p>
+      <p>6. Time: Specific time picker</p>
+    </div>
+    <div class="section">
+      <h2>Alignment</h2>
+      <p>
+        By default, the pickers have fixed widths. If you are placing the picker inline with other inputs,
+        such as in form, then the widths can be adjusted to match the other inputs. The picker can either increase
+        or decrease in width as needed. If you adjust the size, be aware that pickers have minimum widths and the date
+        content should never horizontal scroll or overflow.
+      </p>
+      <img alt="" src="/assets/img/docs_alignment_anatomy.png"/>
+    </div>
+    <div class="section">
+      <h2>Content</h2>
+      <h3>Main Elements</h3>
+      <h5>Label</h5>
+      <p>- Both date and time pickers must be accompanied with labels.</p>
+      <p>- The labels should be clear and descriptive.</p>
+      <p>- Range inputs should be being properly labeled with a start and end label.</p>
+      <h5>Date Format</h5>
+      <p>
+        - The date format can be displayed differently depending on your location.
+        For example, some countries use month/day/year while other use day/month/year.
+      </p>
+      <p>
+        - When using calendar picker the date format will be automated if the user selects from the calendar menu.
+      </p>
+    </div>
+    <div class="section">
+      <h2>Datepicker types</h2>
+      <h3>
+        Single datepicker
+      </h3>
+      <img alt="" src="/assets/img/docs_checkbox_single.png"/>
+      <h3>
+        Range datepicker
+      </h3>
+      <img alt="" src="/assets/img/docs_datepicker_range.png"/>
+      <h3>
+        Month picker
+      </h3>
+      <img alt="" src="/assets/img/docs_datepicker_month.png"/>
+      <h3>
+        Year picker
+      </h3>
+      <img alt="" src="/assets/img/docs_datepicker_year.png"/>
+      <h3>
+        Time picker
+      </h3>
+      <img alt="" src="/assets/img/docs_datepicker_time.png"/>
+    </div>
+  </div>
+</div>

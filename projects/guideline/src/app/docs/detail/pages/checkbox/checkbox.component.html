@@ -1,0 +1,176 @@
+<div class="main">
+  <div class="title-wrapper">
+    <h1 class="title">Checkbox</h1>
+  </div>
+  <div class="content section">
+    <div class="intro">
+      <p>
+        Checkbox is an interface element that allows the user make multiple selections from a finite set of
+        options.
+      </p>
+      <ul>
+        <li>Overview</li>
+        <li>Demo</li>
+        <li>Formatting</li>
+        <li>Content</li>
+        <li>Behavior</li>
+        <li>Related</li>
+      </ul>
+    </div>
+    <h2>Overview</h2>
+    <p>
+      Each checkbox works independently, selecting a checkbox does not effect the other checkboxes in a checkbox list.
+      Checked state displays that the checkbox label is applied or the label is selected.
+    </p>
+    <div class="wtu">
+      <h3>When to use</h3>
+      <h5>Filtering</h5>
+      <p>
+        Checkboxes allow the user to choose between options. helps the user to filter and find search criteria.
+      </p>
+      <h5>To break up a long list</h5>
+      <p>
+        Use subheadings to divide a long checkbox into logical groups. This makes selections easier to browse
+        and better understand the context.
+      </p>
+      <h5>Forms</h5>
+      <p>It can be used in full page, modal or side panels in forms.</p>
+    </div>
+    <div class="wtnu">
+      <h3>When not to use</h3>
+      <p>
+        Checkboxes can not be used if the user are allowed to select only one of the options.
+        It allows the user to select multiple items in a set.
+        It is necessary to use the radio button when user wants to choose between two options.
+      </p>
+      <img alt="" src="/assets/img/docs_checkbox_wtnu.png"/>
+    </div>
+  </div>
+  <div class="section">
+    <h3>Types</h3>
+    <h3>Web Checbox</h3>
+    <img alt="" src="/assets/img/docs_checkbox_input_1.png"/>
+    <h3>Mobile Checkbox</h3>
+    <img alt="" src="/assets/img/docs_checkbox_input_2.png"/>
+  </div>
+  <div class="demo section">
+    <h2>Demo</h2>
+    <logo-playground
+      context='{"title": "Checkbox Demo", "button": true}'
+      height="400px"
+      path="example/logo/checkbox-sample/checkbox-showcase/checkbox-showcase.component">
+    </logo-playground>
+  </div>
+  <div class="formatting section">
+    <h2>Formatting</h2>
+    <h3>Anatomy</h3>
+    <p>
+      Checkbox elements consist of checkbox header and checkbox input. If there is a group of checkboxes,
+      a title can be added to the group.
+    </p>
+    <img alt="" src="/assets/img/docs_checkbox_anatomy.png"/>
+    <h4>1. Checkbox heading</h4>
+    <p>Checkbox heading describes the checkbox group.</p>
+    <h4>2. Checkbox input</h4>
+    <p>Checkbox input is deselected by default.</p>
+    <h4>3. Checkbox label</h4>
+    <p>Provides information on the selection.</p>
+    <h4>Alignment</h4>
+    <p>When you create a checkbox group inside a simple form, create the label and checkbox in the first row.
+      All following checkboxes must appear below the first one.
+      If it is possible, the checkbox group is arranged vertically for easier reading.
+    </p>
+    <img alt="" src="/assets/img/docs_checkbox_alignment.png"/>
+  </div>
+  <div class="content section">
+    <h2>Content</h2>
+    <h3>Scrolling content</h3>
+    <p>When the checkbox label overflows, the label can wrap to multiple lines.</p>
+    <p>
+      It is recommended that the checkbox
+      label does not contain more than 3 words but more than 3 words can be used if necessary.
+    </p>
+    <img alt="" src="/assets/img/docs_checkbox_content_1.png"/>
+    <img alt="" src="/assets/img/docs_checkbox_content_2.png"/>
+  </div>
+  <div class="behaviors section">
+    <h2>Behaviours</h2>
+    <h3>States</h3>
+    <p>
+      The checkbox input allows for a series of states: default, selected, multiple, disabled,
+      disabled checked and disabled multiple.
+    </p>
+    <input id="default" type="checkbox"/>
+    <label for="default">Default</label>
+    <br/>
+    <input checked id="checked" type="checkbox"/>
+    <label for="checked">Checked</label>
+    <br/>
+    <input checked id="multiple" multiple type="checkbox"/>
+    <label for="multiple">Multiple</label>
+    <br/>
+    <input disabled id="default" type="checkbox"/>
+    <label for="default">Disabled</label>
+    <br/>
+    <input checked disabled id="checked" type="checkbox"/>
+    <label for="checked">Disabled Checked</label>
+    <br/>
+    <input checked disabled id="multiple" multiple type="checkbox"/>
+    <label for="multiple">Disable Multiple</label>
+    <h3>Nesting</h3>
+    <p>
+      Checkboxes can have parent and child relationship
+      Checking the parent checkbox automatically selects all nested child checkboxes.
+    </p>
+    <div class="nesting section">
+      <div class="left">
+        <div>
+          <input checked id="default" type="checkbox"/>
+          <label for="default">Parent checkbox</label>
+        </div>
+        <div>
+          <input checked id="default1" type="checkbox"/>
+          <label for="default1">Child checkbox 1</label>
+        </div>
+        <div>
+          <input checked id="default2" type="checkbox"/>
+          <label for="default2">Child checkbox 2</label>
+        </div>
+        <div>
+          <input checked id="default3" type="checkbox"/>
+          <label for="default3">Child checkbox 3</label>
+        </div>
+      </div>
+      <div class="right">
+        <div>
+          <input disabled id="default" type="checkbox"/>
+          <label for="default">Parent checkbox</label>
+        </div>
+        <div>
+          <input disabled id="default1" type="checkbox"/>
+          <label for="default1">Child checkbox 1</label>
+        </div>
+        <div>
+          <input disabled id="default2" type="checkbox"/>
+          <label for="default2">Child checkbox 2</label>
+        </div>
+        <div>
+          <input disabled id="default3" type="checkbox"/>
+          <label for="default3">Child checkbox 3</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div classs="interactions section">
+    <h2>Interactions</h2>
+    <h3>Mouse</h3>
+    <p>Users can trigger an item by clicking the checkbox or clicking the checkbox label.</p>
+    <h3>Keyboard</h3>
+    <p>Users can navigate between the checkboxes with Tab or Shift-Tab key and select with enter key.</p>
+  </div>
+  <div class="related section">
+    Radio button
+    Switches
+    Table
+  </div>
+</div>
