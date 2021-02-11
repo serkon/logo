@@ -10,8 +10,8 @@
 
 
 // Global Variables
-$tipPosition: 8px;
-$tipPositionOffset: 10px;
+$tipPosition: 10px;
+$tipPositionOffset: 15px;
 $tipWidth: 180px;
 $tipBackgroundColor: #333;
 $tipColor: #fff;
@@ -72,7 +72,7 @@ $linkColor: #e94a34;
 
         &:after {
           bottom: -$tipPointerSize;
-          left: 20px;
+          left: 10px;
           border-top: $triangle-fill;
           @extend %triangle-vertical;
         }
@@ -96,7 +96,7 @@ $linkColor: #e94a34;
 
         &:after {
           top: -$tipPointerSize;
-          left: 20px;
+          left: 10px;
           border-bottom: $triangle-fill;
           @extend %triangle-vertical;
         }
