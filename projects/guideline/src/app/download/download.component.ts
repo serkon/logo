@@ -14,7 +14,7 @@ export class DownloadComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    window.location.href = window.location.origin + '/assets/led/v1.0.0.fig';
+    window.location.href = window.location.origin + '/assets/led/logo_elements_docs_v1-0-0.fig';
     this.headerService.mobileMenu = false;
   }
 
