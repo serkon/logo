@@ -16,7 +16,7 @@
   {
     "id": 2,
     "name": "Örnek Menü 3",
-    "iconClasses": "brand",
+    "iconClasses": "primary",
     "iconPath": "/assets/data/sample-app-icon3.svg",
     "role": "TEST USER"
   }

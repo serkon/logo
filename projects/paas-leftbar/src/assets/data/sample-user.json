@@ -1,130 +1,117 @@
 {
-  "user": {
-    "name": "Oprah Winfrey",
-    "title": "HR Director",
-    "avatar": "/assets/data/sample-avatar.jpg",
-    "notifications": 13,
-    "infos": [
-      {
-        "col": 12,
-        "reference": "notifications",
-        "desc": "HR, Ayna, Jplatform",
-        "title": "BİLDİRİMLER",
-        "badge": true,
-        "count": 13,
-        "link": "path/to/notifications"
-      },
-      {
-        "col": 6,
-        "reference": "language",
-        "desc": "Türkçe",
-        "title": "TEST",
-        "action": "sampleLangAction()"
-      },
-      {
-        "col": 6,
-        "reference": "timezone",
-        "title": "SAAT DİLİMİ",
-        "desc": "GMT +3",
-        "count": 12
-      },
-      {
-        "col": 3,
-        "reference": "summary",
-        "icon": "le-check_badge",
-        "desc": "12",
-        "action": "sampleSum1Action()"
-      },
-      {
-        "col": 3,
-        "reference": "summary",
-        "icon": "le-flash",
-        "desc": "12",
-        "action": "sapmleSum2Action()"
-      },
-      {
-        "col": 3,
-        "reference": "summary",
-        "icon": "le-folder",
-        "desc": "12",
-        "action": "sampleSum3Action()"
-      },
-      {
-        "col": 3,
-        "reference": "summary",
-        "icon": "le-tool_box",
-        "desc": "12",
-        "action": "sampleSum4Action()"
-      }
-    ],
-    "links": [
-      {
-        "name": "Profilime git",
-        "link": "/go/to/profile"
-      },
-      {
-        "name": "Hesap Ayarları",
-        "link": "/account/settings"
-      },
-      {
-        "name": "Çıkış yap",
-        "link": "/logout"
-      }
-    ],
-    "tenants": {
-      "default": "LOGO YAZILIM CORP.",
-      "btnAction": "showTanents()",
-      "options": [
-        {
-          "name": "LOGO YAZILIM CORP.",
-          "id": "1234567890"
-        },
-        {
-          "name": "TEST ROBOTRONİK SANAYİ",
-          "id": "1234567890"
-        }
-      ]
+  "name": "Oprah Winfrey",
+  "title": "HR Director",
+  "avatar": "/assets/data/sample-avatar.jpg",
+  "notifications": 5,
+  "infos": [
+    {
+      "col": 12,
+      "reference": "notifications",
+      "desc": "HR, Ayna, Jplatform",
+      "title": "BİLDİRİMLER",
+      "badge": true,
+      "count": 5,
+      "link": "path/to/notifications"
     },
-    "applications": {
-      "default": "/assets/data/sample-app-logo.png",
-      "defaultIcon": "/assets/data/sample-app-icon.png",
-      "options": [
-        {
-          "logo": "/assets/data/sample-app-logo.png",
-          "name": "J-Platform",
-          "id": "1234567890"
-        }
-      ]
+    {
+      "col": 6,
+      "reference": "language",
+      "desc": "Türkçe",
+      "title": "DİL",
+      "actionParam": "Qwertyuiop1234567890"
     },
-    "applications": {
-      "default": "/assets/data/sample-app-logo.png",
-      "options": [
-        {
-          "logo": "/assets/data/sample-app-logo.png",
-          "name": "J-Platform",
-          "id": "1234567890"
-        }
-      ]
+    {
+      "col": 6,
+      "reference": "timezone",
+      "title": "SAAT DİLİMİ",
+      "desc": "GMT +3",
+      "count": 12
     },
-    "shortcuts": [
+    {
+      "col": 3,
+      "reference": "summary",
+      "icon": "le-check_badge",
+      "desc": "12",
+      "actionParam": "Qwertyuiop1234567890"
+    },
+    {
+      "col": 3,
+      "reference": "summary",
+      "icon": "le-flash",
+      "desc": "12",
+      "actionParam": "Qwertyuiop1234567890"
+    },
+    {
+      "col": 3,
+      "reference": "summary",
+      "icon": "le-folder",
+      "desc": "12",
+      "actionParam": "Qwertyuiop1234567890"
+    },
+    {
+      "col": 3,
+      "reference": "summary",
+      "icon": "le-tool_box",
+      "desc": "12",
+      "actionParam": "Qwertyuiop1234567890"
+    }
+  ],
+  "links": [
+    {
+      "name": "Profilime git",
+      "link": "/go/to/profile"
+    },
+    {
+      "name": "Hesap Ayarları",
+      "link": "/account/settings"
+    },
+    {
+      "name": "Çıkış yap",
+      "link": "/logout"
+    }
+  ],
+  "tenants": {
+    "default": "LOGO YAZILIM CORP.",
+    "options": [
       {
-        "icon": "/assets/data/sample-app-icon.svg",
-        "class": "brand",
-        "name": "Saha Yönetimi",
-        "link": "/path/to/app"
+        "name": "LOGO YAZILIM CORP.",
+        "id": "1234567890"
       },
       {
-        "icon": "/assets/data/sample-app-icon.svg",
-        "class": "success",
-        "name": "Veri Analizi",
-        "link": "/path/to/app"
-      },
-      {
-        "icon": "/assets/data/sample-app-icon.svg",
-        "class": "warning",
-        "name": "Kurumsal Kaynak Yönetimi",
-        "link": "/path/to/app"
+        "name": "TEST ROBOTRONİK SANAYİ",
+        "id": "1234567890"
       }
     ]
-  }
+  },
+  "applications": {
+    "default": "/assets/data/sample-app-logo.png",
+    "defaultIcon": "/assets/data/sample-app-icon.png",
+    "options": [
+      {
+        "logo": "/assets/data/sample-app-logo.png",
+        "name": "J-Platform",
+        "id": "1234567890"
+      }
+    ]
+  },
+  "shortcuts": [
+    {
+      "icon": "/assets/data/sample-app-icon.svg",
+      "class": "primary",
+      "name": "Saha Yönetimi",
+      "link": "/path/to/app"
+    },
+    {
+      "icon": "/assets/data/sample-app-icon.svg",
+      "class": "success",
+      "name": "Veri Analizi",
+      "link": "/path/to/app"
+    },
+    {
+      "icon": "/assets/data/sample-app-icon.svg",
+      "class": "warning",
+      "name": "Kurumsal Kaynak Yönetimi",
+      "link": "/path/to/app"
+    }
+  ]
 }
