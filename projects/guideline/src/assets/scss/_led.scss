@@ -328,6 +328,12 @@ logo-carousel {
       }
     }
   }
+
+  .card-cta {
+    position: absolute;
+    left: size(30px);
+    bottom: size(30px);
+  }
 }
 
 .point-item {

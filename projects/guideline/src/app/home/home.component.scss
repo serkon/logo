@@ -95,6 +95,29 @@
             }
           }
 
+          @include smaller-than(lg) {
+            position: absolute;
+            bottom: size(140px);
+
+            @media (orientation: landscape) {
+              bottom: size(-25px);
+            }
+          }
+
+          @include smaller-than(md) {
+            bottom: size(60px);
+
+            @media (orientation: landscape) {
+              bottom: size(-25px);
+              left: size(-10px);
+            }
+          }
+
+          @include smaller-than(sm) {
+            position: absolute;
+            bottom: size(40px);
+          }
+
           h5 {
             color: var(--light);
           }
@@ -112,29 +135,6 @@
           .cta-base {
             display: block;
             padding: size(40px) 0;
-          }
-
-          @include smaller-than(lg) {
-            position: absolute;
-            bottom: size(140px);
-
-            @media (orientation: landscape) {
-              bottom: size(-25px);
-            }
-          }
-
-          @include smaller-than(md) {
-            bottom: size(60px);
-
-            @media (orientation: landscape) {
-              bottom: size(-25px);
-              left: size(-50px);
-            }
-          }
-
-          @include smaller-than(sm) {
-            position: absolute;
-            bottom: size(40px);
           }
         }
 
@@ -214,7 +214,7 @@
 
           @media (orientation: landscape) {
             bottom: size(10px);
-            right: size(-50px);
+            right: 0;
           }
         }
 
@@ -312,9 +312,8 @@
             }
 
             @include smaller-than(md) {
-
               @media (orientation: landscape) {
-                width: 70vw !important;
+                width: 83vw !important;
                 box-sizing: border-box;
               }
             }

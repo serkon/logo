@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderService, HeaderTheme } from '@logo-software/header';
+import { HeaderService } from '@logo-software/header';
 import { DrawerService } from '@logo-software/drawer';
 
 @Component({
@@ -14,7 +14,8 @@ export class DownloadComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    window.location.href = window.location.origin + '/assets/led/v1.0.0.fig'
+    window.location.href = window.location.origin + '/assets/led/v1.0.0.fig';
+    this.headerService.mobileMenu = false;
   }
 
 }
