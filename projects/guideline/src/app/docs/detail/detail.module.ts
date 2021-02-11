@@ -11,11 +11,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MarkdownModule } from '@logo-software/markdown';
+import { PlaygroundModule } from '@logo-software/playground';
 
 import { DetailRoutingModule } from './detail-routing.module';
 import { DetailComponent } from './detail.component';
-import { SpacingComponent } from './spacing/spacing.component';
-import { PlaygroundModule } from '@logo-software/playground';
+import { SpacingComponent } from './pages/spacing/spacing.component';
 
 @NgModule({
   declarations: [DetailComponent, SpacingComponent],

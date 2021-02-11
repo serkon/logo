@@ -29,7 +29,7 @@ export class DetailComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.paramChanges();
+    // this.paramChanges();
     this.headerService.mobileMenu = false;
   }
 
