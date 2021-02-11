@@ -1,5 +1,9 @@
-h2, h3, h5, p, img {
+h2, h3, h5, h6, p, img {
   margin: size(15px);
+}
+
+div {
+  margin-top: size(40px);
 }
 
 .title-wrapper {
