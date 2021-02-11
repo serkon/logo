@@ -17,6 +17,10 @@ html body {
 
 button, a, input {
   @include animate(all, 0.2s, ease-in-out);
+
+  &:disabled {
+    opacity: 0.35;
+  }
 }
 
 .led-no-opener {

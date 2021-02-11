@@ -87,6 +87,14 @@
           color: var(--light);
           margin-top: size(100px);
 
+          @include smaller-than(xl) {
+            @media (orientation: portrait) {
+              max-width: 100%;
+              flex: 0 0 100%;
+              margin-top: size(50vh);
+            }
+          }
+
           h5 {
             color: var(--light);
           }
@@ -120,7 +128,7 @@
 
             @media (orientation: landscape) {
               bottom: size(-25px);
-              left: size(-50px)
+              left: size(-50px);
             }
           }
 
@@ -135,17 +143,12 @@
           text-align: center;
           margin-top: 10vh;
 
-          img {
-            width: 47vw;
-            margin-left: 50%;
-            transform: translateX(-50%);
-            object-fit: scale-down;
-            @include smaller-than(lg) {
-              width: 90%;
-            }
-
-            @include smaller-than(sm) {
-              display: none;
+          @include smaller-than(xl) {
+            @media (orientation: portrait) {
+              position: absolute;
+              max-width: 100%;
+              flex: 0 0 100%;
+              margin-top: 0;
             }
           }
 
@@ -159,6 +162,31 @@
 
           @include smaller-than(md) {
             margin-top: -5vh;
+
+            @media (orientation: portrait) {
+              margin-top: 5vh;
+            }
+          }
+
+          img {
+            width: 47vw;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            object-fit: scale-down;
+
+            @include smaller-than(xl) {
+              @media (orientation: portrait) {
+                width: 100vw;
+              }
+            }
+
+            @include smaller-than(lg) {
+              width: 90%;
+            }
+
+            @include smaller-than(sm) {
+              display: none;
+            }
           }
         }
       }
@@ -186,7 +214,7 @@
 
           @media (orientation: landscape) {
             bottom: size(10px);
-            right: size(-50px);;
+            right: size(-50px);
           }
         }
 
@@ -238,6 +266,10 @@
           @include smaller-than(sm) {
             padding: size(25px) size(15px);
           }
+
+          p {
+            margin-top: 0;
+          }
         }
 
         .cta-base {
@@ -261,26 +293,29 @@
             margin: 0 size(35px);
             height: size(400px);
 
+            @include smaller-than(xl) {
+              @media (orientation: portrait) {
+                width: 40vw;
+                margin: 0 size(15px);
+              }
+            }
+
             @include smaller-than(lg) {
               width: 80vw;
+              margin: 0 size(10px);
 
               @media (orientation: landscape) {
                 width: 70vw !important;
                 box-sizing: border-box;
+                margin: 0 size(10px);
               }
             }
 
             @include smaller-than(md) {
+
               @media (orientation: landscape) {
                 width: 70vw !important;
                 box-sizing: border-box;
-              }
-            }
-
-            @include smaller-than(md) {
-              @media (orientation: landscape) {
-                width: 75vw !important;
-                margin: 0;
               }
             }
 
@@ -297,9 +332,16 @@
                 display: block;
               }
 
-              @include smaller-than(sm) {
-                .gfx-btn {
-                  img {
+              .gfx-btn {
+                img {
+                  width: 100%;
+
+                  @include smaller-than(lg) {
+                    width: auto;
+                    height: 100%;
+                  }
+
+                  @include smaller-than(sm) {
                     width: 100%;
                   }
                 }
@@ -492,10 +534,6 @@
                 }
               }
             }
-
-            @include smaller-than(lg) {
-              width: 80vw;
-            }
           }
         }
       }
@@ -568,7 +606,6 @@
           }
         }
       }
-
     }
 
     .led-setup {
@@ -577,11 +614,18 @@
           overflow: hidden;
 
           img {
-            width: size(990px);
+            width: 165%;
             margin-left: size(-300px);
+
+            @include smaller-than(lg) {
+              width: 150%;
+            }
 
             @include smaller-than(md) {
               width: 150%;
+            }
+
+            @include smaller-than(sm) {
               margin-left: size(-150px);
             }
           }
@@ -617,7 +661,7 @@
         .info-base {
           position: relative;
           z-index: 1;
-          padding-top: size(60px);
+          padding-top: size(40px);
           color: var(--light);
 
           h5 {
@@ -630,7 +674,6 @@
 
           p.large {
             color: var(--light);
-            padding: size(7px) 0;
           }
 
           .cta-base {
@@ -676,7 +719,7 @@
             position: absolute;
             display: inline-block;
             width: size(5000px);
-            height: size(365px);
+            height: size(400px);
             background: var(--primary);
             top: 0;
             right: size(250px);
@@ -689,6 +732,7 @@
                 height: size(470px);
               }
             }
+
             @include smaller-than(md) {
               @media (orientation: landscape) {
                 top: auto;
@@ -710,6 +754,7 @@
             z-index: 1;
             width: 120%;
             margin-left: size(-60px);
+            position: relative;
 
             @include smaller-than(lg) {
               width: 150%;
@@ -728,12 +773,15 @@
               width: 120%;
             }
           }
-
         }
       }
     }
 
     .led-preview {
+      img {
+        width: 100%;
+      }
+
       @include smaller-than(md) {
         padding-top: size(120px);
       }

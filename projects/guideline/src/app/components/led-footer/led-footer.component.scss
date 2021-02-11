@@ -175,6 +175,10 @@
         padding-bottom: size(100px);
 
         .footer-col {
+          @include smaller-than(lg) {
+            margin-top: size(25px);
+          }
+
           .title {
             display: block;
             padding-bottom: size(25px);
