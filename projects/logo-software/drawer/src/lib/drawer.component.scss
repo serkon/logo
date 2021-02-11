@@ -22,6 +22,7 @@
 
   $le-drawer-color: #a5abb2;
   $le-drawer-line-height: var(--drawer-height);
+
   --drawer-width-md: 40vw;
   --drawer-width-sm: 85vw;
 
@@ -99,9 +100,9 @@
       left: 0;
       bottom: 0;
       right: 0;
-      overflow: auto;
-      // overflow-x: hidden;
-      // overflow-y: auto;
+      //overflow: auto;
+      overflow-x: hidden;
+      overflow-y: auto;
 
       .drawer-main-top {
         position: absolute;
