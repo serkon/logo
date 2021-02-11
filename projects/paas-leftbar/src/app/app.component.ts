@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, retry } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
-import { LeftbarService } from '@logo-software/leftbar';
+import { LeftbarService, PaasUser } from '@logo-software/leftbar';
 import { Tree, TreeComponent } from '@logo-software/tree';
 import { ModalService } from '@logo-software/modal';
 import { ToastService } from '@logo-software/toast';
@@ -33,8 +33,8 @@ export class AppComponent implements OnInit {
         catchError(this.handleError),
       )
       .subscribe(
-        data => {
-          this.leftbarService.userDataLoad.next(data);
+        (val: PaasUser) => {
+          this.leftbarService.userDataLoad.next(val);
           this.sampleMenuDataGet();
         },
       );
@@ -146,5 +146,13 @@ export class AppComponent implements OnInit {
 
   public sampleLangAction(id: string) {
     console.log(id);
+  }
+
+  public sampleSearchAction(val) {
+    console.log('### Search For:' + val);
+  }
+
+  public sampleInfoReqAction(val) {
+    console.log('### Get Info For:' + val);
   }
 }

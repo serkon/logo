@@ -8,6 +8,7 @@
     }
   },
   "whitelistedNonPeerDependencies": [
+    "@logo-software/tree",
     "@logo-software/links",
     "@logo-software/theme",
     "@logo-software/icons"

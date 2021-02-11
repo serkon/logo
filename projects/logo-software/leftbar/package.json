@@ -6,8 +6,10 @@
     "@angular/core": "^11.0.3"
   },
   "dependencies": {
+    "@logo-software/tree": "0.0.1",
+    "@logo-software/icons": "^1.5.2",
     "@logo-software/links": "^1.0.0",
-    "@logo-software/theme": "^3.6.1",
+    "@logo-software/theme": "^3.7.2",
     "tslib": "^2.0.0"
   }
 }
