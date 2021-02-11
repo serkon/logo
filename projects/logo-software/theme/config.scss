@@ -15,7 +15,7 @@ $config: deep-map-merge((
   selector: ":root",
   icon:(prefix: 'le-'),
   customize: (
-    status: false,
+    status: true,
     element:(
       button: (
         font: (

@@ -7,10 +7,10 @@
     button {
       width: size(24px);
       height: size(24px);
-      color: var(--info);
+      color: var(--primary);
 
       &::before {
-        color: var(--info);
+        color: var(--primary);
         width: size(24px);
         height: size(24px);
         font-size: size(24px);
@@ -43,13 +43,13 @@
       }
 
       &[class*=-calendarpanel-day-selected] {
-        background-color: var(--info);
+        background-color: var(--primary);
         background-image: none;
         box-shadow: none;
         color: var(--white);
 
         &:hover {
-          background-color: var(--info);
+          background-color: var(--primary);
           background-image: none;
           box-shadow: none;
           color: var(--white);

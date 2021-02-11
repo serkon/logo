@@ -13,7 +13,7 @@ Standardization: Input
   &:not([type]), &[type~="text"], &[type~="password"] {
     &:focus {
       background-color: var(--white) !important;
-      border: size(1px) solid var(--info) !important;
+      border: size(1px) solid var(--primary) !important;
       color: var(--dark-900) !important;
     }
   }

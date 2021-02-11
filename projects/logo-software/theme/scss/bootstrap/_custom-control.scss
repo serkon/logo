@@ -53,7 +53,7 @@ $custom-control-padding: 0;
         }
 
         &::after {
-          background-color: var(--info);
+          background-color: var(--primary);
           border-radius: size(get("border.radius"));
         }
       }
@@ -68,7 +68,7 @@ $custom-control-padding: 0;
     &:checked {
       & + label {
         &::before {
-          background-color: var(--info-500);
+          background-color: var(--primary);
         }
 
         &::after {

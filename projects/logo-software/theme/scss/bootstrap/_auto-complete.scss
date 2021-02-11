@@ -37,8 +37,8 @@
     tr.selected, tr.selected:hover {
       td {
         color: var(--white);
-        background-color: var(--info-500) !important;
-        border-right: size(1px) solid var(--info-600);
+        background-color: var(--primary-500) !important;
+        border-right: size(1px) solid var(--primary-600);
       }
     }
 

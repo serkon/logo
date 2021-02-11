@@ -91,7 +91,7 @@
   .chosen-drop {
     border-style: solid;
     border-width: 0 size(1px) size(1px) size(1px);
-    border-color: var(--info);
+    border-color: var(--primary);
 
     .chosen-search {
       .chosen-search-input {
@@ -142,7 +142,7 @@
 
     a, a:not([href]):not([tabindex]) {
       background-color: var(--white);
-      border: size(1px) solid var(--info);
+      border: size(1px) solid var(--primary);
       box-shadow: none;
 
       &::before {

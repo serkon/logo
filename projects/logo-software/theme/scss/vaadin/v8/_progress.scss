@@ -5,7 +5,7 @@
     background-color: var(--gray-300);
 
     .v-progressbar-indicator {
-      background-color: var(--info);
+      background-color: var(--primary);
       background-image: none;
       border: none;
     }
@@ -14,11 +14,11 @@
   &-point {
     .v-progressbar-wrapper {
       .v-progressbar-indicator {
-        background-color: rgba(var(--info-500-rgb), 0.3);
+        background-color: rgba(var(--primary-500-rgb), 0.3);
 
         &::before {
           border: none;
-          background-color: var(--info);
+          background-color: var(--primary);
           width: size(8px);
         }
       }
@@ -27,7 +27,7 @@
 
   &-indeterminate {
     border: size(2px) solid var(--gray-300);
-    border-right-color: var(--info);
-    border-top-color: var(--info);
+    border-right-color: var(--primary);
+    border-top-color: var(--primary);
   }
 }

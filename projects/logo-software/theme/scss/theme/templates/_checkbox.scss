@@ -28,7 +28,7 @@ Standardization Checkbox and Radio
   }
 
   &:checked, &:checked:hover {
-    background-color: var(--info) !important;
+    background-color: var(--primary) !important;
     border: size(1px) solid transparent;
   }
 
@@ -87,7 +87,7 @@ Standardization Checkbox and Radio
   }
 
   &:indeterminate {
-    background-color: var(--info) !important;
+    background-color: var(--primary) !important;
     border: none;
 
     &::before {

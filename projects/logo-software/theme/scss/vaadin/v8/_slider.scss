@@ -10,14 +10,14 @@
       }
 
       &::after {
-        background-color: var(--info);
+        background-color: var(--primary);
         background-image: none;
         border: none;
       }
 
       .v-slider-handle {
         &::before {
-          border: size(1px) solid var(--info);
+          border: size(1px) solid var(--primary);
           background-image: none;
           text-shadow: none;
           background-color: var(--white);
