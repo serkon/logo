@@ -39,6 +39,17 @@ import { PaginationComponent } from './pages/pagination/pagination.component';
 import { MultiselectComponent } from './pages/multiselect/multiselect.component';
 import { InputComponent } from './pages/input/input.component';
 import { InfoContainerComponent } from './pages/info-container/info-container.component';
+import { TableComponent } from './pages/table/table.component';
+import { TagComponent } from './pages/tag/tag.component';
+import { ToastComponent } from './pages/toast/toast.component';
+import { TooltipComponent } from './pages/tooltip/tooltip.component';
+import { TreeComponent } from './pages/tree/tree.component';
+import { UploadComponent } from './pages/upload/upload.component';
+import { WizardComponent } from './pages/wizard/wizard.component';
+import { ColorComponent } from './pages/color/color.component';
+import { GridComponent } from './pages/grid/grid.component';
+import { TypographyComponent } from './pages/typography/typography.component';
+import { PatternsComponent } from './pages/patterns/patterns.component';
 
 const routes: Routes = [
   {
@@ -152,6 +163,50 @@ const routes: Routes = [
       {
         path: 'tab',
         component: TabComponent,
+      },
+      {
+        path: 'table',
+        component: TableComponent,
+      },
+      {
+        path: 'tag',
+        component: TagComponent,
+      },
+      {
+        path: 'toast',
+        component: ToastComponent,
+      },
+      {
+        path: 'tooltip',
+        component: TooltipComponent,
+      },
+      {
+        path: 'tree',
+        component: TreeComponent,
+      },
+      {
+        path: 'upload',
+        component: UploadComponent,
+      },
+      {
+        path: 'wizard',
+        component: WizardComponent,
+      },
+      {
+        path: 'color',
+        component: ColorComponent,
+      },
+      {
+        path: 'grid',
+        component: GridComponent,
+      },
+      {
+        path: 'typography',
+        component: TypographyComponent,
+      },
+      {
+        path: 'patterns',
+        component: PatternsComponent,
       },
     ],
   },

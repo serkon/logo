@@ -42,6 +42,17 @@ import { PaginationComponent } from './pages/pagination/pagination.component';
 import { MultiselectComponent } from './pages/multiselect/multiselect.component';
 import { InputComponent } from './pages/input/input.component';
 import { InfoContainerComponent } from './pages/info-container/info-container.component';
+import { TableComponent } from './pages/table/table.component';
+import { ToastComponent } from './pages/toast/toast.component';
+import { TagComponent } from './pages/tag/tag.component';
+import { TooltipComponent } from './pages/tooltip/tooltip.component';
+import { TreeComponent } from './pages/tree/tree.component';
+import { UploadComponent } from './pages/upload/upload.component';
+import { WizardComponent } from './pages/wizard/wizard.component';
+import { ColorComponent } from './pages/color/color.component';
+import { GridComponent } from './pages/grid/grid.component';
+import { TypographyComponent } from './pages/typography/typography.component';
+import { PatternsComponent } from './pages/patterns/patterns.component';
 
 @NgModule({
   declarations: [
@@ -73,9 +84,20 @@ import { InfoContainerComponent } from './pages/info-container/info-container.co
     MultiselectComponent,
     InputComponent,
     InfoContainerComponent,
+    TableComponent,
+    ToastComponent,
+    TagComponent,
+    TooltipComponent,
+    TreeComponent,
+    UploadComponent,
+    WizardComponent,
+    ColorComponent,
+    GridComponent,
+    TypographyComponent,
+    PatternsComponent,
   ],
   imports: [CommonModule, DetailRoutingModule, MarkdownModule, PlaygroundModule],
-  exports: [DetailComponent],
+  exports: [DetailComponent, TableComponent, ToastComponent, TagComponent, TooltipComponent, TreeComponent, UploadComponent, WizardComponent, ColorComponent, GridComponent, TypographyComponent, PatternsComponent],
 })
 export class DetailModule {
 }
