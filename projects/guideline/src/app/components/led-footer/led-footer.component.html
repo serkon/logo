@@ -14,7 +14,7 @@
           </span>
           <span class="subscribe-text">
             <h3>don’t miss updates from us!</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            <p>Subscribe to our digital newsletter and be the one who knows first!</p>
           </span>
           <span class="subscribe-form">
             <form (ngSubmit)="submitSubscriber()" [formGroup]="subscribeForm">
@@ -42,7 +42,7 @@
           </span>
           <span class="menu-group">
             <logo-link [classes]="'ghost'" [url]="'/'">Home</logo-link>
-            <logo-link [classes]="'ghost'" [url]="'/docs/detail/getstarted'">Documentation</logo-link>
+            <logo-link [classes]="'ghost'" [url]="'/docs/getstarted'">Documentation</logo-link>
             <logo-link [classes]="'ghost'" [url]="'/icons'">Icons</logo-link>
             <button class="ghost disabled" disabled>Color Generator</button>
           </span>
@@ -52,9 +52,12 @@
             <h3>Follow Us</h3>
           </span>
           <span class="menu-group">
-            <logo-link [classes]="'ghost icon-left le-twitter'" [url]="'/'">Twitter</logo-link>
-            <logo-link [classes]="'ghost icon-left le-facebook'" [url]="'/'">Facebook</logo-link>
-            <logo-link [classes]="'ghost icon-left le-youtube_clip'" [url]="'/'">Youtube</logo-link>
+            <logo-link [classes]="'ghost icon-left le-twitter'" [external]="true"
+                       [url]="'https://twitter.com/logoyazilim?lang=en'">Twitter</logo-link>
+            <logo-link [classes]="'ghost icon-left le-facebook'" [external]="true"
+                       [url]="'https://www.facebook.com/logoyazilim/'">Facebook</logo-link>
+            <logo-link [classes]="'ghost icon-left le-youtube_clip'" [external]="true"
+                       [url]="'https://www.youtube.com/user/logoyazilim'">Youtube</logo-link>
           </span>
         </div>
         <div class="col-lg-3 col-md-6 col-xs-12 footer-col">
@@ -62,11 +65,11 @@
             <h3>Other</h3>
           </span>
           <span class="menu-group">
-            <logo-link [classes]="'ghost'" [url]="'/info/copyright'">Copyright</logo-link>
-            <logo-link [classes]="'ghost'" [url]="'/info/termofuse'">Term of Use</logo-link>
-            <logo-link [classes]="'ghost'" [url]="'/info/privacy'">Privacy Policy</logo-link>
-            <logo-link [classes]="'ghost'" [url]="'/info/personaldata'">Personal Data Policy</logo-link>
-            <logo-link [classes]="'ghost'" [url]="'/info/cookies'">Cookie Policy</logo-link>
+            <logo-link [classes]="'ghost'" [external]="true" [url]="'https://www.logo.com.tr/en/logo-copyright'">Copyright</logo-link>
+            <logo-link [classes]="'ghost'" [external]="true" [url]="'https://www.logo.com.tr/en/logo-terms-of-use'">Term of Use</logo-link>
+            <logo-link [classes]="'ghost'" [external]="true" [url]="'https://www.logo.com.tr/en/logo-privacy'">Privacy Policy</logo-link>
+            <logo-link [classes]="'ghost'" [external]="true" [url]="'https://www.logo.com.tr/en/logo-personal-data'">Personal Data Policy</logo-link>
+            <logo-link [classes]="'ghost'" [external]="true" [url]="'https://www.logo.com.tr/en/logo-cookie-policy'">Cookie Policy</logo-link>
           </span>
         </div>
         <div class="col-lg-3 col-md-6 col-xs-12 footer-col">
