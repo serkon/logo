@@ -9,6 +9,8 @@
  */
 
 import { Component, OnInit } from '@angular/core';
+import { HeaderService, HeaderTheme } from '@logo-software/header';
+import { DrawerService } from '@logo-software/drawer';
 
 @Component({
   selector: 'logo-error',
@@ -17,7 +19,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorComponent implements OnInit {
 
-  constructor() { }
+  constructor(public headerService: HeaderService, public drawerService: DrawerService) {
+    this.headerService.isScrollSpy = false;
+    this.headerService.setDefaultTheme(HeaderTheme.SCROLL);
+    this.drawerService.isOpenerActive = false;
+    this.drawerService.menu = false;
+    this.headerService.mobileMenu = false;
+  }
 
   ngOnInit(): void {
   }
