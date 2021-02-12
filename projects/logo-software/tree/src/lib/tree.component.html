@@ -69,6 +69,7 @@
             [queryParams]="item.params ? item.params: {}"
             [isActiveRoute]="reference"
             (isActiveRouteEmitter)="open($event)"
+            [fragment]="item.fragment? item.fragment : ''"
           >
             {{item.name}}
           </a>

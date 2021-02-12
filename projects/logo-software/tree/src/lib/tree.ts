@@ -33,6 +33,10 @@ export interface Tree {
    */
   iconClasses?: string;
   /**
+   * Inline fragment option for the item
+   */
+  fragment?: string
+  /**
    * Checkbox will/won't be shown before item
    */
   optional?: boolean;
