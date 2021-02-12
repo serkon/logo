@@ -10,6 +10,10 @@
 
 @import "~@logo-software/theme/base";
 
+@mixin content-padding {
+  padding-left: size(45px);
+}
+
 .led-docs {
   .docs-hero {
     background: var(--basic-300);
@@ -150,5 +154,154 @@
         padding: size(10px) 0;
       }
     }
+  }
+}
+
+.led-detail-page {
+  h2, h3, h4, h5, h6, p, img {
+    margin: size(15px);
+  }
+
+  div {
+    margin-top: size(40px);
+  }
+
+  .title-wrapper {
+    display: flex;
+    width: 200%;
+    height: size(240px);
+    background-color: var(--basic-300);
+    align-items: center;
+    position: relative;
+  }
+
+  .title {
+    padding-left: size(60px);
+    padding-bottom: size(16px);
+    position: absolute;
+    bottom: 0;
+  }
+
+  .main {
+    padding-left: size(10px);
+    margin-top: size(-30px);
+    width: size(740px);
+  }
+
+  .nesting {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+  }
+
+  div.right div:nth-child(1) {
+    margin-left: size(-20px);
+  }
+
+  div.left div:nth-child(1) {
+    margin-left: size(-20px);
+  }
+
+  .demo-base {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--basic-300);
+    width: size(740px);
+    height: size(348px);
+    align-items: center;
+    padding: 0 size(50px);
+    box-sizing: border-box;
+  }
+
+  table {
+    margin-top: size(40px);
+    width: 100%;
+  }
+
+  th {
+    background-color: var(--basic-600);
+  }
+
+  td {
+    padding: size(32px);
+  }
+
+  .intro {
+    @include content-padding;
+  }
+
+  .overview {
+    @include content-padding;
+  }
+
+  .wtu {
+    @include content-padding;
+  }
+
+  .wtnu {
+    @include content-padding;
+  }
+
+  .demo {
+    @include content-padding;
+  }
+
+  .formatting {
+    @include content-padding;
+  }
+
+  .alignment {
+    @include content-padding;
+  }
+
+  .content {
+    @include content-padding;
+  }
+
+  .section {
+    @include content-padding;
+  }
+
+  .behavior {
+    @include content-padding;
+  }
+
+  .variations {
+    @include content-padding;
+  }
+
+  .related {
+    @include content-padding;
+  }
+
+  .types {
+    @include content-padding;
+  }
+
+  .modifier {
+    @include content-padding;
+  }
+
+  .interactions {
+    @include content-padding;
+  }
+
+  .states {
+    @include content-padding;
+  }
+
+  img {
+    max-width: 100%;
   }
 }
