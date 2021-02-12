@@ -26,6 +26,7 @@ export class DocsComponent {
     this.drawerService.isOpenerActive = true;
     this.drawerService.menu = true;
     this.drawerService.setMenuWidth$.next('20vw');
+    this.headerService.mobileMenu = false;
   }
 
 }

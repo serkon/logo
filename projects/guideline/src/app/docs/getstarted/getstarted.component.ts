@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HeaderService } from '@logo-software/header';
 
 @Component({
   selector: 'logo-getstarted',
@@ -7,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetstartedComponent implements OnInit {
 
-  constructor() {
+  constructor(private headerService: HeaderService) {
   }
 
   ngOnInit(): void {
+    this.headerService.mobileMenu = false;
   }
 
 }

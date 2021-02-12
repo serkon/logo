@@ -21,6 +21,7 @@ export class IconsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.headerService.mobileMenu = false;
   }
 
 }
