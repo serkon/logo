@@ -10,7 +10,7 @@
       <div class="subscribe-area">
         <span class="subscribe">
           <span class="gfx-plane">
-            <img src="/assets/img/gfx_footer_plane_blue.png" />
+            <img src="/assets/img/gfx_footer_plane_blue.png"/>
           </span>
           <span class="subscribe-text">
             <h3>don’t miss updates from us!</h3>
@@ -78,7 +78,13 @@
           </span>
           <span class="menu-group">
             <p class="large">Please contact with us for your questions</p>
-            <logo-link [classes]="'ghost'" [url]="'mailto:ux@logo.com.tr'"><h3>ux@logo.com.tr</h3></logo-link>
+            <logo-link
+              [classes]="'ghost'"
+              [external]="true"
+              [url]="'mailto:ux@logo.com.tr'"
+            >
+              <h3>ux@logo.com.tr</h3>
+            </logo-link>
           </span>
         </div>
       </div>
