@@ -21,9 +21,10 @@
   >
     <ng-container drawer-top>
       <logo-header [defaultTheme]="headerTheme.START" [scrolledTheme]="headerTheme.SCROLL" [isMobilized]="true">
-        <logo-link [classes]="'ghost large'" [url]="'/'">Home</logo-link>
-        <logo-link [classes]="'ghost large'" [url]="'/docs/getstarted'">Documentation</logo-link>
-        <logo-link [classes]="'ghost large'" [url]="'/icons'">Icons</logo-link>
+        <logo-link [classes]="'ghost large'" [fragment]="'drawer-main-top'" [url]="'/'">Home</logo-link>
+        <logo-link [classes]="'ghost large'" [fragment]="'drawer-main-top'" [url]="'/docs/getstarted'">Documentation
+        </logo-link>
+        <logo-link [classes]="'ghost large'" [fragment]="'drawer-main-top'" [url]="'/icons'">Icons</logo-link>
         <button class="ghost disabled large" disabled>Color Generator</button>
         <logo-link
           [classes]="'header-cta icon-left large'"
