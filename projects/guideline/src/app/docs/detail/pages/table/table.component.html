@@ -1,0 +1,178 @@
+<div class="main">
+  <div class="title-wrapper">
+    <h1 class="title">Table</h1>
+  </div>
+  <div class="intro">
+    <p>
+      Tables are used to organize and display data efficiently. The data table component allows for customization with
+      additional functionality by configuring columns, as needed by your product’s users.
+    </p>
+    <ul>
+      <li>Overview</li>
+      <li>Demo</li>
+      <li>Formatting</li>
+      <li>Content</li>
+    </ul>
+  </div>
+  <div class="overview">
+    <h2>Overview</h2>
+    <p>
+      The table’s features are ideal for organizing and displaying data in a UI. The column headers can sort data in
+      ascending or descending order, rows can be expanded to progressively disclose information, and single or batch
+      actions can be taken on rows.
+    </p>
+    <p>
+      The data table toolbar gives a location for primary buttons, search, filtering, table display settings, and other
+      utilities.
+    </p>
+  </div>
+  <div class="wtu">
+    <h3>When to use</h3>
+    <p>
+      - To organize and display data.
+    </p>
+    <p>
+      - If your user must navigate to a specific piece of data to complete a task.
+    </p>
+  </div>
+  <div class="wtnu">
+    <h3>When not to use</h3>
+    <p>
+      - When a more complex display of the data or interactions are required.
+    </p>
+    <p>
+      - As a replacement for a spreadsheet application.
+    </p>
+
+  </div>
+  <div class="types">
+    <h2>Types</h2>
+    <table>
+      <tr>
+        <th>Type</th>
+        <th>Purpose</th>
+      </tr>
+      <tr>
+        <td>Default</td>
+        <td>
+          The default data table comes with a base style with only the title, header, and table elements. rows.
+        </td>
+      </tr>
+      <tr>
+        <td>With selection</td>
+        <td>
+          Batch actions are functions that may be performed on multiple items within a table. This type of table enables
+          the user to select individual rows and apply an action. A batch action can be applied by using the action
+          buttons above the table when row elements are selected.
+        </td>
+      </tr>
+      <tr>
+        <td>With expansion</td>
+        <td>
+          The expandable data table is useful for presenting large amounts of data in a small space. Rows are collapsed
+          and can be expanded to reveal extra information.
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="demo">
+    <h2>Demo</h2>
+    <img alt="" src="/assets/img/docs_table_1.png"/>
+    <img alt="" src="/assets/img/docs_table_2.png"/>
+  </div>
+  <div class="formatting">
+    <h2>Formatting</h2>
+    <h3>Anatomy</h3>
+    <img alt="" src="/assets/img/docs_table_3.png"/>
+    <p>
+      1. Table header: Header can contain search bar, table title, actions
+    </p>
+    <p>
+      2. Table column titles: This part contains coloumn titles and can be used to sort the table
+    </p>
+    <p>
+      3. Table filter: can be used to filter the table by coloumn field
+    </p>
+    <p>
+      4. Rows: can be configured to show different types of data. Rows can be selectable, expandable and may contain
+      actions
+    </p>
+    <p>
+      5. Table footer: contains pagination actions and result info
+    </p>
+  </div>
+  <div class="sizes section">
+    <h2>Sizes</h2>
+    <p>The table is available in three different row sizes: small, medium and large.</p>
+    <h5>Small</h5>
+    <img alt="" src="/assets/img/docs_table_4.png"/>
+    <h5>Medium</h5>
+    <img alt="" src="/assets/img/docs_table_5.png"/>
+    <h5>Large</h5>
+    <img alt="" src="/assets/img/docs_table_6.png"/>
+    <h5>Placement</h5>
+    <p>
+      Tables should be placed in a page’s main content area and given plenty of space to display data without
+      truncation. Rarely, tables can be placed inn modals.
+    </p>
+    <img alt="" src="/assets/img/docs_table_7.png"/>
+    <img alt="" src="/assets/img/docs_table_8.png"/>
+    <img alt="" src="/assets/img/docs_table_9.png"/>
+    <img alt="" src="/assets/img/docs_table_9_1.png"/>
+  </div>
+  <div class="content">
+    <h2>Content</h2>
+    <h3>Main elements</h3>
+    <h5>Table title and description</h5>
+    <p>
+      -The table title should make it clear to the user what this the data has in common and what purpose it serves in
+      the UI.
+    </p>
+    <p>
+      -A data table’s title and description should use sentence-case capitalization.
+    </p>
+    <h5>Coloumns titles</h5>
+    <p>
+      -Column titles should stick to one or two words that describe the data in that column.
+    </p>
+    <p>
+      -Column titles should use sentence-case capitalization.
+    </p>
+  </div>
+  <div class="behavior">
+    <h2>Behavior</h2>
+    <h3>Interactions</h3>
+    <h5>Mouse</h5>
+    <p>
+      -Table filters can be opened from the table header, when the user hovers on a coloumn header the filter icon
+      appears. User can acces the in-table filters from this button.
+    </p>
+    <p>-Table filters can be closed from the same area.</p>
+    <img alt="" src="/assets/img/docs_table_10.png"/>
+    <p>-In table filters can have different types or they can open a pop up for even further detailed filters</p>
+    <img alt="" src="/assets/img/docs_table_11.png"/>
+    <p>-Table coloumn settings button appears when hovered on the coloumn headers</p>
+    <img alt="" src="/assets/img/docs_table_12.png"/>
+    <h5>Editing</h5>
+    <p>-Rows can be editable. When edited an action bar appears to confirm or cancel the changes.</p>
+    <img alt="" src="/assets/img/docs_table_13.png"/>
+    <h5>Hover</h5>
+    <p>When hovered row background changes, and dependinng on cell type, action elements can appear.</p>
+    <img alt="" src="/assets/img/docs_table_14.png"/>
+    <h5>Pagination</h5>
+    <p>
+      Pagination divides table data into separate pages. Simple pagination indicates the current page in view and offers
+      controls to incrementally navigate to the previous or next page. Advanced pagination is accompanied by an option
+      that enables the user to change the number of items per page and to jump to a specific page number. The pagination
+      component is always placed at the bottom of the data table. See the pagination component for further guidelines
+      and configurations.
+    </p>
+    <img alt="" src="/assets/img/docs_table_15.png"/>
+    <h5>Inline actions</h5>
+    <p>
+      Inline actions are functions that may be performed on a specific table row. Each row is accompanied by an
+      overflow menu that contains actions related specifically to that row.
+    </p>
+    <img alt="" src="/assets/img/docs_table_16.png"/>
+  </div>
+</div>
