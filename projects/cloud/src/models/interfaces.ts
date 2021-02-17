@@ -8,24 +8,33 @@
  * GET (/api/productFinder/segmentList): ProductSegment[]
  * POST (/api/productFinder/questionList - segmentId): ProductQuestion[]
  * POST (/api/productFinder/expectationList - segmentId, solutionId): ProductExpectation[]
- * GET (/api/product/solutionList): Solution[]
- * POST (/api/product/summaryList - {filter: {segmentId, solutionId, sectorId, tags}}): ProductSummary[]
- * GET (/api/blog/summaryList - {paging: {count: number, page: number}, order: Date | Author, filter:{tag: tags[], solutionId: string}} ): BlogSummaryResponse[]
+ * GET (/api/solution/summaryList): SolutionSummary[]
+ * POST (/api/solution/detail - {filter: {solutionId: string}}): Solution
+ * POST (/api/product/summaryList - {filter: {segmentId, solutionId, sectorId, tags}, paging: {count: number, page: number}, order:{sectorId: string, segmentId: string, solutionId: string, price: boolean}}): ProductSummary[]
+ * POST (/api/blog/summaryList - {paging: {count: number, page: number}, order: {date: Date , author: authorId}, filter:{tag: tags[], solutionId: string}} ): BlogSummaryResponse[]
  * GET (/api/blog/tagList): Tag[]
- * POST (/api/blog/blog - id): Blog
+ * POST (/api/blog/detail - {filter: {blogId: string}}): Blog
+ * POST (/api/faq/get - {filter: {solutionId: string, productId. string}}) - FAQ[]
+ * POST (/api/testimonial/get - {filter: {solutionId: string, productId: string}}) - Testimonial[]
  */
 
 /**
- * ###### Product Finder API's
- *
- *
- */
-
-/**
- *  - Çözümler (Solution) ile imajlar, açıklamalar ve title bilgisine ihtiyaç var (6 adet çözüm için).
- *  - Star olacak mı ilk MVP'de ve Fiyat bilgilsi Ürün bazında mı, yoksa Product bazında mı olacak?
- *  - Blog sayfası logo.com.tr'deki bilgilerden alınabilir. Eğer öyle olursa bu bilgilerin hepsine erişemiyor durumda oluruz. Bu durumda Date, Author, Solution ve Product bazında bir filtreleme yapamayız (Author, solutionId, )
- *  - Tag'ler neler olacak (Blog ile Product tag'leri aynı mı?)
+ * @QUESTIONS
+ *  - 27 Çözümler (Solution) ile imajlar, açıklamalar ve title bilgisine ihtiyaç var (6 adet çözüm için).
+ *  - 20 Product Summary listelenirken OnPremise ürünler servis tarafında dönecek mi?
+ *  - 26 Star olacak mı ilk MVP'de ve Fiyat bilgilsi Ürün bazında mı, yoksa Product bazında mı olacak?
+ *  - 25 Blog sayfası logo.com.tr'deki bilgilerden alınabilir. Eğer öyle olursa bu bilgilerin hepsine erişemiyor durumda oluruz. Bu durumda Date, Author, Solution ve Product bazında bir filtreleme yapamayız (Author, solutionId, )
+ *  - 28 Author bilgisi sıkıntılı bu bilgi ile bir yere yönlendirme yapılacak mı? Tıklanabilir birşey mi?
+ *  - 33 Tag'ler neler olacak (Blog ile Product tag'leri aynı mı?)
+ *  - 22 Ürün listesinde Filtrenin sağdan gelmesi gerekebilir.
+ *  - 29 Ürün listesinde Paging olacak mı, bütün ürünler tek seferde mi gösterilsin?
+ *  - 32 Ürün listesinde sıralama kriterleri nelerdir
+ *  - 30 Bu liste sığmaz ve dolarsa nasıl göstereceğiz, scroll mu yapsın?
+ *  - 31 Ürün liste yazdıkça aşağıyı filtreliyor isek neye göre search yapacağız, adı mı fiyat mı? sektör mü? Bizim önerimiz sadece Ad, çünkü yazdıkça autocomplete ile tamamlaması için öneri sunacağız. Ek olarak description da gelebilir. O zaman onun da tasarımı gerekir.
+ *  - 24 Blog list sayfasındaki filtreleme Kategorileri neler olabilir?
+ *  - 21 Blog list sayfasındaki sıralama kriterleri nelerdir
+ *  @TODO
+ *  - Input with filter component'i oluşturulacak (Ürün arama - ürünler otomatik listelenecek)
  *  -
  */
 
@@ -112,6 +121,13 @@ export interface ProductExpectation {
   solutionId: string[];
 }
 
+// Sector
+export interface Sector {
+  id: string;
+  name: string;
+  image?: string;
+}
+
 // Solution
 export interface SolutionSummary {
   id: string;
@@ -124,6 +140,7 @@ export interface Solution extends SolutionSummary, SolutionMetaData {
   backgroundImage?: string;
 }
 
+// @TODO: GET - /assets/data/solution/metadata.json - id'ye göre çek
 export interface SolutionMetaData {
   meta: {
     id: string;
@@ -205,7 +222,7 @@ export interface Tag {
   name: string;
 }
 
-// BLOG
+// Blog
 export interface BlogSummary {
   id: string;
   image: string;
@@ -213,7 +230,7 @@ export interface BlogSummary {
   title: string;
   description: string;
   date: { publish: string };
-  author: TestimonialAuthor;
+  author: Author;
   readCount: number;
 }
 
@@ -232,8 +249,8 @@ export interface BlogSummaryResponse {
   total: number;
 }
 
-// TESTIMONIAL
-export interface TestimonialAuthor {
+// Author
+export interface Author {
   id: string;
   name: string;
   surname: string;
@@ -241,10 +258,11 @@ export interface TestimonialAuthor {
   title?: string;
 }
 
+// TESTIMONIAL
 export class Testimonial {
   id: string;
   image: string;
-  author: TestimonialAuthor;
+  author: Author;
   star: number;
   title: string;
   description: string;
