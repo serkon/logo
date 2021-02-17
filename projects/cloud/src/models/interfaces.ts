@@ -4,18 +4,18 @@
  */
 
 /**
- * GET (/api/productFinder/stepList): Step[]
- * GET (/api/productFinder/segmentList): ProductSegment[]
- * POST (/api/productFinder/questionList - segmentId): ProductQuestion[]
- * POST (/api/productFinder/expectationList - segmentId, solutionId): ProductExpectation[]
- * GET (/api/solution/summaryList): SolutionSummary[]
+ * GET  (/api/product/finder/step/list): Step[]
+ * GET  (/api/product/finder/segment/list): ProductSegment[]
+ * POST (/api/product/finder/question/list - segmentId): ProductQuestion[]
+ * POST (/api/product/finder/expectation/list - segmentId, solutionId): ProductExpectation[]
+ * GET  (/api/solution/summary/list): SolutionSummary[]
  * POST (/api/solution/detail - {filter: {solutionId: string}}): Solution
- * POST (/api/product/summaryList - {filter: {segmentId, solutionId, sectorId, tags}, paging: {count: number, page: number}, order:{sectorId: string, segmentId: string, solutionId: string, price: boolean}}): ProductSummary[]
- * POST (/api/blog/summaryList - {paging: {count: number, page: number}, order: {date: Date , author: authorId}, filter:{tag: tags[], solutionId: string}} ): BlogSummaryResponse[]
- * GET (/api/blog/tagList): Tag[]
+ * POST (/api/product/summary/list - {filter: {segmentId, solutionId, sectorId, tags}, paging: {count: number, page: number}, order:{sectorId: string, segmentId: string, solutionId: string, price: boolean}}): ProductSummary[]
+ * POST (/api/blog/summary/list - {paging: {count: number, page: number}, order: {date: Date , author: authorId}, filter:{tag: tags[], solutionId: string}} ): BlogSummaryResponse[]
  * POST (/api/blog/detail - {filter: {blogId: string}}): Blog
- * POST (/api/faq/get - {filter: {solutionId: string, productId. string}}) - FAQ[]
- * POST (/api/testimonial/get - {filter: {solutionId: string, productId: string}}) - Testimonial[]
+ * GET  (/api/tag/list): Tag[]
+ * POST (/api/faq/list - {filter: {solutionId: string, productId. string}}) - FAQ[]
+ * POST (/api/testimonial/list - {filter: {solutionId: string, productId: string}}) - Testimonial[]
  */
 
 /**
@@ -94,30 +94,76 @@ export interface ProductSegment {
    */
   description: string;
   /**
-   * Şirket büyüklüğünü ifade eden imaj path'i (blob | string)
+   * Title'ı ifade etmek amacıyla kullanılacak imaja ait path (blob | string)
    * Örneğin: "http://xyz.com/kobi.svg"
    */
   image: string;
 }
 
 /**
- * Step 2 de yer alacak soruları ifade eder. İhtiyaçları daha iyi anlamak adına
- * kullanıcıya gösterilecek seçenekleri ifade eder
+ * Step 2 de listelenecek olan item'ları ifade eder. İhtiyaçları daha iyi anlamak adına
+ * kullanıcıya sunulacak seçeneklerden her biri bu bilgi ile oluşturulur.
  */
 export interface ProductQuestion {
+  /**
+   * GUID içeren id değeri
+   * Örnek: b6867510-55aa-4b01-aeff-9ba9af9f7500
+   */
   id: string;
+  /**
+   * Gösterilecek text'i ifade eder
+   */
   title: string;
+  /**
+   * İlişkili olduğu Segment'e ait Id'leri döner
+   * Örneğin "Bordro süreçlerimi yönetmek istiyorum." sadece "Kobi" ve "Büyük Şirket" segmentine
+   * gösterilecekse bu bilgi ile filtrelenebilecektir.
+   */
   segmentId: string[];
+  /**
+   * Gösterilecek sorunun hangi ürün kategorilerine (Solution) ait olduğunu
+   * anlamak için kullanılacaktır.
+   */
   solutionId: string;
+  /**
+   * Soruların sağında ya da altında Kategori (Solution) bilgisini göstermek
+   * amacı için kullanılacaktır.
+   */
   solutionName: string;
 }
 
+/**
+ * Step 3 de listelenecek olan Item'ları ifade eder.
+ */
 export interface ProductExpectation {
+  /**
+   * GUID içeren id değeri
+   * Örnek: b6867510-55aa-4b01-aeff-9ba9af9f7500
+   */
   id: string;
+  /**
+   * Eğer sektör adı (sectorName) gönderilmez ise buraya daha evrensel olması adına Title ekledik.
+   * Gösterilecek text'i ifade eder
+   */
   title?: string;
+  /**
+   * Item'ın bağlı bulunduğu Sektörleri ifade eder. Bu filtreleme yapabilmek için gerekli bir alandır.
+   */
   sectorId: string;
+  /**
+   * Gösterilecek Item'a ait text'i ifade eder. Eğer bu alan gönderilmez ise bunun yerine `title` alanı kullanılır.
+   */
   sectorName: string;
+  /**
+   * İlişkili olduğu Segment'e ait Id'leri döner
+   * Örneğin "Bordro süreçlerimi yönetmek istiyorum." sadece "Kobi" ve "Büyük Şirket" segmentine
+   * gösterilecekse bu bilgi ile filtrelenebilecektir.
+   */
   segmentId: string[];
+  /**
+   * Gösterilecek sorunun hangi ürün kategorilerine (Solution) ait olduğunu
+   * anlamak için kullanılacaktır.
+   */
   solutionId: string[];
 }
 
