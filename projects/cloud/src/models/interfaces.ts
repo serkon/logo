@@ -8,9 +8,13 @@
  * GET  (/api/product/finder/segment/list): ProductSegment[]
  * POST (/api/product/finder/question/list - segmentId): ProductQuestion[]
  * POST (/api/product/finder/expectation/list - segmentId, solutionId): ProductExpectation[]
+ * POST (/api/product/reference/list - {filter: {productId: string}}) - Reference[]
+ * POST (/api/product/sticker/detail - {filter: {productId: string}}) - ProductSticker
+ * POST (/api/product/seller/detail - {filter: {productId: string}}) - ProductSeller
+ * POST (/api/product/summary/list - {filter: {segmentId, solutionId, sectorId, tags}, paging: {count: number, page: number}, order:{sectorId: string, segmentId: string, solutionId: string, price: boolean}}): ProductSummary[]
+ * POST (/api/product/detail - {filter: {productId: string}}) - Reference[]
  * GET  (/api/solution/summary/list): SolutionSummary[]
  * POST (/api/solution/detail - {filter: {solutionId: string}}): Solution
- * POST (/api/product/summary/list - {filter: {segmentId, solutionId, sectorId, tags}, paging: {count: number, page: number}, order:{sectorId: string, segmentId: string, solutionId: string, price: boolean}}): ProductSummary[]
  * POST (/api/blog/summary/list - {paging: {count: number, page: number}, order: {date: Date , author: authorId}, filter:{tag: tags[], solutionId: string}} ): BlogSummaryResponse[]
  * POST (/api/blog/detail - {filter: {blogId: string}}): Blog
  * GET  (/api/tag/list): Tag[]
@@ -33,6 +37,10 @@
  *  - 31 Ürün liste yazdıkça aşağıyı filtreliyor isek neye göre search yapacağız, adı mı fiyat mı? sektör mü? Bizim önerimiz sadece Ad, çünkü yazdıkça autocomplete ile tamamlaması için öneri sunacağız. Ek olarak description da gelebilir. O zaman onun da tasarımı gerekir.
  *  - 24 Blog list sayfasındaki filtreleme Kategorileri neler olabilir?
  *  - 21 Blog list sayfasındaki sıralama kriterleri nelerdir
+ *  - 34 Herbir tıklamada o ekrana ait feature set aşağıda listenecek bu nedenle ekranlara özgü feature set'lerin oluşturulması gerekir.
+ *  - 17 ürün feature text'i uzun gelirse ... ile mi kısaltalım?
+ *  - 35 Bir ürün birden fazla solution ile ilişkilendirilebilir mi? Öyle ise ProductSticker solutionId'sini array olarak tutacağız.
+ *  - 36 Ürün detayında yer alan paketlerden Sadece yıllık plan gelirse nasıl ilerleyelim?
  *  @TODO
  *  - Input with filter component'i oluşturulacak (Ürün arama - ürünler otomatik listelenecek)
  *  -
@@ -75,7 +83,7 @@ export interface Step {
 }
 
 /**
- * Kurumdaki çalışan sayısına göre satın alınacak ürün kırılımını ifade eder.
+ * Kurumdaki çalışan sayısına göre ürün satın alacak şirket kırılımını ifade eder.
  */
 export interface ProductSegment {
   /**
@@ -94,10 +102,10 @@ export interface ProductSegment {
    */
   description: string;
   /**
-   * Title'ı ifade etmek amacıyla kullanılacak imaja ait path (blob | string)
+   * Title'ı ifade etmek amacıyla kullanılacak ikona ait path (blob | string)
    * Örneğin: "http://xyz.com/kobi.svg"
    */
-  image: string;
+  icon: string;
 }
 
 /**
@@ -168,55 +176,166 @@ export interface ProductExpectation {
 }
 
 // Sector
+/**
+ * Ürünlere ait sektör sınıfını tanımlar.
+ * Örneğin: Yiyecek-İçecek Hizmetleri
+ */
 export interface Sector {
+  /**
+   * GUID içeren id değeri
+   * Örnek: b6867510-55aa-4b01-aeff-9ba9af9f7500
+   */
   id: string;
+  /**
+   * Gösterilecek sektör adı
+   */
   name: string;
-  image?: string;
+  /**
+   * Sektore ait gösterilecek ikonu ifade eder, bu şart değil şu anki tasarımda
+   * Ama logo.com.tr de sektör isimlerinin yanında ikon kullanılmış burada da kullanılmak istenebilir
+   */
+  icon?: string;
 }
 
 // Solution
+/**
+ * Ürün bağlı bulunduğu kategorinin özetini ifade eder. Tüm data yerine özet data listelenir.
+ */
 export interface SolutionSummary {
+  /**
+   * GUID içeren id değeri
+   * Örnek: b6867510-55aa-4b01-aeff-9ba9af9f7500
+   */
   id: string;
+  /**
+   * Ekrana basılacak çözüm adı
+   */
   name: string;
+  /**
+   * Ekrana basılacak çözüm detayı
+   */
   description: string;
-  image: string;
-}
-
-export interface Solution extends SolutionSummary, SolutionMetaData {
-  backgroundImage?: string;
+  /**
+   * Çözümü ifade eden ikon
+   */
+  icon: string;
 }
 
 // @TODO: GET - /assets/data/solution/metadata.json - id'ye göre çek
+/**
+ * Solution detay sayfasının içeriğini döner.
+ * Bu bilgi Servis üzerinden dönerse ileride yönetmek daha kolay olacaktır.
+ */
 export interface SolutionMetaData {
+  /**
+   * Meta keywordunu kullandık çünkü Solution bu interface'den extend ettiğinde
+   * Meta property ile içerisine entegre olacaktır
+   */
   meta: {
+    /**
+     * GUID içeren id değeri
+     * Örnek: b6867510-55aa-4b01-aeff-9ba9af9f7500
+     */
     id: string;
-    main: {
+    /**
+     * Çözüme ait ana bilgi burada verilecek
+     */
+    cover: {
+      /**
+       * Cover'ı ifade eden bir title
+       */
       title: string;
+      /**
+       * Buna ait bir açıklama alanı
+       */
       description: string;
+      /**
+       * Cover imajı
+       */
       image: string;
     },
+    /**
+     * Çözüme ait özellikleri ifade eden detaylar buradan çekilecek
+     */
     features: [
       {
+        /**
+         * Gösterilecek başlık
+         */
         title: string;
+        /**
+         * Başlığa ait detaylar
+         */
         description: string;
+        /**
+         * Özelliği ifade eden imaj
+         */
         image: string;
       }
     ],
     summaries: [{
+      /**
+       * Gösterilecek başlık
+       */
       title: string;
+      /**
+       * Buradaki açıklama HTML çıktısı olarak verilmelidir. Çünkü parağraflar olan alanlar var.
+       * <p>....</p> <p>....</p> gibi
+       */
       description: string;
+      /**
+       * Özelliği ifade eden imaj
+       */
       image: string;
     }]
   }
 }
 
+/**
+ * Ürün bağlı bulunduğu kategoriyi ifade eder. Şu ana kadar 6 adet Çözüm (Solution/Category) tanımlanmıştır.
+ */
+export interface Solution extends SolutionSummary, SolutionMetaData {
+  /**
+   * Solution sayfasında tanımlı background'a ait imaj adresini döner
+   * Örnek: http://www.logo.cloud/assets/product/ik.jpg
+   */
+  backgroundImage?: string;
+}
+
 // FAQ
+/**
+ * Sıkça sorulanlar solution ve product bazında ayrılmaktadır. Solution ya da Product olarak
+ * talep edilmez ise Genel FAQ olarak döndürülür. Yani içerisinde solution ya da product içermez.
+ * İletişim sayfasında genel sorular kısmı bu şekilde çözümlenebilir.
+ */
 export interface FAQ {
+  /**
+   * GUID içeren id değeri
+   * Örnek: b6867510-55aa-4b01-aeff-9ba9af9f7500
+   */
   id: string;
+  /**
+   * Sıkça sorulanların başlığını ifade eder
+   */
   title: string;
+  /**
+   * Sıkça sorulanların detayını ifade eder
+   */
   description: string;
+  /**
+   * Hangi çözüm/kategoriye listesine ait olduğunu anlamak için kullanılır.
+   * Filtreleme ve sorgu gönderme amacıyla ihtiyaç vardır.
+   */
   solutionId: string[];
+  /**
+   * Hangi ürünlere ait olduğunu anlamak için kullanılır.
+   * Filtreleme ve sorgu gönderme amacıyla ihtiyaç vardır.
+   */
   productId: string[];
+  /**
+   * Item açık olarak görünsün mü? sorusunun cevabıdır. True ise description alanı
+   * ekranda açık olarak basılır. Default değeri False'dur.
+   */
   isOpen: boolean;
 }
 
@@ -239,28 +358,119 @@ export interface ProductSummary {
   price?: Price;
 }
 
+export interface Product extends ProductSummary {
+  /**
+   * page background sayfanın arka planında gösterilecek resmi ifade eder.
+   * Eğer yoksa background image propertisi kullanılacaktır.
+   */
+  pageBackgroundImage?: string;
+  /**
+   * Deneme sürümü var mı?
+   */
+  isTrial: boolean;
+  /**
+   * Satın alınabilir bir ürün müdür?
+   */
+  isPurchase: boolean;
+  /**
+   * Ürün hakkında ilk bilginin verdiği tanıtım yazısı
+   */
+  cover: {
+    title: string;
+    description: string;
+    image: string;
+  },
+  screens: ProductScreenFeatures[];
+  packages: Package[];
+}
+
+/**
+ * Ekranların bilgilerini slider üzerinde göstermek için kullanılır
+ * Her bir slider Item'ı ekranın detayı hakkında bilgi verir. Tıklanılan
+ * slider item'ına ilişkin ürün özellikleri aşağıda listelinir.
+ */
+export interface ProductScreenFeatures {
+  image: string | string[];
+  title: string;
+  icon: string;
+  description: string;
+  feature: {
+    title: string;
+    description: string;
+    items: [{
+      icon: string,
+      title: string,
+      description: string,
+    }]
+  }
+}
+
+/**
+ * Sidebar ürünün künyesini göstermek amacıyla kullanılmaktadır.
+ */
+export interface ProductSticker {
+  solution: { id: string, name: string }[];
+  tags: Tag[];
+  store?: [{ id: string, link: string, type: StoreType }];
+  social?: string;
+  brochure?: string;
+  url?: string;
+  privacy?: string;
+}
+
+export interface ProductSeller {
+  id: string;
+  phone: string;
+  address: string;
+  fax: string;
+  email: string;
+  map: { url: string };
+}
+
+export enum StoreType {
+  ANDROID = 'android',
+  IOS = 'ios',
+  HUAWEI = 'huawei',
+  MICROSOFT = 'microsoft',
+}
+
 export interface Price {
   id: string;
   cost: number;
   symbol: string; // ₺, $, € iso standartı
   includeTax?: boolean; // false
   currency?: string; // EUR, TRY, USD iso standardı
-  type?: PriceType;
   promo?: number;
   discount?: number;
-  properties?: PriceProperty[]
 }
 
-export interface PriceProperty {
+export interface PackageProperties {
   id: string;
   title: string;
   isNew: boolean;
 }
 
-export enum PriceType {
+export interface Package {
+  id: string;
+  title: string;
+  icon: string;
+  price: Price;
+  properties?: PackageProperties[];
+  type: PackageType;
+}
+
+export enum PackageType {
   DAILY,
   MONTHLY,
   YEARLY,
+}
+
+export interface Reference {
+  id: string;
+  name: string;
+  link: string;
+  image: string;
+  productId: string;
 }
 
 export interface Tag {
@@ -322,23 +532,23 @@ const solutions: SolutionSummary[] = [
     id: '1',
     name: 'Muhasebe Yönetimi',
     description: 'İster Webden İster Cepten; İnternet Erişiminizin Olduğu Her Yerden İşletmenizin Ön Muhasebe İşlemlerini...',
-    image: '',
+    icon: '',
   },
   {
     id: '2',
     name: 'Bordro ve İnsan Kaynakları Yönetimi',
     description: 'Hızlı, güvenli, güncel mevzuata uyumlu yeni nesil bordro ve insan kaynakları çözümlerine ulaşın.',
-    image: '',
+    icon: '',
   },
   {
     id: '3',
     name: 'Doküman Yönetimi',
     description: 'Kurumunuzdaki tüm dokümanları buluta taşıyın, Logo Doküman Yönetimi Servisi sayesinde güvenle kullanın ve saklayın.',
-    image: '',
+    icon: '',
   },
-  {id: '4', name: 'Parakende Yönetimi', description: '', image: ''},
-  {id: '6', name: 'İş Sağlığı ve Güvenliği Yönetimi', description: '', image: ''},
-  {id: '5', name: 'E-Çözümler', description: '', image: ''},
+  {id: '4', name: 'Parakende Yönetimi', description: '', icon: ''},
+  {id: '6', name: 'İş Sağlığı ve Güvenliği Yönetimi', description: '', icon: ''},
+  {id: '5', name: 'E-Çözümler', description: '', icon: ''},
 ];
 const response: Step[] = [
   // STEP 1 GET (/api/productFinder/segmentList)
@@ -352,19 +562,19 @@ const response: Step[] = [
         id: '1',
         title: 'Mikro Şirket',
         description: 'Ekibimiz 1-5 kişi arası.',
-        image: 'icon_path',
+        icon: 'icon_path',
       },
       {
         id: '2',
         title: 'KOBİ',
         description: 'Ekibimiz 5-50 kişi arası.',
-        image: 'icon_path',
+        icon: 'icon_path',
       },
       {
         id: '2',
         title: 'Büyük Şirket',
         description: 'Ekibimiz 50 kişiden fazla.',
-        image: 'icon_path',
+        icon: 'icon_path',
       },
     ],
   },
