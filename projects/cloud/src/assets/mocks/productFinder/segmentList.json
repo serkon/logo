@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "title": "Mikro Şirket",
+    "description": "Ekibimiz 1-5 kişi arası.",
+    "image": "icon_path"
+  },
+  {
+    "id": "2",
+    "title": "KOBİ",
+    "description": "Ekibimiz 5-50 kişi arası.",
+    "image": "icon_path"
+  },
+  {
+    "id": "2",
+    "title": "Büyük Şirket",
+    "description": "Ekibimiz 50 kişiden fazla.",
+    "image": "icon_path"
+  }
+]

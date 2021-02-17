@@ -1,0 +1,59 @@
+[
+  {
+    "id": "1",
+    "sectorId": "45",
+    "sectorName": "Yiyecek- İçecek hizmetleri",
+    "segmentId": [
+      "2",
+      "3"
+    ],
+    "solutionId": [
+      "2",
+      "5"
+    ]
+  },
+  {
+    "id": "2",
+    "sectorId": "46",
+    "sectorName": "Turizm, eğlence, konaklama",
+    "segmentId": [
+      "3"
+    ],
+    "solutionId": [
+      "2"
+    ]
+  },
+  {
+    "id": "3",
+    "sectorId": "47",
+    "sectorName": "Tekstil, hazır giyim ve deri üretimi",
+    "segmentId": [
+      "3"
+    ],
+    "solutionId": [
+      "2"
+    ]
+  },
+  {
+    "id": "4",
+    "sectorId": "48",
+    "sectorName": "Tarım ürünleri, hayvancılık",
+    "segmentId": [
+      "3"
+    ],
+    "solutionId": [
+      "2"
+    ]
+  },
+  {
+    "id": "5",
+    "sectorId": "49",
+    "sectorName": "Tarım ürünleri, hayvancılık",
+    "segmentId": [
+      "3"
+    ],
+    "solutionId": [
+      "2"
+    ]
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1",
+    "title": "Bordro süreçlerimi yönetmek istiyorum.",
+    "segmentId": [
+      "2"
+    ],
+    "solutionId": "2",
+    "solutionName": "HR"
+  },
+  {
+    "id": "2",
+    "title": "İnsan kaynakları süreçlerimi yönetmek istiyorum.",
+    "segmentId": [
+      "3"
+    ],
+    "solutionId": "2",
+    "solutionName": "HR"
+  },
+  {
+    "id": "3",
+    "title": "Ön muhabe işlemlerimi tamamlamak istiyorum.",
+    "segmentId": [
+      "2"
+    ],
+    "solutionId": "2",
+    "solutionName": "HR"
+  },
+  {
+    "id": "4",
+    "title": "Şirket dokümanlarımı dijital ortamda arşivlemek ve yönetmek istiyorum.",
+    "segmentId": [
+      "1"
+    ],
+    "solutionId": "2",
+    "solutionName": "HR"
+  },
+  {
+    "id": "5",
+    "title": "Cari hesap takibi yapmak istiyorum.",
+    "segmentId": [
+      "3"
+    ],
+    "solutionId": "2",
+    "solutionName": "HR"
+  }
+]

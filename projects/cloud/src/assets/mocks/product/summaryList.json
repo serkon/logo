@@ -1,0 +1,99 @@
+[
+  {
+    "id": "1",
+    "backgroundImage": "background-logo-payrol.jpg",
+    "logo": "logo-payrol.png",
+    "name": "Bordro Yönetimi",
+    "description": "İK süreçleriniz dönüşüyor, verileriniz Logo güvencesi ile buluta taşınıyor!",
+    "solutions": [
+      "Bordro ve İnsan Kaynakları Yönetimi"
+    ],
+    "isCloud": false,
+    "solutionId": [
+      "1",
+      "2",
+      "3"
+    ],
+    "sectorId": [
+      "1",
+      "2",
+      "3"
+    ],
+    "segmentId": [
+      "1",
+      "2",
+      "3"
+    ],
+    "onPremise": {
+      "link": "http://wwww.logo.com.tr/bordro-yonetimi"
+    }
+  },
+  {
+    "id": "2",
+    "backgroundImage": "background-logo-isbasi.jpg",
+    "logo": "logo-isbasi.png",
+    "name": "Ön Muhasebe Yönetimi",
+    "description": "İster e-Fatura İster Ön Muhasebe İhtiyacınıza en uygun çözümler Logo İşbaşı’nda!",
+    "solutions": [
+      "Muhasebe Yönetimi"
+    ],
+    "isCloud": true,
+    "solutionId": [
+      "1",
+      "2",
+      "3"
+    ],
+    "sectorId": [
+      "1",
+      "2",
+      "3"
+    ],
+    "segmentId": [
+      "1",
+      "2",
+      "3"
+    ],
+    "cloud": {
+      "link": "http://logo.cloud/product/bordro-yonetimi"
+    },
+    "price": {
+      "cost": 40,
+      "symbol": "₺"
+    }
+  },
+  {
+    "id": "3",
+    "backgroundImage": "background-logo-dys.jpg",
+    "logo": "logo-dys.png",
+    "name": "Doküman Yönetimi",
+    "description": "İK süreçleriniz dönüşüyor, verileriniz Logo güvencesi ile buluta taşınıyor!",
+    "solutions": [
+      "Dokuman Yönetimi"
+    ],
+    "isCloud": true,
+    "segmentId": [
+      "1",
+      "2",
+      "3"
+    ],
+    "solutionId": [
+      "1",
+      "2",
+      "3"
+    ],
+    "sectorId": [
+      "1",
+      "2",
+      "3"
+    ],
+    "cloud": {
+      "link": "http://logo.cloud/product/dokuman-yonetimi"
+    },
+    "stars": 5,
+    "price": {
+      "cost": 30,
+      "symbol": "₺",
+      "includeTax": false
+    }
+  }
+]

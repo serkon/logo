@@ -1,0 +1,25 @@
+[
+  {
+    "id": "1",
+    "name": "Segment",
+    "title": "Şirketinizin yazılım seviyesini nasıl tanımlarsınız?",
+    "description": "İhtiyaçlarınızı daha iyi anlamak için şirketinizdeki kurumsal yazılım kullanımı tecrübesini belirtmelisiniz.",
+  },
+  {
+    "id": "2",
+    "name": "İhtiyaç",
+    "title": "Logo Cloud ürünleri ile hangi probleminizi çözmek istediğinizi seçiniz.",
+    "description": "Aşağıdaki ihtiyaç listesinden birini seçiniz.",
+    "multiselect": true
+  },
+  {
+    "id": "1",
+    "name": "Sektör",
+    "title": "Aşağıdaki sektörlerden hangisinde faaliyet gösteriyorsunuz?",
+    "description": "Aşağıda listelenen sektörlerden birrini seçiniz."
+  },
+  {
+    "id": "4",
+    "name": "Sonuç"
+  }
+]
