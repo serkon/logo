@@ -848,10 +848,10 @@ const response: Step[] = [
     ],
   },
 ];
-const interFaceTypeDeclarationSampleForTalhaSALT: ({ [Key in keyof Step]: string } | { 'assa': any }) [] = [{
-  id: '2',
+const interFaceTypeDeclarationSampleForTalhaSALT: ({ [abc in keyof Step]: Step[abc] } | { 'id': number, 'extra': boolean } | { [abc in keyof Tag]: Tag[abc] }) [] = [{
+  id: 'true', // number da alabilir
   title: 'asdad',
   question: 'asdasd',
   description: 'asdsad',
-  assa: '2',
+  extra: true,
 }];
