@@ -339,25 +339,77 @@ export interface FAQ {
   isOpen: boolean;
 }
 
-// Product
+// ##############  Product
+
+/**
+ * Ürün özet bilgisini tanımlamak amacıyla kullanılır.
+ */
 export interface ProductSummary {
-  id: string; // GUID 507F0707-4D7B-49A7-8588-EBD78F15C78E
+  /**
+   * GUID içeren id değeri
+   * Örnek: b6867510-55aa-4b01-aeff-9ba9af9f7500
+   */
+  id: string;
+  /**
+   * Logo Workflow tarafında tanımlı jenerik Logo ürün kod bilgisini döner
+   */
   materialCode?: string;
+  /**
+   * Ürün listemesi esnasında arka plan görseli için kullanılacak imaj adresi
+   */
   backgroundImage?: string;
+  /**
+   * Ürüna ait logo imajı
+   */
   logo: string;
+  /**
+   * Ürün adı
+   */
   name: string;
+  /**
+   * Ürün açıklaması
+   */
   description: string;
-  solutions: string[];
+  /**
+   * Ürünün bağlı bulunduğu solution'a ait id değeri (kategori id'si) ve name değerlerini döner
+   */
+  solutions: { id: string, name: string }[];
+  /**
+   * Ürünün cloud ürünü olup olmadığını döner. Default değeri true'dur.
+   */
   isCloud: boolean;
+  /**
+   * Ürün hangi segment ürünüdür bunu döner. Kobi ise ona ait segment id döner.
+   */
   segmentId: string[];
-  solutionId: string[];
+  /**
+   * Ürün hangi sektörlere ait olduğunu dönen id değerleri dizisi
+   */
   sectorId: string[];
+  /**
+   * Cloud üzerinde bulunan link bilgisini döner. ilerleyen dönemde Cloud ile entegre
+   * bir bilgi geldiğinde bunun altında dönülmesi istenecektir o nedenle bir obje olarak ele alındı.
+   */
   cloud?: { link: string };
+  /**
+   * onPremise üzerinde bulunan link bilgisini döner. ilerleyen dönemde onPremise ile entegre
+   * bir bilgi geldiğinde bunun altında dönülmesi istenecektir o nedenle bir obje olarak ele alındı.
+   */
   onPremise?: { link: string },
-  stars?: number; // mvp 1 de olmayabilir
+  /**
+   * Stars bilgisi şimdilik geliyor olursa ekrana basarız ama bence ilk MVP kapsamında
+   * bu özelliği düşünmek bizi geriye itebilir
+   */
+  stars?: number;
+  /**
+   * Ürüne ait ücret bilgisini döner
+   */
   price?: Price;
 }
 
+/**
+ * Ürün detay bilgisini döner. ProductSummary'i extend eder. O sınıfa ait bilgilerle beraber döner.
+ */
 export interface Product extends ProductSummary {
   /**
    * page background sayfanın arka planında gösterilecek resmi ifade eder.
@@ -373,14 +425,31 @@ export interface Product extends ProductSummary {
    */
   isPurchase: boolean;
   /**
-   * Ürün hakkında ilk bilginin verdiği tanıtım yazısı
+   * Ürün hakkında ilk bilginin verildiği tanıtım yazısı
    */
   cover: {
+    /**
+     * Ürüne ait ana başlık
+     * Örneğin: Logo Payroll Online Bordro Programı
+     */
     title: string;
+    /**
+     * Başlık açıklaması
+     * Örneğin: Kolay kullanılan, yenilikçi ve mevzuata uygun yeni nesil online bordro programı!
+     */
     description: string;
+    /**
+     * Ürüne ait fotoğrafın yer aldığı imaj path'i
+     */
     image: string;
   },
+  /**
+   * Ürün ekran özelliklerine göre ilgili veri yapısını tanımlar. Detay için ilgili sınıf tanımına bakınız.
+   */
   screens: ProductScreenFeatures[];
+  /**
+   * Ürün fiyatlandırmasında kullanılan paketlere özgü veri yapısını tanımlar. Detay için ilgili sınıf tanımına bakınız.
+   */
   packages: Package[];
 }
 
@@ -390,31 +459,92 @@ export interface Product extends ProductSummary {
  * slider item'ına ilişkin ürün özellikleri aşağıda listelinir.
  */
 export interface ProductScreenFeatures {
-  image: string | string[];
+  /**
+   * Slider içerisinde gösterilecek olan ekranlara ait imaj pathleri
+   */
+  image: string[];
+  /**
+   * Ekranı tanımlayan başlık
+   */
   title: string;
+  /**
+   * Ekrana ait ikon path'i
+   */
   icon: string;
+  /**
+   * Ekran açıklaması
+   */
   description: string;
+  /**
+   * Ekran özelliklerini bu alan içerisinde veriyor olacağız.
+   * Ekran'ın her bir özelliğini dizi olarak döner.
+   */
   feature: {
+    /**
+     * Özellik ile ilgili genel başlık
+     */
     title: string;
+    /**
+     * Özellik genel başlığınının açıklaması
+     */
     description: string;
+    /**
+     * Ekranın her bir özelliği
+     */
     items: [{
+      /**
+       * Özellik ikonu
+       */
       icon: string,
+      /**
+       * Özellik başlığı
+       */
       title: string,
+      /**
+       * Özellik açıklaması
+       */
       description: string,
     }]
   }
 }
 
 /**
- * Sidebar ürünün künyesini göstermek amacıyla kullanılmaktadır.
+ * Sidebar ürünün künyesini göstermek amacıyla kullanılmaktadır. Ürün detaylarına girildiğinde
+ * sağ tarafta sabit olarak duran alanda kullanıcak ürün bilgi alanıdır.
  */
 export interface ProductSticker {
+  /**
+   * Ürünün bağlı bulunduğu solution'a ait id değerini (kategori id'si) ve name değerlerini döner
+   */
   solution: { id: string, name: string }[];
+  /**
+   * Ürüne ait ya da Blog'a ait Tag bilgilerini dönen data veri objesi
+   */
   tags: Tag[];
+  /**
+   * Mobile uygulamaların linklerini ve android, ios vs. gibi hangi tip olduğunu dönen data yapısını tarif eder.
+   */
   store?: [{ id: string, link: string, type: StoreType }];
+  /**
+   * Social media linklerine entegre edilecek açıklama metnini burada veriyor olacağız.
+   * Örneğin: "Lütfen, arkadaşlarınızla Logo'daki bu gelişme ile paylaşımda bulununuz #link" gibi...
+   * Bu bilginin ajans üzerinden düşünülmüş bir içerik ile geliyor olması gerekir.
+   */
   social?: string;
+  /**
+   * Ürüne ait broşür varsa onu download edecekleri URL bilgisi
+   * Örneğin:  http://www.isbasi.com.tr/brosur.zip
+   */
   brochure?: string;
+  /**
+   * Ürünün kendi sitesine yönlendireceğimiz bir adres varsa onun bilgisi
+   * Örneğin: http://isbasi.com.tr
+   */
   url?: string;
+  /**
+   * Ürüne ait gizlilik kullanım sınırlandırmaları varsa  bunun bilgisi
+   * Çıktısı HTML string olacak şekilde dönülmelidir. Paragraflar vs. ler  bu nedenle anlaşılır olur.
+   */
   privacy?: string;
 }
 
@@ -473,6 +603,9 @@ export interface Reference {
   productId: string;
 }
 
+/**
+ * Ürüne ait ya da Blog'a ait Tag bilgilerini dönen data veri objesi
+ */
 export interface Tag {
   id: string;
   name: string;
@@ -679,9 +812,8 @@ const response: Step[] = [
         logo: 'logo-payrol.png',
         name: 'Bordro Yönetimi',
         description: 'İK süreçleriniz dönüşüyor, verileriniz Logo güvencesi ile buluta taşınıyor!',
-        solutions: ['Bordro ve İnsan Kaynakları Yönetimi'],
+        solutions: [{id: '3', name: 'Bordro ve İnsan Kaynakları Yönetimi'}],
         isCloud: false,
-        solutionId: ['1', '2', '3'],
         sectorId: ['1', '2', '3'],
         segmentId: ['1', '2', '3'],
         onPremise: {link: 'http://wwww.logo.com.tr/bordro-yonetimi'},
@@ -692,9 +824,8 @@ const response: Step[] = [
         logo: 'logo-isbasi.png',
         name: 'Ön Muhasebe Yönetimi',
         description: 'İster e-Fatura İster Ön Muhasebe İhtiyacınıza en uygun çözümler Logo İşbaşı’nda!',
-        solutions: ['Muhasebe Yönetimi'],
+        solutions: [{id: '2', name: 'Muhasebe Yönetimi'}],
         isCloud: true,
-        solutionId: ['1', '2', '3'],
         sectorId: ['1', '2', '3'],
         segmentId: ['1', '2', '3'],
         cloud: {link: 'http://logo.cloud/product/bordro-yonetimi'},
@@ -706,10 +837,9 @@ const response: Step[] = [
         logo: 'logo-dys.png',
         name: 'Doküman Yönetimi',
         description: 'İK süreçleriniz dönüşüyor, verileriniz Logo güvencesi ile buluta taşınıyor!',
-        solutions: ['Dokuman Yönetimi'],
+        solutions: [{id: '3', name: 'Dokuman Yönetimi'}],
         isCloud: true,
         segmentId: ['1', '2', '3'],
-        solutionId: ['1', '2', '3'],
         sectorId: ['1', '2', '3'],
         cloud: {link: 'http://logo.cloud/product/dokuman-yonetimi'},
         stars: 5,
@@ -718,3 +848,10 @@ const response: Step[] = [
     ],
   },
 ];
+const interFaceTypeDeclarationSampleForTalhaSALT: ({ [Key in keyof Step]: string } | { 'assa': any }) [] = [{
+  id: '2',
+  title: 'asdad',
+  question: 'asdasd',
+  description: 'asdsad',
+  assa: '2',
+}];
