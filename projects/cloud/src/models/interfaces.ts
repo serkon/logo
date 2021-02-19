@@ -1,7 +1,24 @@
 /**
- *
- * 1. Solution bilgileri eksik hangi solution olacak ve imaj bilgileri verilmeli
+ * Bütün response'lar HTTP Response tipinde dönüş yapacak
  */
+export interface HttpResponse<T> {
+  /**
+   * Kaçıncı sayfadaki data
+   */
+  page?: number;
+  /**
+   * kaç adet count dönüldüğü
+   */
+  count?: number;
+  /**
+   * Toplam kaç adet data olduğu
+   */
+  total?: number;
+  /**
+   * Dönecek data
+   */
+  data: T;
+}
 
 /**
  * GET  (/api/product/finder/step/list): Step[]
@@ -548,15 +565,41 @@ export interface ProductSticker {
   privacy?: string;
 }
 
+/**
+ * Ürünü satışı ile ilgilenen şirkete ait bilgiler
+ * Örneğin İşbaşı
+ */
 export interface ProductSeller {
+  /**
+   * GUID içeren id değeri
+   * Örnek: b6867510-55aa-4b01-aeff-9ba9af9f7500
+   */
   id: string;
+  /**
+   * Telefon numarası
+   */
   phone: string;
+  /**
+   * Adres bilgisi
+   */
   address: string;
+  /**
+   * Fax bilgisi
+   */
   fax: string;
+  /**
+   * Email bilgisi
+   */
   email: string;
+  /**
+   * Google Maps iframe url
+   */
   map: { url: string };
 }
 
+/**
+ * Mobile store types
+ */
 export enum StoreType {
   ANDROID = 'android',
   IOS = 'ios',
@@ -564,42 +607,129 @@ export enum StoreType {
   MICROSOFT = 'microsoft',
 }
 
+/**
+ * Product price data type object
+ */
 export interface Price {
+  /**
+   * GUID içeren id değeri
+   * Örnek: b6867510-55aa-4b01-aeff-9ba9af9f7500
+   */
   id: string;
+  /**
+   * Ürün fiyatı
+   */
   cost: number;
-  symbol: string; // ₺, $, € iso standartı
+  /**
+   * Fiyat sembolü
+   * ISO 4217 Codes Symbols: ₺, $, € iso standardı
+   * https://assemblysys.com/iso-4217-currency-codes/
+   */
+  symbol: string;
+  /**
+   * Fiyata verginin dahil olup olmadığını belirtir. Default değeri false, yani( + KDV)
+   */
   includeTax?: boolean; // false
-  currency?: string; // EUR, TRY, USD iso standardı
+  /**
+   * ISO 4217 Codes Symbols: EUR, TRY, USD
+   */
+  currency?: string;
+  /**
+   * Promosyon fiyatı
+   */
   promo?: number;
+  /**
+   * İndirim yüzdesi
+   */
   discount?: number;
 }
 
-export interface PackageProperties {
+/**
+ * @TODO Rename PackageProperties
+ * Ürün paketinde yeralan herbir özellik
+ */
+export interface PackageProperty {
+  /**
+   * GUID içeren id değeri
+   * Örnek: b6867510-55aa-4b01-aeff-9ba9af9f7500
+   */
   id: string;
+  /**
+   * Ekranda gösterilecek özelliğe ait text
+   */
   title: string;
+  /**
+   * Özelliğin yeni olup olmadığı
+   */
   isNew: boolean;
 }
 
+/**
+ * Ürün paketine ait interface, Paket özelliklerini ve detaylarını içerir
+ */
 export interface Package {
+  /**
+   * GUID içeren id değeri
+   * Örnek: b6867510-55aa-4b01-aeff-9ba9af9f7500
+   */
   id: string;
+  /**
+   * Paketi açıklayan text
+   */
   title: string;
+  /**
+   * Pakete ait ikon
+   */
   icon: string;
+  /**
+   * Paket fiyatı
+   */
   price: Price;
-  properties?: PackageProperties[];
+  /**
+   * Pakete ait özelliklerin detaylarını gösteren dizi
+   */
+  properties?: PackageProperty[];
+  /**
+   * Paketin aylık mı, yıllık mı olduğunu belirten property
+   */
   type: PackageType;
 }
 
+/**
+ * Paketin aylık mı, yıllık mı olduğunu belirten property
+ */
 export enum PackageType {
   DAILY,
   MONTHLY,
   YEARLY,
 }
 
+/**
+ * Ürünü kullanan firmalara ait referans bilgileri
+ */
 export interface Reference {
+  /**
+   * GUID içeren id değeri
+   * Örnek: b6867510-55aa-4b01-aeff-9ba9af9f7500
+   */
   id: string;
+  /**
+   * Referansın hangi firmaya ait olduğunu gösteren isim
+   */
   name: string;
+  /**
+   * Referansa ait link değeri
+   */
   link: string;
+  /**
+   * Referansa ait logo vs. belirten bir imaj
+   */
   image: string;
+  /**
+   * Bu referansın hangi ürünle ilişkili olduğunu belirten Id değeri
+   * GUID içeren id değeri
+   * Örnek: b6867510-55aa-4b01-aeff-9ba9af9f7500
+   */
   productId: string;
 }
 
@@ -607,251 +737,137 @@ export interface Reference {
  * Ürüne ait ya da Blog'a ait Tag bilgilerini dönen data veri objesi
  */
 export interface Tag {
+  /**
+   * GUID içeren id değeri
+   * Örnek: b6867510-55aa-4b01-aeff-9ba9af9f7500
+   */
   id: string;
+  /**
+   * Ekrana basılacak tag adı
+   */
   name: string;
 }
 
-// Blog
+/**
+ * Blog summary blog'un bir kısmını göstermek için kullanılır.
+ * Yani ürün hakkında çok kısa bilgiyi kart içerisinde verir.
+ */
 export interface BlogSummary {
+  /**
+   * GUID içeren id değeri
+   * Örnek: b6867510-55aa-4b01-aeff-9ba9af9f7500
+   */
   id: string;
+  /**
+   * Blog'a ait imaj görseli
+   */
   image: string;
+  /**
+   * Bloga ait tag'ları listeler
+   */
   tags: Tag[];
+  /**
+   * Blog'a ait başlık
+   */
   title: string;
+  /**
+   * Blog'a ait kısa açıklama
+   */
   description: string;
+  /**
+   * Blog'un yayın tarihi
+   */
   date: { publish: string };
+  /**
+   * Blog'un yazarı
+   */
   author: Author;
+  /**
+   * Blogu okunma adedi
+   */
   readCount: number;
 }
 
+/**
+ * Blog'un detaylı datasını dönen interface BlogSummary'den extend edilir
+ */
 export interface Blog extends BlogSummary {
+  /**
+   * Blog içerisinde yer alacak HTML bilgisi
+   * Image vs. url olarak eklenmiş olarak gelmelidir
+   */
   html: string;
-  tags: Tag[];
+  /**
+   * Bloga ait diğer tag'ları listeler
+   */
   otherTags: Tag[];
-  similar: BlogSummaryResponse;
-}
-
-export interface BlogSummaryResponse {
-  id: string;
-  blogs: BlogSummary[];
-  page: number;
-  count: number;
-  total: number;
+  similar: BlogSummary[];
 }
 
 // Author
+/**
+ * Blog yazısını hazırlayan yazara ait bilgi
+ */
 export interface Author {
+  /**
+   * GUID içeren id değeri
+   * Örnek: b6867510-55aa-4b01-aeff-9ba9af9f7500
+   */
   id: string;
+  /**
+   * Yazar adı
+   */
   name: string;
+  /**
+   * Yazar soyadı
+   */
   surname: string;
+  /**
+   * Mesajı bırakan kişinin fotosu
+   */
+  image?: string;
+  /**
+   * Yazarın çalıştığı şirket
+   */
   companyName?: string;
+  /**
+   * Yazarın çalıştığı şirketteki rolü
+   */
   title?: string;
 }
 
 // TESTIMONIAL
+/**
+ * Kullanıcı görüşlerine ait data yapısı
+ */
 export class Testimonial {
+  /**
+   * GUID içeren id değeri
+   * Örnek: b6867510-55aa-4b01-aeff-9ba9af9f7500
+   */
   id: string;
-  image: string;
+  /**
+   * Yazıyı hazırlayan yazara ait bilgi
+   */
   author: Author;
+  /**
+   * Kaç puan verildiğini gösteren değer
+   */
   star: number;
+  /**
+   * Mesaj başlığı
+   */
   title: string;
+  /**
+   * Mesaj detayı
+   */
   description: string;
+  /**
+   * Bu açıklama çözümlerle alakalı olduğu id'ler
+   */
   solutionId: string[];
+  /**
+   * Bu açıklamanın ürünlerle alakalı olduğu id'ler
+   */
   productId: string[];
 }
-
-// Data Samples
-const solutions: SolutionSummary[] = [
-  {
-    id: '1',
-    name: 'Muhasebe Yönetimi',
-    description: 'İster Webden İster Cepten; İnternet Erişiminizin Olduğu Her Yerden İşletmenizin Ön Muhasebe İşlemlerini...',
-    icon: '',
-  },
-  {
-    id: '2',
-    name: 'Bordro ve İnsan Kaynakları Yönetimi',
-    description: 'Hızlı, güvenli, güncel mevzuata uyumlu yeni nesil bordro ve insan kaynakları çözümlerine ulaşın.',
-    icon: '',
-  },
-  {
-    id: '3',
-    name: 'Doküman Yönetimi',
-    description: 'Kurumunuzdaki tüm dokümanları buluta taşıyın, Logo Doküman Yönetimi Servisi sayesinde güvenle kullanın ve saklayın.',
-    icon: '',
-  },
-  {id: '4', name: 'Parakende Yönetimi', description: '', icon: ''},
-  {id: '6', name: 'İş Sağlığı ve Güvenliği Yönetimi', description: '', icon: ''},
-  {id: '5', name: 'E-Çözümler', description: '', icon: ''},
-];
-const response: Step[] = [
-  // STEP 1 GET (/api/productFinder/segmentList)
-  {
-    id: '1',
-    title: 'Segment',
-    question: 'Şirketinizin yazılım seviyesini nasıl tanımlarsınız?',
-    description: 'İhtiyaçlarınızı daha iyi anlamak için şirketinizdeki kurumsal yazılım kullanımı tecrübesini belirtmelisiniz.',
-    selection: [
-      {
-        id: '1',
-        title: 'Mikro Şirket',
-        description: 'Ekibimiz 1-5 kişi arası.',
-        icon: 'icon_path',
-      },
-      {
-        id: '2',
-        title: 'KOBİ',
-        description: 'Ekibimiz 5-50 kişi arası.',
-        icon: 'icon_path',
-      },
-      {
-        id: '2',
-        title: 'Büyük Şirket',
-        description: 'Ekibimiz 50 kişiden fazla.',
-        icon: 'icon_path',
-      },
-    ],
-  },
-  // STEP 2 POST (/api/productFinder/questions - segmentId)
-  {
-    id: '2',
-    title: 'İhtiyaç',
-    question: 'Logo Cloud ürünleri ile hangi probleminizi çözmek istediğinizi seçiniz.',
-    description: 'Aşağıdaki ihtiyaç listesinden birini seçiniz.',
-    multiselect: true,
-    selection: [
-      {
-        id: '1',
-        title: 'Bordro süreçlerimi yönetmek istiyorum.',
-        segmentId: ['2'],
-        solutionId: '2',
-        solutionName: 'HR',
-      },
-      {
-        id: '2',
-        title: 'İnsan kaynakları süreçlerimi yönetmek istiyorum.',
-        segmentId: ['3'],
-        solutionId: '2',
-        solutionName: 'HR',
-      },
-      {
-        id: '3',
-        title: 'Ön muhabe işlemlerimi tamamlamak istiyorum.',
-        segmentId: ['2'],
-        solutionId: '2',
-        solutionName: 'HR',
-      },
-      {
-        id: '4',
-        title: 'Şirket dokümanlarımı dijital ortamda arşivlemek ve yönetmek istiyorum.',
-        segmentId: ['1'],
-        solutionId: '2',
-        solutionName: 'HR',
-      },
-      {
-        id: '5',
-        title: 'Cari hesap takibi yapmak istiyorum.',
-        segmentId: ['3'],
-        solutionId: '2',
-        solutionName: 'HR',
-      },
-    ],
-  },
-  // STEP 3 POST (/api/productFinder/expectation - segmentId, solutionId)
-  {
-    id: '1',
-    title: 'Sektör',
-    question: 'Aşağıdaki sektörlerden hangisinde faaliyet gösteriyorsunuz?',
-    description: 'Aşağıda listelenen sektörlerden birrini seçiniz.',
-    selection: [
-      {
-        id: '1',
-        sectorId: '45',
-        sectorName: 'Yiyecek- İçecek hizmetleri',
-        segmentId: ['2', '3'],
-        solutionId: ['2', '5'],
-      },
-      {
-        id: '2',
-        sectorId: '46',
-        sectorName: 'Turizm, eğlence, konaklama',
-        segmentId: ['3'],
-        solutionId: ['2'],
-      },
-      {
-        id: '3',
-        sectorId: '47',
-        sectorName: 'Tekstil, hazır giyim ve deri üretimi',
-        segmentId: ['3'],
-        solutionId: ['2'],
-      },
-      {
-        id: '4',
-        sectorId: '48',
-        sectorName: 'Tarım ürünleri, hayvancılık',
-        segmentId: ['3'],
-        solutionId: ['2'],
-      },
-      {
-        id: '5',
-        sectorId: '49',
-        sectorName: 'Tarım ürünleri, hayvancılık',
-        segmentId: ['3'],
-        solutionId: ['2'],
-      },
-    ],
-
-  },
-  // STEP 4 POST(segmentId, solutionId, sectorId)
-  {
-    id: '4',
-    title: 'Sonuç',
-    selection: [
-      {
-        id: '1',
-        backgroundImage: 'background-logo-payrol.jpg',
-        logo: 'logo-payrol.png',
-        name: 'Bordro Yönetimi',
-        description: 'İK süreçleriniz dönüşüyor, verileriniz Logo güvencesi ile buluta taşınıyor!',
-        solutions: [{id: '3', name: 'Bordro ve İnsan Kaynakları Yönetimi'}],
-        isCloud: false,
-        sectorId: ['1', '2', '3'],
-        segmentId: ['1', '2', '3'],
-        onPremise: {link: 'http://wwww.logo.com.tr/bordro-yonetimi'},
-      },
-      {
-        id: '2',
-        backgroundImage: 'background-logo-isbasi.jpg',
-        logo: 'logo-isbasi.png',
-        name: 'Ön Muhasebe Yönetimi',
-        description: 'İster e-Fatura İster Ön Muhasebe İhtiyacınıza en uygun çözümler Logo İşbaşı’nda!',
-        solutions: [{id: '2', name: 'Muhasebe Yönetimi'}],
-        isCloud: true,
-        sectorId: ['1', '2', '3'],
-        segmentId: ['1', '2', '3'],
-        cloud: {link: 'http://logo.cloud/product/bordro-yonetimi'},
-        price: {id: '1', cost: 40, symbol: '₺'},
-      },
-      {
-        id: '3',
-        backgroundImage: 'background-logo-dys.jpg',
-        logo: 'logo-dys.png',
-        name: 'Doküman Yönetimi',
-        description: 'İK süreçleriniz dönüşüyor, verileriniz Logo güvencesi ile buluta taşınıyor!',
-        solutions: [{id: '3', name: 'Dokuman Yönetimi'}],
-        isCloud: true,
-        segmentId: ['1', '2', '3'],
-        sectorId: ['1', '2', '3'],
-        cloud: {link: 'http://logo.cloud/product/dokuman-yonetimi'},
-        stars: 5,
-        price: {id: '2', cost: 30, symbol: '₺', includeTax: false},
-      },
-    ],
-  },
-];
-const interFaceTypeDeclarationSampleForTalhaSALT: ({ [abc in keyof Step]: Step[abc] } | { 'id': number, 'extra': boolean } | { [abc in keyof Tag]: Tag[abc] }) [] = [{
-  id: 'true', // number da alabilir
-  title: 'asdad',
-  question: 'asdasd',
-  description: 'asdsad',
-  extra: true,
-}];
