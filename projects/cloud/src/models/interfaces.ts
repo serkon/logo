@@ -1489,8 +1489,7 @@ const productSegments: ProductSegment[] = [
 const productQuestions: ProductQuestion[] = [
   {
     id: 'b6867510-55aa-4b01-aeff-9ba9af9f7500',
-    title: 'Logo ürünleri ile hangi ihtiyacınıza çözüm bulmak\n' +
-      'istersiniz?',
+    title: 'Logo ürünleri ile hangi ihtiyacınıza çözüm bulmak\n istersiniz?',
     segmentId: ['d1fdf61e-0ab5–433d-9b19-de09425b1e41', 'd1fdf61e-0ab5–433d-9b19-de09425b1e42'],
     /**
      * Gösterilecek sorunun hangi ürün kategorilerine (Solution) ait olduğunu
