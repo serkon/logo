@@ -36,6 +36,10 @@
       ],
       "@logo-software/dynamic": [
         "dist/logo-software/dynamic"
+      ],
+      "@logo-software/tab": [
+        "dist/logo-software/tab/logo-software-tab",
+        "dist/logo-software/tab"
       ]
     }
   },
