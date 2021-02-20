@@ -1,7 +1,7 @@
-<div class="header {{mobileSupport}}">
+<div [ngClass]="{'container': containerStatus}" class="header {{mobileSupport}}">
   <a class="logo" href="/"></a>
-  <div class="menu">
-    <ng-content></ng-content>
+  <div class="menu {{menuPosition}}">
+    <ng-content #menu></ng-content>
   </div>
 </div>
 <div class="mobile-opener" *ngIf="isMobilized">

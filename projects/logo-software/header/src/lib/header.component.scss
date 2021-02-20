@@ -10,8 +10,10 @@
   position: absolute !important;
   left: 0;
   right: 0;
+  top: 0;
   width: auto;
   height: 100%;
+  z-index: 1;
 
   .header {
     @include animate(all, 0.2s, ease-in-out);
@@ -35,9 +37,21 @@
 
       display: flex;
       align-items: center;
-      justify-content: flex-end;
       flex-grow: 1;
       box-sizing: border-box;
+      position: relative;
+
+      &.right {
+        justify-content: flex-end;
+      }
+
+      &.left {
+        justify-content: flex-start;
+      }
+
+      &.center {
+        justify-content: center;
+      }
 
       @include larger-than(lg) {
         flex-direction: row;
@@ -72,6 +86,55 @@
       @include smaller-than(sm) {
         transform: translateX(98vw);
         width: 98vw;
+      }
+
+      ::ng-deep {
+        .hover-menu {
+          display: none;
+          padding: size(15px);
+          box-sizing: border-box;
+
+          &.opened {
+            position: absolute;
+            top: size(50px);
+            left: 0;
+            display: inline-block;
+            background-color: var(--basic-400);
+          }
+
+          &:before {
+            content: "";
+            display: inline-block;
+            width: 0;
+            overflow: hidden;
+            height: 0;
+            border-bottom: size(5px) solid var(--basic-400);
+            border-left: size(5px) solid transparent;
+            border-right: size(5px) solid transparent;
+            border-top: size(5px) solid transparent;
+            position: absolute;
+            top: size(-10px);
+            left: size(75px);
+          }
+        }
+
+        .section-main {
+          flex-grow: 1;
+        }
+
+        .section-secondary {
+          logo-link {
+            margin-right: size(10px);
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+
+        logo-link {
+          display: inline-block;
+        }
       }
     }
   }

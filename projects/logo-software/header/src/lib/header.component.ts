@@ -15,6 +15,9 @@ export class HeaderComponent implements AfterViewInit {
   @Input() isMobilized: boolean = true;
   @Input() scrollSpy: boolean = true;
   @Input() scrollPoint: number = 100;
+  @Input() menuPosition: 'left' | 'center' | 'right' = 'right';
+  @Input() containerStatus: boolean = false;
+
   public mobileSupport: string = this.isMobilized ? 'mobilized' : 'standart';
 
   constructor(public headerService: HeaderService, private cd: ChangeDetectorRef) {
