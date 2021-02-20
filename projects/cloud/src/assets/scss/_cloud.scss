@@ -7,8 +7,10 @@
  * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
  * Any reproduction of this material must contain this notice.
  */
+@import "~@logo-software/theme/base";
 
-@import "assets/scss/config";
-@import "~@logo-software/theme/style";
-@import "~@logo-software/icons/style";
-@import "assets/scss/cloud";
+.logo-cloud-theme {
+  .header {
+    height: size(75px) !important;
+  }
+}
