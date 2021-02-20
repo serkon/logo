@@ -1,4 +1,4 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
 import { Link } from './link';
@@ -44,7 +44,8 @@ import { LinkService } from './link.service';
     <ng-container *ngTemplateOutlet="external ? externalURL: internalURL">
     </ng-container>
     <ng-template #internalURL>
-      <button routerLink="{{url}}" [fragment]="fragment" [ngClass]="classes" (click)="onClickEvent($event, false)">
+      <button routerLink="{{url}}" [fragment]="fragment" [ngClass]="classes" (click)="onClickEvent($event, false)"
+              (mouseenter)="onHoverEvent($event)" (mouseleave)="onLeaveEvent($event)">
         <ng-container *ngTemplateOutlet="display ? displayHTML : contentHTML"></ng-container>
       </button>
     </ng-template>
@@ -88,6 +89,14 @@ export class LinkComponent implements OnInit {
    */
   @Input() onClick: (event: Event) => void;
   /**
+   * Output to be triggered when hover on the element
+   */
+  @Output() onHover: EventEmitter<any> = new EventEmitter<any>();
+  /**
+   * Output to be triggered when mouse leave element
+   */
+  @Output() onLeave: EventEmitter<any> = new EventEmitter<any>();
+  /**
    * All configuration can be given in this Link model.
    * [Link](/#/docs/components/link-module#link) - Makes focused to added element
    */
@@ -113,5 +122,13 @@ export class LinkComponent implements OnInit {
     }
     this.linkService.fragment = this.fragment;
     this.onClick && this.onClick($event);
+  }
+
+  onHoverEvent($event) {
+    this.onHover.emit($event);
+  }
+
+  onLeaveEvent($event) {
+    this.onLeave.emit($event);
   }
 }
