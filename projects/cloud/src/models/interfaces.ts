@@ -274,23 +274,21 @@ export interface SolutionMetaData {
     /**
      * Çözüme ait özellikleri ifade eden detaylar buradan çekilecek
      */
-    features: [
-      {
-        /**
-         * Gösterilecek başlık
-         */
-        title: string;
-        /**
-         * Başlığa ait detaylar
-         */
-        description: string;
-        /**
-         * Özelliği ifade eden imaj
-         */
-        image: string;
-      }
-    ],
-    summaries: [{
+    features: {
+      /**
+       * Gösterilecek başlık
+       */
+      title: string;
+      /**
+       * Başlığa ait detaylar
+       */
+      description: string;
+      /**
+       * Özelliği ifade eden imaj
+       */
+      image: string;
+    }[]
+    summaries: {
       /**
        * Gösterilecek başlık
        */
@@ -304,7 +302,7 @@ export interface SolutionMetaData {
        * Özelliği ifade eden imaj
        */
       image: string;
-    }]
+    }[]
   }
 }
 
@@ -871,3 +869,638 @@ export class Testimonial {
    */
   productId: string[];
 }
+
+// Data Samples
+/*
+* const solutions: SolutionSummary[] = [
+  {
+    id: '1',
+    name: 'Muhasebe Yönetimi',
+    description: 'İster Webden İster Cepten; İnternet Erişiminizin Olduğu Her Yerden İşletmenizin Ön Muhasebe İşlemlerini...',
+    icon: '',
+  },
+  {
+    id: '2',
+    name: 'Bordro ve İnsan Kaynakları Yönetimi',
+    description: 'Hızlı, güvenli, güncel mevzuata uyumlu yeni nesil bordro ve insan kaynakları çözümlerine ulaşın.',
+    icon: '',
+  },
+  {
+    id: '3',
+    name: 'Doküman Yönetimi',
+    description: 'Kurumunuzdaki tüm dokümanları buluta taşıyın, Logo Doküman Yönetimi Servisi sayesinde güvenle kullanın ve saklayın.',
+    icon: '',
+  },
+  {id: '4', name: 'Parakende Yönetimi', description: '', icon: ''},
+  {id: '6', name: 'İş Sağlığı ve Güvenliği Yönetimi', description: '', icon: ''},
+  {id: '5', name: 'E-Çözümler', description: '', icon: ''},
+];*/
+const response: Step[] = [
+  // STEP 1 GET (/api/productFinder/segmentList)
+  {
+    id: '1',
+    title: 'Segment',
+    question: 'Şirketinizin yazılım seviyesini nasıl tanımlarsınız?',
+    description: 'İhtiyaçlarınızı daha iyi anlamak için şirketinizdeki kurumsal yazılım kullanımı tecrübesini belirtmelisiniz.',
+    selection: [
+      {
+        id: '1',
+        title: 'Mikro Şirket',
+        description: 'Ekibimiz 1-5 kişi arası.',
+        icon: 'icon_path',
+      },
+      {
+        id: '2',
+        title: 'KOBİ',
+        description: 'Ekibimiz 5-50 kişi arası.',
+        icon: 'icon_path',
+      },
+      {
+        id: '2',
+        title: 'Büyük Şirket',
+        description: 'Ekibimiz 50 kişiden fazla.',
+        icon: 'icon_path',
+      },
+    ],
+  },
+  // STEP 2 POST (/api/productFinder/questions - segmentId)
+  {
+    id: '2',
+    title: 'İhtiyaç',
+    question: 'Logo Cloud ürünleri ile hangi probleminizi çözmek istediğinizi seçiniz.',
+    description: 'Aşağıdaki ihtiyaç listesinden birini seçiniz.',
+    multiselect: true,
+    selection: [
+      {
+        id: '1',
+        title: 'Bordro süreçlerimi yönetmek istiyorum.',
+        segmentId: ['2'],
+        solutionId: '2',
+        solutionName: 'HR',
+      },
+      {
+        id: '2',
+        title: 'İnsan kaynakları süreçlerimi yönetmek istiyorum.',
+        segmentId: ['3'],
+        solutionId: '2',
+        solutionName: 'HR',
+      },
+      {
+        id: '3',
+        title: 'Ön muhabe işlemlerimi tamamlamak istiyorum.',
+        segmentId: ['2'],
+        solutionId: '2',
+        solutionName: 'HR',
+      },
+      {
+        id: '4',
+        title: 'Şirket dokümanlarımı dijital ortamda arşivlemek ve yönetmek istiyorum.',
+        segmentId: ['1'],
+        solutionId: '2',
+        solutionName: 'HR',
+      },
+      {
+        id: '5',
+        title: 'Cari hesap takibi yapmak istiyorum.',
+        segmentId: ['3'],
+        solutionId: '2',
+        solutionName: 'HR',
+      },
+    ],
+  },
+  // STEP 3 POST (/api/productFinder/expectation - segmentId, solutionId)
+  {
+    id: '1',
+    title: 'Sektör',
+    question: 'Aşağıdaki sektörlerden hangisinde faaliyet gösteriyorsunuz?',
+    description: 'Aşağıda listelenen sektörlerden birrini seçiniz.',
+    selection: [
+      {
+        id: '1',
+        sectorId: '45',
+        sectorName: 'Yiyecek- İçecek hizmetleri',
+        segmentId: ['2', '3'],
+        solutionId: ['2', '5'],
+      },
+      {
+        id: '2',
+        sectorId: '46',
+        sectorName: 'Turizm, eğlence, konaklama',
+        segmentId: ['3'],
+        solutionId: ['2'],
+      },
+      {
+        id: '3',
+        sectorId: '47',
+        sectorName: 'Tekstil, hazır giyim ve deri üretimi',
+        segmentId: ['3'],
+        solutionId: ['2'],
+      },
+      {
+        id: '4',
+        sectorId: '48',
+        sectorName: 'Tarım ürünleri, hayvancılık',
+        segmentId: ['3'],
+        solutionId: ['2'],
+      },
+      {
+        id: '5',
+        sectorId: '49',
+        sectorName: 'Tarım ürünleri, hayvancılık',
+        segmentId: ['3'],
+        solutionId: ['2'],
+      },
+    ],
+
+  },
+  // STEP 4 POST(segmentId, solutionId, sectorId)
+  {
+    id: '4',
+    title: 'Sonuç',
+    selection: [
+      {
+        id: '1',
+        backgroundImage: 'background-logo-payrol.jpg',
+        logo: 'logo-payrol.png',
+        name: 'Bordro Yönetimi',
+        description: 'İK süreçleriniz dönüşüyor, verileriniz Logo güvencesi ile buluta taşınıyor!',
+        solutions: [{id: '3', name: 'Bordro ve İnsan Kaynakları Yönetimi'}],
+        isCloud: false,
+        sectorId: ['1', '2', '3'],
+        segmentId: ['1', '2', '3'],
+        onPremise: {link: 'http://wwww.logo.com.tr/bordro-yonetimi'},
+      },
+      {
+        id: '2',
+        backgroundImage: 'background-logo-isbasi.jpg',
+        logo: 'logo-isbasi.png',
+        name: 'Ön Muhasebe Yönetimi',
+        description: 'İster e-Fatura İster Ön Muhasebe İhtiyacınıza en uygun çözümler Logo İşbaşı’nda!',
+        solutions: [{id: '2', name: 'Muhasebe Yönetimi'}],
+        isCloud: true,
+        sectorId: ['1', '2', '3'],
+        segmentId: ['1', '2', '3'],
+        cloud: {link: 'http://logo.cloud/product/bordro-yonetimi'},
+        price: {id: '1', cost: 40, symbol: '₺'},
+      },
+      {
+        id: '3',
+        backgroundImage: 'background-logo-dys.jpg',
+        logo: 'logo-dys.png',
+        name: 'Doküman Yönetimi',
+        description: 'İK süreçleriniz dönüşüyor, verileriniz Logo güvencesi ile buluta taşınıyor!',
+        solutions: [{id: '3', name: 'Dokuman Yönetimi'}],
+        isCloud: true,
+        segmentId: ['1', '2', '3'],
+        sectorId: ['1', '2', '3'],
+        cloud: {link: 'http://logo.cloud/product/dokuman-yonetimi'},
+        stars: 5,
+        price: {id: '2', cost: 30, symbol: '₺', includeTax: false},
+      },
+    ],
+  },
+];
+const interFaceTypeDeclarationSampleForTalhaSALT: ({ [abc in keyof Step]: Step[abc] } | { 'id': number, 'extra': boolean } | { [abc in keyof Tag]: Tag[abc] }) [] = [{
+  id: 'true', // number da alabilir
+  title: 'asdad',
+  question: 'asdasd',
+  description: 'asdsad',
+  extra: true,
+}];
+
+const authors: Author[] = [
+  {
+    id: '1',
+    name: 'Talha',
+    surname: 'Salt',
+    companyName: 'Logo',
+    title: 'Baslik',
+  },
+  {
+    id: '2',
+    name: 'Serkan',
+    surname: 'Konakçı',
+    companyName: 'Logo',
+    title: 'Baslik',
+  },
+  {
+    id: '3',
+    name: 'Serhan',
+    surname: 'Gürbüz',
+    companyName: 'Logo',
+    title: 'Baslik',
+  },
+];
+
+const tags: Tag[] = [
+  {
+    id: '1',
+    name: 'Label 1',
+  },
+  {
+    id: '2',
+    name: 'Label 2',
+  },
+];
+
+const prices: Price[] = [
+  {
+    id: '1',
+    cost: 50,
+    symbol: '₺', // ₺, $, € iso standartı
+    includeTax: false, // false
+    currency: 'TRY', // EUR, TRY, USD iso standardı
+    promo: 5,
+    discount: 5,
+  },
+  {
+    id: '2',
+    cost: 100,
+    symbol: '₺', // ₺, $, € iso standartı
+    includeTax: false, // false
+    currency: 'TRY', // EUR, TRY, USD iso standardı
+    promo: 5,
+    discount: 5,
+  },
+  {
+    id: '3',
+    cost: 150,
+    symbol: '₺', // ₺, $, € iso standartı
+    includeTax: false, // false
+    currency: 'TRY', // EUR, TRY, USD iso standardı
+    promo: 5,
+    discount: 5,
+  },
+];
+
+const blogSummaries: BlogSummary[] = [
+  {
+    id: '1',
+    image: 'string',
+    tags: [
+      {
+        id: '1',
+        name: 'Label 1',
+      },
+      {
+        id: '2',
+        name: 'Label 2',
+      },
+    ],
+    title: 'Yıllık izin nedir, nasıl elde edilir?',
+    description: 'Yıllık izin, işçinin en temel haklarındadır. İşçi, gerekli koşulları sağladığı' +
+      ' hallerde bu hakkını kullanmakla; işveren ise buna izin vermekle yükümlüdür. Ancak, her işçi' +
+      ' için yıllık izin süreleri aynı olmaz. ',
+    date: {publish: '16 Nisan 2020'},
+    author: {
+      id: '1',
+      name: 'Talha',
+      surname: 'Salt',
+      companyName: 'Logo',
+      title: 'Baslik',
+    },
+    readCount: 5,
+  },
+  {
+    id: '2',
+    image: 'string',
+    tags: [
+      {
+        id: '3',
+        name: 'Label 3',
+      },
+      {
+        id: '4',
+        name: 'Label 4',
+      },
+    ],
+    title: 'Yıllık izin nedir, nasıl elde edilir?',
+    description: 'Yıllık izin, işçinin en temel haklarındadır. İşçi, gerekli koşulları sağladığı' +
+      ' hallerde bu hakkını kullanmakla; işveren ise buna izin vermekle yükümlüdür. Ancak, her işçi' +
+      ' için yıllık izin süreleri aynı olmaz. ',
+    date: {publish: '16 Nisan 2020'},
+    author: {
+      id: '2',
+      name: 'Serkan',
+      surname: 'Konakçı',
+      companyName: 'Logo',
+      title: 'Baslik',
+    },
+    readCount: 5,
+  },
+  {
+    id: '3',
+    image: 'string',
+    tags: [
+      {
+        id: '4',
+        name: 'Label 4',
+      },
+      {
+        id: '5',
+        name: 'Label 5',
+      },
+    ],
+    title: 'Yıllık izin nedir, nasıl elde edilir?',
+    description: 'Yıllık izin, işçinin en temel haklarındadır. İşçi, gerekli koşulları sağladığı hallerde bu hakkını kullanmakla; işveren ise buna izin vermekle yükümlüdür. Ancak, her işçi için yıllık izin süreleri aynı olmaz. ',
+    date: {publish: '16 Nisan 2020'},
+    author: {
+      id: '3',
+      name: 'Serhan',
+      surname: 'Gürbüz',
+      companyName: 'Logo',
+      title: 'Baslik',
+    },
+    readCount: 5,
+  },
+];
+
+const blogs: Blog[] = [
+  {
+    ...blogSummaries[0],
+    html: '<h1>Logo bordro ve insan kaynakları yönetimi çözümleri</h1> <p>Blog content</p>',
+    tags: [
+      {
+        id: '1',
+        name: 'Label 1',
+      },
+      {
+        id: '2',
+        name: 'Label 2',
+      },
+    ],
+    otherTags: [
+      {
+        id: '1',
+        name: 'Label 1',
+      },
+      {
+        id: '2',
+        name: 'Label 2',
+      },
+    ],
+    similar: blogSummaries,
+  },
+];
+
+const solutionSummaries: SolutionSummary[] = [
+  {
+    id: '1',
+    name: 'Bordro ve İnsan Kaynakları Yönetimi',
+    description: 'İşletmeniz için en doğru kararları Logo bordro ve insan kaynakları çözümleriyle alın!',
+    icon: 'https://cdn3.iconfinder.com/data/icons/design-n-code/100/272127c4-8d19-4bd3-bd22-2b75ce94ccb4-512.png',
+  },
+  {
+    id: '2',
+    name: 'Muhasebe Yönetimi',
+    description: 'Müthiş muhasebe yönetimleri ile işletmenize güç katın!',
+    icon: 'https://cdn3.iconfinder.com/data/icons/design-n-code/100/272127c4-8d19-4bd3-bd22-2b75ce94ccb4-512.png',
+  },
+  {
+    id: '3',
+    name: 'Doküman Yönetimi',
+    description: 'Müthiş döküman yönetimleri ile işletmenize güç katın!',
+    icon: 'https://cdn3.iconfinder.com/data/icons/design-n-code/100/272127c4-8d19-4bd3-bd22-2b75ce94ccb4-512.png',
+  },
+  {
+    id: '4',
+    name: 'Perakende Yönetimi',
+    description: 'Müthiş perakende yönetimleri ile işletmenize güç katın!',
+    icon: 'https://cdn3.iconfinder.com/data/icons/design-n-code/100/272127c4-8d19-4bd3-bd22-2b75ce94ccb4-512.png',
+  },
+  {
+    id: '5',
+    name: 'İş Sağlığı ve Güvenliği Yönetimi',
+    description: 'İş Sağlığı ve Güvenliği Yönetimleri ile işletmenize iş kazalarınıza kesin çözüm üretin!',
+    icon: 'https://cdn3.iconfinder.com/data/icons/design-n-code/100/272127c4-8d19-4bd3-bd22-2b75ce94ccb4-512.png',
+  },
+  {
+    id: '6',
+    name: 'E-Çözümler',
+    description: 'E-Çözümler ile işletmenizi akıllı hale getirin!',
+    icon: 'https://cdn3.iconfinder.com/data/icons/design-n-code/100/272127c4-8d19-4bd3-bd22-2b75ce94ccb4-512.png',
+  },
+]
+
+const solutionMetaData: SolutionMetaData[] = [
+  {
+    meta: {
+      id: '1',
+      cover: {
+        title: 'Cover Title',
+        description: 'Cover String',
+        image: 'https://via.placeholder.com/1920x257.png?text=Cover+Image',
+      },
+      features: [
+        {
+          title: 'Modüler Yapı',
+          description: 'Modüler yapısıyla ihtiyaca göre şekillendirilebilen Logo Bordro ve İnsan Kaynakları' +
+            ' Yönetimi çözümleri, yerleşik ya da web tabanlı kullanım sayesinde de insan kaynağını daha hızlı ve' +
+            ' esnek bir şekilde yönetmeye olanak tanıyor. ',
+          image: 'https://via.placeholder.com/100x100.png?text=Icon',
+        },
+        {
+          title: 'Neden Önemli?',
+          description: 'İşe alımdan bordrolamaya, eğitimlerden performans değerlendirmelerine dek tüm İK süreçlerini' +
+            ' dijitalleştirmek, insan kaynağının daha verimli yönetilmesini sağlamanın yanı sıra çalışan memnuniyetini,' +
+            ' dolayısıyla da işletmenin genel performansını artırır.',
+          image: 'https://via.placeholder.com/100x100.png?text=Icon',
+        },
+        {
+          title: 'Kimler kullanabilir?',
+          description: 'Mikro işletmelerden büyük ölçekli işletmelere kadar her ölçekten firma Logo bordro ve insan' +
+            ' kaynakları çözümlerinden yararlanabilir. Ayrıca, insan kaynakları firmaları da karmaşık bordro ve İK' +
+            ' ihtiyaçlarının tek elden yönetimi için Logo’dan yararlanabilir.',
+          image: 'https://via.placeholder.com/100x100.png?text=Icon',
+        },
+        {
+          title: 'Nasıl Seçilmeli?',
+          description: 'Bir bordro yazılımı veya insan Kaynakları Yönetimi çözümü seçerken, işletmedeki farklı' +
+            ' teknolojik çözümlerle entegre çalışabilen, mevcut ihtiyaçları karşılamanın yanı sıra, gelecekte' +
+            ' oluşabilecek ihtiyaçları da karşılayabilecek esneklikte bir yapının tercih edilmesi önemlidir. ',
+          image: 'https://via.placeholder.com/100x100.png?text=Icon',
+        },
+      ],
+      summaries: [
+        {
+          title: 'Bordro Yönetimi',
+          description: 'İK süreçlerinin yönetiminde uzun yıllara dayalı deneyiminden yararlanan Logo, emek ve zaman-yoğun' +
+            ' bir süreç olan bordro işlemlerine özel çözümleriyle fark yaratıyor. Logo\'nun bordro odaklı çözümleri,' +
+            ' İK departmanlarının bordro işlemlerini hızlı ve hatasız gerçekleştirmelerine olanak tanıyor.  \n' +
+            '\n' +
+            'İşlem takibinin kolaylığı sayesinde işletmelerin operasyonel maliyetleri  düşüyor. Bordro çözümleri, Logo' +
+            ' imzalı kurumsal kaynak planlama (ERP) çözümleriyle de entegre çalışarak kaynakları uçtan uca yönetme imkanı' +
+            ' sunuyor.',
+          image: 'string',
+        },
+        {
+          title: 'Bordro Yönetimi',
+          description: 'İK süreçlerinin yönetiminde uzun yıllara dayalı deneyiminden yararlanan Logo, emek ve zaman-yoğun' +
+            ' bir süreç olan bordro işlemlerine özel çözümleriyle fark yaratıyor. Logo\'nun bordro odaklı çözümleri,' +
+            ' İK departmanlarının bordro işlemlerini hızlı ve hatasız gerçekleştirmelerine olanak tanıyor.  \n' +
+            '\n' +
+            'İşlem takibinin kolaylığı sayesinde işletmelerin operasyonel maliyetleri  düşüyor. Bordro çözümleri, Logo' +
+            ' imzalı kurumsal kaynak planlama (ERP) çözümleriyle de entegre çalışarak kaynakları uçtan uca yönetme imkanı' +
+            ' sunuyor.',
+          image: 'string',
+        },
+      ],
+    },
+  },
+]
+
+const solutions: Solution[] = [
+  {
+    backgroundImage: 'https://via.placeholder.com/1920x257.png?text=Background+Image',
+    ...solutionMetaData[0],
+    ...solutionSummaries[1],
+  },
+  {
+    backgroundImage: 'https://via.placeholder.com/1920x257.png?text=Background+Image',
+    ...solutionMetaData[0],
+    ...solutionSummaries[2],
+  }, {
+    backgroundImage: 'https://via.placeholder.com/1920x257.png?text=Background+Image',
+    ...solutionMetaData[0],
+    ...solutionSummaries[3],
+  }, {
+    backgroundImage: 'https://via.placeholder.com/1920x257.png?text=Background+Image',
+    ...solutionMetaData[0],
+    ...solutionSummaries[4],
+  },
+  {
+    backgroundImage: 'https://via.placeholder.com/1920x257.png?text=Background+Image',
+    ...solutionMetaData[0],
+    ...solutionSummaries[5],
+  },
+  {
+    backgroundImage: 'https://via.placeholder.com/1920x257.png?text=Background+Image',
+    ...solutionMetaData[0],
+    ...solutionSummaries[6],
+  },
+]
+
+const productSummaries: ProductSummary[] = [
+  {
+    id: '507F0707-4D7B-49A7-8588-EBD78F15C78E1',
+    materialCode: 'materialcode1',
+    backgroundImage: 'https://via.placeholder.com/728x90.png?text=Background+Image',
+    logo: 'https://via.placeholder.com/300x400.png?text=Background+Image',
+    name: 'Logo Payroll',
+    description: 'İK süreçleriniz dönüşüyor, verileriniz Logo güvencesi ile buluta taşınıyor!',
+    solutions: [{
+      id: '1',
+      name: 'Bordro Yönetimi',
+    }],
+    isCloud: true,
+    segmentId: ['1'],
+    sectorId: ['1'],
+    cloud: {link: 'http://google.com'},
+    onPremise: {link: 'http://google.com'},
+    stars: 5,
+    price: {
+      id: '1',
+      cost: 50,
+      symbol: '₺', // ₺, $, € iso standartı
+      includeTax: false, // false
+      currency: 'TRY', // EUR, TRY, USD iso standardı
+      promo: 5,
+      discount: 5,
+    },
+  },
+  {
+    id: '507F0707-4D7B-49A7-8588-EBD78F15C78E2',
+    materialCode: 'materialcode2',
+    backgroundImage: 'https://via.placeholder.com/728x90.png?text=Background+Image',
+    logo: 'https://via.placeholder.com/300x400.png?text=Background+Image',
+    name: 'Logo İşbaşı',
+    description: 'İster e-Fatura İster Ön Muhasebe…\n' +
+      'İhtiyacınıza en uygun çözümler Logo İşbaşı’nda!',
+    solutions: [{
+      id: '2',
+      name: 'Ön Muhasebe Yönetimii',
+    }],
+    isCloud: true,
+    segmentId: ['2'],
+    sectorId: ['2'],
+    cloud: {link: 'http://google.com'},
+    onPremise: {link: 'http://google.com'},
+    stars: 5,
+    price: {
+      id: '2',
+      cost: 100,
+      symbol: '₺', // ₺, $, € iso standartı
+      includeTax: false, // false
+      currency: 'TRY', // EUR, TRY, USD iso standardı
+      promo: 5,
+      discount: 5,
+    },
+  },
+  {
+    id: '507F0707-4D7B-49A7-8588-EBD78F15C78E3',
+    materialCode: 'materialcode3',
+    backgroundImage: 'https://via.placeholder.com/728x90.png?text=Background+Image',
+    logo: 'https://via.placeholder.com/300x400.png?text=Background+Image',
+    name: 'Logo Döküman Yönetim Servisi',
+    description: 'İK süreçleriniz dönüşüyor, verileriniz Logo güvencesi ile buluta taşınıyor!',
+    solutions: [{
+      id: '3',
+      name: 'Doküman Yönetimi',
+    }],
+    isCloud: true,
+    segmentId: ['3'],
+    sectorId: ['3'],
+    cloud: {link: 'http://google.com'},
+    onPremise: {link: 'http://google.com'},
+    stars: 5,
+    price: {
+      id: '3',
+      cost: 150,
+      symbol: '₺', // ₺, $, € iso standartı
+      includeTax: false, // false
+      currency: 'TRY', // EUR, TRY, USD iso standardı
+      promo: 5,
+      discount: 5,
+    },
+  },
+];
+
+const productSegments: ProductSegment[] = [
+  {
+    id: 'd1fdf61e-0ab5–433d-9b19-de09425b1e41',
+    title: 'Mikro Şirket',
+    description: '1- 5 kişi arası',
+    icon: 'https://www.flaticon.com/premium-icon/icons/svg/484/484624.svg',
+  },
+  {
+    id: 'd1fdf61e-0ab5–433d-9b19-de09425b1e42',
+    title: 'Orta büyüklük Şirket',
+    description: '5-30 kişi arası',
+    icon: 'https://www.flaticon.com/premium-icon/icons/svg/484/484573.svg',
+  },
+  {
+    id: 'd1fdf61e-0ab5–433d-9b19-de09425b1e43',
+    title: 'Büyük Şirket',
+    description: '30+ kişi',
+    icon: 'https://www.flaticon.com/premium-icon/icons/svg/484/484522.svg',
+  },
+];
+
+const productQuestions: ProductQuestion[] = [
+  {
+    id: 'b6867510-55aa-4b01-aeff-9ba9af9f7500',
+    title: 'Logo ürünleri ile hangi ihtiyacınıza çözüm bulmak\n' +
+      'istersiniz?',
+    segmentId: ['d1fdf61e-0ab5–433d-9b19-de09425b1e41', 'd1fdf61e-0ab5–433d-9b19-de09425b1e42'],
+    /**
+     * Gösterilecek sorunun hangi ürün kategorilerine (Solution) ait olduğunu
+     * anlamak için kullanılacaktır.
+     */
+    solutionId: 'string',
+    /**
+     * Soruların sağında ya da altında Kategori (Solution) bilgisini göstermek
+     * amacı için kullanılacaktır.
+     */
+    solutionName: 'string',
+  },
+];
