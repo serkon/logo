@@ -8,7 +8,10 @@
  * Any reproduction of this material must contain this notice.
  */
 
-@import "config";
-@import "~@logo-software/theme/style";
-@import "~@logo-software/icons/style";
-@import "assets/scss/cloud";
+$config: (
+  grid:(status: true),
+  bootstrap:(status: false),
+  extend-colors: true,
+  customize: (status: true),
+  debug: false
+);
