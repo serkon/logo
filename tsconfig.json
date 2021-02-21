@@ -40,6 +40,10 @@
       "@logo-software/tab": [
         "dist/logo-software/tab/logo-software-tab",
         "dist/logo-software/tab"
+      ],
+      "@logo-software/tabs": [
+        "dist/logo-software/tabs/logo-software-tabs",
+        "dist/logo-software/tabs"
       ]
     }
   },
