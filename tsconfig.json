@@ -24,9 +24,6 @@
       "@paas/*": [
         "./projects/paas/*"
       ],
-      "@guideline/*": [
-        "./projects/guideline/*"
-      ],
       "@logo-software/*": [
         "dist/logo-software/*",
         "./projects/logo-software/*/src/public-api"
@@ -36,14 +33,6 @@
       ],
       "@logo-software/dynamic": [
         "dist/logo-software/dynamic"
-      ],
-      "@logo-software/tab": [
-        "dist/logo-software/tab/logo-software-tab",
-        "dist/logo-software/tab"
-      ],
-      "@logo-software/tabs": [
-        "dist/logo-software/tabs/logo-software-tabs",
-        "dist/logo-software/tabs"
       ]
     }
   },

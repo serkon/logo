@@ -10,8 +10,9 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DocsComponent } from '@guideline/src/app/docs/docs.component';
-import { GetstartedComponent } from '@guideline/src/app/docs/getstarted/getstarted.component';
+
+import { DocsComponent } from './docs.component';
+import { GetstartedComponent } from './getstarted/getstarted.component';
 
 const routes: Routes = [
     {

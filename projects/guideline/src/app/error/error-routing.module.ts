@@ -10,7 +10,7 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ErrorComponent } from '@guideline/src/app/error/error.component';
+import { ErrorComponent } from './error.component';
 
 const routes: Routes = [{
   path: '',

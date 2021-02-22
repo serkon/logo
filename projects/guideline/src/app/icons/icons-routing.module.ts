@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {IconsComponent} from '@guideline/src/app/icons/icons.component';
+import {IconsComponent} from './icons.component';
 
 const routes: Routes = [{
   path: '',
