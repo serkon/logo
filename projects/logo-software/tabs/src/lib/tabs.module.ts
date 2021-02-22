@@ -1,10 +1,19 @@
 import { NgModule } from '@angular/core';
-import { TabsComponent } from './tabs.component';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
+import { LinksModule } from '@logo-software/links';
+
+import { TabsComponent } from './tabs.component';
+import { TabComponent } from './tab.component';
+
+/**
+ * https://stackblitz.com/edit/angular-tabs-example?file=app%2Ftabs%2Ftabs.component.ts
+ */
 @NgModule({
-  declarations: [TabsComponent],
-  imports: [
-  ],
-  exports: [TabsComponent],
+  imports: [CommonModule, RouterModule, LinksModule],
+  declarations: [TabsComponent, TabComponent],
+  exports: [TabsComponent, TabComponent],
 })
-export class TabsModule { }
+export class TabsModule {
+}

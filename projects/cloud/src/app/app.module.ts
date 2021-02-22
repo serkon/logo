@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
+import { TabsModule } from '@logo-software/tabs';
 import { HeaderModule } from '@logo-software/header';
 import { LinksModule } from '@logo-software/links';
 
@@ -9,7 +11,7 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, HeaderModule, LinksModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, TabsModule, HeaderModule, LinksModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -32,3 +32,43 @@
     <router-outlet></router-outlet>
   </div>
 </div>
+
+<logo-tabs (change)="tabChange($event)" (tabEvent)="tabEvent($event)" [routing]="true" [activeTab]="2" class="medium">
+  <logo-tab
+    (init)="tabInit($event)"
+    title="Free"
+    route="logo/paging-sample/paging-showcase/paging-showcase.component"
+    #tabOne
+  >
+    <div>içerik 1</div>
+    <p>İstersen routing ile bir başka yeri de call edebilirsin</p>
+    <!--<router-outlet *ngIf="tabOne.isActive"></router-outlet>-->
+  </logo-tab>
+  <logo-tab
+    (init)="tabInit($event)"
+    route="logo/table-sample/table-showcase/table-showcase.component"
+    title="Zone"
+    #tabTwo
+  >
+    <div>içerik 2</div>
+    <!--<router-outlet *ngIf="tabTwo.isActive"></router-outlet>-->
+  </logo-tab>
+  <logo-tab
+    (click)="tabClick($event)"
+    (init)="tabInit($event)"
+    route="logo/excel-sample/excel-showcase/excel-showcase.component"
+    fragment="patates21"
+    title="Offline"
+    #tabThree
+  >
+    içerik 3
+    <div *ngFor="let i of [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]; let ins=index">
+      <p id="patates{{ins}}">patates-{{ins}}</p>
+    </div>
+    <!--<router-outlet *ngIf="tabThree.isActive"></router-outlet>-->
+  </logo-tab>
+  <ng-container *ngFor="let item of items; let i =index">
+    <logo-tab title="Tab-{{i}}">{{i}}</logo-tab>
+  </ng-container>
+</logo-tabs>
+<button (click)="addTab()" class="secondary outline">add</button>

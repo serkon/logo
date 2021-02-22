@@ -1,6 +1,7 @@
-import { AfterContentChecked, ChangeDetectorRef, Component } from '@angular/core';
+import { AfterContentChecked, ChangeDetectorRef, Component, QueryList } from '@angular/core';
 
 import { HeaderTheme } from '@logo-software/header';
+import { TabComponent } from '@logo-software/tabs/lib/tab.component';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,7 @@ import { HeaderTheme } from '@logo-software/header';
 })
 export class AppComponent implements AfterContentChecked {
   public headerTheme = HeaderTheme;
+  items = [];
 
   constructor(private cdr: ChangeDetectorRef) {
   }
@@ -25,5 +27,25 @@ export class AppComponent implements AfterContentChecked {
     const leftPosition = Math.round(b.target.offsetLeft - 50);
     e.className.search('opened') <= 0 ? e.className = 'hover-menu opened' : e.className = 'hover-menu';
     e.className.search('opened') > -1 ? e.style.left = leftPosition + 'px' : e.style.left = '';
+  }
+
+  tabChange(tab: TabComponent) {
+    console.log('tab change: ', tab);
+  }
+
+  tabInit(tab: TabComponent) {
+    console.log('Tabs initialized: ', tab);
+  }
+
+  tabClick(tab) {
+    console.log('clicked', tab);
+  }
+
+  tabEvent(c: QueryList<TabComponent>) {
+    console.log('event', c.toArray());
+  }
+
+  addTab() {
+    this.items.push({});
   }
 }
