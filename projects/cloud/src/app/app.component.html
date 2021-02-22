@@ -8,8 +8,12 @@
   >
     <div class="section-main">
       <logo-link [classes]="'ghost large'" [url]="'/products'">Ürünler</logo-link>
-      <logo-link (onHover)="toggleHoverMenu($event, solutionsMenu)" (onLeave)="toggleHoverMenu($event, solutionsMenu)"
-                 [classes]="'ghost large'">Çözümler
+      <logo-link
+        (onHover)="toggleHoverMenu($event, solutionsMenu)"
+        (onLeave)="toggleHoverMenu($event, solutionsMenu)"
+        [classes]="'ghost large'"
+      >
+        Çözümler
       </logo-link>
       <logo-link [classes]="'ghost large'" [url]="'/blog'">Blog</logo-link>
       <logo-link [classes]="'ghost large'" [url]="'/contact'">İletişim</logo-link>
