@@ -44,8 +44,14 @@ import { LinkService } from './link.service';
     <ng-container *ngTemplateOutlet="external ? externalURL: internalURL">
     </ng-container>
     <ng-template #internalURL>
-      <button routerLink="{{url}}" [fragment]="fragment" [ngClass]="classes" (click)="onClickEvent($event, false)"
-              (mouseenter)="onHoverEvent($event)" (mouseleave)="onLeaveEvent($event)">
+      <button
+        routerLink="{{url}}"
+        [fragment]="fragment"
+        [ngClass]="classes"
+        (click)="onClickEvent($event, false)"
+        (mouseenter)="onHoverEvent($event)"
+        (mouseleave)="onLeaveEvent($event)"
+      >
         <ng-container *ngTemplateOutlet="display ? displayHTML : contentHTML"></ng-container>
       </button>
     </ng-template>
