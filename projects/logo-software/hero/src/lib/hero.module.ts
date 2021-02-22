@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { HeroComponent } from './hero.component';
 import { CommonModule } from '@angular/common';
 
+import { HeroComponent } from './hero.component';
 
 @NgModule({
   declarations: [HeroComponent],
