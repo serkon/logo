@@ -21,8 +21,9 @@ export interface HttpResponse<T> {
 }
 
 /**
+ * GET  (/api/product/segment/list): Segment[]
+ * GET  (/api/product/sector/list): Sector[]
  * GET  (/api/product/finder/step/list): Step[]
- * GET  (/api/product/finder/segment/list): ProductSegment[]
  * POST (/api/product/finder/question/list - segmentId): ProductQuestion[]
  * POST (/api/product/finder/expectation/list - segmentId, solutionId): ProductExpectation[]
  * POST (/api/product/reference/list - {filter: {productId: string}}) - Reference[]
@@ -96,13 +97,13 @@ export interface Step {
    * Bütün adımları ile beraber tüm dataları içeren tek bir HTTPResponse
    * oluşturulmak istenirse bu prop kullanılarak tüm alt data dönülecektir.
    */
-  selection?: ProductSegment[] | ProductQuestion[] | ProductExpectation[] | ProductSummary[];
+  selection?: Segment[] | ProductQuestion[] | ProductExpectation[] | ProductSummary[];
 }
 
 /**
  * Kurumdaki çalışan sayısına göre ürün satın alacak şirket kırılımını ifade eder.
  */
-export interface ProductSegment {
+export interface Segment {
   /**
    * UUID içeren id değeri
    * Örnek: d1fdf61e-0ab5–433d-9b19-de09425b1e46
@@ -1465,7 +1466,7 @@ const productSummaries: ProductSummary[] = [
   },
 ];
 
-const productSegments: ProductSegment[] = [
+const productSegments: Segment[] = [
   {
     id: 'd1fdf61e-0ab5–433d-9b19-de09425b1e41',
     title: 'Mikro Şirket',
