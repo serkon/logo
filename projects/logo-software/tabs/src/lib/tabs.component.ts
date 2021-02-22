@@ -18,14 +18,15 @@ import { delay } from 'rxjs/operators';
         </logo-link>
       </li>
     </ul>
-    <div class="tab-line" *ngIf="!routing"></div>
+    <div class="tab-line"></div>
+    <!--div class="tabs" *ngIf="!routing"-->
     <div class="tabs">
       <ng-content></ng-content>
     </div>
-    <div class="tabs" *ngIf="routing">
+    <!--div class="tabs" *ngIf="routing">
       <ng-content></ng-content>
       <router-outlet></router-outlet>
-    </div>
+    </div-->
   `,
   styleUrls: ['tabs.component.scss'],
 })
