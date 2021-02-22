@@ -1,7 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { Router, Scroll } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
-import has = Reflect.has;
 
 @Injectable({
   providedIn: 'root',
@@ -19,9 +18,9 @@ export class LinkService {
       });
   }
 
-  scrollToAnchor(fragment) {
+  scrollToAnchor(fragment: string) {
     const hash = document.location.hash.split('#')[1];
-    const id = hash || this.fragment;
+    const id = hash || fragment;
     if (id) {
       window.setTimeout(() => {
         const anc = document.getElementById(id);
@@ -30,7 +29,7 @@ export class LinkService {
           behavior: 'smooth',
           block: 'start',
         });
-      }, 200);
+      }, 300);
     }
   }
 }
