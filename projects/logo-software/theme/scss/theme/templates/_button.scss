@@ -2,10 +2,12 @@
 Standardization: Button
  */
 %button {
+  font-family: get("font.family");
   font-weight: normal;
   border-radius: size(get("border.radius"));
   cursor: pointer;
   white-space: nowrap;
+  user-select: none;
 
   @extend %padding-button, %padding-button-medium;
   @extend %fill, %fill-secondary, %size-medium;
@@ -27,6 +29,17 @@ Standardization: Button
   &.icon-right {
     &::before {
       right: size(-1px);
+    }
+  }
+}
+
+%button-selected {
+  @extend %#{get("element.button.selected")};
+
+  @each $state in get("state.list") {
+    &:#{$state}, &-#{$state} {
+      background-color: var(--primary-#{$state});
+      color: var(--white);
     }
   }
 }

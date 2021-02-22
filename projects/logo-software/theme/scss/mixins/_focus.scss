@@ -1,4 +1,4 @@
-@mixin nb-outline($outline-width:size(8px), $outline-color: rgba(var(--gray-600-rgb), color(ghost-hover)), $inset-shadow-length: 0) {
+@mixin nb-outline($outline-width:size(8px), $outline-color: rgba(var(--neutral-200-rgb), color(ghost-hover)), $inset-shadow-length: 0) {
   $outset-shadow: 0 0 0 $outline-width $outline-color;
 
   box-shadow: $outset-shadow; // !important;

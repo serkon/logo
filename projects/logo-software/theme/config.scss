@@ -22,11 +22,7 @@ $config: deep-map-merge((
           color: --neutral-900
         ),
         border: (
-          default: --gray-300,
-          selected: (
-            color: --info-900,
-            size: 2px
-          )
+          default: --light-600,
         )
       ),
       input: (
@@ -112,7 +108,8 @@ $config: deep-map-merge((
       ),
       border: (
         right-color: --secondary-700
-      )
+      ),
+      selected: "fill-primary"
     ),
     switch:(
       size:(
@@ -202,8 +199,8 @@ $config: deep-map-merge((
       shadow: "0 0 10px 0 rgba(106, 120, 245, 0.05), 0 5px 5px 0 rgba(106, 120, 245, 0.1)",
       margin: 20px,
       size: (
-        medium: (height: 26px, padding: 4px 10px, font-size: 14px, margin: 13px),
-        large: (height: 40px, padding: 11px 20px, font-size: 14px, margin: 14px)
+        medium: (height: 26px, font-size: 14px, margin: 13px, padding: (top: 0, right: 10px, bottom: 0, left: 10px)),
+        large: (height: 40px, font-size: 14px, margin: 14px, padding: (top: 0, right: 10px, bottom: 0, left: 10px))
       ),
       color: (secondary:700, primary:500),
       close:(
@@ -311,6 +308,13 @@ $config: deep-map-merge((
         )),
       table: (status: true),
       tree: (status: true),
+      tab: (
+        status: true,
+        size: (
+          medium: (padding: (top: 4px, right: 10px, bottom: 4px, left: 10px)),
+          large: (padding: (top: 11px, right: 20px, bottom: 11px, left: 20px)),
+        )
+      )
     )
   ),
   debug: false,

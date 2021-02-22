@@ -1,34 +1,109 @@
-@each $size, $value in get("element.tab.size") {
-  .v-tabsheet.#{$size}, %v-tabsheet-#{$size} {
-    .v-tabsheet-tabcontainer {
-      table.v-tabsheet-tabs {
-        margin: size(get("element.tab.size."+$size+".margin"));
+@if (get("vaadin.element.tab.status")) {
+  @each $size, $value in get("element.tab.size") {
+    .v-tabsheet.#{$size}, %v-tabsheet-#{$size} {
+      .v-tabsheet-tabcontainer {
+        table.v-tabsheet-tabs {
+          margin: size(get("element.tab.size."+$size+".margin"));
 
-        td.v-tabsheet-tabitemcell {
-          .v-caption {
-            border-radius: size(get("element.tab.size."+$size+".height")/2);
-            height: size(get("element.tab.size."+$size+".height"));
-            line-height: size(get("element.tab.size."+$size+".height"));
-            padding: size(nth(get("element.tab.size."+$size+".padding"), 1)) size(nth(get("element.tab.size."+$size+".padding"), 2));
-            font-size: size(get("element.tab.size."+$size+".font-size"));
+          td.v-tabsheet-tabitemcell {
+            .v-caption {
+              border-radius: size(get("element.tab.size."+$size+".height")/2);
+              height: size(get("element.tab.size."+$size+".height"));
+              line-height: size(get("element.tab.size."+$size+".height"));
+              padding: size(get("vaadin.element.tab.size."+$size+".padding.top")) size(get("vaadin.element.tab.size."+$size+".padding.right"));
+              font-size: size(get("element.tab.size."+$size+".font-size"));
+            }
           }
         }
       }
     }
   }
-}
 
-@each $color, $value in get("element.tab.color") {
-  .v-tabsheet.#{$color}, %v-tabsheet-#{$color} {
+  @each $color, $value in get("element.tab.color") {
+    .v-tabsheet.#{$color}, %v-tabsheet-#{$color} {
+      .v-tabsheet-tabcontainer {
+        table.v-tabsheet-tabs {
+          td.v-tabsheet-tabitemcell {
+            &.v-tabsheet-tabitemcell-selected {
+              .v-caption {
+                color: var(--white);
+                background-color: var(--#{$color}-#{$value});
+
+                .v-captiontext {
+                  color: var(--white);
+                }
+              }
+            }
+          }
+        }
+
+        .v-tabsheet-scroller {
+          button.v-tabsheet-scrollerPrev, button.v-tabsheet-scrollerNext {
+            &:hover {
+              color: var(--#{$color}-#{$value});
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .v-tabsheet {
     .v-tabsheet-tabcontainer {
+      &::before {
+        display: none;
+      }
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--white);
+      box-shadow: unquote(get("element.tab.shadow"));
+
       table.v-tabsheet-tabs {
         td.v-tabsheet-tabitemcell {
+          &:not(:first-child) {
+            .v-tabsheet-tabitem {
+              margin-left: size(get("element.tab.margin"));
+            }
+          }
+
+          .v-tabsheet-tabitem {
+            .v-caption {
+              border: none;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin: 0;
+              background-color: transparent;
+              color: var(--secondary-700);
+              font-weight: 700;
+
+              .v-captiontext {
+                padding-bottom: 0;
+                color: var(--secondary-700);
+              }
+
+              .v-tabsheet-caption-close {
+                position: static;
+                color: var(--secondary-700);
+                font-size: size(get("element.tab.close.font-size"));
+                background-color: transparent;
+                margin: 0;
+              }
+            }
+          }
+
           &.v-tabsheet-tabitemcell-selected {
             .v-caption {
               color: var(--white);
-              background-color: var(--#{$color}-#{$value});
+              background-color: var(--primary);
 
               .v-captiontext {
+                color: var(--white);
+              }
+
+              .v-tabsheet-caption-close {
                 color: var(--white);
               }
             }
@@ -37,102 +112,29 @@
       }
 
       .v-tabsheet-scroller {
+        &::after {
+          display: none;
+        }
+
         button.v-tabsheet-scrollerPrev, button.v-tabsheet-scrollerNext {
-          &:hover {
-            color: var(--#{$color}-#{$value});
+          color: var(--secondary-700);
+
+          &:active {
+            opacity: 1;
           }
         }
       }
     }
+
+    .v-tabsheet-content {
+      border: none !important;
+
+      .v-tabsheet-tabsheetpanel {
+        background-color: transparent;
+      }
+    }
+
+    @extend %v-tabsheet-medium;
+    @extend %v-tabsheet-primary;
   }
-}
-
-.v-tabsheet {
-  .v-tabsheet-tabcontainer {
-    &::before {
-      display: none;
-    }
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--white);
-    box-shadow: unquote(get("element.tab.shadow"));
-
-    table.v-tabsheet-tabs {
-      td.v-tabsheet-tabitemcell {
-        &:not(:first-child) {
-          .v-tabsheet-tabitem {
-            margin-left: size(get("element.tab.margin"));
-          }
-        }
-
-        .v-tabsheet-tabitem {
-          .v-caption {
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
-            background-color: transparent;
-            color: var(--secondary-700);
-            font-weight: 700;
-
-            .v-captiontext {
-              padding-bottom: 0;
-              color: var(--secondary-700);
-            }
-
-            .v-tabsheet-caption-close {
-              position: static;
-              color: var(--secondary-700);
-              font-size: size(get("element.tab.close.font-size"));
-              background-color: transparent;
-              margin: 0;
-            }
-          }
-        }
-
-        &.v-tabsheet-tabitemcell-selected {
-          .v-caption {
-            color: var(--white);
-            background-color: var(--primary);
-
-            .v-captiontext {
-              color: var(--white);
-            }
-
-            .v-tabsheet-caption-close {
-              color: var(--white);
-            }
-          }
-        }
-      }
-    }
-
-    .v-tabsheet-scroller {
-      &::after {
-        display: none;
-      }
-
-      button.v-tabsheet-scrollerPrev, button.v-tabsheet-scrollerNext {
-        color: var(--secondary-700);
-
-        &:active {
-          opacity: 1;
-        }
-      }
-    }
-  }
-
-  .v-tabsheet-content {
-    border: none !important;
-
-    .v-tabsheet-tabsheetpanel {
-      background-color: transparent;
-    }
-  }
-
-  @extend %v-tabsheet-medium;
-  @extend %v-tabsheet-primary;
 }
