@@ -32,6 +32,7 @@ export interface HttpResponse<T> {
  * POST (/api/product/summary/list - {filter: {segmentId, solutionId, sectorId, tags}, paging: {count: number, page: number}, order:{sectorId: string, segmentId: string, solutionId: string, price: boolean}}): ProductSummary[]
  * POST (/api/product/detail - {filter: {productId: string}}) - Reference[]
  * GET  (/api/solution/summary/list): SolutionSummary[]
+ * POST  (/api/solution/summary/list - {paging: {count: number, page: number}}): SolutionSummary[]
  * POST (/api/solution/detail - {filter: {solutionId: string}}): Solution
  * POST (/api/blog/summary/list - {paging: {count: number, page: number}, order: {date: Date , author: authorId}, filter:{tag: tags[], solutionId: string}} ): BlogSummaryResponse[]
  * POST (/api/blog/detail - {filter: {blogId: string}}): Blog
@@ -1281,7 +1282,7 @@ const solutionSummaries: SolutionSummary[] = [
     description: 'E-Çözümler ile işletmenizi akıllı hale getirin!',
     icon: 'https://cdn3.iconfinder.com/data/icons/design-n-code/100/272127c4-8d19-4bd3-bd22-2b75ce94ccb4-512.png',
   },
-]
+];
 
 const solutionMetaData: SolutionMetaData[] = [
   {
@@ -1348,7 +1349,7 @@ const solutionMetaData: SolutionMetaData[] = [
       ],
     },
   },
-]
+];
 
 const solutions: Solution[] = [
   {
@@ -1379,7 +1380,7 @@ const solutions: Solution[] = [
     ...solutionMetaData[0],
     ...solutionSummaries[6],
   },
-]
+];
 
 const productSummaries: ProductSummary[] = [
   {
