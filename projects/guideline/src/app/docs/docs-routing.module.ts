@@ -15,22 +15,21 @@ import { DocsComponent } from './docs.component';
 import { GetstartedComponent } from './getstarted/getstarted.component';
 
 const routes: Routes = [
-    {
-      path: '',
-      component: DocsComponent,
-      children: [
-        {
-          path: 'detail',
-          loadChildren: () => import('./detail/detail.module').then(m => m.DetailModule),
-        },
-        {
-          path: 'getstarted',
-          component: GetstartedComponent,
-        },
-      ],
-    },
-  ]
-;
+  {
+    path: '',
+    component: DocsComponent,
+    children: [
+      {
+        path: 'detail',
+        loadChildren: () => import('./detail/detail.module').then(m => m.DetailModule),
+      },
+      {
+        path: 'getstarted',
+        component: GetstartedComponent,
+      },
+    ],
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
