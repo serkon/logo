@@ -1,6 +1,8 @@
 /**
  * definition of link interface
  */
+import { Params } from '@angular/router';
+
 export interface Link {
   /**
    * display text will be visible for click
@@ -22,6 +24,10 @@ export interface Link {
    * if it is a anchor link give the target `id` value
    */
   fragment?: string;
+  /**
+   * a collection of matrix and query URL parameters.
+   */
+  params?: Params;
   /**
    * style classes will be give to the link
    */

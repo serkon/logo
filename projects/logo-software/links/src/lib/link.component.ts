@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { Params } from '@angular/router';
 
 import { Link } from './link';
 import { LinkService } from './link.service';
@@ -46,6 +47,7 @@ import { LinkService } from './link.service';
     <ng-template #internalURL>
       <button
         routerLink="{{url}}"
+        [queryParams]="params"
         [fragment]="fragment"
         [ngClass]="classes"
         (click)="onClickEvent($event, false)"
@@ -81,6 +83,10 @@ export class LinkComponent implements OnInit {
    * Direction address. When clicked link angular router direct to this url
    */
   @Input() url: string;
+  /**
+   * A collection of matrix and query URL parameters.
+   */
+  @Input() params: Params;
   /**
    * Given style class names in array
    */
