@@ -12,6 +12,7 @@ import { delay } from 'rxjs/operators';
         <logo-link
           [classes]="['ghost', tab.isActive?'selected':'']"
           [url]="tab.route"
+          [params]="tab.params"
           fragment="{{tab.fragment}}"
         >
           {{tab.title}}

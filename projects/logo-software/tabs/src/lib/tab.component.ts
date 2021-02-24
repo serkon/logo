@@ -14,8 +14,22 @@ import { Router, RouterOutlet } from '@angular/router';
 })
 export class TabComponent implements AfterViewInit {
   @Input() isActive: boolean = false;
+  /**
+   * display text will be visible for click
+   */
   @Input() title: string;
+  /**
+   * redirection address will be load
+   */
   @Input() route: string;
+  /**
+   * a collection of matrix and query URL parameters.
+   */
+  @Input() params: string;
+  /**
+   * Fragment uses to redirection to the anchor.
+   * For example, the fragment must be set to `section` for direction to `http://domain.com/#section`
+   */
   @Input() fragment: string;
   @Output() init: EventEmitter<TabComponent> = new EventEmitter<TabComponent>();
   @Output() click: EventEmitter<TabComponent> = new EventEmitter<TabComponent>();
