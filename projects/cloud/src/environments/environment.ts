@@ -4,6 +4,38 @@
 
 export const environment = {
   production: false,
+  IDM: {
+    CLIENT_ID: '2519ef34-66a0-4e5b-a333-089eb34edfc5',
+    CONFIG: {
+      URI: 'http://dev-linux.logo-paas.com:5100',
+      TENANT: {
+        DEFAULT: '/api/users/{userId}/defaulttenant',
+      },
+      TOKEN: {
+        GET: '/api/Token/GetToken',
+        VALIDATE: '/api/Token/ValidateToken',
+      },
+      DIRECTION: {
+        REDIRECT: true,
+        RETURN_URI: 'http://localhost:4200',
+        LOGIN_PAGE: {
+          URI: '/login',
+          STATUS: false,
+        },
+        '403': '/forbidden',
+        '500': '/server-error',
+      },
+    },
+  },
+  IDM_OLD: {
+    CLIENT: '2519ef34-66a0-4e5b-a333-089eb34edfc5',
+    URL: 'http://dev-linux.logo-paas.com:5100',
+    TENANT: '/api/users/{userId}/defaulttenant',
+    TOKEN: {
+      GET: '/api/Token/GetToken',
+      VALIDATE: '/api/Token/ValidateToken',
+    },
+  },
   api: {
     baseURL: 'https://talha.io/api/logoapi',
     solution: {

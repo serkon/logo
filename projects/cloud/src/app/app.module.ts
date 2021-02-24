@@ -4,9 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { HeaderModule } from '@logo-software/header';
 import { LinksModule } from '@logo-software/links';
+import { IdmModule } from '@logo-software/idm';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,10 +18,10 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     HeaderModule,
     LinksModule,
+    IdmModule.forRoot(environment.IDM.CLIENT_ID),
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [],
 })
 export class AppModule {
 }
