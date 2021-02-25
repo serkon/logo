@@ -27,7 +27,7 @@ export const redirect_login = {}
  * "Code":"45d6bcd16087ceba657582dd72122bb7e9b7d508504e711ad60d2de9e9cb729d"
  * }
  */
-export const GetToken = {
+export const GetTokenSample = {
   'ContentType': null,
   'SerializerSettings': null,
   'StatusCode': null,
