@@ -1,6 +1,7 @@
 import { AfterContentChecked, ChangeDetectorRef, Component, QueryList } from '@angular/core';
 
 import { HeaderTheme } from '@logo-software/header';
+import { IdmService } from '@logo-software/idm';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ export class AppComponent implements AfterContentChecked {
   public headerTheme = HeaderTheme;
   items = [];
 
-  constructor(private cdr: ChangeDetectorRef) {
+  constructor(private cdr: ChangeDetectorRef, public idmService: IdmService) {
   }
 
   ngAfterContentChecked(): void {

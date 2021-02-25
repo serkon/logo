@@ -1,26 +1,27 @@
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { Inject, Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { StorageClass } from '@logo-software/storage';
 import { RequestMethod } from './endpoint.service';
 
 import { PrivilegeService } from './privilege.service';
 import { LoggerService } from './logger.service';
-import { Token } from '../interface/token';
-import { IDM_CONFIG, IDM_ID } from '../idm.module';
+import { GetToken, Token } from '../interface/token';
+import { IDM_CONFIG, IDM_ID, IDMConfig } from '../idm.module';
+import { AuthorizationType } from '../interface/authorization-type';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RestrictionService implements CanActivate {
   public url: any;
-  public token: Token;
+  public token: string;
   private _login = false;
 
   constructor(
-    @Inject(IDM_ID) public idmClientId: string,
-    @Inject(IDM_CONFIG) public idmConfig,
+    @Inject(IDM_ID) public clientId: string,
+    @Inject(IDM_CONFIG) public config: IDMConfig,
     private router: Router,
     private http: HttpClient,
   ) {
@@ -28,20 +29,20 @@ export class RestrictionService implements CanActivate {
 
   public async canActivate(activatedRouteSnapshot: ActivatedRouteSnapshot, routerStateSnapshot: RouterStateSnapshot) {
     this.url = routerStateSnapshot.url;
-    await this.validateToken();
+    const token = StorageClass.getItem('token');
+    await this.validateToken(token);
     if (this._login) {
-      return this.isAccessible(activatedRouteSnapshot);
+      return true; // this.isAccessible(activatedRouteSnapshot);
     }
     return false;
   }
 
-  public validateToken(): Promise<boolean> {
+  public validateToken(token = StorageClass.getItem('token')): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      const token = StorageClass.getItem('token');
       if (!this._login) {
         if (token) {
-          this.http.request(RequestMethod.GET, `${this.idmConfig.URI}${this.idmConfig.TOKEN.VALIDATE}`).subscribe(
-            (response: HttpResponse<Token>) => this.loginSuccessHandler(response.body),
+          this.http.request(RequestMethod.GET, `${this.config.URI}/${this.config.TOKEN.VALIDATE}/${token}`).subscribe(
+            (response: Token) => this.loginSuccessHandler(response),
             (error: HttpErrorResponse) => this.loginErrorHandler(reject, error),
             () => this.loginCompleteHandler(resolve),
           );
@@ -52,11 +53,21 @@ export class RestrictionService implements CanActivate {
     });
   }
 
+  public getTokenWithCode(code: string) {
+    this.http.post(`${this.config.URI}${this.config.TOKEN.GET}`, {
+      RedirectUri: `${this.config.URI}`,
+      code,
+    }).subscribe((response: GetToken) => {
+      this.token = response.Value.access_token;
+      this.validateToken(this.token);
+    });
+  }
+
   public isAccessible(activatedRouteSnapshot: ActivatedRouteSnapshot): boolean {
     const privilegeStatus: boolean = PrivilegeService.check(activatedRouteSnapshot);
     if (!privilegeStatus && this._login) {
-      if (this.idmConfig.DIRECTION.REDIRECT) {
-        this.router.navigate([this.idmConfig.DIRECTION['403']]);
+      if (this.config.DIRECTION.REDIRECT) {
+        this.router.navigate([this.config.DIRECTION['403']]);
       }
       return false;
     }
@@ -64,19 +75,27 @@ export class RestrictionService implements CanActivate {
   }
 
   public loginSuccessHandler(token: Token) {
-    this.token = token;
     this._login = true;
-    StorageClass.setItem('token', token);
+    StorageClass.setItem('token', token.RawKey);
+    StorageClass.setItem('validated', token);
   }
 
   public loginErrorHandler(reject, error?) {
     this.secureLoginClear();
-    if (this.idmConfig.DIRECTION.LOGIN_PAGE.STATUS) {
-      this.router.navigate([this.idmConfig.DIRECTION.LOGIN_PAGE.URI]);
+    if (this.config.DIRECTION.LOGIN_PAGE.STATUS) {
+      this.router.navigate([this.config.DIRECTION.LOGIN_PAGE.URI]);
     } else {
-      window.location.href = `${this.idmConfig.URI}/connect/authorize/callback?client_id=${this.idmClientId}&redirect_uri=${this.idmConfig.DIRECTION.RETURN_URI}&response_type=code&scope=offline_access`;
+      this.toLogin();
     }
     reject(error || new Error('restriction service error'));
+  }
+
+  toLogin() {
+    if (this.config.TOKEN.AUTH_TYPE === AuthorizationType.IMPLICIT) {
+      window.location.href = `${this.config.URI}/connect/authorize?client_id=${this.clientId}&scope=vendorExtensions&response_type=token&redirect_uri=${this.config.DIRECTION.RETURN_URI}`;
+    } else if (this.config.TOKEN.AUTH_TYPE === AuthorizationType.CODE) {
+      window.location.href = `${this.config.URI}/connect/authorize/callback?client_id=${this.clientId}&redirect_uri=${this.config.DIRECTION.RETURN_URI}&response_type=code&scope=offline_access`;
+    }
   }
 
   public loginCompleteHandler(resolve) {
@@ -86,7 +105,7 @@ export class RestrictionService implements CanActivate {
 
   public logout(): void {
     this.secureLoginClear();
-    window.location.href = `${this.idmConfig.URI}/account/logout?redirect_uri=${this.url}&appid=${this.idmClientId}&forcesignout=true`;
+    window.location.href = `${this.config.URI}/account/logout?redirect_uri=${this.url}&appid=${this.clientId}&forcesignout=true`;
     // this.api.request(RequestMethod.POST, rest.user.logout).subscribe(
     //   (response: any) => this.onLogoutSuccessHandler(response),
     //   (error) => this.loginErrorHandler(error),

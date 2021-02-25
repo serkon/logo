@@ -1,4 +1,12 @@
-import { HTTP_INTERCEPTORS, HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  HttpErrorResponse,
+  HttpEvent,
+  HttpHandler,
+  HttpHeaders,
+  HttpInterceptor,
+  HttpRequest,
+} from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { retry, tap } from 'rxjs/operators';
@@ -8,7 +16,6 @@ import { StorageClass } from '@logo-software/storage';
 
 import { ErrorService } from './error.service';
 import { LoggerService } from './logger.service';
-import { User } from '../interface/user';
 
 @Injectable({
   providedIn: 'root',
@@ -18,12 +25,18 @@ export class AuthHeaderInterceptor implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const login: { [key: string]: User } = StorageClass.getItem('login');
-    const storageToken = login && login.user && login.user.token;
+    const storageToken = StorageClass.getItem('token');
     const requestToken = req.headers.get('token');
     let header = {};
     if (!requestToken) {
-      header = {headers: req.headers.set('Authorization', `Bearer ${storageToken}`)};
+      header = {headers: req.headers
+          .set('Authorization', `Bearer ${storageToken}`)
+          .set('Content-Type', 'application/json')};
+      // @For Overwrite:
+      // header = new HttpHeaders({
+      //   'Content-Type': 'application/json',
+      //   'Authorization': `Bearer ${storageToken}`,
+      // });
       // User ID
       // Tenant ID
     }

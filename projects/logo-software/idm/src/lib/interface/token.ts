@@ -19,3 +19,9 @@ export interface Token {
   Expiration: string;
   Data: any;
 }
+
+export class GetToken {
+  Value: {
+    access_token: string,
+  };
+}
