@@ -6,29 +6,7 @@ import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'logo-tabs',
-  template: `
-    <ul class="nav nav-tabs {{class}}">
-      <li *ngFor="let tab of tabs" (click)="selectTab(tab)" [class.active]="tab.isActive">
-        <logo-link
-          [classes]="['ghost', tab.isActive?'selected':'']"
-          [url]="tab.route"
-          [params]="tab.params"
-          fragment="{{tab.fragment}}"
-        >
-          {{tab.title}}
-        </logo-link>
-      </li>
-    </ul>
-    <div class="tab-line"></div>
-    <!--div class="tabs" *ngIf="!routing"-->
-    <div class="tabs">
-      <ng-content></ng-content>
-    </div>
-    <!--div class="tabs" *ngIf="routing">
-      <ng-content></ng-content>
-      <router-outlet></router-outlet>
-    </div-->
-  `,
+  templateUrl: 'tabs.component.html',
   styleUrls: ['tabs.component.scss'],
 })
 export class TabsComponent implements AfterContentInit {

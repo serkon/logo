@@ -13,6 +13,9 @@ import { Router, RouterOutlet } from '@angular/router';
   styleUrls: ['tab.component.scss'],
 })
 export class TabComponent implements AfterViewInit {
+  /**
+   * Tab will be active if set true, default is false
+   */
   @Input() isActive: boolean = false;
   /**
    * display text will be visible for click

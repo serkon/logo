@@ -1,0 +1,31 @@
+<div class="navigator">
+  <ul class="left">
+    <ng-content select="[left]"></ng-content>
+  </ul>
+  <div class="scroll">
+    <ul class="nav nav-tabs {{class}}">
+      <li *ngFor="let tab of tabs" (click)="selectTab(tab)" [class.active]="tab.isActive">
+        <logo-link
+          [classes]="['ghost', tab.isActive?'selected':'']"
+          [url]="tab.route"
+          [params]="tab.params"
+          fragment="{{tab.fragment}}"
+        >
+          {{tab.title}}
+        </logo-link>
+      </li>
+    </ul>
+  </div>
+  <ul class="right">
+    <ng-content select="[right]"></ng-content>
+  </ul>
+</div>
+<div class="tab-line"></div>
+<!--div class="tabs" *ngIf="!routing"-->
+<div class="tabs">
+  <ng-content></ng-content>
+</div>
+<!--div class="tabs" *ngIf="routing">
+  <ng-content></ng-content>
+  <router-outlet></router-outlet>
+</div-->
