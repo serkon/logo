@@ -1,0 +1,172 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+@import "~@logo-software/theme/base";
+@import "../../assets/scss/vars";
+
+:host {
+  ::ng-deep {
+    .hero-main {
+      height: size(495px);
+      background-image: url("#{$gfx-path}/main-hero-bg.png");
+      background-position: top center;
+      background-repeat: no-repeat;
+
+      .overlay {
+        background-color: rgba(var(--primary-1000-rgb), 0.5);
+      }
+
+      .motto {
+        width: size(450px);
+
+        h1 {
+          color: var(--white);
+        }
+
+        p {
+          margin-top: size(30px);
+          margin-bottom: size(50px);
+          color: var(--white);
+        }
+      }
+
+      .gfx {
+        flex-grow: 1;
+        text-align: center;
+        margin-bottom: size(-31px);
+      }
+    }
+  }
+
+  .section {
+    .solutions {
+      margin-top: size(208px);
+      margin-bottom: size(170px);
+
+      ::ng-deep {
+        .slider-item {
+          .card {
+            &.solution-item {
+              height: size(482px) !important;
+
+              .card-icon {
+                display: block;
+                margin-top: size(42px);
+                margin-bottom: size(60px);
+              }
+
+              .card-cta {
+                display: block;
+                margin-top: size(45px);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .product-finder {
+      padding-top: size(107px);
+
+      .section-content {
+        margin-top: size(80px);
+        padding-bottom: size(80px);
+        text-align: center;
+      }
+    }
+
+    .cloud-meta {
+      padding-top: size(208px);
+      padding-bottom: size(170px);
+
+      .section-content {
+        padding-top: size(60px);
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+
+        .item {
+          width: 23%;
+          position: relative;
+
+          .icon-base {
+            @include border-radius(100%);
+            @include box-shadow(0, size(24px), size(48px), 0, rgba(var(--black-rgb), 0.09), false);
+
+            display: inline-block;
+            width: size(160px);
+            height: size(160px);
+            overflow: hidden;
+            background: var(--white);
+            border: 10px solid var(--basic-300);
+            box-sizing: border-box;
+            margin-bottom: size(41px);
+            text-align: center;
+
+            span {
+              display: inline-block;
+              width: size(48px);
+              height: size(48px);
+              color: var(--primary);
+              margin-top: size(50px);
+
+              &::before {
+                mask-size: size(48px) !important;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .testimonial {
+      padding: size(100px) 0;
+      text-align: center;
+    }
+
+    .product-suggestion {
+      padding: size(170px) 0;
+
+      .content-buttons {
+        text-align: center;
+        padding-top: size(40px);
+      }
+    }
+
+    .faq {
+      .section-content {
+        text-align: center;
+        padding: size(50px) 0;
+      }
+    }
+
+    .blog-summary {
+      padding: size(170px) 0;
+
+      .section-content {
+        text-align: center;
+        padding: size(50px) 0;
+      }
+    }
+
+    .title {
+      display: block;
+      text-align: center;
+      margin-bottom: size(60px);
+
+      p {
+        margin: size(10px) 0;
+      }
+    }
+
+    &.alternate {
+      background: var(--basic-300);
+    }
+  }
+}

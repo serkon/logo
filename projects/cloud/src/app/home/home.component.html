@@ -1,19 +1,304 @@
 <div class="home-page">
   <logo-hero [containerStatus]="true" [cssClasses]="'hero-main'">
-    Logo.Cloud Main Page hero will be here
+    <div class="motto">
+      <h1><b>Lorem ipsum dolor sit amet, consectetur adipiscing elit</b></h1>
+      <p class="large">
+        Maecenas tellus orci, consequat sollicitudin quam at, egestas tincidunt mauris. Pellentesque id lorem lacus.
+        Vestibulum viverra eleifend elit.
+      </p>
+      <span class="cta">
+        <logo-link [classes]="'primary large'" [url]="'/to-that'">
+          Ürün Bulucu
+        </logo-link>
+      </span>
+    </div>
+    <div class="gfx">
+      <img src="/assets/img/main-hero.png"/>
+    </div>
   </logo-hero>
   <div class="section">
     <div class="solutions container">
       <span class="title">
-        <h1>Logo Cloud Çözümleri</h1>
+        <h1><b>Logo Cloud Çözümleri</b></h1>
         <p>Bulut tabanlı SaaS ürünleri ile ihtiyacınız olan çözümlere hızlı ulaşın !</p>
       </span>
-      <logo-carousel [arrow]="false" [count]="1" [dots]="true">
-        <div class="slider-item">
-          Slider Item
+      <div class="section-content">
+        <logo-carousel [arrow]="true" [count]="1" [dots]="false">
+          <div class="slider-item">
+            <logo-card [cssClasses]="'solution-item'">
+              <span class="card-icon">
+                <img src="/assets/data/sample-solution-icon-1.svg"/>
+              </span>
+              <div class="card-title">
+                <h3>Muhasabe Yönetimi</h3>
+              </div>
+              <div class="card-desc">
+                <p class="large">
+                  İster Webden İster Cepten; İnternet Erişiminizin Olduğu Her Yerden İşletmenizin Ön Muhasebe
+                  İşlemlerini...
+                </p>
+              </div>
+              <div class="card-cta">
+                <logo-link
+                  [classes]="'primary icon-left large le-search'"
+                  [url]="'/solutions/muhasebe-yonetimi'"
+                >
+                  İncele
+                </logo-link>
+              </div>
+            </logo-card>
+          </div>
+          <div class="slider-item">
+            <logo-card [cssClasses]="'solution-item'">
+              <span class="card-icon">
+                <img src="/assets/data/sample-solution-icon-1.svg"/>
+              </span>
+              <div class="card-title">
+                <h3>Muhasabe Yönetimi</h3>
+              </div>
+              <div class="card-desc">
+                <p class="large">
+                  İster Webden İster Cepten; İnternet Erişiminizin Olduğu Her Yerden İşletmenizin Ön Muhasebe
+                  İşlemlerini...
+                </p>
+              </div>
+              <div class="card-cta">
+                <logo-link
+                  [classes]="'primary icon-left large le-search'"
+                  [url]="'/solutions/muhasebe-yonetimi'"
+                >
+                  İncele
+                </logo-link>
+              </div>
+            </logo-card>
+          </div>
+          <div class="slider-item">
+            <logo-card [cssClasses]="'solution-item'">
+              <span class="card-icon">
+                <img src="/assets/data/sample-solution-icon-1.svg"/>
+              </span>
+              <div class="card-title">
+                <h3>Muhasabe Yönetimi</h3>
+              </div>
+              <div class="card-desc">
+                <p class="large">
+                  İster Webden İster Cepten; İnternet Erişiminizin Olduğu Her Yerden İşletmenizin Ön Muhasebe
+                  İşlemlerini...
+                </p>
+              </div>
+              <div class="card-cta">
+                <logo-link
+                  [classes]="'primary icon-left large le-search'"
+                  [url]="'/solutions/muhasebe-yonetimi'"
+                >
+                  İncele
+                </logo-link>
+              </div>
+            </logo-card>
+          </div>
+          <div class="slider-item">
+            <logo-card [cssClasses]="'solution-item'">
+              <span class="card-icon">
+                <img src="/assets/data/sample-solution-icon-1.svg"/>
+              </span>
+              <div class="card-title">
+                <h3>Muhasabe Yönetimi</h3>
+              </div>
+              <div class="card-desc">
+                <p class="large">
+                  İster Webden İster Cepten; İnternet Erişiminizin Olduğu Her Yerden İşletmenizin Ön Muhasebe
+                  İşlemlerini...
+                </p>
+              </div>
+              <div class="card-cta">
+                <logo-link
+                  [classes]="'primary icon-left large le-search'"
+                  [url]="'/solutions/muhasebe-yonetimi'"
+                >
+                  İncele
+                </logo-link>
+              </div>
+            </logo-card>
+          </div>
+          <div class="slider-item">
+            <logo-card [cssClasses]="'solution-item'">
+              <span class="card-icon">
+                <img src="/assets/data/sample-solution-icon-1.svg"/>
+              </span>
+              <div class="card-title">
+                <h3>Muhasabe Yönetimi</h3>
+              </div>
+              <div class="card-desc">
+                <p class="large">
+                  İster Webden İster Cepten; İnternet Erişiminizin Olduğu Her Yerden İşletmenizin Ön Muhasebe
+                  İşlemlerini...
+                </p>
+              </div>
+              <div class="card-cta">
+                <logo-link
+                  [classes]="'primary icon-left large le-search'"
+                  [url]="'/solutions/muhasebe-yonetimi'"
+                >
+                  İncele
+                </logo-link>
+              </div>
+            </logo-card>
+          </div>
+          <div class="slider-item">
+            <logo-card [cssClasses]="'solution-item'">
+              <span class="card-icon">
+                <img src="/assets/data/sample-solution-icon-1.svg"/>
+              </span>
+              <div class="card-title">
+                <h3>Muhasabe Yönetimi</h3>
+              </div>
+              <div class="card-desc">
+                <p class="large">
+                  İster Webden İster Cepten; İnternet Erişiminizin Olduğu Her Yerden İşletmenizin Ön Muhasebe
+                  İşlemlerini...
+                </p>
+              </div>
+              <div class="card-cta">
+                <logo-link
+                  [classes]="'primary icon-left large le-search'"
+                  [url]="'/solutions/muhasebe-yonetimi'"
+                >
+                  İncele
+                </logo-link>
+              </div>
+            </logo-card>
+          </div>
+        </logo-carousel>
+      </div>
+    </div>
+  </div>
+  <div class="section alternate">
+    <div class="product-finder container">
+      <span class="title">
+        <h1><b>İhtiyacınıza En Uygun Ürünü Bulun</b></h1>
+        <p>
+          İşletmeniz için en uygun çözümü bulmak çok kolay! Sadece 2 dakikanızı ayırarak soruları cevaplayın, size ihtiyacınız olan çözümü söyleyelim.
+        </p>
+      </span>
+      <div class="section-content">
+        @TODO Product Finder
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="cloud-meta container">
+      <span class="title">
+        <h2><b>Logo Cloud ürünleri kullanmak için birçok sebebiniz var!</b></h2>
+        <p>
+          SaaS ürünleri, internet üzerinden bulut tabanlı uygulamalara erişim ve kullanım olanağı sağlayan hizmet yazılımlarıdır.
+        </p>
+      </span>
+      <div class="section-content list">
+        <div class="item">
+          <span class="icon-base">
+            <span class="le-download"></span>
+          </span>
+          <span class="text-base">
+            <h3>Bulut Tabanlı Çözümler</h3>
+            <p class="large">
+              Herhangi bir donanım, kurulum ya da sistem maliyeti olmadan ihityacınız olan çözümleri kullanın.
+            </p>
+          </span>
         </div>
-      </logo-carousel>
+        <div class="item">
+          <span class="icon-base">
+            <span class="le-credit_card_check"></span>
+          </span>
+          <span class="text-base">
+            <h3>Satın Alma Kolaylığı</h3>
+            <p class="large">
+              Sektörünüze, firma büyüklüğünüze ve iş hedeflerinize göre en uygun paketi satın alın.
+            </p>
+          </span>
+        </div>
+        <div class="item">
+          <span class="icon-base">
+            <span class="le-component_button"></span>
+          </span>
+          <span class="text-base">
+            <h3>Her Yerden Erişim</h3>
+            <p class="large">
+              İnternet erişiminizin olduğu her yerden, hızlı ve kolayca işlemlerinizi tamamlayın.
+            </p>
+          </span>
+        </div>
+        <div class="item">
+          <span class="icon-base">
+            <span class="le-check_badge"></span>
+          </span>
+          <span class="text-base">
+            <h3>Otomatik Versiyon Geçişi</h3>
+            <p class="large">
+              Değişen yasal mevzutlar için herhangi bir ücret ödemeden hızlı versiyon geçişinden faydalanın.
+            </p>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section alternate">
+    <div class="testimonial container">
+      <div class="section-content">
+        @TODO Testimonials
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="product-suggestion container">
+      <span class="title">
+        <h2><b>Ürünlerimizi Tanıyın!</b></h2>
+        <p>
+          Logo Cloud ürünler arasında ihtiyacınıza en uygun paket seçeneklerini inceleyin.
+        </p>
+      </span>
+      <div class="section-content">
+        <logo-carousel [arrow]="true" [count]="1" [dots]="false">
+          <div class="slider-item">
+            <logo-product-item></logo-product-item>
+          </div>
+          <div class="slider-item">
+            <logo-product-item></logo-product-item>
+          </div>
+          <div class="slider-item">
+            <logo-product-item></logo-product-item>
+          </div>
+          <div class="slider-item">
+            <logo-product-item></logo-product-item>
+          </div>
+          <div class="slider-item">
+            <logo-product-item></logo-product-item>
+          </div>
+        </logo-carousel>
+        <div class="content-buttons">
+          <logo-link [classes]="'primary large outline'" [url]="'/products'">Tüm Ürünler</logo-link>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="faq container">
+      <span class="title">
+        <h2><b>Sıkça Sorulan Sorular</b></h2>
+      </span>
+      <div class="section-content">
+        @TODO FAQ.
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="blog-summary container">
+      <span class="title">
+        <h2><b>Blog</b></h2>
+      </span>
+      <div class="section-content">
+        @TODO Blog Summary
+      </div>
     </div>
   </div>
 </div>
-
+<logo-cloud-footer></logo-cloud-footer>
