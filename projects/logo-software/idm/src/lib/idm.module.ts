@@ -9,6 +9,7 @@ import { IdmService } from './idm.service';
 
 export const IDM_CONFIG = new InjectionToken('idm config');
 export const IDM_ID = new InjectionToken('idm client id');
+
 export const IDM_DEFAULT_CONFIG = {
   URI: 'http://dev-linux.logo-paas.com:5100',
   USER: {

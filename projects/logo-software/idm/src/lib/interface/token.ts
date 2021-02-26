@@ -1,4 +1,4 @@
-export interface Token {
+export interface Validated {
   BrowserId: string;
   UserId: string;
   AppId: string;
