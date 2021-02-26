@@ -1,0 +1,122 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+@import "~@logo-software/theme/base";
+@import "../../../assets/scss/vars";
+
+:host {
+  .footer {
+    .newsletter-base {
+      height: size(300px);
+      background-image: url("#{$gfx-path}/footer-bg.png");
+      background-position: top center;
+      background-repeat: no-repeat;
+      position: relative;
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: block;
+        background-color: rgba(var(--primary-rgb), 0.8);
+        z-index: 0;
+      }
+
+      .contents {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100%;
+
+        .gfx {
+          flex-grow: 0;
+          margin-right: size(15px);
+        }
+
+        .text-base {
+          flex-grow: 1;
+
+          .title {
+            display: block;
+            margin-bottom: size(45px);
+
+            h1 {
+              color: var(--white);
+            }
+
+            h4 {
+              color: var(--white);
+            }
+          }
+
+          .form {
+            input {
+              margin-right: size(10px);
+              width: size(750px);
+            }
+          }
+        }
+      }
+    }
+
+    .content-base {
+      background-color: var(--basic-400);
+      padding-top: size(95px);
+
+      .footer-links {
+        .footer-col {
+          h3 {
+            margin-bottom: size(30px);
+          }
+
+          ::ng-deep {
+            button {
+              margin-left: size(-23px) !important;
+              position: relative;
+
+              &.icon-left {
+                margin-left: size(-14px) !important;
+
+                &::before {
+                  color: var(--neutral-500)
+                }
+              }
+
+              .custom-icon {
+                display: inline-block;
+                position: absolute;
+                left: size(12px);
+                top: size(5px);
+              }
+            }
+          }
+        }
+
+        .legal-links {
+          text-align: center;
+          padding: size(50px) 0;
+
+          logo-link {
+            display: inline-block;
+          }
+        }
+      }
+    }
+
+    .copyright {
+      padding: size(22px) 0;
+      text-align: center;
+      border-top: 1px solid var(--secondary-500);
+    }
+  }
+}
