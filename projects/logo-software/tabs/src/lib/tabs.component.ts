@@ -4,6 +4,19 @@ import { TabComponent } from './tab.component';
 import { Router } from '@angular/router';
 import { delay } from 'rxjs/operators';
 
+/**
+ * ### Alignment
+ * Add [left] or [right] property to any element to set position's on the navbar.
+ * For example:
+ *
+ * <sub>app.component.html</sub>
+ * ```html
+ * <logo-tabs...>
+ *   <div right>right text</div>
+ *   <div left>left text</div>
+ * </logo-tabs>
+ * ```
+ */
 @Component({
   selector: 'logo-tabs',
   templateUrl: 'tabs.component.html',
