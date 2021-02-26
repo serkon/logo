@@ -1,0 +1,118 @@
+{
+  "page": 1,
+  "count": 3,
+  "total": 3,
+  "data": [
+    {
+      "id": "507F0707-4D7B-49A7-8588-EBD78F15C78E1",
+      "materialCode": "materialcode1",
+      "backgroundImage": "https://via.placeholder.com/728x90.png?text=Background+Image",
+      "logo": "https://via.placeholder.com/300x400.png?text=Background+Image",
+      "name": "Logo Payroll",
+      "description": "İK süreçleriniz dönüşüyor, verileriniz Logo güvencesi ile buluta taşınıyor!",
+      "solutions": [
+        {
+          "id": "1",
+          "name": "Bordro Yönetimi"
+        }
+      ],
+      "isCloud": true,
+      "segmentId": [
+        "1"
+      ],
+      "sectorId": [
+        "1"
+      ],
+      "cloud": {
+        "link": "http://google.com"
+      },
+      "onPremise": {
+        "link": "http://google.com"
+      },
+      "stars": 5,
+      "price": {
+        "id": "1",
+        "cost": 50,
+        "symbol": "₺",
+        "includeTax": false,
+        "currency": "TRY",
+        "promo": 5,
+        "discount": 5
+      }
+    },
+    {
+      "id": "507F0707-4D7B-49A7-8588-EBD78F15C78E2",
+      "materialCode": "materialcode2",
+      "backgroundImage": "https://via.placeholder.com/728x90.png?text=Background+Image",
+      "logo": "https://via.placeholder.com/300x400.png?text=Background+Image",
+      "name": "Logo İşbaşı",
+      "description": "İster e-Fatura İster Ön Muhasebe…\nİhtiyacınıza en uygun çözümler Logo İşbaşı’nda!",
+      "solutions": [
+        {
+          "id": "2",
+          "name": "Ön Muhasebe Yönetimii"
+        }
+      ],
+      "isCloud": true,
+      "segmentId": [
+        "2"
+      ],
+      "sectorId": [
+        "2"
+      ],
+      "cloud": {
+        "link": "http://google.com"
+      },
+      "onPremise": {
+        "link": "http://google.com"
+      },
+      "stars": 5,
+      "price": {
+        "id": "2",
+        "cost": 100,
+        "symbol": "₺",
+        "includeTax": false,
+        "currency": "TRY",
+        "promo": 5,
+        "discount": 5
+      }
+    },
+    {
+      "id": "507F0707-4D7B-49A7-8588-EBD78F15C78E3",
+      "materialCode": "materialcode3",
+      "backgroundImage": "https://via.placeholder.com/728x90.png?text=Background+Image",
+      "logo": "https://via.placeholder.com/300x400.png?text=Background+Image",
+      "name": "Logo Döküman Yönetim Servisi",
+      "description": "İK süreçleriniz dönüşüyor, verileriniz Logo güvencesi ile buluta taşınıyor!",
+      "solutions": [
+        {
+          "id": "3",
+          "name": "Doküman Yönetimi"
+        }
+      ],
+      "isCloud": true,
+      "segmentId": [
+        "3"
+      ],
+      "sectorId": [
+        "3"
+      ],
+      "cloud": {
+        "link": "http://google.com"
+      },
+      "onPremise": {
+        "link": "http://google.com"
+      },
+      "stars": 5,
+      "price": {
+        "id": "3",
+        "cost": 150,
+        "symbol": "₺",
+        "includeTax": false,
+        "currency": "TRY",
+        "promo": 5,
+        "discount": 5
+      }
+    }
+  ]
+}
