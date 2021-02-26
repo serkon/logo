@@ -8,9 +8,92 @@
  * Any reproduction of this material must contain this notice.
  */
 @import "~@logo-software/theme/base";
+@import "vars";
+
+html, body {
+  overflow-x: hidden;
+}
 
 .logo-cloud-theme {
   .header {
     height: size(75px) !important;
+    background: var(--white);
+    z-index: 5;
+
+    .logo {
+      width: size(224px) !important;
+      height: size(28px) !important;
+      margin-left: 0 !important;
+      background-image: url("#{$gfx-path}/logo.svg");
+      background-position: top left;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .cloud-content {
+    margin-top: size(75px);
+
+    .sliding {
+      display: flex !important;
+      align-items: flex-start;
+      flex-direction: row;
+
+      .slider-item {
+        width: size(370px);
+
+        p {
+          white-space: normal;
+        }
+      }
+    }
+  }
+
+  .card {
+    &.product-item {
+      .card-content {
+        padding: size(50px) 0 size(20px) 0;
+        margin: 0 size(-10px);
+
+        .card-logo {
+          display: block;
+          padding: size(10px) 0;
+        }
+
+        .card-name {
+          h3 {
+            color: var(--neutral-600);
+          }
+        }
+
+        .card-opts {
+          display: flex;
+          align-content: flex-start;
+
+          .price {
+            flex-grow: 1;
+            text-align: right;
+
+            h1 {
+              color: var(--primary);
+
+              p {
+                display: inline;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .badge {
+    @include border-radius(size(4px));
+
+    display: inline-block;
+    background: var(--secondary);
+    padding: size(1px) size(5px);
+    color: var(--neutral-900);
+    font-size: 12px;
+    line-height: 16px;
   }
 }
