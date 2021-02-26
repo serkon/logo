@@ -6,7 +6,7 @@
   background-color: var(--basic-300);
 
   .hero {
-    height: size(200px);
+    min-height: size(100px);
     position: relative;
 
     .overlay {
