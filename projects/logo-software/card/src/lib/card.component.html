@@ -1,0 +1,8 @@
+<div [ngClass]="{'hide-cta' : hideCTA}" class="card {{cssClasses}}">
+  <div *ngIf="cardImage" class="card-image">
+    <img src="{{cardImage}}"/>
+  </div>
+  <div class="card-content">
+    <ng-content></ng-content>
+  </div>
+</div>

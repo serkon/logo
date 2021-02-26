@@ -1,0 +1,32 @@
+@import "~@logo-software/theme/base";
+
+@mixin transition($property, $duration, $easing: linear) {
+  transition: $property $duration $easing;
+}
+
+:host {
+  .card {
+    @include border-radius(size(10px));
+    @include box-shadow(0, size(24px), size(48px), 0, rgba(var(--neutral-900-rgb), 0.1), false);
+    @include transition(all, 0.2s, ease-in-out);
+
+    background: var(--white);
+    padding: size(30px);
+    margin: size(10px);
+    box-sizing: border-box;
+    overflow: hidden;
+
+    .card-image {
+      display: flex;
+      align-items: center;
+      margin-top: size(-30px);
+      margin-left: size(-30px);
+      margin-right: size(-30px);
+      overflow: hidden;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
