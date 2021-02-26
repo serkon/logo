@@ -1,0 +1,35 @@
+<logo-card
+  [cardImage]="'/assets/data/sample-product-sum-image.png'"
+  [cssClasses]="'product-item'"
+>
+  <div class="product-categories">
+    <span class="badge">
+      Bordro ve İnsan Kaynakları Yönetimi
+    </span>
+  </div>
+  <span class="card-logo">
+    <img src="/assets/data/sample-product-logo-1.png"/>
+  </span>
+  <span class="card-name">
+    <h3>Bordro Yönetimi</h3>
+  </span>
+  <span class="card-desc">
+    <p>
+      İK süreçleriniz dönüşüyor, verileriniz Logo güvencesi ile buluta taşınıyor!
+    </p>
+  </span>
+  <div class="card-opts">
+    <div class="price">
+      <h1><b>₺30</b>
+        <p class="medium">+ KDV</p></h1>
+    </div>
+  </div>
+  <div class="card-cta">
+    <logo-link
+      [classes]="'primary large icon-left le-search'"
+      [url]="'/product/payroll'"
+    >
+      Ürünü İncele
+    </logo-link>
+  </div>
+</logo-card>
