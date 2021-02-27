@@ -1,7 +1,17 @@
 import { Inject, InjectionToken, Optional } from '@angular/core';
 
+/**
+ * Storage Types
+ * There are two types of storage
+ */
 export enum STORAGE_TYPES {
+  /**
+   * It store cookie at local storage. Persists even when the browser is closed and reopened.
+   */
   LOCAL = 'localStorage',
+  /**
+   * It store cookie at session storage. Stores data only for a session, meaning that the data is stored until the browser (or tab) is closed.
+   */
   SESSION = 'sessionStorage',
 }
 
@@ -28,6 +38,10 @@ export class StorageService {
     this.storageAvailability = true;
   }
 
+  /**
+   * Get item in storage
+   * @param key
+   */
   getItem(key: any) {
     try {
       return JSON.parse(this.storageType.getItem(key));
@@ -37,6 +51,11 @@ export class StorageService {
     }
   }
 
+  /**
+   * Set item to storage
+   * @param key
+   * @param value
+   */
   setItem(key: string, value: any) {
     try {
       this.storageType.setItem(key, JSON.stringify(value));
@@ -46,6 +65,10 @@ export class StorageService {
     }
   }
 
+  /**
+   * Remove any key defined before from storage
+   * @param key
+   */
   removeItem(key: string) {
     try {
       this.storageType.removeItem(key);
@@ -54,6 +77,9 @@ export class StorageService {
     }
   }
 
+  /**
+   * Clear all keys at storage
+   */
   clear() {
     let result;
     try {
@@ -65,6 +91,10 @@ export class StorageService {
     return result;
   }
 
+  /**
+   * Return key as JSON format
+   * @param key
+   */
   getConfig(key: string) {
     let result;
     try {
@@ -76,6 +106,9 @@ export class StorageService {
     return result;
   }
 
+  /**
+   * Storage ability
+   */
   getStorageAvailability() {
     return this.storageAvailability;
   }

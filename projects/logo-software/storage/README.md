@@ -1,24 +1,25 @@
-# Storage
+Storage Module manage storage type and install module to your angular application. 
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.9.
+With web storage, web applications can store data locally within the user's browser.
+Before HTML5, application data had to be stored in cookies, included in every server request. Web storage is more secure, and large amounts of data can be stored locally, without affecting website performance.
+Unlike cookies, the storage limit is far larger (at least 5MB) and information is never transferred to the server.
+Web storage is per origin (per domain and protocol). All pages, from one origin, can store and access the same data.
 
-## Code scaffolding
+HTML web storage provides two objects for storing data on the client:
+```html
+window.localStorage - stores data with no expiration date
+window.sessionStorage - stores data for one session (data is lost when the browser tab is closed)
+```
+There are two type storage SESSION or LOCAL storage
 
-Run `ng generate component component-name --project storage` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project storage`.
-> Note: Don't forget to add `--project storage` or else it will be added to the default project in your `angular.json` file. 
-
-## Build
-
-Run `ng build storage` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build storage`, go to the dist folder `cd dist/storage` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test storage` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+__Usage Example__
+<sub>app.module.ts</sub>
+```typescript
+@NgModule({
+  ...
+  imports: [StorageModule.forRoot(STORAGE_TYPES.LOCAL)],
+  ...
+})
+export class AppModule {
+}
+```

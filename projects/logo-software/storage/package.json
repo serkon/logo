@@ -7,5 +7,45 @@
   },
   "dependencies": {
     "tslib": "^2.0.0"
+  },
+  "description": "HTML web storage; better than cookies. With web storage, web applications can store data locally within the user's browser. Before HTML5, application data had to be stored in cookies, included in every server request. Web storage is more secure, and large amounts of data can be stored locally, without affecting website performance.",
+  "homepage": "http://developer.logo.com.tr",
+  "author": {
+    "email": "konakci@mail.com",
+    "name": "Serkan Konakcı",
+    "url": "http://www.serkankonakci.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/logobs/ng-logo"
+  },
+  "keywords": [
+    "storage",
+    "store",
+    "webstore",
+    "session",
+    "local",
+    "localstorage",
+    "sessionstorage",
+    "web",
+    "api",
+    "dom"
+  ],
+  "license": "See license in LICENSE file",
+  "scripts": {
+    "ver:patch": "npm version patch --no-git-tag-version",
+    "ver:minor": "npm version minor --no-git-tag-version",
+    "ver:pre": "npm version prerelease --no-git-tag-version",
+    "ver:major": "npm version major --no-git-tag-version",
+    "postversion": "echo '#########\n### Versioning to:' $npm_package_version '\n### CommandPATH: ' $INIT_CWD '\n#########' && git status",
+    "build": "ng build $npm_package_name --prod",
+    "git-commit": "git add -A . && git commit . -m $TYPE'('$npm_package_name'): upgrading to v.'$npm_package_version",
+    "git-release": "git add -A . && git commit . -m $TYPE'('$npm_package_name'): cut the v.'$npm_package_version' release'",
+    "patch:commit": "npm run ver:patch && npm run build && TYPE=fix npm run git-commit && npm run tag",
+    "minor:commit": "npm run ver:minor && npm run build && TYPE=feat npm run git-commit && npm run tag",
+    "pre:commit": "npm run ver:pre && npm run build && TYPE=prerelease npm run git-commit && npm run tag",
+    "major:commit": "npm run ver:major && npm run build && TYPE=release npm run git-release && npm run tag",
+    "tag": "git tag StorageModule.$npm_package_version",
+    "unpublish": "npm unpublish $npm_package_name@$npm_package_version"
   }
 }
