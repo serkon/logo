@@ -843,7 +843,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
     return params;
   }
 
-  generateBody() {
+  generateBody():any {
     const body = {};
     this.onHttpBody.emit(body);
     return body;
