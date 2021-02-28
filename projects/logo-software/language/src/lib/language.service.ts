@@ -8,9 +8,9 @@ import { LanguageStoreService } from '../language.store';
  *
  * ### Change Language
  *
- *If you decide to use multiple language and change it using button to another one, just paste below sample to your code base.
+ * If you decide to use multiple language and change it using button to another one, just paste below sample to your code base.
  *
- *<sub>**app.component.ts**</sub>
+ * <sub>**app.component.ts**</sub>
  *
  * ```typescript
  * import {Component} from '@angular/core';
@@ -45,11 +45,11 @@ import { LanguageStoreService } from '../language.store';
  *      this.languageService.addLanguage({abbr: 'ro', code: 'ro-RO', display: 'Romain'});
  *    }
  *  }
- *```
+ * ```
  *
  * <hr>
  *
- *### Add Language
+ * ### Add Language
  *
  * If you desire add more languages to your scope: first add your language file to **assetsPath** (default path is: `/src/assets/languages`). After that call newly created language definition from  code. Example usage:
  *
@@ -74,8 +74,7 @@ import { LanguageStoreService } from '../language.store';
  * ```typescript
  * this.languageService.addLanguage({abbr: 'ro', code: 'ro-RO', display: 'Romain'});
  * ```
- **/
-
+ */
 @Injectable()
 export class LanguageService {
   /**
