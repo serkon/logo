@@ -9,7 +9,7 @@
     "tslib": "^2.0.0"
   },
   "description": "The navigation drawer slides in from the left and contains the navigation destinations for your app.",
-  "homepage": "http://design.logo.com.tr",
+  "homepage": "http://developer.logo.com.tr",
   "author": {
     "email": "konakci@mail.com",
     "name": "Serkan Konakcı",
@@ -45,7 +45,7 @@
     "minor:commit": "npm run ver:minor && npm run build && TYPE=feat npm run git-commit && npm run tag",
     "pre:commit": "npm run ver:pre && npm run build && TYPE=prerelease npm run git-commit && npm run tag",
     "major:commit": "npm run ver:major && npm run build && TYPE=release npm run git-release && npm run tag",
-    "tag": "git tag ThemeModule.$npm_package_version",
+    "tag": "git tag DrawerModule.$npm_package_version",
     "unpublish": "npm unpublish $npm_package_name@$npm_package_version"
   }
 }
