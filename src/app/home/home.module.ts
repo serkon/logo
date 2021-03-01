@@ -16,7 +16,7 @@ import { NgdHomeComponent } from './home.component';
   imports: [
     NgdHomeRoutingModule,
     NgdThemeModule,
-    CoreModule.forRoot(),
+    CoreModule,
   ],
   declarations: [
     NgdHomeComponent,

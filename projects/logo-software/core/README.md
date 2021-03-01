@@ -2,10 +2,6 @@
 
 Core module is main Logo Module that contains shared **directives**, **pipes**, **services** and **util** class. It also exported to the `SharedDirectiveModule` and `SharedPipeModule` for directly usage.
 
-If you use storage for application scope, you have to determine which storage type will be used.
-
-There are two type storage: `LocalStorage` or `SessionStorage`. Default storage is `LocalStorage`.
-
 Add TableModule to `import` section of the desired module's `@NgModule` annotation:
 
 ```typescript
@@ -16,7 +12,7 @@ import { STORAGE_TYPES } from './storage.service';
 @NgModule({
  imports: [
    CommonModule,
-   CoreModule.forRoot(STORAGE_TYPES.LOCAL), // or Directly import CoreModule, it will be set StorageType to Local
+   CoreModule,
  ],
 })
 export class AppModule {
@@ -52,6 +48,5 @@ __Services:__
 - [EndpointService](http://developer.logo.com.tr/#/docs/services/endpointservice#endpointservice) - Handles HTTP request
 - LoggerService - Manages Log
 - StateService - Manages Application State data
-- StorageService - Manage Application Storage data with LocalStorage or SessionStorage
 - WatcherService - Watcher is a Subject. Subject is a special type of Observable that allows values to be
 multicast to many Observers. Subjects are like EventEmitters.

@@ -3,7 +3,6 @@ import { EndpointService } from '../shared/services/endpoint/endpoint.service';
 import { LoggerService } from '../shared/services/logger/logger.service';
 import { StateService } from '../shared/services/state/state.service';
 import { WatcherService } from '../shared/services/watcher/watcher.service';
-import { STORAGE_TYPE_CONFIG, STORAGE_TYPES, StorageFactory, StorageService } from '../shared/services/storage/storage.service';
 import { SharedDirectiveModule } from './shared-directive.module';
 import { SharedPipeModule } from './shared-pipe.module';
 
@@ -11,26 +10,19 @@ const DIRECTIVES = [];
 const PIPES = [];
 const SERVICES = [EndpointService, LoggerService, StateService, WatcherService];
 
-export let StorageClass: StorageService = null;
-
 /**
  * Core module is main Logo Module that contains shared **directives**, **pipes**, **services** and **util** class. It also exported to the `SharedDirectiveModule` and `SharedPipeModule` for directly usage.
- *
- * If you use storage for application scope, you have to determine which storage type will be used.
- *
- * There are two type storage: `LocalStorage` or `SessionStorage`. Default storage is `LocalStorage`.
  *
  * Add TableModule to `import` section of the desired module's `@NgModule` annotation:
  *
  * ```typescript
  *  import { NgModule } from '@angular/core';
  *  import { CoreModule } from './core.module';
- *  import { STORAGE_TYPES } from './storage.service';
  *
  *  @NgModule({
  *  imports: [
  *    CommonModule,
- *    CoreModule.forRoot(STORAGE_TYPES.LOCAL), // or Directly import CoreModule, it will be set StorageType to Local
+ *    CoreModule,
  *  ],
  * })
  *  export class AppModule {
@@ -65,7 +57,6 @@ export let StorageClass: StorageService = null;
  * - [EndpointService](/#/docs/services/endpointservice#endpointservice) - Handles HTTP request
  * - LoggerService - Manages Log
  * - StateService - Manages Application State data
- * - StorageService - Manage Application Storage data with LocalStorage or SessionStorage
  * - WatcherService - Watcher is a Subject. Subject is a special type of Observable that allows values to be
  * multicast to many Observers. Subjects are like EventEmitters.
  */
@@ -76,20 +67,6 @@ export let StorageClass: StorageService = null;
   exports: [DIRECTIVES, PIPES, SharedDirectiveModule, SharedPipeModule],
 })
 export class CoreModule {
-  constructor(@Optional() private storageService: StorageService) {
-    StorageClass = this.storageService || new StorageService();
-  }
-
-  static forRoot(storageTypes?: STORAGE_TYPES): ModuleWithProviders<CoreModule> {
-    return {
-      ngModule: CoreModule,
-      providers: [
-        SERVICES,
-        {provide: STORAGE_TYPE_CONFIG, useValue: storageTypes || STORAGE_TYPES.SESSION},
-        {provide: StorageService, useFactory: StorageFactory, deps: [STORAGE_TYPE_CONFIG]},
-      ],
-    };
-  }
 }
 
 // const injector = Injector.create({

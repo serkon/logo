@@ -22,6 +22,5 @@ export * from './shared/pipe/safe-html.pipe';
 export * from './shared/services/endpoint/endpoint.service';
 export * from './shared/services/logger/logger.service';
 export * from './shared/services/state/state.service';
-export * from './shared/services/storage/storage.service';
 export * from './shared/services/watcher/watcher.service';
 export * from './shared/util/util';
