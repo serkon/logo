@@ -1,8 +1,9 @@
 import { AfterContentInit, Component, ContentChildren, EventEmitter, Input, Output, QueryList } from '@angular/core';
+import { NavigationEnd, PRIMARY_OUTLET, Router, UrlSegment, UrlSegmentGroup, UrlTree } from '@angular/router';
+import { delay } from 'rxjs/operators';
 
 import { TabComponent } from './tab.component';
-import { Router } from '@angular/router';
-import { delay } from 'rxjs/operators';
+import { TabsService } from './tabs.service';
 
 /**
  * ### Alignment
@@ -30,17 +31,44 @@ export class TabsComponent implements AfterContentInit {
   @Output() change: EventEmitter<TabComponent> = new EventEmitter<TabComponent>();
   @Output() tabEvent: EventEmitter<QueryList<TabComponent>> = new EventEmitter<QueryList<TabComponent>>();
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private tabService: TabsService) {
+    this.isRouteMatch();
+    tabService.$changeTab.subscribe((index: number) => {
+      this.setActiveTab(index);
+    });
+  };
+
+  isRouteMatch() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const tree: UrlTree = this.router.parseUrl(this.router.url);
+        const group: UrlSegmentGroup = tree.root.children[PRIMARY_OUTLET];
+        if (group) {
+          const segments: UrlSegment[] = group.segments;
+          const urlWithoutParams = segments.map(it => it.path).join('/');
+          this.tabs.toArray().forEach((tab: TabComponent, tabIndex) => {
+            const parts = tab.route.split('/');
+            const res = parts.every((part, index) => {
+              const isParameter = part.startsWith(':');
+              if (!isParameter) {
+                return !!segments.find((segment: UrlSegment) => segment.path === part);
+              }
+              return true;
+            });
+            if (res) {
+              this.activeTab = tabIndex;
+            }
+          });
+        }
+        if (this.activeTab !== this.tabService.active) {
+          this.setActiveTab(this.activeTab);
+        }
+      }
+    });
   }
 
-  // contentChildren are set
   ngAfterContentInit() {
-    // get all active tabs
-    const activeTabs = this.tabs.filter((tab) => tab.isActive);
-    // if there is no active tab set, activate the first
-    if (activeTabs.length === 0) {
-      this.setActiveTab(this.activeTab);
-    }
+    this.tabService.tabs = this.tabs.toArray();
     this.tabs.changes.pipe(delay(0)).subscribe((changes: QueryList<TabComponent>) => {
       setTimeout(() => {
         this.tabEvent.emit(changes);
@@ -59,12 +87,13 @@ export class TabsComponent implements AfterContentInit {
     this.change.emit(tab);
     if (this.routing && !!tab.route) {
       setTimeout(() => {
-        // this.router.navigate([tab.route], {fragment: tab.fragment});
+        // this.router.navigate([tab.route], {fragment: tab.fragment, queryParams: tab.params});
       }, 0);
     }
   }
 
   setActiveTab(index: number) {
     this.selectTab(this.tabs.toArray()[index]);
+    this.tabService.active = index;
   }
 }

@@ -1,5 +1,5 @@
-import { AfterContentInit, AfterViewInit, Component, EventEmitter, Input, Output, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { AfterViewInit, Component, EventEmitter, Input, Output } from '@angular/core';
+import { Params } from '@angular/router';
 
 @Component({
   selector: 'logo-tab',
@@ -28,7 +28,7 @@ export class TabComponent implements AfterViewInit {
   /**
    * a collection of matrix and query URL parameters.
    */
-  @Input() params: string;
+  @Input() params: Params;
   /**
    * Fragment uses to redirection to the anchor.
    * For example, the fragment must be set to `section` for direction to `http://domain.com/#section`
@@ -36,9 +36,6 @@ export class TabComponent implements AfterViewInit {
   @Input() fragment: string;
   @Output() init: EventEmitter<TabComponent> = new EventEmitter<TabComponent>();
   @Output() click: EventEmitter<TabComponent> = new EventEmitter<TabComponent>();
-
-  constructor(private router: Router) {
-  }
 
   ngAfterViewInit() {
     this.init.emit(this);

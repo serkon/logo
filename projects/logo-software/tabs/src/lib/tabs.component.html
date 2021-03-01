@@ -4,7 +4,7 @@
   </ul>
   <div class="scroll">
     <ul class="nav nav-tabs {{class}}">
-      <li *ngFor="let tab of tabs" (click)="selectTab(tab)" [class.active]="tab.isActive">
+      <li *ngFor="let tab of tabs; let i=index" (click)="setActiveTab(i)" [class.active]="tab.isActive">
         <logo-link
           [classes]="['ghost', tab.isActive?'selected':'']"
           [url]="tab.route"
@@ -24,8 +24,13 @@
 <!--div class="tabs" *ngIf="!routing"-->
 <div class="tabs">
   <ng-content></ng-content>
+  <ng-container *ngTemplateOutlet="template"></ng-container>
 </div>
 <!--div class="tabs" *ngIf="routing">
   <ng-content></ng-content>
   <router-outlet></router-outlet>
 </div-->
+
+<ng-template #template>
+  <router-outlet> </router-outlet>
+</ng-template>
