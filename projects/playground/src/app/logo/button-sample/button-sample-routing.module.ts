@@ -8,6 +8,10 @@ const routes: Routes = [
     path: 'button-showcase/button-showcase.component',
     component: ButtonShowcaseComponent,
   },
+  {
+    path: 'button',
+    component: ButtonShowcaseComponent,
+  },
 ];
 
 @NgModule({
