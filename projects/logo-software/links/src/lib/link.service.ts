@@ -24,7 +24,6 @@ export class LinkService {
     if (id) {
       window.setTimeout(() => {
         const anc = document.getElementById(id);
-        console.log('delay');
         anc && anc.scrollIntoView({
           behavior: 'smooth',
           block: 'start',

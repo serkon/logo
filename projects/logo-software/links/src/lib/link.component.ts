@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { Params } from '@angular/router';
+import { Params, Router } from '@angular/router';
 
 import { Link } from './link';
 import { LinkService } from './link.service';
+import { timer } from 'rxjs';
 
 /**
  * Link component creates link. Advantage of using this component is give the control
@@ -46,9 +47,6 @@ import { LinkService } from './link.service';
     </ng-container>
     <ng-template #internalURL>
       <button
-        routerLink="{{url}}"
-        [queryParams]="params"
-        [fragment]="fragment"
         [ngClass]="classes"
         (click)="onClickEvent($event, false)"
         (mouseenter)="onHoverEvent($event)"
@@ -70,6 +68,10 @@ import { LinkService } from './link.service';
   styleUrls: ['./link.component.scss'],
 })
 export class LinkComponent implements OnInit {
+  /**
+   * Add delay when click link before route. Default is zero.
+   */
+  @Input() delay: number = 0;
   /**
    * If this link will redirect to another domain, it must be set to true. Otherwise, it will redirect the current domain
    */
@@ -114,7 +116,7 @@ export class LinkComponent implements OnInit {
    */
   @Input() link: Link;
 
-  constructor(@Inject(DOCUMENT) private document, private linkService: LinkService) {
+  constructor(@Inject(DOCUMENT) private document, private linkService: LinkService, private router: Router) {
   }
 
   ngOnInit() {
@@ -131,6 +133,10 @@ export class LinkComponent implements OnInit {
   onClickEvent($event, external: boolean = false) {
     if (external) {
       this.document.location.href = `${this.url}${this.fragment ? `#${this.fragment}` : ``}`;
+    } else {
+      timer(this.delay).subscribe(() => {
+        this.router.navigate([this.url], {fragment: this.fragment, queryParams: this.params});
+      });
     }
     this.linkService.fragment = this.fragment;
     this.onClick && this.onClick($event);
