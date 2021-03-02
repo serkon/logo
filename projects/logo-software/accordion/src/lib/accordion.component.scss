@@ -10,11 +10,11 @@
 
 @import "scss/icons";
 @import "scss/config";
-@import "~@logo-software/theme/style";
+@import "~@logo-software/theme/base";
 
 :host {
   display: block;
-  padding: 5px;
+  padding: 0;
   margin: 0;
   font-family: get("font.family");
   opacity: 1;
