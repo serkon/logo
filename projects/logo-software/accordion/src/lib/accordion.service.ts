@@ -9,12 +9,12 @@
  */
 
 import { Injectable } from '@angular/core';
-import { MenuItem } from './accordion.component';
+import { AccordionItem } from './accordion.component';
 
 @Injectable({providedIn: 'root'})
 export class AccordionService {
 
-  items: MenuItem;
+  items: AccordionItem;
 
   constructor() {
   }

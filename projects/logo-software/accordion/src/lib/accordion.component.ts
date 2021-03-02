@@ -15,15 +15,11 @@ import { HttpClient, HttpRequest, HttpResponse } from '@angular/common/http';
 /**
  * Accordion item interface
  */
-export interface MenuItem {
+export interface AccordionItem {
   /**
    * Optional, id of the item if it comes from database,
    */
   id?: any;
-  /**
-   * Menu item text to be displayed to the user
-   */
-  name: string;
   /**
    * Class names to be added to menu item
    */
@@ -33,23 +29,15 @@ export interface MenuItem {
    */
   iconClasses?: string;
   /**
-   * Route information to be directed when clicked
+   * Accordion title information that displays on list
    */
-  link?: string;
+  title?: string;
   /**
-   * Sets query parameters to the URL.
+   * Accordion content information that slides in and out
    */
-  params?: { [key: string]: any };
+  description?: string;
   /**
-   * sub menu container
-   */
-  children?: MenuItem[];
-  /**
-   * Enum values required for authorization and authentication operations
-   */
-  role?: string;
-  /**
-   * The variable that defines whether the menu item is open or not.
+   * The variable that defines whether the accordion item is open or not.
    */
   isOpen?: boolean;
 }
@@ -75,31 +63,23 @@ export class AccordionComponent implements OnInit {
   /**
    * Menu items to show
    */
-  @Input() public items: MenuItem[] = [];
+  @Input() public items: AccordionItem[] = [];
   /**
    * It indicates the starting level of the items to be displayed
    */
   @Input() public start = 0;
   /**
-   * Specifies the amount of indentation, in pixels, used to offset successive menu leaf levels in a hierarchy. The default value is 10 pixels.
-   */
-  @Input() public paddingLeft: number = 15;
-  /**
-   * http request will be get items from server for each category opened
+   * http request will be get items from server for each title opened
    */
   @Input() request?: HttpRequest<any>;
   /**
-   * Role information about which authorized people can view this menu item. Example: roles: ['ROLE_ADMIN', 'ROLE_DEVELOPER']
-   */
-  @Input() roles: string[] = [];
-  /**
    * Item click event trigger. When clicked on any item this event will be called and pushes the item information to the given method.
    */
-  @Output() public itemClick: EventEmitter<MenuItem> = new EventEmitter<MenuItem>();
+  @Output() public itemClick: EventEmitter<AccordionItem> = new EventEmitter<AccordionItem>();
   /**
-   * Category click event trigger. When clicked on any category item, this event will be called and pushes the item information to the given method.
+   * Title click event trigger. When clicked on any title item, this event will be called and pushes the item information to the given method.
    */
-  @Output() public categoryClick: EventEmitter<MenuItem> = new EventEmitter<MenuItem>();
+  @Output() public categoryClick: EventEmitter<AccordionItem> = new EventEmitter<AccordionItem>();
   @Input() public elementId;
 
   /**
@@ -159,15 +139,15 @@ export class AccordionComponent implements OnInit {
 
   getMenuList() {
     this.http.request(this.request).subscribe(
-      (response: HttpResponse<MenuItem>) => this.onSuccessHandler(response),
+      (response: HttpResponse<AccordionItem>) => this.onSuccessHandler(response),
     );
   }
 
-  onSuccessHandler(response: HttpResponse<MenuItem>) {
-    this.items = response.body.children;
+  onSuccessHandler(response: HttpResponse<AccordionItem>) {
+    // this.items = response.body.description;
   }
 
-  htmlItemOnClick(item: MenuItem, $event?: MouseEvent) {
+  htmlItemOnClick(item: AccordionItem, $event?: MouseEvent) {
     if (event) {
       event.cancelBubble = true;
       event.stopPropagation();
@@ -175,11 +155,12 @@ export class AccordionComponent implements OnInit {
     this.$onItemClick(item);
   }
 
-  $onItemClick(item: MenuItem) {
+  $onItemClick(item: AccordionItem) {
     this.itemClick.emit(item);
+    console.log(item);
   }
 
-  htmlCategoryOnClick(item: MenuItem, $event?: MouseEvent) {
+  htmlCategoryOnClick(item: AccordionItem, $event?: MouseEvent) {
     if (event) {
       event.cancelBubble = true;
       event.stopPropagation();
@@ -187,7 +168,7 @@ export class AccordionComponent implements OnInit {
     this.$onCategoryClick(item);
   }
 
-  $onCategoryClick(item: MenuItem) {
+  $onCategoryClick(item: AccordionItem) {
     this.categoryClick.emit(item);
   }
 }
