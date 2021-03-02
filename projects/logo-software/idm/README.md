@@ -1,24 +1,33 @@
-# Idm
+Get authorization token or auth code directly to sign on Logo Identity Management service with oAuth.
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.9.
+IDM service offers single sign-on (SSO - Single Sign On) support between platform services and applications with a common user pool structure. In the user log out process, you can log out the user either from the relevant application or from all PaaS applications.
 
-## Code scaffolding
+### Installation
+All public NPM packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
+To install Link Module:
 
-Run `ng generate component component-name --project idm` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project idm`.
-> Note: Don't forget to add `--project idm` or else it will be added to the default project in your `angular.json` file. 
+```bash
+$ npm set registry https://registry.npmjs.org/
+$ npm install @logo-software/idm -s
+```
 
-## Build
+__NOTE: This module holds client token, user, validated etc. information on localStorage__
 
-Run `ng build idm` to build the project. The build artifacts will be stored in the `dist/` directory.
+To access Token, User, Validated information just run below in your code:
 
-## Publishing
+```typescript
+ StorageClass.get('user'); // if exist return User
+ StorageClass.get('token'); // return access token string
+ StorageClass.get('validate'); // if exist return ValidatedToken information
+```
 
-After building your library with `ng build idm`, go to the dist folder `cd dist/idm` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test idm` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<sub>app.module.ts</sub>
+```typescript
+@NgModule({
+  ...
+  imports: [IdmModule.forRoot(environment.IDM.CLIENT_ID)],
+  ...
+})
+export class AppModule {
+}
+```

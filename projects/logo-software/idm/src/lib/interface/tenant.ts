@@ -1,5 +1,8 @@
 import { User } from './user';
 
+/**
+ * Tenant information
+ */
 export class Tenant {
   UserId: string;
   TenantId: string;

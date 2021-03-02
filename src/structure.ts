@@ -472,6 +472,73 @@ export const structure = [
           },
         ],
       },
+      {
+        type: 'page',
+        name: 'IDM Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'IdmModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'IdmService',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'AuthorizationType',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'IdmConfig',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'Tenant',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'ValidatedToken',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'GetToken',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'Role',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'User',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'AuthHeaderInterceptor',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'PrivilegeService',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'RestrictionService',
+          },
+        ],
+      },
     ],
   },
   {

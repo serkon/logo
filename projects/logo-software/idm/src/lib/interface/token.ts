@@ -1,4 +1,7 @@
-export interface Validated {
+/**
+ * Validated token information
+ */
+export interface ValidatedToken {
   BrowserId: string;
   UserId: string;
   AppId: string;
@@ -20,6 +23,9 @@ export interface Validated {
   Data: any;
 }
 
+/**
+ * GetToken return data type defination
+ */
 export class GetToken {
   Value: {
     access_token: string,

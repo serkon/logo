@@ -1,3 +1,6 @@
+/**
+ * User role information
+ */
 export class Role {
   name: string;
 }
@@ -6,6 +9,9 @@ export class Roles {
   roles: Role[];
 }
 
+/**
+ * Idm User information
+ */
 export class User extends Roles {
   UserId: string;
   UserName: string;

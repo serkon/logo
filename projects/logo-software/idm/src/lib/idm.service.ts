@@ -5,45 +5,63 @@ import { Subscription } from 'rxjs';
 
 import { StorageClass } from '@logo-software/storage';
 
-import { GetToken, Validated } from './interface/token';
+import { GetToken, ValidatedToken } from './interface/token';
 import { User } from './interface/user';
+import { IdmConfig } from './interface/config';
 import { AuthorizationType } from './interface/authorization-type';
-import { LoggerService } from './service/logger.service';
 import { PrivilegeService } from './service/privilege.service';
-import { RequestMethod } from './service/endpoint.service';
-import { IDM_CONFIG, IDM_ID, IDMConfig } from './idm.module';
+import { IDM_CONFIG, IDM_ID } from './idm.module';
 
+/**
+ * Idm Service uses for token operation and user operations for Logo Paas IDM Service.
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class IdmService {
+  /**
+   * Subscription for IDM
+   */
   public subscription: Subscription;
+  /**
+   * Access token
+   */
   public token: string;
+  /**
+   * The current URL.
+   */
   public url: any;
-  private _login = false;
+  /**
+   * Login status of the client to the IDM. If the user logged in values will be true. Default is false.
+   */
+  public isLogged: boolean = false;
 
   constructor(
     @Inject(IDM_ID) public clientId: string,
-    @Inject(IDM_CONFIG) public config: IDMConfig,
+    @Inject(IDM_CONFIG) public config: IdmConfig,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private http: HttpClient,
   ) {
   }
 
-  isLogged() {
-    return this.validateToken(StorageClass.getItem('token'));
-  }
-
+  /**
+   * Calls the login screen of the IDM. If the user logged in before, the first access token will be validated then redirect to again current route.
+   */
   toLogin() {
     StorageClass.setItem('redirect_uri', this.router.url);
     if (this.config.TOKEN.AUTH_TYPE === AuthorizationType.IMPLICIT) {
-      window.location.href = `${this.config.URI}/connect/authorize?client_id=${this.clientId}&scope=vendorExtensions&response_type=token&redirect_uri=${this.config.DIRECTION.RETURN_URI}`;
+      window.location.href = `${this.config.URI}/connect/authorize?client_id=${this.clientId}&scope=vendorExtensions&response_type=token&redirect_uri=${this.config.RETURN_URI}`;
     } else if (this.config.TOKEN.AUTH_TYPE === AuthorizationType.CODE) {
-      window.location.href = `${this.config.URI}/connect/authorize/callback?client_id=${this.clientId}&redirect_uri=${this.config.DIRECTION.RETURN_URI}&response_type=code&scope=offline_access`;
+      window.location.href = `${this.config.URI}/connect/authorize/callback?client_id=${this.clientId}&redirect_uri=${this.config.RETURN_URI}&response_type=code&scope=offline_access`;
     }
   }
 
+  /**
+   * If authorization type set to the AuthorizationType.CODE and client try to login then IDM service calls this method with `code` value.
+   * If the returned `code` value is correct, the client will be logged in.
+   * @param code
+   */
   public getTokenWithCode(code: string) {
     this.http.post(`${this.config.URI}${this.config.TOKEN.GET}`, {
       RedirectUri: `${this.config.URI}`,
@@ -54,12 +72,16 @@ export class IdmService {
     });
   }
 
+  /**
+   * It checks validation code. Accepts token value. If not set any parameter, it will look to the localStorage for access token then validate it.
+   * @param token
+   */
   validateToken(token = StorageClass.getItem('token')): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      if (!this._login) {
+      if (!this.isLogged) {
         if (token) {
-          this.http.request(RequestMethod.GET, `${this.config.URI}/${this.config.TOKEN.VALIDATE}/${token}`).subscribe(
-            (response: Validated) => this.loginSuccessHandler(response),
+          this.http.request('GET', `${this.config.URI}/${this.config.TOKEN.VALIDATE}/${token}`).subscribe(
+            (response: ValidatedToken) => this.loginSuccessHandler(response),
             (error: HttpErrorResponse) => this.loginErrorHandler(reject, error),
             () => this.loginCompleteHandler(resolve),
           );
@@ -72,7 +94,7 @@ export class IdmService {
 
   public isAccessible(activatedRouteSnapshot: ActivatedRouteSnapshot): boolean {
     const privilegeStatus: boolean = PrivilegeService.check(activatedRouteSnapshot);
-    if (!privilegeStatus && this._login) {
+    if (!privilegeStatus && this.isLogged) {
       if (this.config.DIRECTION.REDIRECT) {
         this.router.navigate([this.config.DIRECTION['403']]);
       }
@@ -81,6 +103,10 @@ export class IdmService {
     return privilegeStatus;
   }
 
+  /**
+   * Gives Users information with given ids
+   * @param ids
+   */
   getUserList(ids: string[]) {
     return this.http.get(
       `${this.config.URI}/${this.config.USER.LIST}`,
@@ -93,8 +119,8 @@ export class IdmService {
     );
   }
 
-  public loginSuccessHandler(validated: Validated) {
-    this._login = true;
+  public loginSuccessHandler(validated: ValidatedToken) {
+    this.isLogged = true;
     StorageClass.setItem('token', validated.RawKey);
     StorageClass.setItem('validated', validated);
     const userId: string = validated.UserId;
@@ -105,8 +131,8 @@ export class IdmService {
 
   public loginErrorHandler(reject, error?) {
     this.secureLoginClear();
-    if (this.config.DIRECTION.LOGIN_PAGE.STATUS) {
-      this.router.navigate([this.config.DIRECTION.LOGIN_PAGE.URI]);
+    if (this.config.LOGIN_PAGE.STATUS) {
+      this.router.navigate([this.config.LOGIN_PAGE.URI]);
     } else {
       this.toLogin();
     }
@@ -114,16 +140,18 @@ export class IdmService {
   }
 
   public loginCompleteHandler(resolve) {
-    LoggerService.info('Auth token complete');
     this.router.navigateByUrl(StorageClass.getItem('redirect_uri'));
     resolve(true);
   }
 
   secureLoginClear() {
     StorageClass.clear();
-    this._login = false;
+    this.isLogged = false;
   }
 
+  /**
+   * For logout from IDM call this method.
+   */
   logout() {
     this.url = window.location.href;
     this.secureLoginClear();
@@ -137,11 +165,9 @@ export class IdmService {
 
   onLogoutSuccessHandler(response: any) {
     this.secureLoginClear();
-    LoggerService.info(`Logout success: ${response}`);
   }
 
   onLogoutCompletedHandler() {
-    LoggerService.info('Logged out');
   }
 
 }

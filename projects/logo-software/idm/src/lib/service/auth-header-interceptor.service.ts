@@ -1,12 +1,4 @@
-import {
-  HTTP_INTERCEPTORS,
-  HttpErrorResponse,
-  HttpEvent,
-  HttpHandler,
-  HttpHeaders,
-  HttpInterceptor,
-  HttpRequest,
-} from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { retry, tap } from 'rxjs/operators';
@@ -14,14 +6,14 @@ import { Observable, throwError } from 'rxjs';
 
 import { StorageClass } from '@logo-software/storage';
 
-import { ErrorService } from './error.service';
-import { LoggerService } from './logger.service';
-
+/**
+ * Http Interceptor for add all
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class AuthHeaderInterceptor implements HttpInterceptor {
-  constructor(private errorService: ErrorService, private router: Router, private ngZone: NgZone) {
+  constructor(private router: Router, private ngZone: NgZone) {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -29,9 +21,11 @@ export class AuthHeaderInterceptor implements HttpInterceptor {
     const requestToken = req.headers.get('token');
     let header = {};
     if (!requestToken) {
-      header = {headers: req.headers
+      header = {
+        headers: req.headers
           .set('Authorization', `Bearer ${storageToken}`)
-          .set('Content-Type', 'application/json')};
+          .set('Content-Type', 'application/json'),
+      };
       // @For Overwrite:
       // header = new HttpHeaders({
       //   'Content-Type': 'application/json',
@@ -44,9 +38,8 @@ export class AuthHeaderInterceptor implements HttpInterceptor {
     // return next.handle(newRequest).pipe(retry(1), catchError(this.handleError));
     return next.handle(newRequest).pipe(retry(0), tap(
       // Log the result or error
-      data => LoggerService.log(data),
+      data => this.handleSuccess(data),
       error => {
-        LoggerService.log(error);
         return this.handleError(error);
       },
     ));
@@ -54,9 +47,13 @@ export class AuthHeaderInterceptor implements HttpInterceptor {
 
   ngZoneRedirect(error: HttpErrorResponse) {
     setTimeout(() => this.ngZone.run(() => {
-        this.errorService.$watch.next(error);
+        // @TODO add this.errorService.$watch.next(error);
       }),
     );
+  }
+
+  private handleSuccess(data) {
+    // @TODO add success here
   }
 
   private handleError(error: HttpErrorResponse) {

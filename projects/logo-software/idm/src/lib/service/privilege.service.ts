@@ -4,11 +4,18 @@ import { ActivatedRouteSnapshot } from '@angular/router';
 import { StorageClass } from '@logo-software/storage';
 import { Role, User } from '../interface/user';
 
+/**
+ * Privilege Service uses for check user roles for access the content.
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class PrivilegeService {
 
+  /**
+   * check by route data is component accessible by client
+   * @param activatedRouteSnapshot
+   */
   public static check(activatedRouteSnapshot: ActivatedRouteSnapshot) {
     let status = true;
     const userObject: { [key: string]: User } = StorageClass.getItem('login');
