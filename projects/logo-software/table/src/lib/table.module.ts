@@ -26,7 +26,8 @@ import { PagingModule } from '@logo-software/paging';
  * First import `TableModule` to your target module imports section. In this example, we add AppModule for display table at `app.component.ts`
  *
  * <sub>**app.module.ts**</sub>
- *   ```typescript
+ *
+ * ```typescript
  * import { LanguageInitSetting, LanguageModule } from '@logo-software/language';
  * import { NgModule } from '@angular/core';
  * import { AppComponent } from './app.component';
@@ -52,7 +53,6 @@ import { PagingModule } from '@logo-software/paging';
  *      npm install @logo-software/table
  *    ```
  *
- *
  *  - Add `TableModule` to target module imports
  *
  *    ```typescript
@@ -60,7 +60,6 @@ import { PagingModule } from '@logo-software/paging';
  *      imports: [BrowserModule, TableModule]
  *    })
  *    ```
- *
  *
  *  - Open `angular.json` and add below code to `YOUR_PROJECT_NAME.architect.build.options.assets` path to make images available of TableModule.
  *
