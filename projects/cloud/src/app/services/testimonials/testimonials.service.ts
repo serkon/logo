@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { SharedService } from '../shared/shared.service';
-import { environment } from '../../../environments/environment';
-import { HttpResponse, Testimonial } from '../../../models/interfaces';
+import { SharedService } from '@cloud/app/services/shared/shared.service';
+import { environment } from '@cloud/environments/environment';
+import { HttpResponse, Testimonial } from '@cloud/models/interfaces';
 
 @Injectable({
   providedIn: 'root',

@@ -1,12 +1,21 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { BlogSummary, FAQ, HttpResponse, ProductSummary, SolutionSummary, Testimonial } from '../../models/interfaces';
-import { SolutionService } from '../services/solutions/solution.service';
-import { ProductService } from '../services/product/product.service';
-import { TestimonialsService } from '../services/testimonials/testimonials.service';
-import { FaqService } from '../services/faq/faq.service';
-import { BlogService } from '../services/blog/blog.service';
+import { BlogSummary, FAQ, HttpResponse, ProductSummary, SolutionSummary, Testimonial } from '@cloud/models/interfaces';
+import { SolutionService } from '@cloud/app/services/solutions/solution.service';
+import { ProductService } from '@cloud/app/services/product/product.service';
+import { TestimonialsService } from '@cloud/app/services/testimonials/testimonials.service';
+import { FaqService } from '@cloud/app/services/faq/faq.service';
+import { BlogService } from '@cloud/app/services/blog/blog.service';
 
 @Component({
   selector: 'logo-home',

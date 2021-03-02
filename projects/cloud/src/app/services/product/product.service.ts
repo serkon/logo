@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { environment } from '../../../environments/environment';
-import { SharedService } from '../shared/shared.service';
-import { HttpResponse, ProductSummary } from '../../../models/interfaces';
+import { environment } from '@cloud/environments/environment';
+import { SharedService } from '@cloud/app/services/shared/shared.service';
+import { HttpResponse, ProductSummary } from '@cloud/models/interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -14,14 +14,11 @@ export class ProductService {
   }
 
   public getProductSummaries(): Promise<HttpResponse<ProductSummary>> {
-    const data = this.http.post<HttpResponse<ProductSummary>>(
+    return this.http.post<HttpResponse<ProductSummary>>(
       `${environment.api.baseURL}/${environment.api.product.prefix}/${environment.api.product.summary}`,
       '',
-    )
-      .toPromise()
-      .then((res) => {
-        return res;
-      });
-    return data;
+    ).toPromise().then((res) => {
+      return res;
+    });
   }
 }

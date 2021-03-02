@@ -233,6 +233,8 @@ html, body {
       label {
         @include border-radius(size(2px));
         @include box-shadow(0, 0, size(4px), size(1px), rgba(var(--black-rgb), 0.08), false);
+
+        margin: size(5px);
       }
     }
   }
