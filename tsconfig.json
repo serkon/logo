@@ -24,6 +24,9 @@
       "@paas/*": [
         "./projects/paas/*"
       ],
+      "@cloud/*": [
+        "./projects/cloud/src/*"
+      ],
       "@logo-software/*": [
         "dist/logo-software/*",
         "./projects/logo-software/*/src/public-api"
