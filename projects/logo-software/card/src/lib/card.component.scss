@@ -15,6 +15,7 @@
     margin: size(10px);
     box-sizing: border-box;
     overflow: hidden;
+    position: relative;
 
     .card-image {
       display: flex;
@@ -25,6 +26,26 @@
       overflow: hidden;
 
       img {
+        width: 100%;
+      }
+    }
+
+    ::ng-deep {
+      .card-title {
+        h3 {
+          white-space: pre-wrap;
+        }
+      }
+
+      .card-desc {
+        margin-bottom: size(60px);
+      }
+
+      .card-cta {
+        position: absolute;
+        left: 0;
+        padding: 0 size(30px);
+        bottom: size(30px);
         width: 100%;
       }
     }
