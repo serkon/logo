@@ -8,7 +8,7 @@
  * Any reproduction of this material must contain this notice.
  */
 @import "~@logo-software/theme/base";
-@import "../../assets/scss/vars";
+@import "vars";
 
 :host {
   ::ng-deep {
@@ -186,6 +186,7 @@
 
     .blog-summary {
       padding: size(170px) 0;
+
       @include smaller-than(lg) {
         padding: size(120px) 0;
       }
