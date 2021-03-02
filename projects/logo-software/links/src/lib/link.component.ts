@@ -69,6 +69,10 @@ import { timer } from 'rxjs';
 })
 export class LinkComponent implements OnInit {
   /**
+   * Disable navigation when it set to false. Default is true.
+   */
+  @Input() redirection: boolean = true;
+  /**
    * Add delay when click link before route. Default is zero.
    */
   @Input() delay: number = 0;
@@ -131,12 +135,14 @@ export class LinkComponent implements OnInit {
   }
 
   onClickEvent($event, external: boolean = false) {
-    if (external) {
-      this.document.location.href = `${this.url}${this.fragment ? `#${this.fragment}` : ``}`;
-    } else {
-      timer(this.delay).subscribe(() => {
-        this.router.navigate([this.url], {fragment: this.fragment, queryParams: this.params});
-      });
+    if (this.redirection) {
+      if (external) {
+        this.document.location.href = `${this.url}${this.fragment ? `#${this.fragment}` : ``}`;
+      } else {
+        timer(this.delay).subscribe(() => {
+          this.router.navigate([this.url], {fragment: this.fragment, queryParams: this.params});
+        });
+      }
     }
     this.linkService.fragment = this.fragment;
     this.onClick && this.onClick($event);

@@ -1,9 +1,17 @@
+import { Params } from '@angular/router';
+
 /**
  * definition of link interface
  */
-import { Params } from '@angular/router';
-
 export interface Link {
+  /**
+   * disable redirection. Default is true.
+   */
+  redirection?: boolean;
+  /**
+   * add delay when click link before route. Default is zero.
+   */
+  delay?: number;
   /**
    * display text will be visible for click
    */
@@ -37,4 +45,12 @@ export interface Link {
    * @param event
    */
   onClick?: (event: Event) => void;
+  /**
+   * Hover event when link hovered
+   */
+  onHover?: (event: Event) => void;
+  /**
+   * Output to be triggered when mouse leave element
+   */
+  onLeave?:(event: Event) => void;
 }
