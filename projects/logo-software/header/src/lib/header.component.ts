@@ -49,11 +49,12 @@ export class HeaderComponent implements AfterViewInit {
     this.headerService.catchPoint = this.scrollPoint;
     this.headerService.isScrollSpy = this.scrollSpy;
 
-    const content = document.querySelector('.' + this.watchElement);
+    const content = this.watchElement === 'body' || this.watchElement === 'html' ? window : document.querySelector('.' + this.watchElement);
     const scroll$ = fromEvent(content, 'scroll');
     scroll$.subscribe(dir => {
+      const scrollPos = this.watchElement === 'body' || this.watchElement === 'html' ? window.pageYOffset : dir.target['scrollTop'];
       if (this.headerService.isScrollSpy) {
-        this.headerService.activeTheme = (content.scrollTop >= this.headerService.catchPoint) ? this.headerService.scrollTheme : this.headerService.startTheme;
+        this.headerService.activeTheme = (scrollPos >= this.headerService.catchPoint) ? this.headerService.scrollTheme : this.headerService.startTheme;
       }
     });
   }
