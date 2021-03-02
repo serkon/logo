@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { AccordionItem } from '@logo-software/accordion';
 
 @Component({
