@@ -1,10 +1,18 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { StorageShowcaseComponent } from './storage-showcase/storage-showcase.component';
+
+const routes: Routes = [
+  {
+    path: 'storage-showcase/storage-showcase.component',
+    component: StorageShowcaseComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class StorageSampleRoutingModule { }
+export class StorageSampleRoutingModule {
+}

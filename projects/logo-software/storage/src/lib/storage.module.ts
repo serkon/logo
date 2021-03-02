@@ -15,9 +15,20 @@ export let StorageClass: StorageService = null;
  * window.localStorage - stores data with no expiration date
  * window.sessionStorage - stores data for one session (data is lost when the browser tab is closed)
  * ```
- * There are two type storage SESSION or LOCAL storage
  *
- * __Usage Example__
+ * @stacked-example(Storage Showcase, logo/storage-sample/storage-showcase/storage-showcase.component)
+ *
+ * ### Installation
+ * All public NPM packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
+ * To install Link Module:
+ *
+ * ```bash$ npm set registry https://registry.npmjs.org/
+ * $ npm install @logo-software/storage -s
+ * ```
+ *
+ * Just import it to your project of @NgModule' import section. And set storage type.
+ * There are two types of storage namely SESSION and LOCAL storage.
+ *
  * <sub>app.module.ts</sub>
  * ```typescript
  * @NgModule({
