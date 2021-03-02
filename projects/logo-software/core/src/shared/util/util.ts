@@ -248,7 +248,7 @@ export class Util {
         }
       }
       return [];
-    }
+    };
     value.forEach(looper);
     return result;
   }
@@ -446,5 +446,24 @@ export class Util {
   static version() {
     // tslint:disable-next-line:no-console
     console.log('v2');
+  }
+
+  /**
+   * Merge two object or array
+   * @param current
+   * @param updates
+   * @param deep
+   */
+  static merge(current, updates, deep: boolean = false) {
+    for (const key of Object.keys(updates)) {
+      if (!current.hasOwnProperty(key) || typeof updates[key] !== 'object') {
+        current[key] = updates[key];
+      } else if (deep && current[key] instanceof Array && updates[key] instanceof Array) {
+        current[key] = current[key].concat(updates[key]);
+      } else {
+        Util.merge(current[key], updates[key]);
+      }
+    }
+    return current;
   }
 }
