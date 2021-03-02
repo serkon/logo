@@ -136,13 +136,13 @@ export class LinkComponent implements OnInit {
 
   onClickEvent($event, external: boolean = false) {
     if (this.redirection) {
-      if (external) {
-        this.document.location.href = `${this.url}${this.fragment ? `#${this.fragment}` : ``}`;
-      } else {
-        timer(this.delay).subscribe(() => {
+      timer(this.delay).subscribe(() => {
+        if (external) {
+          this.document.location.href = `${this.url}${this.fragment ? `#${this.fragment}` : ``}`;
+        } else {
           this.router.navigate([this.url], {fragment: this.fragment, queryParams: this.params});
-        });
-      }
+        }
+      });
     }
     this.linkService.fragment = this.fragment;
     this.onClick && this.onClick($event);
