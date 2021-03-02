@@ -3,7 +3,38 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api: {
+    baseURL: 'https://talha.io/api/logoapi',
+    solution: {
+      prefix: 'solution',
+      summary: 'summary/list',
+      detail: 'detail',
+    },
+    product: {
+      prefix: 'product',
+      summary: 'summary/list',
+      detail: 'detail',
+      segment: 'segment/list',
+      sector: 'sector/list',
+      reference: 'reference/list',
+      sticker: 'sticker/detail',
+      seller: 'seller/detail',
+      finder: {
+        step: 'step/list',
+        questions: 'questions/list',
+        expectations: 'expectation/list',
+      },
+    },
+    blog: {
+      prefix: 'blog',
+      summary: 'summary/list',
+      detail: 'detail',
+    },
+    tag: 'tag/list',
+    faq: 'faq/list',
+    testimonial: 'testimonial/list',
+  },
 };
 
 /*
