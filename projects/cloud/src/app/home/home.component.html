@@ -7,8 +7,8 @@
         Vestibulum viverra eleifend elit.
       </p>
       <span class="cta">
-        <logo-link [classes]="'primary large'" [url]="'/to-that'">
-          Ürün Bulucu
+        <logo-link [classes]="'primary large'" [url]="'/products'">
+          Ürünleri İncele
         </logo-link>
       </span>
     </div>
@@ -16,152 +16,31 @@
       <img src="/assets/img/main-hero.png"/>
     </div>
   </logo-hero>
-  <div class="section">
+  <div class="section" id="solutions">
     <div class="solutions container">
       <span class="title">
         <h1><b>Logo Cloud Çözümleri</b></h1>
         <p>Bulut tabanlı SaaS ürünleri ile ihtiyacınız olan çözümlere hızlı ulaşın !</p>
       </span>
       <div class="section-content">
-        <logo-carousel [arrow]="true" [count]="1" [dots]="false">
-          <div class="slider-item">
+        <logo-carousel *ngIf="SolutionSummaries" [arrow]="true" [count]="1" [dots]="false">
+          <div *ngFor="let solutionItem of SolutionSummaries" class="slider-item">
             <logo-card [cssClasses]="'solution-item'">
               <span class="card-icon">
-                <img src="/assets/data/sample-solution-icon-1.svg"/>
+                <img src="{{solutionItem.icon}}"/>
               </span>
               <div class="card-title">
-                <h3>Muhasabe Yönetimi</h3>
+                <h3>{{solutionItem.name}}</h3>
               </div>
               <div class="card-desc">
                 <p class="large">
-                  İster Webden İster Cepten; İnternet Erişiminizin Olduğu Her Yerden İşletmenizin Ön Muhasebe
-                  İşlemlerini...
+                  {{solutionItem.description}}
                 </p>
               </div>
               <div class="card-cta">
                 <logo-link
                   [classes]="'primary icon-left large le-search'"
-                  [url]="'/solutions/muhasebe-yonetimi'"
-                >
-                  İncele
-                </logo-link>
-              </div>
-            </logo-card>
-          </div>
-          <div class="slider-item">
-            <logo-card [cssClasses]="'solution-item'">
-              <span class="card-icon">
-                <img src="/assets/data/sample-solution-icon-1.svg"/>
-              </span>
-              <div class="card-title">
-                <h3>Muhasabe Yönetimi</h3>
-              </div>
-              <div class="card-desc">
-                <p class="large">
-                  İster Webden İster Cepten; İnternet Erişiminizin Olduğu Her Yerden İşletmenizin Ön Muhasebe
-                  İşlemlerini...
-                </p>
-              </div>
-              <div class="card-cta">
-                <logo-link
-                  [classes]="'primary icon-left large le-search'"
-                  [url]="'/solutions/muhasebe-yonetimi'"
-                >
-                  İncele
-                </logo-link>
-              </div>
-            </logo-card>
-          </div>
-          <div class="slider-item">
-            <logo-card [cssClasses]="'solution-item'">
-              <span class="card-icon">
-                <img src="/assets/data/sample-solution-icon-1.svg"/>
-              </span>
-              <div class="card-title">
-                <h3>Muhasabe Yönetimi</h3>
-              </div>
-              <div class="card-desc">
-                <p class="large">
-                  İster Webden İster Cepten; İnternet Erişiminizin Olduğu Her Yerden İşletmenizin Ön Muhasebe
-                  İşlemlerini...
-                </p>
-              </div>
-              <div class="card-cta">
-                <logo-link
-                  [classes]="'primary icon-left large le-search'"
-                  [url]="'/solutions/muhasebe-yonetimi'"
-                >
-                  İncele
-                </logo-link>
-              </div>
-            </logo-card>
-          </div>
-          <div class="slider-item">
-            <logo-card [cssClasses]="'solution-item'">
-              <span class="card-icon">
-                <img src="/assets/data/sample-solution-icon-1.svg"/>
-              </span>
-              <div class="card-title">
-                <h3>Muhasabe Yönetimi</h3>
-              </div>
-              <div class="card-desc">
-                <p class="large">
-                  İster Webden İster Cepten; İnternet Erişiminizin Olduğu Her Yerden İşletmenizin Ön Muhasebe
-                  İşlemlerini...
-                </p>
-              </div>
-              <div class="card-cta">
-                <logo-link
-                  [classes]="'primary icon-left large le-search'"
-                  [url]="'/solutions/muhasebe-yonetimi'"
-                >
-                  İncele
-                </logo-link>
-              </div>
-            </logo-card>
-          </div>
-          <div class="slider-item">
-            <logo-card [cssClasses]="'solution-item'">
-              <span class="card-icon">
-                <img src="/assets/data/sample-solution-icon-1.svg"/>
-              </span>
-              <div class="card-title">
-                <h3>Muhasabe Yönetimi</h3>
-              </div>
-              <div class="card-desc">
-                <p class="large">
-                  İster Webden İster Cepten; İnternet Erişiminizin Olduğu Her Yerden İşletmenizin Ön Muhasebe
-                  İşlemlerini...
-                </p>
-              </div>
-              <div class="card-cta">
-                <logo-link
-                  [classes]="'primary icon-left large le-search'"
-                  [url]="'/solutions/muhasebe-yonetimi'"
-                >
-                  İncele
-                </logo-link>
-              </div>
-            </logo-card>
-          </div>
-          <div class="slider-item">
-            <logo-card [cssClasses]="'solution-item'">
-              <span class="card-icon">
-                <img src="/assets/data/sample-solution-icon-1.svg"/>
-              </span>
-              <div class="card-title">
-                <h3>Muhasabe Yönetimi</h3>
-              </div>
-              <div class="card-desc">
-                <p class="large">
-                  İster Webden İster Cepten; İnternet Erişiminizin Olduğu Her Yerden İşletmenizin Ön Muhasebe
-                  İşlemlerini...
-                </p>
-              </div>
-              <div class="card-cta">
-                <logo-link
-                  [classes]="'primary icon-left large le-search'"
-                  [url]="'/solutions/muhasebe-yonetimi'"
+                  [url]="'/solutions/'+solutionItem.id"
                 >
                   İncele
                 </logo-link>
@@ -242,9 +121,26 @@
     </div>
   </div>
   <div class="section alternate">
-    <div class="testimonial container">
+    <div class="testimonial">
       <div class="section-content">
-        @TODO Testimonials
+        <logo-carousel *ngIf="Testimonials" [arrow]="true" [count]="1" [dots]="false">
+          <div *ngFor="let testimonial of Testimonials" class="slider-item">
+            <div class="container">
+              <span class="image">
+                <img onerror="this.src='/assets/img/default-user.png';" src="{{testimonial.author.image}}"/>
+              </span>
+              <span class="name"><h3>{{testimonial.author.name}} {{testimonial.author.surname}}
+                - {{testimonial.author.companyName}}</h3></span>
+              <span class="title"><h5>{{testimonial.author.title}}</h5></span>
+              <span class="feedback-title">
+                <h4 class="small">{{testimonial.title}}</h4>
+              </span>
+              <span class="feedback-desc">
+                <p class="large">{{testimonial.description}}</p>
+              </span>
+            </div>
+          </div>
+        </logo-carousel>
       </div>
     </div>
   </div>
@@ -257,21 +153,9 @@
         </p>
       </span>
       <div class="section-content">
-        <logo-carousel [arrow]="true" [count]="1" [dots]="false">
-          <div class="slider-item">
-            <logo-product-item></logo-product-item>
-          </div>
-          <div class="slider-item">
-            <logo-product-item></logo-product-item>
-          </div>
-          <div class="slider-item">
-            <logo-product-item></logo-product-item>
-          </div>
-          <div class="slider-item">
-            <logo-product-item></logo-product-item>
-          </div>
-          <div class="slider-item">
-            <logo-product-item></logo-product-item>
+        <logo-carousel *ngIf="ProductSummaries" [arrow]="true" [count]="1" [dots]="false">
+          <div *ngFor="let productItem of ProductSummaries" class="slider-item">
+            <logo-product-item [productData]="productItem"></logo-product-item>
           </div>
         </logo-carousel>
         <div class="content-buttons">
@@ -286,7 +170,7 @@
         <h2><b>Sıkça Sorulan Sorular</b></h2>
       </span>
       <div class="section-content">
-        @TODO FAQ.
+        <logo-accordion [iconClasses]="" [items]="Faqs" [start]="0"></logo-accordion>
       </div>
     </div>
   </div>
@@ -296,7 +180,29 @@
         <h2><b>Blog</b></h2>
       </span>
       <div class="section-content">
-        @TODO Blog Summary
+        <div *ngIf="BlogSummaries" class="blog-summary-base">
+          <div *ngFor="let blogItem of BlogSummaries" class="blog-item">
+            <div class="image">
+              <img src="{{blogItem.image}}">
+            </div>
+            <div class="infos">
+              <div class="tags">
+                <span *ngFor="let badge of blogItem.tags" class="badge">
+                  {{badge.name}}
+                </span>
+              </div>
+              <div class="content">
+                <h5>{{blogItem.title}}</h5>
+                <p>{{blogItem.description}}</p>
+              </div>
+              <div class="date">
+                <span class="le-calendar"></span>
+                <p>{{blogItem.date.publish}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <logo-paging *ngIf="BlogData" [pageSize]="3" [threshold]="5" [totalCount]="BlogData.count"></logo-paging>
       </div>
     </div>
   </div>

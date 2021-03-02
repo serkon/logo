@@ -25,6 +25,10 @@
       .motto {
         width: size(450px);
 
+        @include smaller-than(sm) {
+          width: 58vw;
+        }
+
         h1 {
           color: var(--white);
         }
@@ -40,6 +44,11 @@
         flex-grow: 1;
         text-align: center;
         margin-bottom: size(-31px);
+
+        @include smaller-than(sm) {
+          position: absolute;
+          right: size(-115px);
+        }
       }
     }
   }
@@ -48,6 +57,10 @@
     .solutions {
       margin-top: size(208px);
       margin-bottom: size(170px);
+
+      @include smaller-than(lg) {
+        margin-top: size(100px);
+      }
 
       ::ng-deep {
         .slider-item {
@@ -59,11 +72,14 @@
                 display: block;
                 margin-top: size(42px);
                 margin-bottom: size(60px);
+
+                img {
+                  width: size(58px);
+                }
               }
 
               .card-cta {
                 display: block;
-                margin-top: size(45px);
               }
             }
           }
@@ -85,15 +101,33 @@
       padding-top: size(208px);
       padding-bottom: size(170px);
 
+      @include smaller-than(lg) {
+        padding-top: size(100px);
+        padding-bottom: size(120px);
+      }
+
       .section-content {
         padding-top: size(60px);
         display: flex;
         flex-flow: row wrap;
         justify-content: space-around;
 
+        @include smaller-than(sm) {
+          padding-top: size(20px);
+        }
+
         .item {
           width: 23%;
           position: relative;
+
+          @include smaller-than(lg) {
+            width: 49%;
+          }
+
+          @include smaller-than(sm) {
+            width: 100%;
+            margin-bottom: size(20px);
+          }
 
           .icon-base {
             @include border-radius(100%);
@@ -109,6 +143,11 @@
             margin-bottom: size(41px);
             text-align: center;
 
+            @include smaller-than(sm) {
+              display: block;
+              margin: 0 auto size(41px) auto;
+            }
+
             span {
               display: inline-block;
               width: size(48px);
@@ -121,13 +160,12 @@
               }
             }
           }
+
+          .text-base {
+            display: block;
+          }
         }
       }
-    }
-
-    .testimonial {
-      padding: size(100px) 0;
-      text-align: center;
     }
 
     .product-suggestion {
@@ -148,10 +186,17 @@
 
     .blog-summary {
       padding: size(170px) 0;
+      @include smaller-than(lg) {
+        padding: size(120px) 0;
+      }
 
       .section-content {
         text-align: center;
         padding: size(50px) 0;
+
+        @include smaller-than(lg) {
+          padding: size(10px) 0;
+        }
       }
     }
 
