@@ -90,17 +90,15 @@ export class IdmService {
           ids,
         }),
       },
-    );
+    ).subscribe(data =>  data, (e) => console.log(e));
   }
 
-  public loginSuccessHandler(validated: Validated) {
+  public async loginSuccessHandler(validated: Validated) {
     this._login = true;
     StorageClass.setItem('token', validated.RawKey);
     StorageClass.setItem('validated', validated);
     const userId: string = validated.UserId;
-    this.getUserList([userId]).subscribe((response: User[]) => {
-      StorageClass.setItem('user', response[0]);
-    });
+    StorageClass.setItem('user', await this.getUserList([userId])[0]);
   }
 
   public loginErrorHandler(reject, error?) {

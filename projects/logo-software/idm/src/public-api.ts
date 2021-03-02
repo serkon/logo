@@ -13,6 +13,7 @@ export * from './lib/service/logger.service';
 export * from './lib/service/privilege.service';
 export * from './lib/service/restriction.service';
 
-export * from './lib/interface/user';
-export * from './lib/interface/get-token';
+export * from './lib/interface/authorization-type';
+export * from './lib/interface/tenant';
 export * from './lib/interface/token';
+export * from './lib/interface/user';

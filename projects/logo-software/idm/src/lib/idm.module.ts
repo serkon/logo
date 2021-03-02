@@ -1,11 +1,12 @@
 import { InjectionToken, ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
+import { ActivatedRoute, NavigationCancel, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 import { STORAGE_TYPES, StorageModule } from '@logo-software/storage';
 
 import { IdmComponent } from './idm.component';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { IdmService } from './idm.service';
+import { AuthorizationType } from './interface/authorization-type';
 
 export const IDM_CONFIG = new InjectionToken('idm config');
 export const IDM_ID = new InjectionToken('idm client id');
@@ -19,7 +20,7 @@ export const IDM_DEFAULT_CONFIG = {
     DEFAULT: 'api/users/{userId}/defaulttenant',
   },
   TOKEN: {
-    AUTH_TYPE: 'implicit',
+    AUTH_TYPE: AuthorizationType.IMPLICIT,
     GET: 'api/Token/GetToken',
     VALIDATE: 'api/token/validate',
   },
@@ -74,6 +75,17 @@ export class IdmModule {
       }
     });
 
+    this.router.events.subscribe(s => {
+      if (s instanceof NavigationCancel) {
+        const params = new URLSearchParams(s.url.split('#')[1]);
+        const access_token = params.get('access_token');
+        if (access_token) {
+          this.idmService.validateToken(access_token);
+        }
+      }
+    });
+
+    /*
     this.activatedRoute.fragment.subscribe((fragment: string) => {
       if (fragment) {
         const list: { access_token?: string, token_type?: string, expires_in?: string, scope?: string } = {};
@@ -87,5 +99,6 @@ export class IdmModule {
         }
       }
     });
+    */
   }
 }
