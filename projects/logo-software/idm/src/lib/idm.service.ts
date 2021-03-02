@@ -5,13 +5,13 @@ import { Subscription } from 'rxjs';
 
 import { StorageClass } from '@logo-software/storage';
 
-import { IDM_CONFIG, IDM_ID, IDMConfig } from './idm.module';
 import { GetToken, Validated } from './interface/token';
 import { User } from './interface/user';
 import { AuthorizationType } from './interface/authorization-type';
 import { LoggerService } from './service/logger.service';
 import { PrivilegeService } from './service/privilege.service';
 import { RequestMethod } from './service/endpoint.service';
+import { IDM_CONFIG, IDM_ID, IDMConfig } from './idm.module';
 
 @Injectable({
   providedIn: 'root',
@@ -90,15 +90,17 @@ export class IdmService {
           ids,
         }),
       },
-    ).subscribe(data =>  data, (e) => console.log(e));
+    );
   }
 
-  public async loginSuccessHandler(validated: Validated) {
+  public loginSuccessHandler(validated: Validated) {
     this._login = true;
     StorageClass.setItem('token', validated.RawKey);
     StorageClass.setItem('validated', validated);
     const userId: string = validated.UserId;
-    StorageClass.setItem('user', await this.getUserList([userId])[0]);
+    this.getUserList([userId]).subscribe((response: User[]) => {
+      StorageClass.setItem('user', response[0]);
+    });
   }
 
   public loginErrorHandler(reject, error?) {
