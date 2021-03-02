@@ -1,35 +1,35 @@
 <logo-card
-  [cardImage]="'/assets/data/sample-product-sum-image.png'"
+  [cardImage]="productData.backgroundImage"
   [cssClasses]="'product-item'"
 >
   <div class="product-categories">
-    <span class="badge">
-      Bordro ve İnsan Kaynakları Yönetimi
+    <span *ngFor="let productSolution of productData.solutions" class="badge">
+      {{productSolution.name}}
     </span>
   </div>
-  <span class="card-logo">
-    <img src="/assets/data/sample-product-logo-1.png"/>
-  </span>
-  <span class="card-name">
-    <h3>Bordro Yönetimi</h3>
-  </span>
-  <span class="card-desc">
+  <div class="card-logo">
+    <img src="{{productData.logo}}"/>
+  </div>
+  <div class="card-name">
+    <h3>{{productData.name}}</h3>
+  </div>
+  <div class="card-desc">
     <p>
-      İK süreçleriniz dönüşüyor, verileriniz Logo güvencesi ile buluta taşınıyor!
+      {{productData.description}}
     </p>
-  </span>
-  <div class="card-opts">
-    <div class="price">
-      <h1><b>₺30</b>
-        <p class="medium">+ KDV</p></h1>
-    </div>
   </div>
   <div class="card-cta">
-    <logo-link
-      [classes]="'primary large icon-left le-search'"
-      [url]="'/product/payroll'"
-    >
-      Ürünü İncele
-    </logo-link>
+    <div class="cta">
+      <logo-link
+        [classes]="'primary large icon-left le-search'"
+        [url]="'/product/'+ productData.id"
+      >
+        Ürünü İncele
+      </logo-link>
+    </div>
+    <div class="price">
+      <h1><b>{{productData.price.symbol}}{{productData.price.cost}}</b>
+        <p *ngIf="!productData.price.includeTax" class="medium">+ KDV</p></h1>
+    </div>
   </div>
 </logo-card>

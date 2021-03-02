@@ -1,6 +1,5 @@
 <div class="footer">
   <div class="newsletter-base">
-    <span class="overlay"></span>
     <div class="container contents">
       <div class="gfx">
         <img src="/assets/img/footer-email.png"/>
@@ -19,56 +18,32 @@
   </div>
   <div class="content-base">
     <div class="container footer-links">
-      <div class="row">
-        <div class="col-md-3 footer-col">
+      <div class="footer-map">
+        <div class="footer-col">
           <h3><b>Ürünler</b></h3>
-          <logo-link
-            [classes]="'ghost large'"
-            [url]="'/product/payroll'"
-          >
-            Ön Musabe Yönetimi
-          </logo-link>
-          <logo-link
-            [classes]="'ghost large'"
-            [url]="'/product/payroll'"
-          >
-            Ön Musabe Yönetimi
-          </logo-link>
-          <logo-link
-            [classes]="'ghost large'"
-            [url]="'/product/payroll'"
-          >
-            Ön Musabe Yönetimi
-          </logo-link>
-          <logo-link
-            [classes]="'ghost large'"
-            [url]="'/product/payroll'"
-          >
-            Ön Musabe Yönetimi
-          </logo-link>
+          <ng-container *ngIf="products">
+            <logo-link
+              *ngFor="let productItem of products.data"
+              [classes]="'ghost large'"
+              [url]="'/product/' + productItem.id"
+            >
+              {{productItem.name}}
+            </logo-link>
+          </ng-container>
         </div>
-        <div class="col-md-3 footer-col">
+        <div class="footer-col">
           <h3><b>Çözümler</b></h3>
-          <logo-link
-            [classes]="'ghost large'"
-            [url]="'/product/payroll'"
-          >
-            Bordro ve İnsan Kaynakları Yönetimi
-          </logo-link>
-          <logo-link
-            [classes]="'ghost large'"
-            [url]="'/product/payroll'"
-          >
-            Bordro ve İnsan Kaynakları Yönetimi
-          </logo-link>
-          <logo-link
-            [classes]="'ghost large'"
-            [url]="'/product/payroll'"
-          >
-            Bordro ve İnsan Kaynakları Yönetimi
-          </logo-link>
+          <ng-container *ngIf="solutions">
+            <logo-link
+              *ngFor="let solutionItem of solutions"
+              [classes]="'ghost large'"
+              [url]="'/solutions/' + solutionItem.id"
+            >
+              {{solutionItem.name}}
+            </logo-link>
+          </ng-container>
         </div>
-        <div class="col-md-3 footer-col">
+        <div class="footer-col">
           <h3><b>Hakkımızda</b></h3>
           <logo-link
             [classes]="'ghost large'"
@@ -90,8 +65,8 @@
             İletişim ve Destek
           </logo-link>
         </div>
-        <div class="col-md-3 footer-col">
-          <h3><b>Bizi Talip Edin!</b></h3>
+        <div class="footer-col">
+          <h3><b>Bizi Takip Edin!</b></h3>
           <logo-link
             [classes]="'ghost large icon-left le-twitter'"
             [external]="true"
