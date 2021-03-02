@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { MenuItem } from '@logo-software/accordion';
+
+import { Tree } from '@logo-software/tree';
 import { DrawerService } from '@logo-software/drawer';
 
 @Component({
@@ -10,14 +11,14 @@ import { DrawerService } from '@logo-software/drawer';
 export class AppComponent {
   title = 'playground';
   hidden = false;
-  components: MenuItem[] = [
+  components: Tree[] = [
     {
       name: 'basic',
       children: [
         {
           name: 'test',
           children: [
-            {name: 'combobox', params:{patates: 3}},
+            {name: 'combobox', params: {patates: 3}},
             {name: 'link'},
             {name: 'carousel'},
             {name: 'accordion'},
@@ -86,11 +87,11 @@ export class AppComponent {
     });
   }
 
-  htmlMenuClick(item: MenuItem) {
+  htmlMenuClick(item: Tree) {
     this.drawerService.setHeaderTitle(item.name);
   }
 
-  htmlCategoryClick(item: MenuItem) {
+  htmlCategoryClick(item: Tree) {
     console.log(item.name);
   }
 }
