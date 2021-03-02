@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TabShowcaseComponent } from './tab-showcase.component';
+import { TabsShowcaseComponent } from './tabs-showcase.component';
 
 describe('TabShowcaseComponent', () => {
-  let component: TabShowcaseComponent;
-  let fixture: ComponentFixture<TabShowcaseComponent>;
+  let component: TabsShowcaseComponent;
+  let fixture: ComponentFixture<TabsShowcaseComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TabShowcaseComponent ],
+      declarations: [ TabsShowcaseComponent ],
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TabShowcaseComponent);
+    fixture = TestBed.createComponent(TabsShowcaseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

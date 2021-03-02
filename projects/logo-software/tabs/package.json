@@ -6,7 +6,8 @@
     "@angular/core": "^11.0.9"
   },
   "dependencies": {
-    "tslib": "^2.0.0"
+    "tslib": "^2.0.0",
+    "@logo-software/links": "^1.0.0"
   },
   "description": "Tabs organize content into separate views where only one view can be visible at a time.",
   "homepage": "http://developer.logo.com.tr",

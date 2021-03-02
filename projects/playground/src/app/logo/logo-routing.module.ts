@@ -99,6 +99,14 @@ const routes: Routes = [
         path: 'tree-sample',
         loadChildren: () => import('./tree-sample/tree-sample.module').then(m => m.TreeSampleModule),
       },
+      {
+        path: 'tabs-sample',
+        loadChildren: () => import('./tabs-sample/tabs-sample.module').then(m => m.TabsSampleModule),
+      },
+      {
+        path: 'storage-sample',
+        loadChildren: () => import('./storage-sample/storage-sample.module').then(m => m.StorageSampleModule),
+      },
     ],
   },
 ];

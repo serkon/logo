@@ -9,6 +9,7 @@
           [classes]="['ghost', tab.isActive?'selected':'']"
           [url]="tab.route"
           [params]="tab.params"
+          [redirection]="false"
           fragment="{{tab.fragment}}"
         >
           {{tab.title}}

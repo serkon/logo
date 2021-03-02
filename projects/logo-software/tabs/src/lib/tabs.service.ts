@@ -2,11 +2,13 @@ import { EventEmitter, Injectable } from '@angular/core';
 
 import { TabComponent } from './tab.component';
 
-@Injectable({
-  providedIn: 'root',
-})
+/**
+ * Tabs service shows current TabComponent list and active Tab
+ */
+@Injectable()
 export class TabsService {
-  public tabs: TabComponent[];
+  /**
+   * Currently active tab
+   */
   public active: number;
-  public $changeTab: EventEmitter<number> = new EventEmitter<number>();
 }

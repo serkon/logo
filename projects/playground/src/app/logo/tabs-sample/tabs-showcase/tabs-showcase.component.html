@@ -1,0 +1,37 @@
+<logo-tabs (change)="tabChange($event)" (tabEvent)="tabEvent($event)" [activeTab]="2" [routing]="true" class="medium">
+  <logo-tab
+    (init)="tabInit($event)"
+    [params]="{id: 'user-id-0'}"
+    [title]="'One'"
+  >
+    <div>içerik 1</div>
+    <p>İstersen routing ile bir başka yeri de call edebilirsin</p>
+  </logo-tab>
+  <logo-tab
+    (init)="tabInit($event)"
+    [params]="{id: 'user-id-1'}"
+    [title]="'Two'"
+  >
+    <div>içerik 2</div>
+  </logo-tab>
+  <logo-tab
+    (click)="tabClick($event)"
+    (init)="tabInit($event)"
+    [params]="{id: 'user-id-2'}"
+    [fragment]="'patates21'"
+    [title]="'Three'"
+  >
+    içerik 3
+    <div
+      *ngFor="let i of [0]; let ins=index">
+      <p id="patates{{ins}}">patates-{{ins}}</p>
+    </div>
+  </logo-tab>
+  <div right>right text</div>
+  <div left>left text</div>
+  <ng-container *ngFor="let item of items; let i =index">
+    <logo-tab title="Tab-{{i}}">{{i}}</logo-tab>
+  </ng-container>
+</logo-tabs>
+<button (click)="addTab()" class="secondary outline">CREATE TAB</button>
+<button (click)="changeTab()">set tab 0</button>

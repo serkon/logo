@@ -433,6 +433,45 @@ export const structure = [
           },
         ],
       },
+      {
+        type: 'page',
+        name: 'Storage Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'StorageModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'StorageService',
+          },
+        ],
+      },
+      {
+        type: 'page',
+        name: 'Tabs Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'TabsModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'TabsComponent',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'TabComponent',
+          },
+        ],
+      },
     ],
   },
   {
@@ -541,17 +580,6 @@ export const structure = [
             type: 'block',
             block: 'component',
             source: 'EndpointService',
-          },
-        ],
-      },
-      {
-        type: 'page',
-        name: 'StorageClass',
-        children: [
-          {
-            type: 'block',
-            block: 'component',
-            source: 'StorageService',
           },
         ],
       },
