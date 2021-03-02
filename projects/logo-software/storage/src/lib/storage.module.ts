@@ -22,7 +22,8 @@ export let StorageClass: StorageService = null;
  * All public NPM packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
  * To install Link Module:
  *
- * ```bash$ npm set registry https://registry.npmjs.org/
+ * ```bash
+ * $ npm set registry https://registry.npmjs.org/
  * $ npm install @logo-software/storage -s
  * ```
  *
