@@ -24,13 +24,13 @@ import { BlogService } from '@cloud/app/services/blog/blog.service';
 })
 export class HomeComponent implements OnInit {
   public SolutionSummaries: SolutionSummary;
-  public ProductSummaries: ProductSummary;
+  public ProductSummaries: ProductSummary[];
   public Testimonials: Testimonial;
   public Faqs: FAQ;
   public BlogData: HttpResponse<BlogSummary>;
   public BlogSummaries: BlogSummary;
   private SolutionSummaryData: Observable<HttpResponse<SolutionSummary>>;
-  private ProductSummaryData: HttpResponse<ProductSummary>;
+  private ProductSummaryData: HttpResponse<ProductSummary[]>;
   private TestimonialsData: HttpResponse<Testimonial>;
   private FaqData: HttpResponse<FAQ>;
 

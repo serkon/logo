@@ -20,7 +20,7 @@ import { SolutionService } from '@cloud/app/services/solutions/solution.service'
   styleUrls: ['./cloud-footer.component.scss'],
 })
 export class CloudFooterComponent implements OnInit {
-  public products: HttpResponse<ProductSummary>;
+  public products: HttpResponse<ProductSummary[]>;
   public solutions: SolutionSummary;
   private solutionsData: Observable<HttpResponse<SolutionSummary>>;
 
