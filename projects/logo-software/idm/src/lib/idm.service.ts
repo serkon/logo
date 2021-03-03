@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 import { StorageClass } from '@logo-software/storage';
 
@@ -45,6 +45,10 @@ export class IdmService {
   ) {
   }
 
+  checkReloadLogin() {
+    this.validateToken();
+  }
+
   /**
    * Calls the login screen of the IDM. If the user logged in before, the first access token will be validated then redirect to again current route.
    */
@@ -78,7 +82,7 @@ export class IdmService {
    */
   validateToken(token = StorageClass.getItem('token')): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      if (!this.isLogged) {
+      // if (!this.isLogged) {
         if (token) {
           this.http.request('GET', `${this.config.URI}/${this.config.TOKEN.VALIDATE}/${token}`).subscribe(
             (response: ValidatedToken) => this.loginSuccessHandler(response),
@@ -88,7 +92,7 @@ export class IdmService {
         } else {
           this.loginErrorHandler(reject);
         }
-      }
+      // }
     });
   }
 
@@ -107,8 +111,8 @@ export class IdmService {
    * Gives Users information with given ids
    * @param ids
    */
-  getUserList(ids: string[]) {
-    return this.http.get(
+  getUserList(ids: string[]): Observable<HttpResponse<User[]>> {
+    return this.http.get<HttpResponse<User[]>>(
       `${this.config.URI}/${this.config.USER.LIST}`,
       {
         headers: new HttpHeaders({
@@ -124,7 +128,7 @@ export class IdmService {
     StorageClass.setItem('token', validated.RawKey);
     StorageClass.setItem('validated', validated);
     const userId: string = validated.UserId;
-    this.getUserList([userId]).subscribe((response: User[]) => {
+    this.getUserList([userId]).subscribe((response) => {
       StorageClass.setItem('user', response[0]);
     });
   }

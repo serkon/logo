@@ -114,6 +114,7 @@ export class IdmModule {
     if (parentModule) {
       throw new TypeError(`IdmModule is imported twice.`);
     }
+    this.idmService.checkReloadLogin();
     this.checkCode();
   }
 
@@ -145,7 +146,6 @@ export class IdmModule {
       }
     });
 
-    /*
     this.activatedRoute.fragment.subscribe((fragment: string) => {
       if (fragment) {
         const list: { access_token?: string, token_type?: string, expires_in?: string, scope?: string } = {};
@@ -159,6 +159,5 @@ export class IdmModule {
         }
       }
     });
-    */
   }
 }
