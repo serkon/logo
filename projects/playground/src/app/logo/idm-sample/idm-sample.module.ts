@@ -12,4 +12,5 @@ import { IdmShowcaseComponent } from './idm-showcase/idm-showcase.component';
   ],
   exports: [IdmShowcaseComponent],
 })
-export class IdmSampleModule { }
+export class IdmSampleModule {
+}

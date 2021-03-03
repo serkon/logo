@@ -1,1 +1,8 @@
-<p>idm-showcase works!</p>
+<button (click)="login()" *ngIf="!idmService.isLogged">Login</button>
+<button (click)="logout()" *ngIf="idmService.isLogged">Logout</button>
+
+<div>
+  <code>
+
+  </code>
+</div>

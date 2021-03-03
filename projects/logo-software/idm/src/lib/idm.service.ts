@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 import { StorageClass } from '@logo-software/storage';
 
@@ -20,9 +20,15 @@ import { IDM_CONFIG, IDM_ID } from './idm.module';
 })
 export class IdmService {
   /**
-   * Subscription for IDM
+   * Subscription for IDM. It will triggered on logged in, logged out and get user information.
+   * Subscribe to subscription then wait for action resolved.
+   *
+   * this.idmService.subscription((event: { login?: boolean, logout?: boolean, user?: User[] }) => { event.login ? console.log('login'): console.log('logout') });
+   * If returned {login: true} user was logged in.
+   * If returned {logout: true} user was logged out.
+   * If returned {user: User[]} logged in user information returned from server.
    */
-  public subscription: Subscription;
+  public subscription: Subject<{ login?: boolean, logout?: boolean, user?: User[] }> = new Subject<{ login?: boolean, logout?: boolean, user?: User[] }>();
   /**
    * Access token
    */
@@ -79,15 +85,15 @@ export class IdmService {
   validateToken(token = StorageClass.getItem('token')): Promise<boolean> {
     return new Promise((resolve, reject) => {
       // if (!this.isLogged) {
-        if (token) {
-          this.http.request('GET', `${this.config.URI}/${this.config.TOKEN.VALIDATE}/${token}`).subscribe(
-            (response: ValidatedToken) => this.loginSuccessHandler(response),
-            (error: HttpErrorResponse) => this.loginErrorHandler(reject, error),
-            () => this.loginCompleteHandler(resolve),
-          );
-        } else {
-          this.loginErrorHandler(reject);
-        }
+      if (token) {
+        this.http.request('GET', `${this.config.URI}/${this.config.TOKEN.VALIDATE}/${token}`).subscribe(
+          (response: ValidatedToken) => this.loginSuccessHandler(response),
+          (error: HttpErrorResponse) => this.loginErrorHandler(reject, error),
+          () => this.loginCompleteHandler(resolve),
+        );
+      } else {
+        this.loginErrorHandler(reject);
+      }
       // }
     });
   }
@@ -107,8 +113,8 @@ export class IdmService {
    * Gives Users information with given ids
    * @param ids
    */
-  getUserList(ids: string[]): Observable<HttpResponse<User[]>> {
-    return this.http.get<HttpResponse<User[]>>(
+  getUserList(ids: string[]): Observable<User[]> {
+    return this.http.get<User[]>(
       `${this.config.URI}/${this.config.USER.LIST}`,
       {
         headers: new HttpHeaders({
@@ -126,6 +132,7 @@ export class IdmService {
     const userId: string = validated.UserId;
     this.getUserList([userId]).subscribe((response) => {
       StorageClass.setItem('user', response[0]);
+      this.subscription.next({user: response});
     });
   }
 
@@ -138,12 +145,19 @@ export class IdmService {
   }
 
   public loginCompleteHandler(resolve) {
+    this.subscription.next({login: true});
     this.router.navigateByUrl(StorageClass.getItem('redirect_uri'));
+    StorageClass.removeItem('redirect_uri');
     resolve(true);
   }
 
   secureLoginClear() {
+    this.subscription.next({logout: true});
+    const redirect_url = StorageClass.getItem('redirect_uri');
     StorageClass.clear();
+    if (redirect_url) {
+      StorageClass.setItem('redirect_uri', redirect_url);
+    }
     this.isLogged = false;
   }
 

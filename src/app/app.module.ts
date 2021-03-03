@@ -9,7 +9,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
+import { IdmModule } from '@logo-software/idm';
+
 import { NgdThemeModule } from './@theme/theme.module';
+
 import { NgdAppComponent } from './app.component';
 import { routes } from './app.routes';
 import { structure } from '../structure';
@@ -26,6 +29,7 @@ import {
 } from '@nebular/theme';
 import { RootModule } from './root/root.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { environment } from '../../projects/playground/src/environments/environment';
 
 const docs = require('../output.json');
 
@@ -47,6 +51,7 @@ const docs = require('../output.json');
     NbSidebarModule.forRoot(),
     RootModule,
     RouterModule.forRoot(routes, {useHash: true}),
+    IdmModule.forRoot(environment.IDM.CLIENT_ID, {RETURN_URI: environment.IDM.CONFIG.RETURN_URI}),
   ],
   declarations: [NgdAppComponent],
   providers: [

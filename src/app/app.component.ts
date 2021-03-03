@@ -5,6 +5,9 @@
  */
 
 import { Component, OnInit } from '@angular/core';
+
+import { IdmService } from '@logo-software/idm';
+
 import { NgdAnalytics } from './@theme/services/analytics.service';
 
 @Component({
@@ -17,10 +20,19 @@ import { NgdAnalytics } from './@theme/services/analytics.service';
 export class NgdAppComponent implements OnInit {
   title = 'Logo Design Guide';
 
-  constructor(private analytics: NgdAnalytics) {
+  constructor(private analytics: NgdAnalytics, public idmService: IdmService) {
+    this.idmService.subscription.subscribe((item) => console.log(item));
   }
 
   ngOnInit(): void {
     this.analytics.trackPageViews();
+  }
+
+  login() {
+    this.idmService.toLogin();
+  }
+
+  logout() {
+    this.idmService.logout();
   }
 }

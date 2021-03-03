@@ -107,6 +107,10 @@ const routes: Routes = [
         path: 'storage-sample',
         loadChildren: () => import('./storage-sample/storage-sample.module').then(m => m.StorageSampleModule),
       },
+      {
+        path: 'idm-sample',
+        loadChildren: () => import('./idm-sample/idm-sample.module').then(m => m.IdmSampleModule),
+      },
     ],
   },
 ];

@@ -1,5 +1,5 @@
 import { InjectionToken, ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
-import { ActivatedRoute, NavigationCancel, Router } from '@angular/router';
+import { ActivatedRoute, NavigationCancel, NavigationEnd, Router } from '@angular/router';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { STORAGE_TYPES, StorageModule } from '@logo-software/storage';
@@ -83,12 +83,13 @@ export class SetIdmConfig {
  *  StorageClass.get('token'); // return access token string
  *  StorageClass.get('validate'); // if exist return ValidatedToken information
  * ```
+ * @stacked-example(Tabs Showcase, logo/idm-sample/idm-showcase/idm-showcase.component)
  *
  * <sub>app.module.ts</sub>
  * ```typescript
  * @NgModule({
  *   ...
- *   imports: [IdmModule.forRoot(environment.IDM.CLIENT_ID)],
+ *   imports: [IdmModule.forRoot(environment.IDM.CLIENT_ID, {RETURN_URI: environment.IDM.CONFIG.RETURN_URI})],
  *   ...
  * })
  * export class AppModule {
@@ -137,7 +138,7 @@ export class IdmModule {
     });
 
     this.router.events.subscribe(s => {
-      if (s instanceof NavigationCancel) {
+      if (s instanceof NavigationCancel || s instanceof NavigationEnd) {
         const params = new URLSearchParams(s.url.split('#')[1]);
         const access_token = params.get('access_token');
         if (access_token) {
@@ -147,9 +148,11 @@ export class IdmModule {
     });
 
     this.activatedRoute.fragment.subscribe((fragment: string) => {
-      if (fragment) {
+      const location = window.location.hash.substr(1);
+      const hash = fragment || location;
+      if (hash) {
         const list: { access_token?: string, token_type?: string, expires_in?: string, scope?: string } = {};
-        const items = fragment.split('&');
+        const items = hash.split('&');
         items.forEach(item => {
           const prop = item.split('=');
           list[prop[0]] = prop[1];
