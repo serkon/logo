@@ -104,9 +104,6 @@ export class CarouselComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.totalItems = this.sliding.nativeElement.childElementCount;
-    this.itemBoxWidth = this.getItemWidth() * this.count;
-    this.slidingWidth = this.sliding.nativeElement.offsetWidth;
     this.resize();
     this.cd.detectChanges();
   }
@@ -126,6 +123,9 @@ export class CarouselComponent implements AfterViewInit {
   }
 
   resize() {
+    this.totalItems = this.sliding.nativeElement.childElementCount;
+    this.itemBoxWidth = this.getItemWidth() * this.count;
+    this.slidingWidth = this.sliding.nativeElement.offsetWidth;
     this.showingCount = Math.floor(this.calculateShowingItems());
     this.sliderWidth = this.slider.nativeElement.offsetWidth;
     this.maxSize = this.slidingWidth - this.sliderWidth;
