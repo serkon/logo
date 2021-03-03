@@ -2,7 +2,7 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-import { AuthorizationType } from '../../../logo-software/idm/src/lib/interface/authorization-type';
+import { AuthorizationType } from '@logo-software/idm';
 
 export const environment = {
   production: false,
