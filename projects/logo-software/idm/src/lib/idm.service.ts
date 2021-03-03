@@ -133,8 +133,6 @@ export class IdmService {
     this.secureLoginClear();
     if (this.config.LOGIN_PAGE.STATUS) {
       this.router.navigate([this.config.LOGIN_PAGE.URI]);
-    } else {
-      this.toLogin();
     }
     reject(error || new Error('restriction service error'));
   }
