@@ -29,7 +29,7 @@
       ],
       "@logo-software/*": [
         "dist/logo-software/*",
-        "./projects/logo-software/*/src/public-api",
+        "./projects/logo-software/*/src/public-api"
       ],
       "@logo-software/playground": [
         "dist/logo-software/playground"
