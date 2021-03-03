@@ -1,4 +1,5 @@
 import { Params } from '@angular/router';
+import { EventEmitter } from '@angular/core';
 
 /**
  * definition of link interface
@@ -41,16 +42,11 @@ export interface Link {
    */
   classes?: string[];
   /**
-   * the event when clicked to the link
-   * @param event
-   */
-  onClick?: (event: Event) => void;
-  /**
    * Hover event when link hovered
    */
-  onHover?: (event: Event) => void;
+  onHover?: EventEmitter<any>;
   /**
    * Output to be triggered when mouse leave element
    */
-  onLeave?:(event: Event) => void;
+  onLeave?: EventEmitter<any>;
 }

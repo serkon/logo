@@ -103,10 +103,6 @@ export class LinkComponent implements OnInit {
    */
   @Input() display: string = '';
   /**
-   * event to be triggered when clicked
-   */
-  @Input() onClick: (event: Event) => void;
-  /**
    * Output to be triggered when hover on the element
    */
   @Output() onHover: EventEmitter<any> = new EventEmitter<any>();
@@ -130,7 +126,6 @@ export class LinkComponent implements OnInit {
       this.url = this.link.url;
       this.classes = this.link.classes && [...this.classes, ...this.link.classes] || this.classes;
       this.display = this.link.display;
-      this.onClick = this.link.onClick;
     }
   }
 
@@ -145,7 +140,6 @@ export class LinkComponent implements OnInit {
       });
     }
     this.linkService.fragment = this.fragment;
-    this.onClick && this.onClick($event);
   }
 
   onHoverEvent($event) {

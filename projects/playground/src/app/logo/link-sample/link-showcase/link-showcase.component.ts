@@ -15,7 +15,6 @@ export class LinkShowcaseComponent {
       url: '/',
       external: false,
       fragment: 'services',
-      onClick: (event: MouseEvent) => console.log('aler'),
     },
     {
       display: 'Docs',
