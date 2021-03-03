@@ -11,4 +11,13 @@ export class IdmShowcaseComponent {
 
   constructor(public idmService: IdmService) {
   }
+
+  login() {
+    this.idmService.toLogin();
+  }
+
+  logout() {
+    this.idmService.logout();
+  }
+
 }

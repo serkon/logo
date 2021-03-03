@@ -20,12 +20,16 @@ To access Token, User, Validated information just run below in your code:
  StorageClass.get('token'); // return access token string
  StorageClass.get('validate'); // if exist return ValidatedToken information
 ```
+@stacked-example(Tabs Showcase, logo/idm-sample/idm-showcase/idm-showcase.component)
 
 <sub>app.module.ts</sub>
 ```typescript
+
+// CLIENT_ID (guid) is your PaaS integrated application id - For example: '1a6a024b-05d7-48ea-83db-4be88e29d300'
+// RETURN_URI (string) is your logged in callback URL address - For example: 'http://design.logo.com.tr'
 @NgModule({
   ...
-  imports: [IdmModule.forRoot(environment.IDM.CLIENT_ID)],
+  imports: [IdmModule.forRoot(CLIENT_ID, {RETURN_URI})],
   ...
 })
 export class AppModule {

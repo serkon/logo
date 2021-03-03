@@ -23,7 +23,7 @@ export const environment = {
         '403': '/forbidden',
         '500': '/server-error',
       },
-      RETURN_URI: 'http://localhost:4200',
+      RETURN_URI: 'http://design.logo.com.tr',
       LOGIN_PAGE: {
         URI: '/login',
         STATUS: false,
