@@ -1,4 +1,4 @@
-import { AfterContentChecked, ChangeDetectorRef, Component, QueryList } from '@angular/core';
+import { AfterContentChecked, ChangeDetectorRef, Component } from '@angular/core';
 
 import { HeaderTheme } from '@logo-software/header';
 import { IdmService } from '@logo-software/idm';
@@ -17,5 +17,15 @@ export class AppComponent implements AfterContentChecked {
 
   ngAfterContentChecked(): void {
     this.cdr.detectChanges();
+  }
+
+  login() {
+    console.log('nw');
+    this.idmService.toLogin();
+  }
+
+  logout() {
+    console.log('nw');
+    this.idmService.logout();
   }
 }

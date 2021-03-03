@@ -4,14 +4,14 @@
     [defaultTheme]="headerTheme.START"
     [isMobilized]="true"
     [menuPosition]="'left'"
-    [scrolledTheme]="headerTheme.SCROLL"
     [scrollPoint]="75"
     [scrollSpy]="true"
+    [scrolledTheme]="headerTheme.SCROLL"
     [watchElement]="'body'"
   >
     <div class="section-main">
       <logo-link [classes]="'ghost large'" [url]="'/products'">Ürünler</logo-link>
-      <logo-link [classes]="'ghost large'" [fragment]="'solutions'">
+      <logo-link [classes]="'ghost large'" [fragment]="'solutions'" [url]="'/'">
         Çözümler
       </logo-link>
       <logo-link [classes]="'ghost large'" [url]="'/about'">Hakkımızda</logo-link>
@@ -20,7 +20,12 @@
       <logo-link [classes]="'ghost large'" [url]="'/path-to-search'">Ara</logo-link>
     </div>
     <div class="section-secondary">
-      <logo-link [classes]="'success large'" [url]="'/to-login'">Giriş Yap</logo-link>
+      <logo-link (click)="login()" *ngIf="!idmService.isLogged" [classes]="'success large'" [url]="'/to-login'">Giriş
+        Yap
+      </logo-link>
+      <logo-link (click)="logout()" *ngIf="idmService.isLogged" [classes]="'danger large'" [url]="'/to-login'">Çıkış
+        Yap
+      </logo-link>
     </div>
   </logo-header>
   <div class="cloud-content">
