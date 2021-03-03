@@ -45,10 +45,6 @@ export class IdmService {
   ) {
   }
 
-  checkReloadLogin() {
-    this.validateToken();
-  }
-
   /**
    * Calls the login screen of the IDM. If the user logged in before, the first access token will be validated then redirect to again current route.
    */

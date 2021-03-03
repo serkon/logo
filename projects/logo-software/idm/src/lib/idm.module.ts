@@ -114,7 +114,7 @@ export class IdmModule {
     if (parentModule) {
       throw new TypeError(`IdmModule is imported twice.`);
     }
-    this.idmService.checkReloadLogin();
+    this.idmService.validateToken();
     this.checkCode();
   }
 
