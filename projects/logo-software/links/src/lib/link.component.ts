@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Params, Router } from '@angular/router';
+import { timer } from 'rxjs';
 
 import { Link } from './link';
 import { LinkService } from './link.service';
-import { timer } from 'rxjs';
 
 /**
  * Link component creates link. Advantage of using this component is give the control
