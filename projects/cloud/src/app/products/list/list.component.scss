@@ -35,7 +35,6 @@
         width: 100%;
 
         .w-search {
-          display: none;
           text-align: center;
           margin: size(-30px) auto 0 auto;
           width: size(600px);
@@ -78,6 +77,7 @@
         .wo-search {
           width: size(450px);
           margin-top: size(90px);
+          display: none;
         }
       }
     }

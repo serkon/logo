@@ -10,6 +10,7 @@ import { SpeedConnectModule } from '@cloud/app/components/speed-connect/speed-co
 import { CloudFooterModule } from '@cloud/app/components/cloud-footer/cloud-footer.module';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ListComponent } from './list/list.component';
+import { ProductItemModule } from '@cloud/app/components/product-item/product-item.module';
 
 @NgModule({
   declarations: [ListComponent],
@@ -22,6 +23,7 @@ import { ListComponent } from './list/list.component';
     SpeedConnectModule,
     PagingModule,
     CloudFooterModule,
+    ProductItemModule,
   ],
   exports: [ListComponent],
 })

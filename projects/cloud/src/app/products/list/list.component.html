@@ -35,33 +35,39 @@
     <div class="filters">
       <div class="section">
         <span class="title">Kategoriler</span>
-        <div class="list">
-          <label class="item">
-            <input [checked]="false" id="solutions-" type="checkbox">
-            <span>Bordro ve İnsan Kaynakları Yönetimi</span>
-          </label>
+        <div *ngIf="solutionService.solutionSummaries" class="list">
+          <div *ngFor="let solution of solutionService.solutionSummaries" class="item">
+            <label>
+              <input [checked]="false" id="solutions-{{solution.id}}" type="checkbox">
+              <span>{{solution.name}}</span>
+            </label>
+          </div>
         </div>
       </div>
       <div class="section">
         <span class="title">Segmentler</span>
-        <div class="list">
-          <label class="item">
-            <input [checked]="false" id="segments-" type="radio">
-            <span>Büyük Şirket <small>(50+ kişi)</small></span>
-          </label>
+        <div *ngIf="segmentData" class="list">
+          <div *ngFor="let segment of segments" class="item">
+            <label>
+              <input [checked]="false" id="segments-{{segment.id}}" type="radio">
+              <span>{{segment.title}} <small>({{segment.description}})</small></span>
+            </label>
+          </div>
         </div>
       </div>
-      <div class="section ">
-        <span class="title">Sektörler (21)</span>
+      <div *ngIf="sectorData" class="section">
+        <span class="title">Sektörler ({{sectors.length}})</span>
         <div class="list stucked">
           <div class="input-w-icon right">
             <span class="le-search"></span>
             <input class="icon-right" placeholder="Sektör Ara">
           </div>
-          <label class="item">
-            <input [checked]="false" id="sectors-" type="checkbox">
-            <span>e-Ticaret</span>
-          </label>
+          <div *ngFor="let sector of sectors" class="item">
+            <label>
+              <input [checked]="false" id="sectors-{{sector.id}}" type="checkbox">
+              <span>{{sector.name}}</span>
+            </label>
+          </div>
           <logo-link [classes]="'primary ghost icon-right small le-chevron_down more-btn'">Daha Fazla Gör</logo-link>
         </div>
       </div>
@@ -76,17 +82,20 @@
           <logo-link [classes]="'secondary outline icon-right small le-trash'">Filtreleri temizle</logo-link>
         </div>
       </div>
-      <div class="infos">
-        <h4>6 sonuç listeleniyor</h4>
+      <div *ngIf="ProductSummaries" class="infos">
+        <h4>{{ProductSummaries.length}} sonuç listeleniyor</h4>
       </div>
-      <div class="listing">
-        @TODO Products will be here
+      <div *ngIf="ProductSummaries" class="listing">
+        <div *ngFor="let productItem of ProductSummaries" class="list-item">
+          <logo-product-item [productData]="productItem"></logo-product-item>
+        </div>
       </div>
       <logo-paging
+        *ngIf="ProductSummaries"
         [pageSize]="12"
         [recordsFound]="' adet içerik bulundu.'"
         [threshold]="5"
-        [totalCount]="3"
+        [totalCount]="ProductSummaries.length"
       >
       </logo-paging>
       <logo-speed-connect></logo-speed-connect>
