@@ -23,9 +23,21 @@
       <logo-link (click)="login()" *ngIf="!idmService.isLogged" [classes]="'success large'" [url]="'/to-login'">Giriş
         Yap
       </logo-link>
-      <logo-link (click)="logout()" *ngIf="idmService.isLogged" [classes]="'danger large'" [url]="'/to-login'">Çıkış
-        Yap
-      </logo-link>
+      <div *ngIf="idmService.isLogged" class="user-base">
+        <div class="user-image">
+          <img onerror="this.src='/assets/img/default-user.png';" src="{{userInfo.UserImage}}">
+        </div>
+        <div class="user-info">
+          <p>{{userInfo.Name}} {{userInfo.Surname}}</p>
+          <div class="select-tanent">
+            <logo-link [classes]="'ghost small secondary icon-right le-arrow_down'">Tenant Seç</logo-link>
+          </div>
+        </div>
+        <div class="opts">
+          <logo-link (click)="logout()" [classes]="'ghost secondary le-logout logout-btn'" [url]="'/'">
+          </logo-link>
+        </div>
+      </div>
     </div>
   </logo-header>
   <div class="cloud-content">

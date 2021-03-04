@@ -42,6 +42,51 @@ html, body {
       }
     }
 
+    .user-base {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100%;
+
+      .user-image {
+        @include border-radius(100%);
+
+        width: size(50px);
+        height: size(50px);
+        overflow: hidden;
+        margin-right: size(10px);
+
+        img {
+          max-height: 100%;
+          margin-left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+
+      .user-info {
+        flex-grow: 1;
+        margin-right: size(25px);
+
+        p {
+          margin-top: size(5px);
+          margin-bottom: 0;
+          padding-left: size(8px);
+        }
+
+        .select-tanent {
+          button {
+            color: var(--basic-900);
+          }
+        }
+      }
+
+      .opts {
+        .logout-btn {
+          color: var(--basic-900);
+        }
+      }
+    }
+
     &.scroll {
       @include box-shadow(0, size(2px), size(15px), size(4px), rgba(var(--black-rgb), 0.15), false);
     }
