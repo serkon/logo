@@ -21,8 +21,8 @@ import { SolutionService } from '@cloud/app/services/solutions/solution.service'
 })
 export class CloudFooterComponent implements OnInit {
   public products: HttpResponse<ProductSummary[]>;
-  public solutions: SolutionSummary;
-  private solutionsData: Observable<HttpResponse<SolutionSummary>>;
+  public solutions: SolutionSummary[];
+  private solutionsData: Observable<HttpResponse<SolutionSummary[]>>;
 
   constructor(private productService: ProductService, private solutionsService: SolutionService) {
   }
