@@ -19,7 +19,7 @@ export class ListComponent implements OnInit {
   public ProductSummaries: ProductSummary[];
   private ProductSummaryData: HttpResponse<ProductSummary[]>;
 
-  constructor(private solutionService: SolutionService, private productService: ProductService) {
+  constructor(public solutionService: SolutionService, private productService: ProductService) {
   }
 
   ngOnInit(): void {
