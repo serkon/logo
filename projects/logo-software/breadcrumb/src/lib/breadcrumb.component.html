@@ -1,0 +1,6 @@
+<div [ngClass]="isLight ? 'light-theme' : ''" class="breadcrumb {{size}} {{cssClasses}}">
+  <span *ngFor="let breadItem of breadcrumb" class="item">
+    <a *ngIf="breadItem.link" href="{{breadItem.link}}">{{breadItem.name}}</a>
+    <ng-container *ngIf="!breadItem.link">{{breadItem.name}}</ng-container>
+  </span>
+</div>

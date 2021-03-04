@@ -1,0 +1,92 @@
+@import "~@logo-software/theme/base";
+
+:host {
+  display: block;
+  width: 100%;
+
+  .breadcrumb {
+    margin-bottom: size(10px);
+    width: 100%;
+
+    .item {
+      display: inline-block;
+      color: var(--neutral-500);
+      font-size: size(14px);
+      line-height: size(19px);
+
+      a {
+        @include animate();
+
+        color: var(--neutral-500);
+        text-decoration: none;
+        font-size: size(14px);
+        line-height: size(19px);
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      &::after {
+        content: "/";
+        display: inline-block;
+        margin-left: size(8px);
+        margin-right: size(8px);
+        color: var(--neutral-1000);
+      }
+
+      &:last-child {
+        color: var(--primary);
+
+        &::after {
+          content: "";
+          display: none;
+        }
+      }
+    }
+
+    &.small {
+      .item {
+        font-size: size(12px) !important;
+        line-height: size(16px) !important;
+
+        a {
+          font-size: size(12px) !important;
+          line-height: size(16px) !important;
+        }
+      }
+    }
+
+    &.large {
+      .item {
+        font-size: size(16px) !important;
+        line-height: size(22px) !important;
+
+        a {
+          font-size: size(16px) !important;
+          line-height: size(22px) !important;
+        }
+      }
+    }
+
+    &.light-theme {
+      .item {
+        color: var(--white);
+
+        a {
+          color: var(--white);
+          opacity: 0.5;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+
+        &::after {
+          opacity: 0.5;
+          color: var(--white);
+        }
+      }
+    }
+  }
+}
