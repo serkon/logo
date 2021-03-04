@@ -1,0 +1,105 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+@import "~@logo-software/theme/base";
+@import "vars";
+
+:host {
+  .speed-connect-base {
+    margin: size(170px) 0;
+    padding: size(95px) size(55px);
+    background-color: var(--secondary-600);
+    background-image: url("#{$gfx-path}/speed-connect-bg.png");
+    background-position: 190% 0%;
+    background-repeat: no-repeat;
+    color: var(--white);
+    height: size(540px);
+    background-size: auto 100%;
+    box-sizing: border-box;
+
+    .speed-content {
+      width: 60%;
+
+      h1, h3 {
+        white-space: pre-wrap;
+        color: var(--white);
+      }
+
+      h3 {
+        margin: size(16px) 0;
+      }
+
+      .cta {
+        display: block;
+        margin: size(16px) 0;
+
+        ::ng-deep {
+          button {
+            background: var(--white);
+          }
+        }
+      }
+
+      .separator {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin: size(16px) 0;
+
+        &::after, &::before {
+          content: "";
+          flex: 1;
+          border-bottom: 1px solid var(--white);
+        }
+
+        &::before {
+          margin-right: size(10px);
+        }
+
+        &::after {
+          margin-left: size(10px);
+        }
+      }
+
+      .connect-form {
+        margin: size(16px) 0;
+        display: flex;
+
+        .icon-base {
+          width: size(32px);
+          height: size(32px);
+          background: var(--white);
+          margin-right: size(-1px);
+          z-index: 1;
+          border-right: 1px solid var(--basic-700);
+
+          span {
+            display: inline-block;
+            color: var(--primary);
+            width: size(32px);
+            height: size(32px);
+          }
+        }
+
+        .form-base {
+          logo-link {
+            display: inline-block;
+            margin-left: size(12px);
+
+            ::ng-deep {
+              button {
+                background: var(--white);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
