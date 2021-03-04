@@ -8,14 +8,14 @@ import { LinksModule } from '@logo-software/links';
 import { AccordionModule } from '@logo-software/accordion';
 import { PagingModule } from '@logo-software/paging';
 
-import { CloudFooterComponent } from '@cloud/app/components/cloud-footer/cloud-footer.component';
-import { ProductItemComponent } from '@cloud/app/components/product-item/product-item.component';
+import { CloudFooterModule } from '@cloud/app/components/cloud-footer/cloud-footer.module';
+import { ProductItemModule } from '@cloud/app/components/product-item/product-item.module';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, CloudFooterComponent, ProductItemComponent],
+  declarations: [HomeComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
@@ -23,13 +23,13 @@ import { HomeComponent } from './home.component';
     CarouselModule,
     CardModule,
     LinksModule,
-    LinksModule,
-    LinksModule,
     CarouselModule,
     AccordionModule,
     PagingModule,
+    CloudFooterModule,
+    ProductItemModule,
   ],
-  exports: [HomeComponent, CloudFooterComponent, ProductItemComponent],
+  exports: [HomeComponent],
 })
 export class HomeModule {
 }

@@ -202,8 +202,14 @@
             </div>
           </div>
         </div>
-        <logo-paging *ngIf="BlogData" [pageSize]="3" [recordsFound]="' adet içerik bulundu.'" [threshold]="5"
-                     [totalCount]="BlogData.count"></logo-paging>
+        <logo-paging
+          *ngIf="BlogData"
+          [pageSize]="3"
+          [recordsFound]="' adet içerik bulundu.'"
+          [threshold]="5"
+          [totalCount]="BlogData.count"
+        >
+        </logo-paging>
       </div>
     </div>
   </div>
