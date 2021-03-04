@@ -20,15 +20,17 @@ import { SharedService } from '@cloud/app/services/shared/shared.service';
   providedIn: 'root',
 })
 export class SolutionService {
+  public solutionSummariesData: HttpResponse<SolutionSummary[]>;
+  public solutionSummaries: SolutionSummary[];
 
   constructor(private http: HttpClient, private helpers: SharedService) {
   }
 
-  public getSolutionSummaries(): Observable<HttpResponse<SolutionSummary>> {
-    return this.http.get<HttpResponse<SolutionSummary>>(
+  public getSolutionSummaries(): Observable<HttpResponse<SolutionSummary[]>> {
+    return this.http.get<HttpResponse<SolutionSummary[]>>(
       `${environment.api.baseURL}/${environment.api.solution.prefix}/${environment.api.solution.summary}`,
     ).pipe(
-      catchError(this.helpers.handleError<HttpResponse<SolutionSummary>>('getSolutionSummaries')),
+      catchError(this.helpers.handleError<HttpResponse<SolutionSummary[]>>('getSolutionSummaries')),
     );
   }
 }

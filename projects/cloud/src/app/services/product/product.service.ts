@@ -3,13 +3,15 @@ import { HttpClient } from '@angular/common/http';
 
 import { environment } from '@cloud/environments/environment';
 import { SharedService } from '@cloud/app/services/shared/shared.service';
-import { HttpResponse, ProductSummary } from '@cloud/models/interfaces';
+import { HttpResponse, ProductSummary, Sector, Segment } from '@cloud/models/interfaces';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  public summaries: ProductSummary[];
+  public productSummaryData: HttpResponse<ProductSummary[]>;
+  public segmentData: HttpResponse<Segment[]>;
+  public sectorData: HttpResponse<Sector[]>;
 
   constructor(private http: HttpClient, private helpers: SharedService) {
   }
@@ -19,7 +21,25 @@ export class ProductService {
       `${environment.api.baseURL}/${environment.api.product.prefix}/${environment.api.product.summary}`,
       '',
     ).toPromise().then((response) => {
-      this.summaries = response.data;
+      this.productSummaryData = response;
+      return response;
+    });
+  }
+
+  public getSegments(): Promise<HttpResponse<Segment[]>> {
+    return this.http.get<HttpResponse<Segment[]>>(
+      `${environment.api.baseURL}/${environment.api.product.prefix}/${environment.api.product.segment}`,
+    ).toPromise().then((response) => {
+      this.segmentData = response;
+      return response;
+    });
+  }
+
+  public getSectors(): Promise<HttpResponse<Sector[]>> {
+    return this.http.get<HttpResponse<Sector[]>>(
+      `${environment.api.baseURL}/${environment.api.product.prefix}/${environment.api.product.sector}`,
+    ).toPromise().then((response) => {
+      this.sectorData = response;
       return response;
     });
   }
