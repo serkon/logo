@@ -1,0 +1,158 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+@import "~@logo-software/theme/base";
+@import "vars";
+
+:host {
+  ::ng-deep {
+    .hero-product-list {
+      height: size(350px);
+      background-image: url("#{$gfx-path}/product-list-hero-bg.png");
+      background-position: top center;
+      background-repeat: no-repeat;
+      color: var(--white);
+
+      p {
+        color: var(--white);
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        color: var(--white);
+      }
+
+      .hero-content {
+        align-items: flex-start !important;
+      }
+
+      .content {
+        width: 100%;
+
+        .w-search {
+          display: none;
+          text-align: center;
+          margin: size(-30px) auto 0 auto;
+          width: size(600px);
+
+          p.motto {
+            margin: size(20px) 0 !important;
+          }
+
+          input {
+            width: 100%;
+          }
+
+          .separator {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: size(8px) 0;
+            opacity: 0.5;
+
+            &::after, &::before {
+              content: "";
+              flex: 1;
+              border-bottom: 1px solid var(--white);
+            }
+
+            &::before {
+              margin-right: size(10px);
+            }
+
+            &::after {
+              margin-left: size(10px);
+            }
+          }
+
+          .cta {
+            margin-top: size(20px);
+          }
+        }
+
+        .wo-search {
+          width: size(450px);
+          margin-top: size(90px);
+        }
+      }
+    }
+
+    .overlay {
+      background-color: rgba(var(--primary-1000-rgb), 0.8);
+    }
+  }
+
+  .page-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    padding-top: size(50px);
+    padding-bottom: size(50px);
+
+    .filters {
+      background: var(--basic-300);
+      padding: size(24px);
+      margin-right: size(60px);
+
+      .section {
+        margin-bottom: size(50px);
+
+        .title {
+          display: block;
+          font-weight: bold;
+          color: var(--basic-1000);
+          margin-bottom: size(4px);
+        }
+
+        .list {
+          .item {
+            display: block;
+
+            span {
+              margin-top: size(9px);
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+
+    .contents {
+      flex-grow: 1;
+
+      .filter-area {
+        background: var(--basic-300);
+        padding: size(7px) size(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .filter-names {
+          flex-grow: 1;
+
+          logo-link {
+            display: inline-block;
+            margin-right: size(10px);
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+
+      .infos {
+        padding: size(24px) 0 0 0;
+      }
+
+      .listing {
+        padding: size(40px) 0;
+      }
+    }
+  }
+}

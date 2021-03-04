@@ -1,0 +1,96 @@
+<div class="product-list-page">
+  <logo-hero [containerStatus]="true" [cssClasses]="'hero-product-list'">
+    <logo-breadcrumb
+      [breadcrumb]="[{name:'Anasayfa', link: '/'}, {name:'Ürünler'}]"
+      [isLight]="true"
+      [size]="'medium'"
+    >
+    </logo-breadcrumb>
+    <div class="content">
+      <div class="w-search">
+        <h2><b>Tüm Cloud Ürünlerimiz</b></h2>
+        <p class="motto">Lorem ipsum dolor sit amet consectetur</p>
+        <div class="input-w-icon large left">
+          <span class="le-search"></span>
+          <input class="large light icon-left" placeholder="Ürün Ara">
+        </div>
+        <div class="separator"><p>veya</p></div>
+        <h5><b>İhtiyaçlarınızı belirtin size en uygun olabilecek ürünü bulalım!</b></h5>
+        <div class="cta">
+          <logo-link [classes]="'primary large icon-right le-arrow_right'" [fragment]="'productFinder'" [url]="'/'">Ürün
+            Bulucuya Git
+          </logo-link>
+        </div>
+      </div>
+      <div class="wo-search">
+        <h1><b>Consectetur adipiscing elit</b></h1>
+        <p class="motto large">
+          Maecenas tellus orci, consequat sollicitudin quam at, egestas tincidunt mauris. Pellentesque id lorem lacus.
+          Vestibulum viverra eleifend elit.
+        </p>
+      </div>
+    </div>
+  </logo-hero>
+  <div class="container page-content">
+    <div class="filters">
+      <div class="section">
+        <span class="title">Kategoriler</span>
+        <div class="list">
+          <label class="item">
+            <input [checked]="false" id="solutions-" type="checkbox">
+            <span>Bordro ve İnsan Kaynakları Yönetimi</span>
+          </label>
+        </div>
+      </div>
+      <div class="section">
+        <span class="title">Segmentler</span>
+        <div class="list">
+          <label class="item">
+            <input [checked]="false" id="segments-" type="radio">
+            <span>Büyük Şirket <small>(50+ kişi)</small></span>
+          </label>
+        </div>
+      </div>
+      <div class="section ">
+        <span class="title">Sektörler (21)</span>
+        <div class="list stucked">
+          <div class="input-w-icon right">
+            <span class="le-search"></span>
+            <input class="icon-right" placeholder="Sektör Ara">
+          </div>
+          <label class="item">
+            <input [checked]="false" id="sectors-" type="checkbox">
+            <span>e-Ticaret</span>
+          </label>
+          <logo-link [classes]="'primary ghost icon-right small le-chevron_down more-btn'">Daha Fazla Gör</logo-link>
+        </div>
+      </div>
+    </div>
+    <div class="contents">
+      <div class="filter-area">
+        <div class="filter-names">
+          <logo-link [classes]="'secondary icon-right le-cross'">e-Ticaret</logo-link>
+          <logo-link [classes]="'secondary icon-right le-cross'">Kobi</logo-link>
+        </div>
+        <div class="filter-opts">
+          <logo-link [classes]="'secondary outline icon-right small le-trash'">Filtreleri temizle</logo-link>
+        </div>
+      </div>
+      <div class="infos">
+        <h4>6 sonuç listeleniyor</h4>
+      </div>
+      <div class="listing">
+        @TODO Products will be here
+      </div>
+      <logo-paging
+        [pageSize]="12"
+        [recordsFound]="' adet içerik bulundu.'"
+        [threshold]="5"
+        [totalCount]="3"
+      >
+      </logo-paging>
+      <logo-speed-connect></logo-speed-connect>
+    </div>
+  </div>
+</div>
+<logo-cloud-footer></logo-cloud-footer>
