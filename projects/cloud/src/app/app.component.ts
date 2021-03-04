@@ -36,6 +36,5 @@ export class AppComponent implements AfterContentChecked {
 
   private getUserInfo() {
     this.userInfo = StorageClass.getItem('user');
-    console.log(this.userInfo);
   }
 }
