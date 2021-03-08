@@ -15,7 +15,6 @@ export class HeaderComponent {
       url: '/',
       external: false,
       fragment: 'services',
-      onClick: (event: MouseEvent) => console.log('alert'),
     },
     {
       display: 'Docs',
