@@ -2,7 +2,9 @@
 <button (click)="logout()" *ngIf="idmService.isLogged">Logout</button>
 
 <div>
-  <code>
+  <code class="hljs json">
+    {{this.idmService.user | json}}
 
   </code>
 </div>
+<div innerHTML="deneme {{'TEST' | json}}">sasdad</div>

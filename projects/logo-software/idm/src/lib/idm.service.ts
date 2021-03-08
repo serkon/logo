@@ -14,15 +14,35 @@ import { IDM_CONFIG, IDM_ID } from './idm.module';
 
 /**
  * Idm Service uses for token operation and user operations for Logo Paas IDM Service.
+ * Subscription for IDM. It will triggered on logged in, logged out and get user information.
+ * Subscribe to subscription then wait for action resolved.
+ * Add below code sample to subscribe events to get the data when login, logout or user information event triggered.
+ *
+ * ```typescript
+ * @Component({
+ *   selector: 'app-root',
+ *   templateUrl: './app.component.html',
+ *   styleUrls: ['./app.component.scss'],
+ * })
+ * export class AppComponent {
+ *  constructor(public idmService: IdmService) {
+ *     this.user = StorageClass.getItem('user');
+ *       this.idmService.subscription.subscribe((item) => {
+ *        console.log('IdmShowcaseComponent: ', item);
+ *        this.user = item.user ? item.user: 'No user data found';
+ *     });
+ *   }
+ * }
+ * ```
  */
 @Injectable({
   providedIn: 'root',
 })
 export class IdmService {
+  user: User;
   /**
    * Subscription for IDM. It will triggered on logged in, logged out and get user information.
    * Subscribe to subscription then wait for action resolved.
-   *
    * this.idmService.subscription((event: { login?: boolean, logout?: boolean, user?: User[] }) => { event.login ? console.log('login'): console.log('logout') });
    * If returned {login: true} user was logged in.
    * If returned {logout: true} user was logged out.
@@ -131,6 +151,7 @@ export class IdmService {
     StorageClass.setItem('validated', validated);
     const userId: string = validated.UserId;
     this.getUserList([userId]).subscribe((response) => {
+      this.user = response[0];
       StorageClass.setItem('user', response[0]);
       this.subscription.next({user: response});
     });
