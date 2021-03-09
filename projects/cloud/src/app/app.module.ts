@@ -23,6 +23,7 @@ import { environment } from '../environments/environment';
   ],
   providers: [],
   bootstrap: [AppComponent],
+  exports: [],
 })
 export class AppModule {
 }

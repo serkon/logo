@@ -17,11 +17,8 @@ const routes: Routes = [
   },
   {
     path: 'products',
+    pathMatch: 'prefix',
     loadChildren: () => import('./products/products.module').then(m => m.ProductsModule),
-  },
-  {
-    path: 'serkon/:id/patates',
-    loadChildren: () => import('../../../../projects/playground/src/app/logo/button-sample/button-sample.module').then(m => m.ButtonSampleModule),
   },
 ];
 

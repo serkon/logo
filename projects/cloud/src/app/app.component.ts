@@ -2,7 +2,8 @@ import { AfterContentChecked, ChangeDetectorRef, Component } from '@angular/core
 
 import { HeaderTheme } from '@logo-software/header';
 import { IdmService } from '@logo-software/idm';
-import { StorageClass } from '@logo-software/storage';
+
+import { UserService } from '@cloud/app/services/auth/user.service';
 
 @Component({
   selector: 'app-root',
@@ -12,18 +13,13 @@ import { StorageClass } from '@logo-software/storage';
 export class AppComponent implements AfterContentChecked {
   public headerTheme = HeaderTheme;
   items = [];
-  public userInfo = [];
 
-  constructor(private cdr: ChangeDetectorRef, public idmService: IdmService) {
+  constructor(private cdr: ChangeDetectorRef, public idmService: IdmService, public userService: UserService) {
+    this.userService.subscribeUserInfo();
   }
 
   ngAfterContentChecked(): void {
     this.cdr.detectChanges();
-    if (this.idmService.isLogged) {
-      setTimeout(() => {
-        this.getUserInfo();
-      }, 150);
-    }
   }
 
   login() {
@@ -32,9 +28,5 @@ export class AppComponent implements AfterContentChecked {
 
   logout() {
     this.idmService.logout();
-  }
-
-  private getUserInfo() {
-    this.userInfo = StorageClass.getItem('user');
   }
 }
