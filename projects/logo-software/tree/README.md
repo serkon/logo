@@ -13,7 +13,10 @@ To install Tree Module:
 $ npm set registry https://registry.npmjs.org/
 $ npm install @logo-software/tree -s
 ```
+
 Then add TreeModule to @NgModule `imports` section
+
+<sub>app.module.ts</sub>
 ```typescript
 @NgModule({
   ...
