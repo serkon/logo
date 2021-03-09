@@ -29,3 +29,44 @@ input[type=checkbox], input[type=radio] {
   @extend %check-radio;
   @extend %check-radio-medium;
 }
+
+.input-w-icon {
+  position: relative;
+
+  span {
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+    width: size(32px);
+    z-index: 1;
+    top: 0;
+    color: var(--neutral-400);
+  }
+
+  input {
+    width: 100%;
+  }
+
+  &.left {
+    span {
+      left: 0;
+    }
+  }
+
+  &.right {
+    span {
+      right: 0;
+      border-left: 1px solid var(--basic-700);
+    }
+  }
+
+  &.large {
+    span {
+      width: size(48px);
+
+      &::before {
+        mask-size: size(24px);
+      }
+    }
+  }
+}
