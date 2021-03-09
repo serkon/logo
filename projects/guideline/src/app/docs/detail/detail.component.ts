@@ -10,6 +10,7 @@
 
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { HeaderService, HeaderTheme } from '@logo-software/header';
 import { DrawerService } from '@logo-software/drawer';
 
@@ -26,6 +27,7 @@ export class DetailComponent implements OnInit, AfterViewInit {
   public docExtension: string = 'mdx';
 
   constructor(public docsService: DocsService, public headerService: HeaderService, public drawerService: DrawerService, private route: ActivatedRoute) {
+    this.drawerService.isOpenerActive = true;
   }
 
   ngOnInit(): void {
