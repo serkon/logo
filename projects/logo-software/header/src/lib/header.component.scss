@@ -27,10 +27,14 @@
       display: flex;
       align-items: center;
       height: 100%;
+
+      @include smaller-than(lg) {
+        max-width: 100% !important;
+      }
     }
 
     .logo {
-      @include animate();
+      @include animate(all, 0.2s, ease-in-out);
 
       width: size(135px);
       height: size(36px);
