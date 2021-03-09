@@ -18,8 +18,14 @@ export class ListComponent implements OnInit {
   public sectors: Sector[];
   public ProductSummaries: ProductSummary[];
   private ProductSummaryData: HttpResponse<ProductSummary[]>;
+  public isSectorListExpanded: boolean = false;
+  public isFilterExpanded: boolean = false;
+  public currentFilters = [];
 
-  constructor(public solutionService: SolutionService, private productService: ProductService) {
+  constructor(
+    public solutionService: SolutionService,
+    private productService: ProductService,
+  ) {
   }
 
   ngOnInit(): void {
@@ -28,6 +34,7 @@ export class ListComponent implements OnInit {
     this.loadSectors();
     this.loadProductSummaries();
   }
+
 
   private loadSolutions() {
     this.solutionsData = this.solutionService.getSolutionSummaries();
@@ -44,12 +51,83 @@ export class ListComponent implements OnInit {
   private async loadSectors() {
     this.sectorData = await this.productService.getSectors();
     this.sectors = this.sectorData.data;
-    console.log(this.sectors);
   }
 
   private async loadProductSummaries() {
     this.ProductSummaryData = await this.productService.getProductSummaries();
     this.ProductSummaries = this.ProductSummaryData.data;
   }
+
+  public toogleSectorList() {
+    this.isSectorListExpanded = !this.isSectorListExpanded;
+  }
+
+  public toogleFilters() {
+    this.isFilterExpanded = !this.isFilterExpanded;
+  }
+
+  public setSegmentFilter(filtered, filterName: string) {
+    const theSegmentFilter = {filter: 'segment', data: {id: filtered.value, name: filterName}}
+    this.currentFilters = this.currentFilters.filter((el) => {
+      return el.filter !== 'segment';
+    });
+    // @TODO DEV: Filtreleme eklemeniz gerekiyor
+    console.log('##### Make filter for segment:' + filtered.value.toString() + ' #####');
+    this.currentFilters.push(theSegmentFilter);
+  }
+
+  public setToCurrentFilters(filterType: string, filterId: string, filterName: string, event: any) {
+    if (event.currentTarget.checked) {
+      const filterItem = {filter: filterType, data: {id: filterId, name: filterName}};
+      // @TODO DEV: Filtreleme eklemeniz gerekiyor
+      console.log('##### Make filter for ' + filterType + ' and with ' + filterId + ' #####');
+      this.currentFilters.push(filterItem);
+    } else {
+      this.removeFilter(filterId)
+    }
+  }
+
+  public removeFilter(filterId: string) {
+    this.currentFilters = this.currentFilters.filter((el) => {
+      return el.data.id !== filterId;
+    });
+    console.log('##### Make filter with ' + this.currentFilters.toString() + ' #####');
+  }
+
+  public checkCurrentFilters(filterId: string) {
+    const filterEnabled = this.currentFilters.filter((el) => {
+      return el.data.id === filterId;
+    });
+    if (filterEnabled.length > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public clearAllFilters() {
+    this.currentFilters = [];
+  }
+
+  private filterProducts(filterQuery: string, filterType: string) {
+    const listData = JSON.parse(JSON.stringify(this.productService.productSummaryData.data));
+    this.ProductSummaries = listData.filter((data) => {
+      switch (filterType) {
+        case 'solution':
+          return data.solution.id === filterQuery;
+          break;
+        case 'segment':
+          return data.segmentId === filterQuery;
+          break;
+        case 'sector':
+          return data.sectorId === filterQuery;
+          break;
+        default:
+          return this.productService.productSummaryData.data;
+      }
+    });
+    console.log(this.ProductSummaries);
+  }
+
 
 }

@@ -41,6 +41,10 @@
 
           p.motto {
             margin: size(20px) 0 !important;
+
+            @include smaller-than(sm) {
+              margin: size(8px) 0 !important;
+            }
           }
 
           input {
@@ -67,10 +71,24 @@
             &::after {
               margin-left: size(10px);
             }
+
+            @include smaller-than(sm) {
+              p {
+                margin: size(8px) 0;
+              }
+            }
           }
 
           .cta {
             margin-top: size(20px);
+
+            @include smaller-than(sm) {
+              margin-top: size(8px);
+            }
+          }
+
+          @include smaller-than(md) {
+            width: 100%;
           }
         }
 
@@ -78,6 +96,10 @@
           width: size(450px);
           margin-top: size(90px);
           display: none;
+
+          @include smaller-than(md) {
+            width: 100%;
+          }
         }
       }
     }
@@ -94,10 +116,27 @@
     padding-top: size(50px);
     padding-bottom: size(50px);
 
+    @include smaller-than(lg) {
+      flex-direction: column;
+    }
+
+    @include smaller-than(md) {
+      padding-top: size(20px);
+      padding-bottom: size(20px);
+    }
+
     .filters {
+      @include animate(all, 0.2s, ease-in-out);
+
       background: var(--basic-300);
       padding: size(24px);
       margin-right: size(60px);
+      margin-left: size(30px);
+      width: 25%;
+
+      .mobile-button-base {
+        display: none;
+      }
 
       .section {
         margin-bottom: size(50px);
@@ -112,18 +151,81 @@
         .list {
           .item {
             display: block;
+            white-space: nowrap;
 
             span {
               margin-top: size(9px);
               display: inline-block;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
             }
           }
         }
+
+        .sector-items {
+          @include animate(all, 0.2s, ease-in-out);
+
+          overflow: hidden;
+
+          &.stucked {
+            height: size(140px);
+          }
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        @include smaller-than(lg) {
+          margin-bottom: 0;
+        }
+      }
+
+      @include smaller-than(xl) {
+        width: 38%;
+      }
+
+      @include smaller-than(lg) {
+        margin-right: size(30px);
+        width: calc(100% - 60px);
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        height: size(46px);
+        overflow: hidden;
+        padding: size(10px);
+
+        .mobile-button-base {
+          display: block;
+          width: 100%;
+          margin-bottom: size(20px);
+        }
+
+        &.expanded {
+          height: auto !important;
+        }
+      }
+
+      @include smaller-than(sm) {
+        margin-left: size(15px);
+        width: calc(100% - 30px);
       }
     }
 
     .contents {
       flex-grow: 1;
+      margin-right: size(30px);
+
+      @include smaller-than(lg) {
+        margin-left: size(30px);
+      }
+
+      @include smaller-than(sm) {
+        margin-left: size(15px);
+        margin-right: size(15px);
+      }
 
       .filter-area {
         background: var(--basic-300);
@@ -135,9 +237,9 @@
         .filter-names {
           flex-grow: 1;
 
-          logo-link {
-            display: inline-block;
+          logo-tags {
             margin-right: size(10px);
+            margin-bottom: size(5px);
 
             &:last-child {
               margin-right: 0;
@@ -152,6 +254,77 @@
 
       .listing {
         padding: size(40px) 0;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        @include smaller-than(sm) {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .list-item {
+          width: calc((100% - 40px) / 3);
+          margin-right: size(20px);
+          margin-bottom: size(20px);
+
+          &:nth-child(3n+3) {
+            margin-right: 0 !important;
+          }
+
+          @include smaller-than(xl) {
+            width: calc((100% - 20px) / 2);
+
+            &:nth-child(3n+3) {
+              margin-right: size(20px) !important;
+            }
+
+            &:nth-child(2n+2) {
+              margin-right: 0 !important;
+            }
+          }
+
+          @include smaller-than(lg) {
+            width: calc((100% - 40px) / 3);
+
+            &:nth-child(2n+2) {
+              margin-right: size(20px) !important;
+            }
+
+            &:nth-child(3n+3) {
+              margin-right: 0 !important;
+            }
+          }
+
+          @include smaller-than(md) {
+            width: calc((100% - 20px) / 2);
+
+            &:nth-child(3n+3) {
+              margin-right: size(20px) !important;
+            }
+
+            &:nth-child(2n+2) {
+              margin-right: 0 !important;
+            }
+          }
+
+          @include smaller-than(sm) {
+            width: size(320px);
+            margin-right: 0 !important;
+
+            &:nth-child(3n+3) {
+              margin-right: 0 !important;
+            }
+          }
+
+          ::ng-deep {
+            .product-item {
+              margin: 0 !important;
+            }
+          }
+        }
       }
     }
   }

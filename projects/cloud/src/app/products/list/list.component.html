@@ -31,14 +31,22 @@
       </div>
     </div>
   </logo-hero>
-  <div class="container page-content">
-    <div class="filters">
+  <!--
+    @TODO DEV: Eğer filtreleme kaldırılacaksa, page-content classının yanına container eklenecek
+  -->
+  <div class="page-content">
+    <div [ngClass]="isFilterExpanded ? 'expanded' : ''" class="filters">
+      <div class="mobile-button-base">
+        <button (click)="toogleFilters()" class="secondary ghost icon-left le-filter">Filtrele <span
+          class="le-arrow_down"></span></button>
+      </div>
       <div class="section">
         <span class="title">Kategoriler</span>
         <div *ngIf="solutionService.solutionSummaries" class="list">
           <div *ngFor="let solution of solutionService.solutionSummaries" class="item">
             <label>
-              <input [checked]="false" id="solutions-{{solution.id}}" type="checkbox">
+              <input (change)="setToCurrentFilters('solution', solution.id, solution.name, $event)"
+                     [checked]="checkCurrentFilters(solution.id)" id="solutions-{{solution.id}}" type="checkbox">
               <span>{{solution.name}}</span>
             </label>
           </div>
@@ -49,7 +57,9 @@
         <div *ngIf="segmentData" class="list">
           <div *ngFor="let segment of segments" class="item">
             <label>
-              <input [checked]="false" id="segments-{{segment.id}}" type="radio">
+              <input (change)="setSegmentFilter($event.target, segment.title)"
+                     [checked]="checkCurrentFilters(segment.id)" [value]="segment.id" id="segments-{{segment.id}}"
+                     name="segment" type="radio">
               <span>{{segment.title}} <small>({{segment.description}})</small></span>
             </label>
           </div>
@@ -57,29 +67,35 @@
       </div>
       <div *ngIf="sectorData" class="section">
         <span class="title">Sektörler ({{sectors.length}})</span>
-        <div class="list stucked">
+        <div class="list">
           <div class="input-w-icon right">
             <span class="le-search"></span>
             <input class="icon-right" placeholder="Sektör Ara">
           </div>
-          <div *ngFor="let sector of sectors" class="item">
-            <label>
-              <input [checked]="false" id="sectors-{{sector.id}}" type="checkbox">
-              <span>{{sector.name}}</span>
-            </label>
+          <div [ngClass]="!isSectorListExpanded ? 'stucked' : ''" class="sector-items">
+            <div *ngFor="let sector of sectors" class="item">
+              <label>
+                <input (change)="setToCurrentFilters('solution', sector.id, sector.name, $event)"
+                       [checked]="checkCurrentFilters(sector.id)" id="sectors-{{sector.id}}" type="checkbox">
+                <span>{{sector.name}}</span>
+              </label>
+            </div>
           </div>
-          <logo-link [classes]="'primary ghost icon-right small le-chevron_down more-btn'">Daha Fazla Gör</logo-link>
+          <button (click)="toogleSectorList()" *ngIf="sectors.length > 4"
+                  [ngClass]="!isSectorListExpanded ? 'le-chevron_down' : 'le-chevron_up'"
+                  class="primary ghost icon-right small more-btn">{{ !isSectorListExpanded ? 'Daha Fazla Gör' : 'Daha Az Gör'}}</button>
         </div>
       </div>
     </div>
     <div class="contents">
-      <div class="filter-area">
+      <div *ngIf="currentFilters.length > 0" class="filter-area">
         <div class="filter-names">
-          <logo-link [classes]="'secondary icon-right le-cross'">e-Ticaret</logo-link>
-          <logo-link [classes]="'secondary icon-right le-cross'">Kobi</logo-link>
+          <logo-tags (onRemoveClicked)="removeFilter($event)" *ngFor="let filter of currentFilters"
+                     [cssClass]="'filter-tag'" [item]="filter.data"></logo-tags>
         </div>
         <div class="filter-opts">
-          <logo-link [classes]="'secondary outline icon-right small le-trash'">Filtreleri temizle</logo-link>
+          <button (click)="clearAllFilters()" class="secondary outline icon-right small le-trash">Filtreleri temizle
+          </button>
         </div>
       </div>
       <div *ngIf="ProductSummaries" class="infos">
