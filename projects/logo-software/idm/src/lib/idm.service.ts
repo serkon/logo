@@ -39,7 +39,7 @@ import { IDM_CONFIG, IDM_ID } from './idm.module';
   providedIn: 'root',
 })
 export class IdmService {
-  user: User;
+  public user: User;
   /**
    * Subscription for IDM. It will triggered on logged in, logged out and get user information.
    * Subscribe to subscription then wait for action resolved.
