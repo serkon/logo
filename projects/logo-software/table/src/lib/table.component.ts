@@ -78,6 +78,10 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   @ContentChild('expander', {read: TemplateRef, static: true}) expanderTemplateRef: TemplateRef<any>;
   @ContentChild(ExpanderComponent, {static: true}) expanderComponent: ExpanderComponent;
   /**
+   * For hide action toolbar set false, default is true.
+   */
+  @Input() hideActions: boolean = true;
+  /**
    * Make table editable when it's the value set true
    */
   @Input() public editable = false;

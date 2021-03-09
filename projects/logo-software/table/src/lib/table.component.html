@@ -9,7 +9,7 @@
  * Any reproduction of this material must contain this notice.
  */
 -->
-<div class="table-actions">
+<div class="table-actions" *ngIf="hideActions">
   <button
     class="outline le-add"
     (click)="actionHtmlAddReference()" *ngIf="!!reference && refButtonStatus"></button>
@@ -253,7 +253,7 @@
 <div *ngIf="!hasPaging && rows.length >= 0" class="app-paging">
   <div class="row">
     <div class="flex-grow total-count">
-      <strong>{{rows.length}}</strong> {{"record_found"}}
+      <strong>{{rows.length}}</strong> {{recordsFound}}
     </div>
   </div>
 </div>
