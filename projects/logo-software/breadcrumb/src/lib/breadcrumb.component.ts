@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 export interface Breadcrumb {
   name: string;
@@ -13,7 +13,7 @@ export interface Breadcrumb {
   styleUrls: ['./breadcrumb.component.scss'],
 })
 
-export class BreadcrumbComponent implements OnInit {
+export class BreadcrumbComponent {
   @Input() breadcrumb: Breadcrumb[];
   @Input() cssClasses?: string;
   @Input() size?: 'small' | 'medium' | 'large';
@@ -21,8 +21,4 @@ export class BreadcrumbComponent implements OnInit {
 
   constructor() {
   }
-
-  ngOnInit(): void {
-  }
-
 }
