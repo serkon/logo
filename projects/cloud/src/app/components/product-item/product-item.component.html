@@ -20,16 +20,15 @@
   </div>
   <div class="card-cta">
     <div class="cta">
-      <logo-link
-        [classes]="'primary large'"
-        url="/products/{{productData.slug}}"
-      >
+      <logo-link [classes]="'primary large'" url="/products/{{productData.slug}}">
         İncele
       </logo-link>
     </div>
     <div class="price">
-      <h1><b>{{productData.price.symbol}}{{productData.price.cost}}</b>
-        <p *ngIf="!productData.price.includeTax" class="medium">+ KDV</p></h1>
+      <h1>
+        <b>{{productData.price.symbol}}{{productData.price.cost}}</b>
+        <p *ngIf="!productData.price.includeTax" class="medium">+ KDV</p>
+      </h1>
     </div>
   </div>
 </logo-card>

@@ -31,5 +31,6 @@ import { DetailComponent } from './detail/detail.component';
   ],
   exports: [ListComponent, DetailComponent],
 })
+
 export class ProductsModule {
 }

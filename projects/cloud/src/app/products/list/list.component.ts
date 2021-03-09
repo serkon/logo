@@ -22,10 +22,7 @@ export class ListComponent implements OnInit {
   public isFilterExpanded: boolean = false;
   public currentFilters = [];
 
-  constructor(
-    public solutionService: SolutionService,
-    private productService: ProductService,
-  ) {
+  constructor(public solutionService: SolutionService, private productService: ProductService) {
   }
 
   ngOnInit(): void {
@@ -128,6 +125,4 @@ export class ListComponent implements OnInit {
     });
     console.log(this.ProductSummaries);
   }
-
-
 }

@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./detail.component.scss'],
 })
 export class DetailComponent implements OnInit {
-  public productId: string = '';
+  public productId: string;
 
   constructor(private route: ActivatedRoute) {
     this.productId = this.route.snapshot.params.slug;

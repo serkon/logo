@@ -14,13 +14,12 @@ export class TestimonialsService {
   }
 
   public getTestimonials(): Promise<HttpResponse<Testimonial>> {
-    const data = this.http.post<HttpResponse<Testimonial>>(
+    return this.http.post<HttpResponse<Testimonial>>(
       `${environment.api.baseURL}/${environment.api.testimonial}`,
       '',
     ).toPromise().then((res) => {
       return res;
     });
-    return data;
   }
 
   public getTestimonialsDummyData() {

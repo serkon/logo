@@ -37,16 +37,21 @@
   <div class="page-content">
     <div [ngClass]="isFilterExpanded ? 'expanded' : ''" class="filters">
       <div class="mobile-button-base">
-        <button (click)="toogleFilters()" class="secondary ghost icon-left le-filter">Filtrele <span
-          class="le-arrow_down"></span></button>
+        <button (click)="toogleFilters()" class="secondary ghost icon-left le-filter">
+          Filtrele <span class="le-arrow_down"></span>
+        </button>
       </div>
       <div class="section">
         <span class="title">Kategoriler</span>
         <div *ngIf="solutionService.solutionSummaries" class="list">
           <div *ngFor="let solution of solutionService.solutionSummaries" class="item">
             <label>
-              <input (change)="setToCurrentFilters('solution', solution.id, solution.name, $event)"
-                     [checked]="checkCurrentFilters(solution.id)" id="solutions-{{solution.id}}" type="checkbox">
+              <input
+                (change)="setToCurrentFilters('solution', solution.id, solution.name, $event)"
+                [checked]="checkCurrentFilters(solution.id)"
+                id="solutions-{{solution.id}}"
+                type="checkbox"
+              >
               <span>{{solution.name}}</span>
             </label>
           </div>
@@ -57,9 +62,13 @@
         <div *ngIf="segmentData" class="list">
           <div *ngFor="let segment of segments" class="item">
             <label>
-              <input (change)="setSegmentFilter($event.target, segment.title)"
-                     [checked]="checkCurrentFilters(segment.id)" [value]="segment.id" id="segments-{{segment.id}}"
-                     name="segment" type="radio">
+              <input
+                (change)="setSegmentFilter($event.target, segment.title)"
+                [checked]="checkCurrentFilters(segment.id)" [value]="segment.id"
+                id="segments-{{segment.id}}"
+                name="segment"
+                type="radio"
+              >
               <span>{{segment.title}} <small>({{segment.description}})</small></span>
             </label>
           </div>
@@ -81,20 +90,30 @@
               </label>
             </div>
           </div>
-          <button (click)="toogleSectorList()" *ngIf="sectors.length > 4"
-                  [ngClass]="!isSectorListExpanded ? 'le-chevron_down' : 'le-chevron_up'"
-                  class="primary ghost icon-right small more-btn">{{ !isSectorListExpanded ? 'Daha Fazla Gör' : 'Daha Az Gör'}}</button>
+          <button
+            (click)="toogleSectorList()"
+            *ngIf="sectors.length > 4"
+            [ngClass]="!isSectorListExpanded ? 'le-chevron_down' : 'le-chevron_up'"
+            class="primary ghost icon-right small more-btn"
+          >
+            {{ !isSectorListExpanded ? 'Daha Fazla Gör' : 'Daha Az Gör'}}
+          </button>
         </div>
       </div>
     </div>
     <div class="contents">
       <div *ngIf="currentFilters.length > 0" class="filter-area">
         <div class="filter-names">
-          <logo-tags (onRemoveClicked)="removeFilter($event)" *ngFor="let filter of currentFilters"
-                     [cssClass]="'filter-tag'" [item]="filter.data"></logo-tags>
+          <logo-tags
+            (onRemoveClicked)="removeFilter($event)"
+            *ngFor="let filter of currentFilters"
+            [cssClass]="'filter-tag'"
+            [item]="filter.data"
+          ></logo-tags>
         </div>
         <div class="filter-opts">
-          <button (click)="clearAllFilters()" class="secondary outline icon-right small le-trash">Filtreleri temizle
+          <button (click)="clearAllFilters()" class="secondary outline icon-right small le-trash">
+            Filtreleri temizle
           </button>
         </div>
       </div>
@@ -118,4 +137,5 @@
     </div>
   </div>
 </div>
+
 <logo-cloud-footer></logo-cloud-footer>

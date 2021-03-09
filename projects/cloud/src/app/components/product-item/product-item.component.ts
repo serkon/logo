@@ -7,7 +7,7 @@
  * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
  * Any reproduction of this material must contain this notice.
  */
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { ProductSummary } from '@cloud/models/interfaces';
 
@@ -16,14 +16,6 @@ import { ProductSummary } from '@cloud/models/interfaces';
   templateUrl: './product-item.component.html',
   styleUrls: ['./product-item.component.scss'],
 })
-export class ProductItemComponent implements OnInit {
+export class ProductItemComponent {
   @Input() productData: ProductSummary;
-  public productSlug: string;
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
-
 }
