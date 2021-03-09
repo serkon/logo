@@ -80,7 +80,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   /**
    * For hide action toolbar set false, default is true.
    */
-  @Input() hideActions: boolean = true;
+  @Input() showActions: boolean = true;
   /**
    * Make table editable when it's the value set true
    */
