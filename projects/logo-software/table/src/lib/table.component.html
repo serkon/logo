@@ -9,7 +9,7 @@
  * Any reproduction of this material must contain this notice.
  */
 -->
-<div class="table-actions" *ngIf="hideActions">
+<div class="table-actions" *ngIf="showActions">
   <button
     class="outline le-add"
     (click)="actionHtmlAddReference()" *ngIf="!!reference && refButtonStatus"></button>
