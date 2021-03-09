@@ -16,7 +16,7 @@
     padding: size(95px) size(55px);
     background-color: var(--secondary-600);
     background-image: url("#{$gfx-path}/speed-connect-bg.png");
-    background-position: 190% 0%;
+    background-position: 120% 0%;
     background-repeat: no-repeat;
     color: var(--white);
     height: size(540px);
@@ -100,6 +100,20 @@
           }
         }
       }
+
+      @include smaller-than(md) {
+        width: 100%;
+      }
+    }
+
+    @include smaller-than(md) {
+      background-image: none;
+    }
+
+    @include smaller-than(sm) {
+      margin: size(75px) 0;
+      padding: size(30px) size(15px);
+      height: size(470px);
     }
   }
 }
