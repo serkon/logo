@@ -16,7 +16,7 @@ import { TabComponent } from './tab.component';
  *
  * ### Installation
  * All public NPM packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
- * To install Link Module:
+ * To install Tabs Module:
  *
  * ```bash$ npm set registry https://registry.npmjs.org/
  * $ npm install @logo-software/tabs -s

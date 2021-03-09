@@ -1,7 +1,19 @@
+#Tabs
+
 Tabs organize content into separate views where only one view can be visible at a time. Tabs are used to quickly navigate between views within the same context.
 Each tabs has own router.
 
-__Usage Example__
+Click here for [demo](http://design.logo.com.tr/#/docs/components/tabs-module#tabsmodule)
+
+### Installation
+All public NPM packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
+To install Tabs Module:
+
+```bash
+$ npm set registry https://registry.npmjs.org/
+$ npm install @logo-software/tabs -s
+```
+Then add TabsModule to @NgModule `imports` section
 
 <sub>app.module.ts</sub>
 ```typescript
