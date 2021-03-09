@@ -1,0 +1,61 @@
+@import "~@logo-software/theme/base";
+
+:host {
+  display: inline-block;
+
+  .tag-item {
+    @extend %button;
+
+    display: block;
+    position: relative;
+    z-index: 0;
+    padding-right: size(32px);
+
+    button {
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      z-index: 1;
+      text-align: center;
+
+      span {
+        @include border-radius(50%);
+
+        display: inline-block;
+        width: size(14px);
+        height: size(14px);
+        background: rgba(var(--black-rgb), 0.1);
+        z-index: 0;
+        position: absolute;
+        top: size(7px);
+        left: size(8px);
+      }
+
+      &::before {
+        z-index: 1;
+      }
+
+      &:hover {
+        background: transparent !important;
+      }
+    }
+
+    &.small {
+      @extend %size;
+
+      padding-right: size(24px);
+    }
+
+    &.large {
+      @extend %size;
+
+      padding-right: size(48px);
+    }
+
+    &:hover {
+      cursor: auto !important;
+    }
+  }
+}
