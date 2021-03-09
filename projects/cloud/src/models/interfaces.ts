@@ -231,6 +231,10 @@ export interface SolutionSummary {
    */
   name: string;
   /**
+   * SEO için adres satırında gösterilecek ürün ismi
+   */
+  slug: string;
+  /**
    * Ekrana basılacak çözüm detayı
    */
   description: string;
@@ -383,6 +387,10 @@ export interface ProductSummary {
    * Ürün adı
    */
   name: string;
+  /**
+   * SEO için adres satırında gösterilecek ürün ismi
+   */
+  slug: string;
   /**
    * Ürün açıklaması
    */
@@ -1025,6 +1033,7 @@ const response: Step[] = [
         backgroundImage: 'background-logo-payrol.jpg',
         logo: 'logo-payrol.png',
         name: 'Bordro Yönetimi',
+        slug: 'bordro-yonetimi',
         description: 'İK süreçleriniz dönüşüyor, verileriniz Logo güvencesi ile buluta taşınıyor!',
         solutions: [{id: '3', name: 'Bordro ve İnsan Kaynakları Yönetimi'}],
         isCloud: false,
@@ -1037,6 +1046,7 @@ const response: Step[] = [
         backgroundImage: 'background-logo-isbasi.jpg',
         logo: 'logo-isbasi.png',
         name: 'Ön Muhasebe Yönetimi',
+        slug: 'on-muhasebe-yonetimi',
         description: 'İster e-Fatura İster Ön Muhasebe İhtiyacınıza en uygun çözümler Logo İşbaşı’nda!',
         solutions: [{id: '2', name: 'Muhasebe Yönetimi'}],
         isCloud: true,
@@ -1050,6 +1060,7 @@ const response: Step[] = [
         backgroundImage: 'background-logo-dys.jpg',
         logo: 'logo-dys.png',
         name: 'Doküman Yönetimi',
+        slug: 'dokuman-yonetimi',
         description: 'İK süreçleriniz dönüşüyor, verileriniz Logo güvencesi ile buluta taşınıyor!',
         solutions: [{id: '3', name: 'Dokuman Yönetimi'}],
         isCloud: true,
@@ -1249,29 +1260,34 @@ const solutionSummaries: SolutionSummary[] = [
   {
     id: '1',
     name: 'Bordro ve İnsan Kaynakları Yönetimi',
+    slug: '',
     description: 'İşletmeniz için en doğru kararları Logo bordro ve insan kaynakları çözümleriyle alın!',
     icon: 'https://cdn3.iconfinder.com/data/icons/design-n-code/100/272127c4-8d19-4bd3-bd22-2b75ce94ccb4-512.png',
   },
   {
     id: '2',
     name: 'Muhasebe Yönetimi',
+    slug: '',
     description: 'Müthiş muhasebe yönetimleri ile işletmenize güç katın!',
     icon: 'https://cdn3.iconfinder.com/data/icons/design-n-code/100/272127c4-8d19-4bd3-bd22-2b75ce94ccb4-512.png',
   },
   {
     id: '3',
     name: 'Doküman Yönetimi',
+    slug: '',
     description: 'Müthiş döküman yönetimleri ile işletmenize güç katın!',
     icon: 'https://cdn3.iconfinder.com/data/icons/design-n-code/100/272127c4-8d19-4bd3-bd22-2b75ce94ccb4-512.png',
   },
   {
     id: '4',
     name: 'Perakende Yönetimi',
+    slug: '',
     description: 'Müthiş perakende yönetimleri ile işletmenize güç katın!',
     icon: 'https://cdn3.iconfinder.com/data/icons/design-n-code/100/272127c4-8d19-4bd3-bd22-2b75ce94ccb4-512.png',
   },
   {
     id: '5',
+    slug: '',
     name: 'İş Sağlığı ve Güvenliği Yönetimi',
     description: 'İş Sağlığı ve Güvenliği Yönetimleri ile işletmenize iş kazalarınıza kesin çözüm üretin!',
     icon: 'https://cdn3.iconfinder.com/data/icons/design-n-code/100/272127c4-8d19-4bd3-bd22-2b75ce94ccb4-512.png',
@@ -1279,6 +1295,7 @@ const solutionSummaries: SolutionSummary[] = [
   {
     id: '6',
     name: 'E-Çözümler',
+    slug: '',
     description: 'E-Çözümler ile işletmenizi akıllı hale getirin!',
     icon: 'https://cdn3.iconfinder.com/data/icons/design-n-code/100/272127c4-8d19-4bd3-bd22-2b75ce94ccb4-512.png',
   },
@@ -1389,6 +1406,7 @@ const productSummaries: ProductSummary[] = [
     backgroundImage: 'https://via.placeholder.com/728x90.png?text=Background+Image',
     logo: 'https://via.placeholder.com/300x400.png?text=Background+Image',
     name: 'Logo Payroll',
+    slug: '',
     description: 'İK süreçleriniz dönüşüyor, verileriniz Logo güvencesi ile buluta taşınıyor!',
     solutions: [{
       id: '1',
@@ -1416,6 +1434,7 @@ const productSummaries: ProductSummary[] = [
     backgroundImage: 'https://via.placeholder.com/728x90.png?text=Background+Image',
     logo: 'https://via.placeholder.com/300x400.png?text=Background+Image',
     name: 'Logo İşbaşı',
+    slug: '',
     description: 'İster e-Fatura İster Ön Muhasebe…\n' +
       'İhtiyacınıza en uygun çözümler Logo İşbaşı’nda!',
     solutions: [{
@@ -1444,6 +1463,7 @@ const productSummaries: ProductSummary[] = [
     backgroundImage: 'https://via.placeholder.com/728x90.png?text=Background+Image',
     logo: 'https://via.placeholder.com/300x400.png?text=Background+Image',
     name: 'Logo Döküman Yönetim Servisi',
+    slug: '',
     description: 'İK süreçleriniz dönüşüyor, verileriniz Logo güvencesi ile buluta taşınıyor!',
     solutions: [{
       id: '3',
