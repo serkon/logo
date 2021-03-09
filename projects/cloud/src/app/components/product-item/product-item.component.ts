@@ -18,6 +18,7 @@ import { ProductSummary } from '@cloud/models/interfaces';
 })
 export class ProductItemComponent implements OnInit {
   @Input() productData: ProductSummary;
+  public productSlug: string;
 
   constructor() {
   }
