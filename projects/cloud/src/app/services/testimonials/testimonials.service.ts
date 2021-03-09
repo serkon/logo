@@ -17,11 +17,9 @@ export class TestimonialsService {
     const data = this.http.post<HttpResponse<Testimonial>>(
       `${environment.api.baseURL}/${environment.api.testimonial}`,
       '',
-    )
-      .toPromise()
-      .then((res) => {
-        return res;
-      });
+    ).toPromise().then((res) => {
+      return res;
+    });
     return data;
   }
 
