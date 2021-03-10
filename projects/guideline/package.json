@@ -12,6 +12,6 @@
     "@angular/fire": "^6.1.4",
     "@logo-software/markdown": "0.0.1",
     "@logo-software/theme": "^3.6.0",
-    "firebase": "^8.2.5"
+    "firebase": "^8.2.10"
   }
 }
