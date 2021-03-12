@@ -20,6 +20,20 @@ const routes: Routes = [
     pathMatch: 'prefix',
     loadChildren: () => import('./products/products.module').then(m => m.ProductsModule),
   },
+  {
+    path: 'info',
+    pathMatch: 'prefix',
+    loadChildren: () => import('./info/info.module').then(m => m.InfoModule),
+  },
+  {
+    path: 'contact',
+    loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule),
+  },
+  {
+    path: 'blog',
+    pathMatch: 'prefix',
+    loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule),
+  },
 ];
 
 @NgModule({
