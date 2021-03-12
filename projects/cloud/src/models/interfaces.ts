@@ -485,9 +485,9 @@ export interface Product extends ProductSummary {
  */
 export interface ProductScreenFeatures {
   /**
-   * Slider içerisinde gösterilecek olan ekranlara ait imaj pathleri
+   * Slider içerisinde gösterilecek olan ekranlara ait imaj pathi
    */
-  image: string[];
+  image: string;
   /**
    * Ekranı tanımlayan başlık
    */
@@ -516,7 +516,7 @@ export interface ProductScreenFeatures {
     /**
      * Ekranın her bir özelliği
      */
-    items: [{
+    items: {
       /**
        * Özellik ikonu
        */
@@ -529,7 +529,7 @@ export interface ProductScreenFeatures {
        * Özellik açıklaması
        */
       description: string,
-    }]
+    }[]
   }
 }
 
@@ -549,7 +549,7 @@ export interface ProductSticker {
   /**
    * Mobile uygulamaların linklerini ve android, ios vs. gibi hangi tip olduğunu dönen data yapısını tarif eder.
    */
-  store?: [{ id: string, link: string, type: StoreType }];
+  store?: { id: string, link: string, type: StoreType }[];
   /**
    * Social media linklerine entegre edilecek açıklama metnini burada veriyor olacağız.
    * Örneğin: "Lütfen, arkadaşlarınızla Logo'daki bu gelişme ile paylaşımda bulununuz #link" gibi...
@@ -878,6 +878,93 @@ export class Testimonial {
    * Bu açıklamanın ürünlerle alakalı olduğu id'ler
    */
   productId: string[];
+}
+
+// INFORMATION PAGE
+/**
+ * Bilgi Sayfalarına ait data yapısı
+ */
+export interface InfoData {
+  /**
+   * GUID içeren id değeri
+   * Örnek: b6867510-55aa-4b01-aeff-9ba9af9f7500
+   */
+  id: string;
+  /**
+   * Sayfanın Başlığı
+   */
+  title: string;
+  /**
+   * Sayfanın başlık altında bulunan açıklaması
+   */
+  description: string;
+  /**
+   * Sayfanın içeriği. Sayfa içeriği HTML olarak almaktadır. HTML Tagları gönderilebilir.
+   */
+  content: string;
+}
+
+// CONTACY PAGE
+/**
+ * İletişim sayfasına ait data yapısı
+ */
+export interface ContactData {
+  /**
+   * GUID içeren id değeri
+   * Örnek: b6867510-55aa-4b01-aeff-9ba9af9f7500
+   */
+  id: string;
+  /**
+   * Sayfanın Başlığı
+   */
+  title: string;
+  /**
+   * Sayfanın başlık altında bulunan açıklaması
+   */
+  description: string;
+  /**
+   * Google Maps URL'i
+   */
+  map?: string;
+  /**
+   * Destek hattına ait bilgiler
+   */
+  support: {
+    /**
+     * Destek hattı içerik başlığı
+     */
+    title: string;
+    /**
+     * Destek hattı telefon numarası
+     */
+    phone: string;
+  },
+  /**
+   * İletişim bilgileri. Birden fazla iletişim bilgisi girilebilir.
+   */
+  contact:
+    {
+      /**
+       * İletişim bilgisinin başlığı
+       */
+      name: string;
+      /**
+       * Adres
+       */
+      address: string;
+      /**
+       * Call center numarasaı varsa
+       */
+      callcenter?: string;
+      /**
+       * Telefon numarası
+       */
+      phone: string;
+      /**
+       * Sayfa görselinin pathi
+       */
+      image: string;
+    }[];
 }
 
 // Data Samples
@@ -1523,5 +1610,478 @@ const productQuestions: ProductQuestion[] = [
      * amacı için kullanılacaktır.
      */
     solutionName: 'string',
+  },
+];
+
+const productDetail: Product[] = [
+  {
+    id: 'ee4ac8b5-aaaf-412e-92ac-642f21727266',
+    materialCode: '1234-5678-9012-3456',
+    backgroundImage: '/assets/data/sample-product-sum-image.png',
+    logo: '/assets/data/sample-product-logo-big.png',
+    name: 'Logo Payroll',
+    slug: 'logo-payroll',
+    description: 'İK süreçleriniz dönüşüyor, verileriniz Logo güvencesi ile buluta taşınıyor!',
+    solutions: [
+      {
+        id: '1',
+        name: 'Bordro Yönetimi',
+      },
+    ],
+    isCloud: true,
+    segmentId: ['1'],
+    sectorId: ['1', '2'],
+    cloud: {
+      link: 'http://logo.cloud/logo-payroll',
+    },
+    price: {
+      id: '1',
+      cost: 50,
+      symbol: '₺',
+      includeTax: false,
+      currency: 'TRY',
+      promo: 5,
+      discount: 5,
+    },
+    pageBackgroundImage: '/assets/data/sample-product-detail-hero-bg.png',
+    isTrial: true,
+    isPurchase: true,
+    cover: {
+      title: 'Logo Payroll Online Bordro Programı',
+      description: 'Kolay kullanılan, yenilikçi ve mevzuata uygun yeni nesil online bordro programı!',
+      image: '/assets/sample-product-detail-cover.png',
+    },
+    screens: [
+      {
+        image: 'https://alpbilgeyazilim.com.tr/uploads/urunler/medium/766436667.png',
+        title: 'Bulut avantajı',
+        icon: '/assets/data/sample-product-detail-feature-icon.svg',
+        description: 'Bulut-tabanlı Logo Payroll ile herhangi bir donanım, kurulum ya da sistem bakım maliyeti olmadan, aylık ya da yıllık abonelik kiralama sistemiyle bordro işlemlerine hemen başlayın. Çözüme online olarak dilediğiniz yerden ve dilediğiniz cihazla bağlanın.',
+        feature: {
+          title: 'Logo Payroll ile neler yapabilirsiniz?',
+          description: 'Bulut-tabanlı Logo Payroll ile bordro işlemlerinde en çok ihtiyaç duyduğunuz özellikler bir arada sunuluyor.',
+          items: [
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-1.svg',
+              title: 'Çalışan Portalı',
+              description: 'İzin talebi girişlerini, izin onay işlemlerini, bordro zarfı görüntüleme işlemlerini tablet üzerinden de yönetebilirsiniz.',
+            },
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-2.svg',
+              title: 'Ödeme Yönetimi',
+              description: 'Dönem içinde birden fazla bordro görüntüleyebilir ve raporlayabilirsiniz. Gelir, kesinti, vergi, teşvik, ar-ge fiili hizmet gibi tutarların hesaplamasını kolayca yapabilirsiniz. Ayrıca zorunlu BES kesintisini puantajda otomatik hesaplayabilirsiniz.',
+            },
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-3.svg',
+              title: 'Organizasyon Yönetimi',
+              description: 'Birimleri hiyerarşik olarak tanımlayabilir ve raporlayabilir, bölge-departman-pozisyon-ürün hattı-kademe ve yaka rengi bazında çalışan raporları oluşturabilir, organizasyon şeması üzerinde arama, filtreleme ve taşıma yapabilir, organizasyon şemasının görsel takibini ve dışarıya aktarımını yapabilirsiniz.',
+            },
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-1.svg',
+              title: 'Ücret Simülasyonu',
+              description: 'Dönem bazında işveren maliyetlerini yasal parametrelere ve tahmini değerlere göre farklı senaryolar üzerinden hesaplayabilir, ücret/yan hak tutarlarında artış oranlarını tanımlayabilirsiniz.',
+            },
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-2.svg',
+              title: 'Çalışan Yönetimi',
+              description: 'Çalışan kartı üzerinden tüm bilgilere erişebilir, işe giren ve işten ayrılan çalışanların tüm bilgilerini SGK’ya online bildirebilir, farklı çalışan grupları için farklı çalışma takvimleri oluşturabilirsiniz.',
+            },
+          ],
+        },
+      },
+      {
+        image: 'https://media-exp1.licdn.com/dms/image/C4D1BAQG7w3I42KmfLQ/company-background_10000/0/1596033806367?e=2159024400&v=beta&t=GLp_f_kgHIz83LZNyJcA0tdc54ElfoJxMOHMRcePS-s',
+        title: 'Bulut avantajı',
+        icon: '/assets/data/sample-product-detail-feature-icon.svg',
+        description: 'Bulut-tabanlı Logo Payroll ile herhangi bir donanım, kurulum ya da sistem bakım maliyeti olmadan, aylık ya da yıllık abonelik kiralama sistemiyle bordro işlemlerine hemen başlayın. Çözüme online olarak dilediğiniz yerden ve dilediğiniz cihazla bağlanın.',
+        feature: {
+          title: 'Logo Payroll ile neler yapabilirsiniz?',
+          description: 'Bulut-tabanlı Logo Payroll ile bordro işlemlerinde en çok ihtiyaç duyduğunuz özellikler bir arada sunuluyor.',
+          items: [
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-1.svg',
+              title: 'Çalışan Portalı',
+              description: 'İzin talebi girişlerini, izin onay işlemlerini, bordro zarfı görüntüleme işlemlerini tablet üzerinden de yönetebilirsiniz.',
+            },
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-2.svg',
+              title: 'Ödeme Yönetimi',
+              description: 'Dönem içinde birden fazla bordro görüntüleyebilir ve raporlayabilirsiniz. Gelir, kesinti, vergi, teşvik, ar-ge fiili hizmet gibi tutarların hesaplamasını kolayca yapabilirsiniz. Ayrıca zorunlu BES kesintisini puantajda otomatik hesaplayabilirsiniz.',
+            },
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-3.svg',
+              title: 'Organizasyon Yönetimi',
+              description: 'Birimleri hiyerarşik olarak tanımlayabilir ve raporlayabilir, bölge-departman-pozisyon-ürün hattı-kademe ve yaka rengi bazında çalışan raporları oluşturabilir, organizasyon şeması üzerinde arama, filtreleme ve taşıma yapabilir, organizasyon şemasının görsel takibini ve dışarıya aktarımını yapabilirsiniz.',
+            },
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-1.svg',
+              title: 'Ücret Simülasyonu',
+              description: 'Dönem bazında işveren maliyetlerini yasal parametrelere ve tahmini değerlere göre farklı senaryolar üzerinden hesaplayabilir, ücret/yan hak tutarlarında artış oranlarını tanımlayabilirsiniz.',
+            },
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-2.svg',
+              title: 'Çalışan Yönetimi',
+              description: 'Çalışan kartı üzerinden tüm bilgilere erişebilir, işe giren ve işten ayrılan çalışanların tüm bilgilerini SGK’ya online bildirebilir, farklı çalışan grupları için farklı çalışma takvimleri oluşturabilirsiniz.',
+            },
+          ],
+        },
+      },
+      {
+        image: 'https://i.pinimg.com/originals/b9/88/97/b988975c7bbcbcb431a50d42604442b0.png',
+        title: 'Bulut avantajı',
+        icon: '/assets/data/sample-product-detail-feature-icon.svg',
+        description: 'Bulut-tabanlı Logo Payroll ile herhangi bir donanım, kurulum ya da sistem bakım maliyeti olmadan, aylık ya da yıllık abonelik kiralama sistemiyle bordro işlemlerine hemen başlayın. Çözüme online olarak dilediğiniz yerden ve dilediğiniz cihazla bağlanın.',
+        feature: {
+          title: 'Logo Payroll ile neler yapabilirsiniz?',
+          description: 'Bulut-tabanlı Logo Payroll ile bordro işlemlerinde en çok ihtiyaç duyduğunuz özellikler bir arada sunuluyor.',
+          items: [
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-1.svg',
+              title: 'Çalışan Portalı',
+              description: 'İzin talebi girişlerini, izin onay işlemlerini, bordro zarfı görüntüleme işlemlerini tablet üzerinden de yönetebilirsiniz.',
+            },
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-2.svg',
+              title: 'Ödeme Yönetimi',
+              description: 'Dönem içinde birden fazla bordro görüntüleyebilir ve raporlayabilirsiniz. Gelir, kesinti, vergi, teşvik, ar-ge fiili hizmet gibi tutarların hesaplamasını kolayca yapabilirsiniz. Ayrıca zorunlu BES kesintisini puantajda otomatik hesaplayabilirsiniz.',
+            },
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-3.svg',
+              title: 'Organizasyon Yönetimi',
+              description: 'Birimleri hiyerarşik olarak tanımlayabilir ve raporlayabilir, bölge-departman-pozisyon-ürün hattı-kademe ve yaka rengi bazında çalışan raporları oluşturabilir, organizasyon şeması üzerinde arama, filtreleme ve taşıma yapabilir, organizasyon şemasının görsel takibini ve dışarıya aktarımını yapabilirsiniz.',
+            },
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-1.svg',
+              title: 'Ücret Simülasyonu',
+              description: 'Dönem bazında işveren maliyetlerini yasal parametrelere ve tahmini değerlere göre farklı senaryolar üzerinden hesaplayabilir, ücret/yan hak tutarlarında artış oranlarını tanımlayabilirsiniz.',
+            },
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-2.svg',
+              title: 'Çalışan Yönetimi',
+              description: 'Çalışan kartı üzerinden tüm bilgilere erişebilir, işe giren ve işten ayrılan çalışanların tüm bilgilerini SGK’ya online bildirebilir, farklı çalışan grupları için farklı çalışma takvimleri oluşturabilirsiniz.',
+            },
+          ],
+        },
+      },
+      {
+        image: 'https://i.pinimg.com/originals/6f/db/83/6fdb8333413a9e222faca5894a531790.jpg',
+        title: 'Bulut avantajı',
+        icon: '/assets/data/sample-product-detail-feature-icon.svg',
+        description: 'Bulut-tabanlı Logo Payroll ile herhangi bir donanım, kurulum ya da sistem bakım maliyeti olmadan, aylık ya da yıllık abonelik kiralama sistemiyle bordro işlemlerine hemen başlayın. Çözüme online olarak dilediğiniz yerden ve dilediğiniz cihazla bağlanın.',
+        feature: {
+          title: 'Logo Payroll ile neler yapabilirsiniz?',
+          description: 'Bulut-tabanlı Logo Payroll ile bordro işlemlerinde en çok ihtiyaç duyduğunuz özellikler bir arada sunuluyor.',
+          items: [
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-1.svg',
+              title: 'Çalışan Portalı',
+              description: 'İzin talebi girişlerini, izin onay işlemlerini, bordro zarfı görüntüleme işlemlerini tablet üzerinden de yönetebilirsiniz.',
+            },
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-2.svg',
+              title: 'Ödeme Yönetimi',
+              description: 'Dönem içinde birden fazla bordro görüntüleyebilir ve raporlayabilirsiniz. Gelir, kesinti, vergi, teşvik, ar-ge fiili hizmet gibi tutarların hesaplamasını kolayca yapabilirsiniz. Ayrıca zorunlu BES kesintisini puantajda otomatik hesaplayabilirsiniz.',
+            },
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-3.svg',
+              title: 'Organizasyon Yönetimi',
+              description: 'Birimleri hiyerarşik olarak tanımlayabilir ve raporlayabilir, bölge-departman-pozisyon-ürün hattı-kademe ve yaka rengi bazında çalışan raporları oluşturabilir, organizasyon şeması üzerinde arama, filtreleme ve taşıma yapabilir, organizasyon şemasının görsel takibini ve dışarıya aktarımını yapabilirsiniz.',
+            },
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-1.svg',
+              title: 'Ücret Simülasyonu',
+              description: 'Dönem bazında işveren maliyetlerini yasal parametrelere ve tahmini değerlere göre farklı senaryolar üzerinden hesaplayabilir, ücret/yan hak tutarlarında artış oranlarını tanımlayabilirsiniz.',
+            },
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-2.svg',
+              title: 'Çalışan Yönetimi',
+              description: 'Çalışan kartı üzerinden tüm bilgilere erişebilir, işe giren ve işten ayrılan çalışanların tüm bilgilerini SGK’ya online bildirebilir, farklı çalışan grupları için farklı çalışma takvimleri oluşturabilirsiniz.',
+            },
+          ],
+        },
+      },
+      {
+        image: 'https://cdn5.f-cdn.com/contestentries/309961/15485954/565f219458c34_thumb900.jpg',
+        title: 'Bulut avantajı',
+        icon: '/assets/data/sample-product-detail-feature-icon.svg',
+        description: 'Bulut-tabanlı Logo Payroll ile herhangi bir donanım, kurulum ya da sistem bakım maliyeti olmadan, aylık ya da yıllık abonelik kiralama sistemiyle bordro işlemlerine hemen başlayın. Çözüme online olarak dilediğiniz yerden ve dilediğiniz cihazla bağlanın.',
+        feature: {
+          title: 'Logo Payroll ile neler yapabilirsiniz?',
+          description: 'Bulut-tabanlı Logo Payroll ile bordro işlemlerinde en çok ihtiyaç duyduğunuz özellikler bir arada sunuluyor.',
+          items: [
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-1.svg',
+              title: 'Çalışan Portalı',
+              description: 'İzin talebi girişlerini, izin onay işlemlerini, bordro zarfı görüntüleme işlemlerini tablet üzerinden de yönetebilirsiniz.',
+            },
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-2.svg',
+              title: 'Ödeme Yönetimi',
+              description: 'Dönem içinde birden fazla bordro görüntüleyebilir ve raporlayabilirsiniz. Gelir, kesinti, vergi, teşvik, ar-ge fiili hizmet gibi tutarların hesaplamasını kolayca yapabilirsiniz. Ayrıca zorunlu BES kesintisini puantajda otomatik hesaplayabilirsiniz.',
+            },
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-3.svg',
+              title: 'Organizasyon Yönetimi',
+              description: 'Birimleri hiyerarşik olarak tanımlayabilir ve raporlayabilir, bölge-departman-pozisyon-ürün hattı-kademe ve yaka rengi bazında çalışan raporları oluşturabilir, organizasyon şeması üzerinde arama, filtreleme ve taşıma yapabilir, organizasyon şemasının görsel takibini ve dışarıya aktarımını yapabilirsiniz.',
+            },
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-1.svg',
+              title: 'Ücret Simülasyonu',
+              description: 'Dönem bazında işveren maliyetlerini yasal parametrelere ve tahmini değerlere göre farklı senaryolar üzerinden hesaplayabilir, ücret/yan hak tutarlarında artış oranlarını tanımlayabilirsiniz.',
+            },
+            {
+              icon: '/assets/data/sample-product-detail-image-feature-icon-2.svg',
+              title: 'Çalışan Yönetimi',
+              description: 'Çalışan kartı üzerinden tüm bilgilere erişebilir, işe giren ve işten ayrılan çalışanların tüm bilgilerini SGK’ya online bildirebilir, farklı çalışan grupları için farklı çalışma takvimleri oluşturabilirsiniz.',
+            },
+          ],
+        },
+      },
+    ],
+    packages: [
+      {
+        id: '28c3c43b-0013-44d8-b84c-43820105f413',
+        title: 'Logo Payroll 50 çalışan',
+        icon: '/assets/data/sample-product-package-icon.svg',
+        price: {
+          id: '27175d88-c14b-4e30-a415-1cdcd0f68576',
+          cost: 40,
+          symbol: '₺',
+          includeTax: false,
+          currency: 'TRY',
+          promo: 0,
+          discount: 0,
+        },
+        properties: [
+          {
+            id: 'dd96f9ea-3bf6-4cb5-8614-7d2349dd9130',
+            title: 'Özlük bilgileri takibi',
+            isNew: false,
+          },
+          {
+            id: '386976e0-c3eb-46b0-a272-31724fef88e6',
+            title: 'Bordro  yönetimi',
+            isNew: false,
+          },
+          {
+            id: 'af2f74d5-0316-4dfa-9e8d-ae2a67a80a70',
+            title: 'Puantaj işlemleri',
+            isNew: true,
+          },
+          {
+            id: '60c1e15a-e2e7-4a87-9d4a-6493f76f7574',
+            title: 'Yan haklar yönetimi',
+            isNew: false,
+          },
+          {
+            id: '7c4ff852-c1f7-4317-8127-919a57050809',
+            title: 'Mevzuat takibi',
+            isNew: false,
+          },
+          {
+            id: 'a54077e4-44ec-4a3a-8cd9-347e7d6097ea',
+            title: 'Ücret Simülasyonu',
+            isNew: true,
+          },
+          {
+            id: '67452ddc-25b1-4749-908f-ff0f30933b81',
+            title: 'Organizasyon Yönetimi',
+            isNew: false,
+          },
+          {
+            id: '59f93395-78a2-4c97-af29-1852ffbd9f31',
+            title: 'İzin Yönetimi',
+            isNew: false,
+          },
+        ],
+        type: 2,
+      },
+      {
+        id: '69e8f2fe-7c7a-4051-93af-b56c5079a0ab',
+        title: 'Logo Payroll 51-500 çalışan',
+        icon: '/assets/data/sample-product-package-icon.svg',
+        price: {
+          id: '813a2aec-5abb-4d3b-a997-824febcc6369',
+          cost: 30,
+          symbol: '₺',
+          includeTax: false,
+          currency: 'TRY',
+          promo: 0,
+          discount: 0,
+        },
+        properties: [
+          {
+            id: 'dd96f9ea-3bf6-4cb5-8614-7d2349dd9130',
+            title: 'Özlük bilgileri takibi',
+            isNew: false,
+          },
+          {
+            id: '386976e0-c3eb-46b0-a272-31724fef88e6',
+            title: 'Bordro  yönetimi',
+            isNew: false,
+          },
+          {
+            id: 'af2f74d5-0316-4dfa-9e8d-ae2a67a80a70',
+            title: 'Puantaj işlemleri',
+            isNew: false,
+          },
+          {
+            id: '60c1e15a-e2e7-4a87-9d4a-6493f76f7574',
+            title: 'Yan haklar yönetimi',
+            isNew: false,
+          },
+          {
+            id: '7c4ff852-c1f7-4317-8127-919a57050809',
+            title: 'Mevzuat takibi',
+            isNew: false,
+          },
+          {
+            id: 'a54077e4-44ec-4a3a-8cd9-347e7d6097ea',
+            title: 'Ücret Simülasyonu',
+            isNew: false,
+          },
+          {
+            id: '67452ddc-25b1-4749-908f-ff0f30933b81',
+            title: 'Organizasyon Yönetimi',
+            isNew: false,
+          },
+          {
+            id: '59f93395-78a2-4c97-af29-1852ffbd9f31',
+            title: 'İzin Yönetimi',
+            isNew: false,
+          },
+        ],
+        type: 2,
+      },
+      {
+        id: '31ba26af-51d9-4cec-a693-9cce4a6c9834',
+        title: 'Logo Payroll 501 ve üzeri çalışan',
+        icon: '/assets/data/sample-product-package-icon.svg',
+        price: {
+          id: 'c082f27d-5bd8-47b9-819b-2d3e53f453c3',
+          cost: 25,
+          symbol: '₺',
+          includeTax: false,
+          currency: 'TRY',
+          promo: 0,
+          discount: 0,
+        },
+        properties: [
+          {
+            id: 'dd96f9ea-3bf6-4cb5-8614-7d2349dd9130',
+            title: 'Özlük bilgileri takibi',
+            isNew: false,
+          },
+          {
+            id: '386976e0-c3eb-46b0-a272-31724fef88e6',
+            title: 'Bordro  yönetimi',
+            isNew: false,
+          },
+          {
+            id: 'af2f74d5-0316-4dfa-9e8d-ae2a67a80a70',
+            title: 'Puantaj işlemleri',
+            isNew: true,
+          },
+          {
+            id: '60c1e15a-e2e7-4a87-9d4a-6493f76f7574',
+            title: 'Yan haklar yönetimi',
+            isNew: false,
+          },
+          {
+            id: '7c4ff852-c1f7-4317-8127-919a57050809',
+            title: 'Mevzuat takibi',
+            isNew: false,
+          },
+          {
+            id: 'a54077e4-44ec-4a3a-8cd9-347e7d6097ea',
+            title: 'Ücret Simülasyonu',
+            isNew: true,
+          },
+          {
+            id: '67452ddc-25b1-4749-908f-ff0f30933b81',
+            title: 'Organizasyon Yönetimi',
+            isNew: false,
+          },
+          {
+            id: '59f93395-78a2-4c97-af29-1852ffbd9f31',
+            title: 'İzin Yönetimi',
+            isNew: false,
+          },
+        ],
+        type: 2,
+      },
+    ],
+  },
+];
+
+const productSticker: ProductSticker = {
+  solution: [
+    {
+      id: '530c7378-3a8c-40db-9439-3f7d3fe4bfea',
+      name: 'Bordro ve İnsan Kaynaklari Yönetimi',
+    },
+    {
+      id: '701b4c79-8102-488c-8eb9-7f11c0c9e733',
+      name: 'İş Sağlığı ve Güvenliği Yönetimi',
+    },
+  ],
+  tags: [
+    {
+      id: '381e600f-ac4f-4302-91fa-3a9d9955b0c4',
+      name: 'Muhasebe',
+    },
+    {
+      id: '1f78c335-ceb2-43e1-992a-a8fbd48e2726',
+      name: 'Bordro',
+    },
+    {
+      id: 'b3dc197d-be33-4354-ba41-a62b7e38ad3f',
+      name: 'Yönetim',
+    },
+  ],
+  store: [
+    {
+      id: '5ab7fab3-43d1-48ff-84d1-8c0ae2069f57',
+      link: 'http://www.google.com',
+      type: StoreType.ANDROID,
+    },
+    {
+      id: '359f1d06-2a75-4800-b118-e9a737e13515',
+      link: 'http://www.apple.com',
+      type: StoreType.IOS,
+    },
+    {
+      id: '658e387f-d6b0-4ef7-85d6-50c66f5f4c1d',
+      link: 'http://www.huawei.com',
+      type: StoreType.HUAWEI,
+    },
+  ],
+  social: 'Lütfen, arkadaşlarınızla Logo\'daki bu gelişme ile paylaşımda bulununuz #link',
+  brochure: 'http://www.isbasi.com.tr/brosur.zip',
+  url: 'http://isbasi.com.tr',
+  privacy: 'Nulla non cursus risus. Nulla eget bibendum massa. Donec aliquam pellentesque dignissim.',
+}
+
+const productReferences: Reference[] = [
+  {
+    id: '7373fee3-0e04-4728-9924-be81c08a6208',
+    name: 'Pirelli',
+    link: 'http://www.pirelli.com',
+    image: '/assets/data/sample-ref-logo-2.png',
+    productId: 'caad59bb-b295-4d47-b273-372802acb077',
+  },
+  {
+    id: '3f382d3b-0a11-4ec6-9621-bd82f8795be3',
+    name: 'Unilever',
+    link: 'http://www.unilever.com',
+    image: '/assets/data/sample-ref-logo-3.png',
+    productId: 'cdd3033ae-8de9-4e05-8ba5-89278a213047',
+  },
+  {
+    id: '645c3e49-8f65-43a5-9a21-0d1596dd93e0',
+    name: 'Continental',
+    link: 'http://www.unilever.com',
+    image: '/assets/data/sample-ref-logo-1.png',
+    productId: 'a1ad6fc8-004c-42d6-a775-aa2f406fb575',
   },
 ];
