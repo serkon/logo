@@ -1,5 +1,17 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+
+import { HeaderService } from '@logo-software/header';
 
 import { HttpResponse, ProductSummary, Sector, Segment, SolutionSummary } from '@cloud/models/interfaces';
 import { SolutionService } from '@cloud/app/services/solutions/solution.service';
@@ -22,10 +34,11 @@ export class ListComponent implements OnInit {
   public isFilterExpanded: boolean = false;
   public currentFilters = [];
 
-  constructor(public solutionService: SolutionService, private productService: ProductService) {
+  constructor(public solutionService: SolutionService, private productService: ProductService, private headerService: HeaderService) {
   }
 
   ngOnInit(): void {
+    this.headerService.isScrollSpy = true;
     this.loadSolutions();
     this.loadSegments();
     this.loadSectors();
