@@ -1,22 +1,377 @@
-<div class="product-detail-page">
-  <logo-hero [containerStatus]="true" [cssClasses]="'hero-product-detail'">
-    <logo-breadcrumb
-      [breadcrumb]="[{name:'Anasayfa', link: '/'}, {name:'Ürünler', link: '/prudcts'}, {name: 'product.name'}]"
-      [isLight]="true"
-      [size]="'medium'"
-    >
-    </logo-breadcrumb>
+<div *ngIf="product" class="product-detail-page">
+  <logo-hero [bgImage]="product.pageBackgroundImage" [containerStatus]="true" [cssClasses]="'hero-product-detail'">
     <div class="content">
       <div class="product-label">
+        <logo-breadcrumb
+          [breadcrumb]="[{name:'Anasayfa', link: '/'}, {name:'Ürünler', link: '/products'}, {name: product.name}]"
+          [isLight]="true"
+          [size]="'medium'"
+        >
+        </logo-breadcrumb>
         <span class="logo">
-          <img src="/assets/data/sample-product-logo-1.png">
+          <img src="{{product.logo}}">
         </span>
-        <h4>İK süreçleriniz dönüşüyor, verileriniz Logo güvencesi ile buluta taşınıyor!</h4>
+        <h4>{{product.description}}</h4>
       </div>
-      <div class="buy-opts">
-        <button class="large outline white">14 Gün Ücretsiz Deneyin</button>
-        <button class="large primary">Satın Alın</button>
+      <div *ngIf="product.isTrial || product.isPurchase" class="buy-opts">
+        <button *ngIf="product.isTrial" class="large outline white">14 Gün Ücretsiz Deneyin</button>
+        <button *ngIf="product.isPurchase" class="large primary">Satın Alın</button>
       </div>
     </div>
   </logo-hero>
+  <div [ngClass]="isStickyTabs ? 'sticky': ''" class="inline-menu">
+    <logo-tabs [activeTab]="0" [isContainer]="true" [routing]="false" class="medium">
+      <logo-tab [fragment]="'general-info'" [title]="'Genel Bakış'"></logo-tab>
+      <logo-tab [fragment]="'price'" [title]="'Fiyatlandırma'"></logo-tab>
+      <logo-tab [fragment]="'faq'" [title]="'Sıkça Sorulan Sorular'"></logo-tab>
+      <logo-tab [fragment]="'blog'" [title]="'Blog'"></logo-tab>
+      <logo-tab [fragment]="'testimonial'" [title]="'Ne dediler?'"></logo-tab>
+      <logo-tab [fragment]="'contact-map'" [title]="'İletişim'"></logo-tab>
+      <div right>
+        <button class="outline white">14 Gün Ücretsiz Deneyin</button>
+        <button class="primary">Satın Alın</button>
+      </div>
+    </logo-tabs>
+  </div>
+  <div [ngClass]="isStickyTabs ? 'fix-sticky': ''" class="detail-content">
+    <div class="section rapid-info-base">
+      <div class="container">
+        <div class="contact-info">
+          <h1><b>{{product.cover.title}}</b></h1>
+          <p class="large">
+            {{product.cover.description}}
+          </p>
+          <div class="input-base">
+            <div class="input-w-icon left">
+              <span class="le-email"></span>
+              <input class="icon-left" placeholder="E-Posta Adresiniz">
+            </div>
+            <logo-link [classes]="'primary'">14 Gün Ücretsiz Deneyin</logo-link>
+          </div>
+        </div>
+        <div class="gfx">
+          <img src="{{product.cover.image}}">
+        </div>
+      </div>
+    </div>
+    <div class="section product-details" id="general-info">
+      <div class="container">
+        <div *ngIf="appScreens.length > 0" class="infos">
+          <div class="slider-base">
+            <div class="screens">
+              <logo-image-slider (onItemChange)="getImageContent($event);" [media]="appScreens"></logo-image-slider>
+            </div>
+            <div class="slider-info">
+              <span class="icon-base">
+                <img src="{{imageData.icon}}">
+              </span>
+              <h3>{{imageData.title}}</h3>
+              <p>{{imageData.description}}</p>
+            </div>
+          </div>
+          <div *ngIf="imageData.feature" class="meta-data-base">
+            <h2><b>{{imageData.feature.title}}</b></h2>
+            <p>{{imageData.feature.description}}</p>
+            <div class="meta-datas">
+              <div *ngFor="let feature of imageData.feature.items" class="item detail-card">
+                <span class="icon">
+                  <img src="{{feature.icon}}"/>
+                </span>
+                <h5>{{feature.title}}</h5>
+                <p>{{feature.description}}</p>
+                <div *ngIf="product.isTrial" class="cta">
+                  <logo-link [classes]="'primary outline'">Ücretsiz Deneyin</logo-link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div #productLabel *ngIf="productSticker" class="label-base detail-card">
+          <div class="label-section">
+            <h4>Detaylar</h4>
+            <h6>Kategori</h6>
+            <div class="info-item">
+              <span *ngFor="let solution of productSticker.data[0].solution" class="badge">{{solution.name}}</span>
+            </div>
+            <h6>Özellikler</h6>
+            <div class="info-item">
+              <span *ngFor="let tag of productSticker.data[0].tags" class="badge">{{tag.name}}</span>
+            </div>
+          </div>
+          <div *ngIf="productSticker.data[0].store" class="label-section">
+            <h4>Mobil Uygulamalarımız</h4>
+            <a *ngFor="let store of productSticker.data[0].store" class="store-item" href="{{store.link}}"
+               target="_blank">
+              <img src="/assets/img/btn-store-{{store.type}}.png">
+            </a>
+          </div>
+          <div class="label-section">
+            <h4>Paylaş</h4>
+            <a class="share-item" href="http://www.twitter.com" target="_blank">
+              <img src="/assets/img/btn-social-twitter.png">
+            </a>
+            <a class="share-item" href="http://www.facebook.com" target="_blank">
+              <img src="/assets/img/btn-social-facebook.png">
+            </a>
+            <a class="share-item" href="http://www.whatsapp.com" target="_blank">
+              <img src="/assets/img/btn-social-whatsapp.png">
+            </a>
+            <a class="share-item" href="http://www.instagram.com" target="_blank">
+              <img src="/assets/img/btn-social-instagram.png">
+            </a>
+            <a class="share-item" href="http://www.linkedin.com" target="_blank">
+              <img src="/assets/img/btn-social-linkedin.png">
+            </a>
+          </div>
+          <div *ngIf="productSticker.data[0].brochure" class="label-section">
+            <h4>Tanıtım Broşürü</h4>
+            <logo-link [classes]="'secondary outline'" [external]="true" [url]="productSticker.data[0].brochure">Broşürü
+              İndir
+            </logo-link>
+          </div>
+          <div *ngIf="productSticker.data[0].url" class="label-section">
+            <h4>Ziyaret Edin</h4>
+            <logo-link [classes]="'secondary outline'" [external]="true"
+                       [url]="productSticker.data[0].url">{{productSticker.data[0].url}}</logo-link>
+          </div>
+          <div *ngIf="productSticker.data[0].privacy" class="label-section">
+            <h4>Gizlilik & Güvenlik</h4>
+            <p>{{productSticker.data[0].privacy}}</p>
+            <div class="action">
+              <logo-link [classes]="'ghost primary icon-right le-chevron_right'" [url]="'/info/privacy'">Detaylar
+              </logo-link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section video-content-base" id="alternate-content">
+      <div class="container">
+        <h2><b>Alternative Section</b></h2>
+        <div class="alternate-content">
+          <div class="video">
+            <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/L6EHnp23MzE"
+                    width="560"></iframe>
+          </div>
+          <div class="text">
+            <h2><b>Lorem ipsum dolor sit amet... </b></h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut bibendum metus, vel faucibus orci. Aenean
+              eleifend erat sit amet -
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut bibendum metus, vel faucibus orci. Aenean
+              eleifend erat sit amet -
+            </p>
+            <p>
+              Sed ut bibendum metus, vel faucibus orci. Aenean eleifend erat sit amet. Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit. Sed ut
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section alternate pricing-base" id="price">
+      <div class="container">
+        <h2 class="section-title"><b>Fiyatlandırma</b></h2>
+        <div class="plans">
+          <logo-tabs [activeTab]="1" [routing]="false" class="small">
+            <logo-tab
+              [params]="{id: 'user-id-0'}"
+              [title]="'Aylık Plan'"
+            >
+              <div *ngIf="getMonthlyPackages().length > 0; else noPrice" class="price-table-base">
+                <div *ngFor="let package of getMonthlyPackages()" class="table-item">
+                  <div class="head">
+                    <h3>{{package.title}}</h3>
+                  </div>
+                  <div class="content">
+                    <span class="icon-base">
+                      <img src="{{package.icon}}">
+                    </span>
+                    <div class="price-base">
+                      <h1>{{package.price.symbol}} {{package.price.cost}} <small *ngIf="!package.price.includeTax">+
+                        KDV</small></h1>
+                      <p>Çalışan / Ay</p>
+                    </div>
+                    <div class="features">
+                      <ul>
+                        <li *ngFor="let theFeature of package.properties"
+                            class="icon-left le-check">{{theFeature.title}} <span *ngIf="theFeature.isNew"
+                                                                                  class="badge danger">Yeni</span></li>
+                      </ul>
+                    </div>
+                    <div class="cta">
+                      <logo-link [classes]="'success'">Aboneliği Başlat</logo-link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ng-template #noPrice>
+                <div class="no-price-section">
+                  <h4>E-mail adresinizi yazın, sizi en kısa sürede arayalım!</h4>
+                  <div class="form-base">
+                    <div class="input-w-icon left">
+                      <span class="le-email"></span>
+                      <input class="light large icon-left" placeholder="E-Posta Adresiniz">
+                    </div>
+                    <logo-link [classes]="'large success'">Fiyat Bilgisi Al</logo-link>
+                  </div>
+                </div>
+              </ng-template>
+            </logo-tab>
+            <logo-tab
+              [params]="{id: 'user-id-1'}"
+              [title]="'Yıllık Plan'"
+            >
+              <div *ngIf="getYearlyPackages().length > 0; else noPrice" class="price-table-base">
+                <div *ngFor="let package of getYearlyPackages()" class="table-item">
+                  <div class="head">
+                    <h3>{{package.title}}</h3>
+                  </div>
+                  <div class="content">
+                    <span class="icon-base">
+                      <img src="{{package.icon}}">
+                    </span>
+                    <div class="price-base">
+                      <h1>{{package.price.symbol}}{{package.price.cost}} <small *ngIf="!package.price.includeTax">+
+                        KDV</small></h1>
+                      <p>Çalışan / Ay</p>
+                    </div>
+                    <div class="features">
+                      <ul>
+                        <li *ngFor="let theFeature of package.properties"
+                            class="icon-left le-check">{{theFeature.title}} <span *ngIf="theFeature.isNew"
+                                                                                  class="badge danger">Yeni</span></li>
+                      </ul>
+                    </div>
+                    <div class="cta">
+                      <logo-link [classes]="'success'">Aboneliği Başlat</logo-link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ng-template #noPrice>
+                <div class="no-price-section">
+                  <h4>E-mail adresinizi yazın, sizi en kısa sürede arayalım!</h4>
+                  <div class="form-base">
+                    <div class="input-w-icon left">
+                      <span class="le-email"></span>
+                      <input class="light large icon-left" placeholder="E-Posta Adresiniz">
+                    </div>
+                    <logo-link [classes]="'large success'">Fiyat Bilgisi Al</logo-link>
+                  </div>
+                </div>
+              </ng-template>
+            </logo-tab>
+          </logo-tabs>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="Faqs" class="section" id="faq">
+      <div class="faq container">
+      <span class="title">
+        <h2><b>Sıkça Sorulan Sorular</b></h2>
+      </span>
+        <div class="section-content">
+          <logo-accordion [iconClasses]="" [items]="Faqs" [start]="0"></logo-accordion>
+        </div>
+      </div>
+    </div>
+    <div class="section alternate" id="testimonial">
+      <div class="testimonial">
+        <div class="section-content">
+          <logo-carousel *ngIf="Testimonials" [arrow]="true" [count]="1" [dots]="false">
+            <div *ngFor="let testimonial of Testimonials" class="slider-item">
+              <div class="container">
+              <span class="image">
+                <img onerror="this.src='/assets/img/default-user.png';" src="{{testimonial.author.image}}"/>
+              </span>
+                <span class="name"><h3>{{testimonial.author.name}} {{testimonial.author.surname}}
+                  - {{testimonial.author.companyName}}</h3></span>
+                <span class="title"><h5>{{testimonial.author.title}}</h5></span>
+                <span class="feedback-title">
+                <h4 class="small">{{testimonial.title}}</h4>
+              </span>
+                <span class="feedback-desc">
+                <p class="large">{{testimonial.description}}</p>
+              </span>
+              </div>
+            </div>
+          </logo-carousel>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="productReferences" class="section references-area" id="references">
+      <div class="container">
+        <h2><b>Bu Ürünü Tercih Ettiler</b></h2>
+        <div class="references-base">
+          <div *ngFor="let ref of productReferences.data" class="item">
+            <img alt="{{ref.name}}" src="{{ref.image}}"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="blog">
+      <div class="blog-summary container">
+      <span class="title">
+        <h2><b>Blog</b></h2>
+      </span>
+        <div class="section-content">
+          <div *ngIf="BlogSummaries" class="blog-summary-base">
+            <div *ngFor="let blogItem of BlogSummaries" class="blog-item">
+              <div class="image">
+                <img src="{{blogItem.image}}">
+              </div>
+              <div class="infos">
+                <div class="tags">
+                <span *ngFor="let badge of blogItem.tags" class="badge">
+                  {{badge.name}}
+                </span>
+                </div>
+                <div class="content">
+                  <h5>{{blogItem.title}}</h5>
+                  <p>{{blogItem.description}}</p>
+                </div>
+                <div class="date">
+                  <span class="le-calendar"></span>
+                  <p>{{blogItem.date.publish}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <logo-paging
+            *ngIf="BlogData"
+            [pageSize]="3"
+            [recordsFound]="' adet içerik bulundu.'"
+            [threshold]="5"
+            [totalCount]="BlogData.count"
+          >
+          </logo-paging>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="others">
+      <div class="product-suggestion container">
+      <span class="title">
+        <h2><b>Diğer Ürünler</b></h2>
+        <p>
+          Logo Cloud ürünler arasında ihtiyacınıza en uygun paket seçeneklerini inceleyin.
+        </p>
+      </span>
+        <div class="section-content">
+          <logo-carousel *ngIf="ProductSummaries" [arrow]="true" [count]="1" [dots]="false">
+            <div *ngFor="let productItem of ProductSummaries" class="slider-item">
+              <logo-product-item [productData]="productItem"></logo-product-item>
+            </div>
+          </logo-carousel>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <logo-speed-connect></logo-speed-connect>
+      </div>
+    </div>
+  </div>
 </div>
+<logo-cloud-footer *ngIf="product" [productId]="product.id"></logo-cloud-footer>
