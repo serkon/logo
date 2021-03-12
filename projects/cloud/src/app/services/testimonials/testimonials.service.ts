@@ -79,6 +79,6 @@ export class TestimonialsService {
       ],
     };
 
-    return dummyTestimonialData.data;
+    return dummyTestimonialData;
   }
 }
