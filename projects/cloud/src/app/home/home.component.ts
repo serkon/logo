@@ -16,6 +16,7 @@ import { ProductService } from '@cloud/app/services/product/product.service';
 import { TestimonialsService } from '@cloud/app/services/testimonials/testimonials.service';
 import { FaqService } from '@cloud/app/services/faq/faq.service';
 import { BlogService } from '@cloud/app/services/blog/blog.service';
+import { HeaderService } from '@logo-software/header';
 
 @Component({
   selector: 'logo-home',
@@ -40,10 +41,12 @@ export class HomeComponent implements OnInit {
     private testimonialsService: TestimonialsService,
     private faqService: FaqService,
     private blogService: BlogService,
+    private headerService: HeaderService,
   ) {
   }
 
   ngOnInit(): void {
+    this.headerService.isScrollSpy = true;
     this.loadSolutionSummaries();
     this.loadProductSummaries();
     this.loadTestimonials();
