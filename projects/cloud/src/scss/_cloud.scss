@@ -7,6 +7,7 @@
  * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
  * Any reproduction of this material must contain this notice.
  */
+
 @import "~@logo-software/theme/base";
 @import "vars";
 
@@ -14,11 +15,19 @@ html, body {
   overflow-x: hidden;
 }
 
+.hidden {
+  display: none;
+}
+
 .logo-cloud-theme {
   logo-header {
     .mobile-opener {
       position: fixed !important;
       top: size(14px) !important;
+
+      &.nailed {
+        position: absolute !important;
+      }
     }
   }
 
@@ -107,6 +116,10 @@ html, body {
           }
         }
       }
+    }
+
+    &.nailed {
+      position: absolute !important;
     }
   }
 
