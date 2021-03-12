@@ -93,6 +93,34 @@
       }
     }
 
+    .seller-base {
+      position: relative;
+      height: size(400px);
+      overflow: hidden;
+
+      .seller-info-base {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(var(--basic-1000-rgb), 0.2);
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+
+        .seller-info {
+          @include border-radius(size(14px));
+          @include box-shadow(0, size(2px), size(4px), 0, rgba(var(--black-rgb), 0.08), false);
+
+          text-align: center;
+          background: var(--basic-200);
+          padding: size(10px) size(24px);
+        }
+      }
+    }
+
     .content-base {
       background-color: var(--basic-400);
       padding-top: size(95px);

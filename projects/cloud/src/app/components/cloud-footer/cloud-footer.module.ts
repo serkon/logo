@@ -10,6 +10,7 @@ import { CloudFooterComponent } from '@cloud/app/components/cloud-footer/cloud-f
   imports: [
     CommonModule,
     LinksModule,
+    LinksModule,
   ],
   exports: [CloudFooterComponent],
 })
