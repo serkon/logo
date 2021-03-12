@@ -1,0 +1,27 @@
+<div #imageSlider class="image-slider">
+  <div #wrap class="base">
+    <button (click)="prev()" [hidden]="pos===0" class="prev le-chevron_left"></button>
+    <div #scroller (swipeleft)="next()" (swiperight)="prev()" class="scroller">
+      <ul #items class="items">
+        <ng-container>
+          <li
+            *ngFor="let item of media; let i=index"
+            [ngClass]="{'slider-selected':i===pos}"
+            [style.background-image]="sanitizer(item)"
+            class="item"
+          >
+            <span [innerHTML]="texts[i]"></span>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+    <button (click)="next()" [hidden]="pos===itemCount-1" class="next le-chevron_right"></button>
+  </div>
+  <div class="thumbs">
+    <ul class="thumb-list">
+      <li (click)="move(i)" *ngFor="let item of media; let i=index" [ngClass]="{'selected': i===pos}"
+          [style.background-image]="sanitizer(item)" class="move">
+      </li>
+    </ul>
+  </div>
+</div>

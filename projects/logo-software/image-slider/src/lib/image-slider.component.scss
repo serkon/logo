@@ -1,0 +1,158 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
+@import "~@logo-software/theme/base";
+
+:host {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .image-slider {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .base {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+    margin: auto;
+    height: 100%;
+
+    &:hover {
+      button {
+        @include animate();
+
+        opacity: 1;
+        background: rgba(var(--primary-rgb), 0.5);
+      }
+    }
+
+    button {
+      @include animate();
+
+      opacity: 0;
+      position: absolute;
+      z-index: 2;
+      border: none;
+      background: rgba(var(--primary-rgb), 0.8);
+      padding: 0;
+      text-align: center;
+      outline: none;
+      transition: opacity 100ms ease-out;
+      width: 50px;
+      color: var(--white);
+      font-size: 32px;
+      line-height: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      top: 50%;
+      transform: translateY(-50%);
+      height: size(50px);
+
+      &.prev {
+        left: 0;
+      }
+
+      &.next {
+        right: 0;
+      }
+    }
+
+    .scroller {
+      display: flex;
+      flex-grow: 1;
+      overflow: hidden;
+      max-width: 100%;
+
+      .items {
+        list-style-type: none;
+        white-space: nowrap;
+        font-size: 0;
+        line-height: 0;
+        transition: transform 0.4s ease-in-out;
+        padding: 0;
+        margin: 0;
+        min-height: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+        width: 100%;
+      }
+
+      .item {
+        padding: size(30px) size(20px);
+        height: 100%;
+        font-size: 25px;
+        line-height: 1;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        text-transform: uppercase;
+        box-sizing: border-box;
+        min-width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-grow: 1;
+
+        &:nth-child(2) {
+          color: var(--white);
+        }
+      }
+    }
+  }
+
+  .thumbs {
+    height: size(80px);
+    width: 100%;
+    overflow-x: auto;
+    box-sizing: border-box;
+
+    .thumb-list {
+      display: flex;
+      justify-content: flex-start;
+      text-align: left;
+      list-style: none;
+      padding: size(10px) 0;
+      margin: 0;
+      height: 100%;
+      box-sizing: border-box;
+
+      li.move {
+        @include animate();
+
+        width: size(90px);
+        height: 100%;
+        background-clip: content-box;
+        background-size: contain;
+        margin-right: size(10px);
+        cursor: pointer;
+        box-sizing: border-box;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &.selected {
+          @include animate();
+
+          border: 1px solid rgba(var(--primary-rgb), 0.5);
+        }
+      }
+    }
+  }
+}
