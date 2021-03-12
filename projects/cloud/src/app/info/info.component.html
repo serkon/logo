@@ -1,0 +1,18 @@
+<div *ngIf="infos" class="info-page">
+  <logo-hero [containerStatus]="true" [cssClasses]="'hero-info-page'">
+    <logo-breadcrumb
+      [breadcrumb]="[{name:'Anasayfa', link: '/'}, {name: infos.data[0].title}]"
+      [isLight]="true"
+      [size]="'medium'"
+    >
+    </logo-breadcrumb>
+    <div class="content">
+      <h1><b>{{infos.data[0].title}}</b></h1>
+      <h4>{{infos.data[0].description}}</h4>
+    </div>
+  </logo-hero>
+  <div class="page-content">
+    <div [innerHTML]="infos.data[0].content" class="container"></div>
+  </div>
+</div>
+<logo-cloud-footer></logo-cloud-footer>
