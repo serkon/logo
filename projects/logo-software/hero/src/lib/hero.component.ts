@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class HeroComponent implements OnInit {
   @Input() cssClasses: string = 'hero-main';
   @Input() containerStatus: boolean = false;
+  @Input() bgImage?: string;
 
   constructor() {
   }

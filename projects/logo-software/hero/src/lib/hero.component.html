@@ -1,4 +1,4 @@
-<div #pageHero class="hero {{cssClasses}}">
+<div #pageHero [ngStyle]="bgImage ? {'background-image': 'url(' + bgImage + ')'} : ''" class="hero {{cssClasses}}">
   <span class="overlay"></span>
   <div [ngClass]="{'container': containerStatus}" class="hero-content">
     <ng-content></ng-content>
