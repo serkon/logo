@@ -1,0 +1,32 @@
+{
+  "page": 0,
+  "count": 1,
+  "total": 1,
+  "data": [
+    {
+      "id": "0ca406c1-67d0-4268-be25-754949df581d",
+      "title": "İletişim",
+      "description": "İşletmeniz için en doğru kararları Logo bordro ve insan kaynakları çözümleriyle alın!",
+      "support": {
+        "title": "Logo destek hizmet hattı",
+        "phone": " +90 262 679 80 00"
+      },
+      "contact": [
+        {
+          "name": "Logo Yazılım San. ve Tic. A.Ş.",
+          "address": "Gebze Organize Sanayi Bölgesi, Şahabettin Bilgisu Caddesi, Numara 609 Gebze 41400 / KOCAELİ / TÜRKİYE",
+          "callcenter": "444 56 46",
+          "phone": "+90 262 679 80 80",
+          "image": "/assets/img/contact-gfx-gebze.png"
+        },
+        {
+          "name": "Muhasebe Yönetimi",
+          "address": "İçerenköy Mahallesi Değirmenyolu Caddesi Gülseren Murat Üçüncü İş Merkezi No:35 Kat: 7 34752 Ataşehir / İstanbul",
+          "callcenter": "444 56 46",
+          "phone": "0850 281 88 00 - +90 262 679 88 00",
+          "image": "/assets/img/contact-gfx-hacettepe.png"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "page": 0,
+  "count": 1,
+  "total": 1,
+  "data": [
+    {
+      "solution": [
+        {
+          "id": "530c7378-3a8c-40db-9439-3f7d3fe4bfea",
+          "name": "Bordro ve İnsan Kaynaklari Yönetimi"
+        },
+        {
+          "id": "701b4c79-8102-488c-8eb9-7f11c0c9e733",
+          "name": "İş Sağlığı ve Güvenliği Yönetimi"
+        }
+      ],
+      "tags": [
+        {
+          "id": "381e600f-ac4f-4302-91fa-3a9d9955b0c4",
+          "name": "Muhasebe"
+        },
+        {
+          "id": "1f78c335-ceb2-43e1-992a-a8fbd48e2726",
+          "name": "Bordro"
+        },
+        {
+          "id": "b3dc197d-be33-4354-ba41-a62b7e38ad3f",
+          "name": "Yönetim"
+        }
+      ],
+      "store": [
+        {
+          "id": "5ab7fab3-43d1-48ff-84d1-8c0ae2069f57",
+          "link": "http://www.google.com",
+          "type": "android"
+        },
+        {
+          "id": "359f1d06-2a75-4800-b118-e9a737e13515",
+          "link": "http://www.apple.com",
+          "type": "ios"
+        },
+        {
+          "id": "658e387f-d6b0-4ef7-85d6-50c66f5f4c1d",
+          "link": "http://www.huawei.com",
+          "type": "huawei"
+        }
+      ],
+      "social": "Lütfen, arkadaşlarınızla Logo\"daki bu gelişme ile paylaşımda bulununuz #link",
+      "brochure": "http://www.isbasi.com.tr/brosur.zip",
+      "url": "http://isbasi.com.tr",
+      "privacy": "Nulla non cursus risus. Nulla eget bibendum massa. Donec aliquam pellentesque dignissim."
+    }
+  ]
+}

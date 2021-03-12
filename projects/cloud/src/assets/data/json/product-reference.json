@@ -1,0 +1,28 @@
+{
+  "page": 0,
+  "count": 1,
+  "total": 1,
+  "data": [
+    {
+      "id": "7373fee3-0e04-4728-9924-be81c08a6208",
+      "name": "Pirelli",
+      "link": "http://www.pirelli.com",
+      "image": "/assets/data/sample-ref-logo-2.png",
+      "productId": "caad59bb-b295-4d47-b273-372802acb077"
+    },
+    {
+      "id": "3f382d3b-0a11-4ec6-9621-bd82f8795be3",
+      "name": "Unilever",
+      "link": "http://www.unilever.com",
+      "image": "/assets/data/sample-ref-logo-3.png",
+      "productId": "cdd3033ae-8de9-4e05-8ba5-89278a213047"
+    },
+    {
+      "id": "645c3e49-8f65-43a5-9a21-0d1596dd93e0",
+      "name": "Continental",
+      "link": "http://www.unilever.com",
+      "image": "/assets/data/sample-ref-logo-1.png",
+      "productId": "a1ad6fc8-004c-42d6-a775-aa2f406fb575"
+    }
+  ]
+}
