@@ -135,6 +135,7 @@ export class LinkComponent implements OnInit {
       this.relativeTo = (typeof this.link.relativeTo === 'undefined' && !this.link.url) || this.link.relativeTo;
     }
     this.relativeTo = typeof this.relativeTo === 'undefined' && !this.url || this.relativeTo;
+    this.url = this.relativeTo && typeof this.url === 'undefined' ? './' : this.relativeTo ? './' + this.url : this.url;
   }
 
   onClickEvent($event, external: boolean = false) {
