@@ -1,10 +1,15 @@
 import { Params } from '@angular/router';
-import { EventEmitter } from '@angular/core';
+import { EventEmitter, Input } from '@angular/core';
 
 /**
  * definition of link interface
  */
 export interface Link {
+  /**
+   * Specifies a root URI to use for relative navigation.
+   * For example `this.router.navigate(['../list'], { relativeTo: this.route });`
+   */
+  relativeTo: boolean;
   /**
    * disable redirection. Default is true.
    */

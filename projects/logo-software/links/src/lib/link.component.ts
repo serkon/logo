@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { Params, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { timer } from 'rxjs';
 
 import { Link } from './link';
@@ -115,8 +115,13 @@ export class LinkComponent implements OnInit {
    * [Link](/#/docs/components/link-module#link) - Makes focused to added element
    */
   @Input() link: Link;
+  /**
+   * Specifies a root URI to use for relative navigation.
+   * For example `this.router.navigate(['../list'], { relativeTo: this.route });`
+   */
+  @Input() relativeTo: boolean = false;
 
-  constructor(@Inject(DOCUMENT) private document, private linkService: LinkService, private router: Router) {
+  constructor(@Inject(DOCUMENT) private document, private linkService: LinkService, private router: Router, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -126,7 +131,10 @@ export class LinkComponent implements OnInit {
       this.url = this.link.url;
       this.classes = this.link.classes && [...this.classes, ...this.link.classes] || this.classes;
       this.display = this.link.display;
+      this.redirection = this.link.redirection;
+      this.relativeTo = (typeof this.link.relativeTo === 'undefined' && !this.link.url) || this.link.relativeTo;
     }
+    this.relativeTo = typeof this.relativeTo === 'undefined' && !this.url || this.relativeTo;
   }
 
   onClickEvent($event, external: boolean = false) {
@@ -135,7 +143,8 @@ export class LinkComponent implements OnInit {
         if (external) {
           this.document.location.href = `${this.url}${this.fragment ? `#${this.fragment}` : ``}`;
         } else {
-          this.router.navigate([this.url], {fragment: this.fragment, queryParams: this.params});
+          const relativeTo = this.relativeTo ? {relativeTo: this.activatedRoute} : {};
+          this.router.navigate([this.url], {fragment: this.fragment, queryParams: this.params, ...relativeTo});
         }
       });
     }
