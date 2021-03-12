@@ -52,7 +52,13 @@ export class TabComponent implements AfterViewInit {
    * For example, the fragment must be set to `section` for direction to `http://domain.com/#section`
    */
   @Input() fragment: string;
+  /**
+   * Init event emitter
+   */
   @Output() init: EventEmitter<TabComponent> = new EventEmitter<TabComponent>();
+  /**
+   * Click even emitter
+   */
   @Output() click: EventEmitter<TabComponent> = new EventEmitter<TabComponent>();
 
   ngAfterViewInit() {
