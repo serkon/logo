@@ -1,0 +1,93 @@
+<div *ngIf="contactPage" class="contact-page">
+  <logo-hero [containerStatus]="true" [cssClasses]="'hero-contact-page'">
+    <logo-breadcrumb
+      [breadcrumb]="[{name:'Anasayfa', link: '/'}, {name: 'İletişim'}]"
+      [isLight]="true"
+      [size]="'medium'"
+    >
+    </logo-breadcrumb>
+    <div class="content">
+      <h1><b>{{contactPage.title}}</b></h1>
+      <h4>{{contactPage.description}}</h4>
+    </div>
+  </logo-hero>
+  <div class="contact-inline-menu">
+    <logo-tabs [activeTab]="0" [isContainer]="true" [routing]="false" class="medium">
+      <logo-tab [fragment]="'contact'" [title]="'İletişim Bilgileri'"></logo-tab>
+      <logo-tab [fragment]="'form'" [title]="'Destek Talebi'"></logo-tab>
+    </logo-tabs>
+  </div>
+  <div class="map-base">
+    <iframe allowfullscreen="" height="390" loading="lazy"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3017.9587230750235!2d29.427276815220687!3d40.85083003704783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cb2742ab1d65b9%3A0x8c0f74e8a70d22e2!2sLOGO%20Business%20Solutions!5e0!3m2!1sen!2str!4v1615508353530!5m2!1sen!2str"
+            style="border:0;" width="100%"></iframe>
+  </div>
+  <div class="contact-infos">
+    <div *ngFor="let item of contactPage.contact" class="item">
+      <div [style.background-image]="sanitizer(item.image)" class="gfx"></div>
+      <div class="blue-area"></div>
+      <div class="item-content">
+        <div class="container">
+          <div class="contact-info">
+            <h2><b>{{item.name}}</b></h2>
+            <p [innerHTML]="item.address"></p>
+            <logo-link [classes]="'primary outline white icon-left le-phone'">{{item.callcenter}}</logo-link>
+            <logo-link [classes]="'primary outline white icon-left le-office_stamp_document'">{{item.phone}}</logo-link>
+            <div class="support-base">
+              <h2><b>{{contactPage.support.title}}</b></h2>
+              <logo-link
+                [classes]="'primary outline white icon-left le-phone'">{{contactPage.support.phone}}</logo-link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="Faqs" class="faq-section" id="faq">
+    <div class="faq container">
+      <span class="title">
+        <h2><b>Sıkça Sorulan Sorular</b></h2>
+      </span>
+      <div class="section-content">
+        <logo-accordion [iconClasses]="" [items]="Faqs" [start]="0"></logo-accordion>
+      </div>
+    </div>
+  </div>
+  <div #form class="contact-form-base">
+    <div class="container">
+      <div class="gfx">
+        <img src="/assets/img/contact-gfx-form.png">
+      </div>
+      <div class="form">
+        <div class="form-item">
+          <label class="small">Ad Soyad*</label>
+          <input class="full" placeholder="Ad Soyad bilgisi giriniz." type="text">
+        </div>
+        <div class="form-item">
+          <label class="small">E-Posta*</label>
+          <input class="full" placeholder="E-Posta adresini giriniz." type="email">
+        </div>
+        <div class="form-item">
+          <label class="small">Mesaj</label>
+          <textarea class="full" rows="6">Mesajınızı yazınız</textarea>
+        </div>
+        <div class="form-item">
+          <input type="checkbox">
+          <label class="small checkbox">Kampanya ve duyurulardan haberdar olmak istiyorum.</label>
+        </div>
+        <div class="form-item">
+          <input type="checkbox">
+          <label class="small checkbox"><a href="/info/policy">Aydınlatma metnini</a> okudum ve kabul ediyorum.</label>
+        </div>
+        <div class="form-button">
+          <logo-link [classes]="'primary full'">Gönder</logo-link>
+        </div>
+        <div class="other-form-info">
+          <p class="small">veya bizi arayın</p>
+          <logo-link [classes]="'primary outline icon-left le-phone'">{{contactPage.support.phone}}</logo-link>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<logo-cloud-footer></logo-cloud-footer>

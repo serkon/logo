@@ -1,0 +1,204 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
+@import "~@logo-software/theme/base";
+@import "vars";
+
+:host {
+  .contact-page {
+    ::ng-deep {
+      .hero-contact-page {
+        height: size(255px);
+        background-image: url("#{$gfx-path}/contact-hero-bg.png");
+        background-position: top center;
+        background-repeat: no-repeat;
+        color: var(--white);
+
+        h1, h4 {
+          color: var(--white);
+        }
+
+        .overlay {
+          background: rgba(var(--primary-900-rgb), 0.8);
+        }
+      }
+    }
+
+    .contact-inline-menu {
+      @include animate();
+
+      ::ng-deep {
+        .scroll {
+          text-align: left !important;
+
+          .nav-tabs {
+            padding-left: 0;
+          }
+        }
+      }
+    }
+
+    .map-base {
+      height: size(390px);
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .contact-infos {
+      .item {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: relative;
+        flex-direction: row;
+
+        .gfx {
+          height: size(580px);
+          background-repeat: no-repeat;
+          background-position: top center;
+          background-size: cover;
+          width: 50%;
+        }
+
+        .blue-area {
+          width: 50%;
+          height: size(580px);
+          background: var(--primary);
+        }
+
+        .item-content {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          width: 100%;
+
+          .container {
+            display: flex;
+            flex-direction: row-reverse;
+
+            .contact-info {
+              width: 50%;
+              padding: size(140px) size(60px);
+              color: var(--white);
+              box-sizing: border-box;
+
+              h2 {
+                color: var(--white);
+                margin-bottom: size(16px);
+              }
+
+              p {
+                color: var(--white);
+              }
+
+              logo-link {
+                margin-bottom: size(8px);
+              }
+
+              ::ng-deep {
+                .white {
+                  color: var(--white) !important;
+                }
+              }
+
+              .support-base {
+                margin-top: size(32px);
+              }
+            }
+          }
+        }
+
+        &:nth-child(even) {
+          flex-direction: row-reverse;
+
+          .item-content {
+            .container {
+              flex-direction: row;
+            }
+          }
+        }
+      }
+    }
+
+    .faq-section {
+      padding: size(170px) 0;
+      text-align: center;
+
+      .title {
+        display: block;
+        margin-bottom: size(48px);
+      }
+    }
+
+    .contact-form-base {
+      margin-bottom: size(170px);
+
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .gfx {
+          width: 60%;
+          height: 100%;
+          overflow: hidden;
+
+          img {
+            height: 100%;
+          }
+        }
+
+        .form {
+          width: 40%;
+          padding: 0 size(76px);
+
+          .form-item {
+            margin-bottom: size(20px);
+
+            label {
+              display: block;
+              color: var(--neutral);
+
+              &.small {
+                font-size: size(12px);
+                line-height: size(16px);
+              }
+
+              &.checkbox {
+                padding-top: size(8px);
+
+                a {
+                  font-size: 12px;
+                }
+              }
+            }
+
+            .full {
+              display: block;
+              width: 100%;
+            }
+          }
+
+          ::ng-deep {
+            .full {
+              width: 100%;
+            }
+          }
+
+          .other-form-info {
+            text-align: center;
+            margin-top: size(35px);
+          }
+        }
+      }
+    }
+  }
+}
