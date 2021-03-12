@@ -88,7 +88,7 @@ export class LinkComponent implements OnInit {
   /**
    * Direction address. When clicked link angular router direct to this url
    */
-  @Input() url: string;
+  @Input() url: string | string[];
   /**
    * A collection of matrix and query URL parameters.
    */
@@ -116,7 +116,7 @@ export class LinkComponent implements OnInit {
    */
   @Input() link: Link;
   /**
-   * Specifies a root URI to use for relative navigation.
+   * Specifies a root URI to use for relative navigation. Default is false.
    * For example `this.router.navigate(['../list'], { relativeTo: this.route });`
    */
   @Input() relativeTo: boolean = false;
@@ -128,14 +128,14 @@ export class LinkComponent implements OnInit {
     if (this.link) {
       this.external = this.link.external;
       this.fragment = this.link.fragment;
-      this.url = this.link.url;
       this.classes = this.link.classes && [...this.classes, ...this.link.classes] || this.classes;
       this.display = this.link.display;
       this.redirection = this.link.redirection;
-      this.relativeTo = (typeof this.link.relativeTo === 'undefined' && !this.link.url) || this.link.relativeTo;
+      this.relativeTo = ((typeof this.link.relativeTo === 'undefined' || !this.link.relativeTo) && !this.link.url) || this.link.relativeTo;
+      this.url = this.link.url;
     }
-    this.relativeTo = typeof this.relativeTo === 'undefined' && !this.url || this.relativeTo;
-    this.url = this.relativeTo && typeof this.url === 'undefined' ? './' : this.relativeTo ? './' + this.url : this.url;
+    this.relativeTo = !this.relativeTo && !this.url || this.relativeTo;
+    this.url = typeof this.url === 'undefined' && this.relativeTo ? '' : this.url;
   }
 
   onClickEvent($event, external: boolean = false) {
@@ -145,7 +145,11 @@ export class LinkComponent implements OnInit {
           this.document.location.href = `${this.url}${this.fragment ? `#${this.fragment}` : ``}`;
         } else {
           const relativeTo = this.relativeTo ? {relativeTo: this.activatedRoute} : {};
-          this.router.navigate([this.url], {fragment: this.fragment, queryParams: this.params, ...relativeTo});
+          const queryParams = this.params ? {queryParams: this.params} : {};
+          const fragment = this.fragment ? {fragment: this.fragment} : {};
+          const extras = {...fragment, ...queryParams, ...relativeTo};
+          const url = Array.isArray(this.url) ? [...this.url] : [this.url];
+          this.router.navigate(url, extras);
         }
       });
     }

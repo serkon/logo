@@ -6,10 +6,10 @@ import { EventEmitter, Input } from '@angular/core';
  */
 export interface Link {
   /**
-   * Specifies a root URI to use for relative navigation.
+   * Specifies a root URI to use for relative navigation. Default is false.
    * For example `this.router.navigate(['../list'], { relativeTo: this.route });`
    */
-  relativeTo: boolean;
+  relativeTo?: boolean;
   /**
    * disable redirection. Default is true.
    */
