@@ -53,6 +53,10 @@ export class TabsComponent implements AfterContentInit {
    */
   @Input() class: string;
   /**
+   * Full width or not selector of the tabs base.
+   */
+  @Input() isContainer: boolean;
+  /**
    * All tabs was added
    */
   @ContentChildren(TabComponent) tabs: QueryList<TabComponent>;

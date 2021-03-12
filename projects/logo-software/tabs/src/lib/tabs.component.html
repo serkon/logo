@@ -1,25 +1,27 @@
 <div class="navigator">
-  <ul class="left">
-    <ng-content select="[left]"></ng-content>
-  </ul>
-  <div class="scroll">
-    <ul class="nav nav-tabs {{class}}">
-      <li *ngFor="let tab of tabs; let i=index" (click)="setActiveTab(i)" [class.active]="tab.isActive">
-        <logo-link
-          [classes]="['ghost', tab.isActive?'selected':'']"
-          [url]="tab.route"
-          [params]="tab.params"
-          [redirection]="false"
-          fragment="{{tab.fragment}}"
-        >
-          {{tab.title}}
-        </logo-link>
-      </li>
+  <div [ngClass]="isContainer ? 'container' : ''" class="base">
+    <ul class="left">
+      <ng-content select="[left]"></ng-content>
+    </ul>
+    <div class="scroll">
+      <ul class="nav nav-tabs {{class}}">
+        <li (click)="setActiveTab(i)" *ngFor="let tab of tabs; let i=index" [class.active]="tab.isActive">
+          <logo-link
+            [classes]="['ghost', tab.isActive?'selected':'']"
+            [params]="tab.params"
+            [redirection]="false"
+            [url]="tab.route"
+            fragment="{{tab.fragment}}"
+          >
+            {{tab.title}}
+          </logo-link>
+        </li>
+      </ul>
+    </div>
+    <ul class="right">
+      <ng-content select="[right]"></ng-content>
     </ul>
   </div>
-  <ul class="right">
-    <ng-content select="[right]"></ng-content>
-  </ul>
 </div>
 <div class="tab-line"></div>
 <!--div class="tabs" *ngIf="!routing"-->
