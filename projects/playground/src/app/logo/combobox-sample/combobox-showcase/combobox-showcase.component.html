@@ -1,7 +1,7 @@
-<logo-combobox (filter)="getItems($event)"  [(ngModel)]="selected" [hover]="1" [items]="displayedItems" [path]="'a.b'">
-  <!--ng-template let-item="item">
-    <span>içerikde neler var bi bilsen, sölüm mü? - {{item}}</span>
-  </ng-template-->
+<logo-combobox (filter)="onFiltered($event)" (select)="onSelect($event)" [(ngModel)]="selected" [hover]="1" [items]="displayedItems" [path]="'a.b'">
+  <ng-template let-item="item" let-index="index" let-isOdd="isOdd" let-isFirst="isFirst" let-isLast="isLast">
+    <span>customized {{index}} - {{isFirst}} - {{isLast}} - {{isOdd}} - {{item | json }}</span>
+  </ng-template>
 </logo-combobox>
 
 <div class="selected-container">
