@@ -1,34 +1,33 @@
 <div
-  class="selected large logo-i-selection-dropdown icon-right"
-  [ngClass]="{'open': display}"
-  [innerHTML]="selectedHTML()"
   (click)="openListDiv()"
+  [innerHTML]="selectedHTML()"
+  [ngClass]="{'open': display}"
+  class="selected large logo-i-selection-dropdown icon-right"
 >
 </div>
-<div class="dropdown" *ngIf="display">
+<div *ngIf="display" class="dropdown">
   <input
-    class="large outline light"
-    [(ngModel)]="search"
+    #inputRef
+    (input)="debounce(inputRef)"
     (keydown.arrowDown)="arrowDown()"
     (keydown.arrowUp)="arrowUp()"
     (keydown.enter)="this.selected = this.hover"
-    #inputRef
+    [(ngModel)]="search"
+    class="large outline light"
   />
-  <ul class="items" #itemRef>
+  <ul #itemRef class="items">
     <li
-      class="item large"
-      *ngFor="let item of filtered; let i=index; let isLast=last; let isFirst=first; let isOdd=odd;"
       (click)="setSelectedItem(item, i)"
+      *ngFor="let item of filtered; let i=index; let isLast=last; let isFirst=first; let isOdd=odd;"
       [ngClass]="{'hover': i === hover, 'selected': item===selectedItem}"
+      class="item large"
     >
       <ng-container
         [ngTemplateOutletContext]="{item: item, index: i, isLast: isLast, isFirst: isFirst, isOdd: isOdd}"
         [ngTemplateOutlet]="templateRef ? templateRef: native"
       >
       </ng-container>
-      <ng-template #native>
-        icerik {{optionHTML(item, i)}}
-      </ng-template>
+      <ng-template #native>{{optionHTML(item, i)}}</ng-template>
     </li>
   </ul>
 </div>

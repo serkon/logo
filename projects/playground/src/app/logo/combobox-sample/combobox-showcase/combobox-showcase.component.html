@@ -1,4 +1,4 @@
-<logo-combobox [items]="items" [hover]="1" path="a.b" [(ngModel)]="selected">
+<logo-combobox (filter)="getItems($event)"  [(ngModel)]="selected" [hover]="1" [items]="displayedItems" [path]="'a.b'">
   <!--ng-template let-item="item">
     <span>içerikde neler var bi bilsen, sölüm mü? - {{item}}</span>
   </ng-template-->

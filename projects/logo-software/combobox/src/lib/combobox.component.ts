@@ -14,8 +14,9 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { Util } from '@logo-software/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+
+import { Util } from '@logo-software/core';
 
 @Component({
   selector: 'logo-combobox',
@@ -30,19 +31,31 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class ComboboxComponent implements OnInit, AfterViewInit, OnChanges, ControlValueAccessor {
   @ContentChild(TemplateRef) templateRef = null;
   @ViewChild('itemRef', {read: ElementRef}) itemsRef: ElementRef;
-  @ViewChild('inputRef', {read: ElementRef}) inputRef: ElementRef;
+  @ViewChild('inputRef', {static: false, read: ElementRef}) inputRef: ElementRef;
   @Input() placeholder: string = 'select';
-  @Input() items: any[] = [];
   @Input() path: string = null;
   @Input() hover: number = -1;
-  public search: string = null;
+  @Input() ngModel: string;
+  @Output() filter: EventEmitter<string> = new EventEmitter<string>();
+  @Output() ngModelChange = new EventEmitter();
+  public search: string = '';
   public selectedItem: any = null;
   public filtered: any[] = [];
   public display: boolean = false;
-  @Input() ngModel: string;
-  @Output() private ngModelChange = new EventEmitter();
+  private timer: number;
 
   constructor(private elementRef: ElementRef) {
+  }
+
+  _items: any[] = [];
+
+  get items() {
+    return this._items;
+  }
+
+  @Input() set items(values: any[]) {
+    this._items = values;
+    this.filtered = values;
   }
 
   _selected: number = null;
@@ -68,7 +81,6 @@ export class ComboboxComponent implements OnInit, AfterViewInit, OnChanges, Cont
   }
 
   ngAfterViewInit() {
-    this.filtered = this.items;
     this.scroll();
   }
 
@@ -84,12 +96,32 @@ export class ComboboxComponent implements OnInit, AfterViewInit, OnChanges, Cont
   }
 
   setSelectedItem(item, index) {
-    // event.preventDefault();
     this.selectedItem = item;
     this.hover = index;
     this.ngModelChange.emit(item);
     this.focusInputElement();
-    // this.closeItems();
+    this.closeListDiv();
+  }
+
+  arrowUp() {
+    this.hover--;
+    this.hover = this.hover >= 0 ? this.hover : this.filtered.length - 1;
+    this.scroll();
+  }
+
+  arrowDown() {
+    this.hover++;
+    this.hover = this.hover < this.filtered.length ? this.hover : 0;
+    this.scroll();
+  }
+
+  optionHTML(item, index) {
+    const isObject = Util.isObject(item);
+    return (this.path && isObject) ? Util.getObjectPathValue(item, this.path) || '' : item;
+  }
+
+  selectedHTML() {
+    return this.path && Util.isObject(this.selectedItem) && !Util.isNullOrUndef(this.selectedItem) ? Util.getObjectPathValue(this.selectedItem, this.path) : this.selectedItem ? this.selectedItem : this.placeholder;
   }
 
   openListDiv() {
@@ -98,26 +130,27 @@ export class ComboboxComponent implements OnInit, AfterViewInit, OnChanges, Cont
     this.scroll();
   }
 
+  debounce(element: HTMLInputElement) {
+    // return fromEvent(element, 'keyup').pipe(debounceTime(600)).subscribe(val => this.filterTrigger(val));
+    this.search = element.value;
+    window.clearTimeout(this.timer);
+    this.timer = window.setTimeout(() => {
+      this.filterTrigger(event);
+    }, 600);
+  }
+
+  filterTrigger(event) {
+    this.filter.next(this.search);
+  }
+
   closeListDiv() {
-    window.setTimeout(() => this.display = false, 10);
-  }
-
-  /**
-   * It moves hovered item to up
-   */
-  arrowUp() {
-    this.hover--;
-    this.hover = this.hover >= 0 ? this.hover : this.filtered.length - 1;
-    this.scroll();
-  }
-
-  /**
-   * It moves hovered item to down
-   */
-  arrowDown() {
-    this.hover++;
-    this.hover = this.hover < this.filtered.length ? this.hover : 0;
-    this.scroll();
+    window.setTimeout(() => {
+      this.display = false;
+      if (this.search.length > 0) {
+        this.search = '';
+        this.filter.next(this.search);
+      }
+    }, 10);
   }
 
   scroll() {
@@ -129,15 +162,6 @@ export class ComboboxComponent implements OnInit, AfterViewInit, OnChanges, Cont
         });
       }, 50);
     }
-  }
-
-  optionHTML(item, index) {
-    const isObject = Util.isObject(item);
-    return (this.path && isObject) ? Util.getObjectPathValue(item, this.path) || '' : item;
-  }
-
-  selectedHTML() {
-    return this.path && Util.isObject(this.selectedItem) && !Util.isNullOrUndef(this.selectedItem) ? Util.getObjectPathValue(this.selectedItem, this.path) : this.selectedItem ? this.selectedItem : this.placeholder;
   }
 
   focusInputElement() {
