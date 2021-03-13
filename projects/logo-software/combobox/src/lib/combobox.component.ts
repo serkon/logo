@@ -10,7 +10,6 @@ import {
   OnChanges,
   OnInit,
   Output,
-  SimpleChanges,
   TemplateRef,
   ViewChild,
 } from '@angular/core';
@@ -28,7 +27,7 @@ import { Util } from '@logo-software/core';
     multi: true,
   }],
 })
-export class ComboboxComponent implements OnInit, AfterViewInit, OnChanges, ControlValueAccessor {
+export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAccessor {
   @ContentChild(TemplateRef) templateRef = null;
   @ViewChild('itemRef', {read: ElementRef}) itemsRef: ElementRef;
   @ViewChild('inputRef', {static: false, read: ElementRef}) inputRef: ElementRef;
@@ -37,6 +36,7 @@ export class ComboboxComponent implements OnInit, AfterViewInit, OnChanges, Cont
   @Input() hover: number = -1;
   @Input() ngModel: string;
   @Output() filter: EventEmitter<string> = new EventEmitter<string>();
+  @Output() select: EventEmitter<any> = new EventEmitter<any>();
   @Output() ngModelChange = new EventEmitter();
   public search: string = '';
   public selectedItem: any = null;
@@ -84,9 +84,6 @@ export class ComboboxComponent implements OnInit, AfterViewInit, OnChanges, Cont
     this.scroll();
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-  }
-
   @HostListener('document:click', ['$event'])
   public onClick(event: Event) {
     const contains = this.elementRef.nativeElement.contains(event.target);
@@ -99,6 +96,7 @@ export class ComboboxComponent implements OnInit, AfterViewInit, OnChanges, Cont
     this.selectedItem = item;
     this.hover = index;
     this.ngModelChange.emit(item);
+    this.select.emit(item);
     this.focusInputElement();
     this.closeListDiv();
   }
@@ -135,12 +133,23 @@ export class ComboboxComponent implements OnInit, AfterViewInit, OnChanges, Cont
     this.search = element.value;
     window.clearTimeout(this.timer);
     this.timer = window.setTimeout(() => {
-      this.filterTrigger(event);
+      this.filterTrigger();
     }, 600);
   }
 
-  filterTrigger(event) {
+  cloneArray(items) {
+    return items.map(item => Array.isArray(item) ? this.cloneArray(item) : item);
+  }
+
+  filterTrigger() {
     this.filter.next(this.search);
+    // If observer length equals zero this means the user does not define the filter output method and it will filter on the client-side.
+    // But will still have been sent search criteria to Combobox.
+    if (this.filter.observers.length <= 0) {
+      this.filtered = this.items.filter(item => {
+        return item.a.b.includes(this.search);
+      });
+    }
   }
 
   closeListDiv() {
@@ -148,7 +157,7 @@ export class ComboboxComponent implements OnInit, AfterViewInit, OnChanges, Cont
       this.display = false;
       if (this.search.length > 0) {
         this.search = '';
-        this.filter.next(this.search);
+        this.filterTrigger();
       }
     }, 10);
   }
