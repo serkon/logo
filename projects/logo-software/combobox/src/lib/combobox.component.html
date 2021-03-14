@@ -2,7 +2,7 @@
   (click)="openListDiv()"
   [innerHTML]="selectedHTML()"
   [ngClass]="{'open': display}"
-  class="selected large logo-i-selection-dropdown icon-right"
+  class="selected medium le-arrow_down icon-right basic"
 >
 </div>
 <div *ngIf="display" class="dropdown">
@@ -13,7 +13,7 @@
     (keydown.arrowUp)="arrowUp()"
     (keydown.enter)="this.selected = this.hover"
     [(ngModel)]="search"
-    class="large outline light"
+    class=""
   />
   <ul #itemRef class="items">
     <li
