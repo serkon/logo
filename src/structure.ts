@@ -75,6 +75,18 @@ export const structure = [
     type: 'section',
     name: 'Components',
     children: [
+      /*
+{
+  type: 'tabs',
+  name: 'Paging Module',
+  icon: 'layout.svg',
+  source: [
+    'PagingModule',
+    'PagingComponent',
+    'Paging',
+  ],
+},
+ */
       {
         type: 'page',
         name: 'Components Overview',
@@ -154,18 +166,6 @@ export const structure = [
           },
         ],
       },
-      /*
-      {
-        type: 'tabs',
-        name: 'Paging Module',
-        icon: 'layout.svg',
-        source: [
-          'PagingModule',
-          'PagingComponent',
-          'Paging',
-        ],
-      },
-       */
       {
         type: 'page',
         name: 'Paging Module',
@@ -291,7 +291,7 @@ export const structure = [
       },
       {
         type: 'page',
-        name: 'Link Module',
+        name: 'Links Module',
         icon: 'toastr.svg',
         children: [
           {
@@ -536,6 +536,40 @@ export const structure = [
             type: 'block',
             block: 'component',
             source: 'RestrictionService',
+          },
+        ],
+      },
+      {
+        type: 'page',
+        name: 'Accordion Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'AccordionModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'AccordionComponent',
+          },
+        ],
+      },
+      {
+        type: 'page',
+        name: 'Combobox Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'ComboboxModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'ComboboxComponent',
           },
         ],
       },
