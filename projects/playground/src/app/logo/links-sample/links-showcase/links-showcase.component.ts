@@ -3,8 +3,8 @@ import { Link } from '@logo-software/links';
 
 @Component({
   selector: 'logo-link-showcase',
-  templateUrl: './link-showcase.component.html',
-  styleUrls: ['./link-showcase.component.scss'],
+  templateUrl: './links-showcase.component.html',
+  styleUrls: ['./links-showcase.component.scss'],
 })
 export class LinksShowcaseComponent {
 
