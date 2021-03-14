@@ -1,24 +1,46 @@
-# Drawer
+# Drawer Module
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+The drawer creates the main layout of the application. There are 3 parts of the layout which include left, top, right
+sides.
 
-## Code scaffolding
+Click here for [demo](http://design.logo.com.tr/#/docs/components/drawer-module#drawermodule)
 
-Run `ng generate component component-name --project drawer` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project drawer`.
-> Note: Don't forget to add `--project drawer` or else it will be added to the default project in your `angular.json` file. 
+### Installation
 
-## Build
+All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). To
+install Drawer Module:
 
-Run `ng build drawer` to build the project. The build artifacts will be stored in the `dist/` directory.
+ ```bash
+ $ npm set registry https://registry.npmjs.org/
+ $ npm install @logo-software/drawer -s
+ ```
 
-## Publishing
+Just import it to your project of `@NgModule` import section.
 
-After building your library with `ng build drawer`, go to the dist folder `cd dist/drawer` and run `npm publish`.
+ ```typescript
+ @NgModule({
+  imports: [CommonModule, DrawerModule],
+})
+export class AppModule {
+}
+ ```
 
-## Running unit tests
+### Drawer Component
 
-Run `ng test drawer` to execute the unit tests via [Karma](https://karma-runner.github.io).
+The drawer component is designed to add side content to a small section of your app. Left side menu can be opened or closed using the open(), close() and toggle() methods. Add the below code to your code stack and give initializer parameters.
 
-## Further help
+<sub>app.component.html</sub>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```angular2html
+<logo-drawer height="65px" width="200px" [menu]="false">
+  <ng-container drawer-left>
+    <div class="logo">LOGO<span>ELEMENTS</span></div>
+  </ng-container>
+  <ng-container drawer-top>
+    <h1>Title</h1>
+  </ng-container>
+  <ng-container drawer-right>
+    content goes here. <button (click)="close()">menu</button>
+  </ng-container>
+</logo-drawer>
+```

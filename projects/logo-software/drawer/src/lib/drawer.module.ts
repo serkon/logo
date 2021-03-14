@@ -9,25 +9,24 @@ import { DrawerComponent } from './drawer.component';
  *
  * @stacked-example(Drawer Showcase, logo/drawer-sample/drawer-showcase/drawer-showcase.component)
  *
- * __Usage Example__
- *
- * ```typescript
- * @NgModule({
- *   ...
- *   imports: [CommonModule, DrawerModule],
- *   ...
- * })
- * export class AppModule {
- * }
- * ```
- *
  * ### Installation
+ *
  * All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
  * To install Drawer Module:
  *
  * ```bash
  * $ npm set registry https://registry.npmjs.org/
  * $ npm install @logo-software/drawer -s
+ * ```
+ *
+ * Just import it to your project of `@NgModule` import section.
+ *
+ * ```typescript
+ * @NgModule({
+ *   imports: [CommonModule, DrawerModule],
+ * })
+ * export class AppModule {
+ * }
  * ```
  */
 @NgModule({

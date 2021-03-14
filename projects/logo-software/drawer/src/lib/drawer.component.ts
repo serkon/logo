@@ -2,9 +2,23 @@ import { Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { DrawerService } from './drawer.service';
 
 /**
- * The drawer component is designed to add side content to a small section of your app. Left side menu can be opened or closed using the open(), close() and toggle() methods.
+ * The drawer component is designed to add side content to a small section of your app. Left side menu can be opened or closed using the open(), close() and toggle() methods. Add the below code to your code stack and give initializer parameters.
  *
- * @stacked-example(Drawer Showcase, logo/drawer-sample/drawer-showcase/drawer-showcase.component)
+ * <sub>app.component.html</sub>
+ *
+ * ```angular2html
+ * <logo-drawer height="65px" width="200px" [menu]="false">
+ *   <ng-container drawer-left>
+ *     <div class="logo">LOGO<span>ELEMENTS</span></div>
+ *   </ng-container>
+ *   <ng-container drawer-top>
+ *     <h1>Title</h1>
+ *   </ng-container>
+ *   <ng-container drawer-right>
+ *     content goes here. <button (click)="close()">menu</button>
+ *   </ng-container>
+ * </logo-drawer>
+ * ```
  */
 @Component({
   selector: 'logo-drawer',
