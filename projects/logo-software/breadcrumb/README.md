@@ -1,27 +1,35 @@
 # Breadcrumb
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
+A breadcrumb navigation provide links back to each previous page the user navigated through, and shows the user's current location in a website.
 
-## Code scaffolding
+Click here for [demo](http://design.logo.com.tr/#/docs/components/breadcrumb-module#breadcrumbmodule)
 
-Run `ng generate component component-name --project breadCrumb` to generate a new component. You can also
-use `ng generate directive|pipe|service|class|guard|interface|enum|module --project breadCrumb`.
-> Note: Don't forget to add `--project breadCrumb` or else it will be added to the default project in your `angular.json` file.
+### Installation
 
-## Build
+All public NPM packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
+To install Breadcrumb Module:
 
-Run `ng build breadCrumb` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+$ npm set registry https://registry.npmjs.org/
+$ npm install @logo-software/breadcrumb -s
+```
 
-## Publishing
+Just import it to your project of `@NgModule` import section.
 
-After building your library with `ng build breadCrumb`, go to the dist folder `cd dist/breadCrumb` and run `npm publish`
-.
+```typescript
+@NgModule({
+  imports: [CommonModule, BreadcrumbModule]
+})
+export class AppModule {
+}
+```
 
-## Running unit tests
+### Breadcrumb Component
 
-Run `ng test breadCrumb` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Breadcrumbs mark and communicate a user's location in the product. Add the below code to your code stack and give initializer parameters.
 
-## Further help
+<sub>app.component.ts</sub>
 
-To get more help on the Angular CLI use `ng help` or go check out
-the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```html
+<logo-breadcrumb [breadcrumb]="items" [size]="'medium'" [isLight]="true" [cssClasses]="css-class-name"></logo-breadcrumb>
+```
