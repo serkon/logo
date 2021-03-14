@@ -8,6 +8,10 @@
   .settings {
     display: flex;
     flex-direction: column;
+
+    h5 {
+      margin: 15px 0;
+    }
   }
 
   label {

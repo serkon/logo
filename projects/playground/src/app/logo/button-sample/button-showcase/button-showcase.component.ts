@@ -6,18 +6,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./button-showcase.component.scss'],
 })
 export class ButtonShowcaseComponent implements OnInit {
-  sizeTypes = [
+  sizes = [
     {class: 'small', selected: false},
     {class: 'medium', selected: true},
     {class: 'large', selected: false},
   ];
-  kindTypes = [
-    {class: 'primary', selected: true},
-    {class: 'danger', selected: false},
+  types = [
+    {class: 'fill', selected: true},
+    {class: 'outline', selected: false},
     {class: 'ghost', selected: false},
   ];
+  colors = [
+    {class: 'primary', selected: true},
+    {class: 'secondary', selected: false},
+    {class: 'basic', selected: false},
+    {class: 'light', selected: false},
+    {class: 'dark', selected: false},
+    {class: 'gray', selected: false},
+    {class: 'neutral', selected: false},
+  ];
   selectedSize: string = 'medium';
-  selectedKindType: string = 'primary';
+  selectedColor: string = 'primary';
+  selectedType: string = 'fill';
   selectedDisableState: boolean = true;
   disabled: boolean;
 
@@ -27,18 +37,27 @@ export class ButtonShowcaseComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  changeSizeType(sizeType: string) {
+  changeSize(sizeType: string) {
     this.selectedSize = sizeType;
-    this.sizeTypes.map((x) => {
+    this.sizes.map((x) => {
       if (sizeType !== x.class) {
         x.selected = false;
       }
     });
   }
 
-  changeKindType(kindType: string) {
-    this.selectedKindType = kindType;
-    this.kindTypes.map((x) => {
+  changeColor(kindType: string) {
+    this.selectedColor = kindType;
+    this.colors.map((x) => {
+      if (kindType !== x.class) {
+        x.selected = false;
+      }
+    });
+  }
+
+  changeType(kindType: string) {
+    this.selectedType = kindType;
+    this.types.map((x) => {
       if (kindType !== x.class) {
         x.selected = false;
       }

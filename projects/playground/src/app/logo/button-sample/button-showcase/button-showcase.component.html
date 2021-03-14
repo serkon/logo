@@ -1,37 +1,52 @@
 <div class="row">
-  <div class="content col-xs-10">
-    <button [disabled]="disabled" class="{{selectedSize}} {{selectedKindType}}">Primary Button</button>
+  <div class="content col-xs-9">
+    <button [disabled]="disabled" class="{{selectedSize}} {{selectedColor}} {{selectedType}}">Primary Button</button>
   </div>
-  <div class="settings col-xs-2">
+  <div class="settings col-xs-3">
     <div>
-      Modifiers
+      <h5>Modifiers</h5>
       <div>
-        <input [(ngModel)]="disabled" type="checkbox" id="disable">
+        <input [(ngModel)]="disabled" type="checkbox" id="disable" class="small" />
         <label for="disable">Disabled</label>
       </div>
     </div>
     <div>
-      Size
-      <div *ngFor="let sizeType of sizeTypes;index as i">
+      <h5>Sizes</h5>
+      <div *ngFor="let size of sizes;index as i">
         <input
+          id="{{size.class}}-{{i}}"
           type="checkbox"
-          id="{{sizeType.class}}-{{i}}"
-          [(ngModel)]="sizeType.selected"
-          (change)="changeSizeType(sizeType.class)"
-        >
-        <label for="{{sizeType.class}}-{{i}}">{{sizeType.class}}</label>
+          [(ngModel)]="size.selected"
+          (change)="changeSize(size.class)"
+          class="small"
+        />
+        <label for="{{size.class}}-{{i}}">{{size.class}}</label>
       </div>
     </div>
     <div>
-      Kind
-      <div *ngFor="let kindType of kindTypes;index as i">
+      <h5>Colors</h5>
+      <div *ngFor="let color of colors;index as i">
         <input
+          id="{{color.class}}-{{i}}"
           type="checkbox"
-          id="{{kindType.class}}-{{i}}"
-          [(ngModel)]="kindType.selected"
-          (change)="changeKindType(kindType.class)"
+          class="small"
+          [(ngModel)]="color.selected"
+          (change)="changeColor(color.class)"
         >
-        <label for="{{kindType.class}}-{{i}}">{{kindType.class}}</label>
+        <label for="{{color.class}}-{{i}}">{{color.class}}</label>
+      </div>
+    </div>
+    <div>
+      <h5>Types</h5>
+      <div *ngFor="let type of types;index as i">
+        <input
+          id="{{type.class}}-{{i}}"
+          type="checkbox"
+          class="small"
+          [(ngModel)]="type.selected"
+          (change)="changeType(type.class)"
+        >
+        <label for="{{type.class}}-{{i}}">{{type.class}}</label>
       </div>
     </div>
   </div>
