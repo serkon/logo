@@ -23,10 +23,14 @@ export const STORAGE_TYPE_CONFIG = new InjectionToken<string>('storage_type');
  *
  * __Usage Example__
  *
- * ```ts
- * StorageClass.setItem('user', {name: 'Serkan', surname: 'Konakcı'});
- * StorageClass.getItem('user'); // <sub>return {name: 'Serkan', surname: 'Konakcı'}</sub>
- * ```
+ *  ```ts
+ *  import {StorageClass} from '@logo-software/storage';
+ *
+ *  someMethod() {
+ *   StorageClass.setItem('user', {name: 'Serkan', surname: 'Konakcı'});
+ *   StorageClass.getItem('user'); // <sub>return {name: 'Serkan', surname: 'Konakcı'}</sub>
+ * }
+ *  ```
  */
 export class StorageService {
   public storageType: Storage;

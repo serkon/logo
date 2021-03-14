@@ -11,6 +11,7 @@ export let StorageClass: StorageService = null;
  * Web storage is per origin (per domain and protocol). All pages, from one origin, can store and access the same data.
  *
  * HTML web storage provides two objects for storing data on the client:
+ *
  * ```html
  * window.localStorage - stores data with no expiration date
  * window.sessionStorage - stores data for one session (data is lost when the browser tab is closed)
@@ -31,11 +32,10 @@ export let StorageClass: StorageService = null;
  * There are two types of storage namely SESSION and LOCAL storage.
  *
  * <sub>app.module.ts</sub>
+ *
  * ```typescript
  * @NgModule({
- *   ...
  *   imports: [StorageModule.forRoot(STORAGE_TYPES.LOCAL)],
- *   ...
  * })
  * export class AppModule {
  * }
