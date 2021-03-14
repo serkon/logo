@@ -3,11 +3,10 @@ import { Component, Input } from '@angular/core';
 import { Link } from './link';
 
 /**
- * It creates external or internal links
- *
- * __Usage Example__
+ * It creates external or internal links. Add the below code to your code stack and give initializer parameters.
  *
  * <sub>header.component.ts</sub>
+ *
  * ```typescript
  * items = [{
  *  icon: '/assets/images/home/section-03/user.svg',
@@ -21,11 +20,13 @@ import { Link } from './link';
  * ```
  *
  * <sub>header.component.html</sub>
+ *
  * ```html
  * <logo-links [classes]="['light', 'large', 'ghost']" [links]="items">
- * <!-- add also manually the link --> <logo-link [link]="links[0]" [classes]="['light', 'large', 'ghost']"></logo-link></logo-links>
+ *   <!-- add also manually the link -->
+ *   <logo-link [link]="links[0]" [classes]="['light', 'large', 'ghost']"></logo-link>
+ * </logo-links>
  * ```
- * @stacked-example(Table Showcase, logo/link-sample/link-showcase/link-showcase.component)
  */
 @Component({
   selector: 'logo-links',

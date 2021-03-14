@@ -9,19 +9,16 @@ import { LinkService } from './link.service';
 /**
  * Link component creates link. Advantage of using this component is give the control
  * of route to same domain or redirect to external domain to app. Or it gives easily direction to anchor link.
- *
- * __Usage Example__
- *
- * Before use add below options to NgModule annotation
+ * Before usage, add below options to NgModule annotation
  *
  * ```typescript
  * @NgModule({
- * imports: [RouterModule.forRoot(routes, {
- *   scrollPositionRestoration: 'enabled',
- *   anchorScrolling: 'enabled',
- *   scrollOffset: [0, 0],
- * })],
- * exports: [RouterModule],
+ *   imports: [RouterModule.forRoot(routes, {
+ *     scrollPositionRestoration: 'enabled',
+ *     anchorScrolling: 'enabled',
+ *     scrollOffset: [0, 0],
+ *   })],
+ *   exports: [RouterModule],
  * })
  * export class AppRoutingModule {
  * }
@@ -30,13 +27,14 @@ import { LinkService } from './link.service';
  * Then use in your *.component.html below code snippet:
  *
  * <sub>sample.component.html</sub>
+ *
  * ```html
  * <logo-link
  *    [classes]="['success', 'large']"
  *    external="true"
  *    url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65132817"
  *  >
- *  TÜMÜNÜ GÖRÜNTÜLE
+ *  Display Text
  * </logo-link>
  * ```
  */

@@ -8,20 +8,26 @@ import { LinkComponent } from './link.component';
 /**
  * Link module creates links to internal or external URL for Angular.io application.
  *
+ * @stacked-example(Links Showcase, logo/link-sample/link-showcase/link-showcase.component)
+ *
  * ### Installation
+ *
  * All public NPM packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
  * To install Link Module:
  *
- * ```bash$ npm set registry https://registry.npmjs.org/
+ * ```bash
+ * $ npm set registry https://registry.npmjs.org/
  * $ npm install @logo-software/links -s
  * ```
  *
- * Just import it to your project of @NgModule' import section.
+ * Just import it to your project of `@NgModule` import section.
  *
  * ```typescript
  * @NgModule({
- * ... imports: [CommonModule, LinksModule], ...})
- * export class AppModule {}
+ *   imports: [CommonModule, LinksModule]
+ * })
+ * export class AppModule {
+ * }
  * ```
  */
 @NgModule({
