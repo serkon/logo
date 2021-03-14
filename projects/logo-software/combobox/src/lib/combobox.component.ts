@@ -7,7 +7,6 @@ import {
   forwardRef,
   HostListener,
   Input,
-  OnChanges,
   OnInit,
   Output,
   TemplateRef,
@@ -17,6 +16,26 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { Util } from '@logo-software/core';
 
+/**
+ * A ComboBox displays a text box combined with a ListBox, which enables the user to select items
+ * from the list or enter a value for filtering this list then can select an item.
+ *
+ * __Usage Example__
+ *
+ * ```html
+ * <logo-combobox (filter)="onFiltered($event)" (select)="onSelect($event)" [(ngModel)]="selected" [hover]="1" [items]="displayedItems" [path]="'a.b'">
+ *   // If you wish to add custom items, please use it similar to the following code sample.
+ *   // Or leave blank for the default view.
+ *   <ng-template let-item="item" let-index="index" let-isOdd="isOdd" let-isFirst="isFirst" let-isLast="isLast">
+ *     <span>customized {{index}} - {{isFirst}} - {{isLast}} - {{isOdd}} - {{item | json }}</span>
+ *   </ng-template>
+ * </logo-combobox>
+ *
+ * <div class="selected">
+ *   <span class="value">{{selected | json}}</span>
+ * </div>
+ * ```
+ */
 @Component({
   selector: 'logo-combobox',
   templateUrl: './combobox.component.html',
@@ -31,16 +50,55 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
   @ContentChild(TemplateRef) templateRef = null;
   @ViewChild('itemRef', {read: ElementRef}) itemsRef: ElementRef;
   @ViewChild('inputRef', {static: false, read: ElementRef}) inputRef: ElementRef;
-  @Input() placeholder: string = 'select';
+  /**
+   * Add placeholder string, default is `Select`
+   */
+  @Input() placeholder: string = 'Select';
+  /**
+   * Given data path string which data will be displayed. Default is null.
+   * For example `[{a: {b: 1, c: 'tomato'}}, {a: {b: 1, c: 'pepper'}}, ...]` is your data
+   * And want to show tomato, pepper as display item, set path to `a.c`
+   */
   @Input() path: string = null;
+  /**
+   * When popover opened given indexed item will be hovered. Default is `-1`.
+   */
   @Input() hover: number = -1;
   @Input() ngModel: string;
+  /**
+   * If you use your custom filter (e.g. server-side filtering) filter even emitter called when input entered.
+   * In the Custom filter method, you must replace `items` with filtered data. For example:
+   *
+   * ```typescript
+   * onFiltered($event) {
+   *  // html sample: `<logo-combobox [items]="displayItems" (filter)="onFiltered($event)"></logo-combobox>`
+   *  this.displayItems = this.items.filter(item => {
+   *    return item.a.b.includes($event);
+   *  });
+   * }
+   * ```
+   */
   @Output() filter: EventEmitter<string> = new EventEmitter<string>();
+  /**
+   * `select` event emitter is triggered when the user selects an item. It sends the selected item to the method as a parameter.
+   */
   @Output() select: EventEmitter<any> = new EventEmitter<any>();
   @Output() ngModelChange = new EventEmitter();
+  /**
+   * search string while filtering
+   */
   public search: string = '';
+  /**
+   * selected item
+   */
   public selectedItem: any = null;
+  /**
+   * filtered list
+   */
   public filtered: any[] = [];
+  /**
+   * display status of the popover
+   */
   public display: boolean = false;
   private timer: number;
 
@@ -49,6 +107,9 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
 
   _items: any[] = [];
 
+  /**
+   * combobox item list will be displayed
+   */
   get items() {
     return this._items;
   }
@@ -60,6 +121,10 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
 
   _selected: number = null;
 
+  /**
+   * Sets selected item with item index in the list
+   * for example: `[selected]="1"`
+   */
   get selected(): number {
     return this._selected;
   }
@@ -190,7 +255,6 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
   writeValue(obj: any): void {
   }
 
-  /* optional */
   setDisabledState(isDisabled: boolean): void {
   }
 }

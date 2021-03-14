@@ -1,24 +1,43 @@
-# Combobox
+# Combobox Module
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
+A combo box is a commonly used graphical user interface widget (or control).
+Traditionally, it is a combination of a drop-down list or list box and a single-line editable textbox,
+allowing the user to either type a value directly or select a value from the list.
 
-## Code scaffolding
+Click here for [demo](http://design.logo.com.tr/#/docs/components/combobox-module#comboboxmodule)
 
-Run `ng generate component component-name --project combobox` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project combobox`.
-> Note: Don't forget to add `--project combobox` or else it will be added to the default project in your `angular.json` file. 
+### Installation
+All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
+To install Combobox Module:
 
-## Build
+  ```bash
+$ npm set registry https://registry.npmjs.org/
+$ npm install @logo-software/combobox -s
+```
 
-Run `ng build combobox` to build the project. The build artifacts will be stored in the `dist/` directory.
+Just import it to your project of `@NgModule` import section.
 
-## Publishing
+```typescript
+@NgModule({
+  imports: [CommonModule, ComboboxModule],
+})
+export class AppModule {
+}
+```
 
-After building your library with `ng build combobox`, go to the dist folder `cd dist/combobox` and run `npm publish`.
+### Combobox component
 
-## Running unit tests
+A ComboBox displays a text box combined with a ListBox, which enables the user to select items
+from the list or enter a value for filtering this list then can select an item.
 
-Run `ng test combobox` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```html
+<logo-combobox (filter)="onFiltered($event)" (select)="onSelect($event)" [(ngModel)]="selected" [hover]="1" [items]="displayedItems" [path]="'a.b'">
+  // If you wish to add custom items, please use it similar to the following code sample.
+  // Or leave blank for the default view.
+  <ng-template let-item="item" let-index="index" let-isOdd="isOdd" let-isFirst="isFirst" let-isLast="isLast">
+    <span>customized {{index}} - {{isFirst}} - {{isLast}} - {{isOdd}} - {{item | json }}</span>
+  </ng-template>
+</logo-combobox>
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Export: {{selected | json}}
+```
