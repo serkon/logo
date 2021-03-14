@@ -16,6 +16,7 @@ import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, 
  * text, or custom markup. It also includes support for previous/next controls and indicators.
  *
  * __Usage Example__
+ *
  * ```html
  * <logo-carousel [count]="1" [arrow]="true" [dots]="true">
  *   <div class="slider-item" *ngFor="let item of sliderItems">
@@ -23,8 +24,6 @@ import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, 
  *   </div>
  * </logo-carousel>
  * ```
- *
- * @stacked-example(Carousel Showcase, logo/carousel-sample/carousel-showcase/carousel-showcase.component)
  */
 @Component({
   selector: 'logo-carousel',

@@ -1,24 +1,38 @@
-# Carousel
+# Carousel Module
+The Carousel module is a component for cycling through elements, like a carousel (slideshow).
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
+Click here for [demo](http://design.logo.com.tr/#/docs/components/carousel-module#carouselmodule)
 
-## Code scaffolding
+### Installation
 
-Run `ng generate component component-name --project carousel` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project carousel`.
-> Note: Don't forget to add `--project carousel` or else it will be added to the default project in your `angular.json` file. 
+All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
+To install Carousel Module:
 
-## Build
+  ```bash
+$ npm set registry https://registry.npmjs.org/
+$ npm install @logo-software/carousel -s
+```
 
-Run `ng build carousel` to build the project. The build artifacts will be stored in the `dist/` directory.
+Just import it to your project of `@NgModule` import section.
 
-## Publishing
+```typescript
+@NgModule({
+  imports: [CommonModule, CarouselModule],
+})
+export class AppModule {
+}
+```
 
-After building your library with `ng build carousel`, go to the dist folder `cd dist/carousel` and run `npm publish`.
+### Carousel Component
 
-## Running unit tests
+The carousel is a slideshow for cycling through a series of content,
+built with CSS transforms and a bit of JavaScript. It works with a series of images,
+text, or custom markup. It also includes support for previous/next controls and indicators.
 
-Run `ng test carousel` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```html
+<logo-carousel [count]="1" [arrow]="true" [dots]="true">
+  <div class="slider-item" *ngFor="let item of sliderItems">
+     {{item.description}}
+  </div>
+</logo-carousel>
+```
