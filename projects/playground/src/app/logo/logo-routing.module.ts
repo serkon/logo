@@ -111,6 +111,10 @@ const routes: Routes = [
         path: 'idm-sample',
         loadChildren: () => import('./idm-sample/idm-sample.module').then(m => m.IdmSampleModule),
       },
+      {
+        path: 'breadcrumb-sample',
+        loadChildren: () => import('./breadcrumb-sample/breadcrumb-sample.module').then(m => m.BreadcrumbSampleModule),
+      },
     ],
   },
 ];

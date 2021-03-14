@@ -573,6 +573,23 @@ export const structure = [
           },
         ],
       },
+      {
+        type: 'page',
+        name: 'Breadcrumb Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'BreadcrumbModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'BreadcrumbComponent',
+          },
+        ],
+      },
     ],
   },
   {

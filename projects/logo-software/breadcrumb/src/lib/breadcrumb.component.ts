@@ -28,7 +28,13 @@ export interface Breadcrumb {
  * <sub>app.component.ts</sub>
  *
  * ```html
- * <logo-breadcrumb [breadcrumb]="items" [size]="'medium'" [isLight]="true" [cssClasses]="css-class-name"></logo-breadcrumb>
+ * <logo-breadcrumb
+ *   [breadcrumb]="items"
+ *   [size]="'medium'"
+ *   [isLight]="true"
+ *   [cssClasses]="css-class-name"
+ * >
+ * </logo-breadcrumb>
  * ```
  */
 @Component({
@@ -46,7 +52,7 @@ export class BreadcrumbComponent {
    */
   @Input() cssClasses?: string;
   /**
-   * Breadcrumb size. Default is `medium`.
+   * Breadcrumb sizes is `'small'` | `'medium'` | `'large'`. Default is `medium`.
    */
   @Input() size: 'small' | 'medium' | 'large' = 'medium';
   /**

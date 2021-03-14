@@ -43,17 +43,17 @@ $ npm install @logo-software/icons -s
 @import "./node_modules/@logo-software/icons/style";
 ```
 
-### Usage Example
+### Usage In Angular Component
 Below code sample was created for Angular based applications. Our icon module is not dependent on any platform file. You can use it in every web application.
 
 <sub>your-main-style.scss</sub>
 ```scss
 // import icon style your scss code
-@import "style";
+@import "~@logo-software/icons/style";
 
 body{}
 ```
-<sub>component.html</sub>
+<sub>any.component.html</sub>
 ```html
 <!-- this will add search icon to input to right side of it.-->
 <button class="le-search icon-right">Right</button>
