@@ -17,8 +17,30 @@ import { AccordionComponent } from './accordion.component';
 import { IsActiveRouteDirective } from './is-active-route.directive';
 
 /**
- * A tree view represents a hierarchical view of information, where each item can have a number of subitems.
- * Click on the arrow(s) to open or close the tree branches.
+ * An accordion menu is a vertically stacked list of headers that can be clicked to reveal or hide content associated with them.
+ * It is one of many ways you can expose content to users in a progressive manner.
+ *
+ * @stacked-example(Accordion Showcase, logo/accordion-sample/accordion-showcase/accordion-showcase.component)
+ *
+ * ### Installation
+ *
+ * All public NPM packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
+ * To install Accordion Module:
+ *
+ * ```bash
+ * $ npm set registry https://registry.npmjs.org/
+ * $ npm install @logo-software/accordion -s
+ * ```
+ *
+ * Just import it to your project of `@NgModule` import section.
+ *
+ * ```typescript
+ * @NgModule({
+ *   imports: [CommonModule, AccordionModule]
+ * })
+ * export class AppModule {
+ * }
+ * ```
  */
 @NgModule({
   imports: [CommonModule, RouterModule],

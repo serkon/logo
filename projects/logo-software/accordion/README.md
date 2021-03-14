@@ -1,24 +1,36 @@
-# Accordion
+# Accordion Module
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+An accordion menu is a vertically stacked list of headers that can be clicked to reveal or hide content associated with them.
+It is one of many ways you can expose content to users in a progressive manner.
 
-## Code scaffolding
+Click here for [demo](http://design.logo.com.tr/#/docs/components/accordion-module#accordionmodule)
 
-Run `ng generate component component-name --project accordion` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project accordion`.
-> Note: Don't forget to add `--project accordion` or else it will be added to the default project in your `angular.json` file. 
+### Installation
 
-## Build
+All public NPM packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
+To install Accordion Module:
 
-Run `ng build accordion` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+$ npm set registry https://registry.npmjs.org/
+$ npm install @logo-software/accordion -s
+```
 
-## Publishing
+Just import it to your project of `@NgModule` import section.
 
-After building your library with `ng build accordion`, go to the dist folder `cd dist/accordion` and run `npm publish`.
+```typescript
+@NgModule({
+  imports: [CommonModule, AccordionModule]
+})
+export class AppModule {
+}
+```
 
-## Running unit tests
+### Accordion Component
 
-Run `ng test accordion` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Accordions are useful when you want to toggle between hiding and showing large amount of content. Add the below code to your code stack and give initializer parameters.
 
-## Further help
+<sub>app.component.ts</sub>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```html
+<logo-accordion [items]="items" [start]="0" [iconClasses]=""></logo-accordion>
+```

@@ -13,7 +13,14 @@ import { RouterLinkActive } from '@angular/router';
 import { HttpClient, HttpRequest, HttpResponse } from '@angular/common/http';
 
 /**
- * Accordion item interface
+ * Accordions are useful when you want to toggle between hiding and showing large amount of content.
+ * Add the below code to your code stack and give initializer parameters.
+ *
+ * <sub>app.component.ts</sub>
+ *
+ * ```html
+ * <logo-accordion [items]="items" [start]="0" [iconClasses]=""></logo-accordion>
+ * ```
  */
 export interface AccordionItem {
   /**
@@ -43,7 +50,7 @@ export interface AccordionItem {
 }
 
 /**
- * Accordion Componente hoş geldiniz
+ * Accordions are useful when you want to toggle between hiding and showing large amount of content.
  */
 @Component({
   selector: 'logo-accordion',
