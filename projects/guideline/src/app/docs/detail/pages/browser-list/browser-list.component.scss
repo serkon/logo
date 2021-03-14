@@ -1,0 +1,22 @@
+@import "config";
+@import "~@logo-software/theme/base";
+
+:host {
+  ::ng-deep {
+    .header-cta {
+      @extend %fill-primary;
+
+      position: relative;
+
+      .custom-icon {
+        position: absolute;
+        left: size(14px);
+        top: size(7px);
+
+        img {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

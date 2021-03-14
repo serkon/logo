@@ -65,6 +65,7 @@ export class AppComponent implements AfterContentChecked {
     {
       'id': 3,
       'name': 'Components',
+      'role': 'ROLE_MENU_ROOT',
       'children': [
         {
           'id': 311,
@@ -298,14 +299,20 @@ export class AppComponent implements AfterContentChecked {
           'role': 'ROLE_MENU_CONTROL_TOWER',
         },
       ],
-      'role': 'ROLE_MENU_ROOT',
     },
     {
       'id': 4,
       'name': 'Patterns',
-      'link': '/docs/detail/patterns',
-      'fragment': 'drawer-main-top',
       'role': 'ROLE_MENU_ROOT',
+      'children': [
+        {
+          'id': 401,
+          'name': 'Browser List',
+          'link': '/docs/detail/browser-list',
+          'fragment': 'drawer-main-top',
+          'role': 'ROLE_MENU_ROOT',
+        },
+      ],
     },
   ];
 

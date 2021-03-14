@@ -10,8 +10,10 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { MarkdownModule } from '@logo-software/markdown';
 import { PlaygroundModule } from '@logo-software/playground';
+import { LinksModule } from '@logo-software/links';
 
 import { DetailRoutingModule } from './detail-routing.module';
 import { DetailComponent } from './detail.component';
@@ -53,6 +55,7 @@ import { ColorComponent } from './pages/color/color.component';
 import { GridComponent } from './pages/grid/grid.component';
 import { TypographyComponent } from './pages/typography/typography.component';
 import { PatternsComponent } from './pages/patterns/patterns.component';
+import { BrowserListComponent } from './pages/browser-list/browser-list.component';
 
 @NgModule({
   declarations: [
@@ -95,9 +98,10 @@ import { PatternsComponent } from './pages/patterns/patterns.component';
     GridComponent,
     TypographyComponent,
     PatternsComponent,
+    BrowserListComponent,
   ],
-  imports: [CommonModule, DetailRoutingModule, MarkdownModule, PlaygroundModule],
-  exports: [DetailComponent, TableComponent, ToastComponent, TagComponent, TooltipComponent, TreeComponent, UploadComponent, WizardComponent, ColorComponent, GridComponent, TypographyComponent, PatternsComponent],
+  imports: [CommonModule, DetailRoutingModule, MarkdownModule, PlaygroundModule, LinksModule],
+  exports: [],
 })
 export class DetailModule {
 }

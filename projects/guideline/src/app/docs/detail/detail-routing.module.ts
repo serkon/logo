@@ -50,6 +50,7 @@ import { ColorComponent } from './pages/color/color.component';
 import { GridComponent } from './pages/grid/grid.component';
 import { TypographyComponent } from './pages/typography/typography.component';
 import { PatternsComponent } from './pages/patterns/patterns.component';
+import { BrowserListComponent } from './pages/browser-list/browser-list.component';
 
 const routes: Routes = [
   {
@@ -207,6 +208,10 @@ const routes: Routes = [
       {
         path: 'patterns',
         component: PatternsComponent,
+      },
+      {
+        path: 'browser-list',
+        component: BrowserListComponent,
       },
     ],
   },
