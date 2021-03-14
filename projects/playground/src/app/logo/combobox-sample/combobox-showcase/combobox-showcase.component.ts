@@ -17,7 +17,7 @@ export class ComboboxShowcaseComponent {
   ];
   displayedItems = [];
 
-  selected = null;
+  selected = this.items[3];
 
   constructor() {
     this.displayedItems = this.clone(this.items);
