@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LinkShowcaseComponent } from './link-showcase/link-showcase.component';
+
+import { LinksShowcaseComponent } from './links-showcase/links-showcase.component';
 
 const routes: Routes = [
   {
-    path: 'link-showcase/link-showcase.component',
-    component: LinkShowcaseComponent,
+    path: 'links-showcase/links-showcase.component',
+    component: LinksShowcaseComponent,
   },
 ];
 
@@ -13,5 +14,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class LinkSampleRoutingModule {
+export class LinksSampleRoutingModule {
 }

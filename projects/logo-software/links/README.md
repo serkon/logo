@@ -2,7 +2,7 @@
 
 Link module creates links to internal or external URL for Angular.io application.
 
-Click here for [demo](http://design.logo.com.tr/#/docs/components/link-module#linksmodule)
+Click here for [demo](http://design.logo.com.tr/#/docs/components/links-module#linksmodule)
 
 ### Installation
 

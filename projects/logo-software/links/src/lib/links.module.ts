@@ -8,7 +8,7 @@ import { LinkComponent } from './link.component';
 /**
  * Link module creates links to internal or external URL for Angular.io application.
  *
- * @stacked-example(Links Showcase, logo/link-sample/link-showcase/link-showcase.component)
+ * @stacked-example(Links Showcase, logo/links-sample/links-showcase/links-showcase.component)
  *
  * ### Installation
  *

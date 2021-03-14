@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LinkShowcaseComponent } from './link-showcase.component';
+import { LinksShowcaseComponent } from './links-showcase.component';
 
 describe('LinkShowcaseComponent', () => {
-  let component: LinkShowcaseComponent;
-  let fixture: ComponentFixture<LinkShowcaseComponent>;
+  let component: LinksShowcaseComponent;
+  let fixture: ComponentFixture<LinksShowcaseComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LinkShowcaseComponent],
+      declarations: [LinksShowcaseComponent],
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LinkShowcaseComponent);
+    fixture = TestBed.createComponent(LinksShowcaseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

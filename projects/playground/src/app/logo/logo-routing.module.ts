@@ -60,8 +60,8 @@ const routes: Routes = [
         loadChildren: () => import('./cursor-sample/cursor-sample.module').then(m => m.CursorSampleModule),
       },
       {
-        path: 'link-sample',
-        loadChildren: () => import('./link-sample/link-sample.module').then(m => m.LinkSampleModule),
+        path: 'links-sample',
+        loadChildren: () => import('./links-sample/links-sample.module').then(m => m.LinksSampleModule),
       },
       {
         path: 'carousel-sample',

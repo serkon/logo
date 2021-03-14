@@ -6,7 +6,7 @@ import { Link } from '@logo-software/links';
   templateUrl: './link-showcase.component.html',
   styleUrls: ['./link-showcase.component.scss'],
 })
-export class LinkShowcaseComponent {
+export class LinksShowcaseComponent {
 
   public links: Link[] = [
     {
