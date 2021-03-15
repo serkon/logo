@@ -16,7 +16,7 @@ export class TestimonialsService {
   public getTestimonials(): Promise<HttpResponse<Testimonial>> {
     return this.http.post<HttpResponse<Testimonial>>(
       `${environment.api.baseURL}/${environment.api.testimonial}`,
-      '',
+      null,
     ).toPromise().then((res) => {
       return res;
     });

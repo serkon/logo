@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { environment } from '@cloud/environments/environment';
-import { HttpResponse, SolutionSummary } from '@cloud/models/interfaces';
+import { HttpResponse, Solution, SolutionSummary } from '@cloud/models/interfaces';
 import { SharedService } from '@cloud/app/services/shared/shared.service';
 
 @Injectable({
@@ -32,5 +32,14 @@ export class SolutionService {
     ).pipe(
       catchError(this.helpers.handleError<HttpResponse<SolutionSummary[]>>('getSolutionSummaries')),
     );
+  }
+
+  public getSolutionDetail(query: string) {
+    return this.http.post<HttpResponse<Solution[]>>(
+      `${environment.api.baseURL}/${environment.api.solution.prefix}/${environment.api.solution.detail}`,
+      {filter: {slug: query}},
+    ).toPromise().then((res) => {
+      return res;
+    });
   }
 }

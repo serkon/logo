@@ -28,7 +28,7 @@ export class ProductService {
   public getProductSummaries(): Promise<HttpResponse<ProductSummary[]>> {
     return this.http.post<HttpResponse<ProductSummary[]>>(
       `${environment.api.baseURL}/${environment.api.product.prefix}/${environment.api.product.summary}`,
-      '',
+      null,
     ).toPromise().then((response) => {
       this.productSummaryData = response;
       return response;
@@ -54,34 +54,38 @@ export class ProductService {
   }
 
   public getProductDetail(productSlug: string): Promise<HttpResponse<Product[]>> {
-    return this.http.get<HttpResponse<Product[]>>('/assets/data/json/product-detail.json').toPromise().then(response => {
-      this.productDetail = response;
-      return response;
-    });
-    /*return this.http.post<HttpResponse<Product[]>>(
+    return this.http.post<HttpResponse<Product[]>>(
       `${environment.api.baseURL}/${environment.api.product.prefix}/${environment.api.product.detail}`,
-      {slug: productSlug},
+      {filter: {slug: productSlug}},
     ).toPromise().then((response) => {
       this.productDetail = response;
-      console.log(response);
-      return response;
-    });*/
-  }
-
-  public getProductSticker(productId: string): Promise<HttpResponse<ProductSticker[]>> {
-    return this.http.get<HttpResponse<ProductSticker[]>>('/assets/data/json/product-sticker.json').toPromise().then(response => {
       return response;
     });
   }
 
-  public getProductReferences(productId: string): Promise<HttpResponse<Reference[]>> {
-    return this.http.get<HttpResponse<Reference[]>>('/assets/data/json/product-reference.json').toPromise().then(response => {
+  public getProductSticker(query: string): Promise<HttpResponse<ProductSticker[]>> {
+    return this.http.post<HttpResponse<ProductSticker[]>>(
+      `${environment.api.baseURL}/${environment.api.product.prefix}/${environment.api.product.sticker}`,
+      {filter: {productId: query}},
+    ).toPromise().then((response) => {
       return response;
     });
   }
 
-  public async getSellerInfo(id: string) {
-    return this.http.get<HttpResponse<ProductSeller>>('/assets/data/json/product-seller.json').toPromise().then(response => {
+  public getProductReferences(query: string): Promise<HttpResponse<Reference[]>> {
+    return this.http.post<HttpResponse<Reference[]>>(
+      `${environment.api.baseURL}/${environment.api.product.prefix}/${environment.api.product.reference}`,
+      {filter: {productId: query}},
+    ).toPromise().then((response) => {
+      return response;
+    });
+  }
+
+  public async getSellerInfo(query: string): Promise<HttpResponse<ProductSeller[]>> {
+    return this.http.post<HttpResponse<ProductSeller[]>>(
+      `${environment.api.baseURL}/${environment.api.product.prefix}/${environment.api.product.seller}`,
+      {filter: {productId: query}},
+    ).toPromise().then((response) => {
       return response;
     });
   }

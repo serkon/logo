@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { SharedService } from '@cloud/app/services/shared/shared.service';
 import { environment } from '@cloud/environments/environment';
-import { BlogSummary, HttpResponse } from '@cloud/models/interfaces';
+import { Blog, BlogSummary, HttpResponse } from '@cloud/models/interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -13,8 +13,8 @@ export class BlogService {
   constructor(private http: HttpClient, private helpers: SharedService) {
   }
 
-  public getBlogSummary(): Promise<HttpResponse<BlogSummary>> {
-    const data = this.http.post<HttpResponse<BlogSummary>>(
+  public getBlogSummary(): Promise<HttpResponse<BlogSummary[]>> {
+    return this.http.post<HttpResponse<BlogSummary[]>>(
       `${environment.api.baseURL}/${environment.api.blog.prefix}/${environment.api.blog.summary}`,
       '',
     )
@@ -22,6 +22,14 @@ export class BlogService {
       .then((res) => {
         return res;
       });
-    return data;
+  }
+
+  public getBlogDetail(query: string): Promise<HttpResponse<Blog[]>> {
+    return this.http.post<HttpResponse<Blog[]>>(
+      `${environment.api.baseURL}/${environment.api.blog.prefix}/${environment.api.blog.detail}`,
+      {filter: {slug: query}},
+    ).toPromise().then((res) => {
+      return res;
+    });
   }
 }
