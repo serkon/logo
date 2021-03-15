@@ -59,6 +59,7 @@
           flex-direction: column;
 
           a {
+            display: block;
             color: var(--dark);
 
             &:not(:last-of-type)::after {
