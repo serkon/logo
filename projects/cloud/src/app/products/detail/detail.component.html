@@ -20,7 +20,7 @@
     </div>
   </logo-hero>
   <div [ngClass]="isStickyTabs ? 'sticky': ''" class="inline-menu">
-    <logo-tabs (change)="Patates($event)" [activeTab]="0" [isContainer]="true" [routing]="true" class="medium">
+    <logo-tabs [activeTab]="0" [isContainer]="true" [routing]="true" class="medium">
       <logo-tab [fragment]="'general-info'" [title]="'Genel Bakış'"></logo-tab>
       <logo-tab [fragment]="'price'" [title]="'Fiyatlandırma'"></logo-tab>
       <logo-tab [fragment]="'faq'" [title]="'Sıkça Sorulan Sorular'"></logo-tab>
