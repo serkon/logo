@@ -1,4 +1,5 @@
-import { AfterContentChecked, ChangeDetectorRef, Component } from '@angular/core';
+import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 import { HeaderTheme } from '@logo-software/header';
 import { IdmService } from '@logo-software/idm';
@@ -10,11 +11,11 @@ import { UserService } from '@cloud/app/services/auth/user.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements AfterContentChecked {
+export class AppComponent implements AfterContentChecked, OnInit {
   public headerTheme = HeaderTheme;
   items = [];
 
-  constructor(private cdr: ChangeDetectorRef, public idmService: IdmService, public userService: UserService) {
+  constructor(private cdr: ChangeDetectorRef, public idmService: IdmService, public userService: UserService, private router: Router) {
     this.userService.subscribeUserInfo();
   }
 
@@ -28,5 +29,14 @@ export class AppComponent implements AfterContentChecked {
 
   logout() {
     this.idmService.logout();
+  }
+
+  ngOnInit(): void {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0);
+    });
   }
 }

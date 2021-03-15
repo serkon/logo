@@ -19,7 +19,6 @@ import { environment } from '../environments/environment';
     HeaderModule,
     LinksModule,
     IdmModule.forRoot(environment.IDM.CLIENT_ID, {RETURN_URI: environment.IDM.CONFIG.RETURN_URI}),
-    LinksModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

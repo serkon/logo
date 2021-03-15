@@ -34,6 +34,11 @@ const routes: Routes = [
     pathMatch: 'prefix',
     loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule),
   },
+  {
+    path: 'solutions',
+    pathMatch: 'prefix',
+    loadChildren: () => import('./solution/solution.module').then(m => m.SolutionModule),
+  },
 ];
 
 @NgModule({
