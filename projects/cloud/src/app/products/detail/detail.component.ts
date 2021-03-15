@@ -131,5 +131,8 @@ export class DetailComponent implements OnInit {
     this.productSummaries = this.productSummaryData.data;
   }
 
+  public Patates($event) {
+    console.log('I am the hero', $event);
+  }
 
 }

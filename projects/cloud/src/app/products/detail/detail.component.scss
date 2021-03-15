@@ -171,7 +171,7 @@
           align-items: flex-start;
           justify-content: flex-start;
 
-          @include smaller-than(md) {
+          @include smaller-than(sm) {
             flex-direction: column-reverse;
           }
 
@@ -212,6 +212,10 @@
             @include smaller-than(md) {
               width: 100%;
               padding: size(20px) size(15px);
+              height: size(280px);
+            }
+
+            @include smaller-than(sm) {
               height: auto;
             }
           }
@@ -222,9 +226,15 @@
 
             img {
               height: 100%;
+              margin-left: 50%;
+              transform: translateX(-50%);
             }
 
             @include smaller-than(md) {
+              height: size(280px);
+            }
+
+            @include smaller-than(sm) {
               height: auto;
 
               img {
@@ -423,9 +433,9 @@
                     }
                   }
 
-                  @include smaller-than(md) {
+                  @include smaller-than(sm) {
                     width: 100%;
-                    margin-right: 0;
+                    margin-right: 0 !important;
                   }
                 }
               }
@@ -475,7 +485,8 @@
             }
 
             @include smaller-than(md) {
-              width: auto;
+              width: 100%;
+              box-sizing: border-box;
             }
           }
         }
@@ -544,6 +555,7 @@
 
               @include smaller-than(md) {
                 position: relative;
+                margin-bottom: size(12px);
 
                 .nav {
                   padding-left: 0;
@@ -578,7 +590,7 @@
                   margin-bottom: size(18px);
                 }
 
-                @include smaller-than(md) {
+                @include smaller-than(sm) {
                   width: 100%;
                 }
 
@@ -717,7 +729,8 @@
     }
 
     .faq {
-      padding: size(170px);
+      padding-top: size(170px);
+      padding-bottom: size(170px);
 
       .title {
         display: block;
@@ -750,28 +763,27 @@
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
-
-        @include smaller-than(lg) {
-          flex-wrap: wrap;
-        }
-
-        @include smaller-than(md) {
-          flex-direction: column;
-          justify-content: center;
-          margin-bottom: size(10px);
-        }
+        flex-wrap: nowrap;
+        overflow-y: hidden;
+        overflow-x: auto;
 
         .item {
           margin: 0 size(12px);
           width: size(210px);
 
-          @include smaller-than(md) {
-            width: 85%;
+          @include smaller-than(sm) {
+            width: auto;
+            height: size(120px);
             margin-bottom: size(12px);
           }
 
           img {
             width: 100%;
+
+            @include smaller-than(sm) {
+              width: auto;
+              height: 100%;
+            }
           }
 
           &:first-child {
