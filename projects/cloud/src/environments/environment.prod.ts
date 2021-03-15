@@ -26,15 +26,6 @@ export const environment = {
       },
     },
   },
-  IDM_OLD: {
-    CLIENT: '2519ef34-66a0-4e5b-a333-089eb34edfc5',
-    URL: 'http://dev-linux.logo-paas.com:5100',
-    TENANT: '/api/users/{userId}/defaulttenant',
-    TOKEN: {
-      GET: '/api/Token/GetToken',
-      VALIDATE: '/api/Token/ValidateToken',
-    },
-  },
   api: {
     baseURL: 'http://mocks.paas.test/api',
     solution: {
