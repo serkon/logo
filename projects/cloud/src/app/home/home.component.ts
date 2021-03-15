@@ -10,13 +10,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
+import { HeaderService } from '@logo-software/header';
+
 import { BlogSummary, FAQ, HttpResponse, ProductSummary, SolutionSummary, Testimonial } from '@cloud/models/interfaces';
 import { SolutionService } from '@cloud/app/services/solutions/solution.service';
 import { ProductService } from '@cloud/app/services/product/product.service';
 import { TestimonialsService } from '@cloud/app/services/testimonials/testimonials.service';
 import { FaqService } from '@cloud/app/services/faq/faq.service';
 import { BlogService } from '@cloud/app/services/blog/blog.service';
-import { HeaderService } from '@logo-software/header';
 
 @Component({
   selector: 'logo-home',

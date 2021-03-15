@@ -24,6 +24,10 @@
 
       .hero-content {
         align-items: center !important;
+
+        @include smaller-than(lg) {
+          flex-wrap: nowrap !important;
+        }
       }
 
       .motto {
