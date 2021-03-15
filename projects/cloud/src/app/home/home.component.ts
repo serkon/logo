@@ -24,15 +24,15 @@ import { HeaderService } from '@logo-software/header';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  public SolutionSummaries: SolutionSummary[];
+  public BlogData: HttpResponse<BlogSummary[]>;
   public ProductSummaries: ProductSummary[];
+  public BlogSummaries: BlogSummary[];
   public Testimonials: Testimonial;
+  public SolutionSummaries: SolutionSummary[];
   public Faqs: FAQ;
-  public BlogData: HttpResponse<BlogSummary>;
-  public BlogSummaries: BlogSummary;
-  private SolutionSummaryData: Observable<HttpResponse<SolutionSummary[]>>;
   private ProductSummaryData: HttpResponse<ProductSummary[]>;
   private TestimonialsData: HttpResponse<Testimonial>;
+  private SolutionSummaryData: Observable<HttpResponse<SolutionSummary[]>>;
   private FaqData: HttpResponse<FAQ>;
 
   constructor(
