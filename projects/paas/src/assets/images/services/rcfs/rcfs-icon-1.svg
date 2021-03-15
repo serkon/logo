@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>clipboard</title>
+    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Release-Control-Features" transform="translate(-116.000000, -997.000000)" fill="#3ABF7C">
+            <g id="section2" transform="translate(113.000000, 924.000000)">
+                <g transform="translate(0.000000, 73.000000)" id="clipboard">
+                    <g transform="translate(3.000000, 0.000000)" id="Group-7">
+                        <path d="M12.5,20 C11.1193,20 10,21.11925 10,22.5 C10,23.88075 11.1193,25 12.5,25 L32.39875,25 C33.7795,25 34.89875,23.88075 34.89875,22.5 C34.89875,21.11925 33.7795,20 32.39875,20 L12.5,20 Z" id="Path" fill-rule="nonzero"></path>
+                        <path d="M12.601325,30.16625 C11.2206,30.16625 10.101325,31.2855 10.101325,32.66625 C10.101325,34.047 11.2206,35.16625 12.601325,35.16625 L32.5,35.16625 C33.88075,35.16625 35,34.047 35,32.66625 C35,31.2855 33.88075,30.16625 32.5,30.16625 L12.601325,30.16625 Z" id="Path" fill-rule="nonzero"></path>
+                        <path d="M5,0 C2.238575,0 0,2.238575 0,5 L0,40 C0,42.7615 2.238575,45 5,45 L40,45 C42.7615,45 45,42.7615 45,40 L45,5 C45,2.238575 42.7615,0 40,0 L5,0 Z M10,5 L5,5 L5,40 L40,40 L40,5 L35,5 L35,7.5 C35,11.642125 31.64225,15 27.5,15 L17.5,15 C13.357875,15 10,11.642125 10,7.5 L10,5 Z M15,5 L15,7.5 C15,8.8807 16.1193,10 17.5,10 L27.5,10 C28.88075,10 30,8.8807 30,7.5 L30,5 L15,5 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

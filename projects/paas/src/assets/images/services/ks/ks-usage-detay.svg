@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="74px" height="16px" viewBox="0 0 74 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>detay2</title>
+    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Keşif-Servisi" transform="translate(-690.000000, -1178.000000)">
+            <g id="section2" transform="translate(115.000000, 856.000000)">
+                <g id="card1" transform="translate(3.000000, 225.000000)">
+                    <g id="Group-5" transform="translate(566.000000, 93.000000)">
+                        <text id="detay…" font-family="Helvetica" font-size="16" font-weight="normal" line-spacing="22" fill="#FFFFFF">
+                            <tspan x="31" y="16">detay…</tspan>
+                        </text>
+                        <g id="play_arrow-24px">
+                            <polygon id="Path" points="0 0 20 0 20 20 0 20"></polygon>
+                            <polygon id="Path" fill="#FFFFFF" fill-rule="nonzero" points="6.66666667 4.16666667 6.66666667 15.8333333 15.8333333 10"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

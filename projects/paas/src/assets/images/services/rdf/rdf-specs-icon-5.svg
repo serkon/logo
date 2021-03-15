@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="33px" height="33px" viewBox="0 0 33 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>abstract</title>
+    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Report-Designer-Features" transform="translate(-104.000000, -2457.000000)" fill="#3ABF7C">
+            <g id="section4" transform="translate(102.000000, 2450.012037)">
+                <g id="abstract" transform="translate(2.000000, 6.987963)">
+                    <polygon id="Path" fill-rule="nonzero" points="0 0 33 0 33 33 25.9285714 33 25.9285714 7.07142857 0 7.07142857"></polygon>
+                    <path d="M12,33 C18.62736,33 24,27.62736 24,21 C24,14.37264 18.62736,9 12,9 C5.372592,9 0,14.37264 0,21 C0,27.62736 5.372592,33 12,33 Z M12,25.8 C14.65104,25.8 16.8,23.65104 16.8,21 C16.8,18.34896 14.65104,16.2 12,16.2 C9.349032,16.2 7.2,18.34896 7.2,21 C7.2,23.65104 9.349032,25.8 12,25.8 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

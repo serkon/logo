@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="51px" height="51px" viewBox="0 0 51 51" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>album</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="83.4544362%" id="linearGradient-1">
+            <stop stop-color="#4FC68A" offset="0%"></stop>
+            <stop stop-color="#139554" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Diagnose-Features" transform="translate(-221.000000, -1834.000000)" fill="url(#linearGradient-1)">
+            <g id="section3" transform="translate(-7.000000, 1668.000000)">
+                <g id="album" transform="translate(228.000000, 88.000000)">
+                    <g transform="translate(0.000000, 78.000000)" id="Shape">
+                        <path d="M0,43.35 C0,47.575095 3.4250325,51 7.65,51 L43.35,51 C47.575095,51 51,47.575095 51,43.35 L51,7.65 C51,3.4250325 47.575095,0 43.35,0 L7.65,0 C3.4250325,0 0,3.4250325 0,7.65 L0,43.35 Z M45.9,43.35 C45.9,44.758365 44.758365,45.9 43.35,45.9 L7.65,45.9 C6.241686,45.9 5.1,44.758365 5.1,43.35 L5.1,7.65 C5.1,6.241686 6.241686,5.1 7.65,5.1 L20.4,5.1 L20.4,25.528305 L26.50725,25.52856 L30.600255,20.0536845 L34.693005,25.52856 L40.800255,25.52856 L40.8,5.1 L43.35,5.1 C44.758365,5.1 45.9,6.241686 45.9,7.65 L45.9,43.35 Z M35.7,5.1 L25.5,5.1 L25.5,18.7064175 L30.600255,11.884173 L35.7,18.7060605 L35.7,5.1 Z"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

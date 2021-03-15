@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="879px" height="697px" viewBox="0 0 879 697" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>slider bg</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FCD283" offset="0%"></stop>
+            <stop stop-color="#F5BB3D" offset="100%"></stop>
+        </linearGradient>
+        <path d="M446,0 L967.620974,632.089906 C998.131598,675.363302 1032.7804,697 1071.56737,697 C1129.74784,697 1150.33328,686.396979 1210.2885,632.089906 C1250.25865,595.885192 1289.82915,560.532877 1329,526.032962 L1329,0" id="path-2"></path>
+    </defs>
+    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="-Veritabanı-Versiyonlama-Servisi" transform="translate(-561.000000, -76.000000)">
+            <g id="slider" transform="translate(115.000000, 76.000000)">
+                <mask id="mask-3" fill="white">
+                    <use xlink:href="#path-2"></use>
+                </mask>
+                <use id="slider-bg" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+            </g>
+        </g>
+    </g>
+</svg>
