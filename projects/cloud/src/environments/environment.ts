@@ -40,7 +40,7 @@ export const environment = {
     },
   },
   api: {
-    baseURL: 'https://talha.io/api/logoapi',
+    baseURL: 'http://localhost:3004/api',
     solution: {
       prefix: 'solution',
       summary: 'summary/list',
