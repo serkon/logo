@@ -1,0 +1,202 @@
+@import "~@logo-software/theme/base";
+
+:host {
+  .intro {
+    display: flex;
+    height: size(750px);
+
+    div:nth-child(1) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: baseline;
+
+      .title-content {
+        padding-left: size(98px);
+
+        p.g6 {
+          color: var(--primary);
+        }
+      }
+    }
+
+    div:nth-child(2) {
+      position: relative;
+
+      img {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+
+  .usage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    height: size(702px);
+    margin-top: size(50px);
+
+    h4 {
+      margin-top: size(15px);
+    }
+
+    .bg {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      max-height: size(370px);
+    }
+
+    logo-link {
+      margin: size(72px) 0 size(81px) 0;
+      z-index: 2;
+    }
+
+    .card-wrapper {
+      background-color: var(--basic-400);
+      display: flex;
+      flex-direction: row;
+      z-index: 2;
+      align-self: center;
+      border-radius: size(24px);
+      width: size(1236px);
+      height: size(393px);
+      margin-top: size(44px);
+
+      .usage-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h4 {
+          margin-top: size(20px);
+        }
+
+        h3 {
+          margin-top: size(42px);
+        }
+      }
+    }
+  }
+
+  .specs {
+    display: flex;
+    height: 100vh;
+
+    .left {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .usage-content {
+        h2 {
+          margin-top: size(15px);
+        }
+
+        .usage-head {
+          display: flex;
+        }
+
+        .usage-card {
+          display: flex;
+          border-radius: size(11px);
+
+          div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: baseline;
+
+            img {
+              margin: size(45px) 0 size(45px) 0;
+            }
+
+            img:nth-child(1) {
+              align-self: flex-end;
+            }
+          }
+
+          div:nth-child(1) {
+            justify-content: center;
+          }
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        position: absolute;
+        top: size(-3px);
+        left: 0;
+      }
+    }
+  }
+
+  .specs-2 {
+    display: flex;
+    height: 100vh;
+
+    .left {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .usage-content {
+        h2 {
+          margin-top: size(15px);
+        }
+
+        .usage-head {
+          display: flex;
+        }
+
+        .usage-card {
+          display: flex;
+          border-radius: size(11px);
+
+          div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: baseline;
+
+            img {
+              margin: size(45px) 0 size(45px) 0;
+            }
+
+            img:nth-child(1) {
+              align-self: flex-end;
+            }
+          }
+
+          div:nth-child(1) {
+            justify-content: center;
+          }
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+    }
+  }
+}

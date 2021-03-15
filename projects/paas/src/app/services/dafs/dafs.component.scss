@@ -1,0 +1,65 @@
+@import "~@logo-software/theme/base";
+
+$header-size: size(80px);
+
+:host {
+  .intro {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    background-image: url("/assets/images/services/dafs/dafs-intro-bg.png");
+    background-size: cover;
+
+
+    .intro-content {
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 2;
+      padding: 0 size(365px) 0 size(365px);
+      margin-top: size(64px);
+
+      p, h1 {
+        color: var(--light);
+      }
+
+      logo-link {
+        padding: size(30px) 0px size(30px) 0px
+      }
+    }
+
+  }
+
+  .usage {
+    display: flex;
+    height: 100vh;
+
+    .left {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-left: size(113px);
+
+      .usage-content {
+
+        .card {
+          display: flex;
+        }
+      }
+
+    }
+
+    .right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .specs {
+
+  }
+}

@@ -1,0 +1,236 @@
+@import "~@logo-software/theme/base";
+
+:host {
+  .intro {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    height: size(720px);
+    background-image: linear-gradient(180deg, #F0F5FF 0%, #DDE8FD 100%);
+
+    .left {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .title-content {
+        position: relative;
+        z-index: 2;
+        max-width: size(476px);
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        margin-left: size(-75px);
+
+        .title {
+          font-size: size(60px);
+          letter-spacing: 0;
+          line-height: 45px;
+
+          .for {
+            color: #01cc78;
+          }
+        }
+
+        .description {
+          font-size: size(20px);
+          color: #707070;
+          letter-spacing: 0;
+          line-height: size(27px);
+          padding-top: size(16px);
+        }
+      }
+    }
+
+    .img-1 {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+    }
+
+    .img-2 {
+      position: absolute;
+      right: -88px;
+      bottom: 0;
+    }
+  }
+
+  .usage {
+    section.three {
+      @include smaller-than("md") {
+        padding-bottom: 0;
+      }
+
+      .row {
+        min-height: size(500px);
+
+        @include smaller-than("md") {
+          min-height: auto;
+        }
+
+        .content {
+          color: #707070;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+
+          h1 {
+            font-size: size(40px);
+            color: #707070;
+            line-height: size(45px);
+          }
+
+          p.description {
+            margin-top: 0;
+            font-size: size(20px);
+          }
+
+          ul {
+            list-style-type: none;
+
+            li {
+
+              &:nth-child(1) {
+                background-color: #00C375;
+              }
+
+              display: flex;
+              margin-top: size(20px);
+              padding-left: size(10px);
+              background: #EBF3F8;
+              border-radius: 11px;
+              font-size: 16px;
+              line-height: 22px;
+
+              img {
+                padding: size(32px);
+              }
+
+              h2 {
+                font-weight: bold;
+                font-size: size(20px);
+              }
+
+              p {
+                padding: 31px 51px 27px 0px;
+                font-size: 20px;
+                line-height: 27px;
+              }
+            }
+          }
+        }
+
+        .right {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .image {
+          position: relative;
+        }
+      }
+    }
+  }
+
+  .specs {
+    background-color: #E9F3F9;
+
+    h1 {
+      font-size: size(45px);
+      font-weight: lighter;
+      text-align: center;
+    }
+
+    p {
+      font-size: size(20px);
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    logo-carousel {
+      //  padding: 0 size(100px);
+
+      .slider-item {
+        background-color: var(--white);
+        box-shadow: 0 60px 60px #6e6e6e46;
+        // background-color: #ffffff;
+        border-radius: 20px;
+        box-sizing: border-box;
+        backdrop-filter: blur(23px);
+        color: #646464;
+        padding: 30px 44px;
+        min-width: 264px;
+        width: 264px;
+        margin-right: 24px;
+        display: inline-block;
+        vertical-align: top;
+        white-space: normal;
+
+        .icon-bg {
+          width: size(42px);
+          height: size(42px);
+          background-color: #6259a7;
+          mask-size: contain;
+          mask-repeat: no-repeat;
+          mask-position: center;
+
+          .icon {
+            position: relative;
+            max-height: size(42px);
+            max-width: size(42px);
+            height: size(42px);
+            margin-bottom: size(10px);
+            filter: invert(43%) sepia(26%) saturate(1500%) hue-rotate(208deg) brightness(115%) contrast(200%);
+            background-size: contain;
+
+            &::after {
+              content: "";
+              background: url("/assets/images/services/idm/section-04-icon-background.svg") no-repeat;
+              position: absolute;
+              left: 0;
+              top: 0;
+            }
+          }
+        }
+
+        .abbr {
+          font-weight: bold;
+          font-size: size(20px);
+        }
+
+        .description {
+          margin-top: 20px;
+          font-size: 16px;
+          font-weight: 300;
+        }
+
+        .go {
+          display: block;
+          margin-top: size(20px);
+        }
+      }
+
+      ::ng-deep {
+        .arrow-with-animation .slider-arrow {
+          color: var(--white);
+
+          --active: var(--white);
+          --border: rgba(255, 255, 255, 0.12);
+        }
+
+        .dots {
+          .dot {
+            border-color: #ffffff;
+
+            &::after {
+              background-color: rgba(255, 255, 255, 0.6);
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,125 @@
+@import "~@logo-software/theme/base";
+
+$header-size: size(80px);
+
+:host {
+  .intro {
+    display: flex;
+    height: 100vh;
+    background: url("/assets/images/services/rcfs/rcfs-intro-bg.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    div:nth-child(1) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      div.title-content {
+        position: relative;
+        z-index: 2;
+        max-width: size(500px);
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        flex-direction: column;
+        padding: size(30px);
+
+        h1 {
+          color: var(--light);
+        }
+
+        p.description {
+          color: var(--light);
+          margin-bottom: size(20px);
+        }
+      }
+    }
+
+    div:nth-child(2) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .usage {
+    display: flex;
+    height: 100vh;
+
+
+    .left {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+
+      h2 {
+        margin-top: size(19px);
+        max-width: size(515px)
+      }
+
+      ul {
+        list-style-image: url("/assets/images/services/rcfs/rcfs-check-1.svg");
+
+        li {
+          margin-top: size(40px);
+
+          p {
+            margin-top: size(16px);
+          }
+        }
+      }
+    }
+  }
+
+  .usage-2 {
+    display: flex;
+    height: 100vh;
+
+    .right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .left {
+      display: flex;
+      align-items: center;
+      padding-left: size(102px);
+
+      h2 {
+        margin-top: size(19px);
+      }
+
+      ul {
+        list-style-image: url("/assets/images/services/rcfs/rcfs-check-1.svg");
+
+        li {
+          margin-top: size(40px);
+          margin-left: 20px;
+
+          h2 {
+            font-size: 25px;
+            line-height: 28px;
+          }
+
+          p {
+            margin-top: size(19px);
+          }
+        }
+      }
+
+      logo-link {
+        margin-top: size(75px);
+      }
+    }
+  }
+
+}

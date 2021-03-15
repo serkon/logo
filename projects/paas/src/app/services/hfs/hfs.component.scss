@@ -1,0 +1,109 @@
+@import "~@logo-software/theme/base";
+
+$header-size: size(80px);
+
+:host {
+  .intro {
+    display: flex;
+    height: 100vh;
+    background-image: linear-gradient(0deg, #DFEBFF 0%, #F9FBFF 100%);
+    overflow-x: hidden;
+
+    div:nth-child(1) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: baseline;
+
+      .title-content {
+        width: size(479px);
+        align-self: center;
+
+        p.g6 {
+          color: var(--primary);
+        }
+      }
+    }
+
+    div:nth-child(2) {
+      position: relative;
+
+      img {
+        position: absolute;
+        bottom: 0;
+        right: size(-283px);
+      }
+    }
+  }
+
+  .usage {
+    display: flex;
+    height: 100vh;
+
+    div:nth-child(1) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    div:nth-child(2) {
+      h1 {
+        align-self: start;
+      }
+
+      display: flex;
+      flex-direction: column;
+      align-items: initial;
+      justify-content: center;
+
+      .cards {
+        position: relative;
+        z-index: 2;
+
+        .specs-card {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin-top: size(50px);
+
+          div:nth-child(1) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+
+  .specs {
+    display: flex;
+    height: 100vh;
+    overflow-x: hidden;
+
+    h1 {
+      align-self: center;
+    }
+
+    div:nth-child(1) {
+      display: flex;
+      flex-direction: column;
+      align-items: initial;
+      justify-content: center;
+
+      .specs-card {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: size(50px);
+
+        div:nth-child(1) {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+
+  }
+}

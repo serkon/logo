@@ -1,0 +1,73 @@
+<logo-header></logo-header>
+<div class="intro">
+  <div class="left col-md-6">
+    <div class="title-content">
+      <h1 class="title">Log <span class="for">Servisi</span></h1>
+      <p class="description">
+        Uygulamaların iş akış loglarını yazdırabilmelerini, loglar üzerinde kolay arama yapabilmelerini ve bu logları
+        görselleştirmelerini sağlayan bir servis havuzudur.
+      </p>
+      <logo-link [classes]="['success', 'large', 'get-started']" external="true"
+                 url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139691">KEŞFET
+      </logo-link>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <img class="img-1" src="./assets/images/services/ls/ls-intro-bg.png">
+    <img class="img-2" src="./assets/images/services/ls/ls-intro-bg-2.png">
+  </div>
+
+</div>
+<div class="usage">
+  <section class="three">
+    <div class="row">
+      <div class="content col-xs-12 col-md-6">
+        <h1>Kullanım Senaryoları</h1>
+        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <ul>
+          <li>
+            <img src="/assets/images/services/ls/ls-usage-check.svg" alt="">
+            <p>
+              Mauris nulla nisl, condimentum ac iaculis quis, varius sed erat. Phasellus sodales enim
+            </p>
+          </li>
+          <li>
+            <img src="/assets/images/services/ls/ls-usage-check-2.svg" alt="">
+            <p>
+              Mauris nulla nisl, condimentum ac iaculis quis, varius sed erat. Phasellus sodales enim
+            </p>
+          </li>
+          <li>
+            <img src="/assets/images/services/ls/ls-usage-check-2.svg" alt="">
+            <p>
+              Mauris nulla nisl, condimentum ac iaculis quis, varius sed erat. Phasellus sodales enim
+            </p>
+          </li>
+        </ul>
+        <logo-link [classes]="['success', 'large', 'get-started']" external="true"
+                   url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139691">TÜMÜNÜ GÖRÜNTÜLE
+        </logo-link>
+      </div>
+      <div class="right image col-xs-12 col-md-6">
+        <img src="/assets/images/services/ls/ls-usage.png" alt="">
+      </div>
+    </div>
+  </section>
+</div>
+<div class="specs">
+  <section class="four">
+    <h1>Özellikler</h1>
+    <p>IDM ‘den nelerde ve nasıl faydalanabileceğinizi öğrenin. İşinize değer katın!</p>
+    <logo-carousel [count]="1" [arrow]="true" [dots]="true">
+      <div class="slider-item" *ngFor="let item of sliderItems">
+        <div class="icon-bg"
+             [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"></div>
+        <div class="abbr">{{item.abbr}}</div>
+        <div class="description">{{item.description}}</div>
+        <!-- a class="go" href="{{item.url}}" [ngClass]="item.classes">go →</a-->
+      </div>
+    </logo-carousel>
+  </section>
+</div>
+<logo-core-services></logo-core-services>
+<logo-footer></logo-footer>
