@@ -16,13 +16,14 @@ export class UserReviewComponent implements OnInit {
   @Input() imageUrl: string = null;
   @Input() imageStyle: { [key: string]: string } = {};
   @Input() reverse: boolean = false;
+  @Input() quoteColor: string = '#fff';
   @HostBinding('style') baseStyle: SafeStyle;
-  public emptyAvatar = '/assets/images/reviewers/empty-user.png';
+  public emptyAvatar = '/assets/images/reviewers/reviewer-nail.png';
   public opinions: Reviewer[] = [
     {
       description: `
-        <p>Türkiye'deki İşbaşı ve Hindistan'daki Vyapari uygulamalarımızda geliştirme sürecinin en başından bu yana IDM servislerini kullanmaktayız. Hem kullanıcı arayüzü hem de servis entegrasyon arayüzlerinin kolayca kullanılabilir olmasından memnunuz.</p>
-        <p>Kullanıcı sayımızın artmasına rağmen performans ve güvenilirlik açısından beklentilerimizi fazlasıyla karşılaşmıştır.</p>
+        <p class="desc-content">Türkiye'deki İşbaşı ve Hindistan'daki Vyapari uygulamalarımızda geliştirme sürecinin en başından bu yana IDM servislerini kullanmaktayız. Hem kullanıcı arayüzü hem de servis entegrasyon arayüzlerinin kolayca kullanılabilir olmasından memnunuz.</p>
+        <p class="desc-content">Kullanıcı sayımızın artmasına rağmen performans ve güvenilirlik açısından beklentilerimizi fazlasıyla karşılaşmıştır.</p>
       `,
       author: {
         name: 'Ayhan İNAL',
@@ -45,7 +46,12 @@ export class UserReviewComponent implements OnInit {
     this.baseStyle = this.sanitizer.bypassSecurityTrustStyle(mappedStyles);
   }
 
+  setProperty(property, value) {
+    document.documentElement.style.setProperty(property, value);
+  }
+
   ngOnInit() {
+    this.setProperty(`--quote-color`, this.quoteColor);
     this.baseStyle = this.sanitizer.bypassSecurityTrustStyle('background-image: url(' + this.backgroundUrl + ')');
   }
 }
