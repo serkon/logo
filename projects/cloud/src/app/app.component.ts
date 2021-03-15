@@ -1,7 +1,7 @@
 import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 
-import { HeaderTheme } from '@logo-software/header';
+import { HeaderService, HeaderTheme } from '@logo-software/header';
 import { IdmService } from '@logo-software/idm';
 
 import { UserService } from '@cloud/app/services/auth/user.service';
@@ -15,7 +15,13 @@ export class AppComponent implements AfterContentChecked, OnInit {
   public headerTheme = HeaderTheme;
   items = [];
 
-  constructor(private cdr: ChangeDetectorRef, public idmService: IdmService, public userService: UserService, private router: Router) {
+  constructor(
+    private cdr: ChangeDetectorRef,
+    public idmService: IdmService,
+    public userService: UserService,
+    private router: Router,
+    private headerService: HeaderService,
+  ) {
     this.userService.subscribeUserInfo();
   }
 
@@ -37,6 +43,9 @@ export class AppComponent implements AfterContentChecked, OnInit {
         return;
       }
       window.scrollTo(0, 0);
+      if (this.headerService.mobileMenu) {
+        this.headerService.mobileMenu = !this.headerService.mobileMenu;
+      }
     });
   }
 }
