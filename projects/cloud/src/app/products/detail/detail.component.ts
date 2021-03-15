@@ -39,10 +39,11 @@ import { BlogService } from '@cloud/app/services/blog/blog.service';
 export class DetailComponent implements OnInit {
   public productSlug: string;
   public product: Product;
-  public Testimonials: Testimonial[];
+  public Testimonials: Testimonial;
+  public BlogData: HttpResponse<BlogSummary[]>;
   public Faqs: FAQ;
-  public BlogData: HttpResponse<BlogSummary>;
-  public BlogSummaries: BlogSummary;
+  public BlogSummaries: BlogSummary[];
+  private FaqData: HttpResponse<FAQ>;
   public ProductSummaries: ProductSummary[];
   public isStickyTabs: boolean = false;
   public appScreens: string[] = [];
@@ -50,8 +51,7 @@ export class DetailComponent implements OnInit {
   public productSticker: HttpResponse<ProductSticker[]>;
   public productReferences: HttpResponse<Reference[]>;
   private productData: HttpResponse<Product[]>;
-  private TestimonialsData: HttpResponse<Testimonial[]>;
-  private FaqData: HttpResponse<FAQ>;
+  private TestimonialsData: HttpResponse<Testimonial>;
   private ProductSummaryData: HttpResponse<ProductSummary[]>;
 
   constructor(
@@ -102,7 +102,6 @@ export class DetailComponent implements OnInit {
     this.productSticker = await this.productService.getProductSticker(this.product.id);
     this.setScreens(this.product.screens);
     this.productReferences = await this.productService.getProductReferences(this.product.id);
-    console.log(this.product);
   }
 
   private setScreens(data) {
@@ -113,8 +112,7 @@ export class DetailComponent implements OnInit {
   }
 
   private async loadTestimonials() {
-    // this.TestimonialsData = await this.testimonialsService.getTestimonials();
-    this.TestimonialsData = await this.testimonialsService.getTestimonialsDummyData();
+    this.TestimonialsData = await this.testimonialsService.getTestimonials();
     this.Testimonials = this.TestimonialsData.data;
   }
 
@@ -132,4 +130,6 @@ export class DetailComponent implements OnInit {
     this.ProductSummaryData = await this.productService.getProductSummaries();
     this.ProductSummaries = this.ProductSummaryData.data;
   }
+
+
 }

@@ -27,6 +27,10 @@
           align-items: center;
           flex-direction: row;
 
+          @include smaller-than(md) {
+            flex-direction: column;
+          }
+
           .product-label {
             flex-grow: 1;
             padding-right: size(40px);
@@ -44,14 +48,45 @@
             h4 {
               color: var(--white);
             }
+
+            @include smaller-than(md) {
+              padding-right: 0;
+
+              .logo {
+                margin-bottom: size(10px);
+                margin-top: size(10px);
+              }
+            }
           }
 
           .buy-opts {
+            @include smaller-than(md) {
+              width: 100%;
+            }
+
             button {
               margin-right: size(20px);
 
+              @include smaller-than(xl) {
+                margin-bottom: size(20px);
+                width: 100%;
+              }
+
+              @include smaller-than(md) {
+                margin-top: size(10px);
+                width: 100%;
+
+                &:first-child {
+                  display: none;
+                }
+              }
+
               &:last-child {
                 margin-right: 0;
+
+                @include smaller-than(xl) {
+                  margin-bottom: 0;
+                }
               }
 
               &.white {
@@ -98,6 +133,20 @@
         ::ng-deep {
           ul.right {
             display: flex !important;
+
+            @include smaller-than(xl) {
+              button {
+                width: 100%;
+
+                &:first-child {
+                  display: none;
+                }
+              }
+            }
+
+            @include smaller-than(lg) {
+              display: none !important;
+            }
           }
         }
       }
@@ -122,6 +171,10 @@
           align-items: flex-start;
           justify-content: flex-start;
 
+          @include smaller-than(md) {
+            flex-direction: column-reverse;
+          }
+
           .contact-info {
             width: 50%;
             background: var(--secondary-300);
@@ -134,11 +187,32 @@
                 width: size(250px);
                 margin-right: size(12px);
                 display: inline-block;
+
+                @include smaller-than(lg) {
+                  margin-bottom: size(10px);
+                  margin-right: 0;
+                }
               }
             }
 
             logo-link {
               display: inline-block;
+
+              @include smaller-than(lg) {
+                display: block;
+
+                ::ng-deep {
+                  button {
+                    width: 100%;
+                  }
+                }
+              }
+            }
+
+            @include smaller-than(md) {
+              width: 100%;
+              padding: size(20px) size(15px);
+              height: auto;
             }
           }
 
@@ -148,6 +222,15 @@
 
             img {
               height: 100%;
+            }
+
+            @include smaller-than(md) {
+              height: auto;
+
+              img {
+                width: 100%;
+                height: auto;
+              }
             }
           }
         }
@@ -159,21 +242,43 @@
           align-items: flex-start;
           justify-content: flex-start;
 
+          @include smaller-than(md) {
+            flex-direction: column;
+          }
+
           .infos {
             width: 80%;
             flex-grow: 1;
             margin-right: size(30px);
+
+            @include smaller-than(lg) {
+              margin-right: size(20px);
+            }
+
+            @include smaller-than(md) {
+              margin-right: 0;
+              width: 100%;
+            }
 
             .slider-base {
               display: flex;
               align-items: flex-start;
               justify-content: flex-start;
 
+              @include smaller-than(lg) {
+                flex-wrap: wrap;
+              }
+
               .screens {
                 flex-grow: 1;
                 margin-right: size(30px);
                 width: 75%;
                 height: size(410px);
+
+                @include smaller-than(lg) {
+                  width: 100%;
+                  margin-right: 0;
+                }
 
                 ::ng-deep {
                   .scroller {
@@ -203,6 +308,12 @@
                 width: 25%;
                 margin-top: size(35px);
 
+                @include smaller-than(lg) {
+                  width: 100%;
+                  position: relative;
+                  padding-left: size(64px);
+                }
+
                 .icon-base {
                   @include border-radius(50%);
 
@@ -212,6 +323,12 @@
                   background: var(--basic-600);
                   text-align: center;
                   line-height: size(50px);
+
+                  @include smaller-than(lg) {
+                    position: absolute;
+                    top: size(14px);
+                    left: 0;
+                  }
 
                   img {
                     width: size(24px);
@@ -259,11 +376,56 @@
                     margin-bottom: size(14px);
                   }
 
+                  p {
+                    @include smaller-than(xl) {
+                      max-height: size(145px);
+                      overflow: hidden;
+                      position: relative;
+
+                      &::after {
+                        content: "...";
+                        display: none;
+                        position: absolute;
+                        bottom: size(1px);
+                        right: 0;
+                      }
+                    }
+                  }
+
                   .cta {
                     position: absolute;
                     width: 100%;
                     bottom: size(24px);
                     left: 0;
+                  }
+
+                  @include smaller-than(lg) {
+                    width: calc((100% - 18px) / 2);
+
+                    &:nth-child(2n+2) {
+                      margin-right: 0;
+                    }
+
+                    &:nth-child(3n+3) {
+                      margin-right: size(18px);
+                    }
+
+                    &:nth-child(6) {
+                      margin-right: 0;
+                    }
+
+                    &:nth-child(12) {
+                      margin-right: 0;
+                    }
+
+                    &:nth-child(18) {
+                      margin-right: 0;
+                    }
+                  }
+
+                  @include smaller-than(md) {
+                    width: 100%;
+                    margin-right: 0;
                   }
                 }
               }
@@ -311,6 +473,10 @@
                 margin-right: 0;
               }
             }
+
+            @include smaller-than(md) {
+              width: auto;
+            }
           }
         }
       }
@@ -327,8 +493,26 @@
           display: flex;
           align-items: center;
 
+          @include smaller-than(lg) {
+            flex-wrap: wrap;
+            flex-direction: column;
+          }
+
           .video {
             margin-right: size(48px);
+
+            @include smaller-than(lg) {
+              flex-grow: 1;
+              margin-right: 0;
+              margin-bottom: size(24px);
+            }
+
+            @include smaller-than(md) {
+              iframe {
+                width: 100% !important;
+                height: auto !important;
+              }
+            }
           }
 
           .text {
@@ -357,12 +541,25 @@
               top: 0;
               right: 0;
               background: transparent !important;
+
+              @include smaller-than(md) {
+                position: relative;
+
+                .nav {
+                  padding-left: 0;
+                }
+              }
             }
 
             .price-table-base {
               display: flex;
               align-items: flex-start;
               justify-content: flex-start;
+
+              @include smaller-than(lg) {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+              }
 
               .table-item {
                 @include border-radius(size(14px));
@@ -375,6 +572,15 @@
                 height: size(585px);
                 text-align: center;
                 position: relative;
+
+                @include smaller-than(lg) {
+                  width: calc((100% - 18px) / 2);
+                  margin-bottom: size(18px);
+                }
+
+                @include smaller-than(md) {
+                  width: 100%;
+                }
 
                 .head {
                   background: var(--secondary-800);
@@ -474,16 +680,33 @@
                   input {
                     width: 100% !important;
                   }
+
+                  @include smaller-than(lg) {
+                    width: auto;
+
+                    input {
+                      margin-bottom: size(10px);
+                    }
+                  }
                 }
 
                 logo-link {
                   display: inline-block;
+
+                  @include smaller-than(lg) {
+                    display: block;
+
+                    ::ng-deep {
+                      button {
+                        width: 100%;
+                      }
+                    }
+                  }
                 }
               }
             }
           }
         }
-
       }
     }
 
@@ -528,9 +751,24 @@
         align-items: flex-start;
         justify-content: space-between;
 
+        @include smaller-than(lg) {
+          flex-wrap: wrap;
+        }
+
+        @include smaller-than(md) {
+          flex-direction: column;
+          justify-content: center;
+          margin-bottom: size(10px);
+        }
+
         .item {
           margin: 0 size(12px);
           width: size(210px);
+
+          @include smaller-than(md) {
+            width: 85%;
+            margin-bottom: size(12px);
+          }
 
           img {
             width: 100%;
