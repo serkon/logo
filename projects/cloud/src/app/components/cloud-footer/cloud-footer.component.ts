@@ -25,7 +25,7 @@ export class CloudFooterComponent implements OnInit {
   public products: HttpResponse<ProductSummary[]>;
   public solutions: SolutionSummary[];
   private solutionsData: Observable<HttpResponse<SolutionSummary[]>>;
-  public sellerInfo: HttpResponse<ProductSeller>;
+  public sellerInfo: HttpResponse<ProductSeller[]>;
   public sellerLocation: SafeResourceUrl;
 
   @Input() productId?: string;

@@ -1,4 +1,4 @@
-<div class="footer">
+<div class="footer" id="footer">
   <div class="newsletter-base">
     <div class="container contents">
       <div class="gfx">
@@ -23,11 +23,11 @@
     </div>
     <div class="seller-info-base">
       <div class="seller-info">
-        <logo-link [classes]="'primary outline icon-left le-phone'">
+        <logo-link *ngIf="sellerInfo.data[0].phone" [classes]="'primary outline icon-left le-phone'">
           {{sellerInfo.data[0].phone}}
         </logo-link>
-        <p>{{sellerInfo.data[0].address}}</p>
-        <p>T: {{sellerInfo.data[0].phone}} | F: {{sellerInfo.data[0].fax}}</p>
+        <p *ngIf="sellerInfo.data[0].address">{{sellerInfo.data[0].address}}</p>
+        <p>T: {{sellerInfo.data[0].phone}} | F: {{sellerInfo.data[0].fa}}</p>
         <p>{{sellerInfo.data[0].email}}</p>
       </div>
     </div>

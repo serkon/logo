@@ -129,16 +129,20 @@
         .footer-map {
           display: flex;
           align-items: flex-start;
-          justify-content: center;
-          flex-wrap: wrap;
+          justify-content: space-between;
+          flex-wrap: nowrap;
+
+          @include smaller-than(xl) {
+            flex-wrap: wrap;
+          }
         }
 
         .footer-col {
           margin-bottom: size(20px);
-          width: 24%;
+          margin-right: size(15px);
 
           @include smaller-than(xl) {
-            width: 49% !important;
+            width: calc(50% - 40px) !important;
           }
 
           @include smaller-than(md) {
