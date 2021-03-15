@@ -1,0 +1,127 @@
+<div *ngIf="blogData" class="blog-detail-page">
+  <logo-hero [containerStatus]="true" [cssClasses]="'hero-blog-detail'">
+    <logo-breadcrumb
+      [breadcrumb]="[{name:'Anasayfa', link: '/'}, {name: 'Blog', link: '/blog'}, {name: blogData.title}]"
+      [isLight]="true"
+      [size]="'medium'"
+    >
+    </logo-breadcrumb>
+    <div class="content">
+      <h1><b>{{blogData.title}}</b></h1>
+      <div class="content-details">
+        <div class="date icon-left le-calendar">
+          {{blogData.date.publish}}
+        </div>
+        <div class="author icon-left le-user">
+          {{blogData.author.name}} {{blogData.author.surname}}
+        </div>
+      </div>
+    </div>
+  </logo-hero>
+  <div class="content-menu">
+    <logo-tabs [activeTab]="0" [isContainer]="true" [routing]="true" class="medium">
+      <logo-tab [fragment]="'content'" [title]="'Detay'"></logo-tab>
+      <logo-tab [fragment]="'products'" [title]="'İlgili Ürünler'"></logo-tab>
+      <logo-tab [fragment]="'blog'" [title]="'Benzer Yazılar'"></logo-tab>
+      <logo-tab [fragment]="'footer'" [title]="'Bültene Abone Olun'"></logo-tab>
+    </logo-tabs>
+  </div>
+  <div class="page-content-base" id="content">
+    <div class="container">
+      <div [innerHTML]="blogData.html" class="page-content"></div>
+      <div class="page-details">
+        <div class="label-section">
+          <h4>Detaylar</h4>
+          <h6>Kategori</h6>
+          <div class="info-item">
+            <span *ngFor="let category of blogData.tags" class="badge">{{category.name}}</span>
+          </div>
+          <h6>Diğer Kategoriler</h6>
+          <div class="info-item">
+            <span *ngFor="let tag of blogData.otherTags" class="badge">{{tag.name}}</span>
+          </div>
+        </div>
+        <div class="label-section">
+          <h4>Paylaş</h4>
+          <a class="share-item" href="http://www.twitter.com" target="_blank">
+            <img src="/assets/img/btn-social-twitter.png">
+          </a>
+          <a class="share-item" href="http://www.facebook.com" target="_blank">
+            <img src="/assets/img/btn-social-facebook.png">
+          </a>
+          <a class="share-item" href="http://www.whatsapp.com" target="_blank">
+            <img src="/assets/img/btn-social-whatsapp.png">
+          </a>
+          <a class="share-item" href="http://www.instagram.com" target="_blank">
+            <img src="/assets/img/btn-social-instagram.png">
+          </a>
+          <a class="share-item" href="http://www.linkedin.com" target="_blank">
+            <img src="/assets/img/btn-social-linkedin.png">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section" id="products">
+    <div class="product-suggestion container">
+      <span class="title">
+        <h2><b>İlgili Ürünler</b></h2>
+        <p>
+          Logo Cloud ürünler arasında ihtiyacınıza en uygun paket seçeneklerini inceleyin.
+        </p>
+      </span>
+      <div class="section-content">
+        <logo-carousel *ngIf="ProductSummaries" [arrow]="true" [count]="1" [dots]="false">
+          <div *ngFor="let productItem of ProductSummaries" class="slider-item">
+            <logo-product-item [productData]="productItem"></logo-product-item>
+          </div>
+        </logo-carousel>
+      </div>
+    </div>
+  </div>
+  <div class="section" id="blog">
+    <div class="blog-summary container">
+      <span class="title">
+        <h2><b>Benzer Yazılar</b></h2>
+        <p>Bu yazımızı okuyanların ilgisini çeken diğer yazılarımızı siz de incelemek isterseniz aşağıda bulabilirsiniz.        </p>
+      </span>
+      <div class="section-content">
+        <div class="blog-summary-base">
+          <div *ngFor="let blogItem of blogData.similar" class="blog-item">
+            <div class="image">
+              <img src="{{blogItem.image}}">
+            </div>
+            <div class="infos">
+              <div class="tags">
+                <span *ngFor="let badge of blogItem.tags" class="badge">
+                  {{badge.name}}
+                </span>
+              </div>
+              <div class="content">
+                <h5>{{blogItem.title}}</h5>
+                <p>{{blogItem.description}}</p>
+              </div>
+              <div class="date">
+                <span class="le-calendar"></span>
+                <p>{{blogItem.date.publish}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <logo-paging
+          [pageSize]="3"
+          [recordsFound]="' adet içerik bulundu.'"
+          [threshold]="5"
+          [totalCount]="blogData.similar.length"
+        >
+        </logo-paging>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="container">
+      <logo-speed-connect></logo-speed-connect>
+    </div>
+  </div>
+</div>
+<logo-cloud-footer></logo-cloud-footer>

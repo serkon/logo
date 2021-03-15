@@ -1,0 +1,134 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
+@import "~@logo-software/theme/base";
+@import "vars";
+
+:host {
+  .blog-detail-page {
+    ::ng-deep {
+      .hero-blog-detail {
+        height: size(255px);
+        background-image: url("#{$gfx-path}/blog-detail-hero-bg.png");
+        background-position: top center;
+        background-repeat: no-repeat;
+        color: var(--white);
+
+        h1 {
+          color: var(--white);
+          width: size(500px);
+
+          @include smaller-than(md) {
+            width: auto;
+          }
+        }
+
+        .overlay {
+          background: rgba(var(--primary-900-rgb), 0.8);
+        }
+
+        .content-details {
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          margin-top: size(24px);
+
+          .date {
+            margin-right: size(24px);
+          }
+        }
+      }
+    }
+
+    .page-content-base {
+      margin: size(40px) 0 size(170px) 0;
+
+      .container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        @include smaller-than(md) {
+          flex-direction: column;
+        }
+
+        .page-content {
+          width: calc(75% - 28px);
+          margin-right: size(28px);
+
+          @include smaller-than(md) {
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: size(14px);
+          }
+        }
+
+        .page-details {
+          @include box-shadow(0, size(2px), size(4px), 0, rgba(var(--black-rgb), 0.08), false);
+
+          width: 25%;
+          padding: size(24px) size(20px);
+          background: var(--basic-200);
+
+          @include smaller-than(md) {
+            width: 100%;
+            box-sizing: border-box;
+          }
+
+          .label-section {
+            margin-bottom: size(40px);
+
+            h4 {
+              margin-bottom: size(24px);
+            }
+
+            h6 {
+              margin: size(10px) 0;
+            }
+
+            .action {
+              text-align: right;
+
+              logo-link {
+                display: inline-block;
+              }
+            }
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+
+          .share-item {
+            display: inline-block;
+            margin-right: size(7px);
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+
+    .section {
+      margin: size(170px) 0;
+
+      .title {
+        display: block;
+        text-align: center;
+      }
+
+      .section-content {
+        margin-top: size(76px);
+      }
+    }
+  }
+}

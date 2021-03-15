@@ -1,0 +1,173 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
+@import "~@logo-software/theme/base";
+@import "vars";
+
+:host {
+  .blog-list-page {
+    ::ng-deep {
+      .hero-blog-list {
+        height: size(255px);
+        background-image: url("#{$gfx-path}/blog-list-hero-bg.png");
+        background-position: top center;
+        background-repeat: no-repeat;
+        color: var(--white);
+
+        h1, h4 {
+          color: var(--white);
+        }
+
+        .overlay {
+          background: rgba(var(--primary-900-rgb), 0.8);
+        }
+      }
+    }
+
+    .content-list-base {
+      padding: size(48px) 0 size(180px) 0;
+
+      .filter-base {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: size(48px);
+
+        .results {
+          flex-grow: 1;
+          width: 70%;
+
+          @include smaller-than(md) {
+            width: 60%;
+          }
+        }
+
+        .filters {
+          width: 30%;
+          text-align: right;
+
+          @include smaller-than(md) {
+            width: 40%;
+          }
+
+          select {
+            margin-right: size(8px);
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+
+      .content-list {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-bottom: size(18px);
+
+        @include smaller-than(lg) {
+          flex-wrap: wrap;
+        }
+
+        @include smaller-than(md) {
+          flex-direction: column;
+        }
+
+        .item {
+          width: calc((100% - 36px) / 3);
+          height: size(438px);
+          margin-right: size(18px);
+          margin-bottom: size(18px);
+          border-bottom: 1px solid var(--basic-600);
+          position: relative;
+
+          &:nth-child(3n+3) {
+            margin-right: 0;
+          }
+
+          @include smaller-than(lg) {
+            width: calc((100% - 18px) / 2);
+
+            &:nth-child(2n+2) {
+              margin-right: 0;
+            }
+
+            &:nth-child(3n+3) {
+              margin-right: size(18px);
+            }
+
+            &:nth-child(6) {
+              margin-right: 0;
+            }
+
+            &:nth-child(12) {
+              margin-right: 0;
+            }
+          }
+
+          @include smaller-than(md) {
+            width: 100%;
+            margin-right: 0;
+          }
+
+          a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+          }
+
+          .image {
+            height: size(180px);
+            margin-bottom: size(18px);
+            overflow: hidden;
+            background: var(--basic-400);
+
+            img {
+              height: 100%;
+              margin-left: 50%;
+              transform: translateX(-50%);
+              max-width: 100%;
+            }
+          }
+
+          .tags {
+            padding: size(12px) size(4px);
+          }
+
+          .sum {
+            margin: size(12px) 0;
+            padding: 0 size(4px);
+          }
+
+          .details {
+            margin: size(12px) 0;
+            padding: 0 size(4px);
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            color: var(--neutral-500);
+
+            div {
+              margin-right: size(24px);
+
+              &:last-child {
+                margin-right: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

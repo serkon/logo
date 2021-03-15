@@ -1,5 +1,5 @@
 <div class="blog-list-page">
-  <logo-hero [containerStatus]="true" [cssClasses]="'hero-blog-list-page'">
+  <logo-hero [containerStatus]="true" [cssClasses]="'hero-blog-list'">
     <logo-breadcrumb
       [breadcrumb]="[{name:'Anasayfa', link: '/'}, {name: 'Blog'}]"
       [isLight]="true"
@@ -14,11 +14,48 @@
   <div class="content-list-base">
     <div class="container">
       <div class="filter-base">
-        Filters
+        <div class="results">
+          <h4>{{BlogData.total}} sonuç listeleniyor</h4>
+        </div>
+        <div class="filters">
+          <select class="secondary outline">
+            <option>Kategoriler</option>
+          </select>
+          <select class="secondary outline">
+            <option>Sırala</option>
+          </select>
+        </div>
       </div>
-      <div class="content-list">
-        Contents
+      <div *ngIf="BlogSummaries" class="content-list">
+        <div *ngFor="let item of BlogSummaries" class="item">
+          <a class="detail-link" routerLink="/blog/{{item.slug}}"></a>
+          <div class="image">
+            <img src="{{item.image}}">
+          </div>
+          <div class="tags">
+            <span *ngFor="let tag of item.tags" class="badge">{{tag.name}}</span>
+          </div>
+          <div class="sum">
+            <h5>{{item.title}}</h5>
+            <p>{{item.description}}</p>
+          </div>
+          <div class="details">
+            <div class="date icon-left le-calendar">
+              <p>{{item.date.publish}}</p>
+            </div>
+            <div class="author icon-left le-user">
+              <p>{{item.author.name}} {{item.author.surname}}</p>
+            </div>
+          </div>
+        </div>
       </div>
+      <logo-paging
+        [pageSize]="12"
+        [recordsFound]="' adet içerik bulundu.'"
+        [threshold]="5"
+        [totalCount]="BlogSummaries.length"
+      >
+      </logo-paging>
     </div>
   </div>
 </div>
