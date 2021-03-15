@@ -1,5 +1,5 @@
 <div class="navigator">
-  <div [ngClass]="isContainer ? 'container' : ''" class="base">
+  <div [ngClass]="{'container': isContainer}" class="base">
     <ul class="left">
       <ng-content select="[left]"></ng-content>
     </ul>
