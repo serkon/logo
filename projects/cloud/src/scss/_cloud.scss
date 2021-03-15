@@ -351,4 +351,14 @@ html, body {
       }
     }
   }
+
+  .content-menu {
+    .scroll {
+      text-align: left !important;
+
+      .nav-tabs {
+        padding-left: 0;
+      }
+    }
+  }
 }
