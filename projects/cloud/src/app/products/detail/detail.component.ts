@@ -39,20 +39,20 @@ import { BlogService } from '@cloud/app/services/blog/blog.service';
 export class DetailComponent implements OnInit {
   public productSlug: string;
   public product: Product;
-  public Testimonials: Testimonial;
-  public BlogData: HttpResponse<BlogSummary[]>;
-  public Faqs: FAQ;
-  public BlogSummaries: BlogSummary[];
-  private FaqData: HttpResponse<FAQ>;
-  public ProductSummaries: ProductSummary[];
+  public testimonials: Testimonial;
+  public blogData: HttpResponse<BlogSummary[]>;
+  public faqs: FAQ;
+  public blogSummaries: BlogSummary[];
+  public productSummaries: ProductSummary[];
+  private faqData: HttpResponse<FAQ>;
   public isStickyTabs: boolean = false;
   public appScreens: string[] = [];
   public imageData: ProductScreenFeatures;
   public productSticker: HttpResponse<ProductSticker[]>;
   public productReferences: HttpResponse<Reference[]>;
   private productData: HttpResponse<Product[]>;
-  private TestimonialsData: HttpResponse<Testimonial>;
-  private ProductSummaryData: HttpResponse<ProductSummary[]>;
+  private testimonialsData: HttpResponse<Testimonial>;
+  private productSummaryData: HttpResponse<ProductSummary[]>;
 
   constructor(
     private route: ActivatedRoute,
@@ -70,7 +70,7 @@ export class DetailComponent implements OnInit {
     this.getDetails();
     this.loadTestimonials();
     this.loadFaqs();
-    this.loadBlogSummaries();
+    this.loadblogSummaries();
     this.loadProductSummaries();
 
     const scroll$ = fromEvent(window, 'scroll');
@@ -112,23 +112,23 @@ export class DetailComponent implements OnInit {
   }
 
   private async loadTestimonials() {
-    this.TestimonialsData = await this.testimonialsService.getTestimonials();
-    this.Testimonials = this.TestimonialsData.data;
+    this.testimonialsData = await this.testimonialsService.getTestimonials();
+    this.testimonials = this.testimonialsData.data;
   }
 
   private async loadFaqs() {
-    this.FaqData = await this.faqService.getFaqs();
-    this.Faqs = this.FaqData.data;
+    this.faqData = await this.faqService.getFaqs();
+    this.faqs = this.faqData.data;
   }
 
-  private async loadBlogSummaries() {
-    this.BlogData = await this.blogService.getBlogSummary();
-    this.BlogSummaries = this.BlogData.data;
+  private async loadblogSummaries() {
+    this.blogData = await this.blogService.getBlogSummary();
+    this.blogSummaries = this.blogData.data;
   }
 
   private async loadProductSummaries() {
-    this.ProductSummaryData = await this.productService.getProductSummaries();
-    this.ProductSummaries = this.ProductSummaryData.data;
+    this.productSummaryData = await this.productService.getProductSummaries();
+    this.productSummaries = this.productSummaryData.data;
   }
 
 

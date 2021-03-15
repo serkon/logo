@@ -18,16 +18,26 @@
   </div>
   <div *ngIf="sellerInfo" class="seller-base">
     <div class="map-base">
-      <iframe [src]="sellerLocation" allowfullscreen="" height="400" loading="lazy" style="border:0;"
-              width="100%"></iframe>
+      <iframe
+        [src]="sellerLocation"
+        allowfullscreen=""
+        height="400"
+        loading="lazy"
+        style="border:0;"
+        width="100%"
+      >
+      </iframe>
     </div>
     <div class="seller-info-base">
       <div class="seller-info">
-        <logo-link *ngIf="sellerInfo.data[0].phone" [classes]="'primary outline icon-left le-phone'">
+        <logo-link
+          *ngIf="sellerInfo.data[0].phone"
+          [classes]="'primary outline icon-left le-phone'"
+        >
           {{sellerInfo.data[0].phone}}
         </logo-link>
         <p *ngIf="sellerInfo.data[0].address">{{sellerInfo.data[0].address}}</p>
-        <p>T: {{sellerInfo.data[0].phone}} | F: {{sellerInfo.data[0].fa}}</p>
+        <p>T: {{sellerInfo.data[0].phone}} | F: {{sellerInfo.data[0].fax}}</p>
         <p>{{sellerInfo.data[0].email}}</p>
       </div>
     </div>

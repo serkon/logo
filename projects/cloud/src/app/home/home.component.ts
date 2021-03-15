@@ -24,16 +24,16 @@ import { HeaderService } from '@logo-software/header';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  public BlogData: HttpResponse<BlogSummary[]>;
-  public ProductSummaries: ProductSummary[];
-  public BlogSummaries: BlogSummary[];
-  public Testimonials: Testimonial;
-  public SolutionSummaries: SolutionSummary[];
-  public Faqs: FAQ;
-  private ProductSummaryData: HttpResponse<ProductSummary[]>;
-  private TestimonialsData: HttpResponse<Testimonial>;
-  private SolutionSummaryData: Observable<HttpResponse<SolutionSummary[]>>;
-  private FaqData: HttpResponse<FAQ>;
+  public blogData: HttpResponse<BlogSummary[]>;
+  public productSummaries: ProductSummary[];
+  public blogSummaries: BlogSummary[];
+  public testimonials: Testimonial;
+  public solutionSummaries: SolutionSummary[];
+  public faqs: FAQ;
+  private productSummaryData: HttpResponse<ProductSummary[]>;
+  private testimonialsData: HttpResponse<Testimonial>;
+  private solutionSummaryData: Observable<HttpResponse<SolutionSummary[]>>;
+  private faqData: HttpResponse<FAQ>;
 
   constructor(
     private solutionService: SolutionService,
@@ -51,34 +51,34 @@ export class HomeComponent implements OnInit {
     this.loadProductSummaries();
     this.loadTestimonials();
     this.loadFaqs();
-    this.loadBlogSummaries();
+    this.loadblogSummaries();
   }
 
   private async loadSolutionSummaries() {
-    this.SolutionSummaryData = this.solutionService.getSolutionSummaries();
-    this.SolutionSummaryData.subscribe(res => {
-      this.SolutionSummaries = res.data;
+    this.solutionSummaryData = this.solutionService.getSolutionSummaries();
+    this.solutionSummaryData.subscribe(res => {
+      this.solutionSummaries = res.data;
     });
   }
 
   private async loadProductSummaries() {
-    this.ProductSummaryData = await this.productService.getProductSummaries();
-    this.ProductSummaries = this.ProductSummaryData.data;
+    this.productSummaryData = await this.productService.getProductSummaries();
+    this.productSummaries = this.productSummaryData.data;
   }
 
   private async loadTestimonials() {
-    this.TestimonialsData = await this.testimonialsService.getTestimonials();
-    this.Testimonials = this.TestimonialsData.data;
+    this.testimonialsData = await this.testimonialsService.getTestimonials();
+    this.testimonials = this.testimonialsData.data;
   }
 
   private async loadFaqs() {
-    this.FaqData = await this.faqService.getFaqs();
-    this.Faqs = this.FaqData.data;
+    this.faqData = await this.faqService.getFaqs();
+    this.faqs = this.faqData.data;
   }
 
-  private async loadBlogSummaries() {
-    this.BlogData = await this.blogService.getBlogSummary();
-    this.BlogSummaries = this.BlogData.data;
+  private async loadblogSummaries() {
+    this.blogData = await this.blogService.getBlogSummary();
+    this.blogSummaries = this.blogData.data;
   }
 
 }

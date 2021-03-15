@@ -71,8 +71,8 @@
         </p>
       </span>
       <div class="section-content">
-        <logo-carousel *ngIf="ProductSummaries" [arrow]="true" [count]="1" [dots]="false">
-          <div *ngFor="let productItem of ProductSummaries" class="slider-item">
+        <logo-carousel *ngIf="productSummaries" [arrow]="true" [count]="1" [dots]="false">
+          <div *ngFor="let productItem of productSummaries" class="slider-item">
             <logo-product-item [productData]="productItem"></logo-product-item>
           </div>
         </logo-carousel>

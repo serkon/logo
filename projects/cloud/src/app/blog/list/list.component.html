@@ -15,7 +15,7 @@
     <div class="container">
       <div class="filter-base">
         <div class="results">
-          <h4>{{BlogData.total}} sonuç listeleniyor</h4>
+          <h4>{{blogData.total}} sonuç listeleniyor</h4>
         </div>
         <div class="filters">
           <select class="secondary outline">
@@ -26,8 +26,8 @@
           </select>
         </div>
       </div>
-      <div *ngIf="BlogSummaries" class="content-list">
-        <div *ngFor="let item of BlogSummaries" class="item">
+      <div *ngIf="blogSummaries" class="content-list">
+        <div *ngFor="let item of blogSummaries" class="item">
           <a class="detail-link" routerLink="/blog/{{item.slug}}"></a>
           <div class="image">
             <img src="{{item.image}}">
@@ -53,7 +53,7 @@
         [pageSize]="12"
         [recordsFound]="' adet içerik bulundu.'"
         [threshold]="5"
-        [totalCount]="BlogSummaries.length"
+        [totalCount]="blogSummaries.length"
       >
       </logo-paging>
     </div>

@@ -7,6 +7,7 @@
  * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
  * Any reproduction of this material must contain this notice.
  */
+
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -14,7 +15,6 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ProductService } from '@cloud/app/services/product/product.service';
 import { HttpResponse, ProductSeller, ProductSummary, SolutionSummary } from '@cloud/models/interfaces';
 import { SolutionService } from '@cloud/app/services/solutions/solution.service';
-
 
 @Component({
   selector: 'logo-cloud-footer',
@@ -42,11 +42,7 @@ export class CloudFooterComponent implements OnInit {
   }
 
   private async getProductNames() {
-    if (this.productService.productSummaryData) {
-      this.products = this.productService.productSummaryData;
-    } else {
-      this.products = await this.productService.getProductSummaries();
-    }
+    this.products = this.productService.productSummaryData ? this.productService.productSummaryData : await this.productService.getProductSummaries();
   }
 
   private async getSeller() {

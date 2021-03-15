@@ -21,20 +21,20 @@ import { BlogService } from '@cloud/app/services/blog/blog.service';
 })
 export class ListComponent implements OnInit {
 
-  public BlogData: HttpResponse<BlogSummary[]>;
-  public BlogSummaries: BlogSummary[];
+  public blogData: HttpResponse<BlogSummary[]>;
+  public blogSummaries: BlogSummary[];
 
   constructor(private blogService: BlogService, private headerService: HeaderService) {
   }
 
   ngOnInit(): void {
     this.headerService.isScrollSpy = true;
-    this.loadBlogSummaries();
+    this.loadblogSummaries();
   }
 
-  private async loadBlogSummaries() {
-    this.BlogData = await this.blogService.getBlogSummary();
-    this.BlogSummaries = this.BlogData.data;
+  private async loadblogSummaries() {
+    this.blogData = await this.blogService.getBlogSummary();
+    this.blogSummaries = this.blogData.data;
   }
 
 }

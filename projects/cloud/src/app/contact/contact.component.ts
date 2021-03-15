@@ -15,8 +15,8 @@ import { FaqService } from '@cloud/app/services/faq/faq.service';
 export class ContactComponent implements OnInit {
   public contactData: HttpResponse<ContactData[]>;
   public contactPage: ContactData;
-  public Faqs: FAQ;
-  private FaqData: HttpResponse<FAQ>;
+  public faqs: FAQ;
+  private faqData: HttpResponse<FAQ>;
 
   constructor(
     private headerService: HeaderService,
@@ -48,7 +48,7 @@ export class ContactComponent implements OnInit {
   }
 
   private async loadFaqs() {
-    this.FaqData = await this.faqService.getFaqs();
-    this.Faqs = this.FaqData.data;
+    this.faqData = await this.faqService.getFaqs();
+    this.faqs = this.faqData.data;
   }
 }

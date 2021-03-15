@@ -18,9 +18,14 @@
     </logo-tabs>
   </div>
   <div class="map-base">
-    <iframe allowfullscreen="" height="390" loading="lazy"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3017.9587230750235!2d29.427276815220687!3d40.85083003704783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cb2742ab1d65b9%3A0x8c0f74e8a70d22e2!2sLOGO%20Business%20Solutions!5e0!3m2!1sen!2str!4v1615508353530!5m2!1sen!2str"
-            style="border:0;" width="100%"></iframe>
+    <iframe
+      allowfullscreen=""
+      height="390"
+      loading="lazy"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3017.9587230750235!2d29.427276815220687!3d40.85083003704783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cb2742ab1d65b9%3A0x8c0f74e8a70d22e2!2sLOGO%20Business%20Solutions!5e0!3m2!1sen!2str!4v1615508353530!5m2!1sen!2str"
+      style="border: 0;"
+      width="100%"
+    ></iframe>
   </div>
   <div class="contact-infos">
     <div *ngFor="let item of contactPage.contact" class="item">
@@ -43,13 +48,13 @@
       </div>
     </div>
   </div>
-  <div *ngIf="Faqs" class="faq-section" id="faq">
+  <div *ngIf="faqs" class="faq-section" id="faq">
     <div class="faq container">
       <span class="title">
         <h2><b>Sıkça Sorulan Sorular</b></h2>
       </span>
       <div class="section-content">
-        <logo-accordion [iconClasses]="" [items]="Faqs" [start]="0"></logo-accordion>
+        <logo-accordion [iconClasses]="" [items]="faqs" [start]="0"></logo-accordion>
       </div>
     </div>
   </div>

@@ -19,15 +19,15 @@ import { FaqService } from '@cloud/app/services/faq/faq.service';
 export class DetailComponent implements OnInit {
   public solutionResponse: HttpResponse<Solution[]>;
   public solutionData: Solution;
-  public ProductSummaries: ProductSummary[];
-  public Faqs: FAQ;
-  public Testimonials: Testimonial;
-  public BlogData: HttpResponse<BlogSummary[]>;
-  public BlogSummaries: BlogSummary[];
+  public productSummaries: ProductSummary[];
+  public faqs: FAQ;
+  public testimonials: Testimonial;
+  public blogData: HttpResponse<BlogSummary[]>;
+  public blogSummaries: BlogSummary[];
   private slug: string;
-  private ProductSummaryData: HttpResponse<ProductSummary[]>;
-  private FaqData: HttpResponse<FAQ>;
-  private TestimonialsData: HttpResponse<Testimonial>;
+  private productSummaryData: HttpResponse<ProductSummary[]>;
+  private faqData: HttpResponse<FAQ>;
+  private testimonialsData: HttpResponse<Testimonial>;
 
   constructor(
     private route: ActivatedRoute,
@@ -48,7 +48,7 @@ export class DetailComponent implements OnInit {
     this.loadProductSummaries();
     this.loadFaqs();
     this.loadTestimonials();
-    this.loadBlogSummaries();
+    this.loadblogSummaries();
   }
 
   public sanitizer(image: string) {
@@ -58,26 +58,26 @@ export class DetailComponent implements OnInit {
   private async loadSolutionDetail() {
     this.solutionResponse = await this.solutionService.getSolutionDetail(this.slug);
     this.solutionData = this.solutionResponse.data[0];
-    console.log(this.solutionData);
+    (this.solutionData);
   }
 
   private async loadProductSummaries() {
-    this.ProductSummaryData = await this.productService.getProductSummaries();
-    this.ProductSummaries = this.ProductSummaryData.data;
+    this.productSummaryData = await this.productService.getProductSummaries();
+    this.productSummaries = this.productSummaryData.data;
   }
 
   private async loadFaqs() {
-    this.FaqData = await this.faqService.getFaqs();
-    this.Faqs = this.FaqData.data;
+    this.faqData = await this.faqService.getFaqs();
+    this.faqs = this.faqData.data;
   }
 
   private async loadTestimonials() {
-    this.TestimonialsData = await this.testimonialsService.getTestimonials();
-    this.Testimonials = this.TestimonialsData.data;
+    this.testimonialsData = await this.testimonialsService.getTestimonials();
+    this.testimonials = this.testimonialsData.data;
   }
 
-  private async loadBlogSummaries() {
-    this.BlogData = await this.blogService.getBlogSummary();
-    this.BlogSummaries = this.BlogData.data;
+  private async loadblogSummaries() {
+    this.blogData = await this.blogService.getBlogSummary();
+    this.blogSummaries = this.blogData.data;
   }
 }

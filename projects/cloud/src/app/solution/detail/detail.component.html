@@ -62,36 +62,36 @@
       </div>
     </div>
   </div>
-  <div *ngIf="ProductSummaries" class="section" id="products">
+  <div *ngIf="productSummaries" class="section" id="products">
     <div class="product-suggestion container">
       <span class="title">
         <h2><b>Çözüm Ürünleri</b></h2>
         <p>İhityaçlarınıza en uygun çözümler Logo Cloud’da!</p>
       </span>
       <div class="section-content">
-        <logo-carousel *ngIf="ProductSummaries" [arrow]="true" [count]="1" [dots]="false">
-          <div *ngFor="let productItem of ProductSummaries" class="slider-item">
+        <logo-carousel *ngIf="productSummaries" [arrow]="true" [count]="1" [dots]="false">
+          <div *ngFor="let productItem of productSummaries" class="slider-item">
             <logo-product-item [productData]="productItem"></logo-product-item>
           </div>
         </logo-carousel>
       </div>
     </div>
   </div>
-  <div *ngIf="Faqs" class="section" id="faq">
+  <div *ngIf="faqs" class="section" id="faq">
     <div class="faq container">
       <span class="title">
         <h2><b>Sıkça Sorulan Sorular</b></h2>
       </span>
       <div class="section-content">
-        <logo-accordion [iconClasses]="" [items]="Faqs" [start]="0"></logo-accordion>
+        <logo-accordion [iconClasses]="" [items]="faqs" [start]="0"></logo-accordion>
       </div>
     </div>
   </div>
   <div class="section alternate" id="testimonials">
     <div class="testimonial">
       <div class="section-content">
-        <logo-carousel *ngIf="Testimonials" [arrow]="true" [count]="1" [dots]="false">
-          <div *ngFor="let testimonial of Testimonials" class="slider-item">
+        <logo-carousel *ngIf="testimonials" [arrow]="true" [count]="1" [dots]="false">
+          <div *ngFor="let testimonial of testimonials" class="slider-item">
             <div class="container">
               <span class="image">
                 <img onerror="this.src='/assets/img/default-user.png';" src="{{testimonial.author.image}}"/>
@@ -117,8 +117,8 @@
         <h2><b>Blog</b></h2>
       </span>
       <div class="section-content">
-        <div *ngIf="BlogSummaries" class="blog-summary-base">
-          <div *ngFor="let blogItem of BlogSummaries" class="blog-item">
+        <div *ngIf="blogSummaries" class="blog-summary-base">
+          <div *ngFor="let blogItem of blogSummaries" class="blog-item">
             <div class="image">
               <img src="{{blogItem.image}}">
             </div>
@@ -140,11 +140,11 @@
           </div>
         </div>
         <logo-paging
-          *ngIf="BlogData"
+          *ngIf="blogData"
           [pageSize]="3"
           [recordsFound]="' adet içerik bulundu.'"
           [threshold]="5"
-          [totalCount]="BlogData.count"
+          [totalCount]="blogData.count"
         >
         </logo-paging>
       </div>

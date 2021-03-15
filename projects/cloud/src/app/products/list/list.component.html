@@ -117,20 +117,20 @@
           </button>
         </div>
       </div>
-      <div *ngIf="ProductSummaries" class="infos">
-        <h4>{{ProductSummaries.length}} sonuç listeleniyor</h4>
+      <div *ngIf="productSummaries" class="infos">
+        <h4>{{productSummaries.length}} sonuç listeleniyor</h4>
       </div>
-      <div *ngIf="ProductSummaries" class="listing">
-        <div *ngFor="let productItem of ProductSummaries" class="list-item">
+      <div *ngIf="productSummaries" class="listing">
+        <div *ngFor="let productItem of productSummaries" class="list-item">
           <logo-product-item [productData]="productItem"></logo-product-item>
         </div>
       </div>
       <logo-paging
-        *ngIf="ProductSummaries"
+        *ngIf="productSummaries"
         [pageSize]="12"
         [recordsFound]="' adet içerik bulundu.'"
         [threshold]="5"
-        [totalCount]="ProductSummaries.length"
+        [totalCount]="productSummaries.length"
       >
       </logo-paging>
       <logo-speed-connect></logo-speed-connect>

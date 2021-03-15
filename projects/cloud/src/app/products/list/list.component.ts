@@ -28,8 +28,8 @@ export class ListComponent implements OnInit {
   public segments: Segment[];
   public sectorData: HttpResponse<Sector[]>;
   public sectors: Sector[];
-  public ProductSummaries: ProductSummary[];
-  private ProductSummaryData: HttpResponse<ProductSummary[]>;
+  public productSummaries: ProductSummary[];
+  private productSummaryData: HttpResponse<ProductSummary[]>;
   public isSectorListExpanded: boolean = false;
   public isFilterExpanded: boolean = false;
   public currentFilters = [];
@@ -64,8 +64,8 @@ export class ListComponent implements OnInit {
   }
 
   private async loadProductSummaries() {
-    this.ProductSummaryData = await this.productService.getProductSummaries();
-    this.ProductSummaries = this.ProductSummaryData.data;
+    this.productSummaryData = await this.productService.getProductSummaries();
+    this.productSummaries = this.productSummaryData.data;
   }
 
   public toogleSectorList() {
@@ -121,7 +121,7 @@ export class ListComponent implements OnInit {
 
   private filterProducts(filterQuery: string, filterType: string) {
     const listData = JSON.parse(JSON.stringify(this.productService.productSummaryData.data));
-    this.ProductSummaries = listData.filter((data) => {
+    this.productSummaries = listData.filter((data) => {
       switch (filterType) {
         case 'solution':
           return data.solution.id === filterQuery;
@@ -136,6 +136,6 @@ export class ListComponent implements OnInit {
           return this.productService.productSummaryData.data;
       }
     });
-    console.log(this.ProductSummaries);
+    (this.productSummaries);
   }
 }

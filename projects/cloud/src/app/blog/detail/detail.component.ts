@@ -24,10 +24,10 @@ import { ProductService } from '@cloud/app/services/product/product.service';
 })
 export class DetailComponent implements OnInit {
   public blogData: Blog;
-  public ProductSummaries: ProductSummary[];
+  public productSummaries: ProductSummary[];
   private blogResponse: HttpResponse<Blog[]>;
   private slug: string;
-  private ProductSummaryData: HttpResponse<ProductSummary[]>;
+  private productSummaryData: HttpResponse<ProductSummary[]>;
 
   constructor(
     private route: ActivatedRoute,
@@ -50,7 +50,7 @@ export class DetailComponent implements OnInit {
   }
 
   private async loadProductSummaries() {
-    this.ProductSummaryData = await this.productService.getProductSummaries();
-    this.ProductSummaries = this.ProductSummaryData.data;
+    this.productSummaryData = await this.productService.getProductSummaries();
+    this.productSummaries = this.productSummaryData.data;
   }
 }
