@@ -779,6 +779,10 @@ export interface BlogSummary {
    */
   title: string;
   /**
+   * SEO uyumlu URL için kısayol adı
+   */
+  slug: string;
+  /**
    * Blog'a ait kısa açıklama
    */
   description: string;
@@ -1248,6 +1252,7 @@ const blogSummaries: BlogSummary[] = [
       },
     ],
     title: 'Yıllık izin nedir, nasıl elde edilir?',
+    slug: 'yillik-izin-nedir-nasil-elde-edilir',
     description: 'Yıllık izin, işçinin en temel haklarındadır. İşçi, gerekli koşulları sağladığı' +
       ' hallerde bu hakkını kullanmakla; işveren ise buna izin vermekle yükümlüdür. Ancak, her işçi' +
       ' için yıllık izin süreleri aynı olmaz. ',
@@ -1275,6 +1280,7 @@ const blogSummaries: BlogSummary[] = [
       },
     ],
     title: 'Yıllık izin nedir, nasıl elde edilir?',
+    slug: 'yillik-izin-nedir-nasil-elde-edilir',
     description: 'Yıllık izin, işçinin en temel haklarındadır. İşçi, gerekli koşulları sağladığı' +
       ' hallerde bu hakkını kullanmakla; işveren ise buna izin vermekle yükümlüdür. Ancak, her işçi' +
       ' için yıllık izin süreleri aynı olmaz. ',
@@ -1302,6 +1308,7 @@ const blogSummaries: BlogSummary[] = [
       },
     ],
     title: 'Yıllık izin nedir, nasıl elde edilir?',
+    slug: 'yillik-izin-nedir-nasil-elde-edilir',
     description: 'Yıllık izin, işçinin en temel haklarındadır. İşçi, gerekli koşulları sağladığı hallerde bu hakkını kullanmakla; işveren ise buna izin vermekle yükümlüdür. Ancak, her işçi için yıllık izin süreleri aynı olmaz. ',
     date: {publish: '16 Nisan 2020'},
     author: {
