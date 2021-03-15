@@ -19,8 +19,12 @@
   </div>
   <div class="thumbs">
     <ul class="thumb-list">
-      <li (click)="move(i)" *ngFor="let item of media; let i=index" [ngClass]="{'selected': i===pos}"
-          [style.background-image]="sanitizer(item)" class="move">
+      <li
+        (click)="move(i)"
+        *ngFor="let item of media; let i=index"
+        [ngClass]="{'selected': i===pos}"
+        [style.background-image]="sanitizer(item)" class="move"
+      >
       </li>
     </ul>
   </div>

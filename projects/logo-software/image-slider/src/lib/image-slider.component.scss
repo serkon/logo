@@ -150,7 +150,7 @@
         &.selected {
           @include animate();
 
-          border: 1px solid rgba(var(--primary-rgb), 0.5);
+          border: size(1px) solid rgba(var(--primary-rgb), 0.5);
         }
       }
     }
