@@ -59,18 +59,36 @@
         position: relative;
         flex-direction: row;
 
+        @include smaller-than(md) {
+          flex-direction: column;
+        }
+
         .gfx {
           height: size(580px);
           background-repeat: no-repeat;
           background-position: top center;
           background-size: cover;
           width: 50%;
+
+          @include smaller-than(md) {
+            width: 100%;
+            height: size(460px);
+          }
         }
 
         .blue-area {
           width: 50%;
           height: size(580px);
           background: var(--primary);
+
+          @include smaller-than(md) {
+            width: 100%;
+            height: size(380px);
+          }
+
+          @include smaller-than(md) {
+            height: size(460px);
+          }
         }
 
         .item-content {
@@ -79,6 +97,10 @@
           left: 0;
           z-index: 1;
           width: 100%;
+
+          @include smaller-than(md) {
+            top: size(460px);
+          }
 
           .container {
             display: flex;
@@ -89,6 +111,12 @@
               padding: size(140px) size(60px);
               color: var(--white);
               box-sizing: border-box;
+
+              @include smaller-than(md) {
+                width: 100%;
+                box-sizing: border-box;
+                padding: size(40px) size(20px);
+              }
 
               h2 {
                 color: var(--white);
@@ -119,6 +147,10 @@
         &:nth-child(even) {
           flex-direction: row-reverse;
 
+          @include smaller-than(md) {
+            flex-direction: column;
+          }
+
           .item-content {
             .container {
               flex-direction: row;
@@ -146,10 +178,20 @@
         align-items: center;
         justify-content: center;
 
+        @include smaller-than(md) {
+          flex-direction: column;
+        }
+
         .gfx {
           width: 60%;
           height: 100%;
           overflow: hidden;
+
+          @include smaller-than(md) {
+            width: 100%;
+            height: size(360px);
+            box-sizing: border-box;
+          }
 
           img {
             height: 100%;
@@ -159,6 +201,12 @@
         .form {
           width: 40%;
           padding: 0 size(76px);
+
+          @include smaller-than(md) {
+            width: 100%;
+            box-sizing: border-box;
+            padding: size(15px) size(19px);
+          }
 
           .form-item {
             margin-bottom: size(20px);
