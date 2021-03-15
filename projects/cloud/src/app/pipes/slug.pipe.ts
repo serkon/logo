@@ -15,6 +15,5 @@ export class SlugPipe implements PipeTransform {
       .replace(/\-\-+/g, '-')
       .replace(/^-+/, '')
       .replace(/-+$/, '');
-    console.log(value);
   }
 }
