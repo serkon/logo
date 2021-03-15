@@ -361,4 +361,12 @@ html, body {
       }
     }
   }
+
+  .blog-detail-page {
+    .page-content {
+      img {
+        max-width: 100%;
+      }
+    }
+  }
 }
