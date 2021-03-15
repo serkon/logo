@@ -1,5 +1,5 @@
 <div
-  [ngClass]="headerService.isScrollSpy ? '': 'nailed'"
+  [ngClass]="{'nailed' : !headerService.isScrollSpy}"
   class="header {{mobileSupport}} {{headerService.activeTheme}}"
 >
   <div [ngClass]="{'container': containerStatus}" class="header-content">
@@ -9,6 +9,6 @@
     </div>
   </div>
 </div>
-<div *ngIf="isMobilized" [ngClass]="headerService.isScrollSpy ? '': 'nailed'" class="mobile-opener">
+<div *ngIf="isMobilized" [ngClass]="{'nailed' : !headerService.isScrollSpy}" class="mobile-opener">
   <button class="ghost le-icon_list large" (click)="toggleMobileMenu()"></button>
 </div>
