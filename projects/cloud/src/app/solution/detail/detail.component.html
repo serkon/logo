@@ -1,0 +1,158 @@
+<div *ngIf="solutionData" class="solution-detail-page">
+  <logo-hero [bgImage]="solutionData.backgroundImage" [containerStatus]="true" [cssClasses]="'hero-solution-detail'">
+    <logo-breadcrumb
+      [breadcrumb]="[{name:'Anasayfa', link: '/'}, {name:'Çözümler', link: '/#solutions'}, {name: solutionData.name}]"
+      [isLight]="true"
+      [size]="'medium'"
+    >
+    </logo-breadcrumb>
+    <div class="content">
+      <div class="solution-label">
+        <h1><b>{{solutionData.name}}</b></h1>
+        <h4>{{solutionData.description}}</h4>
+      </div>
+      <div class="options">
+        <logo-link [classes]="'primary large'" [fragment]="'form'" [url]="'/contact'">Detaylı Bilgi Al</logo-link>
+      </div>
+    </div>
+  </logo-hero>
+  <div class="content-menu">
+    <logo-tabs [activeTab]="0" [isContainer]="true" [routing]="true" class="medium">
+      <logo-tab [fragment]="'content'" [title]="'Genel Bakış'"></logo-tab>
+      <logo-tab [fragment]="'products'" [title]="'Çözüm Ürünleri'"></logo-tab>
+      <logo-tab [fragment]="'faq'" [title]="'Sıkça Sorulan Sorular'"></logo-tab>
+      <logo-tab [fragment]="'testimonials'" [title]="'Ne Dediler?'"></logo-tab>
+      <logo-tab [fragment]="'blog'" [title]="'Blog'"></logo-tab>
+      <logo-tab [fragment]="'footer'" [title]="'İletişim'"></logo-tab>
+    </logo-tabs>
+  </div>
+  <div class="page-content" id="content">
+    <div class="container meta-data-base">
+      <div class="intro">
+        <h1><b>{{solutionData.meta.cover.title}}</b></h1>
+        <p class="large">{{solutionData.meta.cover.description}}</p>
+        <div class="gfx">
+          <img src="{{solutionData.meta.cover.image}}">
+        </div>
+      </div>
+      <div class="features">
+        <div *ngFor="let feat of solutionData.meta.features" class="feature-item">
+          <span class="icon">
+            <img src="{{feat.image}}">
+          </span>
+          <h5>{{feat.title}}</h5>
+          <p>{{feat.description}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="solutions-base">
+      <div *ngFor="let solutionItem of solutionData.meta.summaries" class="solution-item">
+        <div [style.background-image]="sanitizer(solutionItem.image)" class="gfx"></div>
+        <div class="content-base"></div>
+        <div class="details">
+          <div class="container">
+            <div class="solution-texts">
+              <h1><b>{{solutionItem.title}}</b></h1>
+              <p class="large">
+                {{solutionItem.description}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="ProductSummaries" class="section" id="products">
+    <div class="product-suggestion container">
+      <span class="title">
+        <h2><b>Çözüm Ürünleri</b></h2>
+        <p>İhityaçlarınıza en uygun çözümler Logo Cloud’da!</p>
+      </span>
+      <div class="section-content">
+        <logo-carousel *ngIf="ProductSummaries" [arrow]="true" [count]="1" [dots]="false">
+          <div *ngFor="let productItem of ProductSummaries" class="slider-item">
+            <logo-product-item [productData]="productItem"></logo-product-item>
+          </div>
+        </logo-carousel>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="Faqs" class="section" id="faq">
+    <div class="faq container">
+      <span class="title">
+        <h2><b>Sıkça Sorulan Sorular</b></h2>
+      </span>
+      <div class="section-content">
+        <logo-accordion [iconClasses]="" [items]="Faqs" [start]="0"></logo-accordion>
+      </div>
+    </div>
+  </div>
+  <div class="section alternate" id="testimonials">
+    <div class="testimonial">
+      <div class="section-content">
+        <logo-carousel *ngIf="Testimonials" [arrow]="true" [count]="1" [dots]="false">
+          <div *ngFor="let testimonial of Testimonials" class="slider-item">
+            <div class="container">
+              <span class="image">
+                <img onerror="this.src='/assets/img/default-user.png';" src="{{testimonial.author.image}}"/>
+              </span>
+              <span class="name"><h3>{{testimonial.author.name}} {{testimonial.author.surname}}
+                - {{testimonial.author.companyName}}</h3></span>
+              <span class="title"><h5>{{testimonial.author.title}}</h5></span>
+              <span class="feedback-title">
+                <h4 class="small">{{testimonial.title}}</h4>
+              </span>
+              <span class="feedback-desc">
+                <p class="large">{{testimonial.description}}</p>
+              </span>
+            </div>
+          </div>
+        </logo-carousel>
+      </div>
+    </div>
+  </div>
+  <div class="section" id="blog">
+    <div class="blog-summary container">
+      <span class="title">
+        <h2><b>Blog</b></h2>
+      </span>
+      <div class="section-content">
+        <div *ngIf="BlogSummaries" class="blog-summary-base">
+          <div *ngFor="let blogItem of BlogSummaries" class="blog-item">
+            <div class="image">
+              <img src="{{blogItem.image}}">
+            </div>
+            <div class="infos">
+              <div class="tags">
+                <span *ngFor="let badge of blogItem.tags" class="badge">
+                  {{badge.name}}
+                </span>
+              </div>
+              <div class="content">
+                <h5>{{blogItem.title}}</h5>
+                <p>{{blogItem.description}}</p>
+              </div>
+              <div class="date">
+                <span class="le-calendar"></span>
+                <p>{{blogItem.date.publish}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <logo-paging
+          *ngIf="BlogData"
+          [pageSize]="3"
+          [recordsFound]="' adet içerik bulundu.'"
+          [threshold]="5"
+          [totalCount]="BlogData.count"
+        >
+        </logo-paging>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <logo-speed-connect></logo-speed-connect>
+  </div>
+
+</div>
+<logo-cloud-footer></logo-cloud-footer>

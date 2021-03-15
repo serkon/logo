@@ -1,0 +1,280 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
+@import "~@logo-software/theme/base";
+@import "vars";
+
+:host {
+  .solution-detail-page {
+    ::ng-deep {
+      .hero-solution-detail {
+        height: size(255px);
+        background-position: top center;
+        background-repeat: no-repeat;
+        color: var(--white);
+
+        @include smaller-than(sm) {
+          height: size(360px);
+          background-size: cover;
+        }
+
+        h1, h4 {
+          color: var(--white);
+        }
+
+        .content {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+
+          .solution-label {
+            flex-grow: 1;
+            width: 80%;
+
+            @include smaller-than(md) {
+              width: 100%;
+              box-sizing: border-box;
+            }
+          }
+
+          .options {
+            text-align: right;
+            width: 20%;
+
+            @include smaller-than(md) {
+              display: none;
+            }
+          }
+        }
+
+        .overlay {
+          background: rgba(var(--primary-900-rgb), 0.8);
+        }
+
+        .content-details {
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          margin-top: size(24px);
+
+          .date {
+            margin-right: size(24px);
+          }
+        }
+      }
+    }
+
+    .page-content {
+      .meta-data-base {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding-top: size(170px);
+        padding-bottom: size(170px);
+
+        @include smaller-than(md) {
+          padding-top: size(70px);
+          padding-bottom: size(70px);
+          flex-wrap: wrap;
+        }
+
+        .intro {
+          width: 30%;
+          margin-right: size(60px);
+
+          @include smaller-than(md) {
+            width: 100%;
+            margin-right: 0;
+            box-sizing: border-box;
+            margin-bottom: size(24px);
+          }
+
+          p {
+            margin: size(40px) 0;
+          }
+
+          .gfx {
+            img {
+              width: 100%;
+            }
+          }
+        }
+
+        .features {
+          width: calc(70% - 60px);
+          flex-grow: 1;
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          flex-wrap: wrap;
+
+          @include smaller-than(md) {
+            width: 100%;
+            box-sizing: border-box;
+          }
+
+          .feature-item {
+            width: calc((100% - 100px) / 2);
+            margin-bottom: size(45px);
+
+            @include smaller-than(md) {
+              width: calc((100% - 20px) / 2);
+            }
+
+            @include smaller-than(sm) {
+              width: calc((100% - 20px));
+            }
+
+            .icon {
+              @include border-radius(50%);
+              @include box-shadow(0, size(24px), size(48px), 0, rgba(var(--black-rgb), 0.09), false);
+
+              display: inline-block;
+              width: size(100px);
+              height: size(100%);
+              text-align: center;
+              line-height: size(98px);
+              overflow: hidden;
+              margin-bottom: size(30px);
+
+              img {
+                width: size(32px);
+              }
+            }
+
+            h5 {
+              margin-bottom: size(20px);
+            }
+          }
+        }
+      }
+
+      .solutions-base {
+        .solution-item {
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          position: relative;
+          flex-direction: row;
+
+          @include smaller-than(md) {
+            flex-direction: column;
+          }
+
+          .gfx {
+            width: 50%;
+            height: size(480px);
+            background-repeat: no-repeat;
+            background-position: top center;
+            background-size: cover;
+
+            @include smaller-than(md) {
+              width: 100%;
+              height: size(240px);
+            }
+          }
+
+          .content-base {
+            width: 50%;
+            height: size(480px);
+            background: var(--primary);
+
+            @include smaller-than(md) {
+              width: 100%;
+              height: size(360px);
+            }
+
+            @include smaller-than(sm) {
+              height: size(480px);
+            }
+          }
+
+          .details {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+
+            @include smaller-than(md) {
+              top: size(260px);
+            }
+
+            .container {
+              display: flex;
+              flex-direction: row-reverse;
+
+              .solution-texts {
+                width: 50%;
+                padding: size(140px) size(60px);
+                color: var(--white);
+                box-sizing: border-box;
+
+                @include smaller-than(xl) {
+                  padding: size(100px) size(40px);
+                }
+
+                @include smaller-than(lg) {
+                  padding: size(50px) size(20px);
+                }
+
+                @include smaller-than(md) {
+                  width: 100%;
+                  padding: size(10px);
+                }
+
+                h1 {
+                  color: var(--white);
+                  margin-bottom: size(16px);
+                }
+
+                p {
+                  color: var(--white);
+                }
+              }
+            }
+          }
+
+          &:nth-child(even) {
+            flex-direction: row-reverse;
+
+            @include smaller-than(md) {
+              flex-direction: column;
+            }
+
+            .details {
+              .container {
+                flex-direction: row;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .section {
+      margin: size(170px) 0;
+
+      .title {
+        display: block;
+        text-align: center;
+      }
+
+      .section-content {
+        margin-top: size(76px);
+      }
+
+      &.alternate {
+        background: var(--basic);
+      }
+    }
+  }
+}
