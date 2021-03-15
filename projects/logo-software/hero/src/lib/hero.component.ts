@@ -10,9 +10,6 @@ export class HeroComponent implements OnInit {
   @Input() containerStatus: boolean = false;
   @Input() bgImage?: string;
 
-  constructor() {
-  }
-
   ngOnInit(): void {
   }
 
