@@ -40,7 +40,7 @@ export const environment = {
     },
   },
   api: {
-    baseURL: 'http://localhost:3004/api',
+    baseURL: 'http://mocks.paas.test/api',
     solution: {
       prefix: 'solution',
       summary: 'summary/list',
