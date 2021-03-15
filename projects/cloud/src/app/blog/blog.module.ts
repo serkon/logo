@@ -19,10 +19,10 @@ import { CarouselModule } from '@logo-software/carousel';
 
 import { CloudFooterModule } from '@cloud/app/components/cloud-footer/cloud-footer.module';
 import { ProductItemModule } from '@cloud/app/components/product-item/product-item.module';
+import { SpeedConnectModule } from '@cloud/app/components/speed-connect/speed-connect.module';
 import { BlogRoutingModule } from './blog-routing.module';
 import { ListComponent } from './list/list.component';
 import { DetailComponent } from './detail/detail.component';
-import { SpeedConnectModule } from '@cloud/app/components/speed-connect/speed-connect.module';
 
 @NgModule({
   declarations: [ListComponent, DetailComponent],

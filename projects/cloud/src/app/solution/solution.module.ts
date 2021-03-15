@@ -12,8 +12,8 @@ import { PagingModule } from '@logo-software/paging';
 import { ProductItemModule } from '@cloud/app/components/product-item/product-item.module';
 import { DetailComponent } from '@cloud/app/solution/detail/detail.component';
 import { CloudFooterModule } from '@cloud/app/components/cloud-footer/cloud-footer.module';
-import { SolutionRoutingModule } from './solution-routing.module';
 import { SpeedConnectModule } from '@cloud/app/components/speed-connect/speed-connect.module';
+import { SolutionRoutingModule } from './solution-routing.module';
 
 @NgModule({
   declarations: [DetailComponent],
