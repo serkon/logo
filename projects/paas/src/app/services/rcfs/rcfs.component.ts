@@ -11,97 +11,79 @@ export class RcfsComponent implements AfterViewInit {
 
   public sliderItems: SliderItem[];
   public opinions = [1];
-  public boxes = [
-    {
-      icon: '/assets/images/services/cc/section-02-icon-01.svg',
-      description: 'Uygulama tanımlarınızı, ürünleştirerek API uçları ya da arayüzleri kullanarak Bulut Yönetim Servisine tanımlayın.',
-    },
-    {
-      icon: '/assets/images/services/cc/section-02-icon-02.svg',
-      description: 'Hesaplarınızı API uçları ya da arayüzler yardımıyla kolayca tanımlayın.',
-    },
-    {
-      icon: '/assets/images/services/cc/section-02-icon-03.svg',
-      description: 'Hesap kullanıcılarızı ve uygulama yetkilerini arayüzler ya da API uçları ile yönetin.',
-    },
-    {
-      icon: '/assets/images/services/cc/section-02-icon-04.svg',
-      description: 'Hesabınız oluşurken durumunu Kafka mesajları ile takip edin.',
-    },
-    {
-      icon: '/assets/images/services/cc/section-02-icon-05.svg',
-      description: 'Hesaba kullanıcı tanımlama işlemlerini E-Posta aktivasyonları ile kullanıcı onayından geçirin.',
-    },
-    {
-      icon: '/assets/images/services/cc/section-02-icon-06.svg',
-      description: 'Sunucu tanımlarınızı yapın ve uygulamanızın hangi sunucuda çalışacağını bulut yönetim servisine bırakın.',
-    },
-  ];
   private bodyHeight: number;
 
   constructor(@Inject(DOCUMENT) private document) {
     this.sliderItems = [
       {
-        icon: '/assets/images/services/idm/section-04-01.svg',
-        abbr: 'Uygulamalarınızın menüleri için merkezi yönetim',
+        icon: '/assets/images/services/rcfs/rcfs-specs-check.svg',
+        abbr: 'Servis geliştirme ekiplerini ayarlayın',
         title: '',
-        description: 'Hesabınıza tanımlı uygulamaların menülerini bir yerden yönetin',
+        description: 'Development takımları oluşturun ve yönetin. Takım üyeleri oluşturun ve yönetin.',
         url: '',
         classes: '',
       },
       {
-        icon: '/assets/images/services/idm/section-04-02.svg',
-        abbr: 'Çoklu Hesap (Multitenant) İşlemleri',
+        icon: '/assets/images/services/rcfs/rcfs-specs-check.svg',
+        abbr: 'Breaking change notification desteği',
         title: '',
-        description: 'Kullanıcı şifrelerinin güvenli bir şekilde (MD5, SHA1, SHA256, SHA384, SHA512 şifreleme yöntemleri ile ) tutulduğundan emin olun',
+        description: 'Servis sürüm değişikliklerinde bilgilendirme mailleri ile süreçlerini daha kolay yönetin.\n',
         url: '',
         classes: '',
       },
       {
-        icon: '/assets/images/services/idm/section-04-03.svg',
-        abbr: 'Hızlı Kısayol İşlemleri',
+        icon: '/assets/images/services/rcfs/rcfs-specs-check.svg',
+        abbr: 'Jira entegrasyonu',
         title: '',
-        description: 'Verilen yetkiler doğrultusunda kısayollarınızı görüntüleyip, sürükle, bırak ie işlemlerinizi hızlıca tamamlayın',
+        description: 'Herhangi bir servisin sürüm değişikliği ile ilgili sprintte bulunan jira maddelerini bulun ve yapılanları takip edin.',
         url: '',
         classes: '',
       },
       {
-        icon: '/assets/images/services/idm/section-04-04.svg',
-        abbr: 'Masaüstünüzü Tasarlayın',
+        icon: '/assets/images/services/rcfs/rcfs-specs-check.svg',
+        abbr: 'Jira sorumlularına mail atın',
         title: '',
-        description: 'Tamamen kişisel masaüstünüzü oluşturup hemen kullanmaya başlayın',
+        description: 'Takip ettiğiniz jira maddelerini ilgili sürüm ile ilgili kolayca mail atarak bilgilendirin.',
         url: '',
         classes: '',
       },
       {
-        icon: '/assets/images/services/idm/section-04-05.svg',
-        abbr: 'Aradığınızı Bulun',
+        icon: '/assets/images/services/rcfs/rcfs-specs-check.svg',
+        abbr: 'GitLab entegrasyonu',
         title: '',
-        description: 'Her ekranda sizi karşılayan arama çubukları yardımıyla menü ve kısayollarınıza anında hızlı erişim sağlayın',
+        description: 'GitLab entegrasyonu sayesinde farklı ortamlarda çalışan farklı sürümlerdeki servislerin konfigürasyonlarını kolayca karşılaştırın.',
         url: '',
         classes: '',
       },
       {
-        icon: '/assets/images/services/idm/section-04-06.svg',
-        abbr: 'Uygulamalar içerisinde arama',
+        icon: '/assets/images/services/rcfs/rcfs-specs-check.svg',
+        abbr: 'Farklı ortamlarda sürüm kurulumu',
         title: '',
-        description: 'Menü serviste yapılan aramalar, kayıtlı uygulamalar içerisinde de gerçekleşsin',
+        description: 'Farklı ortamlardaki servislerin sürümlerini bir ortamdan diğerine taşıyın ve kurulumlarını kolayca yapın. ',
         url: '',
         classes: '',
       },
       {
-        icon: '/assets/images/services/idm/section-04-07.svg',
-        abbr: 'Swagger UI Destekli API Uçları  ',
+        icon: '/assets/images/services/rcfs/rcfs-specs-check.svg',
+        abbr: 'MSSQL ve PostgreSQL desteği',
         title: '',
-        description: 'Desteklenen API uçlarına Swagger UI üzerinden kolayca ulaşın',
+        description: 'İki farklı veritabanı desteği sayesinde farklı veritabanlarında bu bilgileri depolayın ve yönetin.',
         url: '',
         classes: '',
       },
       {
-        icon: '/assets/images/services/idm/section-04-08.svg',
-        abbr: 'Çoklu Dil Desteği',
+        icon: '/assets/images/services/rcfs/rcfs-specs-check.svg',
+        abbr: 'Swagger UI desteği',
         title: '',
-        description: 'Menü servis ile tek bir adımda sayfalarınızın dilini değiştirin',
+        description: 'Swagger UI desteği sayesinde servis API uçları üzerinden diagnose verilerine kolayca erişin.',
+        url: '',
+        classes: '',
+      },
+      {
+        icon: '/assets/images/services/rcfs/rcfs-specs-check.svg',
+        abbr: 'Kullanıcı arayüz desteği',
+        title: '',
+        description: 'Arayüz desteği sayesinde PaaS ekosisteminde yaşayan servisleri, farklı ortamdardaki (test, staging, production) aynı servislerin versiyon farklılıklarını kolayca görüntüleyin ve süreçlerinizi çok daha kolay hale getirin.',
         url: '',
         classes: '',
       },
@@ -109,7 +91,6 @@ export class RcfsComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log('CC');
     this.resize();
   }
 

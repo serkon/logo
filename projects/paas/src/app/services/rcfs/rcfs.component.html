@@ -1,6 +1,6 @@
 <logo-header></logo-header>
 <div class="intro">
-  <div class="col-md-6">
+  <div class="col-md-6 col-sm-12 col-xs-12">
     <div class="title-content">
       <h1 class="title g7 bold">
         Relase Control Features
@@ -24,13 +24,15 @@
   </div>
 </div>
 <div class="usage row">
-  <div class="right col-md-6 col-sm-12">
-    <div class="specs-content">
+  <div class="right col-md-6 col-sm-12 col-xs-12">
+    <div class="specs-header">
       <img src="./assets/images/services/rcfs/rcfs-icon-1.svg" alt="">
       <h2 class="g8 bold">Kullanım Senaryoları</h2>
       <h2>
         Development / test / staging / production ortamlarında sürümlerin yönetilmesini kolayca sağlayın.
       </h2>
+    </div>
+    <div class="specs-content">
       <ul>
         <li>
           <p class="large">
@@ -53,13 +55,12 @@
   <div class="left col-md-6">
     <img src="./assets/images/services/rcfs/rcfs-usage-bg-1.png" alt="">
   </div>
-
 </div>
 <div class="usage-2 row">
   <div class="right col-md-6">
     <img class="img-fluid" src="./assets/images/services/rcfs/rcfs-usage-illu-2.png" alt="">
   </div>
-  <div class="left col-md-6 col-sm-12">
+  <div class="left col-md-6 col-sm-12 col-xs-12">
     <div class="specs-content">
       <ul>
         <li>
@@ -81,24 +82,28 @@
       <logo-link
         [classes]="['success', 'large', 'get-started']"
         external="true"
-        url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139826"
+        url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139745"
       >
         TÜMÜNÜ GÖRÜNTÜLE
       </logo-link>
     </div>
-
   </div>
-
-
 </div>
-<logo-user-review
-  backgroundUrl="/assets/images/reviewers/green-background.png"
-  imageUrl="/assets/images/services/ss/section-04-hand.png"
-  [reverse]="true"
-
-  [imageStyle]="{'background-position':'bottom left'}"
->
-</logo-user-review>
+<div class="specs">
+  <section class="four">
+    <h1>Özellikler</h1>
+    <p>RCFS ‘den nelerde ve nasıl faydalanabileceğinizi öğrenin. İşinize değer katın!</p>
+    <logo-carousel [count]="1" [arrow]="true" [dots]="true">
+      <div class="slider-item" *ngFor="let item of sliderItems">
+        <div class="icon-bg"
+             [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"></div>
+        <div class="abbr">{{item.abbr}}</div>
+        <div class="description">{{item.description}}</div>
+        <!-- a class="go" href="{{item.url}}" [ngClass]="item.classes">go →</a-->
+      </div>
+    </logo-carousel>
+  </section>
+</div>
 <logo-core-services></logo-core-services>
 <logo-footer></logo-footer>
 

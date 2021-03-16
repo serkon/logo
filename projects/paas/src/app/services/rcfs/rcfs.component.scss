@@ -3,123 +3,465 @@
 $header-size: size(80px);
 
 :host {
-  .intro {
-    display: flex;
-    height: 100vh;
-    background: url("/assets/images/services/rcfs/rcfs-intro-bg.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
-
-    div:nth-child(1) {
+  @include larger-than(md) {
+    .intro {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      height: 100vh;
+      background: url("/assets/images/services/rcfs/rcfs-intro-bg.svg");
+      background-size: cover;
+      background-repeat: no-repeat;
 
-      div.title-content {
-        position: relative;
-        z-index: 2;
-        max-width: size(500px);
+      div:nth-child(1) {
         display: flex;
-        align-items: baseline;
+        justify-content: center;
+        align-items: center;
+
+        div.title-content {
+          position: relative;
+          z-index: 2;
+          max-width: size(500px);
+          display: flex;
+          align-items: baseline;
+          justify-content: center;
+          flex-direction: column;
+          padding: size(30px);
+
+          h1 {
+            color: var(--light);
+          }
+
+          p.description {
+            color: var(--light);
+            margin-bottom: size(20px);
+          }
+        }
+      }
+
+      div:nth-child(2) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .usage {
+      display: flex;
+      padding-bottom: size(45px);
+
+      .left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .right {
+        display: flex;
+        align-items: center;
         justify-content: center;
         flex-direction: column;
-        padding: size(30px);
 
-        h1 {
-          color: var(--light);
+        h2 {
+          margin-top: size(19px);
+          max-width: size(515px);
         }
 
-        p.description {
-          color: var(--light);
-          margin-bottom: size(20px);
-        }
-      }
-    }
+        ul {
+          list-style-image: url("/assets/images/services/rcfs/rcfs-check-1.svg");
 
-    div:nth-child(2) {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
+          li {
+            margin-top: size(40px);
 
-  .usage {
-    display: flex;
-    height: 100vh;
-
-
-    .left {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .right {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-
-      h2 {
-        margin-top: size(19px);
-        max-width: size(515px)
-      }
-
-      ul {
-        list-style-image: url("/assets/images/services/rcfs/rcfs-check-1.svg");
-
-        li {
-          margin-top: size(40px);
-
-          p {
-            margin-top: size(16px);
+            p {
+              margin-top: size(16px);
+            }
           }
         }
       }
     }
-  }
 
-  .usage-2 {
-    display: flex;
-    height: 100vh;
-
-    .right {
+    .usage-2 {
       display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+      padding-bottom: size(50px);
 
-    .left {
-      display: flex;
-      align-items: center;
-      padding-left: size(102px);
-
-      h2 {
-        margin-top: size(19px);
+      .right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
-      ul {
-        list-style-image: url("/assets/images/services/rcfs/rcfs-check-1.svg");
+      .left {
+        display: flex;
+        align-items: center;
+        padding-left: size(102px);
 
-        li {
-          margin-top: size(40px);
-          margin-left: 20px;
+        h2 {
+          margin-top: size(19px);
+        }
 
-          h2 {
-            font-size: 25px;
-            line-height: 28px;
+        ul {
+          list-style-image: url("/assets/images/services/rcfs/rcfs-check-1.svg");
+
+          li {
+            margin-top: size(40px);
+            margin-left: 20px;
+
+            h2 {
+              font-size: 25px;
+              line-height: 28px;
+            }
+
+            p {
+              margin-top: size(19px);
+            }
+          }
+        }
+
+        logo-link {
+          margin-top: size(75px);
+        }
+      }
+    }
+
+    .specs {
+      background: no-repeat url("/assets/images/services/rcfs/rcfs-specs-bg-2.png");
+
+      h1 {
+        color: var(--white);
+        font-size: size(45px);
+        font-weight: lighter;
+        text-align: center;
+      }
+
+      p {
+        color: var(--white);
+        font-size: size(20px);
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      logo-carousel {
+        //  padding: 0 size(100px);
+
+        .slider-item {
+          background-color: var(--white);
+          box-shadow: 0 60px 60px #6e6e6e46;
+          // background-color: #ffffff;
+          border-radius: 20px;
+          box-sizing: border-box;
+          backdrop-filter: blur(23px);
+          color: #646464;
+          padding: 30px 44px;
+          min-width: 264px;
+          width: 264px;
+          margin-right: 24px;
+          display: inline-block;
+          vertical-align: top;
+          white-space: normal;
+
+          .icon-bg {
+            width: size(42px);
+            height: size(42px);
+            background-color: #6259a7;
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+
+            .icon {
+              position: relative;
+              max-height: size(42px);
+              max-width: size(42px);
+              height: size(42px);
+              margin-bottom: size(10px);
+              filter: invert(43%) sepia(26%) saturate(1500%) hue-rotate(208deg) brightness(115%) contrast(200%);
+              background-size: contain;
+
+              &::after {
+                content: "";
+                background: url("/assets/images/services/idm/section-04-icon-background.svg") no-repeat;
+                position: absolute;
+                left: 0;
+                top: 0;
+              }
+            }
           }
 
-          p {
-            margin-top: size(19px);
+          .abbr {
+            font-weight: bold;
+            font-size: size(20px);
+          }
+
+          .description {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: 300;
+          }
+
+          .go {
+            display: block;
+            margin-top: size(20px);
+          }
+        }
+
+        ::ng-deep {
+          .arrow-with-animation .slider-arrow {
+            color: var(--white);
+
+            --active: var(--white);
+            --border: rgba(255, 255, 255, 0.12);
+          }
+
+          .dots {
+            .dot {
+              border-color: #ffffff;
+
+              &::after {
+                background-color: rgba(255, 255, 255, 0.6);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  @include smaller-than(md) {
+    .intro {
+      display: flex;
+      height: 100vh;
+      background: url("/assets/images/services/rcfs/rcfs-intro-bg.svg");
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      div:nth-child(1) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        div.title-content {
+          position: relative;
+          z-index: 2;
+          max-width: size(500px);
+          display: flex;
+          align-items: baseline;
+          justify-content: center;
+          flex-direction: column;
+          padding: size(30px);
+
+          h1 {
+            color: var(--light);
+          }
+
+          p.description {
+            color: var(--light);
+            margin-bottom: size(20px);
           }
         }
       }
 
-      logo-link {
-        margin-top: size(75px);
+      div:nth-child(2) {
+        img {
+          display: none;
+        }
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
-  }
 
+    .usage {
+      display: flex;
+
+      .left {
+        display: none;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .specs-header {
+          padding: 0 size(35px) 0 size(35px);
+          margin-top: size(50px);
+        }
+
+        h2 {
+          margin-top: size(19px);
+          max-width: size(515px);
+        }
+
+        .specs-content {
+          padding: 0 size(35px) 0 size(35px);
+
+          ul {
+            list-style-image: url("/assets/images/services/rcfs/rcfs-check-1.svg");
+
+            li {
+              margin-top: size(40px);
+
+              p {
+                margin-top: size(16px);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .usage-2 {
+      display: flex;
+
+      .right {
+        display: none;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .left {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h2 {
+          margin-top: size(19px);
+        }
+
+        .specs-content {
+          padding: 0 size(35px) 0 size(35px);
+
+          ul {
+            list-style-image: url("/assets/images/services/rcfs/rcfs-check-1.svg");
+
+            li {
+              margin-top: size(40px);
+
+              p {
+                margin-top: size(16px);
+              }
+            }
+          }
+
+          logo-link {
+            margin: size(40px) 0 size(40px) 0;
+          }
+        }
+      }
+    }
+
+    .specs {
+      background: no-repeat url("/assets/images/services/rcfs/rcfs-specs-bg-2.png");
+      background-size: cover;
+
+      h1 {
+        color: var(--white);
+        font-size: size(45px);
+        font-weight: lighter;
+        text-align: center;
+      }
+
+      p {
+        color: var(--white);
+        font-size: size(20px);
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      logo-carousel {
+        //  padding: 0 size(100px);
+
+        .slider-item {
+          background-color: var(--white);
+          box-shadow: 0 60px 60px #6e6e6e46;
+          // background-color: #ffffff;
+          border-radius: 20px;
+          box-sizing: border-box;
+          backdrop-filter: blur(23px);
+          color: #646464;
+          padding: 30px 44px;
+          min-width: 264px;
+          width: 264px;
+          margin-right: 24px;
+          display: inline-block;
+          vertical-align: top;
+          white-space: normal;
+
+          .icon-bg {
+            width: size(42px);
+            height: size(42px);
+            background-color: #6259a7;
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+
+            .icon {
+              position: relative;
+              max-height: size(42px);
+              max-width: size(42px);
+              height: size(42px);
+              margin-bottom: size(10px);
+              filter: invert(43%) sepia(26%) saturate(1500%) hue-rotate(208deg) brightness(115%) contrast(200%);
+              background-size: contain;
+
+              &::after {
+                content: "";
+                background: url("/assets/images/services/idm/section-04-icon-background.svg") no-repeat;
+                position: absolute;
+                left: 0;
+                top: 0;
+              }
+            }
+          }
+
+          .abbr {
+            font-weight: bold;
+            font-size: size(20px);
+          }
+
+          .description {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: 300;
+          }
+
+          .go {
+            display: block;
+            margin-top: size(20px);
+          }
+        }
+
+        ::ng-deep {
+          .arrow-with-animation .slider-arrow {
+            color: var(--white);
+
+            --active: var(--white);
+            --border: rgba(255, 255, 255, 0.12);
+          }
+
+          .dots {
+            .dot {
+              border-color: #ffffff;
+
+              &::after {
+                background-color: rgba(255, 255, 255, 0.6);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
 }
