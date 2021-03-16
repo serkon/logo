@@ -34,3 +34,5 @@ Accordions are useful when you want to toggle between hiding and showing large a
 ```html
 <logo-accordion [items]="items" [start]="0" [iconClasses]=""></logo-accordion>
 ```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview
