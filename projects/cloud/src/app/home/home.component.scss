@@ -63,7 +63,7 @@
 
   .section {
     .solutions {
-      margin-top: size(208px);
+      margin-top: size(170px);
       margin-bottom: size(170px);
 
       @include smaller-than(lg) {
@@ -80,6 +80,7 @@
                 display: block;
                 margin-top: size(42px);
                 margin-bottom: size(60px);
+                color: var(-neutral-800);
 
                 img {
                   width: size(58px);
@@ -115,7 +116,6 @@
       }
 
       .section-content {
-        padding-top: size(60px);
         display: flex;
         flex-flow: row wrap;
         justify-content: space-around;
@@ -171,6 +171,10 @@
 
           .text-base {
             display: block;
+
+            @include smaller-than(sm) {
+              text-align: center;
+            }
           }
         }
       }

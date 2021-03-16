@@ -27,14 +27,12 @@
 
         h1, h4 {
           color: var(--white);
+          display: block;
+          text-align: left;
         }
 
         h1 {
           margin-bottom: size(10px);
-        }
-
-        h4 {
-          margin-bottom: size(80px);
         }
 
         .overlay {
@@ -45,8 +43,8 @@
 
     .page-content {
       .container {
-        padding-top: size(40px);
-        padding-bottom: size(40px);
+        padding-top: size(50px);
+        padding-bottom: size(50px);
       }
     }
   }

@@ -15,6 +15,18 @@ export class AppComponent implements AfterContentChecked, OnInit {
   public headerTheme = HeaderTheme;
   items = [];
 
+  tenants = [
+    {a: {b: 'Uzay A.Ş.', c: 2}},
+    {a: {b: 'Logo Yazılım A.Ş.', c: 4}},
+    {a: {b: 'Yapı-Taş İnşaat Taah. Tic. ve San. Ltd. Şti.', c: 6}},
+    {a: {b: 'Ensan Proje İnşaat Mühendislik Ltd. Şti.', c: 8}},
+    {a: {b: 'Başkentsan Endüstriyel Gıda Maddeleri San.Tic.Ltd.Şti.', c: 10}},
+    {a: {b: 'Ege Hazır Yiyecek A.Ş.', c: 12}},
+  ];
+  displayedTenants = [];
+
+  selectedTanent = this.tenants[3];
+
   constructor(
     private cdr: ChangeDetectorRef,
     public idmService: IdmService,
@@ -23,6 +35,7 @@ export class AppComponent implements AfterContentChecked, OnInit {
     private headerService: HeaderService,
   ) {
     this.userService.subscribeUserInfo();
+    this.displayedTenants = this.generateTanentItems(this.tenants);
   }
 
   ngAfterContentChecked(): void {
@@ -35,6 +48,20 @@ export class AppComponent implements AfterContentChecked, OnInit {
 
   logout() {
     this.idmService.logout();
+  }
+
+  generateTanentItems(items) {
+    return items.map(item => Array.isArray(item) ? this.generateTanentItems(item) : item);
+  };
+
+  onTenantsFiltered($event) {
+    this.displayedTenants = this.tenants.filter(item => {
+      return item.a.b.includes($event);
+    });
+  }
+
+  onTenantSelected($event) {
+    console.log('Selected Tenant: ', $event);
   }
 
   ngOnInit(): void {

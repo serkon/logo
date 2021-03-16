@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderModule } from '@logo-software/header';
 import { LinksModule } from '@logo-software/links';
 import { IdmModule } from '@logo-software/idm';
+import { ComboboxModule } from '@logo-software/combobox';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ import { environment } from '../environments/environment';
     HeaderModule,
     LinksModule,
     IdmModule.forRoot(environment.IDM.CLIENT_ID, {RETURN_URI: environment.IDM.CONFIG.RETURN_URI}),
+    ComboboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

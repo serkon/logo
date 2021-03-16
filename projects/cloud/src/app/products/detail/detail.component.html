@@ -44,7 +44,7 @@
           <div class="input-base">
             <div class="input-w-icon left">
               <span class="le-email"></span>
-              <input class="icon-left" placeholder="E-Posta Adresiniz">
+              <input class="icon-left light" placeholder="E-Posta Adresiniz">
             </div>
             <logo-link [classes]="'primary'">14 Gün Ücretsiz Deneyin</logo-link>
           </div>
@@ -70,7 +70,7 @@
             </div>
           </div>
           <div *ngIf="imageData.feature" class="meta-data-base">
-            <h2><b>{{imageData.feature.title}}</b></h2>
+            <h2 class="section-title"><b>{{imageData.feature.title}}</b></h2>
             <p>{{imageData.feature.description}}</p>
             <div class="meta-datas">
               <div *ngFor="let feature of imageData.feature.items" class="item detail-card">
@@ -221,8 +221,9 @@
                         <li
                           *ngFor="let theFeature of package.properties"
                           class="icon-left le-check"
+                          [ngClass]="{'is-new' : theFeature.isNew}"
                         >
-                          {{theFeature.title}} <span *ngIf="theFeature.isNew" class="badge danger">Yeni</span>
+                          {{theFeature.title}} <span *ngIf="theFeature.isNew" class="badge">Yeni</span>
                         </li>
                       </ul>
                     </div>

@@ -183,6 +183,8 @@
             box-sizing: border-box;
 
             .input-base {
+              margin-top: size(24px);
+
               .input-w-icon {
                 width: size(250px);
                 margin-right: size(12px);
@@ -356,8 +358,12 @@
             .meta-data-base {
               margin-top: size(80px);
 
+              h2.section-title {
+                margin-bottom: size(16px);
+              }
+
               .meta-datas {
-                margin-top: size(12px);
+                margin-top: size(24px);
                 display: flex;
                 justify-content: flex-start;
                 align-items: flex-start;
@@ -657,6 +663,10 @@
 
                         &::before {
                           color: var(--primary);
+                        }
+
+                        &.is-new {
+                          //@TODO If is new buraya yapılacak
                         }
                       }
                     }

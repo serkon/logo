@@ -13,7 +13,7 @@
 :host {
   .speed-connect-base {
     margin: size(170px) 0;
-    padding: size(95px) size(55px);
+    padding: 0 size(55px);
     background-color: var(--secondary-600);
     background-image: url("#{$gfx-path}/speed-connect-bg.png");
     background-position: 120% 0%;
@@ -22,6 +22,9 @@
     height: size(540px);
     background-size: auto 100%;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 
     .speed-content {
       width: 60%;
@@ -112,7 +115,7 @@
 
     @include smaller-than(sm) {
       margin: size(75px) 0;
-      padding: size(30px) size(15px);
+      padding: 0 size(15px);
       height: size(470px);
     }
   }

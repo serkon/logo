@@ -117,6 +117,11 @@
           text-align: center;
           background: var(--basic-200);
           padding: size(10px) size(24px);
+          width: size(352px);
+
+          @include smaller-than(sm) {
+            width: 85%;
+          }
         }
       }
     }
@@ -186,6 +191,12 @@
             @include smaller-than(md) {
               display: block;
             }
+
+            ::ng-deep {
+              .ghost {
+                color: var(--neutral-600) !important;
+              }
+            }
           }
         }
       }
@@ -195,6 +206,7 @@
       padding: size(22px) 0;
       text-align: center;
       border-top: 1px solid var(--secondary-500);
+      color: var(--neutral-700);
     }
   }
 }

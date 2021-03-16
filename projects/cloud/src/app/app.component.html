@@ -30,11 +30,18 @@
         <div class="user-info">
           <p>{{userService.user.Name}} {{userService.user.Surname}}</p>
           <div class="select-tanent">
-            <logo-link [classes]="'ghost small secondary icon-right le-arrow_down'">Tenant Seç</logo-link>
+            <logo-combobox (filter)="onTenantsFiltered($event)" (select)="onTenantSelected($event)"
+                           [(ngModel)]="selectedTanent" [hover]="2" [items]="displayedTenants" [path]="'a.b'"
+                           [selected]="1">
+              <ng-template let-index="index" let-isFirst="isFirst" let-isLast="isLast" let-isOdd="isOdd"
+                           let-item="item">
+                <span>{{item.a.b}}</span>
+              </ng-template>
+            </logo-combobox>
           </div>
         </div>
         <div class="opts">
-          <logo-link (click)="logout()" [classes]="'ghost secondary le-logout logout-btn'" [url]="'/'"></logo-link>
+          <logo-link (click)="logout()" [classes]="'ghost secondary le-cross logout-btn'" [url]="'/'"></logo-link>
         </div>
       </div>
     </div>
