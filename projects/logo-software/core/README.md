@@ -50,3 +50,5 @@ __Services:__
 - StateService - Manages Application State data
 - WatcherService - Watcher is a Subject. Subject is a special type of Observable that allows values to be
 multicast to many Observers. Subjects are like EventEmitters.
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview
