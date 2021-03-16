@@ -4,7 +4,6 @@
   border-radius: 2px;
 
   .selected {
-    display: flex;
     align-items: center;
     padding-left: 10px;
     height: 100%;
@@ -48,7 +47,6 @@
 
       li {
         background-color: white;
-        display: flex;
         align-items: center;
         justify-content: flex-start;
         padding: 0 10px;
@@ -56,9 +54,14 @@
         line-height: 40px;
         color: var(--neutral-900);
         font-size: 14px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        box-sizing: border-box;
 
         &.hover, &:hover {
           background-color: var(--primary-100);
+          cursor: pointer;
         }
 
         &.selected {
