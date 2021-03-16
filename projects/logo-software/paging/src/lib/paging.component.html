@@ -20,43 +20,43 @@
     <option [ngValue]="40">40</option>
     <option [ngValue]="50">50</option>
   </select>
-  <div class="total-count">
-    <strong class="total-count-number">{{totalCount}}</strong>
-    <span class="record-found-text">{{recordsFound}}</span>
-  </div>
-  <div class="page-numbers">
-    <div *ngIf="pager.pages && pager.pages.length >= 2" class="pagination">
+  <div *ngIf="pager.pages && pager.pages.length >= 2" class="page-numbers">
+    <div class="pagination">
       <button
         [ngClass]="{disabled:pager.pageNumber === 1}"
-        class="ghost le-double_chevron_left"
+        class="ghost le-double_chevron_left primary"
         (click)="setPage(1)"
       >
       </button>
       <button
         [ngClass]="{disabled:pager.pageNumber === 1}"
-        class="ghost le-chevron_left"
+        class="ghost le-chevron_left primary"
         (click)="setPage(pager.pageNumber - 1)"
       >
       </button>
       <button
         *ngFor="let page of pager.pages"
-        [ngClass]="{selected:pager.pageNumber === page}" class="ghost"
+        [ngClass]="{selected:pager.pageNumber === page}" class="basic"
         (click)="setPage(page)"
       >
         {{page}}
       </button>
       <button
         [ngClass]="{disabled:pager.pageNumber === pager.totalPages}"
-        class="ghost le-chevron_right"
+        class="ghost primary le-chevron_right"
         (click)="setPage(pager.pageNumber + 1)"
       >
       </button>
       <button
         [ngClass]="{disabled:pager.pageNumber === pager.totalPages}"
-        class="ghost le-double_chevron_right"
+        class="ghost primary le-double_chevron_right"
         (click)="setPage(pager.totalPages)"
       >
       </button>
+    </div>
+    <div class="total-count">
+      <strong class="total-count-number">{{totalCount}}</strong>
+      <span class="record-found-text">{{recordsFound}}</span>
     </div>
   </div>
 </div>

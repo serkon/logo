@@ -1,10 +1,11 @@
 @import "icons";
+@import "~@logo-software/theme/base";
 
-$link-color: #4a4a4a;
-$link-hover-background: rgba(0, 0, 0, 0.06);
-$selected-background-color: rgba(0, 0, 0, 0.1);
-$select-box-background-color: #f2f4f9;
-$select-box-color: #4a4a4a;
+$link-color: var(--primary);
+$link-hover-background: rgba(var(--primary-hover-rgb), 0.06);
+$selected-background-color: var(--basic-500);
+$select-box-background-color: var(--secondary);
+$select-box-color: var(--neutral-900);
 
 %no-select {
   -webkit-touch-callout: none; /* iOS Safari */
@@ -25,8 +26,6 @@ $select-box-color: #4a4a4a;
 :host {
   display: flex;
   align-items: center;
-  box-shadow: 0 -2px 12px 0 rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
   z-index: 1;
   position: relative;
   padding: 10px;
@@ -60,16 +59,15 @@ $select-box-color: #4a4a4a;
     }
 
     .total-count, .page-numbers {
-      display: flex;
-      flex-grow: 1;
       font-size: 12px;
       line-height: 20px;
       padding-bottom: 0;
     }
 
     .total-count {
-      display: flex;
-      align-items: center;
+      text-align: right;
+      flex-grow: 1;
+      color: var(--neutral-500);
 
       .total-count-number {
         padding-right: 2.5px;
@@ -83,6 +81,9 @@ $select-box-color: #4a4a4a;
     .page-numbers {
       justify-content: flex-end;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
 
       div.pagination {
         text-align: right;
