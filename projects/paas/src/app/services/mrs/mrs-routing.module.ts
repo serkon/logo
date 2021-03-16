@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MssComponent } from '@paas/src/app/services/mss/mss.component';
+import { MrsComponent } from '@paas/src/app/services/mrs/mrs.component';
 
 const routes: Routes = [
-  {path: '', component: MssComponent},
+  {path: '', component: MrsComponent},
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MssRoutingModule {
+export class MrsRoutingModule {
 }

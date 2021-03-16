@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'logo-ms',
-  templateUrl: './mss.component.html',
-  styleUrls: ['./mss.component.scss'],
+  templateUrl: './mrs.component.html',
+  styleUrls: ['./mrs.component.scss'],
 })
-export class MssComponent {
+export class MrsComponent {
   constructor() {
   }
 }
