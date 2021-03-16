@@ -1,24 +1,38 @@
 # Cursor
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
+Cursor module uses customize to the cursor
 
-## Code scaffolding
+Click here for [demo](http://design.logo.com.tr/#/docs/components/cursor-module#cursormodule)
 
-Run `ng generate component component-name --project cursor` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project cursor`.
-> Note: Don't forget to add `--project cursor` or else it will be added to the default project in your `angular.json` file. 
+### Installation
 
-## Build
+All public NPM packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
+To install Cursor Module:
 
-Run `ng build cursor` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+$ npm set registry https://registry.npmjs.org/
+$ npm install @logo-software/accordion -s
+```
 
-## Publishing
+Just import it to your project of `@NgModule` import section.
 
-After building your library with `ng build cursor`, go to the dist folder `cd dist/cursor` and run `npm publish`.
+```typescript
+@NgModule({
+  imports: [CommonModule, AccordionModule]
+})
+export class AppModule {
+}
+```
 
-## Running unit tests
+### Cursor Component
 
-Run `ng test cursor` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Cursor component changes default cursor to animated nested circle cursor.
+There are two circle. The Biggest one is track the default cursor position with animation. Add the below code to your code stack and give initializer parameters.
 
-## Further help
+<sub>app.component.html</sub>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```html
+<logo-cursor timeDuration=400 [targets]=['.cursor', 'button', 'a']></logo-cursor>
+```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview

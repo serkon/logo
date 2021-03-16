@@ -23,15 +23,14 @@ export class Pointer {
 
 /**
  * Cursor component changes default cursor to animated nested circle cursor.
- * There are two circle. Biggest one is track the default cursor position with animation.
- *
- * __Usage Example__
+ * There are two circle. The Biggest one is track the default cursor position with animation.
+ * Add the below code to your code stack and give initializer parameters.
  *
  * <sub>app.component.html</sub>
+ *
  * ```html
  * <logo-cursor timeDuration=400 [targets]=['.cursor', 'button', 'a']></logo-cursor>
  * ```
- * @stacked-example(Cursor Showcase, logo/cursor-sample/cursor-showcase/cursor-showcase.component)
  */
 @Component({
   selector: 'logo-cursor',
