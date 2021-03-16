@@ -1,3 +1,5 @@
+@import "~@logo-software/theme/base";
+
 :host {
   display: block;
   width: 100%;
@@ -88,8 +90,8 @@
     }
 
     .slider-arrow {
-      --active: #000000;
-      --border: rgba(0, 0, 0, 0.12);
+      --active: var(--neutral-500);
+      --border: rgba(var(--neutral-500-rgb), 0.12);
 
       display: block;
       position: relative;
