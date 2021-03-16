@@ -44,3 +44,5 @@ The drawer component is designed to add side content to a small section of your 
   </ng-container>
 </logo-drawer>
 ```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview
