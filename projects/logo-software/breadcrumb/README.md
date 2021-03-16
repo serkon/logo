@@ -33,3 +33,5 @@ Breadcrumbs mark and communicate a user's location in the product. Add the below
 ```html
 <logo-breadcrumb [breadcrumb]="items" [size]="'medium'" [isLight]="true" [cssClasses]="css-class-name"></logo-breadcrumb>
 ```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview
