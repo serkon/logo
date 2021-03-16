@@ -41,3 +41,5 @@ from the list or enter a value for filtering this list then can select an item.
 
 Export: {{selected | json}}
 ```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview
