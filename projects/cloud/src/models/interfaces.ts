@@ -1164,13 +1164,6 @@ const response: Step[] = [
     ],
   },
 ];
-const interFaceTypeDeclarationSampleForTalhaSALT: ({ [abc in keyof Step]: Step[abc] } | { 'id': number, 'extra': boolean } | { [abc in keyof Tag]: Tag[abc] }) [] = [{
-  id: 'true', // number da alabilir
-  title: 'asdad',
-  question: 'asdasd',
-  description: 'asdsad',
-  extra: true,
-}];
 
 const authors: Author[] = [
   {
