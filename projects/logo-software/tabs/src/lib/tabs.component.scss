@@ -3,6 +3,7 @@
 :host {
   display: block;
   height: auto !important;
+  background-color: transparent !important;
 
   .navigator {
     background-color: var(--white);
@@ -36,11 +37,13 @@
         li {
           ::ng-deep {
             button {
-              color: var(--secondary-700);
+              color: var(--secondary-900);
               font-weight: bold;
 
               &.selected {
                 @extend %button-selected;
+
+                background-color: var(--secondary-900);
               }
             }
           }
@@ -69,6 +72,26 @@
       list-style: none;
       margin: 0;
       padding: 0;
+    }
+  }
+
+  @each $colors, $value in get("color.list") {
+    &.#{$colors} {
+      .navigator {
+        .scroll {
+          .nav {
+            li {
+              ::ng-deep {
+                button {
+                  &.selected {
+                    background-color: var(--#{$colors}) !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
