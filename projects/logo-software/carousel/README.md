@@ -36,3 +36,5 @@ text, or custom markup. It also includes support for previous/next controls and 
   </div>
 </logo-carousel>
 ```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview
