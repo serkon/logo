@@ -115,6 +115,10 @@ const routes: Routes = [
         path: 'breadcrumb-sample',
         loadChildren: () => import('./breadcrumb-sample/breadcrumb-sample.module').then(m => m.BreadcrumbSampleModule),
       },
+      {
+        path: 'card-sample',
+        loadChildren: () => import('./card-sample/card-sample.module').then(m => m.CardSampleModule),
+      },
     ],
   },
 ];

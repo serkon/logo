@@ -590,6 +590,23 @@ export const structure = [
           },
         ],
       },
+      {
+        type: 'page',
+        name: 'Card Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'CardModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'CardComponent',
+          },
+        ],
+      },
     ],
   },
   {
