@@ -19,6 +19,31 @@ export function createCompiler(compilerFactory: CompilerFactory) {
   return compilerFactory.createCompiler();
 }
 
+/**
+ * Dynamic markdown loader from MD/MDX files and parser for Angular.io projects. Markdown module converts md content text to html styled and formatted text.
+ *
+ * @stacked-example(Markdown Showcase, logo/markdown-sample/markdown-showcase/markdown-showcase.component)
+ *
+ * ### Installation
+ *
+ * All public NPM packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
+ * To install Markdown Module:
+ *
+ * ```bash
+ * $ npm set registry https://registry.npmjs.org/
+ * $ npm install @logo-software/markdown -s
+ * ```
+ *
+ * Just import it to your project of `@NgModule` import section.
+ *
+ * ```typescript
+ * @NgModule({
+ *   imports: [CommonModule, MarkdownModule]
+ * })
+ * export class AppModule {
+ * }
+ * ```
+ */
 @NgModule({
   declarations: [MarkdownComponent],
   imports: [DynamicModule],
