@@ -1,46 +1,62 @@
-## Language Translation
+## Language Module
 
-With this module you can easily translate any text to specified language on the fly. Over HTTP or LOCAL file resource can be usable.
+With this module you can easily translate any text to specified language on the fly.
+Set configuration properties, if default language is different from English.
+For example, import section on you NgModule and set configuration
+
+Click here for [demo](http://design.logo.com.tr/#/docs/components/language-module#languagemodule)
 
 ### Installation
-There are three steps:
 
- - Install package using `npm install @logo-software/language` 
- - add it to your AppModule imports code block using `LanguageModule.forRoot(languageConf)`
- - Put your language files to your `src/assets/languages` folder (`src/assets/language/en-En.json` etc.). 
+All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). To
+install Language Module:
 
-### Configuration
+```bash
+$ npm set registry https://registry.npmjs.org/
+$ npm install @logo-software/language -s
+```
 
-Default language is `en`. You can also change language to `tr`. There are some options for customization:
+Just import it to your project of `@NgModule` import section.
 
-1. **abbr**: is your page language, change it to `tr` if you want to set default language to `tr
-2. **readFromFile**: is default **false**,  and if you set true this option import en-En.json file statically from path without http request. Otherwise it will include language file over http protocol. 
- **NOTE** If `readFromFile` is **true**, `assetPath` must be `/assets/languages`
-3. **assetPath**: is the path of the language files. Default path is `/assets/languages`. When **readFromFile** is **true**, you must put your language files under your `src/assets/languages` folder. If **readFromFile** is **false**, you can set your language files where you want then set **assetsPath** to these files paths.
-4. **extensition**: is the file extension will be download. Default is **json**.
-  
-
-####Usage Example
-
-Just as below you can easily set you application's language.
- 
-<sub>**app.module.ts**</sub>
 ```typescript
-import { LanguageInitSetting, LanguageModule } from '@logo-software/language'; 
-import { NgModule } from '@angular/core'; 
-import { AppComponent } from './app.component';
-
-const languageConf: LanguageInitSetting = {abbr: 'en', readFromFile: false, extension: 'json'};
-const EXTERNAL_MODULES = [LanguageModule.forRoot(languageConf)];
-
 @NgModule({
-  declarations: [AppComponent],
-  imports: [EXTERNAL_MODULES],
-  providers: [],
-  bootstrap: [AppComponent]
+ imports: [
+   CommonModule,
+   LanguageModule.forRoot({ abbr: 'en', readFromFile: false, extension: 'json', path: 'languages' }),
+ ],
 })
 export class AppModule {
 }
+```
+
+There are three steps:
+
+- Install package using `npm install @logo-software/language`
+- add it to your AppModule imports code block using `LanguageModule.forRoot(languageConf)`
+- Put your language files to your `src/assets/languages` folder (`src/assets/language/en-En.json` etc.).
+
+### Configuration
+
+Before AppModule bootstrap, configuration constants must be set. The configuration file type is a [LanguageInitSetting](docs/logo-business-solutions/language-module#languageinitsetting) object type. There are several parameters for configuration:
+
+- **abbr**: Codes for the Representation of Names of Languages are described at [ISO 639-1](http://www.loc.gov/standards/iso639-2/php/code_list.php) Code.
+- **path**: HTTP request path that contains language files. **Note:** When **readFromFile** is **true**, you must put your language files under your `src/assets/languages` folder. And this property will not effect the project. If **readFromFile** is **false**, You can set your language files path anywhere you request with path option.
+- **readFromFile**: If set readFromFile to true data will be load from file system and HTTP request will not call. Otherwise data will be requested over HTTP protocol. Default value is false.
+- **extension**: The file extension will be download. Default is **json**. If change to another it will add to end of line this extension. With Following code, HTTP request will be send to the `http(s)://.../path/of/lang/en-GB.xyz` address.
+
+```typescript
+// path will look to 'src/assets/`languages`' with this option
+const lang = {abbr: 'ro', readFromFile: false, extension: 'json', path: 'languages',}
+```
+  
+####Usage Example
+
+Just as below you can easily translate language.
+
+<sub>some.component.html</sub>
+
+```html
+<span>{{"some_text_from_lang_json" | translate}}</span>
 ```
 
 **Change Language**

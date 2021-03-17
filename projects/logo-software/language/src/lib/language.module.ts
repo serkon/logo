@@ -26,13 +26,19 @@ import { LanguageStoreService } from '../language.store';
  *
  * @stacked-example(LanguageModule, logo/language-sample/language-showcase/language-showcase.component)
  *
- * <sub>app.module.ts</sub>
+ * ### Installation
  *
- * __Usage Example__
+ * All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). To
+ * install Language Module:
+ *
+ * ```bash
+ * $ npm set registry https://registry.npmjs.org/
+ * $ npm install @logo-software/language -s
+ * ```
+ *
+ * Just import it to your project of `@NgModule` import section.
  *
  * ```typescript
- * import { LanguageModule } from '@logo-software/language';
- *
  * @NgModule({
  *  imports: [
  *    CommonModule,
@@ -42,27 +48,12 @@ import { LanguageStoreService } from '../language.store';
  * export class AppModule {
  * }
  * ```
- * <hr>
  *
- * ### Installation
- * All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
- * To install Language Module:
+ * There are three steps:
  *
- *   ```bash
- * $ npm set registry https://registry.npmjs.org/
- * $ npm install @logo-software/language -s
- * ```
- *
- * <div class="note note-info">
- *   <div class="note-title">Adding Language Files</div>
- *   <div class="note-body">
- *
- *   * Add it to AppModule `@NgModule`'s imports block with `LanguageModule.forRoot({ abbr: 'en', readFromFile: false, extension: 'json', path: 'languages' })`
- *   * Put your **language files** to your `src/assets/languages` folder
- *   put json to /src/assets/language/**en-En.json** etc
- *   </div>
- * </div>
- * <hr>
+ * - Install package using `npm install @logo-software/language`
+ * - add it to your AppModule imports code block using `LanguageModule.forRoot(languageConf)`
+ * - Put your language files to your `src/assets/languages` folder (`src/assets/language/en-En.json` etc.).
  *
  * ### Configuration
  *

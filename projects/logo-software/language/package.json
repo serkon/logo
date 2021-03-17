@@ -2,7 +2,7 @@
   "name": "@logo-software/language",
   "version": "1.0.1",
   "description": "With this module you can easily translate any text to specified language on the fly. Over HTTP or LOCAL file resource can be usable.",
-  "homepage": "http://developer.logo.com.tr",
+  "homepage": "http://elements.logo.com.tr",
   "author": {
     "email": "konakci@mail.com",
     "name": "Serkan Konakcı",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/logobs/ng-logo"
+    "url": "http://stash.logo.com.tr/scm/fd/theme.git"
   },
   "keywords": [
     "translate",
@@ -19,7 +19,12 @@
     "pipe",
     "mutlilang",
     "currency",
-    "lang"
+    "lang",
+    "pipe",
+    "json",
+    "http",
+    "file",
+    "on the fly"
   ],
   "license": "See license in LICENSE file",
   "peerDependencies": {
