@@ -245,7 +245,7 @@ export interface SolutionSummary {
   /**
    * Çözümü ifade eden icon kütüphanesinin CSS class adı
    */
-  iconcss?: string;
+  iconCss?: string;
 }
 
 // @TODO: GET - /assets/data/solution/metadata.json - id'ye göre çek
