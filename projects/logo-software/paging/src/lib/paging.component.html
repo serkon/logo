@@ -20,8 +20,8 @@
     <option [ngValue]="40">40</option>
     <option [ngValue]="50">50</option>
   </select>
-  <div *ngIf="pager.pages && pager.pages.length >= 2" class="page-numbers">
-    <div class="pagination">
+  <div class="page-numbers">
+    <div *ngIf="pager.pages && pager.pages.length >= 2" class="pagination">
       <button
         [ngClass]="{disabled:pager.pageNumber === 1}"
         class="ghost le-double_chevron_left primary"
