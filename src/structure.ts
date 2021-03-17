@@ -624,6 +624,28 @@ export const structure = [
           },
         ],
       },
+      {
+        type: 'page',
+        name: 'Header Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'HeaderModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'HeaderComponent',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'HeaderService',
+          },
+        ],
+      },
     ],
   },
   {
