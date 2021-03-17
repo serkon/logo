@@ -5,7 +5,6 @@ import { LogoRoutingModule } from './logo-routing.module';
 import { LogoComponent } from './logo.component';
 import { AccordionSampleModule } from './accordion-sample/accordion-sample.module';
 import { DatepickerSampleModule } from './datepicker-sample/datepicker-sample.module';
-import { InputSampleModule } from './input-sample/input-sample.module';
 import { PagingSampleModule } from './paging-sample/paging-sample.module';
 import { SelectSampleModule } from './select-sample/select-sample.module';
 
@@ -16,7 +15,6 @@ import { SelectSampleModule } from './select-sample/select-sample.module';
     LogoRoutingModule,
     AccordionSampleModule,
     DatepickerSampleModule,
-    InputSampleModule,
     PagingSampleModule,
     SelectSampleModule,
   ],
