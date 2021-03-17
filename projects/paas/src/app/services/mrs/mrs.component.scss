@@ -1,205 +1,418 @@
 @import "~@logo-software/theme/base";
 
 :host {
-  .intro {
-    display: flex;
-    height: size(750px);
-
-    div:nth-child(1) {
+  @include larger-than(md) {
+    .intro {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: baseline;
+      height: size(750px);
 
-      .title-content {
-        padding-left: size(98px);
-
-        p.g6 {
-          color: var(--primary);
-        }
-      }
-    }
-
-    div:nth-child(2) {
-      position: relative;
-
-      img {
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 100%;
-        object-fit: contain;
-      }
-    }
-  }
-
-  .usage {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    height: size(702px);
-    margin-top: size(50px);
-
-    h4 {
-      margin-top: size(15px);
-    }
-
-    .bg {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      max-height: size(370px);
-    }
-
-    logo-link {
-      margin: size(72px) 0 size(81px) 0;
-      z-index: 2;
-    }
-
-    .card-wrapper {
-      background-color: var(--basic-400);
-      display: flex;
-      flex-direction: row;
-      z-index: 2;
-      align-self: center;
-      border-radius: size(24px);
-      width: size(1236px);
-      height: size(393px);
-      margin-top: size(44px);
-
-      .usage-card {
+      div:nth-child(1) {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items: baseline;
 
-        h4 {
-          margin-top: size(20px);
-        }
+        .title-content {
+          padding-left: size(98px);
 
-        h3 {
-          margin-top: size(42px);
+          p.g6 {
+            color: var(--primary);
+          }
         }
       }
-    }
-  }
 
-  .specs {
-    display: flex;
-    height: 100vh;
+      div:nth-child(2) {
+        position: relative;
 
-    .left {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .usage-content {
-        h2 {
-          margin-top: size(15px);
-        }
-
-        .usage-head {
-          display: flex;
-        }
-
-        .usage-card {
-          display: flex;
-          border-radius: size(11px);
-
-          div {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: baseline;
-
-            img {
-              margin: size(45px) 0 size(45px) 0;
-            }
-
-            img:nth-child(1) {
-              align-self: flex-end;
-            }
-          }
-
-          div:nth-child(1) {
-            justify-content: center;
-          }
+        img {
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 100%;
+          object-fit: contain;
         }
       }
     }
 
-    .right {
-      position: relative;
+    .usage {
       display: flex;
+      flex-direction: column;
       justify-content: center;
-      align-items: center;
+      text-align: center;
+      position: relative;
+      height: size(702px);
+      margin-top: size(50px);
 
-      img {
-        position: absolute;
-        top: size(-3px);
-        left: 0;
+      h4 {
+        margin-top: size(15px);
       }
-    }
-  }
 
-  .specs-2 {
-    display: flex;
-    height: 100vh;
-
-    .left {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .usage-content {
-        h2 {
-          margin-top: size(15px);
-        }
-
-        .usage-head {
-          display: flex;
-        }
-
-        .usage-card {
-          display: flex;
-          border-radius: size(11px);
-
-          div {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: baseline;
-
-            img {
-              margin: size(45px) 0 size(45px) 0;
-            }
-
-            img:nth-child(1) {
-              align-self: flex-end;
-            }
-          }
-
-          div:nth-child(1) {
-            justify-content: center;
-          }
-        }
-      }
-    }
-
-    .right {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      img {
+      .bg {
         position: absolute;
         bottom: 0;
-        right: 0;
+        width: 100%;
+        max-height: size(370px);
+      }
+
+      logo-link {
+        margin: size(72px) 0 size(81px) 0;
+        z-index: 2;
+      }
+
+      .card-wrapper {
+        background-color: var(--basic-400);
+        display: flex;
+        flex-direction: row;
+        z-index: 2;
+        align-self: center;
+        border-radius: size(24px);
+        width: size(1236px);
+        height: size(393px);
+        margin-top: size(44px);
+
+        .usage-card {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          h4 {
+            margin-top: size(20px);
+          }
+
+          h3 {
+            margin-top: size(42px);
+          }
+        }
+      }
+    }
+
+    .specs {
+      display: flex;
+      height: 100vh;
+
+      .left {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .usage-content {
+          h2 {
+            margin-top: size(15px);
+          }
+
+          .usage-head {
+            display: flex;
+          }
+
+          .usage-card {
+            display: flex;
+            border-radius: size(11px);
+
+            div {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: baseline;
+
+              img {
+                margin: size(45px) 0 size(45px) 0;
+              }
+
+              img:nth-child(1) {
+                align-self: flex-end;
+              }
+            }
+
+            div:nth-child(1) {
+              justify-content: center;
+            }
+          }
+        }
+      }
+
+      .right {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          position: absolute;
+          top: size(-3px);
+          left: 0;
+        }
+      }
+    }
+
+    .specs-2 {
+      display: flex;
+      height: 100vh;
+
+      .left {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .usage-content {
+          h2 {
+            margin-top: size(15px);
+          }
+
+          .usage-head {
+            display: flex;
+          }
+
+          .usage-card {
+            display: flex;
+            border-radius: size(11px);
+
+            div {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: baseline;
+
+              img {
+                margin: size(45px) 0 size(45px) 0;
+              }
+
+              img:nth-child(1) {
+                align-self: flex-end;
+              }
+            }
+
+            div:nth-child(1) {
+              justify-content: center;
+            }
+          }
+        }
+      }
+
+      .right {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+        }
+      }
+    }
+  }
+
+  @include smaller-than(md) {
+    .intro {
+      display: flex;
+      height: size(750px);
+
+      div:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: baseline;
+
+        .title-content {
+          p.g6 {
+            color: var(--primary);
+          }
+        }
+      }
+
+      div:nth-child(2) {
+        display: none;
+        position: relative;
+
+        img {
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .usage {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      height: size(702px);
+      margin-top: size(50px);
+      overflow-x: scroll;
+
+      h4 {
+        margin-top: size(15px);
+      }
+
+      .bg {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        max-height: size(370px);
+      }
+
+      logo-link {
+        margin: size(72px) 0 size(81px) 0;
+        z-index: 2;
+      }
+
+      .card-wrapper {
+        background-color: var(--basic-400);
+        display: flex;
+        flex-direction: row;
+        z-index: 2;
+        align-self: center;
+        border-radius: size(24px);
+        width: size(1236px);
+        height: size(393px);
+        margin-top: size(44px);
+
+        .usage-card {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          h4 {
+            margin-top: size(20px);
+          }
+
+          h3 {
+            margin-top: size(42px);
+          }
+        }
+      }
+    }
+
+    .specs {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .left {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .usage-content {
+          padding: size(20px);
+
+          h2 {
+            margin-top: size(15px);
+          }
+
+          .usage-head {
+            display: flex;
+          }
+
+          .usage-card {
+            display: flex;
+            border-radius: size(11px);
+
+            div {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: baseline;
+
+              img {
+                margin: size(45px) 0 size(45px) 0;
+              }
+
+              img:nth-child(1) {
+                align-self: flex-end;
+              }
+            }
+
+            div:nth-child(1) {
+              justify-content: center;
+            }
+          }
+        }
+      }
+
+      .right {
+        display: none;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          position: absolute;
+          top: size(-3px);
+          left: 0;
+        }
+      }
+    }
+
+    .specs-2 {
+      display: flex;
+
+      .left {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .usage-content {
+          padding: size(20px);
+
+          h2 {
+            margin-top: size(15px);
+          }
+
+          .usage-head {
+            display: flex;
+          }
+
+          .usage-card {
+            display: flex;
+            border-radius: size(11px);
+
+            div {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: baseline;
+
+              img {
+                margin: size(45px) 0 size(45px) 0;
+              }
+
+              img:nth-child(1) {
+                align-self: flex-end;
+              }
+            }
+
+            div:nth-child(1) {
+              justify-content: center;
+            }
+          }
+        }
+      }
+
+      .right {
+        position: relative;
+        display: none;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+        }
       }
     }
   }
