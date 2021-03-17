@@ -82,6 +82,18 @@
                 margin-bottom: size(60px);
                 color: var(-neutral-800);
 
+                .icon {
+                  display: inline-block;
+                  width: size(58px);
+                  height: size(58px);
+
+                  &::before {
+                    -webkit-mask-size: size(58px);
+                    mask-size: size(58px);
+                    color: var(--neutral-800);
+                  }
+                }
+
                 img {
                   width: size(58px);
                 }
