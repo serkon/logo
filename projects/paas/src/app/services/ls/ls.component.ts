@@ -64,7 +64,6 @@ export class LsComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log('CC');
     this.resize();
   }
 

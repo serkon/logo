@@ -8,6 +8,7 @@ import { HeaderModule } from '@paas/src/components/header/header.module';
 import { LsRoutingModule } from './ls-routing.module';
 import { LsComponent } from './ls.component';
 import {CoreServicesModule} from '@paas/src/components/core-services/core-services.module';
+import {UserReviewModule} from '@paas/src/components/user-review/user-review.module';
 
 @NgModule({
   declarations: [LsComponent],
@@ -19,6 +20,7 @@ import {CoreServicesModule} from '@paas/src/components/core-services/core-servic
         CarouselModule,
         LinksModule,
         CoreServicesModule,
+        UserReviewModule,
     ],
   exports: [LsComponent],
 })
