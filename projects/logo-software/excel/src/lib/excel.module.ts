@@ -3,36 +3,36 @@ import { CommonModule } from '@angular/common';
 import { ExcelComponent } from './excel.component';
 
 /**
- * Any given data or any service returned data can be exportable with this component to Excel.
+ * Any given data or any service that returned data can be exportable with this component to Excel.
+ *
+ * @stacked-example(ExcelComponent, logo/excel-sample/excel-showcase/excel-showcase.component)
  *
  * ### Installation
- * All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
- * To install Excel Module:
  *
- *   ```bash
+ * All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). To
+ * install Excel Module:
+ *
+ * ```bash
  * $ npm set registry https://registry.npmjs.org/
  * $ npm install @logo-software/excel -s
  * ```
  *
- * __Usage Example__
+ * Just import it to your project of `@NgModule` import section.
  *
  * ```typescript
- * import { NgModule } from '@angular/core';
- * import { CommonModule } from '@angular/common';
- * import { ExcelModule } from '@logo-software/excel';
- *
  * @NgModule({
- *   declarations: [SampleComponent],
- *   imports: [CommonModule, ExcelModule],
- *   exports: [SampleComponent],
+ *  imports: [CommonModule, ExcelModule],
  * })
- * export class SampleModule {
+ * export class AppModule {
  * }
  * ```
+ *
  * ### Dependencies ###
- *   While installing @logo-software/excel, package manager also will be installing these packages as a dependency:
- *   * file-saver
- *   * xmlbuilder
+ *
+ * While installing `@logo-software/excel`, package manager also will be installing these packages as a dependency:
+ *
+ * file-saver
+ * xmlbuilder
  */
 @NgModule({
   declarations: [ExcelComponent],

@@ -131,15 +131,14 @@ export interface ExcelSettingType {
 
 /**
  * A quick JavaScript library to create export to Excel/CSV from given data. No server required.
+ *
  * If set service information it will call a Rest API then send data to ExcelModule for export.
  *
- * @stacked-example(ExcelComponent, logo/excel-sample/excel-showcase/excel-showcase.component)
+ * Add the below code to your code stack and give initializer parameters.
  *
- * __Usage Example__
+ * <sub>app.component.html</sub>
  *
- * <sub>html</html>
- *
- * ````html
+ * ```html
  * <logo-excel
  *   (complete)="excelComplete()"
  *   [data]="excelSample.data"
@@ -148,26 +147,28 @@ export interface ExcelSettingType {
  *   [name]="excelSample.fileName"
  * >
  * </logo-excel>
- * ````
+ * ```
  *
- * <sub>typescript</sub>
+ * ### Data Sample
  *
- * ````typescript
+ * Dummy data will be used:
+ *
+ * ```typescript
  * const excelSample = {
- *    fileName: 'ExcelFile',
- *    header: ['ID', 'NAME', 'SURNAME'],
- *    column: [
- *      { display: 'ID', variablePath: 'id', hidden: true },
- *      { display: 'Name', variablePath: 'user.name' },
- *      { display: 'Surname', variablePath: 'user.surname' }
- *    ],
- *    data: [
- *      {id: 1, code: 123213, user: {name: 'Serkan', surname: 'Konakcı'}},
- *      {id: 2, code: 2134, user: {name: 'Seda', surname: 'Sayan'}},
- *      {id: 3, code: 456456, user: {name: 'Banu', surname: 'Alkan'}}
- *    ]
+ *  fileName: 'ExcelFile',
+ *  header: ['ID', 'NAME', 'SURNAME'],
+ *  column: [
+ *    { display: 'ID', variablePath: 'id', hidden: true },
+ *    { display: 'Name', variablePath: 'user.name' },
+ *    { display: 'Surname', variablePath: 'user.surname' }
+ *  ],
+ *  data: [
+ *    {id: 1, code: 2345, user: {name: 'Serkan', surname: 'Konakcı'}},
+ *    {id: 2, code: 6789, user: {name: 'Serdar', surname: 'Alkan'}},
+ *    {id: 3, code: 1011, user: {name: 'Banu', surname: 'Ortaç'}}
+ *  ]
  * };
- * ````
+ * ```
  */
 @Component({
   selector: 'logo-excel',
