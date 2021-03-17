@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MarkdownModule } from '@logo-software/markdown';
 import { DrawerModule } from '@logo-software/drawer';
@@ -35,11 +36,11 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
+    TreeModule,
     MarkdownModule,
     DrawerModule,
     LinksModule,
     HeaderModule,
-    TreeModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
