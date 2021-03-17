@@ -75,8 +75,8 @@
     }
   }
 
-  @each $colors, $value in get("color.list") {
-    &.#{$colors} {
+  @each $color, $value in get("color.list") {
+    &.#{$color} {
       .navigator {
         .scroll {
           .nav {
@@ -84,7 +84,7 @@
               ::ng-deep {
                 button {
                   &.selected {
-                    background-color: var(--#{$colors}) !important;
+                    background-color: var(--#{$color}) !important;
                   }
                 }
               }
