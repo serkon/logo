@@ -9,7 +9,7 @@
     "tslib": "^2.0.0"
   },
   "description": "The navigation drawer slides in from the left and contains the navigation destinations for your app.",
-  "homepage": "http://developer.logo.com.tr",
+  "homepage": "http://elements.logo.com.tr",
   "author": {
     "email": "konakci@mail.com",
     "name": "Serkan Konakcı",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/logo-group/logo-elements"
+    "url": "http://stash.logo.com.tr/scm/fd/theme.git"
   },
   "keywords": [
     "left",

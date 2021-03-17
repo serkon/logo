@@ -2,7 +2,8 @@ import { Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { DrawerService } from './drawer.service';
 
 /**
- * The drawer component is designed to add side content to a small section of your app. Left side menu can be opened or closed using the open(), close() and toggle() methods. Add the below code to your code stack and give initializer parameters.
+ * The drawer component is designed to add side content to a small section of your app. Left side menu can be opened or closed using the open(), close() and toggle() methods.
+ * Add the below code to your code stack and give initializer parameters.
  *
  * <sub>app.component.html</sub>
  *
