@@ -1,9 +1,7 @@
 @import "~@logo-software/theme/base";
 
-$header-size: size(80px);
-
 :host {
-  @include larger-than(md) {
+  @include larger-than(lg) {
     .intro {
       display: flex;
       height: 100vh;
@@ -52,6 +50,11 @@ $header-size: size(80px);
         display: flex;
         justify-content: center;
         align-items: center;
+
+        img {
+          padding: size(20px);
+          max-width: 80%;
+        }
       }
 
       .right {
@@ -124,6 +127,7 @@ $header-size: size(80px);
 
     .specs {
       background: no-repeat url("/assets/images/services/rcfs/rcfs-specs-bg-2.png");
+      background-size: cover;
 
       h1 {
         color: var(--white);
@@ -229,7 +233,7 @@ $header-size: size(80px);
     }
   }
 
-  @include smaller-than(md) {
+  @include smaller-than(lg) {
     .intro {
       display: flex;
       height: 100vh;
