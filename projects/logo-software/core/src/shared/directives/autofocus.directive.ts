@@ -5,7 +5,7 @@ import { AfterViewInit, Directive, ElementRef } from '@angular/core';
  *
  * __Usage Example:__
  *
- *```html
+ * ```html
  * <input [autofocus] type="text" placeholder="text" />
  * ```
  */

@@ -2,7 +2,7 @@
   "name": "@logo-software/core",
   "version": "0.0.23",
   "description": "Core module is main Logo Module that contains shared **directives**, **pipes**, **services** and **util** class. It also exported to the `SharedDirectiveModule` and `SharedPipeModule` for directly usage.",
-  "homepage": "http://developer.logo.com.tr",
+  "homepage": "http://elements.logo.com.tr",
   "author": {
     "email": "konakci@mail.com",
     "name": "Serkan Konakcı",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/logobs/ng-logo"
+    "url": "http://stash.logo.com.tr/scm/fd/theme.git"
   },
   "keywords": [
     "services",

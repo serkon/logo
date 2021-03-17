@@ -1,4 +1,5 @@
-import { ModuleWithProviders, NgModule, Optional } from '@angular/core';
+import { NgModule } from '@angular/core';
+
 import { EndpointService } from '../shared/services/endpoint/endpoint.service';
 import { LoggerService } from '../shared/services/logger/logger.service';
 import { StateService } from '../shared/services/state/state.service';
@@ -13,29 +14,26 @@ const SERVICES = [EndpointService, LoggerService, StateService, WatcherService];
 /**
  * Core module is main Logo Module that contains shared **directives**, **pipes**, **services** and **util** class. It also exported to the `SharedDirectiveModule` and `SharedPipeModule` for directly usage.
  *
- * Add TableModule to `import` section of the desired module's `@NgModule` annotation:
- *
- * ```typescript
- *  import { NgModule } from '@angular/core';
- *  import { CoreModule } from './core.module';
- *
- *  @NgModule({
- *  imports: [
- *    CommonModule,
- *    CoreModule,
- *  ],
- * })
- *  export class AppModule {
- * }
- * ```
+ * Click here for [demo](http://design.logo.com.tr/#/docs/components/core-module#coremodule)
  *
  * ### Installation
- * All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
+ *
+ * All public NPM packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
  * To install Core Module:
  *
- *   ```bash
+ * ```bash
  * $ npm set registry https://registry.npmjs.org/
  * $ npm install @logo-software/core -s
+ * ```
+ *
+ * Just import it to your project of `@NgModule` import section.
+ *
+ * ```typescript
+ * @NgModule({
+ *  imports: [CommonModule, CoreModule]
+ * })
+ * export class AppModule {
+ * }
  * ```
  *
  * __Directives:__
