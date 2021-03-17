@@ -27,7 +27,7 @@
           <div *ngFor="let solutionItem of solutionSummaries" class="slider-item">
             <logo-card [cssClasses]="'solution-item'">
               <span class="card-icon">
-                <span *ngIf="solutionItem.iconCss" class="icon le-{{solutionItem.iconcss}}"></span>
+                <span *ngIf="solutionItem.iconCss" class="icon le-{{solutionItem.iconCss}}"></span>
                 <img *ngIf="solutionItem.icon" src="{{solutionItem.icon}}"/>
               </span>
               <div class="card-title">
