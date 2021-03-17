@@ -8,6 +8,7 @@ import { HeaderModule } from '@paas/src/components/header/header.module';
 import { EmsRoutingModule } from './ems-routing.module';
 import { EmsComponent } from './ems.component';
 import {CoreServicesModule} from '@paas/src/components/core-services/core-services.module';
+import {UserReviewModule} from '@paas/src/components/user-review/user-review.module';
 
 @NgModule({
   declarations: [EmsComponent],
@@ -19,6 +20,7 @@ import {CoreServicesModule} from '@paas/src/components/core-services/core-servic
         CarouselModule,
         LinksModule,
         CoreServicesModule,
+        UserReviewModule,
     ],
   exports: [EmsComponent],
 })
