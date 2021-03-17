@@ -607,6 +607,23 @@ export const structure = [
           },
         ],
       },
+      {
+        type: 'page',
+        name: 'Dynamic Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'DynamicModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'DynamicComponent',
+          },
+        ],
+      },
     ],
   },
   {
