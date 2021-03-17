@@ -8,8 +8,8 @@
  * Any reproduction of this material must contain this notice.
  */
 
-import { CompilerFactory, NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { CompilerFactory, NgModule, Optional, SkipSelf } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 import { DynamicModule } from '@logo-software/dynamic';
 
@@ -21,8 +21,14 @@ export function createCompiler(compilerFactory: CompilerFactory) {
 
 @NgModule({
   declarations: [MarkdownComponent],
-  imports: [HttpClientModule, DynamicModule],
+  imports: [DynamicModule],
   exports: [MarkdownComponent],
 })
 export class MarkdownModule {
+  constructor(@Optional() @SkipSelf() parentModule: MarkdownModule, @Optional() private http: HttpClient) {
+    if (!http) {
+      throw new Error('You need to import the HttpClientModule in your AppModule! \n' +
+        'See also https://github.com/angular/angular/issues/20575');
+    }
+  }
 }
