@@ -1,6 +1,6 @@
 <div
   [ngClass]="{'nailed' : !headerService.isScrollSpy}"
-  class="header {{mobileSupport}} {{headerService.activeTheme}}"
+  class="header {{isMobilized ? 'mobilized' : 'standart'}} {{headerService.activeTheme}}"
 >
   <div [ngClass]="{'container': containerStatus}" class="header-content">
     <a class="logo" href="/"></a>

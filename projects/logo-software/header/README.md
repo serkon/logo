@@ -1,24 +1,62 @@
-# Header
+# Header Module
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+Header module adds a header area to the top of the landing page and manages its content. Header module supports responsive web design.
+It comes many features
 
-## Code scaffolding
+* theme
+* scroll spy
+* mobilized
+* alignment (right, left, center)
 
-Run `ng generate component component-name --project header` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project header`.
-> Note: Don't forget to add `--project header` or else it will be added to the default project in your `angular.json` file. 
+Click here for [demo](http://design.logo.com.tr/#/docs/components/header-module#headermodule)
 
-## Build
+### Installation
 
-Run `ng build header` to build the project. The build artifacts will be stored in the `dist/` directory.
+All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). To
+install Header Module:
 
-## Publishing
+```bash
+$ npm set registry https://registry.npmjs.org/
+$ npm install @logo-software/header -s
+```
 
-After building your library with `ng build header`, go to the dist folder `cd dist/header` and run `npm publish`.
+Just import it to your project of `@NgModule` import section.
 
-## Running unit tests
+```typescript
+@NgModule({
+ imports: [CommonModule, HeaderModule],
+})
+export class AppModule {
+}
+```
 
-Run `ng test header` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Header Component
 
-## Further help
+Headers are navigation components that display information and actions relating to the current screen. Add the below code to your code stack and give initializer parameters.
+Add the below code to your code stack and give initializer parameters.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<sub>app.component.html</sub>
+
+```html
+<logo-header
+ [containerStatus]="true"
+ [defaultTheme]="headerTheme.START"
+ [isMobilized]="true"
+ [menuPosition]="'left'"
+ [scrollPoint]="75"
+ [scrollSpy]="true"
+ [scrolledTheme]="headerTheme.SCROLL"
+ [watchElement]="'body'"
+>
+  <!-- Your content goes here. Below code is a sample of usage. -->
+  <div class="section-main">
+    <logo-link [classes]="'ghost large'" [url]="'/products'">Products</logo-link>
+    <logo-link [classes]="'ghost large'" [fragment]="'solutions'" [url]="'/'">Solutions</logo-link>
+    <logo-link [classes]="'ghost large'" [url]="'/info/about'">About Us</logo-link>
+    <logo-link [classes]="'ghost large'" [url]="'/blog'">Blog</logo-link>
+    <logo-link [classes]="'ghost large'" [url]="'/contact'">Contact</logo-link>
+  </div>
+</logo-header>
+```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview

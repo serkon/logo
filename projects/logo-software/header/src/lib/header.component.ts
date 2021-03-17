@@ -13,22 +13,73 @@ import { fromEvent } from 'rxjs';
 
 import { HeaderService, HeaderTheme } from './header.service';
 
+/**
+ * Headers are navigation components that display information and actions relating to the current screen. Add the below code to your code stack and give initializer parameters.
+ * Add the below code to your code stack and give initializer parameters.
+ *
+ * <sub>app.component.html</sub>
+ *
+ * ```html
+ * <logo-header
+ *  [containerStatus]="true"
+ *  [defaultTheme]="headerTheme.START"
+ *  [isMobilized]="true"
+ *  [menuPosition]="'left'"
+ *  [scrollPoint]="75"
+ *  [scrollSpy]="true"
+ *  [scrolledTheme]="headerTheme.SCROLL"
+ *  [watchElement]="'body'"
+ * >
+ *   <!-- Your content goes here. Below code is a sample of usage. -->
+ *   <div class="section-main">
+ *     <logo-link [classes]="'ghost large'" [url]="'/products'">Products</logo-link>
+ *     <logo-link [classes]="'ghost large'" [fragment]="'solutions'" [url]="'/'">Solutions</logo-link>
+ *     <logo-link [classes]="'ghost large'" [url]="'/info/about'">About Us</logo-link>
+ *     <logo-link [classes]="'ghost large'" [url]="'/blog'">Blog</logo-link>
+ *     <logo-link [classes]="'ghost large'" [url]="'/contact'">Contact</logo-link>
+ *   </div>
+ * </logo-header>
+ * ```
+ */
 @Component({
   selector: 'logo-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements AfterViewInit {
+  /**
+   * adds 'default' class to header component's tag to default. It will also make header background to transparent.
+   */
   @Input() defaultTheme: HeaderTheme = HeaderTheme.START;
+  /**
+   * adds 'scroll' class to header component's tag while scrolling.  It will also make header background to white.
+   */
   @Input() scrolledTheme: HeaderTheme = HeaderTheme.SCROLL;
+  /**
+   * the class name of the which scrolling element will be watched to be made sticky to the header component to the top of the page. Default is `drawer-right`.
+   * It also accepts `body` or `html` so it will watch window's scroll.
+   */
   @Input() watchElement: string = 'drawer-right';
+  /**
+   * Add mobile responsive support
+   */
   @Input() isMobilized: boolean = true;
+  /**
+   * sticky header support. Default is `true`. If set false header component will not be sticky
+   */
   @Input() scrollSpy: boolean = true;
+  /**
+   * header component will be sticky after given pixel has been scrolled. Default is `100`
+   */
   @Input() scrollPoint: number = 100;
+  /**
+   * Menu alignment. Default is `right`
+   */
   @Input() menuPosition: 'left' | 'center' | 'right' = 'right';
+  /**
+   * if set to default it will add bootstrap `container` class to `"div.header-content"`. So it will be full width or inside a container.
+   */
   @Input() containerStatus: boolean = false;
-
-  public mobileSupport: string = this.isMobilized ? 'mobilized' : 'standart';
 
   constructor(public headerService: HeaderService, private cd: ChangeDetectorRef) {
     this.headerService.headerThemeChange.subscribe((val) => {
@@ -56,15 +107,14 @@ export class HeaderComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.headerService.startTheme = this.defaultTheme;
     this.headerService.scrollTheme = this.scrolledTheme;
-    this.headerService.catchPoint = this.scrollPoint;
+    this.headerService.scrollPoint = this.scrollPoint;
     this.headerService.isScrollSpy = this.scrollSpy;
-
     const content = this.watchElement === 'body' || this.watchElement === 'html' ? window : document.querySelector('.' + this.watchElement);
     const scroll$ = fromEvent(content, 'scroll');
     scroll$.subscribe(dir => {
       const scrollPos = this.watchElement === 'body' || this.watchElement === 'html' ? window.pageYOffset : dir.target['scrollTop'];
       if (this.headerService.isScrollSpy) {
-        this.headerService.activeTheme = (scrollPos >= this.headerService.catchPoint) ? this.headerService.scrollTheme : this.headerService.startTheme;
+        this.headerService.activeTheme = (scrollPos >= this.headerService.scrollPoint) ? this.headerService.scrollTheme : this.headerService.startTheme;
       }
     });
   }
