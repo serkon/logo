@@ -1,24 +1,70 @@
 # Dynamic
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+This module is ___Experimental___ status.
 
-## Code scaffolding
+``` bash
+# If you plan to use this module you have to accept all risk to usage.
+# your project must be compile the project without aot and buildOptimizer disabled
 
-Run `ng generate component component-name --project dynamic` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project dynamic`.
-> Note: Don't forget to add `--project dynamic` or else it will be added to the default project in your `angular.json` file. 
+ng build --prod --aot=false --buildOptimizer=false
+```
 
-## Build
+@TODO: https://itnext.io/building-an-aot-friendly-dynamic-content-outlet-in-angular-c2790195cb94
 
-Run `ng build dynamic` to build the project. The build artifacts will be stored in the `dist/` directory.
+Dynamic module installer main goal is to dynamically load components from string and render them as a web user interface.
 
-## Publishing
+Click here for [demo](http://design.logo.com.tr/#/docs/components/dynamic-module#dynamicmodule)
 
-After building your library with `ng build dynamic`, go to the dist folder `cd dist/dynamic` and run `npm publish`.
+### Installation
 
-## Running unit tests
+All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
+To install Dynamic Module:
 
-Run `ng test dynamic` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+$ npm set registry https://registry.npmjs.org/
+$ npm install @logo-software/dynamic -s
+```
 
-## Further help
+Just import it to your project of `@NgModule` import section.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```typescript
+@NgModule({
+  imports: [CommonModule, DynamicModule],
+})
+export class AppModule {
+}
+```
+
+### Dynamic Component
+
+The dynamic module accepts two inputs, one of them is your Module list and the other is your template string.
+So, these components load your modules and run your templates inside them.
+Add the below code to your code stack and give initializer parameters.
+
+<sub>app.component.ts</sub>
+
+```ts
+import { Component, NgModule } from '@angular/core'; *
+import { PlaygroundModule } from '@logo-software/playground';
+import { BreadcrumbModule } from '@logo-software/breadcrumb';
+
+@Component({
+  selector: 'logo-dynamic-showcase',
+  templateUrl: './dynamic-showcase.component.html',
+  styleUrls: ['./dynamic-showcase.component.scss'],
+})
+export class DynamicShowcaseComponent {
+ imports = [PlaygroundModule, BreadcrumbModule];
+ text = `
+   <logo-playground path="#/logo/button-sample/button-showcase/button-showcase.component" context='{"title": "Button Demo", "button": true}' ></logo-playground>
+   <logo-breadcrumb [breadcrumb]="[{name:'Home', link: '/'}, {name:'Products', link: '/products'}, {name: 'Potato'}]" [isLight]="false" [size]="'medium'"></logo-breadcrumb>
+ `;
+}
+```
+<sub>app.component.html</sub>
+
+```angular2html
+<logo-dynamic imports="imports" context="text"></logo-drawer>
+```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview

@@ -10,7 +10,7 @@
     "@logo-software/playground": "^0.0.1"
   },
   "description": "Dynamic component loader. Add which components will be load automatically. Then send string for load it outside of the component. Default @logo-software/playground module was added",
-  "homepage": "http://developer.logo.com.tr",
+  "homepage": "http://elements.logo.com.tr",
   "author": {
     "email": "konakci@mail.com",
     "name": "Serkan Konakcı",
@@ -18,12 +18,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/logo-group/logo-elements.git"
+    "url": "http://stash.logo.com.tr/scm/fd/theme.git"
   },
   "keywords": [
     "dynamic",
-    "componen",
+    "component",
     "loader",
+    "string",
+    "aot",
+    "jit",
+    "compiler",
     "playground",
     "load",
     "external"
@@ -42,7 +46,7 @@
     "minor:commit": "npm run ver:minor && npm run build && TYPE=feat npm run git-commit && npm run tag",
     "pre:commit": "npm run ver:pre && npm run build && TYPE=prerelease npm run git-commit && npm run tag",
     "major:commit": "npm run ver:major && npm run build && TYPE=release npm run git-release && npm run tag",
-    "tag": "git tag LinksModule.$npm_package_version",
+    "tag": "git tag DynamicModule.$npm_package_version",
     "unpublish": "npm unpublish $npm_package_name@$npm_package_version"
   }
 }

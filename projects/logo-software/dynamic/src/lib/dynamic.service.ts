@@ -9,9 +9,9 @@
  */
 
 import { Compiler, Component, ComponentFactory, Injectable, ModuleWithComponentFactories, NgModule } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Subject } from 'rxjs';
 import { PlaygroundModule } from '@logo-software/playground';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root',
@@ -19,6 +19,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class DynamicService {
 
   public compile$ = new Subject();
+  public imports = [PlaygroundModule];
 
   constructor(private compiler: Compiler, private sanitizer: DomSanitizer) {
   }
@@ -33,7 +34,8 @@ export class DynamicService {
      * TemplateComponent Creating
      */
     @Component({
-      template: `<div class="dynamic-component">${this.escape(htmlText)}</div>`,
+      template: `
+        <div class="dynamic-component">${this.escape(htmlText)}</div>`,
       styles: [':host { display: block; }'],
       interpolation: ['[[', ']]'],
     })
@@ -51,7 +53,7 @@ export class DynamicService {
      */
     @NgModule({
       declarations: [TemplateComponent],
-      imports: [PlaygroundModule],
+      imports: [this.imports],
     })
     class TemplateModule {
     }
