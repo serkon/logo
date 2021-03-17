@@ -1,6 +1,7 @@
-# Logo Elements Icons
-Icon uses for add icons to Logo Elements Design Guide based web and mobile applications. Our icons is depends on the *Streamline Icons* paid version.
-For usage, just download and import `scss` to your project main `style.scss` is enough. It so easy to use.
+# Icon Module
+Icon Module is used to add icons to Logo Elements Design System guide-based web and mobile applications. Our icons depend on the *Streamline Icons* paid version. For usage, just download and import `scss` to your project main `style.scss` is enough. It is so easy to use.
+
+Click here for [demo](http://design.logo.com.tr/#/docs/components/icon-module#iconmodule)
 
 ### License
 Our licence placed at [License](http://design.logo.com.tr/assets/guideline/icon/license.pdf) file. Please click and read for usage details.

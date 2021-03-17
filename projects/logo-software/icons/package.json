@@ -1,8 +1,14 @@
 {
   "name": "@logo-software/icons",
   "version": "1.5.2",
-  "description": "The Angular Toast is a small, nonblocking notification pop-up. A toast is shown to users with readable message content at the bottom of the screen or at a specific target and disappears automatically after a few seconds (time-out) with different animation effects.",
-  "homepage": "http://developer.logo.com.tr",
+  "dependencies": {
+    "fs-extra": "^9.0.1"
+  },
+  "peerDependencies": {
+    "tslib": "^1.10.0"
+  },
+  "description": "Icon Module is used to add icons to Logo Elements Design System guide-based web and mobile applications. Our icons depend on the *Streamline Icons* paid version. For usage, just download and import `scss` to your project main `style.scss` is enough. It is so easy to use.",
+  "homepage": "http://elements.logo.com.tr",
   "author": {
     "email": "konakci@mail.com",
     "name": "Serkan Konakcı",
@@ -10,29 +16,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/logobs/ng-logo"
+    "url": "http://stash.logo.com.tr/scm/fd/theme.git"
   },
   "keywords": [
-    "toast",
-    "message",
-    "warning",
-    "error",
-    "information",
-    "success",
-    "sound",
-    "delay",
-    "close",
-    "title",
-    "cancel",
-    "progress"
+    "icon",
+    "app",
+    "web",
+    "mobile",
+    "svg",
+    "angular"
   ],
   "license": "See license in LICENSE file",
-  "dependencies": {
-    "fs-extra": "^9.0.1"
-  },
-  "peerDependencies": {
-    "tslib": "^1.10.0"
-  },
   "scripts": {
     "icons": "node generate-icons.js",
     "ver:patch": "npm version patch",
