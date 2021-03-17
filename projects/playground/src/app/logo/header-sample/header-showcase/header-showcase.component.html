@@ -1,0 +1,19 @@
+<logo-header
+  [containerStatus]="true"
+  [defaultTheme]="headerTheme.START"
+  [isMobilized]="true"
+  [menuPosition]="'left'"
+  [scrollPoint]="75"
+  [scrollSpy]="true"
+  [scrolledTheme]="headerTheme.SCROLL"
+  [watchElement]="'body'"
+>
+  <!-- Your content goes here. Below code is a sample of usage. -->
+  <div class="section-main">
+    <logo-link [classes]="'ghost large'" [url]="'/products'">Products</logo-link>
+    <logo-link [classes]="'ghost large'" [fragment]="'solutions'" [url]="'/'">Solutions</logo-link>
+    <logo-link [classes]="'ghost large'" [url]="'/info/about'">About Us</logo-link>
+    <logo-link [classes]="'ghost large'" [url]="'/blog'">Blog</logo-link>
+    <logo-link [classes]="'ghost large'" [url]="'/contact'">Contact</logo-link>
+  </div>
+</logo-header>

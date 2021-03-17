@@ -16,10 +16,6 @@ const routes: Routes = [
         loadChildren: () => import('./datepicker-sample/datepicker-sample.module').then(m => m.DatepickerSampleModule),
       },
       {
-        path: 'input-sample',
-        loadChildren: () => import('./input-sample/input-sample.module').then(m => m.InputSampleModule),
-      },
-      {
         path: 'button-sample',
         loadChildren: () => import('./button-sample/button-sample.module').then(m => m.ButtonSampleModule),
       },
@@ -118,6 +114,14 @@ const routes: Routes = [
       {
         path: 'card-sample',
         loadChildren: () => import('./card-sample/card-sample.module').then(m => m.CardSampleModule),
+      },
+      {
+        path: 'dynamic-sample',
+        loadChildren: () => import('./dynamic-sample/dynamic-sample.module').then(m => m.DynamicSampleModule),
+      },
+      {
+        path: 'header-sample',
+        loadChildren: () => import('./header-sample/header-sample.module').then(m => m.HeaderSampleModule),
       },
     ],
   },
