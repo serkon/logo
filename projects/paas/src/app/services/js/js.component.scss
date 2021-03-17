@@ -1,0 +1,366 @@
+@import "~@logo-software/theme/base";
+
+:host {
+  @include larger-than(md) {
+    .intro {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: size(724px);
+      background-image: linear-gradient(243deg, #6ca7ef 5%, #6f82f2 70%);
+
+      .left {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.85;
+        background-image: linear-gradient(179deg, #7f91fb 0%, #3542ce 90%);
+        z-index: 1;
+        min-width: auto;
+
+        .section-1-draws {
+          position: absolute;
+          bottom: size(43.61px);
+          display: block;
+        }
+
+        div.title-content {
+          position: relative;
+          z-index: 2;
+          max-width: size(486px);
+          display: flex;
+          align-items: baseline;
+          justify-content: center;
+          flex-direction: column;
+          // margin-top: size(85px);
+
+          h1.title {
+            font-family: get("font.family");
+            font-weight: 800;
+            flex-direction: column;
+            pointer-events: none;
+            color: var(--light);
+          }
+
+          p.description {
+            margin: size(25px) 0 size(40px) 0;
+            font-size: size(20px);
+            pointer-events: none;
+            text-align: left;
+            color: var(--light);
+          }
+        }
+      }
+
+      .right {
+        position: relative;
+        display: flex;
+        justify-content: center;
+
+        .section-1-cloud {
+          position: absolute;
+          bottom: 0;
+          right: size(1px);
+        }
+
+        .section-1-slider {
+          position: absolute;
+          z-index: 1;
+          bottom: 0;
+          height: auto;
+          width: 100%;
+        }
+      }
+    }
+
+    .usage {
+      height: size(400px);
+      display: flex;
+
+      .left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        vertical-align: middle;
+      }
+
+      .right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: baseline;
+        vertical-align: middle;
+        overflow-x: hidden;
+
+        logo-link {
+          z-index: 1;
+        }
+
+        .usage-content {
+          .usage-title {
+            font-size: size(25px);
+            color: #707070;
+            line-height: 45px;
+          }
+
+          .usage-description {
+            color: #707070;
+            line-height: size(45px);
+            font-size: size(40px);
+          }
+        }
+
+        .section-2-bg {
+          position: absolute;
+          right: 0;
+          bottom: size(-365px);
+        }
+      }
+    }
+
+    .specs {
+      height: size(800px);
+      display: flex;
+
+      .left {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        vertical-align: middle;
+        background-color: #f0f5ff;
+
+        .specs-content {
+          position: relative;
+          z-index: 2;
+          max-width: size(486px);
+          display: flex;
+          align-items: baseline;
+          justify-content: center;
+          flex-direction: column;
+          padding: size(30px);
+
+          .specs-title {
+            font-size: size(25px);
+            color: #707070;
+            line-height: size(45px);
+          }
+
+          .specs-title-2 {
+            font-size: size(35px);
+            color: #707070;
+            line-height: size(45px);
+          }
+
+          .specs-description {
+            font-size: size(40px);
+            color: #707070;
+            line-height: size(40px);
+          }
+        }
+
+        .section-3-bg {
+          position: absolute;
+          bottom: size(0);
+          left: size(0);
+        }
+      }
+
+      .right {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        opacity: 0.73;
+        background: #83b9fb;
+        z-index: 0;
+
+        .section-3-phone {
+          position: absolute;
+          bottom: 0;
+        }
+      }
+    }
+  }
+  @include smaller-than(md) {
+    .intro {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: size(724px);
+      background-image: linear-gradient(243deg, #6ca7ef 5%, #6f82f2 70%);
+
+      .left {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.85;
+        background-image: linear-gradient(179deg, #7f91fb 0%, #3542ce 90%);
+        z-index: 1;
+        min-width: auto;
+
+        .section-1-draws {
+          position: absolute;
+          bottom: size(43.61px);
+          display: block;
+        }
+
+        div.title-content {
+          position: relative;
+          z-index: 2;
+          max-width: size(486px);
+          display: flex;
+          align-items: baseline;
+          justify-content: center;
+          flex-direction: column;
+          // margin-top: size(85px);
+
+          h1.title {
+            font-family: get("font.family");
+            font-weight: 800;
+            flex-direction: column;
+            pointer-events: none;
+            color: var(--light);
+          }
+
+          p.description {
+            margin: size(25px) 0 size(40px) 0;
+            font-size: size(20px);
+            pointer-events: none;
+            text-align: left;
+            color: var(--light);
+          }
+        }
+      }
+
+      .right {
+        position: relative;
+        display: flex;
+        justify-content: center;
+
+        .section-1-cloud {
+          position: absolute;
+          bottom: 0;
+          right: size(1px);
+        }
+
+        .section-1-slider {
+          position: absolute;
+          z-index: 1;
+          bottom: 0;
+          height: auto;
+          width: 100%;
+        }
+      }
+    }
+
+    .usage {
+      height: size(400px);
+      display: flex;
+
+      .left {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        vertical-align: middle;
+      }
+
+      .right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: baseline;
+        vertical-align: middle;
+        overflow-x: hidden;
+
+        logo-link {
+          z-index: 1;
+        }
+
+        .usage-content {
+          .usage-title {
+            font-size: size(25px);
+            color: #707070;
+            line-height: 45px;
+          }
+
+          .usage-description {
+            color: #707070;
+            line-height: size(45px);
+            font-size: size(40px);
+          }
+        }
+
+        .section-2-bg {
+          position: absolute;
+          right: 0;
+          bottom: size(-365px);
+        }
+      }
+    }
+
+    .specs {
+      height: size(800px);
+      display: flex;
+
+      .left {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        vertical-align: middle;
+        background-color: #f0f5ff;
+
+        .specs-content {
+          position: relative;
+          z-index: 2;
+          max-width: size(486px);
+          display: flex;
+          align-items: baseline;
+          justify-content: center;
+          flex-direction: column;
+          padding: size(30px);
+
+          .specs-title {
+            font-size: size(25px);
+            color: #707070;
+            line-height: size(45px);
+          }
+
+          .specs-title-2 {
+            font-size: size(35px);
+            color: #707070;
+            line-height: size(45px);
+          }
+
+          .specs-description {
+            font-size: size(40px);
+            color: #707070;
+            line-height: size(40px);
+          }
+        }
+
+        .section-3-bg {
+          position: absolute;
+          bottom: size(0);
+          left: size(0);
+        }
+      }
+
+      .right {
+        position: relative;
+        display: none;
+        justify-content: center;
+        opacity: 0.73;
+        background: #83b9fb;
+        z-index: 0;
+
+        .section-3-phone {
+          position: absolute;
+          bottom: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { LinksModule } from '@logo-software/links';
 import { CarouselModule } from '@logo-software/carousel';
 
@@ -7,14 +8,14 @@ import { UserReviewModule } from '@paas/src/components/user-review/user-review.m
 import { CoreServicesModule } from '@paas/src/components/core-services/core-services.module';
 import { HeaderModule } from '@paas/src/components/header/header.module';
 import { FooterModule } from '@paas/src/components/footer/footer.module';
-import { CsRoutingModule } from './cs-routing.module';
-import { CsComponent } from './cs.component';
+import { JsRoutingModule } from './js-routing.module';
+import { JsComponent } from './js.component';
 
 @NgModule({
-  declarations: [CsComponent],
+  declarations: [JsComponent],
   imports: [
     CommonModule,
-    CsRoutingModule,
+    JsRoutingModule,
     HeaderModule,
     FooterModule,
     CarouselModule,
@@ -22,7 +23,7 @@ import { CsComponent } from './cs.component';
     UserReviewModule,
     CoreServicesModule,
   ],
-  exports: [CsComponent],
+  exports: [JsComponent],
 })
-export class CsModule {
+export class JsModule {
 }
