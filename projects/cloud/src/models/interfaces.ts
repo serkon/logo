@@ -239,9 +239,13 @@ export interface SolutionSummary {
    */
   description: string;
   /**
-   * Çözümü ifade eden ikon
+   * Çözümü ifade eden ikon SVG, PNG benzeri dosya kaynağı
    */
-  icon: string;
+  icon?: string;
+  /**
+   * Çözümü ifade eden icon kütüphanesinin CSS class adı
+   */
+  iconcss?: string;
 }
 
 // @TODO: GET - /assets/data/solution/metadata.json - id'ye göre çek
