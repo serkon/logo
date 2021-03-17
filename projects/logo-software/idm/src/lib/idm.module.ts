@@ -65,13 +65,26 @@ export class SetIdmConfig {
  *
  * IDM service offers single sign-on (SSO - Single Sign On) support between platform services and applications with a common user pool structure. In the user log out process, you can log out the user either from the relevant application or from all PaaS applications.
  *
+ * @stacked-example(Idm Showcase, logo/idm-sample/idm-showcase/idm-showcase.component)
+ *
  * ### Installation
- * All public NPM packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
- * To install Link Module:
+ *
+ * All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). To
+ * install Idm Module:
  *
  * ```bash
  * $ npm set registry https://registry.npmjs.org/
  * $ npm install @logo-software/idm -s
+ * ```
+ *
+ * Just import it to your project of `@NgModule` import section.
+ *
+ * ```typescript
+ * @NgModule({
+ *  imports: [CommonModule, HeaderModule],
+ * })
+ * export class AppModule {
+ * }
  * ```
  *
  * __NOTE: This module holds client token, user, validated etc. information on localStorage__
@@ -83,7 +96,6 @@ export class SetIdmConfig {
  *  StorageClass.get('token'); // return access token string
  *  StorageClass.get('validate'); // if exist return ValidatedToken information
  * ```
- * @stacked-example(Tabs Showcase, logo/idm-sample/idm-showcase/idm-showcase.component)
  *
  * <sub>app.module.ts</sub>
  * ```typescript
@@ -91,9 +103,7 @@ export class SetIdmConfig {
  * // CLIENT_ID (guid) is your PaaS integrated application id - For example: '1a6a024b-05d7-48ea-83db-4be88e29d300'
  * // RETURN_URI (string) is your logged in callback URL address - For example: 'http://design.logo.com.tr'
  * @NgModule({
- *   ...
  *   imports: [IdmModule.forRoot(CLIENT_ID, {RETURN_URI})],
- *   ...
  * })
  * export class AppModule {
  * }
