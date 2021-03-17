@@ -30,11 +30,22 @@
         <div class="user-info">
           <p>{{userService.user.Name}} {{userService.user.Surname}}</p>
           <div class="select-tanent">
-            <logo-combobox (filter)="onTenantsFiltered($event)" (select)="onTenantSelected($event)"
-                           [(ngModel)]="selectedTanent" [hover]="2" [items]="displayedTenants" [path]="'a.b'"
-                           [selected]="1">
-              <ng-template let-index="index" let-isFirst="isFirst" let-isLast="isLast" let-isOdd="isOdd"
-                           let-item="item">
+            <logo-combobox
+              (filter)="onTenantsFiltered($event)"
+              (select)="onTenantSelected($event)"
+              [(ngModel)]="selectedTanent"
+              [hover]="2"
+              [items]="displayedTenants"
+              [path]="'a.b'"
+              [selected]="1"
+            >
+              <ng-template
+                let-index="index"
+                let-isFirst="isFirst"
+                let-isLast="isLast"
+                let-isOdd="isOdd"
+                let-item="item"
+              >
                 <span>{{item.a.b}}</span>
               </ng-template>
             </logo-combobox>
