@@ -123,6 +123,14 @@ const routes: Routes = [
         path: 'header-sample',
         loadChildren: () => import('./header-sample/header-sample.module').then(m => m.HeaderSampleModule),
       },
+      {
+        path: 'hero-sample',
+        loadChildren: () => import('./hero-sample/hero-sample.module').then(m => m.HeroSampleModule),
+      },
+      {
+        path: 'image-slider-sample',
+        loadChildren: () => import('./image-slider-sample/image-slider-sample.module').then(m => m.ImageSliderSampleModule),
+      },
     ],
   },
 ];

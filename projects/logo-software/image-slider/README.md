@@ -1,27 +1,53 @@
-# ImageSlider
+# Image Slider Module
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
+Image Slider is a image viewer library for cycling through a series of images. It also includes support for
+previous/next controls and thumbnails.
 
-## Code scaffolding
+* It comes with the features below:
+* Thumbnail support.
+* On Image change, image specific output.
+* Auto scrollable thumbnails.
+* Mobile support.
 
-Run `ng generate component component-name --project image-slider` to generate a new component. You can also
-use `ng generate directive|pipe|service|class|guard|interface|enum|module --project image-slider`.
-> Note: Don't forget to add `--project image-slider` or else it will be added to the default project in your `angular.json` file.
+Click here for [demo](http://design.logo.com.tr/#/docs/components/image-slider-module#imageslidermodule)
 
-## Build
+### Installation
 
-Run `ng build image-slider` to build the project. The build artifacts will be stored in the `dist/` directory.
+All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). To
+install Image Slider Module:
 
-## Publishing
+```bash
+$ npm set registry https://registry.npmjs.org/
+$ npm install @logo-software/image-slider -s
+```
 
-After building your library with `ng build image-slider`, go to the dist folder `cd dist/image-slider` and
-run `npm publish`.
+Just import it to your project of `@NgModule` import section.
 
-## Running unit tests
+```typescript
+import {ImageSliderModule} from '@logo-software/image-slider';
 
-Run `ng test image-slider` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@NgModule({
+  imports: [CommonModule, ImageSliderModule],
+})
+export class AppModule {
+}
+```
 
-## Further help
+### Image Slider Component
 
-To get more help on the Angular CLI use `ng help` or go check out
-the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Image Slider is a key to product showcases. With Image Slider Component you can easily add simple image gallery your
+page. Add the below code to your code stack and give initializer parameters.
+
+<sub>app.component.html</sub>
+
+```html
+
+<logo-image-slider
+  [media]="items"
+  [texts]="captions"
+  (onItemChange)="sampleChangeEvent($event)"
+>
+</logo-image-slider>
+```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview

@@ -675,6 +675,40 @@ export const structure = [
           },
         ],
       },
+      {
+        type: 'page',
+        name: 'Hero Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'HeroModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'HeroComponent',
+          },
+        ],
+      },
+      {
+        type: 'page',
+        name: 'Image Slider Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'ImageSliderModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'ImageSliderComponent',
+          },
+        ],
+      },
     ],
   },
   {
