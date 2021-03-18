@@ -10,17 +10,20 @@ const routes: Routes = [
       {path: 'idm', loadChildren: () => import('./idm/idm.module').then(module => module.IdmModule)},
       {path: 'cc', loadChildren: () => import('./cc/cc.module').then(module => module.CcModule)},
       {path: 'ms', loadChildren: () => import('./ms/ms.module').then(module => module.MsModule)},
+      {path: 'mrs', loadChildren: () => import('./mrs/mrs.module').then(module => module.MrsModule)},
       {path: 'as', loadChildren: () => import('./as/as.module').then(module => module.AsModule)},
       {path: 'ss', loadChildren: () => import('./ss/ss.module').then(module => module.SsModule)},
-      {path: 'cs', loadChildren: () => import('./cs/cs.module').then(module => module.CsModule)},
+      {path: 'js', loadChildren: () => import('./js/js.module').then(module => module.JsModule)},
+      /*
+      LS REMOVED
       {path: 'ls', loadChildren: () => import('./ls/ls.module').then(module => module.LsModule)},
+       */
       {path: 'vvs', loadChildren: () => import('./vvs/vvs.module').then(module => module.VvsModule)},
-      {path: 'mss', loadChildren: () => import('./mss/mss.module').then(module => module.MssModule)},
       {path: 'hfs', loadChildren: () => import('./hfs/hfs.module').then(module => module.HfsModule)},
       {path: 'ems', loadChildren: () => import('./ems/ems.module').then(module => module.EmsModule)},
       {path: 'ys', loadChildren: () => import('./ys/ys.module').then(module => module.YsModule)},
       {path: 'rs', loadChildren: () => import('./rs/rs.module').then(module => module.RsModule)},
-      {path: 'ks', loadChildren: () => import('./ks/ks.module').then(module => module.KsModule)},
+      {path: 'ds', loadChildren: () => import('./ds/ds.module').then(module => module.DsModule)},
       {path: 'dfs', loadChildren: () => import('./dfs/dfs.module').then(module => module.DfsModule)},
       {path: 'rdf', loadChildren: () => import('./rdf/rdf.module').then(module => module.RdfModule)},
       {path: 'dafs', loadChildren: () => import('./dafs/dafs.module').then(module => module.DafsModule)},
