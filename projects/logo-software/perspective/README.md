@@ -1,24 +1,48 @@
-# Perspective
+# Perspective Module
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
+The perspective module gives perspective to elements, using the  Perspective feature of the CSS by mouse move size.
 
-## Code scaffolding
+Click here for [demo](http://design.logo.com.tr/#/docs/components/perspective-module#perspectivemodule)
 
-Run `ng generate component component-name --project perspective` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project perspective`.
-> Note: Don't forget to add `--project perspective` or else it will be added to the default project in your `angular.json` file. 
+### Installation
 
-## Build
+All public NPM packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
+To install Perspective Module:
 
-Run `ng build perspective` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+$ npm set registry https://registry.npmjs.org/
+$ npm install @logo-software/perspective -s
+```
 
-## Publishing
+Just import it to your project of `@NgModule` import section.
 
-After building your library with `ng build perspective`, go to the dist folder `cd dist/perspective` and run `npm publish`.
+```typescript
+@NgModule({
+  imports: [CommonModule, PerspectiveModule]
+})
+export class AppModule {
+}
+```
 
-## Running unit tests
+### Perspective Component
 
-Run `ng test perspective` to execute the unit tests via [Karma](https://karma-runner.github.io).
+This component accepts HTML items inside then gives perspective to each theme.
+Add the below code to your code stack and give initializer parameters.
 
-## Further help
+<sub>app.component.html</sub>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```html
+<logo-perspective
+  [threshold]="150"
+  [xDegree]="3"
+  [yDegree]="3"
+  [sensitivity]="50"
+  [rotateX]="false"
+  [rotateY]="true"
+>
+  <div class="art-bg-01"></div>
+  <div class="art-bg-02"></div>
+</logo-perspective>
+```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview

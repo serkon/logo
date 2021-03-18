@@ -1,5 +1,25 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output } from '@angular/core';
 
+/**
+ * This component accepts HTML items inside then gives perspective to each theme.
+ * Add the below code to your code stack and give initializer parameters.
+ *
+ * <sub>app.component.html</sub>
+ *
+ * ```html
+ * <logo-perspective
+ *   [threshold]="150"
+ *   [xDegree]="3"
+ *   [yDegree]="3"
+ *   [sensitivity]="50"
+ *   [rotateX]="false"
+ *   [rotateY]="true"
+ * >
+ *   <div class="art-bg-01"></div>
+ *   <div class="art-bg-02"></div>
+ * </logo-perspective>
+ * ```
+ */
 @Component({
   selector: 'logo-perspective',
   template: `
@@ -47,6 +67,7 @@ export class PerspectiveComponent implements AfterViewInit {
 
   constructor(private elementRef: ElementRef) {
   }
+
   ngAfterViewInit() {
     this.mouseEnter();
   }
@@ -64,8 +85,8 @@ export class PerspectiveComponent implements AfterViewInit {
       const coords = elm.getBoundingClientRect();
       const elmX = (coords.left + elm.offsetWidth / 2);
       const elmY = (coords.top + elm.offsetHeight / 2);
-      let angleX, angleY;
-
+      let angleX;
+      let angleY;
       if (Math.abs((elmY - y) / this.sensitivity) <= this.yDegree) {
         angleX = (elmY - y) / this.sensitivity;
       } else {
@@ -90,15 +111,12 @@ export class PerspectiveComponent implements AfterViewInit {
         this.degree.emit({x: angleX, y: angleY});
       }
     });
-
     elm.addEventListener('mouseenter', (e) => {
       image.style.transition = 'all 1s linear';
     });
-
     elm.addEventListener('mouseleave', (e) => {
       image.style.transition = 'all 0.7s linear';
       image.style.transform = `rotateX(0deg) rotateY(0deg)`;
     });
-
   }
 }
