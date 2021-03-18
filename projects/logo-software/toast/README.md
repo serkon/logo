@@ -1,24 +1,67 @@
-# Toast
+# Toast Module
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3.
+Toast messages inform users of a process that an app has performed or will perform. They appear temporarily, towards the
+right top of the screen. They shouldn’t interrupt the user experience, and they don’t require user input to disappear.
+Optionally, it accepts options from outside.
 
-## Code scaffolding
+Click here for [demo](http://design.logo.com.tr/#/docs/components/toast-module#toastmodule)
 
-Run `ng generate component component-name --project toast` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project toast`.
-> Note: Don't forget to add `--project toast` or else it will be added to the default project in your `angular.json` file. 
+### Installation
 
-## Build
+All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). To
+install Toast Module:
 
-Run `ng build toast` to build the project. The build artifacts will be stored in the `dist/` directory.
+ ```bash
+ $ npm set registry https://registry.npmjs.org/
+ $ npm install @logo-software/toast -s
+ ```
 
-## Publishing
+Just import it to your project of `@NgModule` import section.
 
-After building your library with `ng build toast`, go to the dist folder `cd dist/toast` and run `npm publish`.
+<sub>app.module.ts</sub>
 
-## Running unit tests
+ ```typescript
+ @NgModule({
+  imports: [ToastModule],
+  providers: [ToastService]
+})
+export class AppModule {
+}
+ ```
 
-Run `ng test toast` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Toast Component
 
-## Further help
+The Toast Component is run through the Toast Service. However, the Toast Component must be added to the main module of
+the application first. Then it is enough to add `<logo-toast></logo-toast>` to html. Add the below code to your code
+stack and give initializer parameters.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+<sub>app.component.html</sub>
+
+```html
+<logo-toast></logo-toast>
+```
+
+### Toast Service
+
+Toast Service used for create Toast Message. A toast is a lightweight, ephemeral notice from an application in direct
+response to a user's action.
+
+<sub>any.component.ts</sub>
+
+```typescript
+@Component({
+  selector: 'logo-toast-sample',
+  templateUrl: './toast-showcase.component.html',
+  styleUrls: ['./toast-showcase.component.scss'],
+})
+export class ToastShowcaseComponent {
+  constructor(private toastService: ToastService) {
+    this.toastService.error('message content goes here'); // error message
+    this.toastService.warning('message content goes here'); // warning message
+    this.toastService.information('message content goes here'); // info message
+    this.toastService.success('message content goes here'); // success message
+  }
+}
+```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview

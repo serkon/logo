@@ -14,16 +14,14 @@ import { Toast, ToastAction } from './toast';
 
 /**
  * The Toast Component is run through the Toast Service. However, the Toast Component must be added to
- * the main module of the application first. Then it is enough to add `<logo-toast> </logo-toast>` to html.
+ * the main module of the application first. Then it is enough to add `<logo-toast></logo-toast>` to html.
+ * Add the below code to your code stack and give initializer parameters.
  *
- * __Usage Example__
+ * <sub>app.component.html</sub>
  *
- * <sub>**app.component.html**</sub>
  * ```html
  * <logo-toast></logo-toast>
  * ```
- *
- * @stacked-example(Table Showcase, logo/toast-sample/toast-showcase/toast-showcase.component)
  */
 @Component({
   selector: 'logo-toast',

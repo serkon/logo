@@ -13,7 +13,7 @@
     "fs-extra": "^9.0.1"
   },
   "description": "The Angular Toast is a small, nonblocking notification pop-up. A toast is shown to users with readable message content at the bottom of the screen or at a specific target and disappears automatically after a few seconds (time-out) with different animation effects.",
-  "homepage": "http://developer.logo.com.tr",
+  "homepage": "http://elements.logo.com.tr",
   "author": {
     "email": "konakci@mail.com",
     "name": "Serkan Konakcı",
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/logobs/ng-logo"
+    "url": "http://stash.logo.com.tr/scm/fd/theme.git"
   },
   "keywords": [
     "toast",

@@ -34,7 +34,9 @@ import { Toast, ToastMessageTypes } from './toast';
  * }
  * ```
  */
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class ToastService {
   public watch: Subject<Toast> = new Subject<Toast>();
   public soundType: string = '';
