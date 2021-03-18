@@ -75,7 +75,8 @@ export class PlaygroundComponent implements AfterViewInit {
   }
 
   tab() {
-    this.document.defaultView.open(this.document.defaultView.location.origin + '/' + this.path.changingThisBreaksApplicationSecurity, '_blank');
+    this.document.defaultView.open(this.path.changingThisBreaksApplicationSecurity, '_blank');
+    // this.document.defaultView.open(this.document.defaultView.location.origin + '/' + this.path.changingThisBreaksApplicationSecurity, '_blank');
     // this.windowRef.location.href = this.windowRef.location.origin + '/' + this.path;
   }
 
