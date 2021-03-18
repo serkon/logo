@@ -47,20 +47,20 @@ export interface Pager {
 }
 
 /**
- * Paging component display paging for components
+ * Paging component display paging for other components. You can adopt paging any component using this component.
  *
- * __Usage Example__
+ * Add the below code to your code stack and give initializer parameters.
  *
- * <sub>html</sub>
+ * <sub>app.component.html</sub>
+ *
  * ```html
- *    <logo-paging
- *      (pageNumberChange)="pagingModule.onPageChangeHandler($event)"
- *      *ngIf="true"
- *      [pageSize]="5"
- *      [totalCount]="140"
- *    >
- *    </logo-paging>
- *  ```
+ * <logo-paging
+ *   (pageNumberChange)="pagingModule.onPageChangeHandler($event)"
+ *   [pageSize]="5"
+ *   [totalCount]="140"
+ * >
+ * </logo-paging>
+ * ```
  */
 @Component({
   selector: 'logo-paging',

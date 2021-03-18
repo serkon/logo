@@ -6,8 +6,8 @@
     "@angular/core": "^7.0.0"
   },
   "dependencies": {},
-  "description": "Paging module uses when paging properties required. The Table Module is can be given as a using sample. Just import it to @NgModule' import section.",
-  "homepage": "http://developer.logo.com.tr",
+  "description": "The paging module splits your data collection into pages. The Table Module is can be given as a using sample.",
+  "homepage": "http://elements.logo.com.tr",
   "author": {
     "email": "konakci@mail.com",
     "name": "Serkan Konakcı",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/logobs/ng-logo"
+    "url": "http://stash.logo.com.tr/scm/fd/theme.git"
   },
   "keywords": [
     "table",

@@ -1,44 +1,44 @@
-## Paging Module
+# Paging Module
 
-Paging module uses when paging properties required. The Table Module is can be given as a using sample. Just import it to @NgModule' import section.
+The paging module splits your data collection into pages. The Table Module is can be given as a using sample.
 
 Click here for [demo](http://design.logo.com.tr/#/docs/components/paging-module#pagingmodule)
 
 ### Installation
-libraries can be installed from the Npm Server. All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). 
-Choose a package which required then run npm install @logo-software/(package_name) command to install it.
-For example, if you want to install @logo-software/paging package:
+
+All public NPM packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
+To install Paging Module:
 
 ```bash
 $ npm set registry https://registry.npmjs.org/
 $ npm install @logo-software/paging -s
 ```
 
-<sub>app.module.ts</sub>
+Just import it to your project of `@NgModule` import section.
 
 ```typescript
-import { PagingModule } from '@logo-software/paging';
-
 @NgModule({
-  declarations: [PagingComponent],
-  imports: [CommonModule, PagingModule],
+  imports: [CommonModule, PagingModule]
 })
 export class AppModule {
 }
 ```
 
-### Usage Example
+### Paging Component
+
+Paging component display paging for other components. You can adopt paging any component using this component.
 
 Add the below code to your code stack and give initializer parameters.
 
 <sub>app.component.html</sub>
 
 ```html
-   <logo-paging
-     (pageNumberChange)="pagingModule.onPageChangeHandler($event)"
-     *ngIf="true"
-     [pageSize]="5"
-     [totalCount]="140"
-   >
-   </logo-paging>
- ```
+<logo-paging
+  (pageNumberChange)="pagingModule.onPageChangeHandler($event)"
+  [pageSize]="5"
+  [totalCount]="140"
+>
+</logo-paging>
+```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview
