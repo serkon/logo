@@ -7,6 +7,7 @@ import { TabsService } from './tabs.service';
 
 /**
  * Tabs components contains TabComponent list inside. Just add `<logo-tab>` into your `<logo-tabs>`.
+ * Add the below code to your code stack and give initializer parameters.
  *
  * <sub>app.component.ts</sub>
  *
