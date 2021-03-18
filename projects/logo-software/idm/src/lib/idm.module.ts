@@ -70,7 +70,7 @@ export class SetIdmConfig {
  * ### Installation
  *
  * All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). To
- * install Idm Module:
+ * install IDM Module:
  *
  * ```bash
  * $ npm set registry https://registry.npmjs.org/
@@ -79,9 +79,14 @@ export class SetIdmConfig {
  *
  * Just import it to your project of `@NgModule` import section.
  *
+ * <sub>app.module.ts</sub>
+ *
  * ```typescript
+ * // CLIENT_ID (guid) is your PaaS integrated application id - For example: '1a6a024b-05d7-48ea-83db-4be88e29d300'
+ * // RETURN_URI (string) is your logged in callback URL address - For example: 'http://design.logo.com.tr'
+ *
  * @NgModule({
- *  imports: [CommonModule, HeaderModule],
+ *   imports: [IdmModule.forRoot(CLIENT_ID, {RETURN_URI})],
  * })
  * export class AppModule {
  * }
@@ -92,21 +97,9 @@ export class SetIdmConfig {
  * To access Token, User, Validated information just run below in your code:
  *
  * ```typescript
- *  StorageClass.get('user'); // if exist return User
- *  StorageClass.get('token'); // return access token string
- *  StorageClass.get('validate'); // if exist return ValidatedToken information
- * ```
- *
- * <sub>app.module.ts</sub>
- * ```typescript
- *
- * // CLIENT_ID (guid) is your PaaS integrated application id - For example: '1a6a024b-05d7-48ea-83db-4be88e29d300'
- * // RETURN_URI (string) is your logged in callback URL address - For example: 'http://design.logo.com.tr'
- * @NgModule({
- *   imports: [IdmModule.forRoot(CLIENT_ID, {RETURN_URI})],
- * })
- * export class AppModule {
- * }
+ * StorageClass.get('user'); // if exist return User
+ * StorageClass.get('token'); // return access token string
+ * StorageClass.get('validate'); // if exist return ValidatedToken information
  * ```
  */
 @NgModule({
