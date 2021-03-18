@@ -21,7 +21,7 @@ import { PagingModule } from '@logo-software/paging';
 /**
  * This module generates a table using the given data. The table can generate data using server-side Http requests or given direct data using the client-side feature.
  *
- * __Usage Example__
+ * @stacked-example(Table Showcase, logo/table-sample/table-showcase/table-showcase.component)
  *
  * First import `TableModule` to your target module imports section. In this example, we add AppModule for display table at `app.component.ts`
  *
