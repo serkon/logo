@@ -14,6 +14,31 @@ import { RouterModule } from '@angular/router';
 
 import { PlaygroundComponent } from './playground.component';
 
+/**
+ * Playground module shows given path inside a iframe. So you can show any component inside in. It will helps you quickly display component usage in the documents.
+ *
+ * @stacked-example(Playground Showcase, logo/playground-sample/playground-showcase/playground-showcase.component)
+ *
+ * ### Installation
+ *
+ * All public NPM packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
+ * To install Playground Module:
+ *
+ * ```bash
+ * $ npm set registry https://registry.npmjs.org/
+ * $ npm install @logo-software/playground -s
+ * ```
+ *
+ * Just import it to your project of `@NgModule` import section.
+ *
+ * ```typescript
+ * @NgModule({
+ *  imports: [CommonModule, PlaygroundModule]
+ * })
+ * export class AppModule {
+ * }
+ * ```
+ */
 @NgModule({
   declarations: [PlaygroundComponent],
   imports: [CommonModule, RouterModule],

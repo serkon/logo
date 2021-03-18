@@ -13,6 +13,21 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 
+/**
+ * This component opens the given URL inside the iframe display its content in a sandbox container.
+ * Add the below code to your code stack and give initializer parameters.
+ *
+ * <sub>app.component.html</sub>
+ *
+ * ```html
+ * <logo-playground
+ *   context='{"title": "Accordion Demo", "button": true}'
+ *   height="400px"
+ *   path="example/logo/accordion-sample/accordion-showcase/accordion-showcase.component"
+ * >
+ * </logo-playground>
+ * ```
+ */
 @Component({
   selector: 'logo-playground',
   templateUrl: './playground.component.html',

@@ -1,24 +1,44 @@
-# Playground
+# Playground Module
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+Playground module shows given path inside a iframe. So you can show any component inside in. It will helps you quickly
+display component usage in the documents.
 
-## Code scaffolding
+Click here for [demo](http://design.logo.com.tr/#/docs/components/playground-module#playgroundmodule)
 
-Run `ng generate component component-name --project playground` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project playground`.
-> Note: Don't forget to add `--project playground` or else it will be added to the default project in your `angular.json` file. 
+### Installation
 
-## Build
+All public NPM packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). To
+install Playground Module:
 
-Run `ng build playground` to build the project. The build artifacts will be stored in the `dist/` directory.
+ ```bash
+$ npm set registry https://registry.npmjs.org/
+$ npm install @logo-software/playground -s
+ ```
 
-## Publishing
+Just import it to your project of `@NgModule` import section.
 
-After building your library with `ng build playground`, go to the dist folder `cd dist/playground` and run `npm publish`.
+```typescript
+@NgModule({
+  imports: [CommonModule, PlaygroundModule]
+})
+export class AppModule {
+}
+```
 
-## Running unit tests
+### Playground Component
 
-Run `ng test playground` to execute the unit tests via [Karma](https://karma-runner.github.io).
+This component opens the given URL inside the iframe display its content in a sandbox container.
+Add the below code to your code stack and give initializer parameters.
 
-## Further help
+<sub>app.component.html</sub>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```html
+<logo-playground
+  context='{"title": "Accordion Demo", "button": true}'
+  height="400px"
+  path="example/logo/accordion-sample/accordion-showcase/accordion-showcase.component"
+>
+</logo-playground>
+```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview
