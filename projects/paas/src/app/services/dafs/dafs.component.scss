@@ -3,63 +3,392 @@
 $header-size: size(80px);
 
 :host {
-  .intro {
-    display: flex;
-    height: 100vh;
-    flex-direction: column;
-    background-image: url("/assets/images/services/dafs/dafs-intro-bg.png");
-    background-size: cover;
-
-
-    .intro-content {
+  @include larger-than(lg) {
+    .intro {
       display: flex;
-      position: relative;
+      height: 100vh;
+      flex-direction: column;
+      background-image: url("/assets/images/services/dafs/dafs-intro-bg.png");
+      background-size: cover;
+
+      .intro-content {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        z-index: 2;
+        padding: 0 size(365px) 0 size(365px);
+        margin-top: size(64px);
+
+        p, h1 {
+          color: var(--light);
+        }
+
+        logo-link {
+          padding: size(30px) 0 size(30px) 0;
+        }
+      }
+    }
+
+    .usage {
+      display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      z-index: 2;
-      padding: 0 size(365px) 0 size(365px);
-      margin-top: size(64px);
 
-      p, h1 {
-        color: var(--light);
+      .usage-header {
+        text-align: center;
       }
 
-      logo-link {
-        padding: size(30px) 0px size(30px) 0px
+      .dafs-usage-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .left {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          .usage-content {
+            padding-left: size(113px);
+
+            .usage-card {
+              display: flex;
+              border-radius: size(11px);
+
+              div {
+                display: flex;
+                align-items: center;
+
+                img {
+                  margin: size(45px) 0 size(45px) 0;
+                }
+
+                img:nth-child(1) {
+                  align-self: flex-end;
+                }
+              }
+
+              div:nth-child(1) {
+                justify-content: center;
+              }
+            }
+          }
+
+          logo-link {
+            margin-bottom: size(50px);
+          }
+        }
+
+        .right {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
       }
     }
 
+    .specs {
+      background: no-repeat url("/assets/images/services/rcfs/rcfs-specs-bg-2.png");
+      background-size: cover;
+
+      h1 {
+        color: var(--white);
+        font-size: size(45px);
+        font-weight: lighter;
+        text-align: center;
+      }
+
+      p {
+        color: var(--white);
+        font-size: size(20px);
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      logo-carousel {
+        //  padding: 0 size(100px);
+
+        .slider-item {
+          background-color: var(--white);
+          box-shadow: 0 60px 60px #6e6e6e46;
+          // background-color: #ffffff;
+          border-radius: 20px;
+          box-sizing: border-box;
+          backdrop-filter: blur(23px);
+          color: #646464;
+          padding: 30px 44px;
+          min-width: 264px;
+          width: 264px;
+          margin-right: 24px;
+          display: inline-block;
+          vertical-align: top;
+          white-space: normal;
+
+          .icon-bg {
+            width: size(42px);
+            height: size(42px);
+            background-color: #6259a7;
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+
+            .icon {
+              position: relative;
+              max-height: size(42px);
+              max-width: size(42px);
+              height: size(42px);
+              margin-bottom: size(10px);
+              filter: invert(43%) sepia(26%) saturate(1500%) hue-rotate(208deg) brightness(115%) contrast(200%);
+              background-size: contain;
+
+              &::after {
+                content: "";
+                background: url("/assets/images/services/idm/section-04-icon-background.svg") no-repeat;
+                position: absolute;
+                left: 0;
+                top: 0;
+              }
+            }
+          }
+
+          .abbr {
+            font-weight: bold;
+            font-size: size(20px);
+            margin-top: size(15px);
+          }
+
+          .description {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: 300;
+          }
+
+          .go {
+            display: block;
+            margin-top: size(20px);
+          }
+        }
+
+        ::ng-deep {
+          .arrow-with-animation .slider-arrow {
+            color: var(--white);
+
+            --active: var(--white);
+            --border: rgba(255, 255, 255, 0.12);
+          }
+
+          .dots {
+            .dot {
+              border-color: #ffffff;
+
+              &::after {
+                background-color: rgba(255, 255, 255, 0.6);
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
-  .usage {
-    display: flex;
-    height: 100vh;
-
-    .left {
+  @include smaller-than(lg) {
+    .intro {
       display: flex;
-      justify-content: center;
       align-items: center;
-      padding-left: size(113px);
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
+      background-image: url("/assets/images/services/dafs/dafs-intro-bg.png");
+      background-size: cover;
 
-      .usage-content {
+      .intro-content {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        z-index: 2;
+        padding: size(64px);
 
-        .card {
-          display: flex;
+        p, h1 {
+          color: var(--light);
+        }
+
+        logo-link {
+          padding: size(30px) 0 size(30px) 0;
         }
       }
 
+      img {
+        display: none;
+      }
     }
 
-    .right {
+    .usage {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+
+      .usage-header {
+        text-align: center;
+      }
+
+      .dafs-usage-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .left {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          .usage-content {
+            .usage-card {
+              display: flex;
+              border-radius: size(11px);
+
+              div {
+                display: flex;
+                align-items: center;
+
+                img {
+                  margin: size(45px) 0 size(45px) 0;
+                }
+
+                img:nth-child(1) {
+                  align-self: flex-end;
+                }
+              }
+
+              div:nth-child(1) {
+                justify-content: center;
+              }
+            }
+          }
+
+          logo-link {
+            margin-bottom: size(50px);
+          }
+        }
+
+        .right {
+          display: none;
+          justify-content: center;
+          align-items: center;
+        }
+      }
     }
-  }
 
-  .specs {
+    .specs {
+      background: no-repeat url("/assets/images/services/rcfs/rcfs-specs-bg-2.png");
+      background-size: cover;
 
+      h1 {
+        color: var(--white);
+        font-size: size(45px);
+        font-weight: lighter;
+        text-align: center;
+      }
+
+      p {
+        color: var(--white);
+        font-size: size(20px);
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      logo-carousel {
+        //  padding: 0 size(100px);
+
+        .slider-item {
+          background-color: var(--white);
+          box-shadow: 0 60px 60px #6e6e6e46;
+          // background-color: #ffffff;
+          border-radius: 20px;
+          box-sizing: border-box;
+          backdrop-filter: blur(23px);
+          color: #646464;
+          padding: 30px 44px;
+          min-width: 264px;
+          width: 264px;
+          margin-right: 24px;
+          display: inline-block;
+          vertical-align: top;
+          white-space: normal;
+
+          .icon-bg {
+            width: size(42px);
+            height: size(42px);
+            background-color: #6259a7;
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+
+            .icon {
+              position: relative;
+              max-height: size(42px);
+              max-width: size(42px);
+              height: size(42px);
+              margin-bottom: size(10px);
+              filter: invert(43%) sepia(26%) saturate(1500%) hue-rotate(208deg) brightness(115%) contrast(200%);
+              background-size: contain;
+
+              &::after {
+                content: "";
+                background: url("/assets/images/services/idm/section-04-icon-background.svg") no-repeat;
+                position: absolute;
+                left: 0;
+                top: 0;
+              }
+            }
+          }
+
+          .abbr {
+            font-weight: bold;
+            font-size: size(20px);
+            margin-top: size(15px);
+          }
+
+          .description {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: 300;
+          }
+
+          .go {
+            display: block;
+            margin-top: size(20px);
+          }
+        }
+
+        ::ng-deep {
+          .arrow-with-animation .slider-arrow {
+            color: var(--white);
+
+            --active: var(--white);
+            --border: rgba(255, 255, 255, 0.12);
+          }
+
+          .dots {
+            .dot {
+              border-color: #ffffff;
+
+              &::after {
+                background-color: rgba(255, 255, 255, 0.6);
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

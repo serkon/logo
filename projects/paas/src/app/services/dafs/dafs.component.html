@@ -1,31 +1,119 @@
+<logo-header></logo-header>
 <div class="intro">
-  <div class="intro-content">
-   <h1 class="g8 bold">
-     Dashboard Feature
-   </h1>
-   <p class="large">
-     Farklı veri kaynaklarından çekilen verilerinizi görsel bileşenlere dönüştürün, tek bir dashboard tanımı yapın, tasarladığınız dashbordu herkes kendi verisi ile görsün.
-   </p>
+  <div class="intro-content col-md-12 col-sm-12 col-xs-12">
+    <h1 class="g8 bold">
+      Dashboard Feature
+    </h1>
+    <p class="large">
+      Farklı veri kaynaklarından çekilen verilerinizi görsel bileşenlere dönüştürün, tek bir dashboard tanımı yapın,
+      tasarladığınız dashbordu herkes kendi verisi ile görsün.
+    </p>
     <logo-link
       [classes]="['success', 'large', 'get-started']"
       external="true"
-      url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139826"
+      url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139772"
     >
       KEŞFET
     </logo-link>
-    <img class="img-fluid" src="./assets/images/services/dafs/dafs-intro-illu.png" >
+    <img class="img-fluid" src="./assets/images/services/dafs/dafs-intro-illu.png">
   </div>
 </div>
 <div class="usage">
-  <div class="left col-md-6">
-
+  <div class="usage-header">
+    <h2 class="g8 bold">Kullanım Senaryoları</h2>
+    <p class="large">
+      Servislerin sağlık durumlarını, birbirlerine olan bağımlılıklarını ve versiyonlarını görün ve takip edin.
+    </p>
   </div>
-  <div class="right col-md-6">
-    <img class="right" src="./assets/images/services/ks/ks-usage-illu.png">
+  <div class="dafs-usage-content">
+    <div class="right col-lg-6 col-md-6 col-sm-12 col-xs-12">
+      <img src="./assets/images/services/dafs/dafs-usage-illu.png">
+    </div>
+    <div class="left col-lg-6 col-md-12 col-sm-12 col-xs-12">
+      <div class="usage-content">
+        <div class="usage-card">
+          <div class="col-md-2 col-xs-2">
+            <img  src="./assets/images/services/dafs/dafs-usage-check.svg">
+          </div>
+          <div class="col-md-8 col-xs-10">
+            <p class="large">
+              Servislerinizin sağlık kontrolünü otomatik sağlayın.
+            </p>
+          </div>
+        </div>
+        <div class="usage-card">
+          <div class="col-md-2 col-xs-2">
+            <img  src="./assets/images/services/dafs/dafs-usage-check.svg">
+          </div>
+          <div class="col-md-8 col-xs-10">
+            <p class="large">
+              Ortamda çalışan ve kullanmak istediğiniz servis(ler)in isimlerini elde edin.
+            </p>
+          </div>
+        </div>
+        <div class="usage-card">
+          <div class="col-md-2 col-xs-2">
+            <img  src="./assets/images/services/dafs/dafs-usage-check.svg">
+          </div>
+          <div class="col-md-8 col-xs-10">
+            <p class="large">
+              Servis versiyonlarına kolayca erişin.
+            </p>
+          </div>
 
+        </div>
+        <div class="usage-card">
+          <div class="col-md-2 col-xs-2">
+            <img src="./assets/images/services/dafs/dafs-usage-check.svg">
+          </div>
+          <div class="col-md-8 col-xs-10">
+            <p class="large">
+              Servislerin kullandığı ve bağımlı olduğu iç servislerin sağlık ve özellik kontrolünü inceleyin.
+            </p>
+          </div>
+          <div class="col-md-2">
+            <img src="./assets/images/services/ks/ks-usage-detay.svg">
+          </div>
+        </div>
+        <div class="usage-card">
+          <div class="col-md-2 col-xs-2">
+            <img  src="./assets/images/services/dafs/dafs-usage-check.svg">
+          </div>
+          <div class="col-md-8 col-xs-10">
+            <p class="large">
+              Servis konfigürasyonlarını görün ve takip edin.
+            </p>
+          </div>
+          <div class="col-md-2">
+            <img src="./assets/images/services/ks/ks-usage-detay.svg">
+          </div>
+        </div>
+      </div>
+      <logo-link
+        [classes]="['success', 'large', 'get-started']"
+        external="true"
+        url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139772"
+      >
+        DETAYLARI GÖRÜNTÜLE
+      </logo-link>
+    </div>
   </div>
 </div>
 <div class="specs">
-
-
+  <section class="four">
+    <h1>Özellikler</h1>
+    <p>DAFS ‘dan nelerde ve nasıl faydalanabileceğinizi öğrenin. İşinize değer katın!</p>
+    <logo-carousel [count]="1" [arrow]="true" [dots]="true">
+      <div class="slider-item" *ngFor="let item of sliderItems">
+        <div class="icon-bg"
+             [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"></div>
+        <div class="abbr">{{item.abbr}}</div>
+        <div class="description">{{item.description}}</div>
+         <a class="go" href="{{item.url}}" [ngClass]="item.classes">→ detay</a>
+      </div>
+    </logo-carousel>
+  </section>
 </div>
+<logo-user-review imageUrl="./assets/images/reviewers/reviewer-nail.png" backgroundUrl="./assets/images/reviewers/green-background.png"></logo-user-review>
+<logo-core-services></logo-core-services>
+<logo-footer></logo-footer>
