@@ -64,7 +64,7 @@ Add [left] or [right] property to any element to set position's on the navbar. F
   <logo-tab title="two">Tab content two</logo-tab>
   <div right>right text or some buttons</div>
   <div left>left text or some buttons</div>
-  </logo-tabs>
+</logo-tabs>
  ```
 
 ### Tab Component
@@ -85,3 +85,5 @@ child DOM elements will be the content of the tabs. Add the below code to your c
   <div>contents</div>
 </logo-tab>
 ```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview

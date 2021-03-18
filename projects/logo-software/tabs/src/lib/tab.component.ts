@@ -4,8 +4,6 @@ import { Params } from '@angular/router';
 /**
  * Tab component determines Tabs title and its content. Tab's title attribute will be the display text of the tab. And its child DOM elements will be the content of the tabs.
  *
- * __Usage Example__
- *
  * <sub>app.component.ts</sub>
  *
  * ```html

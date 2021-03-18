@@ -24,7 +24,7 @@ import { TabComponent } from './tab.component';
  * $ npm install @logo-software/tabs -s
  * ```
  *
- * Just import it to your project of @NgModule' import section.
+ * Just import it to your project of `@NgModule` import section.
  *
  * <sub>app.module.ts</sub>
  *

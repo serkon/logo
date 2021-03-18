@@ -8,8 +8,6 @@ import { TabsService } from './tabs.service';
 /**
  * Tabs components contains TabComponent list inside. Just add `<logo-tab>` into your `<logo-tabs>`.
  *
- * __Usage Example__
- *
  * <sub>app.component.ts</sub>
  *
  * ```typescript
