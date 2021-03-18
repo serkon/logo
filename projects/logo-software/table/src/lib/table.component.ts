@@ -53,6 +53,7 @@ export enum CRUD {
 
 /**
  * Creates data grid table with many features. Add the below code to your code stack and give initializer parameters.
+ * Add the below code to your code stack and give initializer parameters.
  *
  * <sub>app.component.html</sub>
  *
@@ -895,7 +896,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
     return params;
   }
 
-  generateBody():any {
+  generateBody(): any {
     const body = {};
     this.onHttpBody.emit(body);
     return body;
