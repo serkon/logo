@@ -1,24 +1,39 @@
-# Markdown
+# Markdown Module
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
 
-## Code scaffolding
+Dynamic markdown loader from MD/MDX files and parser for Angular.io projects. Markdown module converts md content text to html styled and formatted text.
 
-Run `ng generate component component-name --project markdown` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project markdown`.
-> Note: Don't forget to add `--project markdown` or else it will be added to the default project in your `angular.json` file. 
+Click here for [demo](http://design.logo.com.tr/#/docs/components/markdown-module#markdownmodule)
 
-## Build
+### Installation
 
-Run `ng build markdown` to build the project. The build artifacts will be stored in the `dist/` directory.
+All public NPM packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe).
+To install Markdown Module:
 
-## Publishing
+```bash
+$ npm set registry https://registry.npmjs.org/
+$ npm install @logo-software/markdown -s
+```
 
-After building your library with `ng build markdown`, go to the dist folder `cd dist/markdown` and run `npm publish`.
+Just import it to your project of `@NgModule` import section.
 
-## Running unit tests
+```typescript
+@NgModule({
+  imports: [CommonModule, MarkdownModule]
+})
+export class AppModule {
+}
+```
 
-Run `ng test markdown` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Markdown Component
 
-## Further help
+Markdown based content loader components. It will convert md text to html formatted and styled text.
+Add the below code to your code stack and give initializer parameters.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<sub>app.component.html</sub>
+
+```html
+<logo-markdown url="'/assets/docs/getstarted.md'"></logo-markdown>
+```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview
