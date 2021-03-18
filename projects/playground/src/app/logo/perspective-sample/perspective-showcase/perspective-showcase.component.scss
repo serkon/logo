@@ -1,0 +1,22 @@
+:host {
+  logo-perspective {
+    position: relative;
+    height: 500px;
+
+    .art-bg-01 {
+      position: absolute;
+      background: url("/assets/images/samples/human-01.svg") center top no-repeat;
+      width: 70%;
+      height: 70%;
+      transform: translateZ(120px);
+    }
+
+    .art-bg-02 {
+      position: absolute;
+      background: url("/assets/images/samples/human-02.svg") center top no-repeat;
+      width: 70%;
+      height: 70%;
+      transform: translateZ(320px);
+    }
+  }
+}

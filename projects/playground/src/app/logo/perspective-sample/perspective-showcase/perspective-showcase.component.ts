@@ -5,11 +5,5 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './perspective-showcase.component.html',
   styleUrls: ['./perspective-showcase.component.scss'],
 })
-export class PerspectiveShowcaseComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class PerspectiveShowcaseComponent {
 }
