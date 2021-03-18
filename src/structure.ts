@@ -646,6 +646,40 @@ export const structure = [
           },
         ],
       },
+      {
+        type: 'page',
+        name: 'Perspective Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'PerspectiveModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'PerspectiveComponent',
+          },
+        ],
+      },
+      {
+        type: 'page',
+        name: 'Playground Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'PlaygroundModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'PlaygroundComponent',
+          },
+        ],
+      },
     ],
   },
   {
