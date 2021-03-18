@@ -12,7 +12,7 @@
     "@logo-software/paging": "~1.0.2"
   },
   "description": "This module generates a table using the given data. The table can generate data using server-side Http requests or given direct data using the client-side feature.",
-  "homepage": "http://developer.logo.com.tr",
+  "homepage": "http://elements.logo.com.tr",
   "author": {
     "email": "konakci@mail.com",
     "name": "Serkan Konakcı",
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/logobs/ng-logo"
+    "url": "http://stash.logo.com.tr/scm/fd/theme.git"
   },
   "keywords": [
     "table",

@@ -19,82 +19,31 @@ import { CoreModule } from '@logo-software/core';
 import { PagingModule } from '@logo-software/paging';
 
 /**
- * This module generates a table using the given data. The table can generate data using server-side Http requests or given direct data using the client-side feature.
+ * This module generates a table using the given data. The table can generate data using server-side Http requests or given
+ * direct data using the client-side feature.
  *
  * @stacked-example(Table Showcase, logo/table-sample/table-showcase/table-showcase.component)
  *
- * First import `TableModule` to your target module imports section. In this example, we add AppModule for display table at `app.component.ts`
+ * ### Installation
  *
- * <sub>**app.module.ts**</sub>
+ * All public NPM packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). To
+ * install Table Module:
  *
- * ```typescript
- * import { LanguageInitSetting, LanguageModule } from '@logo-software/language';
- * import { NgModule } from '@angular/core';
- * import { AppComponent } from './app.component';
- *
- * import { TableModule } from '@logo-software/table';
- *
- * @NgModule({
- *   declarations: [AppComponent],
- *   imports: [TableModule],
- *   providers: [],
- *   bootstrap: [AppComponent]
- * })
- * export class AppModule {
- * }
+ * ```bash
+ * $ npm set registry https://registry.npmjs.org/
+ * $ npm install @logo-software/table -s
  * ```
  *
- * ### Installation
- * There are three steps:
+ * Just import it to your project of `@NgModule` import section.
  *
- *  - Install package using
+ * ```typescript
+ * @NgModule({
+ *  imports: [CommonModule, TableModule]
+ *})
+ * export class AppModule {
+ *}
+ * ```
  *
- *    ```typescript
- *      npm install @logo-software/table
- *    ```
- *
- *  - Add `TableModule` to target module imports
- *
- *    ```typescript
- *    @NgModule({
- *      imports: [BrowserModule, TableModule]
- *    })
- *    ```
- *
- *  - Open `angular.json` and add below code to `YOUR_PROJECT_NAME.architect.build.options.assets` path to make images available of TableModule.
- *
- *    ```JSON
- *     {
- *      "glob": "**\/*",
- *      "input": "node_modules/@logo-software/table/src/lib/assets/icons",
- *      "output": "assets/icons"
- *     }
- *    ```
- *    It will be end of this like:
- *
- *    <sub>angular.json</sub>
- *    ```JSON
- *     {
- *      "outputPath": "dist/logo-ng-library",
- *      "index": "src/index.html",
- *      "main": "src/main.ts",
- *      "polyfills": "src/polyfills.ts",
- *      "tsConfig": "src/tsconfig.app.json",
- *      "assets": [
- *        "src/favicon.ico",
- *        "src/assets",
- *        {
- *          "glob": "**\/*",
- *          "input": "node_modules/@logo-software/table/src/lib/assets/icons",
- *          "output": "assets/icons"
- *        }
- *      ],
- *      "styles": [
- *        "src/styles.scss"
- *      ],
- *      "scripts": []
- *     }
- *    ```
  */
 @NgModule({
   imports: [CommonModule, FormsModule, PagingModule, ExcelModule, CoreModule],
