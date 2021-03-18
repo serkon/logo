@@ -28,7 +28,7 @@ export let StorageClass: StorageService = null;
  * $ npm install @logo-software/storage -s
  * ```
  *
- * Just import it to your project of @NgModule' import section. And set storage type.
+ * Just import it to your project of `@NgModule` import section. And set storage type.
  * There are two types of storage namely SESSION and LOCAL storage.
  *
  * <sub>app.module.ts</sub>
