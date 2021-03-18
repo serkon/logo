@@ -1,147 +1,364 @@
 @import "~@logo-software/theme/base";
 
-$header-size: size(80px);
-
 :host {
-  .intro {
-    display: flex;
-    height: 100vh;
-    background-image: linear-gradient(191deg, #6CA7EF 14%, #4F65E9 94%);
+  @include larger-than(lg) {
+    img {
+      max-width: 100%;
+      height: auto;
+    }
 
-    div:nth-child(1) {
+    .intro {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: baseline;
+      height: 100vh;
+      background-image: linear-gradient(191deg, #6ca7ef 14%, #4f65e9 94%);
 
-      .title-content {
-        width: size(479px);
-        align-self: center;
+      div:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: baseline;
 
-        p {
-          color: var(--light);
-        }
+        .title-content {
+          width: size(479px);
+          align-self: center;
 
-        logo-link {
-          margin-top: size(50px);
+          p {
+            color: var(--light);
+          }
+
+          logo-link {
+            margin-top: size(50px);
+          }
         }
       }
 
+      div:nth-child(2) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
 
-    div:nth-child(2) {
+    .usage {
       display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
+      height: 100vh;
 
+      .left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-  .usage {
-    display: flex;
-    height: 100vh;
+        .usage-content {
+          padding-left: size(113px);
 
-    .left {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .usage-content {
-        padding-left: size(113px);
-
-        h2 {
-          margin-top: size(15px);
-        }
-
-        .usage-card {
-          display: flex;
-          border-radius: size(11px);
-
-          div {
+          .usage-card {
             display: flex;
-            align-items: center;
+            border-radius: size(11px);
 
-            img {
-              margin: size(45px) 0px size(45px) 0px;
+            div {
+              display: flex;
+              align-items: center;
+
+              img {
+                margin: size(45px) 0 size(45px) 0;
+              }
+
+              img:nth-child(1) {
+                align-self: flex-end;
+              }
             }
 
-            img:nth-child(1) {
-              align-self: flex-end;
+            div:nth-child(1) {
+              justify-content: center;
             }
-          }
-
-          div:nth-child(1) {
-            justify-content: center;
           }
         }
       }
+
+      .right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
 
-    .right {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-
-  .specs {
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-
-    .specs-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      margin-top: size(50px);
+    .specs {
+      background: no-repeat url("/assets/images/services/rcfs/rcfs-specs-bg-2.png");
+      background-size: cover;
 
       h1 {
-        font-size: 40px;
-        font-weight: bold;
-        color: #707070;
-        line-height: 45px;
+        color: var(--white);
+        font-size: size(45px);
+        font-weight: lighter;
+        text-align: center;
       }
 
       p {
-        font-size: 20px;
-        line-height: 28px;
+        color: var(--white);
+        font-size: size(20px);
+        text-align: center;
+        margin-bottom: 50px;
       }
-    }
 
-    .specs-card {
-      display: flex;
-      justify-content: center;
-      position: absolute;
-      align-self: center;
-      z-index: 2;
-      width: size(1066px);
-      height: size(317px);
-      border-radius: size(24px);
-      background-color: #F7FAFF;
+      logo-carousel {
+        //  padding: 0 size(100px);
 
-      div {
-        border-right: 1px solid #E0E5EF;
+        .slider-item {
+          background-color: var(--white);
+          box-shadow: 0 60px 60px #6e6e6e46;
+          // background-color: #ffffff;
+          border-radius: 20px;
+          box-sizing: border-box;
+          backdrop-filter: blur(23px);
+          color: #646464;
+          padding: 30px 44px;
+          min-width: 264px;
+          width: 264px;
+          margin-right: 24px;
+          display: inline-block;
+          vertical-align: top;
+          white-space: normal;
 
-        .card-content {
-          text-align: center;
-          border: none;
-          padding: 49px 25px 49px 25px;
+          .icon-bg {
+            width: size(42px);
+            height: size(42px);
+            background-color: #6259a7;
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
 
-          h4 {
-            padding-top: size(24px);
+            .icon {
+              position: relative;
+              max-height: size(42px);
+              max-width: size(42px);
+              height: size(42px);
+              margin-bottom: size(10px);
+              filter: invert(43%) sepia(26%) saturate(1500%) hue-rotate(208deg) brightness(115%) contrast(200%);
+              background-size: contain;
+
+              &::after {
+                content: "";
+                background: url("/assets/images/services/idm/section-04-icon-background.svg") no-repeat;
+                position: absolute;
+                left: 0;
+                top: 0;
+              }
+            }
+          }
+
+          .abbr {
+            font-weight: bold;
+            font-size: size(20px);
+          }
+
+          .description {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: 300;
+          }
+
+          .go {
+            display: block;
+            margin-top: size(20px);
+          }
+        }
+
+        ::ng-deep {
+          .arrow-with-animation .slider-arrow {
+            color: var(--white);
+
+            --active: var(--white);
+            --border: rgba(255, 255, 255, 0.12);
+          }
+
+          .dots {
+            .dot {
+              border-color: #ffffff;
+
+              &::after {
+                background-color: rgba(255, 255, 255, 0.6);
+              }
+            }
           }
         }
       }
     }
-
-    .bottom {
-      overflow: hidden;
-      background-size: cover;
-      background-position: center;
-      background-image: url("/assets/images/services/ys/ys-specs-bg.png");
-    }
   }
 
+  @include smaller-than(lg) {
+    .intro {
+      display: flex;
+      height: 100vh;
+      background-image: linear-gradient(191deg, #6ca7ef 14%, #4f65e9 94%);
 
+      div:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: baseline;
+
+        .title-content {
+          align-self: center;
+
+          p {
+            color: var(--light);
+          }
+
+          logo-link {
+            margin-top: size(50px);
+          }
+        }
+      }
+
+      div:nth-child(2) {
+        display: none;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .usage {
+      display: flex;
+
+      .left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .usage-content {
+          padding: size(35px);
+
+          .usage-card {
+            display: flex;
+            border-radius: size(11px);
+
+            div {
+              display: flex;
+              align-items: center;
+
+              img {
+                margin: size(45px) 0 size(45px) 0;
+              }
+
+              img:nth-child(1) {
+                align-self: flex-end;
+              }
+            }
+
+            div:nth-child(1) {
+              justify-content: center;
+            }
+          }
+        }
+      }
+
+      .right {
+        display: none;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .specs {
+      background: no-repeat url("/assets/images/services/rcfs/rcfs-specs-bg-2.png");
+      background-size: cover;
+
+      h1 {
+        color: var(--white);
+        font-size: size(45px);
+        font-weight: lighter;
+        text-align: center;
+      }
+
+      p {
+        color: var(--white);
+        font-size: size(20px);
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      logo-carousel {
+        //  padding: 0 size(100px);
+
+        .slider-item {
+          background-color: var(--white);
+          box-shadow: 0 60px 60px #6e6e6e46;
+          // background-color: #ffffff;
+          border-radius: 20px;
+          box-sizing: border-box;
+          backdrop-filter: blur(23px);
+          color: #646464;
+          padding: 30px 44px;
+          min-width: 264px;
+          width: 264px;
+          margin-right: 24px;
+          display: inline-block;
+          vertical-align: top;
+          white-space: normal;
+
+          .icon-bg {
+            width: size(42px);
+            height: size(42px);
+            background-color: #6259a7;
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+
+            .icon {
+              position: relative;
+              max-height: size(42px);
+              max-width: size(42px);
+              height: size(42px);
+              margin-bottom: size(10px);
+              filter: invert(43%) sepia(26%) saturate(1500%) hue-rotate(208deg) brightness(115%) contrast(200%);
+              background-size: contain;
+
+              &::after {
+                content: "";
+                background: url("/assets/images/services/idm/section-04-icon-background.svg") no-repeat;
+                position: absolute;
+                left: 0;
+                top: 0;
+              }
+            }
+          }
+
+          .abbr {
+            font-weight: bold;
+            font-size: size(20px);
+          }
+
+          .description {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: 300;
+          }
+
+          .go {
+            display: block;
+            margin-top: size(20px);
+          }
+        }
+
+        ::ng-deep {
+          .arrow-with-animation .slider-arrow {
+            color: var(--white);
+
+            --active: var(--white);
+            --border: rgba(255, 255, 255, 0.12);
+          }
+
+          .dots {
+            .dot {
+              border-color: #ffffff;
+
+              &::after {
+                background-color: rgba(255, 255, 255, 0.6);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
