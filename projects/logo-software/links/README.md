@@ -82,3 +82,5 @@ Then use in your *.component.html below code snippet:
   Display Text
 </logo-link>
  ```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview
