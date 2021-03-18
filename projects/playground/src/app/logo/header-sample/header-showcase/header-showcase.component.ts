@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { HeaderTheme } from '@logo-software/header';
 
 @Component({

@@ -9,8 +9,9 @@
  */
 
 import { NgModule } from '@angular/core';
-import { HeaderComponent } from './header.component';
 import { CommonModule } from '@angular/common';
+
+import { HeaderComponent } from './header.component';
 
 /**
  * Header module adds a header area to the top of the landing page and manages its content. Header module supports responsive web design.
