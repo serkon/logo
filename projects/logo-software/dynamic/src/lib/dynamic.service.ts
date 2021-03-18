@@ -11,6 +11,7 @@
 import { Compiler, Component, ComponentFactory, Injectable, ModuleWithComponentFactories, NgModule } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Subject } from 'rxjs';
+
 import { PlaygroundModule } from '@logo-software/playground';
 
 @Injectable({
