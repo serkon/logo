@@ -1,26 +1,58 @@
-# Hero
+# Hero Module
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+Hero module is a lightweight, flexible component that can optionally extend the first viewable section to showcase key
+marketing messages on your site.
 
-## Code scaffolding
+* It comes with the features below:
+* Custom CSS Class support.
+* Container class support.
+* Set background image dynamically.
+* Custom inner content design.
+* Overlay support between content and background.
 
-Run `ng generate component component-name --project hero` to generate a new component. You can also
-use `ng generate directive|pipe|service|class|guard|interface|enum|module --project hero`.
-> Note: Don't forget to add `--project hero` or else it will be added to the default project in your `angular.json` file.
+Click here for [demo](http://design.logo.com.tr/#/docs/components/hero-module#heromodule)
 
-## Build
+### Installation
 
-Run `ng build hero` to build the project. The build artifacts will be stored in the `dist/` directory.
+All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). To
+install Hero Module:
 
-## Publishing
+```bash
+$ npm set registry https://registry.npmjs.org/
+$ npm install @logo-software/hero -s
+```
 
-After building your library with `ng build hero`, go to the dist folder `cd dist/hero` and run `npm publish`.
+Just import it to your project of `@NgModule` import section.
 
-## Running unit tests
+```typescript
+import {HeroModule} from '@logo-software/hero';
 
-Run `ng test hero` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@NgModule({
+ imports: [CommonModule, HeroModule],
+})
+export class AppModule {
+}
+```
 
-## Further help
+### Hero Component
 
-To get more help on the Angular CLI use `ng help` or go check out
-the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Hero areas are key points for marketing and catch the user attentions. With Hero Component you can easily add hero model
+to your page. Add the below code to your code stack and give initializer parameters.
+
+<sub>app.component.html</sub>
+
+```html
+<logo-hero
+  [containerStatus]="true"
+  [bgImage]="'https://cdn-nq.logo.com.tr/assets/images/banners/banner-cover-muhasebe-web.jpg'"
+  [cssClasses]="'my-hero-area'"
+>
+  <!-- Your content goes here. Below code is a sample of usage. -->
+   <div class="content">
+     <h1>Welcome to my page</h1>
+     <p>My description of marketing</p>
+   </div>
+ </logo-hero>
+```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview

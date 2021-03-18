@@ -3,5 +3,8 @@
   "dest": "../../../dist/logo-software/hero",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "whitelistedNonPeerDependencies": [
+    "@logo-software/theme"
+  ]
 }
