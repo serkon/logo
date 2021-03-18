@@ -1,8 +1,15 @@
 {
   "name": "@logo-software/theme",
   "version": "3.7.2",
-  "description": "The Logo Design Guide based theme for Angular projects",
-  "homepage": "http://design.logo.com.tr",
+  "peerDependencies": {
+    "@angular/common": "^7.0.0",
+    "@angular/core": "^7.0.0"
+  },
+  "dependencies": {
+    "tslib": "^1.10.0"
+  },
+  "description": "Theme module customize UI of the elements with Logo Element Design standard. It also support bootstrap, .Net, Angular and ReactNative based projects.",
+  "homepage": "http://elements.logo.com.tr",
   "author": {
     "email": "konakci@mail.com",
     "name": "Serkan Konakcı",
@@ -10,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/logo-group/logo-elements"
+    "url": "http://stash.logo.com.tr/scm/fd/theme.git"
   },
   "keywords": [
     "theme",
@@ -25,13 +32,6 @@
     "information"
   ],
   "license": "See license in LICENSE file",
-  "peerDependencies": {
-    "@angular/common": "^7.0.0",
-    "@angular/core": "^7.0.0"
-  },
-  "dependencies": {
-    "tslib": "^1.10.0"
-  },
   "scripts": {
     "icons": "node generate-icons.js",
     "ver:patch": "npm version patch",

@@ -1,24 +1,71 @@
 # Theme
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
+Theme module customize UI of the elements with Logo Element Design standard. It also support bootstrap, .Net, Angular
+and ReactNative based projects.
 
-## Code scaffolding
+@stacked-example(Theme Showcase, logo/theme-sample/theme-showcase/theme-showcase.component)
 
-Run `ng generate component component-name --project theme` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project theme`.
-> Note: Don't forget to add `--project theme` or else it will be added to the default project in your `angular.json` file. 
+### Installation
 
-## Build
+All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). To
+install Theme Module:
 
-Run `ng build theme` to build the project. The build artifacts will be stored in the `dist/` directory.
+ ```bash
+ $ npm set registry https://registry.npmjs.org/
+ $ npm install @logo-software/theme -s
+ ```
 
-## Publishing
+__Usage Example__
 
-After building your library with `ng build theme`, go to the dist folder `cd dist/theme` and run `npm publish`.
+1. Create `_config.scss` file, if you change some settings then just import `scss` to your project __main__ `style.scss`
 
-## Running unit tests
+<sub>_config.scss</sub>
 
-Run `ng test theme` to execute the unit tests via [Karma](https://karma-runner.github.io).
+ ```scss
+ $config: (
+  grid:(status: true),
+  bootstrap:(status: false),
+  extend-colors: true,
+  customize: (status: true),
+  debug: true
+);
+ ```
 
-## Further help
+2. Add `_config.scss` to your main `style.scss`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+<sub>style.scss</style>
+
+ ```scss
+@import "/src/config";
+@import "~@logo-software/theme/style";
+ ```
+
+3. And additionally if you use theme in a any component just add base `scss` file. It contains basic property not all
+things (all things before already added to style.scss).
+
+<sub>any.component.scss</sub>
+
+ ```scss
+ // if you customize the config add first `config.scss` file
+@import "/src/config";
+@import "~@logo-software/theme/base";
+
+:host {
+  // component custom css goes here
+}
+ ```
+
+4. And use in component's html
+
+<sub>app.component.html</sub>
+
+ ```html
+<div>
+  Three type form size exist `large | medium | small`:<br/>
+  <input class="large"/> <input class="medium"/> <input class="small"/>
+</div>
+<div>
+  Three type form display exist `fill | outline | ghost`:<br/>
+  <input class="fill"/> <input class="outline"/> <input class="ghost"/>
+</div>
+ ```

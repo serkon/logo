@@ -10,35 +10,6 @@
 
 import { Component } from '@angular/core';
 
-/**
- * This component just usage example of icon module.
- * You can easily apply it with importing to component scss
- * \
- * __Usage Example__
- *
- * <sub>app.component.scss</sub>
- * ```scss
- * // if you customize the config add first `config.scss` file
- * @import "/src/config";
- * @import "~@logo-software/theme/base";
- * :host{
- *   // component custom css goes here
- * }
- * ```
- * <sub>app.component.html</sub>
- * ```html
- *  // this will add search icon to input to right side of it.
- * <div>
- *   Three type form size exist `large | medium | small`:<br/>
- *   <input class="large"/> <input class="medium"/> <input class="small"/>
- * </div>
- * <div>
- *   Three type form display exist `fill | outline | ghost`:<br/>
- *   <input class="fill"/> <input class="outline"/> <input class="ghost"/>
- * </div>
- * ```
- * @stacked-example(Theme Showcase, logo/theme-sample/theme-showcase/theme-showcase.component)
- */
 @Component({
   selector: 'logo-theme',
   templateUrl: './theme.component.html',
