@@ -1,4 +1,4 @@
-# Tree
+# Tree Module
 
 A tree view represents a hierarchical view of information, where each item can have a number of subitems.
 Click on the arrow(s) to open or close the tree branches.
@@ -17,21 +17,25 @@ $ npm install @logo-software/tree -s
 Then add TreeModule to @NgModule `imports` section
 
 <sub>app.module.ts</sub>
+
 ```typescript
 @NgModule({
-  ...
   imports: [CommonModule, TreeModule],
-  ...
 })
 export class AppModule {
 }
 ```
 
+### Tree Component
+
 Almost anything can be represented in a tree structure. Examples include directories, organization hierarchies, biological classifications, countries, etc. The Tree component is a way of representing the hierarchical relationship between these things. You can also expand, collapse, and select a treeNode within a Tree.
 
-__Usage Example__
+Add the below code to your code stack and give initializer parameters.
 
-<sub>**app.component.html**</sub>
+<sub>app.component.html</sub>
+
 ```html
 <logo-tree [items]="items" [start]="0" [iconClasses]=""></logo-tree>
 ```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview

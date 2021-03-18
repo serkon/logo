@@ -17,9 +17,10 @@ import { Tree } from './tree';
 /**
  * Almost anything can be represented in a tree structure. Examples include directories, organization hierarchies, biological classifications, countries, etc. The Tree component is a way of representing the hierarchical relationship between these things. You can also expand, collapse, and select a treeNode within a Tree.
  *
- * __Usage Example__
+ * Add the below code to your code stack and give initializer parameters.
  *
- * <sub>**app.component.html**</sub>
+ * <sub>app.component.html</sub>
+ *
  * ```html
  * <logo-tree [items]="items" [start]="0" [iconClasses]=""></logo-tree>
  * ```
