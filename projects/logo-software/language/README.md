@@ -89,8 +89,6 @@ export class AppComponent {
     this.languageService.addLanguage({abbr: 'ro', code: 'ro-RO', display: 'Romain'});
   }
 }
-
-
 ```
 
 **Add Language**
@@ -100,3 +98,5 @@ If you desire, There are not enough language exist for me then you can add more 
 ```typescript
 this.languageService.addLanguage({abbr: 'ro', code: 'ro-RO', display: 'Romain'});
 ```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview
