@@ -382,11 +382,6 @@ export const structure = [
             block: 'component',
             source: 'ThemeModule',
           },
-          {
-            type: 'block',
-            block: 'component',
-            source: 'ThemeComponent',
-          },
         ],
       },
       {
