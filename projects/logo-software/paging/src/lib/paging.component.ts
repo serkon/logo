@@ -138,7 +138,8 @@ export class PagingComponent implements OnInit, OnChanges {
     // calculate total pages
     const totalPages = Math.ceil(totalItems / pageSize);
     const halfPages = Math.ceil(threshold / 2);
-    let startPage: number, endPage: number;
+    let startPage: number;
+    let endPage: number;
     if (totalPages <= threshold) {
       // less than 10 total pages so show all
       startPage = 1;
@@ -163,19 +164,19 @@ export class PagingComponent implements OnInit, OnChanges {
     const pages = this.range(startPage, endPage + 1 - startPage);
     // return object with all pager properties required by the view
     return {
-      totalItems: totalItems,
-      pageNumber: pageNumber,
-      pageSize: pageSize,
-      totalPages: totalPages,
-      startPage: startPage,
-      endPage: endPage,
-      startIndex: startIndex,
-      endIndex: endIndex,
-      pages: pages,
+      totalItems,
+      pageNumber,
+      pageSize,
+      totalPages,
+      startPage,
+      endPage,
+      startIndex,
+      endIndex,
+      pages,
     };
   }
 
-  range(start = 0, count = 0): Array<number> {
+  range(start = 0, count = 0): number[] {
     return [...Array(count)].map((u, i) => start + i);
   }
 }
