@@ -29,10 +29,10 @@ export class ListComponent implements OnInit {
   public sectorData: HttpResponse<Sector[]>;
   public sectors: Sector[];
   public productSummaries: ProductSummary[];
-  private productSummaryData: HttpResponse<ProductSummary[]>;
   public isSectorListExpanded: boolean = false;
   public isFilterExpanded: boolean = false;
   public currentFilters = [];
+  private productSummaryData: HttpResponse<ProductSummary[]>;
 
   constructor(public solutionService: SolutionService, private productService: ProductService, private headerService: HeaderService) {
   }
@@ -43,29 +43,6 @@ export class ListComponent implements OnInit {
     this.loadSegments();
     this.loadSectors();
     this.loadProductSummaries();
-  }
-
-
-  private loadSolutions() {
-    this.solutionsData = this.solutionService.getSolutionSummaries();
-    this.solutionsData.subscribe(response => {
-      this.solutionService.solutionSummaries = response.data;
-    });
-  }
-
-  private async loadSegments() {
-    this.segmentData = await this.productService.getSegments();
-    this.segments = this.segmentData.data;
-  }
-
-  private async loadSectors() {
-    this.sectorData = await this.productService.getSectors();
-    this.sectors = this.sectorData.data;
-  }
-
-  private async loadProductSummaries() {
-    this.productSummaryData = await this.productService.getProductSummaries();
-    this.productSummaries = this.productSummaryData.data;
   }
 
   public toogleSectorList() {
@@ -117,6 +94,28 @@ export class ListComponent implements OnInit {
 
   public clearAllFilters() {
     this.currentFilters = [];
+  }
+
+  private loadSolutions() {
+    this.solutionsData = this.solutionService.getSolutionSummaries();
+    this.solutionsData.subscribe(response => {
+      this.solutionService.solutionSummaries = response.data;
+    });
+  }
+
+  private async loadSegments() {
+    this.segmentData = await this.productService.getSegments();
+    this.segments = this.segmentData.data;
+  }
+
+  private async loadSectors() {
+    this.sectorData = await this.productService.getSectors();
+    this.sectors = this.sectorData.data;
+  }
+
+  private async loadProductSummaries() {
+    this.productSummaryData = await this.productService.getProductSummaries();
+    this.productSummaries = this.productSummaryData.data;
   }
 
   private filterProducts(filterQuery: string, filterType: string) {

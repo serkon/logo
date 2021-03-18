@@ -5,10 +5,6 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class SharedService {
-
-  constructor() {
-  }
-
   public handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
