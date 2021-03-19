@@ -154,7 +154,7 @@ html, body {
       height: size(566px);
 
       .card-content {
-        padding: size(50px) 0 size(16px) 0;
+        padding-top: size(50px);
         margin: 0 size(-10px);
 
         .card-logo {
@@ -178,7 +178,6 @@ html, body {
           display: flex;
           width: calc(100% - 40px);
           align-content: flex-start;
-          padding: 0 size(16px) !important;
 
           .price {
             flex-grow: 1;
