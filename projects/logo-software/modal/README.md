@@ -1,26 +1,51 @@
-# Modal
+# Modal Module
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+Modals focus the user’s attention to a window that sits on top of the page content.
 
-## Code scaffolding
+Click here for [demo](http://design.logo.com.tr/#/docs/components/modal-module#modalmodule)
 
-Run `ng generate component component-name --project modal` to generate a new component. You can also
-use `ng generate directive|pipe|service|class|guard|interface|enum|module --project modal`.
-> Note: Don't forget to add `--project modal` or else it will be added to the default project in your `angular.json` file.
+### Installation
 
-## Build
+All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). To
+install Modal Module:
 
-Run `ng build modal` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+$ npm set registry https://registry.npmjs.org/
+$ npm install @logo-software/modal -s
+```
 
-## Publishing
+Just import it to your project of `@NgModule` import section.
 
-After building your library with `ng build modal`, go to the dist folder `cd dist/modal` and run `npm publish`.
+```typescript
+import { ModalModule } from '@logo-software/modal';
 
-## Running unit tests
+@NgModule({
+  imports: [CommonModule, ModalModule],
+})
+export class AppModule {
+}
+```
 
-Run `ng test modal` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Modal Component
 
-## Further help
+Modals are a variant of dialog used to present critical information or request user input needed to complete a user’s
+workflow. Add the below code to your code stack and give initializer parameters.
 
-To get more help on the Angular CLI use `ng help` or go check out
-the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<sub>app.component.html</sub>
+
+```html
+<logo-modal
+ (onOpened)="sampleOpenAction()"
+ [modalId]="'logoModal'"
+ [title]="'My Logo Modal'"
+>
+  <ng-container body>
+    <p class="large">This is my modal content</p>
+  </ng-container>
+  <ng-container footer>
+    <p class="small">This is the footer content of the modal</p>
+  </ng-container>
+</logo-modal>
+```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview
