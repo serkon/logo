@@ -709,6 +709,67 @@ export const structure = [
           },
         ],
       },
+      {
+        type: 'page',
+        name: 'Leftbar Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'LeftbarModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'LeftbarComponent',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'LeftbarService',
+          },
+        ],
+      },
+      {
+        type: 'page',
+        name: 'Modal Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'ModalModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'ModalComponent',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'ModalService',
+          },
+        ],
+      },
+      {
+        type: 'page',
+        name: 'Tags Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'TagsModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'TagsComponent',
+          },
+        ],
+      },
     ],
   },
   {
