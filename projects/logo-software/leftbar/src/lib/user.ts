@@ -8,56 +8,118 @@
  * Any reproduction of this material must contain this notice.
  */
 
+/**
+ * User informations interface details
+ */
 export interface PaasUser {
+  /**
+   * User name in string
+   */
   name: string;
+  /**
+   * User title
+   */
   title: string;
+  /**
+   * User avatar if available
+   */
   avatar?: string;
+  /**
+   * User notification counts if there is
+   */
   notifications?: number;
-  infos: [
-    {
-      col: number;
-      reference: string;
-      title?: string;
-      desc?: string;
-      badge?: boolean;
-      count?: number;
-      link?: string;
-      actionParam?: string;
-      icon?: string;
-    }
-  ]
-  links?: [
-    {
-      name: string;
-      link: string;
-    }
-  ],
+  /**
+   * Dynamically configurable user information boxes.
+   */
+  infos: {
+    /**
+     * Column grid width. Grid divided into 12 pieces like bootstrap grid. you can use 1-12
+     */
+    col: number;
+    /**
+     * Info reference key in interface
+     */
+    reference: string;
+    /**
+     * Info box title
+     */
+    title?: string;
+    /**
+     * Info box description
+     */
+    desc?: string;
+    /**
+     * Info box notification badge
+     */
+    badge?: boolean;
+    /**
+     * Info box numberic value
+     */
+    count?: number;
+    /**
+     * Info box link
+     */
+    link?: string;
+    /**
+     * Info box parameter that fired by an output.
+     */
+    actionParam?: string;
+    /**
+     * Info box icon.
+     */
+    icon?: string;
+  }[],
+  /**
+   * User menu items
+   */
+  links?: {
+    name: string;
+    link: string;
+  }[],
+  /**
+   * User tenants
+   */
   tenants?: {
+    /**
+     * Default tenant name
+     */
     default: string;
-    options?: [
-      {
-        name: string;
-        id: string;
-      }
-    ]
-  },
-  applications?: {
-    default: string;
-    defaultIcon: string;
-    options?: [
-      {
-        logo: string;
-        name: string;
-        id: string;
-      }
-    ]
-  },
-  shortcuts?: [
-    {
-      icon: string;
-      class?: string;
+    /**
+     * Available tenant list
+     */
+    options?: {
       name: string;
-      link: string;
-    }
-  ]
+      id: string;
+    }[],
+  },
+  /**
+   * User applications
+   */
+  applications?: {
+    /**
+     * Default application name
+     */
+    default: string;
+    /**
+     * Default application icon
+     */
+    defaultIcon: string;
+    /**
+     * User applications list
+     */
+    options?: {
+      logo: string;
+      name: string;
+      id: string;
+    }[],
+  },
+  /**
+   * User setted shortcuts if available
+   */
+  shortcuts?: {
+    icon: string;
+    class?: string;
+    name: string;
+    link: string;
+  }[],
 }

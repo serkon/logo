@@ -9,16 +9,25 @@
  */
 
 import { Injectable } from '@angular/core';
-
-import { PaasUser } from './user';
 import { Subject } from 'rxjs';
 
+import { PaasUser } from './user';
+
+/**
+ * By using leftbar service, you can access, set user datas and switch between slim and extended modes via your own code.
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class LeftbarService {
+  /**
+   * The user information data in PaasUser interface.
+   */
   public userInfo: PaasUser;
   public userDataLoad: Subject<PaasUser> = new Subject<PaasUser>();
+  /**
+   * Global activation of slim mode. It accepts boolean. True sets slim mode activated.
+   */
   public isSlim: boolean = false;
 
   constructor() {

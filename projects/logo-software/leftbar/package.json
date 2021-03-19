@@ -11,5 +11,44 @@
     "@logo-software/links": "^1.0.0",
     "@logo-software/theme": "^3.7.2",
     "tslib": "^2.0.0"
+  },
+  "description": "Leftbar is part of the Logo Elements Environment. This library is a navigational part of the apps and shared by products within a platform. It provides a common set of interaction patterns that persist between and across products also standartization of navigation between apps and user information presentation.",
+  "homepage": "http://elements.logo.com.tr",
+  "author": {
+    "email": "Serhan.Gurbuz@logo.com.tr",
+    "name": "Serhan Gürbüz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://stash.logo.com.tr/scm/fd/theme.git"
+  },
+  "keywords": [
+    "leftbar",
+    "sidebar",
+    "navigation",
+    "standart",
+    "slim",
+    "fixed",
+    "user",
+    "API",
+    "support",
+    "angular"
+  ],
+  "license": "See license in LICENSE file",
+  "scripts": {
+    "ver:patch": "npm version patch",
+    "ver:minor": "npm version minor",
+    "ver:pre": "npm version prerelease",
+    "ver:major": "npm version major",
+    "postversion": "echo '#########\n### Versioning to:' $npm_package_version '\n### CommandPATH: ' $INIT_CWD '\n#########' && git status",
+    "build": "ng build $npm_package_name --prod",
+    "git-commit": "git add -A . && git commit . -m $TYPE'('$npm_package_name'): upgrading to v.'$npm_package_version",
+    "git-release": "git add -A . && git commit . -m $TYPE'('$npm_package_name'): cut the v.'$npm_package_version' release'",
+    "patch:commit": "npm run ver:patch && npm run build && TYPE=fix npm run git-commit && npm run tag",
+    "minor:commit": "npm run ver:minor && npm run build && TYPE=feat npm run git-commit && npm run tag",
+    "pre:commit": "npm run ver:pre && npm run build && TYPE=prerelease npm run git-commit && npm run tag",
+    "major:commit": "npm run ver:major && npm run build && TYPE=release npm run git-release && npm run tag",
+    "tag": "git tag LeftbarModule.$npm_package_version",
+    "unpublish": "npm unpublish $npm_package_name@$npm_package_version"
   }
 }

@@ -9,23 +9,69 @@
  */
 
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+
 import { TreeComponent } from '@logo-software/tree';
 
 import { LeftbarService } from './leftbar.service';
 
+/**
+ * Leftbar is the bound between apps. With leftbar component switching between apps feels like you are in the same environment even the apps are different.
+ * Add the below code to your code stack and give initializer parameters.
+ *
+ * <sub>app.component.html</sub>
+ *
+ * ```html
+ * <logo-leftbar
+ *  (onInit)="sampleUserDataGet()"
+ *  (onAddShortCut)="sampleAddShortcut()"
+ *  (onAppSelected)="sampleAppAction($event)"
+ *  (onHomeButton)="sampleHomeAction()"
+ *  (onSettingsButton)="sampleSettingsAction()"
+ *  (onTenantSelected)="sampleTenantAction($event)"
+ *  (onInfoRequest)="sampleInfoReqAction($event)"
+ *  (onSearch)="sampleSearchAction($event)"
+ * >
+ *    <p>CUSTOM CONTENT</p>
+ * </logo-leftbar>
+ * ```
+ */
 @Component({
   selector: 'logo-leftbar',
   styleUrls: ['./leftbar.component.scss'],
   templateUrl: './leftbar.component.html',
 })
 export class LeftbarComponent implements OnInit {
+  /**
+   * When add shorcut button clicked, an output event fired with boolean.
+   */
   @Output() public onAddShortCut: EventEmitter<boolean> = new EventEmitter<boolean>();
+  /**
+   *  Home button click output with boolean.
+   */
   @Output() public onHomeButton: EventEmitter<boolean> = new EventEmitter<boolean>();
+  /**
+   *  On tenant selected output fired with selected item id in string.
+   */
   @Output() public onTenantSelected: EventEmitter<string> = new EventEmitter<string>();
+  /**
+   *  On leftbar component initiliazed, an output fired with boolean.
+   */
   @Output() public onInit: EventEmitter<boolean> = new EventEmitter<boolean>();
+  /**
+   *  When an application selected from user application list, an output fired with selected app id in string.
+   */
   @Output() public onAppSelected: EventEmitter<string> = new EventEmitter<string>();
+  /**
+   *  On settings button clicked, an output fired with boolean.
+   */
   @Output() public onSettingsButton: EventEmitter<boolean> = new EventEmitter<boolean>();
+  /**
+   *  When search area input entered and input length is at least 3 chars, an output fired with entered chars.
+   */
   @Output() public onSearch: EventEmitter<string> = new EventEmitter<string>();
+  /**
+   *  When an info area clicked from user details, an output fired with selected info id in string.
+   */
   @Output() public onInfoRequest: EventEmitter<string> = new EventEmitter<string>();
 
   public showUserDetails: boolean = false;
@@ -40,12 +86,18 @@ export class LeftbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.onInit.emit(true);
+    /**
+     *  On Init user data loaded via Leftbar service.
+     */
     this.leftbarService.userDataLoad.subscribe(data => {
       const emptySlots: number = 5 - this.leftbarService.userInfo.shortcuts.length || 0;
       this.emptyShortcutSlots = Array.from(Array(emptySlots).keys());
     });
   }
 
+  /**
+   *  Toggle user details in leftbar.
+   */
   public toggleUserDetails() {
     this.showUserDetails = !this.showUserDetails;
   }
@@ -59,6 +111,9 @@ export class LeftbarComponent implements OnInit {
     this.popoverStatus = !this.popoverStatus;
   }
 
+  /**
+   *  Toggle leftbar to slim mode or extended mode.
+   */
   public toggleMenu() {
     this.popoverStatus ? this.popoverStatus = false : '';
     this.leftbarService.isSlim = !this.leftbarService.isSlim;

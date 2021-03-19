@@ -1,1 +1,12 @@
-<p>leftbar-showcase works!</p>
+<logo-leftbar
+  (onAddShortCut)="sampleAddShortcut()"
+  (onAppSelected)="sampleAppAction($event)"
+  (onHomeButton)="sampleHomeAction()"
+  (onInfoRequest)="sampleInfoReqAction($event)"
+  (onInit)="sampleUserDataGet()"
+  (onSearch)="sampleSearchAction($event)"
+  (onSettingsButton)="sampleSettingsAction()"
+  (onTenantSelected)="sampleTenantAction($event)"
+>
+  <span>MY CUSTOM MENU</span>
+</logo-leftbar>

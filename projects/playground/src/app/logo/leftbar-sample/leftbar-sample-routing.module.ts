@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { LeftbarShowcaseComponent } from './leftbar-showcase/leftbar-showcase.component';
+
+const routes: Routes = [
+  {
+    path: 'leftbar-showcase/leftbar-showcase.component',
+    component: LeftbarShowcaseComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
