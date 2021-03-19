@@ -108,6 +108,20 @@
         display: flex;
         justify-content: center;
         flex-grow: 1;
+        position: relative;
+
+        .caption {
+          display: block;
+          position: absolute;
+          width: 100%;
+          left: 0;
+          bottom: 0;
+          background: rgba(var(--primary-rgb), 0.5);
+          color: var(--white);
+          font-size: size(14px);
+          line-height: size(16px);
+          padding: size(5px) size(10px);
+        }
 
         &:nth-child(2) {
           color: var(--white);
