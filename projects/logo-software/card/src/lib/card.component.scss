@@ -16,6 +16,9 @@
     box-sizing: border-box;
     overflow: hidden;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 
     .card-image {
       display: flex;
@@ -30,23 +33,27 @@
       }
     }
 
-    ::ng-deep {
-      .card-title {
-        h3 {
-          white-space: pre-wrap;
+    .card-content {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      ::ng-deep {
+        .card-title {
+          h3 {
+            white-space: pre-wrap;
+          }
         }
-      }
 
-      .card-desc {
-        margin-bottom: size(60px);
-      }
+        .card-desc {
+          flex-grow: 1;
+        }
 
-      .card-cta {
-        position: absolute;
-        left: 0;
-        padding: 0 size(30px);
-        bottom: size(66px);
-        width: 100%;
+        .card-cta {
+          margin-bottom: size(36px);
+          width: 100%;
+        }
       }
     }
   }
