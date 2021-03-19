@@ -131,6 +131,18 @@ const routes: Routes = [
         path: 'image-slider-sample',
         loadChildren: () => import('./image-slider-sample/image-slider-sample.module').then(m => m.ImageSliderSampleModule),
       },
+      {
+        path: 'leftbar-sample',
+        loadChildren: () => import('./leftbar-sample/leftbar-sample.module').then(m => m.LeftbarSampleModule),
+      },
+      {
+        path: 'modal-sample',
+        loadChildren: () => import('./modal-sample/modal-sample.module').then(m => m.ModalSampleModule),
+      },
+      {
+        path: 'tags-sample',
+        loadChildren: () => import('./tags-sample/tags-sample.module').then(m => m.TagsSampleModule),
+      },
     ],
   },
 ];
