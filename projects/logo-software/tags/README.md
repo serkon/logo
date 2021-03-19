@@ -1,26 +1,47 @@
-# Tags
+# Tags Module
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
+Use tags to label, categorize, or organize items using keywords that describe them. Tags can be used as filter chips
+with remove buttons.
 
-## Code scaffolding
+Click here for [demo](http://design.logo.com.tr/#/docs/components/tags-module#tagsmodule)
 
-Run `ng generate component component-name --project tags` to generate a new component. You can also
-use `ng generate directive|pipe|service|class|guard|interface|enum|module --project tags`.
-> Note: Don't forget to add `--project tags` or else it will be added to the default project in your `angular.json` file.
+### Installation
 
-## Build
+All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). To
+install Tags Module:
 
-Run `ng build tags` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+$ npm set registry https://registry.npmjs.org/
+$ npm install @logo-software/tags -s
+```
 
-## Publishing
+Just import it to your project of `@NgModule` import section.
 
-After building your library with `ng build tags`, go to the dist folder `cd dist/tags` and run `npm publish`.
+```typescript
+import {TagsModule} from '@logo-software/tags';
 
-## Running unit tests
+@NgModule({
+  imports: [CommonModule, TagsModule],
+})
+export class AppModule {
+}
+```
 
-Run `ng test tags` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Tags Component
 
-## Further help
+Tags library can be used as chips to show the filters and also tags of the related content. Add the below code to your
+code stack and give initializer parameters.
 
-To get more help on the Angular CLI use `ng help` or go check out
-the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<sub>app.component.html</sub>
+
+```html
+
+<logo-tags
+  (onRemoveClicked)="sampleRemoveClicked($event)"
+  [cssClass]="'my-tag'"
+  [item]="{id:'12345', name: 'My Tag'}"
+>
+</logo-tags>
+```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview
