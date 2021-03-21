@@ -1,6 +1,6 @@
 {
   "name": "@logo-software/links",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Any given data or any service that returned data can be exportable with this component to Excel.",
   "homepage": "http://elements.logo.com.tr",
   "author": {
@@ -27,8 +27,7 @@
     "@angular/core": "^9.1.6",
     "tslib": "^1.10.0"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "scripts": {
     "ver:patch": "npm version patch",
     "ver:minor": "npm version minor",
