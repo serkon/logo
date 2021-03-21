@@ -36,7 +36,7 @@
       </button>
       <button
         *ngFor="let page of pager.pages"
-        [ngClass]="{selected:pager.pageNumber === page}" class="basic"
+        [ngClass]="{selected:pager.pageNumber === page}" class="ghost"
         (click)="setPage(page)"
       >
         {{page}}

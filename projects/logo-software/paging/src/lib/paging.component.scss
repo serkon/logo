@@ -29,6 +29,7 @@ $select-box-color: var(--neutral-900);
   z-index: 1;
   position: relative;
   padding: 10px;
+  background-color: var(--white);
 
   .paging-container {
     display: flex;
@@ -97,6 +98,10 @@ $select-box-color: var(--neutral-900);
           margin-right: 10px;
           padding: 0;
           cursor: pointer;
+
+          &.selected {
+            @extend %button-selected;
+          }
 
           &:last-of-type {
             margin-right: 0;
