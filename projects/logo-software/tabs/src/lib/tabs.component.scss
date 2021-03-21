@@ -41,9 +41,7 @@
               font-weight: bold;
 
               &.selected {
-                // @extend %button-selected;
-
-                background-color: var(--secondary-900);
+                @extend %button-selected;
               }
             }
           }
