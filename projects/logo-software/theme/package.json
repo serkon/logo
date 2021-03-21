@@ -1,6 +1,6 @@
 {
   "name": "@logo-software/theme",
-  "version": "3.7.2",
+  "version": "3.8.0",
   "peerDependencies": {
     "@angular/common": "^7.0.0",
     "@angular/core": "^7.0.0"
