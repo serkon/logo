@@ -41,7 +41,7 @@
               font-weight: bold;
 
               &.selected {
-                @extend %button-selected;
+                // @extend %button-selected;
 
                 background-color: var(--secondary-900);
               }
@@ -54,7 +54,7 @@
             li {
               ::ng-deep {
                 button {
-                  margin: get("element.tab.size."+$size+".margin") get("element.tab.size.medium.padding.right");
+                  margin: get("element.tab.size."+$size+".margin") get("element.tab.size."+$size+".padding.right");
                   height: get("element.tab.size."+$size+".height");
                   line-height: get("element.tab.size."+$size+".height");
                   border-radius: get("element.tab.size."+$size+".height")/2;
@@ -76,7 +76,7 @@
   }
 
   @each $color, $value in get("color.list") {
-    &.#{$color} {
+    &.#{"" + $color} {
       .navigator {
         .scroll {
           .nav {
