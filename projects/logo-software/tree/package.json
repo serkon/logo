@@ -51,7 +51,7 @@
     "minor:commit": "npm run ver:minor && npm run build && TYPE=feat npm run git-commit && npm run tag",
     "pre:commit": "npm run ver:pre && npm run build && TYPE=prerelease npm run git-commit && npm run tag",
     "major:commit": "npm run ver:major && npm run build && TYPE=release npm run git-release && npm run tag",
-    "tag": "git tag CarouselModule.$npm_package_version",
+    "tag": "git tag TreeModule.$npm_package_version",
     "unpublish": "npm unpublish $npm_package_name@$npm_package_version"
   }
 }
