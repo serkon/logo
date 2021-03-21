@@ -36,8 +36,8 @@ Standardization: Button
 %button-selected {
   @extend %#{get("element.button.selected.type")}-#{get("element.button.selected.color")};
 
-  background-color: var(--#{get("element.button.selected.color")}-900);
-  color: var(--white);
+  background-color: var(--#{get("element.button.selected.color")}-#{get("element.button.selected.shade")});
+  color: var(--#{get("element.button.selected.text")});
 
   @each $state in get("state.list") {
     &:#{$state}, &-#{$state} {

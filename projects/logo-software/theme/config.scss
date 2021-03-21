@@ -109,7 +109,7 @@ $config: deep-map-merge((
       border: (
         right-color: --secondary-700
       ),
-      selected: (type: 'fill', color: 'secondary')
+      selected: (type: 'fill', color: 'neutral', shade: 500, text: 'white')
     ),
     switch:(
       size:(
