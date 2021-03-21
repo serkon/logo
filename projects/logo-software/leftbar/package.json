@@ -1,15 +1,15 @@
 {
   "name": "@logo-software/leftbar",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "peerDependencies": {
     "@angular/common": "^11.0.3",
     "@angular/core": "^11.0.3"
   },
   "dependencies": {
-    "@logo-software/tree": "0.0.1",
+    "@logo-software/tree": "0.1.0",
     "@logo-software/icons": "^1.5.2",
-    "@logo-software/links": "^1.0.0",
-    "@logo-software/theme": "^3.7.2",
+    "@logo-software/links": "^1.1.0",
+    "@logo-software/theme": "^3.8.0",
     "tslib": "^2.0.0"
   },
   "description": "Leftbar is part of the Logo Elements Environment. This library is a navigational part of the apps and shared by products within a platform. It provides a common set of interaction patterns that persist between and across products also standartization of navigation between apps and user information presentation.",
