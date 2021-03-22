@@ -1,13 +1,13 @@
 {
   "name": "@logo-software/tree",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "peerDependencies": {
     "@angular/common": "^11.0.9",
     "@angular/core": "^11.0.9"
   },
   "dependencies": {
     "tslib": "^2.0.0",
-    "@logo-software/theme": "^3.6.1"
+    "@logo-software/theme": "^3.8.1"
   },
   "description": "A tree view represents a hierarchical view of information, where each item can have a number of subitems.",
   "homepage": "http://elements.logo.com.tr",
