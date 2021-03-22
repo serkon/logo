@@ -1,6 +1,6 @@
 {
   "name": "@logo-software/tabs",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "peerDependencies": {
     "@angular/common": "^11.0.9",
     "@angular/core": "^11.0.9"
@@ -8,7 +8,7 @@
   "dependencies": {
     "tslib": "^2.0.0",
     "@logo-software/links": "^1.0.0",
-    "@logo-software/theme": "^3.8.0"
+    "@logo-software/theme": "^3.8.1"
   },
   "description": "Tabs organize content into separate views where only one view can be visible at a time.",
   "homepage": "http://elements.logo.com.tr",
