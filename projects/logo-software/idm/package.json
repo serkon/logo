@@ -1,13 +1,13 @@
 {
   "name": "@logo-software/idm",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "peerDependencies": {
     "@angular/common": "^11.0.9",
     "@angular/core": "^11.0.9"
   },
   "dependencies": {
     "tslib": "^2.0.0",
-    "@logo-software/storage": "0.0.2"
+    "@logo-software/storage": "~0.2.1"
   },
   "description": "Get authorization token or auth code directly Logo Identity Management service without write code.",
   "homepage": "http://developer.logo.com.tr",
