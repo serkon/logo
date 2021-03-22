@@ -1,13 +1,13 @@
 {
   "name": "@logo-software/tags",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "peerDependencies": {
     "@angular/common": "^11.2.3",
     "@angular/core": "^11.2.3"
   },
   "dependencies": {
     "tslib": "^2.0.0",
-    "@logo-software/theme": "^3.7.2"
+    "@logo-software/theme": "^3.8.1"
   },
   "description": "Use tags to label, categorize, or organize items using keywords that describe them. Tags can be used as filter chips with remove buttons.",
   "homepage": "http://elements.logo.com.tr",
