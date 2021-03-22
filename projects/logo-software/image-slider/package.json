@@ -1,13 +1,13 @@
 {
   "name": "@logo-software/image-slider",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "peerDependencies": {
     "@angular/common": "^11.2.3",
     "@angular/core": "^11.2.3"
   },
   "dependencies": {
     "tslib": "^2.0.0",
-    "@logo-software/theme": "^3.7.2"
+    "@logo-software/theme": "~3.8.1"
   },
   "description": "Image Slider is a image viewer library for cycling through a series of images. It also includes support for previous/next controls and thumbnails.",
   "homepage": "http://elements.logo.com.tr",
