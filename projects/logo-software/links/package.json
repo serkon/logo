@@ -1,7 +1,13 @@
 {
   "name": "@logo-software/links",
-  "version": "1.1.0",
-  "description": "Any given data or any service that returned data can be exportable with this component to Excel.",
+  "version": "1.1.1",
+  "peerDependencies": {
+    "@angular/common": "^9.1.6",
+    "@angular/core": "^9.1.6",
+    "tslib": "^1.10.0"
+  },
+  "dependencies": {},
+  "description": "Link module creates links to internal or external URL for Angular.io application.",
   "homepage": "http://elements.logo.com.tr",
   "author": {
     "email": "konakci@mail.com",
@@ -22,12 +28,6 @@
     "external"
   ],
   "license": "See license in LICENSE file",
-  "peerDependencies": {
-    "@angular/common": "^9.1.6",
-    "@angular/core": "^9.1.6",
-    "tslib": "^1.10.0"
-  },
-  "dependencies": {},
   "scripts": {
     "ver:patch": "npm version patch",
     "ver:minor": "npm version minor",
