@@ -143,6 +143,14 @@ const routes: Routes = [
         path: 'tags-sample',
         loadChildren: () => import('./tags-sample/tags-sample.module').then(m => m.TagsSampleModule),
       },
+      {
+        path: 'timer-sample',
+        loadChildren: () => import('./timer-sample/timer-sample.module').then(m => m.TimerSampleModule),
+      },
+      {
+        path: 'progress-bar-sample',
+        loadChildren: () => import('./progress-bar-sample/progress-bar-sample.module').then(m => m.ProgressBarSampleModule),
+      },
     ],
   },
 ];
