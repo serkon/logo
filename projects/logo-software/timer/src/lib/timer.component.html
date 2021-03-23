@@ -1,0 +1,20 @@
+<div class="logo-timer {{cssClasses}}">
+  <div *ngIf="showIcon" class="icon-base">
+    <span class="le-time_clock_three"></span>
+  </div>
+  <div class="timer-title">
+    <p>{{title}}</p>
+    <div *ngIf="showProgressBar" class="progress-base">
+      <logo-progress-bar
+        [complete]="timeInMs"
+        [cssClasses]="'timer-progress-bar'"
+        [current]="timerService.timerCount"
+        [size]="'small'"
+        [theme]="theme"
+      ></logo-progress-bar>
+    </div>
+  </div>
+  <div class="timer-base {{theme}}">
+    <div [innerHTML]="timerService.readableTime" class="counter"></div>
+  </div>
+</div>

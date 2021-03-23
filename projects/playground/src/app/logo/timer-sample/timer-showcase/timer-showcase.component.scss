@@ -1,0 +1,41 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
+@import "~@logo-software/theme/base";
+
+:host {
+  .component {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .options {
+    margin-top: size(24px);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+
+    .result {
+      margin: size(12px) 0;
+    }
+
+    .set {
+      vertical-align: top;
+
+      button {
+        margin-left: size(12px);
+        vertical-align: top;
+      }
+    }
+  }
+}

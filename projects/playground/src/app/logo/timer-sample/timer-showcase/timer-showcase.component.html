@@ -1,0 +1,23 @@
+<div class="component">
+  <logo-timer
+    (onTimeCompleted)="sampleOnTimeEnd($event)"
+    [cssClasses]="'my-logo-timer-theme'"
+    [id]="'myLogoTimer'"
+    [isCountdown]="true"
+    [showIcon]="true"
+    [showProgressBar]="true"
+    [theme]="'primary'"
+    [timeInMs]="1234567"
+    [title]="'Estimated Time'"
+  >
+  </logo-timer>
+</div>
+<div class="options">
+  <div class="result">
+    {{timerResult}}
+  </div>
+  <div class="set">
+    <input [(ngModel)]="customTimer" class="secondary" placeholder="Set Time in Milliseconds" type="number">
+    <button (click)="setTimer()" class="primary">Set Time</button>
+  </div>
+</div>

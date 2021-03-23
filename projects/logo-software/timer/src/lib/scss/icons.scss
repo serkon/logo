@@ -1,0 +1,30 @@
+/**
+ * @license
+ * Copyright Logo Yazılım. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of Logo Yazılım.
+ * Any reproduction of this material must contain this notice.
+ */
+
+[class^=le-], [class*=" le-"] {
+  position: relative;
+}
+
+[class^=le-]::before, [class*=" le-"]::before {
+  height: 100%;
+  top: 0;
+  -webkit-mask-size: size(20px);
+  mask-size: size(20px);
+}
+
+.le-time_clock_three::before {
+  -webkit-mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='currentColor' xmlns='http://www.w3.org/2000/svg'%3E %3Cg id='time_clock_three'%3E %3Cpath id='Shape' fill-rule='evenodd' clip-rule='evenodd' d='M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C21.994 6.47963 17.5204 2.00597 12 2ZM12 20.3333C7.39763 20.3333 3.66667 16.6024 3.66667 12C3.66667 7.39763 7.39763 3.66667 12 3.66667C16.6024 3.66667 20.3333 7.39763 20.3333 12C20.3283 16.6003 16.6003 20.3283 12 20.3333ZM11.5833 5.75C11.5833 5.51988 11.7699 5.33333 12 5.33333C13.8319 5.3347 15.5824 6.09038 16.8397 7.42262C18.0971 8.75487 18.7503 10.5461 18.6458 12.375C18.6337 12.6075 18.4594 12.7992 18.2292 12.8333H12C11.7699 12.8333 11.5833 12.6468 11.5833 12.4167V5.75Z' fill='%235A5A5A'/%3E %3C/g%3E %3C/svg%3E");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  display: inline-block;
+  content: "";
+  position: absolute;
+  background: currentColor;
+}
