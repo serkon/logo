@@ -1896,6 +1896,86 @@
           }
         }
       }
+    },
+    "@logo-software/timer": {
+      "projectType": "library",
+      "root": "projects/logo-software/timer",
+      "sourceRoot": "projects/logo-software/timer/src",
+      "prefix": "logo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/logo-software/timer/tsconfig.lib.json",
+            "project": "projects/logo-software/timer/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/logo-software/timer/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/logo-software/timer/src/test.ts",
+            "tsConfig": "projects/logo-software/timer/tsconfig.spec.json",
+            "karmaConfig": "projects/logo-software/timer/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/logo-software/timer/tsconfig.lib.json",
+              "projects/logo-software/timer/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@logo-software/progress-bar": {
+      "projectType": "library",
+      "root": "projects/logo-software/progress-bar",
+      "sourceRoot": "projects/logo-software/progress-bar/src",
+      "prefix": "logo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/logo-software/progress-bar/tsconfig.lib.json",
+            "project": "projects/logo-software/progress-bar/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/logo-software/progress-bar/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/logo-software/progress-bar/src/test.ts",
+            "tsConfig": "projects/logo-software/progress-bar/tsconfig.spec.json",
+            "karmaConfig": "projects/logo-software/progress-bar/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/logo-software/progress-bar/tsconfig.lib.json",
+              "projects/logo-software/progress-bar/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "documentation"
