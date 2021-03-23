@@ -1,0 +1,83 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
+@import "~@logo-software/theme/base";
+
+:host {
+  .logo-progress-bar-base {
+    @include border-radius(size(63px));
+
+    display: block;
+    background: rgba(var(--black-rgb), 0.1);
+    overflow: hidden;
+    box-sizing: border-box;
+    height: size(10px);
+
+    .logo-progress-bar {
+      @include animate(all, 0.2s, ease-in-out);
+      @include border-radius(size(63px));
+
+      display: inline-block;
+      box-sizing: border-box;
+      overflow: hidden;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      vertical-align: top;
+      margin-left: size(-1px);
+      position: relative;
+
+      &.light {
+        background: var(--white) !important;
+      }
+
+      .progress-item {
+        display: none;
+      }
+
+      &.waiting {
+        background: var(--white) !important;
+
+        .progress-item {
+          display: inline-block;
+          height: 100%;
+          position: absolute;
+          z-index: 1;
+          width: 100%;
+          background-size: 20px 20px;
+          background-image: linear-gradient(135deg, rgba(var(--primary-200-rgb), 0.95) 25%, transparent 25%, transparent 50%, rgba(var(--primary-200-rgb), 0.95) 50%, rgba(var(--primary-200-rgb), 0.95) 75%, transparent 75%, transparent);
+          animation: animate-stripes 1.25s linear infinite;
+        }
+      }
+    }
+
+    &.small {
+      height: size(5px) !important;
+    }
+
+    &.medium {
+      height: size(10px) !important;
+    }
+
+    &.large {
+      height: size(20px) !important;
+    }
+  }
+
+  @keyframes animate-stripes {
+    0% {
+      background-position: 0 0;
+    }
+
+    100% {
+      background-position: 40px 0;
+    }
+  }
+}

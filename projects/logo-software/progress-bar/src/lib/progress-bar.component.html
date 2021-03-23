@@ -1,0 +1,8 @@
+<div class="logo-progress-bar-base {{cssClasses}} {{size}}">
+  <div
+    [ngClass]="{'waiting' : progressService.isWaiting}"
+    class="logo-progress-bar {{theme}}"
+    style="width: {{progressService.percentage}}%">
+    <span class="progress-item"></span>
+  </div>
+</div>
