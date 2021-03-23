@@ -770,6 +770,50 @@ export const structure = [
           },
         ],
       },
+      {
+        type: 'page',
+        name: 'Timer Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'TimerModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'TimerComponent',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'TimerService',
+          },
+        ],
+      },
+      {
+        type: 'page',
+        name: 'Progress Bar Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'ProgressBarModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'ProgressBarrComponent',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'ProgressBarService',
+          },
+        ],
+      },
     ],
   },
   {
