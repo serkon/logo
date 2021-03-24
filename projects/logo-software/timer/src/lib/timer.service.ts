@@ -94,7 +94,6 @@ export class TimerService {
    * Resume the paused timer. If the timer isn't paused, resume function will not  be worked.
    */
   public resumeTimer() {
-    console.log(this.pausedTime);
     if (this.pausedTime !== undefined) {
       this.timerCount = this.pausedTime;
       this.runTimer();
