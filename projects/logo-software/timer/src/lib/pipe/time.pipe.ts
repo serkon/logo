@@ -18,19 +18,19 @@ export class TimePipe implements PipeTransform {
 
     let convertedTime = '';
     if (days > 0) {
-      days < 10 ? convertedTime += `<div>0${days}<small>${local.days}</small></div>` : convertedTime += `<div>${days}<small>${local.days}</small></div>`;
+      convertedTime += days < 10 ? `<div>0${days}<small>${local.days}</small></div>` : `<div>${days}<small>${local.days}</small></div>`;
     }
 
     if (hours > 0) {
-      hours < 10 ? convertedTime += `<div>0${hours}<small>${local.hours}</small></div>` : convertedTime += `<div>${hours}<small>${local.hours}</small></div>`;
+      convertedTime += hours < 10 ? `<div>0${hours}<small>${local.hours}</small></div>` : `<div>${hours}<small>${local.hours}</small></div>`;
     }
 
     if (minutes >= 0) {
-      minutes < 10 ? convertedTime += `<div>0${minutes}<small>${local.minutes}</small></div>` : convertedTime += `<div>${minutes}<small>${local.minutes}</small></div>`;
+      convertedTime += minutes < 10 ? `<div>0${minutes}<small>${local.minutes}</small></div>` : `<div>${minutes}<small>${local.minutes}</small></div>`;
     }
 
     if (seconds >= 0) {
-      seconds < 10 ? convertedTime += `<div>0${seconds}<small>${local.seconds}</small></div>` : convertedTime += `<div>${seconds}<small>${local.seconds}</small></div>`;
+      convertedTime += seconds < 10 ? `<div>0${seconds}<small>${local.seconds}</small></div>` : `<div>${seconds}<small>${local.seconds}</small></div>`;
     } else if (seconds < 0) {
       convertedTime = `<div>00<small>${local.minutes}</small></div><div>00<small>${local.seconds}</small></div>`;
     }
