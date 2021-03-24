@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, HostListener, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+
 import { SliderItem } from '@paas/src/app/services/idm/idm.component';
 
 @Component({

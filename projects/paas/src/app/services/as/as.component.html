@@ -2,10 +2,15 @@
   <div class="title-content col-lg-6 col-xs-12">
     <p class="sub">Hazırlayacağınız şablonlar ile</p>
     <h1 class="title">Yetkilendirme <span class="for">Süreçlerinizi Minimize</span> edin</h1>
-    <p class="description">Yetkilendirme Servisi ile uygulamalarınızdaki yetki yönetimini kullanıcı bazlı, rol bazlı,
-      url bazlı ve operasyon (CRUD) bazlı olarak kolayca ve detaylı bir şekilde yönetin.</p>
-    <logo-link [classes]="['primary', 'large', 'get-started']" external="true"
-               url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65141057">KEŞFET
+    <p class="description">
+      Yetkilendirme Servisi ile uygulamalarınızdaki yetki yönetimini kullanıcı bazlı, rol bazlı,
+      url bazlı ve operasyon (CRUD) bazlı olarak kolayca ve detaylı bir şekilde yönetin.
+    </p>
+    <logo-link [classes]="['primary', 'large', 'get-started']"
+               external="true"
+               url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65141057"
+    >
+      KEŞFET
     </logo-link>
   </div>
   <div class="backgrounds"></div>
@@ -16,10 +21,11 @@
   <logo-carousel [arrow]="false">
     <div class="slider-item" *ngFor="let item of sliderItems">
       <div class="icon-bg"
-           [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"></div>
+           [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"
+      >
+      </div>
       <div class="abbr">{{item.abbr}}</div>
       <div class="description">{{item.description}}</div>
-      <!-- a class="go" href="{{item.url}}" [ngClass]="item.classes">go →</a -->
     </div>
   </logo-carousel>
   <logo-link [classes]="['primary', 'large']" external="true"
@@ -68,23 +74,31 @@
       <ul>
         <li>
           <h2>Rol grup şablonu yaratın</h2>
-          <p>Yetki süreçlerini çok daha kolay yönetebilmek için yetkilere bağlı rol grup şablonları oluşturun ve bu
-            şablonu tüm hesaplarınızda kullanın</p>
+          <p>
+            Yetki süreçlerini çok daha kolay yönetebilmek için yetkilere bağlı rol grup şablonları oluşturun ve bu
+            şablonu tüm hesaplarınızda kullanın
+          </p>
         </li>
         <li>
           <h2>İş grupları oluşturun ve yetkilerinizi belirleyin</h2>
-          <p>Uygulamanızın kullanıcı gruplarına göre tanımlanan erişim hakları ile özel iş grupları oluşturun ve
-            yetkilerini iş gruplarına göre kolayca yönetin</p>
+          <p>
+            Uygulamanızın kullanıcı gruplarına göre tanımlanan erişim hakları ile özel iş grupları oluşturun ve
+            yetkilerini iş gruplarına göre kolayca yönetin
+          </p>
         </li>
         <li>
           <h2>Kullanıcı yetkilerini devredin</h2>
-          <p>Kullanıcıların kendi yetkilerini belirli süreliğine farklı bir kullanıcıya devretmesine izin verin ve
-            uygulama süreçlerin aksamasını önleyin</p>
+          <p>
+            Kullanıcıların kendi yetkilerini belirli süreliğine farklı bir kullanıcıya devretmesine izin verin ve
+            uygulama süreçlerin aksamasını önleyin
+          </p>
         </li>
         <li>
           <h2>Uygulamalarınızı kullanılan bölgelere göre yönetin</h2>
-          <p>Uygulamalarınızın kullanıldığı bölgelere özel kapsamlar belirleyerek arayüzlerinizi şekillendirin ve
-            yetkilerinizi bu kapsama göre tanımlayarak yönetin</p>
+          <p>
+            Uygulamalarınızın kullanıldığı bölgelere özel kapsamlar belirleyerek arayüzlerinizi şekillendirin ve
+            yetkilerinizi bu kapsama göre tanımlayarak yönetin
+          </p>
         </li>
       </ul>
       <logo-link [classes]="['success', 'large']" external="true"
@@ -101,12 +115,16 @@
     <aside class="opinion col-xs-12 col-md-9">
       <h1>Kullanıcı Görüşleri</h1>
       <div class="description">
-        <p>Türkiye'deki İşbaşı ve Hindistan'daki Vyapari uygulamalarımızda geliştirme sürecinin en başından bu yana IDM
+        <p>
+          Türkiye'deki İşbaşı ve Hindistan'daki Vyapari uygulamalarımızda geliştirme sürecinin en başından bu yana IDM
           servislerini kullanmaktayız. Hem kullanıcı arayüzü hem de servis entegrasyon arayüzlerinin kolayca
           kullanılabilir
-          olmasından memnunuz.</p>
-        <p>Kullanıcı sayımızın artmasına rağmen performans ve güvenilirlik açısından beklentilerimizi fazlasıyla
-          karşılaşmıştır.</p>
+          olmasından memnunuz.
+        </p>
+        <p>
+          Kullanıcı sayımızın artmasına rağmen performans ve güvenilirlik açısından beklentilerimizi fazlasıyla
+          karşılaşmıştır.
+        </p>
       </div>
       <div class="author">
         <div class="name">Ayhan İNAL</div>
@@ -131,8 +149,11 @@
         </ul>
       </div>
       <div class="col-xs-6 button">
-        <logo-link [classes]="['success', 'large']" external="true"
-                   url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65132817">TÜMÜNÜ GÖRÜNTÜLE
+        <logo-link [classes]="['success', 'large']"
+                   external="true"
+                   url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65132817"
+        >
+          TÜMÜNÜ GÖRÜNTÜLE
         </logo-link>
       </div>
     </div>
