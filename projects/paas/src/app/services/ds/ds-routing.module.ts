@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { DsComponent } from '@paas/src/app/services/ds/ds.component';
 
 const routes: Routes = [

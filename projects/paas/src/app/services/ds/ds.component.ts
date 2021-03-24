@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./ds.component.scss'],
 })
 export class DsComponent {
-
 }
