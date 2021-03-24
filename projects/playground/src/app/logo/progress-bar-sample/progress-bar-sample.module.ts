@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { ProgressBarModule } from '@logo-software/progress-bar';
+
 import { ProgressBarSampleRoutingModule } from './progress-bar-sample-routing.module';
 import { ProgressBarShowcaseComponent } from './progress-bar-showcase/progress-bar-showcase.component';
-import { ProgressBarModule } from '@logo-software/progress-bar';
 
 @NgModule({
   declarations: [ProgressBarShowcaseComponent],
