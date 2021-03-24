@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { ServicesComponent } from './services.component';
 
 const routes: Routes = [
@@ -14,10 +15,6 @@ const routes: Routes = [
       {path: 'as', loadChildren: () => import('./as/as.module').then(module => module.AsModule)},
       {path: 'ss', loadChildren: () => import('./ss/ss.module').then(module => module.SsModule)},
       {path: 'js', loadChildren: () => import('./js/js.module').then(module => module.JsModule)},
-      /*
-      LS REMOVED
-      {path: 'ls', loadChildren: () => import('./ls/ls.module').then(module => module.LsModule)},
-       */
       {path: 'dbvs', loadChildren: () => import('./dbvs/dbvs.module').then(module => module.DbvsModule)},
       {path: 'hfs', loadChildren: () => import('./hfs/hfs.module').then(module => module.HfsModule)},
       {path: 'ems', loadChildren: () => import('./ems/ems.module').then(module => module.EmsModule)},
