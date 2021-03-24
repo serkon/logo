@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { CarouselModule } from '@logo-software/carousel';
 import { LinksModule } from '@logo-software/links';
+
+import { CoreServicesModule } from '@paas/src/components/core-services/core-services.module';
 import { FooterModule } from '@paas/src/components/footer/footer.module';
 import { HeaderModule } from '@paas/src/components/header/header.module';
+
 import { DbvsRoutingModule } from './dbvs-routing.module';
 import { DbvsComponent } from './dbvs.component';
-import { CoreServicesModule } from '@paas/src/components/core-services/core-services.module';
 
 @NgModule({
   declarations: [DbvsComponent],
@@ -22,4 +24,5 @@ import { CoreServicesModule } from '@paas/src/components/core-services/core-serv
   ],
   exports: [DbvsComponent],
 })
-export class DbvsModule {}
+export class DbvsModule {
+}

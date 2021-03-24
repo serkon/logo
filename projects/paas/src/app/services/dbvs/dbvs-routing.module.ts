@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { DbvsComponent } from '@paas/src/app/services/dbvs/dbvs.component';
 
 const routes: Routes = [
