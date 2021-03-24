@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RdfComponent } from './ms.component';
+import { RdfComponent } from './rdf.component';
 
 describe('MsComponent', () => {
   let component: RdfComponent;

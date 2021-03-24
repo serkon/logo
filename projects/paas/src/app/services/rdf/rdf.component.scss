@@ -327,12 +327,9 @@ $header-size: size(80px);
       }
 
       logo-carousel {
-        //  padding: 0 size(100px);
-
         .slider-item {
           background-color: var(--white);
           box-shadow: 0 60px 60px #6e6e6e46;
-          // background-color: #ffffff;
           border-radius: 20px;
           box-sizing: border-box;
           backdrop-filter: blur(23px);
