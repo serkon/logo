@@ -19,6 +19,7 @@
         KEŞFET
       </logo-link>
     </div>
+    Ö
   </div>
   <div class="right col-lg-6 col-md-6 col-sm-12 col-xs-12">
     <img src="./assets/images/services/rs/rs-intro-illu.png">
@@ -39,7 +40,7 @@
     <div class="usage-content">
       <div class="usage-card">
         <div class="col-md-2 col-xs-2">
-          <img  src="./assets/images/services/rs/rs-usage-check.svg">
+          <img src="./assets/images/services/rs/rs-usage-check.svg">
         </div>
         <div class="col-md-8 col-xs-10">
           <p class="large">
@@ -51,7 +52,7 @@
       </div>
       <div class="usage-card">
         <div class="col-md-2 col-xs-2">
-          <img  src="./assets/images/services/rs/rs-usage-check.svg">
+          <img src="./assets/images/services/rs/rs-usage-check.svg">
         </div>
         <div class="col-md-8 col-xs-10">
           <p class="large">
@@ -64,7 +65,7 @@
       </div>
       <div class="usage-card">
         <div class="col-md-2 col-xs-2">
-          <img  src="./assets/images/services/rs/rs-usage-check.svg">
+          <img src="./assets/images/services/rs/rs-usage-check.svg">
         </div>
         <div class="col-md-8 col-xs-10">
           <p class="large">
@@ -81,7 +82,7 @@
     <div class="usage-content">
       <div class="usage-card">
         <div class="col-md-2 col-xs-2">
-          <img  src="./assets/images/services/rs/rs-usage-check.svg">
+          <img src="./assets/images/services/rs/rs-usage-check.svg">
         </div>
         <div class="col-md-8 col-xs-10">
           <p class="large">
@@ -93,7 +94,7 @@
       </div>
       <div class="usage-card">
         <div class="col-md-2 col-xs-2">
-          <img  src="./assets/images/services/rs/rs-usage-check.svg">
+          <img src="./assets/images/services/rs/rs-usage-check.svg">
         </div>
         <div class="col-md-8 col-xs-10">
           <p class="large">
@@ -103,7 +104,7 @@
       </div>
       <div class="usage-card">
         <div class="col-md-2 col-xs-2">
-          <img  src="./assets/images/services/rs/rs-usage-check.svg">
+          <img src="./assets/images/services/rs/rs-usage-check.svg">
         </div>
         <div class="col-md-8 col-xs-10">
           <p class="large">
@@ -132,7 +133,9 @@
     <logo-carousel [count]="1" [arrow]="true" [dots]="true">
       <div class="slider-item" *ngFor="let item of sliderItems">
         <div class="icon-bg"
-             [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"></div>
+             [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"
+        >
+        </div>
         <div class="abbr">{{item.abbr}}</div>
         <div class="description">{{item.description}}</div>
         <a class="go" href="{{item.url}}" [ngClass]="item.classes">→ detay</a>
