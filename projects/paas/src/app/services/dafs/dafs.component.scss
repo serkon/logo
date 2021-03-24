@@ -65,7 +65,7 @@ $header-size: size(80px);
                 align-items: center;
 
                 img {
-                  margin: size(45px) 0 size(45px) 0;
+                  margin: size(10px);
                 }
 
                 img:nth-child(1) {
@@ -231,6 +231,7 @@ $header-size: size(80px);
     }
 
     .usage {
+      padding: 0 size(40px);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -261,11 +262,12 @@ $header-size: size(80px);
                 align-items: center;
 
                 img {
-                  margin: size(45px) 0 size(45px) 0;
+                  margin: size(10px);
                 }
 
                 img:nth-child(1) {
-                  align-self: flex-end;
+                  align-self: center;
+                  transform: scale(0.75);
                 }
               }
 
@@ -276,7 +278,7 @@ $header-size: size(80px);
           }
 
           logo-link {
-            margin-bottom: size(50px);
+            margin: size(30px) 0;
           }
         }
 

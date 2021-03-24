@@ -48,7 +48,7 @@ $header-size: size(80px);
 
         img {
           position: absolute;
-          right: size(-390px);
+          right: 0;
         }
       }
     }
@@ -92,6 +92,7 @@ $header-size: size(80px);
 
               img:nth-child(1) {
                 align-self: flex-end;
+                transform: scale(0.75);
               }
             }
 
@@ -142,6 +143,7 @@ $header-size: size(80px);
 
               img:nth-child(1) {
                 align-self: flex-end;
+                transform: scale(0.75);
               }
             }
 
@@ -315,7 +317,7 @@ $header-size: size(80px);
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: size(60px);
+      padding: size(30px);
 
       .usage-header {
         text-align: center;
@@ -351,7 +353,8 @@ $header-size: size(80px);
               }
 
               img:nth-child(1) {
-                align-self: flex-end;
+                align-self: center;
+                transform: scale(0.75);
               }
             }
 
@@ -368,7 +371,7 @@ $header-size: size(80px);
       justify-content: center;
       align-items: center;
       padding: size(30px);
-      margin-top: (-30px);
+      margin-top: (-50px);
 
       .left {
         display: none;
@@ -400,7 +403,8 @@ $header-size: size(80px);
               }
 
               img:nth-child(1) {
-                align-self: flex-end;
+                align-self: center;
+                transform: scale(0.75);
               }
             }
 

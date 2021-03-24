@@ -5,6 +5,115 @@ $header-size: size(80px);
 :host {
   display: block;
 
+  logo-header {
+    ::ng-deep {
+      .header {
+        @include animate(all, 0.2s, ease-in-out);
+
+        height: size(75px) !important;
+        background: var(--white);
+        position: fixed !important;
+
+        .logo {
+          width: size(224px) !important;
+          height: size(38px) !important;
+          margin-left: size(60px) !important;
+          background-image: url("/assets/images/logo-paas-icon.png");
+          background-position: top left;
+          background-repeat: no-repeat;
+
+          @include smaller-than(xl) {
+            width: size(190px) !important;
+
+            button.ghost {
+              margin-top: size(15px);
+            }
+          }
+        }
+
+        .user-base {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          height: 100%;
+
+          .user-image {
+            @include border-radius(100%);
+
+            width: size(50px);
+            height: size(50px);
+            overflow: hidden;
+            margin-right: size(10px);
+
+            img {
+              max-height: 100%;
+              margin-left: 50%;
+              transform: translateX(-50%);
+            }
+          }
+
+          .user-info {
+            flex-grow: 1;
+            margin-right: size(25px);
+
+            p {
+              margin-top: size(5px);
+              margin-bottom: 0;
+              padding-left: size(8px);
+            }
+
+            .select-tanent {
+              button {
+                color: var(--basic-900);
+              }
+            }
+          }
+
+          .opts {
+            .logout-btn {
+              color: var(--basic-900);
+            }
+          }
+        }
+
+        &.scroll {
+          @include box-shadow(0, size(2px), size(15px), size(4px), rgba(var(--black-rgb), 0.15), false);
+        }
+
+        &.mobilized {
+          .section-main {
+            @include smaller-than(lg) {
+              padding-top: size(75px);
+            }
+          }
+
+          .section-secondary {
+            @include smaller-than(lg) {
+              width: 100%;
+
+              logo-link {
+                display: block !important;
+              }
+            }
+          }
+        }
+
+        &.nailed {
+          position: absolute !important;
+        }
+      }
+    }
+
+    .mobile-opener {
+      position: fixed !important;
+      top: size(14px) !important;
+
+      &.nailed {
+        position: absolute !important;
+      }
+    }
+  }
+
   ::ng-deep {
     section {
       width: 100%;

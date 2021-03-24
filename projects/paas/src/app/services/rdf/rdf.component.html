@@ -1,90 +1,51 @@
-<logo-header></logo-header>
 <div class="intro">
-  <img class="illu" src="./assets/images/services/rdf/rdf-intro-illu.png">
-  <div class="left col-md-6 col-sm-12">
+  <div class="left col-xs-12 col-sm-12 col-md-12 col-sm-12 col-lg-6">
     <div class="title-content">
-      <p class="g8 bold">PaaS platformu ile
-        entegre ettiğiniz
+      <p class="g8 bold">Rapor tasarlama servisi
       </p>
-      <p class="g6 bold">servislerin sağlık durumlarını görün</p>
       <p class="large">
-        PaaS platformu içerisindeki ve PaaS platformu ile entegre ettiğiniz servislerin sağlık durumlarını, birbirlerine
-        olan bağımlılıklarını ve versiyonlarını görün ve takip edin.
+        uygulamanız bünyesinde kullanabileceğiniz tasarım şablonları hazırlayın. Kullanıcı ve hesap özelinde sizin
+        sunacağınız servis uçlarından çoklu hesap (multi-tenancy) mimarisine uygun olarak verileriniz çekilsin.
+        Raporlarınız pdf ya da html formatında oluşturulsun.
       </p>
       <logo-link
         [classes]="['primary', 'large', 'get-started']"
         external="true"
-        url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139826"
+        url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65140494"
       >
         KEŞFET
       </logo-link>
     </div>
   </div>
+  <img class="illu" src="./assets/images/services/rdf/rdf-intro-illu.png">
 </div>
-<div class="usage col-md-12 col-sm-12">
-  <div class="col-md-12 col-sm-12">
-    <div class="usage-content">
-      <h2 class="g8 bold">Kullanım Senaryoları</h2>
-      <p class="large">
-        Uygulamaları nasıl kullanacağınızı keşfedin. İşinize değer katın!
-      </p>
-      <div class="usage-cards">
-        <img src="" alt="">
-        <div class="first usage-card">
-          <div class="usage-card-content">
-            <img class="check" src="./assets/images/services/rdf/rdf-usage-check-1.svg">
-            <p class="large">
-              Veri kaynağı ve Önizleme uçlarını dilediğiniz sayıda tanımlayın, tasarım yaptıktan sonra önizleme adımıyla
-              sonucu beklemeden görün.
-            </p>
-            <img src="./assets/images/services/ks/ks-usage-detay.svg">
-          </div>
-        </div>
-        <div class="usage-card">
-          <div class="usage-card-content">
-            <img class="check" src="./assets/images/services/rdf/rdf-usage-check-1.svg">
-            <p class="large">
-              Veri kaynağı tanımlarınızı parametrik olarak (Kullanıcıya göre, Hesaba göre ) yapın
-            </p>
-            <img src="./assets/images/services/ks/ks-usage-detay.svg">
-          </div>
-        </div>
-        <div class="usage-card">
-          <div class="usage-card-content">
-            <img class="check" src="./assets/images/services/rdf/rdf-usage-check-1.svg">
-            <p class="large">
-              Rapor şablonunuzda yanlış yapmaktan korkmayın, kaydetmeden önceki haline geri dönebilir, yaptığınız
-              değişiklikleri tanımlı kısayolları kullanarak geri…
-            </p>
-            <img src="./assets/images/services/ks/ks-usage-detay.svg">
-          </div>
-        </div>
-        <div class="usage-card">
-          <div class="usage-card-content">
-            <img class="check" src="./assets/images/services/rdf/rdf-usage-check-1.svg">
-            <p class="large">
-              Tasarm Şablonu üzerine koyduğunuz her alan için koşullar tanımlayarak istediğiniz sayfada görünmesini
-              istemediğiniz sayfada görünmemesini sağlayın.
-            </p>
-            <img src="./assets/images/services/ks/ks-usage-detay.svg">
-          </div>
-        </div>
+<div class="usage row">
+  <section class="four">
+    <h1>Kullanım Senaryoları</h1>
+    <p>Uygulamaları nasıl kullanacağınızı keşfedin. İşinize değer katın!</p>
+    <logo-carousel [count]="1" [arrow]="true" [dots]="true">
+      <div class="slider-item" *ngFor="let item of sliderItems">
+        <div class="icon-bg"
+             [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"></div>
+        <div class="abbr">{{item.abbr}}</div>
+        <div class="description">{{item.description}}</div>
+        <a class="go" href="{{item.url}}" [ngClass]="item.classes">→ detay</a>
       </div>
-      <logo-link
-        [classes]="['success', 'large', 'get-started']"
-        external="true"
-        url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139826"
-      >
-        Detayları görüntüle
-      </logo-link>
-    </div>
-  </div>
+    </logo-carousel>
+    <logo-link
+      [classes]="['success', 'large', 'get-started']"
+      external="true"
+      url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65140494"
+    >
+      DETAYLARI GÖRÜNTÜLE
+    </logo-link>
+  </section>
 </div>
 <div class="specs row">
-  <div class="left col-md-6">
+  <div class="left col-lg-6">
     <img src="./assets/images/services/rdf/rdf-specs-illu-1.png" alt="">
   </div>
-  <div class="right col-md-6 col-sm-12">
+  <div class="right col-lg-6 col-md-12 col-sm-12 col-xs-12">
     <div class="specs-content">
       <h2 class="g8 bold">Özellikler</h2>
       <ul>
@@ -120,7 +81,7 @@
   </div>
 </div>
 <div class="specs-2 row">
-  <div class="left col-md-6">
+  <div class="left col-lg-6 col-md-12 col-sm-12 col-xs-12">
     <div class="specs-content">
       <ul>
         <li>
@@ -153,11 +114,9 @@
       </ul>
     </div>
   </div>
-  <div class="right col-md-6">
-    <img class="img-fluid" src="./assets/images/services/rdf/rdf-specs-illu-2.png" alt="">
+  <div class="right col-lg-6 col-md-12 col-sm-12 col-xs-12">
+    <img class="img-fluid" src="./assets/images/services/rdf/rdf-specs-illu-2.png">
   </div>
 </div>
 <logo-user-review></logo-user-review>
 <logo-core-services></logo-core-services>
-<logo-header></logo-header>
-

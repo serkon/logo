@@ -17,9 +17,12 @@ $header-size: size(80px);
   section.one {
     position: relative;
     background: none;
+    display: flex;
 
-    @include smaller-than("sm") {
-      justify-content: flex-start;
+
+    @include smaller-than("lg") {
+      justify-content: center;
+      align-items: center;
     }
 
     div.title-content {
@@ -62,6 +65,12 @@ $header-size: size(80px);
         height: 100%;
         background: url("/assets/images/services/idm/people.svg") center center no-repeat;
       }
+
+      @include smaller-than(lg) {
+        div.people {
+          display: none;
+        }
+      }
     }
 
     div.backgrounds {
@@ -72,9 +81,6 @@ $header-size: size(80px);
       height: 100%;
       z-index: 0;
 
-      @include smaller-than("md") {
-        display: none;
-      }
 
       div.background {
         position: absolute;
@@ -142,6 +148,7 @@ $header-size: size(80px);
 
         p {
           font-size: size(30px);
+          line-height: size(40px);
         }
       }
 

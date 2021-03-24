@@ -56,6 +56,7 @@
             border-radius: size(11px);
             display: flex;
             margin-top: size(20px);
+            padding: 0 size(20px);
 
             div {
               display: flex;
@@ -71,7 +72,7 @@
               }
 
               img:nth-child(1) {
-                align-self: flex-end;
+                align-self: center;
               }
             }
           }
@@ -141,7 +142,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: baseline;
-        padding: size(20px);
+        padding: size(25px);
 
         .title-content {
           align-self: center;
@@ -198,13 +199,14 @@
               align-items: center;
 
               p {
-                color: var(--light);
+                color: var(--neutral-900);
               }
 
-              img:nth-child(1) {
-                align-self: center;
-                max-width: 200%;
-                margin-left: 50%;
+              @include smaller-than(sm) {
+                img {
+                  transform: scale(0.6);
+                  padding-left: size(20px);
+                }
               }
             }
           }

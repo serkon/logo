@@ -5,20 +5,21 @@ import { CarouselModule } from '@logo-software/carousel';
 import { LinksModule } from '@logo-software/links';
 import { FooterModule } from '@paas/src/components/footer/footer.module';
 import { HeaderModule } from '@paas/src/components/header/header.module';
-import { VvsRoutingModule } from './vvs-routing.module';
-import { VvsComponent } from './vvs.component';
+import { DbvsRoutingModule } from './dbvs-routing.module';
+import { DbvsComponent } from './dbvs.component';
+import { CoreServicesModule } from '@paas/src/components/core-services/core-services.module';
 
 @NgModule({
-  declarations: [VvsComponent],
+  declarations: [DbvsComponent],
   imports: [
     CommonModule,
-    VvsRoutingModule,
+    DbvsRoutingModule,
     HeaderModule,
     FooterModule,
     CarouselModule,
     LinksModule,
+    CoreServicesModule,
   ],
-  exports: [VvsComponent],
+  exports: [DbvsComponent],
 })
-export class VvsModule {
-}
+export class DbvsModule {}

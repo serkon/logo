@@ -1,14 +1,13 @@
-<logo-header></logo-header>
 <div class="iu">
   <div class="intro">
-    <div class="col-md-6">
+    <div class="col-md-12 col-lg-6 col-xs-12 col-sm-12">
       <div class="title-content">
-        <h1 class="title g8 bold">
-          Yerelleştirme(Localization)
-        </h1>
-        <h1 class="title g7 bold">Ortak ve erişilebilir
+        <p class="title g8 bold">
+          Yerelleştirme (Localization)
+        </p>
+        <p class="title g7 bold">Ortak ve erişilebilir
           dil desteği
-        </h1>
+        </p>
         <p class="description large">
           DbVersion servisinin amacı; LOGO ürünlerinin ve mikro servislerinin veritabanı şemalarını ve varsayılan
           kayıtlarını çok kullanıcılı bir şekilde yönetmek ve versiyonlamaktır. PostgreSql, MySql, SqlServer gibi
@@ -17,39 +16,40 @@
         <logo-link
           [classes]="['primary', 'large', 'get-started']"
           external="true"
-          url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139826"
+          url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=68331301"
         >
           KEŞFET
         </logo-link>
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
       <img class="img-fluid" src="./assets/images/services/ys/ys-intro-illu.png" alt="">
     </div>
   </div>
+</div>
+<div class="usage">
   <div class="usage-card">
     <div class="card">
-      <div class="col-md-2"></div>
-      <div class="col-md-10">
+      <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+      <div class="col-md-11 col-lg-11 col-sm-11 col-xs-11">
         <h1>Kullanım Senaryoları</h1>
       </div>
     </div>
-
     <div class="card">
-      <div class="col-md-2">
+      <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1">
         <img src="/assets/images/services/ys/ys-usage-icon.svg">
       </div>
-      <div class="col-md-10">
+      <div class="col-md-11 col-lg-11 col-sm-11 col-xs-11">
         <h4>
           Uygulamanız çalışma anında yerelleştirme servisine erişebilir.
         </h4>
       </div>
     </div>
     <div class="card">
-      <div class="col-md-2">
+      <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1">
         <img src="/assets/images/services/ys/ys-usage-icon.svg">
       </div>
-      <div class="col-md-10">
+      <div class="col-md-11 col-lg-11 col-sm-11 col-xs-11">
         <h4>
           Diğer bir seçenek ise, uygulamanızı build ederken gerekli kaynakları yerelleştirme servisinden toplu halde
           alarak alabilirsiniz. Böylece çalışma anında bu kaynakları almanıza gerek kalmaz ve uygulamanızı daha hızlı
@@ -58,68 +58,32 @@
       </div>
     </div>
   </div>
-  <div class="usage">
-    <img class="img-fluid" src="./assets/images/services/ys/ys-usage-illu.png" alt="">
-  </div>
+  <img class="laptop" src="./assets/images/services/ys/ys-usage-illu.png" alt="">
+  <logo-link
+    [classes]="['success', 'large', 'get-started']"
+    external="true"
+    url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=68331301"
+  >
+    DETAYLARI GÖRÜNTÜLE
+  </logo-link>
 </div>
-<div class="specs row">
-  <div class="specs-content col-md-12">
-    <h1 class="large">
-      Özellikler
-    </h1>
+<div class="specs">
+  <section class="four">
+    <h1>Özellikler</h1>
     <p>
       Yerelleştirme servisi, ek bir kaynağı veya bir kaynak listesini sorgulamak için
       REST uçları sağlar.
     </p>
-  </div>
-  <div class="specs-card">
-    <div class="col-md-3">
-      <div class="card-content">
-        <img src="/assets/images/services/ys/ys-specs-icon.svg">
-        <h4 class="bold">
-          Tek kaynak, kaynak Listesi veya toplu halde çekme
-        </h4>
-        <p>
-          Yerelleştirme kaynaklaını ister tek tek, ister liste halinde isterseniz toplu olarak (zip dosyası şeklinde)
-          alabilirsiniz.
-        </p>
+    <logo-carousel [count]="1" [arrow]="true" [dots]="true">
+      <div class="slider-item" *ngFor="let item of sliderItems">
+        <div class="icon-bg"
+             [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"></div>
+        <div class="abbr">{{item.abbr}}</div>
+        <div class="description">{{item.description}}</div>
+        <!-- a class="go" href="{{item.url}}" [ngClass]="item.classes">go →</a-->
       </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card-content">
-        <img src="/assets/images/services/ys/ys-specs-icon.svg">
-        <h4 class="bold">
-          Java uygulamaları için client desteği
-        </h4>
-        <p>
-          Java uygulamaları, java client ‘ını kullanarak Raporlama Servisine kolayca entegre olabilirler.
-        </p>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card-content">
-        <img src="/assets/images/services/ys/ys-specs-icon.svg">
-        <h4 class="bold">
-          Swagger UI destekli API uçları
-        </h4>
-        <p>
-          Desteklenen API uçlarına Swagger UI üzerinden kolayca ulaşın.
-        </p>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card-content">
-        <img src="/assets/images/services/ys/ys-specs-icon.svg">
-        <h4 class="bold">
-          Ölçeklenebilir yapı
-        </h4>
-        <p>
-          Oturum bağımsız mimarisi ile Raporlama servisini çoklayarak kullanabilirsiniz.
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="bottom col-md-12"></div>
+    </logo-carousel>
+  </section>
 </div>
 <logo-core-services></logo-core-services>
 <logo-footer></logo-footer>

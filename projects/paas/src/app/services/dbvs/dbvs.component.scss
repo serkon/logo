@@ -1,0 +1,310 @@
+@import "~@logo-software/theme/base";
+
+$header-size: size(80px);
+
+:host {
+  @include larger-than(lg) {
+    .intro {
+      display: flex;
+      height: size(750px);
+
+      div:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: baseline;
+
+        .vvs-title-content {
+          padding: size(30px);
+
+          p.g6 {
+            color: var(--primary);
+          }
+
+          p.g8 {
+            color: var(--success);
+          }
+        }
+      }
+
+      div:nth-child(2) {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        align-items: center;
+
+        .img-1 {
+          max-width: 100%;
+          height: auto;
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+    }
+
+    .usage {
+      display: flex;
+      position: relative;
+      height: 100vh;
+
+      div:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: baseline;
+
+        .cards {
+          padding: size(40px);
+          position: relative;
+          z-index: 2;
+
+          .specs-card {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top: size(50px);
+            background-color: #ebf3f8;
+            border-radius: size(11px);
+
+            img {
+              margin: size(35px) 0 size(35px) 0;
+            }
+
+            div:nth-child(1) {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+          }
+
+          logo-link {
+            margin-top: size(50px);
+          }
+        }
+      }
+
+      div:nth-child(2) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+
+    .specs {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .usage-header {
+        text-align: center;
+        margin: size(35px);
+      }
+
+      .left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          position: absolute;
+          left: 0;
+        }
+      }
+
+      .right {
+        .usage-content {
+          padding-left: size(113px);
+
+          h2 {
+            margin-top: size(15px);
+          }
+
+          logo-link {
+            margin: size(30px);
+          }
+
+          .usage-card {
+            display: flex;
+            border-radius: size(11px);
+
+            div {
+              display: flex;
+              align-items: center;
+
+              img {
+                margin: size(45px) 0 size(45px) 0;
+              }
+
+              img:nth-child(1) {
+                align-self: flex-end;
+              }
+            }
+
+            div:nth-child(1) {
+              justify-content: center;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include smaller-than(lg) {
+    .intro {
+      display: flex;
+      height: size(750px);
+
+      div:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: baseline;
+
+        .vvs-title-content {
+          padding: size(30px);
+
+          p.g6 {
+            color: var(--primary);
+          }
+
+          p.g8 {
+            color: var(--success);
+          }
+        }
+      }
+
+      div:nth-child(2) {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        align-items: center;
+
+        .img-1 {
+          max-width: 100%;
+          height: auto;
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+    }
+
+    .usage {
+      display: flex;
+      position: relative;
+      height: 100vh;
+
+      div:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: baseline;
+
+        .cards {
+          padding: size(40px);
+          position: relative;
+          z-index: 2;
+
+          .specs-card {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top: size(50px);
+            background-color: #ebf3f8;
+            border-radius: size(11px);
+
+            img {
+              margin: size(35px) 0 size(35px) 0;
+            }
+
+            div:nth-child(1) {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+          }
+
+          logo-link {
+            margin-top: size(50px);
+          }
+        }
+      }
+
+      div:nth-child(2) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+
+    .specs {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: size(30px);
+
+      .usage-header {
+        text-align: center;
+        margin: size(35px);
+      }
+
+      .left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          position: absolute;
+          left: 0;
+          display: none;
+        }
+      }
+
+      .right {
+        padding: size(30px);
+
+        .usage-content {
+          h2 {
+            margin-top: size(15px);
+          }
+
+          logo-link {
+            margin: size(30px);
+          }
+
+          .usage-card {
+            display: flex;
+            border-radius: size(11px);
+
+            div {
+              display: flex;
+              align-items: center;
+
+              img {
+                margin: size(45px) 0 size(45px) 0;
+              }
+
+              img:nth-child(1) {
+                align-self: center;
+                transform: scale(0.75);
+              }
+            }
+
+            div:nth-child(1) {
+              justify-content: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}

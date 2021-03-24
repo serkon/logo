@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { VvsComponent } from '@paas/src/app/services/vvs/vvs.component';
+import { DbvsComponent } from '@paas/src/app/services/dbvs/dbvs.component';
 
 const routes: Routes = [
-  {path: '', component: VvsComponent},
+  {path: '', component: DbvsComponent},
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class VvsRoutingModule {
+export class DbvsRoutingModule {
 }

@@ -18,7 +18,7 @@ const routes: Routes = [
       LS REMOVED
       {path: 'ls', loadChildren: () => import('./ls/ls.module').then(module => module.LsModule)},
        */
-      {path: 'vvs', loadChildren: () => import('./vvs/vvs.module').then(module => module.VvsModule)},
+      {path: 'dbvs', loadChildren: () => import('./dbvs/dbvs.module').then(module => module.DbvsModule)},
       {path: 'hfs', loadChildren: () => import('./hfs/hfs.module').then(module => module.HfsModule)},
       {path: 'ems', loadChildren: () => import('./ems/ems.module').then(module => module.EmsModule)},
       {path: 'ys', loadChildren: () => import('./ys/ys.module').then(module => module.YsModule)},

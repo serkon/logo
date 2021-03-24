@@ -42,74 +42,41 @@ export class RdfComponent implements AfterViewInit {
   constructor(@Inject(DOCUMENT) private document) {
     this.sliderItems = [
       {
-        icon: '/assets/images/services/idm/section-04-01.svg',
-        abbr: 'Uygulamalarınızın menüleri için merkezi yönetim',
+        icon: '/assets/images/services/rcfs/rcfs-check-1.svg',
+        abbr: '',
         title: '',
-        description: 'Hesabınıza tanımlı uygulamaların menülerini bir yerden yönetin',
-        url: '',
+        description: 'Veri kaynağı ve Önizleme uçlarını dilediğiniz sayıda tanımlayın, tasarım yaptıktan sonra önizleme adımıyla sonucu beklemeden görün.',
+        url: 'http://wiki.logo.com.tr/pages/viewpage.action?pageId=65140494',
         classes: '',
       },
       {
-        icon: '/assets/images/services/idm/section-04-02.svg',
-        abbr: 'Çoklu Hesap (Multitenant) İşlemleri',
+        icon: '/assets/images/services/rcfs/rcfs-check-1.svg',
+        abbr: '',
         title: '',
-        description: 'Kullanıcı şifrelerinin güvenli bir şekilde (MD5, SHA1, SHA256, SHA384, SHA512 şifreleme yöntemleri ile ) tutulduğundan emin olun',
-        url: '',
+        description: 'Veri kaynağı tanımlarınızı parametrik olarak (Kullanıcıya göre, Hesaba göre ) yapın',
+        url: 'http://wiki.logo.com.tr/pages/viewpage.action?pageId=65140494',
         classes: '',
       },
       {
-        icon: '/assets/images/services/idm/section-04-03.svg',
-        abbr: 'Hızlı Kısayol İşlemleri',
+        icon: '/assets/images/services/rcfs/rcfs-check-1.svg',
+        abbr: '',
         title: '',
-        description: 'Verilen yetkiler doğrultusunda kısayollarınızı görüntüleyip, sürükle, bırak ie işlemlerinizi hızlıca tamamlayın',
-        url: '',
+        description: 'Rapor şablonunuzda yanlış yapmaktan korkmayın, kaydetmeden önceki haline geri dönebilir, yaptığınız değişiklikleri tanımlı kısayolları kullanarak geri…',
+        url: 'http://wiki.logo.com.tr/pages/viewpage.action?pageId=65140494',
         classes: '',
       },
       {
-        icon: '/assets/images/services/idm/section-04-04.svg',
-        abbr: 'Masaüstünüzü Tasarlayın',
+        icon: '/assets/images/services/rcfs/rcfs-check-1.svg',
+        abbr: '',
         title: '',
-        description: 'Tamamen kişisel masaüstünüzü oluşturup hemen kullanmaya başlayın',
-        url: '',
-        classes: '',
-      },
-      {
-        icon: '/assets/images/services/idm/section-04-05.svg',
-        abbr: 'Aradığınızı Bulun',
-        title: '',
-        description: 'Her ekranda sizi karşılayan arama çubukları yardımıyla menü ve kısayollarınıza anında hızlı erişim sağlayın',
-        url: '',
-        classes: '',
-      },
-      {
-        icon: '/assets/images/services/idm/section-04-06.svg',
-        abbr: 'Uygulamalar içerisinde arama',
-        title: '',
-        description: 'Menü serviste yapılan aramalar, kayıtlı uygulamalar içerisinde de gerçekleşsin',
-        url: '',
-        classes: '',
-      },
-      {
-        icon: '/assets/images/services/idm/section-04-07.svg',
-        abbr: 'Swagger UI Destekli API Uçları  ',
-        title: '',
-        description: 'Desteklenen API uçlarına Swagger UI üzerinden kolayca ulaşın',
-        url: '',
-        classes: '',
-      },
-      {
-        icon: '/assets/images/services/idm/section-04-08.svg',
-        abbr: 'Çoklu Dil Desteği',
-        title: '',
-        description: 'Menü servis ile tek bir adımda sayfalarınızın dilini değiştirin',
-        url: '',
+        description: 'Tasarm Şablonu üzerine koyduğunuz her alan için koşullar tanımlayarak istediğiniz sayfada görünmesini istemediğiniz sayfada görünmemesini sağlayın.',
+        url: 'http://wiki.logo.com.tr/pages/viewpage.action?pageId=65140494',
         classes: '',
       },
     ];
   }
 
   ngAfterViewInit() {
-    console.log('CC');
     this.resize();
   }
 

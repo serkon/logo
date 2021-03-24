@@ -1,6 +1,5 @@
-<logo-header></logo-header>
 <div class="intro">
-  <div class="col-md-5 col-sm-12 col-xs-12">
+  <div class="col-lg-5 col-sm-12 col-xs-12">
     <div class="title-content">
       <p class="g8 bold">Hızlı, kayıpsız,
         sorgulanabilir</p>
@@ -19,65 +18,30 @@
       </logo-link>
     </div>
   </div>
-  <div class="col-md-7">
+  <div class="col-lg-7">
     <img src="./assets/images/services/mss/mss-intro.svg">
   </div>
 </div>
 <div class="usage">
-  <h1 class="bold">Kullanım senaryoları</h1>
-  <h4 class="bold">IDM servisi, kullanıcı arayüzü veya API uçları ile uygulamanıza entegre edilebilir. </h4>
-  <div class="card-wrapper">
-    <div class="usage-card col-md-3">
-      <img src="./assets/images/services/mss/mss-usage-icon-1.svg">
-      <h3 class="bold">
-        Mesaj kategorileri
-      </h3>
-      <h4>
-        Mesaj kategorilerine erişin.
-      </h4>
-    </div>
-    <div class="usage-card col-md-3">
-      <img src="./assets/images/services/mss/mss-usage-icon-2.svg">
-      <h3 class="bold">
-        Tanımlama düzenleme
-      </h3>
-      <h4>
-        Mesaj kategorisi tanımlayın ve düzenleyin.
-      </h4>
-    </div>
-    <div class="usage-card col-md-3">
-      <img src="./assets/images/services/mss/mss-usage-icon-3.svg">
-      <h3 class="bold">
-        Mesajlara erişim
-      </h3>
-      <h4>
-        Geçmiş mesajlara ve içeriklerine erişin.
-      </h4>
-    </div>
-    <div class="usage-card col-md-3">
-      <img src="./assets/images/services/mss/mss-usage-icon-4.svg">
-      <h3 class="bold">
-        Mesaj kategorileri
-      </h3>
-      <h4>
-        Mesaj kategorilerine erişin.
-      </h4>
-    </div>
-  </div>
-  <logo-link
-    [classes]="['secondary', 'large', 'get-started']"
-    external="true"
-    url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139644"
-  >
-    DETAYLARI GÖRÜNTÜLE
-  </logo-link>
-  <img class="bg" src="./assets/images/services/mss/mss-usage-bg.png">
+  <section class="four">
+    <h1>Kullanım Senaryoları</h1>
+    <p>MRS ‘den nelerde ve nasıl faydalanabileceğinizi öğrenin. İşinize değer katın!</p>
+    <logo-carousel [count]="1" [arrow]="true" [dots]="true">
+      <div class="slider-item" *ngFor="let item of sliderItems">
+        <div class="icon-bg"
+             [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"></div>
+        <div class="abbr">{{item.abbr}}</div>
+        <div class="description">{{item.description}}</div>
+        <!-- a class="go" href="{{item.url}}" [ngClass]="item.classes">go →</a-->
+      </div>
+    </logo-carousel>
+  </section>
 </div>
 <div class="specs">
-  <div class="right col-md-6 col-sm-12">
+  <div class="right col-lg-6  col-xs-12">
     <img src="./assets/images/services/mss/mss-specs-bg-1.svg">
   </div>
-  <div class="left col-md-6 col-sm-12">
+  <div class="left col-lg-6 col-xs-12">
     <div class="usage-content">
       <div class="usage-head">
         <div class="col-md-2"></div>
@@ -88,10 +52,10 @@
         </div>
       </div>
       <div class="usage-card">
-        <div class="col-md-2">
-          <img class="right" src="./assets/images/services/mss/mss-specs-check.svg">
+        <div class="col-xs-2 col-md-2">
+          <img  src="./assets/images/services/mss/mss-specs-check.svg">
         </div>
-        <div class="col-md-8 col-sm-12">
+        <div class="col-xs-10 col-md-8 col-sm-12">
           <h2 class="bold">
             Publish-Subscribe model mesajlaşma desteği
           </h2>
@@ -99,15 +63,12 @@
             Servis versiyonlarına kolayca erişin.
           </p>
         </div>
-        <div class="col-md-2">
-          <img src="./assets/images/services/ks/ks-usage-detay.svg">
-        </div>
       </div>
       <div class="usage-card">
-        <div class="col-md-2">
-          <img class="right" src="./assets/images/services/mss/mss-specs-check.svg">
+        <div class="col-xs-2 col-md-2">
+          <img  src="./assets/images/services/mss/mss-specs-check.svg">
         </div>
-        <div class="col-md-8 col-sm-12">
+        <div class="col-xs-10 col-md-8 col-sm-12">
           <h2 class="bold">
             Apache Kafka desteği
           </h2>
@@ -116,15 +77,12 @@
             ve servislerarası haberleşmeden haberdar olun.
           </p>
         </div>
-        <div class="col-md-2">
-          <img src="./assets/images/services/ks/ks-usage-detay.svg">
-        </div>
       </div>
       <div class="usage-card">
-        <div class="col-md-2">
-          <img class="right" src="./assets/images/services/mss/mss-specs-check.svg">
+        <div class="col-md-2 col-xs-2">
+          <img  src="./assets/images/services/mss/mss-specs-check.svg">
         </div>
-        <div class="col-md-8 col-sm-12">
+        <div class="col-md-8 col-xs-10 col-sm-12">
           <h2 class="bold">
             Swagger UI desteği
           </h2>
@@ -133,21 +91,18 @@
             servisinize kolayca entegre edin ve kullanın.
           </p>
         </div>
-        <div class="col-md-2">
-          <img src="./assets/images/services/ks/ks-usage-detay.svg">
-        </div>
       </div>
     </div>
   </div>
 </div>
 <div class="specs-2">
-  <div class="left col-md-6 col-sm-12">
+  <div class="left col-lg-6 col-xs-12">
     <div class="usage-content">
       <div class="usage-card">
-        <div class="col-md-2">
-          <img class="right" src="./assets/images/services/mss/mss-specs-check.svg">
+        <div class="col-xs-2 col-md-2">
+          <img  src="./assets/images/services/mss/mss-specs-check.svg">
         </div>
-        <div class="col-md-8 col-sm-12">
+        <div class="col-xs-10 col-md-8">
           <h2 class="bold">
             Mongo DB desteği
           </h2>
@@ -155,15 +110,12 @@
             Servisinize özel topic’lerinizi Mongo DB’de depolayın ve hızlıca erişin.
           </p>
         </div>
-        <div class="col-md-2">
-          <img src="./assets/images/services/ks/ks-usage-detay.svg">
-        </div>
       </div>
       <div class="usage-card">
-        <div class="col-md-2">
-          <img class="right" src="./assets/images/services/mss/mss-specs-check.svg">
+        <div class="col-md-2 col-xs-2">
+          <img  src="./assets/images/services/mss/mss-specs-check.svg">
         </div>
-        <div class="col-md-8 col-sm-12">
+        <div class="col-md-8 col-xs-10">
           <h2 class="bold">
             Şema desteği
           </h2>
@@ -171,18 +123,17 @@
             Mesaj payload’larınızı belirlenen standartlara göre şemalayın ve uzantınızın doğrulamasını kolayca yapın.
           </p>
         </div>
-        <div class="col-md-2">
-          <img src="./assets/images/services/ks/ks-usage-detay.svg">
-        </div>
       </div>
     </div>
   </div>
-  <div class="right col-md-6 col-sm-12">
+  <div class="right col-lg-6  col-xs-12">
     <img src="./assets/images/services/mss/mss-specs-bg-2.svg">
   </div>
 </div>
-<logo-user-review imageUrl="./assets/images/services/mss/mss-rv-user.png"
-                  backgroundUrl="./assets/images/services/mss/mss-rv-bg.png">
+<logo-user-review
+  imageUrl="./assets/images/services/mss/mss-rv-user.png"
+  backgroundUrl="./assets/images/services/mss/mss-rv-bg.png"
+>
 </logo-user-review>
 <logo-core-services></logo-core-services>
 <logo-footer></logo-footer>

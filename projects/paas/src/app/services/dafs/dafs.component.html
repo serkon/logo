@@ -1,4 +1,3 @@
-<logo-header></logo-header>
 <div class="intro">
   <div class="intro-content col-md-12 col-sm-12 col-xs-12">
     <h1 class="g8 bold">
@@ -33,7 +32,7 @@
       <div class="usage-content">
         <div class="usage-card">
           <div class="col-md-2 col-xs-2">
-            <img  src="./assets/images/services/dafs/dafs-usage-check.svg">
+            <img src="./assets/images/services/dafs/dafs-usage-check.svg">
           </div>
           <div class="col-md-8 col-xs-10">
             <p class="large">
@@ -43,7 +42,7 @@
         </div>
         <div class="usage-card">
           <div class="col-md-2 col-xs-2">
-            <img  src="./assets/images/services/dafs/dafs-usage-check.svg">
+            <img src="./assets/images/services/dafs/dafs-usage-check.svg">
           </div>
           <div class="col-md-8 col-xs-10">
             <p class="large">
@@ -53,14 +52,13 @@
         </div>
         <div class="usage-card">
           <div class="col-md-2 col-xs-2">
-            <img  src="./assets/images/services/dafs/dafs-usage-check.svg">
+            <img src="./assets/images/services/dafs/dafs-usage-check.svg">
           </div>
           <div class="col-md-8 col-xs-10">
             <p class="large">
               Servis versiyonlarına kolayca erişin.
             </p>
           </div>
-
         </div>
         <div class="usage-card">
           <div class="col-md-2 col-xs-2">
@@ -71,21 +69,15 @@
               Servislerin kullandığı ve bağımlı olduğu iç servislerin sağlık ve özellik kontrolünü inceleyin.
             </p>
           </div>
-          <div class="col-md-2">
-            <img src="./assets/images/services/ks/ks-usage-detay.svg">
-          </div>
         </div>
         <div class="usage-card">
           <div class="col-md-2 col-xs-2">
-            <img  src="./assets/images/services/dafs/dafs-usage-check.svg">
+            <img src="./assets/images/services/dafs/dafs-usage-check.svg">
           </div>
           <div class="col-md-8 col-xs-10">
             <p class="large">
               Servis konfigürasyonlarını görün ve takip edin.
             </p>
-          </div>
-          <div class="col-md-2">
-            <img src="./assets/images/services/ks/ks-usage-detay.svg">
           </div>
         </div>
       </div>
@@ -109,11 +101,15 @@
              [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"></div>
         <div class="abbr">{{item.abbr}}</div>
         <div class="description">{{item.description}}</div>
-         <a class="go" href="{{item.url}}" [ngClass]="item.classes">→ detay</a>
+        <a class="go" href="{{item.url}}" [ngClass]="item.classes">→ detay</a>
       </div>
     </logo-carousel>
   </section>
 </div>
-<logo-user-review imageUrl="./assets/images/reviewers/reviewer-nail.png" backgroundUrl="./assets/images/reviewers/green-background.png"></logo-user-review>
+<logo-user-review
+  imageUrl="./assets/images/reviewers/reviewer-nail.png"
+  backgroundUrl="./assets/images/reviewers/green-background.png"
+>
+</logo-user-review>
 <logo-core-services></logo-core-services>
 <logo-footer></logo-footer>

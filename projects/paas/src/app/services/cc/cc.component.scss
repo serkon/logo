@@ -17,13 +17,19 @@ $header-size: size(80px);
   section.one {
     position: relative;
 
+    @include smaller-than(lg) {
+      section.one {
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
     div.title-content {
       position: relative;
       z-index: 2;
-      max-width: size(450px);
       display: flex;
-      align-items: flex-start;
       flex-direction: column;
+
 
       h1.title {
         font-family: get("font.family");
@@ -42,6 +48,7 @@ $header-size: size(80px);
         font-size: size(20px);
         color: #707070;
         pointer-events: none;
+        line-height: size(27px);
       }
     }
 
@@ -58,8 +65,8 @@ $header-size: size(80px);
         background: url("/assets/images/services/cc/section-01-illustration.svg") center center no-repeat;
         background-size: contain;
 
-        @include smaller-than("sm") {
-          background-position: right 10% bottom 10%;
+        @include smaller-than("lg") {
+          display: none;
         }
       }
 
@@ -196,6 +203,7 @@ $header-size: size(80px);
         p.description {
           margin-top: 0;
           font-size: size(20px);
+          line-height: size(25px);
         }
 
         ul {

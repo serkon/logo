@@ -1,7 +1,7 @@
 @import "~@logo-software/theme/base";
 
 :host {
-  @include larger-than(md) {
+  @include larger-than(lg) {
     .intro {
       display: flex;
       height: 100vh;
@@ -55,6 +55,7 @@
         .cards {
           position: relative;
           z-index: 2;
+          padding-left: size(100px);
 
           .specs-card {
             display: flex;
@@ -89,12 +90,7 @@
     }
   }
 
-  @include smaller-than(md) {
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-
+  @include smaller-than(lg) {
     .intro {
       display: flex;
       justify-content: center;
@@ -103,6 +99,7 @@
       position: relative;
       background: #ffdcdc;
       overflow-x: hidden;
+      padding: size(30px);
 
       div:nth-child(2) {
         position: relative;
@@ -138,6 +135,7 @@
     .usage {
       display: flex;
       position: relative;
+      padding: size(30px);
 
       div:nth-child(1) {
         display: flex;
@@ -158,8 +156,11 @@
             background-color: #ebf3f8;
             border-radius: size(11px);
 
-            img {
-              margin: size(35px) size(30px) size(35px) size(50px);
+            @include smaller-than(sm) {
+              img {
+                transform: scale(0.6);
+                padding-left: size(20px);
+              }
             }
 
             h4 {
@@ -175,8 +176,8 @@
         }
       }
 
-      div:nth-child(2) {
-        display: flex;
+      div.right {
+        display: none;
         justify-content: center;
         align-items: center;
       }

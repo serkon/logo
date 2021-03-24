@@ -15,6 +15,12 @@ $header-size: size(80px);
   }
 
   section.one {
+    @include smaller-than(lg) {
+      img {
+        display: none;
+      }
+    }
+
     div.title-content {
       position: relative;
       z-index: 1;
@@ -328,11 +334,13 @@ $header-size: size(80px);
     z-index: 0;
     padding: 0;
     overflow: hidden;
+    padding-bottom: size(30px);
 
     h1 {
       color: #1291bf;
       font-size: size(78px);
       font-weight: lighter;
+      margin-top: size(50px);
       margin-bottom: 50px;
     }
 
@@ -382,6 +390,10 @@ $header-size: size(80px);
           margin-top: size(20px);
         }
       }
+    }
+
+    div.dots {
+      margin-bottom: size(15px);
     }
 
     div.backgrounds {

@@ -15,6 +15,7 @@ $header-size: size(80px);
   }
 
   section.one {
+    display: flex;
     position: relative;
     align-items: flex-start;
     justify-content: flex-start;
@@ -23,7 +24,6 @@ $header-size: size(80px);
     div.title-content {
       position: relative;
       z-index: 2;
-      max-width: size(465px);
       display: flex;
       align-items: flex-start;
       justify-content: center;
@@ -64,9 +64,18 @@ $header-size: size(80px);
       z-index: 0;
       background: no-repeat url("/assets/images/services/as/section-01-illustration.svg") right top / contain;
 
-      @include smaller-than(md) {
+      @include smaller-than(lg) {
         background: none;
       }
+    }
+  }
+
+
+  @include smaller-than("lg") {
+    section.one {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 

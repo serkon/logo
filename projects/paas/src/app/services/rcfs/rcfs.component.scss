@@ -292,6 +292,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        padding: 0 size(30px);
 
         .specs-header {
           padding: 0 size(35px) 0 size(35px);
@@ -334,13 +335,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 0 size(30px);
 
         h2 {
           margin-top: size(19px);
         }
 
         .specs-content {
-          padding: 0 size(35px) 0 size(35px);
+          padding: 0 size(30px);
 
           ul {
             list-style-image: url("/assets/images/services/rcfs/rcfs-check-1.svg");

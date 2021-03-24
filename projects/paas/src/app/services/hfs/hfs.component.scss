@@ -3,107 +3,333 @@
 $header-size: size(80px);
 
 :host {
-  .intro {
-    display: flex;
-    height: 100vh;
-    background-image: linear-gradient(0deg, #DFEBFF 0%, #F9FBFF 100%);
-    overflow-x: hidden;
-
-    div:nth-child(1) {
+  @include larger-than(lg) {
+    .intro {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: baseline;
+      height: 100vh;
+      background-image: linear-gradient(0deg, #dfebff 0%, #f9fbff 100%);
+      overflow-x: hidden;
 
-      .title-content {
-        width: size(479px);
-        align-self: center;
+      div:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: baseline;
 
-        p.g6 {
-          color: var(--primary);
+        .title-content {
+          width: size(479px);
+          align-self: center;
+
+          p.g6 {
+            color: var(--primary);
+          }
+        }
+      }
+
+      div:nth-child(2) {
+        position: relative;
+
+        img {
+          transform: scale(0.8);
+          position: absolute;
+          bottom: size(-60px);
+          right: size(-340px);
         }
       }
     }
 
-    div:nth-child(2) {
-      position: relative;
+    section.three {
+      width: auto;
+      margin: size(-50px) size(-120px);
 
-      img {
-        position: absolute;
-        bottom: 0;
-        right: size(-283px);
-      }
-    }
-  }
-
-  .usage {
-    display: flex;
-    height: 100vh;
-
-    div:nth-child(1) {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    div:nth-child(2) {
-      h1 {
-        align-self: start;
+      @include smaller-than("md") {
+        padding-bottom: 0;
       }
 
-      display: flex;
-      flex-direction: column;
-      align-items: initial;
-      justify-content: center;
+      .row {
+        min-height: size(500px);
 
-      .cards {
-        position: relative;
-        z-index: 2;
+        @include smaller-than("md") {
+          min-height: auto;
+        }
 
-        .specs-card {
+        .content {
+          color: #707070;
           display: flex;
-          flex-direction: row;
-          align-items: center;
-          margin-top: size(50px);
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
 
-          div:nth-child(1) {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+          h1 {
+            font-size: size(40px);
+          }
+
+          p.description {
+            margin-top: 0;
+            font-size: size(20px);
+          }
+
+          ul {
+            list-style-image: url("/assets/images/services/idm/check.svg");
+
+            li {
+              margin-top: size(20px);
+              padding-left: size(10px);
+
+              h2 {
+                font-weight: bold;
+                font-size: size(20px);
+              }
+
+              p {
+                font-size: size(16px);
+              }
+            }
+          }
+        }
+
+        .image {
+          position: relative;
+          left: 0;
+          top: 0;
+        }
+      }
+    }
+
+    section.four {
+      width: auto;
+      margin: size(-50px) size(-120px);
+
+      @include smaller-than("md") {
+        padding-top: 0;
+      }
+
+      .row {
+        min-height: size(814px);
+
+        @include smaller-than("md") {
+          min-height: auto;
+        }
+
+        .image {
+          position: relative;
+
+          img {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+          }
+        }
+
+        .content {
+          color: #707070;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding-left: size(30px);
+
+          h1 {
+            font-size: size(40px);
+          }
+
+          p.description {
+            margin-top: 0;
+            font-size: size(20px);
+          }
+
+          ul {
+            list-style-image: url("/assets/images/services/idm/check.svg");
+
+            @include smaller-than("md") {
+              margin-top: 0;
+            }
+
+            li {
+              margin-top: size(20px);
+              padding-left: size(10px);
+
+              h2 {
+                font-weight: bold;
+                font-size: size(20px);
+              }
+
+              p {
+                font-size: size(16px);
+              }
+            }
+          }
+
+          logo-link {
+            align-self: end;
+            margin-left: size(50px);
           }
         }
       }
     }
   }
 
-  .specs {
-    display: flex;
-    height: 100vh;
-    overflow-x: hidden;
-
-    h1 {
-      align-self: center;
-    }
-
-    div:nth-child(1) {
+  @include smaller-than(lg) {
+    .intro {
       display: flex;
-      flex-direction: column;
-      align-items: initial;
       justify-content: center;
+      padding: 20px;
+      height: 100vh;
+      background-image: linear-gradient(0deg, #dfebff 0%, #f9fbff 100%);
+      overflow-x: hidden;
 
-      .specs-card {
+      div:nth-child(1) {
         display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin-top: size(50px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: baseline;
 
-        div:nth-child(1) {
-          display: flex;
-          align-items: center;
-          justify-content: center;
+        .title-content {
+          align-self: center;
+
+          p.g6 {
+            color: var(--primary);
+            font-size: size(44px);
+          }
+
+          p.g8 {
+            font-size: size(35px);
+            line-height: size(40px);
+          }
+        }
+      }
+
+      div:nth-child(2) {
+        position: relative;
+        display: none;
+
+        img {
+          position: absolute;
+          bottom: 0;
+          right: size(-283px);
         }
       }
     }
 
+    section.three {
+      width: auto;
+      margin: size(-50px) size(-120px);
+      padding-right: size(120px);
+      padding-left: size(120px);
+
+      .row {
+        min-height: size(500px);
+
+        .content {
+          color: #707070;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          padding: size(30px);
+
+          h1 {
+            padding: 20px;
+            font-size: size(40px);
+          }
+
+          p.description {
+            margin-top: 0;
+            font-size: size(20px);
+          }
+
+          ul {
+            list-style-image: url("/assets/images/services/idm/check.svg");
+
+            li {
+              padding: size(10px);
+
+              h2 {
+                font-weight: bold;
+                font-size: size(20px);
+              }
+
+              p {
+                font-size: size(16px);
+              }
+            }
+          }
+        }
+
+        .image {
+          display: none;
+          position: relative;
+          left: 0;
+          top: 0;
+        }
+      }
+    }
+
+    section.four {
+      width: auto;
+      margin: size(-50px) size(-120px);
+      padding-left: size(120px);
+      padding-right: size(120px);
+
+      .row {
+        min-height: size(814px);
+
+        .image {
+          display: none;
+          position: relative;
+
+          img {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+          }
+        }
+
+        .content {
+          color: #707070;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: size(30px);
+
+          h1 {
+            padding: 20px;
+            font-size: size(40px);
+            align-self: baseline;
+          }
+
+          p.description {
+            margin-top: 0;
+            font-size: size(20px);
+          }
+
+          ul {
+            list-style-image: url("/assets/images/services/idm/check.svg");
+
+            li {
+              padding: 10px;
+              margin-top: size(20px);
+              padding-left: size(10px);
+
+              h2 {
+                font-weight: bold;
+                font-size: size(20px);
+              }
+
+              p {
+                font-size: size(16px);
+              }
+            }
+          }
+
+          logo-link {
+            align-self: end;
+            margin-bottom: size(50px);
+            margin-left: size(20px);
+          }
+        }
+      }
+    }
   }
 }

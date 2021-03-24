@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DafsComponent } from './ms.component';
+import { DafsComponent } from './dafs.component';
 
 describe('MsComponent', () => {
   let component: DafsComponent;

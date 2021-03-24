@@ -1,7 +1,7 @@
 @import "~@logo-software/theme/base";
 
 :host {
-  @include larger-than(md) {
+  @include larger-than(lg) {
     .intro {
       display: flex;
       height: size(750px);
@@ -13,7 +13,7 @@
         align-items: baseline;
 
         .title-content {
-          padding-left: size(98px);
+          padding: size(30px);
 
           p.g6 {
             color: var(--primary);
@@ -35,53 +35,102 @@
     }
 
     .usage {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      height: size(702px);
-      margin-top: size(50px);
+      background: no-repeat url("/assets/images/services/mss/mss-rv-bg.png");
+      background-size: cover;
 
-      h4 {
-        margin-top: size(15px);
+      h1 {
+        color: var(--white);
+        font-size: size(45px);
+        font-weight: lighter;
+        text-align: center;
       }
 
-      .bg {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        max-height: size(370px);
+      p {
+        color: var(--white);
+        font-size: size(20px);
+        text-align: center;
+        margin-bottom: 50px;
       }
 
-      logo-link {
-        margin: size(72px) 0 size(81px) 0;
-        z-index: 2;
-      }
+      logo-carousel {
+        //  padding: 0 size(100px);
 
-      .card-wrapper {
-        background-color: var(--basic-400);
-        display: flex;
-        flex-direction: row;
-        z-index: 2;
-        align-self: center;
-        border-radius: size(24px);
-        width: size(1236px);
-        height: size(393px);
-        margin-top: size(44px);
+        .slider-item {
+          background-color: var(--white);
+          box-shadow: 0 60px 60px #6e6e6e46;
+          // background-color: #ffffff;
+          border-radius: 20px;
+          box-sizing: border-box;
+          backdrop-filter: blur(23px);
+          color: #646464;
+          padding: 30px 44px;
+          min-width: 264px;
+          width: 264px;
+          margin-right: 24px;
+          display: inline-block;
+          vertical-align: top;
+          white-space: normal;
 
-        .usage-card {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
+          .icon-bg {
+            width: size(42px);
+            height: size(42px);
+            background-color: #6259a7;
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
 
-          h4 {
-            margin-top: size(20px);
+            .icon {
+              position: relative;
+              max-height: size(42px);
+              max-width: size(42px);
+              height: size(42px);
+              margin-bottom: size(10px);
+              filter: invert(43%) sepia(26%) saturate(1500%) hue-rotate(208deg) brightness(115%) contrast(200%);
+              background-size: contain;
+
+              &::after {
+                content: "";
+                background: url("/assets/images/services/idm/section-04-icon-background.svg") no-repeat;
+                position: absolute;
+                left: 0;
+                top: 0;
+              }
+            }
           }
 
-          h3 {
-            margin-top: size(42px);
+          .abbr {
+            font-weight: bold;
+            font-size: size(20px);
+          }
+
+          .description {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: 300;
+          }
+
+          .go {
+            display: block;
+            margin-top: size(20px);
+          }
+        }
+
+        ::ng-deep {
+          .arrow-with-animation .slider-arrow {
+            color: var(--white);
+
+            --active: var(--white);
+            --border: rgba(255, 255, 255, 0.12);
+          }
+
+          .dots {
+            .dot {
+              border-color: #ffffff;
+
+              &::after {
+                background-color: rgba(255, 255, 255, 0.6);
+              }
+            }
           }
         }
       }
@@ -116,9 +165,6 @@
               justify-content: center;
               align-items: baseline;
 
-              img {
-                margin: size(45px) 0 size(45px) 0;
-              }
 
               img:nth-child(1) {
                 align-self: flex-end;
@@ -181,6 +227,7 @@
 
               img:nth-child(1) {
                 align-self: flex-end;
+                transform: scale(0.75);
               }
             }
 
@@ -206,7 +253,7 @@
     }
   }
 
-  @include smaller-than(md) {
+  @include smaller-than(lg) {
     .intro {
       display: flex;
       height: size(750px);
@@ -218,15 +265,22 @@
         align-items: baseline;
 
         .title-content {
+          padding: size(30px);
+
           p.g6 {
+            font-size: size(45px);
             color: var(--primary);
+          }
+
+          p.g8 {
+            font-size: size(34px);
           }
         }
       }
 
       div:nth-child(2) {
-        display: none;
         position: relative;
+        display: none;
 
         img {
           position: absolute;
@@ -239,65 +293,109 @@
     }
 
     .usage {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      height: size(702px);
-      margin-top: size(50px);
-      overflow-x: scroll;
+      background: no-repeat url("/assets/images/services/rcfs/rcfs-specs-bg-2.png");
+      background-size: cover;
 
-      h4 {
-        margin-top: size(15px);
+      h1 {
+        color: var(--white);
+        font-size: size(45px);
+        font-weight: lighter;
+        text-align: center;
       }
 
-      .bg {
-        display: none;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        max-height: size(370px);
+      p {
+        color: var(--white);
+        font-size: size(20px);
+        text-align: center;
+        margin-bottom: 50px;
       }
 
-      logo-link {
-        margin: size(72px) 0 size(81px) 0;
-        z-index: 2;
-      }
+      logo-carousel {
+        //  padding: 0 size(100px);
 
-      .card-wrapper {
-        background-color: var(--basic-400);
-        display: flex;
-        flex-direction: row;
-        z-index: 2;
-        align-self: center;
-        border-radius: size(24px);
-        width: size(1236px);
-        height: size(393px);
-        margin-top: size(44px);
+        .slider-item {
+          background-color: var(--white);
+          box-shadow: 0 60px 60px #6e6e6e46;
+          // background-color: #ffffff;
+          border-radius: 20px;
+          box-sizing: border-box;
+          backdrop-filter: blur(23px);
+          color: #646464;
+          padding: 30px 44px;
+          min-width: 264px;
+          width: 264px;
+          margin-right: 24px;
+          display: inline-block;
+          vertical-align: top;
+          white-space: normal;
 
-        .usage-card {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
+          .icon-bg {
+            width: size(42px);
+            height: size(42px);
+            background-color: #6259a7;
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
 
-          h4 {
-            margin-top: size(20px);
+            .icon {
+              position: relative;
+              max-height: size(42px);
+              max-width: size(42px);
+              height: size(42px);
+              margin-bottom: size(10px);
+              filter: invert(43%) sepia(26%) saturate(1500%) hue-rotate(208deg) brightness(115%) contrast(200%);
+              background-size: contain;
+
+              &::after {
+                content: "";
+                background: url("/assets/images/services/idm/section-04-icon-background.svg") no-repeat;
+                position: absolute;
+                left: 0;
+                top: 0;
+              }
+            }
           }
 
-          h3 {
-            margin-top: size(42px);
+          .abbr {
+            font-weight: bold;
+            font-size: size(20px);
+          }
+
+          .description {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: 300;
+          }
+
+          .go {
+            display: block;
+            margin-top: size(20px);
+          }
+        }
+
+        ::ng-deep {
+          .arrow-with-animation .slider-arrow {
+            color: var(--white);
+
+            --active: var(--white);
+            --border: rgba(255, 255, 255, 0.12);
+          }
+
+          .dots {
+            .dot {
+              border-color: #ffffff;
+
+              &::after {
+                background-color: rgba(255, 255, 255, 0.6);
+              }
+            }
           }
         }
       }
     }
 
     .specs {
-      position: relative;
       display: flex;
-      justify-content: center;
-      align-items: center;
 
       .left {
         position: relative;
@@ -306,8 +404,6 @@
         align-items: center;
 
         .usage-content {
-          padding: size(20px);
-
           h2 {
             margin-top: size(15px);
           }
@@ -319,6 +415,7 @@
           .usage-card {
             display: flex;
             border-radius: size(11px);
+            padding: size(15px);
 
             div {
               display: flex;
@@ -332,6 +429,7 @@
 
               img:nth-child(1) {
                 align-self: flex-end;
+                transform: scale(0.75);
               }
             }
 
@@ -343,8 +441,8 @@
       }
 
       .right {
-        display: none;
         position: relative;
+        display: none;
         justify-content: center;
         align-items: center;
 
@@ -361,24 +459,23 @@
 
       .left {
         position: relative;
-        display: flex;
         justify-content: center;
         align-items: center;
 
         .usage-content {
-          padding: size(20px);
-
           h2 {
             margin-top: size(15px);
           }
 
           .usage-head {
             display: flex;
+            justify-content: center;
           }
 
           .usage-card {
             display: flex;
             border-radius: size(11px);
+            padding: size(15px);
 
             div {
               display: flex;
@@ -386,12 +483,10 @@
               justify-content: center;
               align-items: baseline;
 
-              img {
-                margin: size(45px) 0 size(45px) 0;
-              }
 
               img:nth-child(1) {
                 align-self: flex-end;
+                transform: scale(0.75);
               }
             }
 

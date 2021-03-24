@@ -103,7 +103,7 @@ export class HomeComponent implements AfterViewInit {
       {
         icon: '/assets/images/home/section-03/keyhole.svg',
         abbr: 'VVS',
-        title: 'Veritabanı versiyonlama(construct)',
+        title: 'Veritabanı versiyonlama',
         description: 'LOGO ürünlerinin ve mikro servislerinin veritabanı şemalarını ve varsayılan kayıtlarını çok kullanıcılı bir şekilde yönetmek ve versiyonlamaktır. PostgreSql, MySql, SqlServer gibi veritabanlarını destekler.',
         link: 'services/vvs',
         class: '',
@@ -111,7 +111,7 @@ export class HomeComponent implements AfterViewInit {
       {
         icon: '/assets/images/home/section-03/keyhole.svg',
         abbr: 'HFS',
-        title: 'Hangfire Service(construct)',
+        title: 'Hangfire Service',
         description: 'LOGO ürünlerinin ve mikro servislerinin veritabanı şemalarını ve varsayılan kayıtlarını çok kullanıcılı bir şekilde yönetmek ve versiyonlamaktır. PostgreSql, MySql, SqlServer gibi veritabanlarını destekler.',
         link: 'services/hfs',
         class: '',
@@ -127,7 +127,7 @@ export class HomeComponent implements AfterViewInit {
       {
         icon: '/assets/images/home/section-03/keyhole.svg',
         abbr: 'YS',
-        title: 'Yerelliştirme Service(construct)',
+        title: 'Yerelliştirme Service',
         description: 'LOGO ürünleri ve mikro servisleri için tenant tabanlı, asenkron bir e-posta gönderme mekanizması sağlamaktır. Smtp, pop3, imap vb. e-posta protokollerini destekler.',
         link: 'services/ys',
         class: '',
@@ -159,7 +159,7 @@ export class HomeComponent implements AfterViewInit {
       {
         icon: '/assets/images/home/section-03/controller.svg',
         abbr: 'RDF',
-        title: 'Report Designer Features (construct)',
+        title: 'Report Designer Features',
         description: 'Rapor Tasarlama Servis ile uygulamanız bünyesinde kullanabileceğiniz tasarım şablonları hazırlayın.',
         link: 'services/rdf',
         class: '',
