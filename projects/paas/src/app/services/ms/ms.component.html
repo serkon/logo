@@ -59,10 +59,11 @@
   <logo-carousel>
     <div class="slider-item" *ngFor="let item of sliderItems">
       <div class="icon-bg"
-           [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"></div>
+           [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"
+      >
+      </div>
       <div class="abbr">{{item.abbr}}</div>
       <div class="description">{{item.description}}</div>
-      <!-- a class="go" href="{{item.url}}" [ngClass]="item.classes">go →</a -->
     </div>
   </logo-carousel>
 </section>
@@ -77,9 +78,11 @@
         <p>Türkiye'deki İşbaşı ve Hindistan'daki Vyapari uygulamalarımızda geliştirme sürecinin en başından bu yana IDM
           servislerini kullanmaktayız. Hem kullanıcı arayüzü hem de servis entegrasyon arayüzlerinin kolayca
           kullanılabilir
-          olmasından memnunuz.</p>
+          olmasından memnunuz.
+        </p>
         <p>Kullanıcı sayımızın artmasına rağmen performans ve güvenilirlik açısından beklentilerimizi fazlasıyla
-          karşılaşmıştır.</p>
+          karşılaşmıştır.
+        </p>
       </div>
       <div class="author">
         <div class="name">Ayhan İNAL</div>
@@ -104,8 +107,11 @@
         </ul>
       </div>
       <div class="col-xs-6 button">
-        <logo-link [classes]="['success', 'large']" external="true"
-                   url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65132817">TÜMÜNÜ GÖRÜNTÜLE
+        <logo-link [classes]="['success', 'large']"
+                   external="true"
+                   url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65132817"
+        >
+          TÜMÜNÜ GÖRÜNTÜLE
         </logo-link>
       </div>
     </div>
