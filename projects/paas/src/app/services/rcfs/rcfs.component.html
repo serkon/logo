@@ -19,7 +19,7 @@
     </div>
   </div>
   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-    <img  src="./assets/images/services/rcfs/rcfs-intro-bg.png">
+    <img src="./assets/images/services/rcfs/rcfs-intro-bg.png">
   </div>
 </div>
 <div class="usage row">
@@ -95,7 +95,9 @@
     <logo-carousel [count]="1" [arrow]="true" [dots]="true">
       <div class="slider-item" *ngFor="let item of sliderItems">
         <div class="icon-bg"
-             [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"></div>
+             [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"
+        >
+        </div>
         <div class="abbr">{{item.abbr}}</div>
         <div class="description">{{item.description}}</div>
         <!-- a class="go" href="{{item.url}}" [ngClass]="item.classes">go →</a-->
