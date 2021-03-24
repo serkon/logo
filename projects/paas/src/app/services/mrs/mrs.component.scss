@@ -55,43 +55,30 @@
       logo-carousel {
         .slider-item {
           background-color: var(--white);
-          box-shadow: 0 60px 60px #6e6e6e46;
-          border-radius: 20px;
+          box-shadow: 0 size(60px) size(60px) #6e6e6e46;
+          border-radius: size(20px);
           box-sizing: border-box;
           backdrop-filter: blur(23px);
           color: var(--neutral-800);
-          padding: 30px 44px;
-          min-width: 264px;
-          width: 264px;
-          margin-right: 24px;
+          padding: size(30px) size(44px);
+          min-width: size(264px);
+          width: size(264px);
+          margin-right: size(24px);
           display: inline-block;
           vertical-align: top;
           white-space: normal;
+          justify-content: flex-start;
 
           .icon-bg {
             width: size(42px);
-            height: size(42px);
-            background-color: #6259a7;
-            mask-size: contain;
-            mask-repeat: no-repeat;
-            mask-position: center;
 
             .icon {
-              position: relative;
-              max-height: size(42px);
-              max-width: size(42px);
               height: size(42px);
-              margin-bottom: size(10px);
-              filter: invert(43%) sepia(26%) saturate(1500%) hue-rotate(208deg) brightness(115%) contrast(200%);
-              background-size: contain;
-
-              &::after {
-                content: "";
-                background: url("/assets/images/services/idm/section-04-icon-background.svg") no-repeat;
-                position: absolute;
-                left: 0;
-                top: 0;
-              }
+              background-color: #008fff;
+              mask-size: contain;
+              mask-repeat: no-repeat;
+              mask-position: center;
+              margin-bottom: size(20px);
             }
           }
 
@@ -100,15 +87,26 @@
             font-size: size(20px);
           }
 
+          .title {
+            color: #89969f;
+            font-size: size(12px);
+            font-weight: bold;
+            letter-spacing: size(0.2px);
+          }
+
           .description {
-            margin-top: 20px;
-            font-size: 16px;
+            margin-top: size(20px);
+            font-size: size(16px);
             font-weight: 300;
           }
 
           .go {
             display: block;
-            margin-top: size(20px);
+
+            .detail {
+              font-size: size(12px);
+              margin-top: size(20px);
+            }
           }
         }
 
@@ -309,60 +307,44 @@
 
       logo-carousel {
         .slider-item {
-          background-color: var(--white);
-          box-shadow: 0 60px 60px #6e6e6e46;
-          border-radius: 20px;
+          box-shadow: 0 size(60px) size(60px) #6e6e6e46;
+          border-radius: size(20px);
           box-sizing: border-box;
           backdrop-filter: blur(23px);
           color: var(--neutral-800);
-          padding: 30px 44px;
-          min-width: 264px;
-          width: 264px;
-          margin-right: 24px;
+          padding: size(30px) size(44px);
+          min-width: size(264px);
+          width: size(264px);
+          margin-right: size(24px);
           display: inline-block;
           vertical-align: top;
           white-space: normal;
+          justify-content: flex-start;
 
-          .icon-bg {
-            width: size(42px);
+          .icon {
             height: size(42px);
-            background-color: #6259a7;
-            mask-size: contain;
-            mask-repeat: no-repeat;
-            mask-position: center;
-
-            .icon {
-              position: relative;
-              max-height: size(42px);
-              max-width: size(42px);
-              height: size(42px);
-              margin-bottom: size(10px);
-              filter: invert(43%) sepia(26%) saturate(1500%) hue-rotate(208deg) brightness(115%) contrast(200%);
-              background-size: contain;
-
-              &::after {
-                content: "";
-                background: url("/assets/images/services/idm/section-04-icon-background.svg") no-repeat;
-                position: absolute;
-                left: 0;
-                top: 0;
-              }
-            }
           }
 
           .abbr {
             font-weight: bold;
-            font-size: size(20px);
+            font-size: size(40px);
+          }
+
+          .title {
+            color: #89969f;
+            font-size: size(12px);
+            font-weight: bold;
+            letter-spacing: size(0.2px);
           }
 
           .description {
-            margin-top: 20px;
-            font-size: 16px;
+            margin-top: size(20px);
+            font-size: size(16px);
             font-weight: 300;
           }
 
-          .go {
-            display: block;
+          .detail {
+            font-size: size(12px);
             margin-top: size(20px);
           }
         }
