@@ -8,6 +8,7 @@ import { UserReviewModule } from '@paas/src/components/user-review/user-review.m
 import { CoreServicesModule } from '@paas/src/components/core-services/core-services.module';
 import { HeaderModule } from '@paas/src/components/header/header.module';
 import { FooterModule } from '@paas/src/components/footer/footer.module';
+
 import { JsRoutingModule } from './js-routing.module';
 import { JsComponent } from './js.component';
 
