@@ -16,9 +16,10 @@
       .story {
         font-weight: lighter;
         color: var(--dark-700);
+        margin-bottom: size(20px);
 
-        @include smaller-than(md) {
-          font-size: size(30px);
+        @include larger-than(md) {
+          font-size: size(20px);
         }
       }
 
