@@ -29,10 +29,11 @@
     <logo-carousel [count]="1" [arrow]="true" [dots]="true">
       <div class="slider-item" *ngFor="let item of sliderItems">
         <div class="icon-bg"
-             [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"></div>
+             [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"
+        >
+        </div>
         <div class="abbr">{{item.abbr}}</div>
         <div class="description">{{item.description}}</div>
-        <!-- a class="go" href="{{item.url}}" [ngClass]="item.classes">go →</a-->
       </div>
     </logo-carousel>
   </section>
@@ -53,7 +54,7 @@
       </div>
       <div class="usage-card">
         <div class="col-xs-2 col-md-2">
-          <img  src="./assets/images/services/mss/mss-specs-check.svg">
+          <img src="./assets/images/services/mss/mss-specs-check.svg">
         </div>
         <div class="col-xs-10 col-md-8 col-sm-12">
           <h2 class="bold">
@@ -66,7 +67,7 @@
       </div>
       <div class="usage-card">
         <div class="col-xs-2 col-md-2">
-          <img  src="./assets/images/services/mss/mss-specs-check.svg">
+          <img src="./assets/images/services/mss/mss-specs-check.svg">
         </div>
         <div class="col-xs-10 col-md-8 col-sm-12">
           <h2 class="bold">
@@ -80,7 +81,7 @@
       </div>
       <div class="usage-card">
         <div class="col-md-2 col-xs-2">
-          <img  src="./assets/images/services/mss/mss-specs-check.svg">
+          <img src="./assets/images/services/mss/mss-specs-check.svg">
         </div>
         <div class="col-md-8 col-xs-10 col-sm-12">
           <h2 class="bold">
@@ -100,7 +101,7 @@
     <div class="usage-content">
       <div class="usage-card">
         <div class="col-xs-2 col-md-2">
-          <img  src="./assets/images/services/mss/mss-specs-check.svg">
+          <img src="./assets/images/services/mss/mss-specs-check.svg">
         </div>
         <div class="col-xs-10 col-md-8">
           <h2 class="bold">
@@ -113,7 +114,7 @@
       </div>
       <div class="usage-card">
         <div class="col-md-2 col-xs-2">
-          <img  src="./assets/images/services/mss/mss-specs-check.svg">
+          <img src="./assets/images/services/mss/mss-specs-check.svg">
         </div>
         <div class="col-md-8 col-xs-10">
           <h2 class="bold">

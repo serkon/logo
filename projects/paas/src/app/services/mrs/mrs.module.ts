@@ -6,6 +6,7 @@ import { MrsComponent } from './mrs.component';
 
 import { CarouselModule } from '@logo-software/carousel';
 import { LinksModule } from '@logo-software/links';
+
 import { UserReviewModule } from '@paas/src/components/user-review/user-review.module';
 import { CoreServicesModule } from '@paas/src/components/core-services/core-services.module';
 import { FooterModule } from '@paas/src/components/footer/footer.module';
