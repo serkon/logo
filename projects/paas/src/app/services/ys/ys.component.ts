@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, HostListener, Inject } from '@angular/core';
-import { SliderItem } from '@paas/src/app/services/idm/idm.component';
 import { DOCUMENT } from '@angular/common';
+
+import { SliderItem } from '@paas/src/app/services/idm/idm.component';
 
 @Component({
   selector: 'logo-ms',
@@ -77,7 +78,6 @@ export class YsComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log('CC');
     this.resize();
   }
 
