@@ -17,8 +17,8 @@ export class SliderItem {
 })
 export class IdmComponent implements AfterViewInit {
   public sliderItems: SliderItem[];
-  private bodyHeight: number;
   public opinions = [1];
+  private bodyHeight: number;
 
   constructor(@Inject(DOCUMENT) private document) {
     this.sliderItems = [
@@ -98,7 +98,6 @@ export class IdmComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log('Idm');
     this.resize();
   }
 

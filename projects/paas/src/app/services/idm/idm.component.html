@@ -58,10 +58,11 @@
   <logo-carousel [count]="1" [arrow]="true" [dots]="true">
     <div class="slider-item" *ngFor="let item of sliderItems">
       <div class="icon-bg"
-           [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"></div>
+           [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"
+      >
+      </div>
       <div class="abbr">{{item.abbr}}</div>
       <div class="description">{{item.description}}</div>
-      <!-- a class="go" href="{{item.url}}" [ngClass]="item.classes">go →</a-->
     </div>
   </logo-carousel>
 </section>
@@ -73,12 +74,16 @@
     <aside class="opinion col-xs-12 col-md-9">
       <h1>Kullanıcı Görüşleri</h1>
       <div class="description">
-        <p>Türkiye'deki İşbaşı ve Hindistan'daki Vyapari uygulamalarımızda geliştirme sürecinin en başından bu yana IDM
+        <p>
+          Türkiye'deki İşbaşı ve Hindistan'daki Vyapari uygulamalarımızda geliştirme sürecinin en başından bu yana IDM
           servislerini kullanmaktayız. Hem kullanıcı arayüzü hem de servis entegrasyon arayüzlerinin kolayca
           kullanılabilir
-          olmasından memnunuz.</p>
-        <p>Kullanıcı sayımızın artmasına rağmen performans ve güvenilirlik açısından beklentilerimizi fazlasıyla
-          karşılaşmıştır.</p>
+          olmasından memnunuz.
+        </p>
+        <p>
+          Kullanıcı sayımızın artmasına rağmen performans ve güvenilirlik açısından beklentilerimizi fazlasıyla
+          karşılaşmıştır.
+        </p>
       </div>
       <div class="author">
         <div class="name">Ayhan İNAL</div>
