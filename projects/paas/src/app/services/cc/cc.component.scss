@@ -71,8 +71,8 @@ $header-size: size(80px);
       }
 
       @include smaller-than("xl") {
-        width: 400px;
-        height: 400px;
+        width: size(400px);
+        height: size(400px);
         right: 0;
         bottom: 0;
       }
@@ -268,18 +268,8 @@ $header-size: size(80px);
           left: 0;
           top: 0;
           background: center / 50% no-repeat url(/assets/images/services/cc/section-04-illustrasyon.png), right center / cover no-repeat url(/assets/images/services/cc/section-04-photo.png);
-
-          /* margin-top: -50px; */
-
-          /* margin-left: -120px; */
-
-          /* width: 100%; */
-
-          /* height: 100%; */
-
-          /* background-size: cover; */
-          margin-left: -120px;
-          margin-top: -50px;
+          margin-left: size(-120px);
+          margin-top: size(-50px);
 
           @include smaller-than("md") {
             display: none;
