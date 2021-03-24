@@ -205,7 +205,6 @@ export class HomeComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.resize();
     this.canvas();
-    console.log('Home Component');
   }
 
   canvas() {
@@ -216,7 +215,6 @@ export class HomeComponent implements AfterViewInit {
       speed: 'fast',
       density: 'low',
     };
-    // const p: ParticleNetwork = new ParticleNetwork(document.getElementById('particles'), options);
   }
 
   resize() {

@@ -1,13 +1,15 @@
-import { AfterViewInit, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { LinksModule } from '@logo-software/links';
 import { PerspectiveModule } from '@logo-software/perspective';
 import { CarouselModule } from '@logo-software/carousel';
 
+import { FooterModule } from '@paas/src/components/footer/footer.module';
+import { HeaderModule } from '@paas/src/components/header/header.module';
+
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { HeaderModule } from '../../components/header/header.module';
-import { FooterModule } from '../../components/footer/footer.module';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -22,8 +24,5 @@ import { FooterModule } from '../../components/footer/footer.module';
   ],
   exports: [HomeComponent],
 })
-export class HomeModule implements AfterViewInit {
-  ngAfterViewInit() {
-    console.log('Home');
-  }
+export class HomeModule {
 }
