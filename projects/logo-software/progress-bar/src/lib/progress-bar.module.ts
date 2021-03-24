@@ -42,9 +42,7 @@ import { ProgressBarComponent } from './progress-bar.component';
  */
 @NgModule({
   declarations: [ProgressBarComponent],
-  imports: [
-    CommonModule,
-  ],
+  imports: [CommonModule],
   exports: [ProgressBarComponent],
 })
 export class ProgressBarModule {

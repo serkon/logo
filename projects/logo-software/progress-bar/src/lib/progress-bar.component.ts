@@ -70,11 +70,7 @@ export class ProgressBarComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    if (this.isProgress) {
-      this.progressService.current = 0;
-    } else {
-      this.progressService.current = this.complete;
-    }
+    this.isProgress ? this.progressService.current = 0 : this.progressService.current = this.complete;
     this.progressService.all = this.complete;
     this.progressService.isWaiting = this.isInWait;
     this.progressService.isProgress = this.isProgress;

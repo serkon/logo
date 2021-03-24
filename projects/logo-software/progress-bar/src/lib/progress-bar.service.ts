@@ -55,11 +55,7 @@ export class ProgressBarService {
 
   public calculatePercentage() {
     if (this.all) {
-      if (this.current > 0) {
-        this.percentage = Math.abs((this.current * 100) / this.all);
-      } else {
-        this.percentage = 0;
-      }
+      this.current > 0 ? this.percentage = Math.abs((this.current * 100) / this.all) : this.percentage = 0;
     }
   }
 }
