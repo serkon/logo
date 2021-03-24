@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { LsComponent } from '@paas/src/app/services/ls/ls.component';
 
 const routes: Routes = [
