@@ -33,6 +33,11 @@
         width: size(20px);
         height: size(20px);
         margin-right: size(8px);
+        min-width: size(20px) !important;
+
+        &::before {
+          width: size(20px);
+        }
       }
     }
 
@@ -41,7 +46,7 @@
 
       p {
         margin-top: 0 !important;
-        margin-bottom: size(8px) !important;
+        margin-bottom: size(4px) !important;
       }
     }
 
@@ -63,13 +68,13 @@
             padding-right: size(12px);
             position: relative;
             font-size: size(16px);
-            line-height: size(22px);
+            line-height: size(16px);
             font-weight: 700;
 
             small {
               display: block;
               font-size: size(12px);
-              line-height: size(16px);
+              line-height: size(10px);
               font-weight: 400;
             }
 

@@ -12,6 +12,8 @@ import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angu
 import { Subscription } from 'rxjs';
 
 import { TimerService } from './timer.service';
+import { Lang } from './lang';
+import { TimePipe } from './pipe/time.pipe';
 
 /**
  * Timer library lets your users to know their time in your app.
@@ -29,6 +31,7 @@ import { TimerService } from './timer.service';
  *  [isCountdown]="true"
  *  [showIcon]="true"
  *  [showProgressBar]="true"
+ *  [langData]="{days: 'Gün', hours: 'Saat', minutes: 'Dk', seconds: 'Sn'}"
  *  (onTimeCompleted)="sampleOnTimeEnd($event)"
  * >
  * </logo-timer>
@@ -38,6 +41,7 @@ import { TimerService } from './timer.service';
   selector: 'logo-timer',
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.scss'],
+  providers: [TimePipe],
 })
 export class TimerComponent implements OnInit, OnDestroy {
   /**
@@ -73,6 +77,10 @@ export class TimerComponent implements OnInit, OnDestroy {
    */
   @Input() showProgressBar: boolean = false;
   /**
+   * Language inputs for days, hours, minutes and seconds. Must be formatted as lang.ts file.
+   */
+  @Input() langData: Lang;
+  /**
    * Output of the completed timer. It returns the id that setted.
    */
   @Output() public onTimeCompleted: EventEmitter<string> = new EventEmitter<string>();
@@ -92,7 +100,7 @@ export class TimerComponent implements OnInit, OnDestroy {
       this.timerService.timerCount = 0;
       this.timerService.endTime = this.timeInMs;
     }
-
+    this.timerService.langData = this.langData;
     this.timerService.countdown = this.isCountdown;
     this.timerService.startTimer();
   }

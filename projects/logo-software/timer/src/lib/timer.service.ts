@@ -10,6 +10,9 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
+import { TimePipe } from './pipe/time.pipe';
+import { Lang } from './lang';
+
 /**
  * Timer service lets developers to control timer variables on the go.
  */
@@ -33,29 +36,92 @@ export class TimerService {
    * If countdown is false, end time will be setted.
    */
   public endTime: number;
+  /**
+   * Language details for localization.
+   */
+  public langData: Lang;
+  /**
+   * Pause time in milliseconds if timer is paused.
+   */
+  public pausedTime: number;
+  /**
+   * First value of the timer before has been started.
+   */
+  public timerValue: number;
   public isEnded = new Subject<boolean>();
+  private timer;
 
   /**
    * Starts the timer.
    */
   public startTimer() {
-    this.changeToReadable(this.timerCount);
-    const timer = setInterval(() => {
+    this.timerValue = this.timerCount;
+    this.readableTime = new TimePipe().transform(this.timerCount, this.langData);
+    this.runTimer();
+  }
+
+  /**
+   * Run timer function which will starts timer with setted values
+   */
+  public runTimer() {
+    this.timer = setInterval(() => {
       if (this.countdown) {
         this.timerCount = Math.floor(this.timerCount - 1000);
         if (this.timerCount < 0) {
-          clearInterval(timer);
+          clearInterval(this.timer);
           this.isEnded.next(true);
         }
       } else {
         this.timerCount = Math.floor(this.timerCount + 1000);
         if (this.timerCount === this.endTime) {
-          clearInterval(timer);
+          clearInterval(this.timer);
           this.isEnded.next(true);
         }
       }
-      this.changeToReadable(this.timerCount);
+      this.readableTime = new TimePipe().transform(this.timerCount, this.langData);
     }, 1000);
+  }
+
+  /**
+   * Pause the timer.
+   */
+  public pauseTimer() {
+    this.pausedTime = this.timerCount;
+    clearInterval(this.timer);
+  }
+
+  /**
+   * Resume the paused timer. If the timer isn't paused, resume function will not  be worked.
+   */
+  public resumeTimer() {
+    console.log(this.pausedTime);
+    if (this.pausedTime !== undefined) {
+      this.timerCount = this.pausedTime;
+      this.runTimer();
+    }
+  }
+
+  /**
+   * Sets the timer end point and stops the timer.
+   */
+  public stopTimer() {
+    if (this.countdown) {
+      this.timerCount = 0;
+    } else {
+      this.timerCount = this.endTime;
+    }
+    clearInterval(this.timer);
+    this.readableTime = new TimePipe().transform(this.timerCount, this.langData);
+    this.isEnded.next(true);
+  }
+
+  /**
+   * Revert the timer to the start value
+   */
+  public resetTimer() {
+    clearInterval(this.timer);
+    this.timerCount = this.timerValue;
+    this.runTimer();
   }
 
   /**

@@ -1,10 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+import { Lang } from '../lang';
+
 @Pipe({
   name: 'counter',
+  pure: true,
 })
 export class TimePipe implements PipeTransform {
-  transform(value: number): string {
+  transform(value: number, local: Lang): string {
     const totalSeconds = Math.floor(value / 1000);
     const totalMinutes = Math.floor(totalSeconds / 60);
     const totalHours = Math.floor(totalMinutes / 60);
@@ -14,43 +17,44 @@ export class TimePipe implements PipeTransform {
     const minutes = Math.floor(totalMinutes % 60);
     const seconds = Math.floor(totalSeconds % 60);
 
-    let readableTime = '';
-    console.log('###' + days + ' Gün ' + hours + ' Saat ' + minutes + ' Dakika ' + seconds + ' Saniye');
+    let convertedTime = '';
     if (days > 0) {
       if (days < 10) {
-        readableTime += `0${days} Gün `;
+        convertedTime += `<div>0${days}<small>${local.days}</small></div>`;
       } else {
-        readableTime += `${days} Gün `;
+        convertedTime += `<div>${days}<small>${local.days}</small></div>`;
       }
     }
     ;
 
     if (hours > 0) {
       if (hours < 10) {
-        readableTime += `0${hours} Saat `;
+        convertedTime += `<div>0${hours}<small>${local.hours}</small></div>`;
       } else {
-        readableTime += `${hours} Saat `;
+        convertedTime += `<div>${hours}<small>${local.hours}</small></div>`;
       }
     }
     ;
 
-    if (minutes > 0) {
+    if (minutes >= 0) {
       if (minutes < 10) {
-        readableTime += `0${minutes} Dk `;
+        convertedTime += `<div>0${minutes}<small>${local.minutes}</small></div>`;
       } else {
-        readableTime += `${minutes} Dk `;
+        convertedTime += `<div>${minutes}<small>${local.minutes}</small></div>`;
       }
     }
     ;
 
-    if (seconds > 0) {
+    if (seconds >= 0) {
       if (seconds < 10) {
-        readableTime += `0${seconds} Sn`;
+        convertedTime += `<div>0${seconds}<small>${local.seconds}</small></div>`;
       } else {
-        readableTime += `${seconds} Sn`;
+        convertedTime += `<div>${seconds}<small>${local.seconds}</small></div>`;
       }
+    } else if (seconds < 0) {
+      convertedTime = `<div>00<small>${local.minutes}</small></div><div>00<small>${local.seconds}</small></div>`;
     }
     ;
-    return readableTime;
+    return convertedTime;
   }
 }

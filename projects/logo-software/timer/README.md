@@ -43,6 +43,7 @@ parameters.
   [theme]="'primary'"
   [isCountdown]="true"
   [showIcon]="true"
+  [langData]="{days: 'Gün', hours: 'Saat', minutes: 'Dk', seconds: 'Sn'}"
   [showProgressBar]="true"
   (onTimeCompleted)="sampleOnTimeEnd($event)"
 >

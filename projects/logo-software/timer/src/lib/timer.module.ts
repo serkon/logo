@@ -10,10 +10,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { ProgressBarModule } from '@logo-software/progress-bar';
+
 import { TimerComponent } from './timer.component';
 import { TimeModule } from './pipe/time.module';
-
-import { ProgressBarModule } from '@logo-software/progress-bar';
 
 /**
  * Timer helps developer to set a specific time for their web apps and doSomething after completed.
