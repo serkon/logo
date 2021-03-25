@@ -1,5 +1,5 @@
 .input-group {
-  input.form-control {
+  .form-control {
     background-clip: border-box;
 
     &:not(:last-child) {
@@ -9,7 +9,7 @@
         border-right: size(1px) solid var(--primary-700);
       }
 
-      & + .input-group-append {
+      + .input-group-append {
         margin-left: 0;
       }
     }
@@ -53,7 +53,7 @@
 
   @each $size, $value in get("size") {
     &.#{$size} {
-      input.form-control {
+      .form-control {
         @extend %size-#{$size};
       }
 
