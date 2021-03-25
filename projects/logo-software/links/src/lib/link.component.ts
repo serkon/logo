@@ -46,6 +46,7 @@ import { LinkService } from './link.service';
     <ng-template #internalURL>
       <button
         [ngClass]="classes"
+        [disabled]="isDisabled"
         (click)="onClickEvent($event, false)"
         (mouseenter)="onHoverEvent($event)"
         (mouseleave)="onLeaveEvent($event)"
@@ -54,7 +55,7 @@ import { LinkService } from './link.service';
       </button>
     </ng-template>
     <ng-template #externalURL>
-      <button [ngClass]="classes" (click)="onClickEvent($event, external)">
+      <button [ngClass]="classes" [disabled]="isDisabled" (click)="onClickEvent($event, external)">
         <ng-container *ngTemplateOutlet="display ? displayHTML : contentHTML"></ng-container>
       </button>
     </ng-template>
@@ -100,6 +101,10 @@ export class LinkComponent implements OnInit {
    * <logo-link>DISPLAY TEXT</logo-link> or <logo-link display='DISPLAY TEXT'></logo-link> are the same.
    */
   @Input() display: string = '';
+  /**
+   * Disabled status of the button
+   */
+  @Input() isDisabled: boolean = false;
   /**
    * Output to be triggered when hover on the element
    */
