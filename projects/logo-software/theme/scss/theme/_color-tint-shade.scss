@@ -98,8 +98,24 @@ $generate: ();
   $generate: map-merge($generate, chaf($color-name, $generate));
 }
 
-$colors: map-merge($colors, $generate);
+/**
+Visualisation color generate
+ */
+$visualisation: ();
 
+@each $color-name, $hex-value in get("color.visualisation") {
+  $visualisation: map-merge($visualisation, shade-and-tint($color-name, $hex-value));
+  $visualisation: map-merge($visualisation, chaf($color-name, $visualisation));
+}
+
+/**
+Merge colors
+ */
+$colors: map-collect($colors, $generate, $visualisation);
+
+/**
+outline color state variables
+ */
 $outline: (
   "outline": transparent,
   "outline-hover": color(light-hover),
@@ -107,12 +123,18 @@ $outline: (
   "outline-focus": color(light-focus),
 );
 
+/**
+ghost color state variables
+ */
 $ghost: (
   "ghost-hover": get("state.tranparency.hover"),
   "ghost-active": get("state.tranparency.active"),
   "ghost-focus": get("state.tranparency.focus"),
 );
 
+/**
+gray colors state variables
+ */
 $gray: (
   "white": #ffffff,
   "light-grey": color(gray-300),
@@ -122,6 +144,9 @@ $gray: (
   "black": #000000
 );
 
+/**
+outline color state variables
+ */
 $colors: map-collect($colors, $outline, $ghost, $gray);
 
 #{get("root")} {

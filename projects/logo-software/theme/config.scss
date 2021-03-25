@@ -259,6 +259,13 @@ $config: deep-map-merge((
       800: 25%, // 25
       900: 40%,
       1000: 60%
+    ),
+    visualisation: (
+      yellow: #f8cf1c,
+      purpple: #8054ff,
+      pink: #ee538b,
+      teal: #47bdff,
+      tan: #ef9d85,
     )
   ),
   bootstrap:(
