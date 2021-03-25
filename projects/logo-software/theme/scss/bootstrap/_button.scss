@@ -11,4 +11,8 @@
       @extend %outline-#{"" + $color};
     }
   }
+
+  &:not(:disabled):active:focus {
+    @include nb-outline();
+  }
 }
