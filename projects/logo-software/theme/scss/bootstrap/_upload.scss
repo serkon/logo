@@ -1,0 +1,201 @@
+.form-group {
+  .input-group {
+    .form-control {
+      &.file-uploader {
+        @extend %size-medium;
+        @extend %fill-basic;
+
+        border: size(1px) solid transparent;
+        display: flex;
+        align-items: center;
+        padding: 0;
+
+        .multiselect-file-content {
+          background: transparent;
+          width: 100%;
+
+          .file-uploader-ul-reset {
+            display: flex;
+            flex-wrap: wrap;
+
+            .file-uploader-li-button {
+              height: size(get("size.small.height"));
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .modal {
+    .upload-drop-zone {
+      position: relative;
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin-bottom: size(20px);
+
+      &::before {
+        content: "";
+        background-color: var(--basic-300);
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index: -2;
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        padding: 20px;
+        box-sizing: content-box;
+      }
+
+      &::after {
+        content: "";
+        background-color: var(--white);
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: size(1px) solid var(--basic);
+      }
+
+      .upload-drop-zone-icon {
+        display: none;
+      }
+
+      .upload-drop-zone-text {
+        font-size: size(16px);
+        line-height: size(22px);
+
+        label {
+          margin: 0;
+        }
+      }
+
+      .btn-browse {
+        @extend %ghost-primary;
+      }
+    }
+
+    .drop-zone-previews {
+      margin-top: size(30px);
+
+      h4 {
+        font-size: size(20px);
+        line-height: size(27px);
+        margin-bottom: size(10px);
+      }
+
+      .preview-template {
+        .preview-row {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          color: var(--neutral-900);
+          height: size(64px);
+          border: 0;
+          padding: 0;
+
+          &.dz-processing, &.list-group-item-primary {
+            background-color: var(--primary-100);
+          }
+
+          &.dz-error {
+            background-color: var(--danger-100);
+          }
+
+          &.dz-success {
+            background-color: var(--success-200);
+          }
+
+          > .row {
+            margin: 0;
+            height: 100%;
+
+            > [class*="col"] {
+              align-items: center;
+              padding: 0 size(10px);
+              line-height: size(64px);
+              height: 100%;
+              display: flex;
+
+              > .row {
+                width: 100%;
+              }
+
+              .badge {
+                @extend %button;
+
+                padding: 0 size(10px);
+
+                &.badge-primary {
+                  @extend %fill-primary;
+                  @extend %size-small;
+
+                  font-size: size(12px);
+                }
+
+                &.badge-success {
+                  @extend %fill-success;
+                  @extend %size-small;
+
+                  font-size: size(12px);
+                }
+
+                &.badge-danger {
+                  @extend %fill-danger;
+                  @extend %size-small;
+
+                  font-size: size(12px);
+                }
+              }
+            }
+
+            > [class*="col"]:not(:last-of-type) {
+              border-right: size(1px) solid var(--basic-400);
+              font-size: size(14px);
+              line-height: size(18px);
+            }
+
+            > [class*="col"]:last-of-type {
+              a {
+                @extend %button;
+                @extend %ghost-secondary;
+              }
+            }
+
+            .dz-image {
+              color: var(--neutral-900);
+
+              .file-uploader-li-icon {
+                opacity: 1;
+
+                .fa-file {
+                  color: var(--neutral-900);
+                }
+              }
+            }
+
+            .file-uploader-name {
+              color: var(--neutral-900);
+            }
+
+            .progress {
+              height: size(10px);
+              border-radius: size(5px);
+
+              .progress-bar {
+                // TODO add style here
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
