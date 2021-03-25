@@ -12,6 +12,9 @@ import { Params } from '@angular/router';
  *   [params]="{id: 'user-id-1'}"
  *   [route]="'logo/table-sample/table-showcase/table-showcase.component'"
  *   [title]="'Two'"
+ *   [state]="'view'"
+ *   [isDisabled]="false"
+ *   [isHidden]="false"
  *  >
  *  <div>içerik 2</div>
  *  </logo-tab>
@@ -50,6 +53,18 @@ export class TabComponent implements AfterViewInit {
    * For example, the fragment must be set to `section` for direction to `http://domain.com/#section`
    */
   @Input() fragment: string;
+  /**
+   * State of the tab as 'edit', 'done', 'view'.
+   */
+  @Input() state: 'edit' | 'done' | 'view';
+  /**
+   * Disabled status of the tab.
+   */
+  @Input() isDisabled: boolean = false;
+  /**
+   * Viewable status of the tab.
+   */
+  @Input() isHidden: boolean = false;
   /**
    * Init event emitter
    */

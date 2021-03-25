@@ -1,6 +1,4 @@
-import { EventEmitter, Injectable } from '@angular/core';
-
-import { TabComponent } from './tab.component';
+import { Injectable } from '@angular/core';
 
 /**
  * Tabs service shows current TabComponent list and active Tab

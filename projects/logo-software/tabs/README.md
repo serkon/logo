@@ -36,13 +36,21 @@ code is the full sample usage of the `tabs component`. Add the below code to you
 
  ```html
 
-<logo-tabs activeTab=0 class="tab-class-names-goes-here" routing="true" (change)="yourChangeTrigger($event)"
-           (tabEvent)="yourTabEvent($event)">
+<logo-tabs
+  activeTab=0
+  class="tab-class-names-goes-here"
+  routing="true"
+  showPrevNext="false"
+  (change)="yourChangeTrigger($event)"
+  (tabEvent)="yourTabEvent($event)"
+>
   <logo-tab
     (init)="tabInit($event)"
     [params]="{id: '44-133'}"
     [route]="'route/to/some/ref'"
     [title]="'Free'"
+    [isDisabled]="false"
+    [isHidden]="false"
   >
     <h1>Content goes here</h1>
     <p>Tab one content detail's goes here</p>
@@ -53,7 +61,8 @@ code is the full sample usage of the `tabs component`. Add the below code to you
 
 #### Alignment
 
-Add [left] or [right] property to any element to set position's on the navbar. For example:
+Add [left] or [right] property to any element to set position's on the navbar. If 'showPrevNext' option is setted as
+true, this feature won't work. For example:
 
 <sub>app.component.html</sub>
 
@@ -81,6 +90,8 @@ child DOM elements will be the content of the tabs. Add the below code to your c
   [params]="{id: 'user-id-1'}"
   [route]="'logo/table-sample/table-showcase/table-showcase.component'"
   [title]="'Two'"
+  [isDisabled]="false"
+  [isHidden]="false"
 >
   <div>contents</div>
 </logo-tab>

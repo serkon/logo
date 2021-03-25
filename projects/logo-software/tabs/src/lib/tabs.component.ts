@@ -12,14 +12,14 @@ import { TabsService } from './tabs.service';
  * <sub>app.component.ts</sub>
  *
  * ```typescript
- * <logo-tabs activeTab=0 class="tab-class-names-goes-here" routing="true" (change)="yourChangeTrigger($event)" (tabEvent)="yourTabEvent($event)">
+ * <logo-tabs activeTab=0 class="tab-class-names-goes-here" routing="true" showPrevNext="true" (change)="yourChangeTrigger($event)" (tabEvent)="yourTabEvent($event)">
  *   <logo-tab title="one">content of tab one</logo-tab>
  *   <logo-tab title="two">content of tab two</logo-tab>
  * </logo-tabs>
  * ```
  *
  * ### Alignment
- * Add [left] or [right] property to any element to set position's on the navbar.
+ * Add [left] or [right] property to any element to set position's on the navbar. If showPrevNext property is setted as true, this option won't work.
  * For example:
  *
  * <sub>app.component.html</sub>
@@ -55,6 +55,10 @@ export class TabsComponent implements AfterContentInit {
    * Full width or not selector of the tabs base.
    */
   @Input() isContainer: boolean;
+  /**
+   * Show Previous / Next Buttons on Tabs
+   */
+  @Input() showPrevNext: boolean;
   /**
    * All tabs was added
    */
@@ -122,18 +126,29 @@ export class TabsComponent implements AfterContentInit {
   }
 
   selectTab(tab: TabComponent) {
-    // deactivate all tabs
-    this.tabs.toArray().forEach((item: TabComponent) => {
-      item.isActive = false;
-    });
-    // activate the tab the user has clicked on.
-    tab.isActive = true;
-    // switch trigger
-    this.change.emit(tab);
-    if (this.routing && !!tab.route) {
-      setTimeout(() => {
-        this.router.navigate([tab.route], {fragment: tab.fragment, queryParams: tab.params});
-      }, 0);
+    // check tab is disabled or not
+    if (!tab.isDisabled) {
+      // deactivate all tabs
+      this.tabs.toArray().forEach((item: TabComponent) => {
+        item.isActive = false;
+      });
+      // activate the tab the user has clicked on.
+      tab.isActive = true;
+      // switch trigger
+      this.change.emit(tab);
+      if (this.routing && !!tab.route) {
+        setTimeout(() => {
+          this.router.navigate([tab.route], {fragment: tab.fragment, queryParams: tab.params});
+        }, 0);
+      }
+    }
+  }
+
+  checkTabStatus(tab: TabComponent) {
+    if (tab.isDisabled) {
+      return false;
+    } else {
+      return true
     }
   }
 
@@ -143,6 +158,16 @@ export class TabsComponent implements AfterContentInit {
    */
   setActiveTab(index: number) {
     this.selectTab(this.tabs.toArray()[index]);
-    this.tabService.active = index;
+    this.checkTabStatus(this.tabs.toArray()[index]) ? this.tabService.active = index : '';
+  }
+
+  callNextTab() {
+    const nextTab = Math.floor(this.tabService.active + 1);
+    nextTab <= this.tabs.length ? this.setActiveTab(nextTab) : '';
+  }
+
+  callPrevTab() {
+    const prevTab = Math.floor(this.tabService.active - 1);
+    prevTab < 0 ? '' : this.setActiveTab(prevTab);
   }
 }
