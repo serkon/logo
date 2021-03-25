@@ -1976,6 +1976,132 @@
           }
         }
       }
+    },
+    "asys": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/asys",
+      "sourceRoot": "projects/asys/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/asys",
+            "index": "projects/asys/src/index.html",
+            "main": "projects/asys/src/main.ts",
+            "polyfills": "projects/asys/src/polyfills.ts",
+            "tsConfig": "projects/asys/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/asys/src/favicon.ico",
+              "projects/asys/src/assets"
+            ],
+            "styles": [
+              "projects/asys/src/styles.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "projects/asys/src/scss"
+              ]
+            },
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/asys/src/environments/environment.ts",
+                  "with": "projects/asys/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "port": 4705,
+            "browserTarget": "asys:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "asys:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "asys:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/asys/src/test.ts",
+            "polyfills": "projects/asys/src/polyfills.ts",
+            "tsConfig": "projects/asys/tsconfig.spec.json",
+            "karmaConfig": "projects/asys/karma.conf.js",
+            "assets": [
+              "projects/asys/src/favicon.ico",
+              "projects/asys/src/assets"
+            ],
+            "styles": [
+              "projects/asys/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/asys/tsconfig.app.json",
+              "projects/asys/tsconfig.spec.json",
+              "projects/asys/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/asys/e2e/protractor.conf.js",
+            "devServerTarget": "asys:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "asys:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "documentation"
