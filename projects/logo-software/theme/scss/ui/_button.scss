@@ -1,3 +1,13 @@
 button {
   @extend %button;
+
+  &.window-button {
+    &.close {
+      @extend %button-window-close;
+    }
+
+    &.full-screen {
+      @extend %button-window-full-screen;
+    }
+  }
 }
