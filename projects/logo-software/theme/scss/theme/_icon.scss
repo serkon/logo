@@ -30,9 +30,7 @@
       @extend %icon-#{$size}, %icon-#{$size}-right;
     }
   }
-}
 
-#{get("root")} {
   .icon, [class^='#{get("icon.prefix")}'], [class*=' #{get("icon.prefix")}'] {
     @extend %icon, %icon-medium;
   }
