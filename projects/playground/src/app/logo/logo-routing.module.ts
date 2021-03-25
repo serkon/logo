@@ -8,6 +8,10 @@ const routes: Routes = [
     component: LogoComponent,
     children: [
       {
+        path: 'switch-sample',
+        loadChildren: () => import('./switch-sample/switch-sample.module').then(m => m.SwitchSampleModule),
+      },
+      {
         path: 'select-sample',
         loadChildren: () => import('./select-sample/select-sample.module').then(m => m.SelectSampleModule),
       },
