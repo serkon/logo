@@ -1,0 +1,15 @@
+%badge {
+  border-radius: size(4px);
+  display: inline-block;
+  background: var(--secondary);
+  padding: size(1px) size(5px);
+  color: var(--neutral-900);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 300;
+  margin-right: size(10px);
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
