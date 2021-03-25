@@ -1,0 +1,108 @@
+<div class="logo-asys-theme">
+  <div class="page-header">
+    <logo-card [cssClasses]="'page-item'" [shadowStyle]="'down'">
+      <div class="content">
+        <div class="page-name">
+          <h5 class="le-pencil_write icon-left">Matematik Sınavı</h5>
+        </div>
+        <div class="page-opts">
+          <logo-link (click)="sampleClickAct()" [classes]="'window-button close'" [url]="'/path/to/sample'"></logo-link>
+        </div>
+      </div>
+    </logo-card>
+  </div>
+  <div class="page-content">
+    <logo-card [cssClasses]="'content-card'" [shadowStyle]="'all'">
+      <div class="content">
+        <div class="left">
+          <h6>Mart 2021 Fen B Öğrencileri</h6>
+          <span class="badge icon-left le-info">Önceki bölümlere tıklayarak gidebilirsiniz</span>
+          <logo-tabs (change)="sampleTabChange($event)" (tabEvent)="sampleTabEvent($event)" [activeTab]="1"
+                     [routing]="true" class="medium primary clear">
+            <logo-tab
+              (click)="sampleTabClick($event)"
+              (init)="sampleTabInit($event)"
+              [params]="{id: 'user-id-1'}"
+              [route]="'/path/to/sample'"
+              [title]="'Matematik 1'"
+            >
+            </logo-tab>
+            <logo-tab
+              (click)="sampleTabClick($event)"
+              (init)="sampleTabInit($event)"
+              [params]="{id: 'user-id-1'}"
+              [title]="'Matematik 2'"
+            >
+            </logo-tab>
+            <logo-tab
+              (click)="sampleTabClick($event)"
+              (init)="sampleTabInit($event)"
+              [params]="{id: 'user-id-1'}"
+              [title]="'Matematik 3'"
+            >
+            </logo-tab>
+          </logo-tabs>
+        </div>
+        <div class="right">
+          <logo-timer
+            (onTimeCompleted)="sampleOnTimeEnd($event)"
+            [cssClasses]="'my-logo-timer-theme'"
+            [id]="'myLogoTimer'"
+            [isCountdown]="true"
+            [langData]="{days: 'Gün', hours: 'Saat', minutes: 'Dk', seconds: 'Sn'}"
+            [showIcon]="true"
+            [showProgressBar]="true"
+            [theme]="'success'"
+            [timeInMs]="25000"
+            [title]="'Kalan Zaman'"
+          >
+          </logo-timer>
+        </div>
+      </div>
+    </logo-card>
+    <logo-card [cssClasses]="'content-card'" [shadowStyle]="'all'">
+      <div class="question-item">
+        <span class="number">
+          <h5>1.</h5>
+        </span>
+        <p>(+3) - (-4) işlemi sonucu için doğru seçeneği işaretleyiniz.</p>
+        <div class="answers">
+          <div class="item">
+            <input id="answer-1" type="checkbox">
+            <label>Cevap 1</label>
+          </div>
+          <div class="item">
+            <input id="answer-2" name="soru" type="radio">
+            <label>Cevap 2</label>
+          </div>
+          <div class="item">
+            <input id="answer-3" name="soru" type="radio">
+            <label>Cevap 3</label>
+          </div>
+        </div>
+      </div>
+    </logo-card>
+    <div class="page-buttons">
+      <logo-link
+        (click)="sampleClickAct()"
+        [classes]="'secondary large'"
+        [url]="'/path/to/sample'"
+      >
+        Önceki
+      </logo-link>
+      <logo-link
+        (click)="sampleClickAct()"
+        [classes]="'primary large'"
+        [url]="'/path/to/sample'"
+      >
+        Sonraki
+      </logo-link>
+    </div>
+  </div>
+  <div class="router-base">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="page-footer"></div>
+</div>
+
+

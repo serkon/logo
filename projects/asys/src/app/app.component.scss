@@ -1,0 +1,110 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
+@import "~@logo-software/theme/base";
+
+:host {
+  .page-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+
+    ::ng-deep {
+      .page-item {
+        @include border-radius(0);
+
+        margin: 0;
+        padding: 0;
+
+        .content {
+          padding: size(15px) size(60px);
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          box-sizing: border-box;
+
+          .page-name {
+            flex-grow: 1;
+
+            h5 {
+              &::before {
+                color: var(--neutral-500);
+                mask-size: size(20px);
+                -webkit-mask-size: size(20px);
+                min-width: size(20px);
+                margin-right: size(12px);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .page-content {
+    padding: size(90px) size(50px);
+
+    ::ng-deep {
+      .content {
+        display: flex;
+        width: 100%;
+        align-items: flex-end;
+
+        .left {
+          flex-grow: 1;
+
+          logo-tabs {
+            ::ng-deep {
+              .navigator {
+                ul {
+                  &.left {
+                    display: none;
+                  }
+                }
+
+                .scroll {
+                  text-align: left;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .page-buttons {
+      margin-top: size(30px);
+      text-align: right;
+
+      logo-link {
+        display: inline-block;
+        margin-right: size(10px);
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .page-footer {
+    position: fixed;
+    width: 100%;
+    background-color: var(--white);
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    height: size(52px);
+  }
+}
