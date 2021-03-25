@@ -39,7 +39,7 @@ export class TimerService {
   /**
    * Language details for localization.
    */
-  public langData: Lang;
+  public language: Lang;
   /**
    * Pause time in milliseconds if timer is paused.
    */
@@ -56,7 +56,7 @@ export class TimerService {
    */
   public startTimer() {
     this.timerValue = this.timerCount;
-    this.readableTime = new TimePipe().transform(this.timerCount, this.langData);
+    this.readableTime = new TimePipe().transform(this.timerCount, this.language);
     this.runTimer();
   }
 
@@ -78,7 +78,7 @@ export class TimerService {
           this.isEnded.next(true);
         }
       }
-      this.readableTime = new TimePipe().transform(this.timerCount, this.langData);
+      this.readableTime = new TimePipe().transform(this.timerCount, this.language);
     }, 1000);
   }
 
@@ -110,7 +110,7 @@ export class TimerService {
       this.timerCount = this.endTime;
     }
     clearInterval(this.timer);
-    this.readableTime = new TimePipe().transform(this.timerCount, this.langData);
+    this.readableTime = new TimePipe().transform(this.timerCount, this.language);
     this.isEnded.next(true);
   }
 

@@ -79,7 +79,7 @@ export class TimerComponent implements OnInit, OnDestroy {
   /**
    * Language inputs for days, hours, minutes and seconds. Must be formatted as lang.ts file.
    */
-  @Input() langData: Lang;
+  @Input() language: Lang;
   /**
    * Output of the completed timer. It returns the id that setted.
    */
@@ -100,7 +100,7 @@ export class TimerComponent implements OnInit, OnDestroy {
       this.timerService.timerCount = 0;
       this.timerService.endTime = this.timeInMs;
     }
-    this.timerService.langData = this.langData;
+    this.timerService.language = this.language;
     this.timerService.countdown = this.isCountdown;
     this.timerService.startTimer();
   }
