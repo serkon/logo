@@ -4,9 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CardModule } from '@logo-software/card';
 import { LinksModule } from '@logo-software/links';
 import { TabsModule } from '@logo-software/tabs';
-import { SampleComponent } from './sample/sample.component';
 import { TimerModule } from '@logo-software/timer';
 
+import { SampleComponent } from './sample/sample.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 

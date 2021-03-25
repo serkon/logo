@@ -17,8 +17,12 @@
         <div class="left">
           <h6>Mart 2021 Fen B Öğrencileri</h6>
           <span class="badge icon-left le-info">Önceki bölümlere tıklayarak gidebilirsiniz</span>
-          <logo-tabs (change)="sampleTabChange($event)" (tabEvent)="sampleTabEvent($event)" [activeTab]="1"
-                     [routing]="true" class="medium primary clear">
+          <logo-tabs
+            (change)="sampleTabChange($event)"
+            (tabEvent)="sampleTabEvent($event)"
+            [activeTab]="1"
+            [routing]="true" class="medium primary clear"
+          >
             <logo-tab
               (click)="sampleTabClick($event)"
               (init)="sampleTabInit($event)"
@@ -49,7 +53,7 @@
             [cssClasses]="'my-logo-timer-theme'"
             [id]="'myLogoTimer'"
             [isCountdown]="true"
-            [langData]="{days: 'Gün', hours: 'Saat', minutes: 'Dk', seconds: 'Sn'}"
+            [language]="{days: 'Gün', hours: 'Saat', minutes: 'Dk', seconds: 'Sn'}"
             [showIcon]="true"
             [showProgressBar]="true"
             [theme]="'success'"
@@ -104,5 +108,3 @@
   </div>
   <div class="page-footer"></div>
 </div>
-
-
