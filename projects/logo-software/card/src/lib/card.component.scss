@@ -7,7 +7,6 @@
 :host {
   .card {
     @include border-radius(size(10px));
-    @include box-shadow(0, size(24px), size(48px), 0, rgba(var(--neutral-900-rgb), 0.1), false);
     @include transition(all, 0.2s, ease-in-out);
 
     background: var(--white);
@@ -55,6 +54,34 @@
           width: 100%;
         }
       }
+    }
+
+    &.shadow-large {
+      @include box-shadow(0, size(24px), size(48px), 0, rgba(var(--neutral-900-rgb), 0.1), false);
+    }
+
+    &.shadow-all {
+      @include box-shadow(0, 0, size(4px), size(2px), rgba(var(--black-rgb), 0.08), false);
+    }
+
+    &.shadow-up {
+      @include box-shadow(0, size(-2px), size(4px), 0, rgba(var(--black-rgb), 0.08), false);
+    }
+
+    &.shadow-down {
+      @include box-shadow(0, size(2px), size(4px), 0, rgba(var(--black-rgb), 0.08), false);
+    }
+
+    &.shadow-right {
+      @include box-shadow(size(2px), 0, size(4px), 0, rgba(var(--black-rgb), 0.08), false);
+    }
+
+    &.shadow-left {
+      @include box-shadow(size(-2px), 0, size(4px), 0, rgba(var(--black-rgb), 0.08), false);
+    }
+
+    &.shadow-none {
+      @include box-shadow(0, 0, 0, 0, rgba(var(--black-rgb), 0), false);
     }
   }
 }

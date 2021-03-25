@@ -24,4 +24,8 @@ export class CardComponent {
    * the css class names that will add. Add multiple class names separated with space.
    */
   @Input() cssClasses?: string = 'card-base';
+  /**
+   * Shadow style of the card. It accepts 'large', 'all', 'down', 'up', 'left', 'right' and 'none'.
+   */
+  @Input() shadowStyle: 'all' | 'down' | 'up' | 'left' | 'right' | 'large' | 'none' = 'large';
 }
