@@ -31,7 +31,7 @@ import { TimePipe } from './pipe/time.pipe';
  *  [isCountdown]="true"
  *  [showIcon]="true"
  *  [showProgressBar]="true"
- *  [langData]="{days: 'Gün', hours: 'Saat', minutes: 'Dk', seconds: 'Sn'}"
+ *  [language]="{days: 'Gün', hours: 'Saat', minutes: 'Dk', seconds: 'Sn'}"
  *  (onTimeCompleted)="sampleOnTimeEnd($event)"
  * >
  * </logo-timer>
