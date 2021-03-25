@@ -21,7 +21,8 @@
             (change)="sampleTabChange($event)"
             (tabEvent)="sampleTabEvent($event)"
             [activeTab]="1"
-            [routing]="true" class="medium primary clear"
+            [routing]="true"
+            class="medium primary clear"
           >
             <logo-tab
               (click)="sampleTabClick($event)"
@@ -106,5 +107,84 @@
   <div class="router-base">
     <router-outlet></router-outlet>
   </div>
-  <div class="page-footer"></div>
+  <div class="page-footer">
+    <logo-tabs
+      (change)="sampleTabChange($event)"
+      (tabEvent)="sampleTabEvent($event)"
+      [activeTab]="5"
+      [routing]="true"
+      [showPrevNext]="true"
+      class="medium primary clear"
+    >
+      <logo-tab
+        (click)="sampleTabClick($event)"
+        (init)="sampleTabInit($event)"
+        [state]="'edit'"
+        [title]="'1'"
+      >
+      </logo-tab>
+      <logo-tab
+        (click)="sampleTabClick($event)"
+        (init)="sampleTabInit($event)"
+        [state]="'edit'"
+        [title]="'2'"
+      >
+      </logo-tab>
+      <logo-tab
+        (click)="sampleTabClick($event)"
+        (init)="sampleTabInit($event)"
+        [state]="'edit'"
+        [title]="'3'"
+      >
+      </logo-tab>
+      <logo-tab
+        (click)="sampleTabClick($event)"
+        (init)="sampleTabInit($event)"
+        [state]="'view'"
+        [title]="'4'"
+      >
+      </logo-tab>
+      <logo-tab
+        (click)="sampleTabClick($event)"
+        (init)="sampleTabInit($event)"
+        [state]="'edit'"
+        [title]="'5'"
+      >
+      </logo-tab>
+      <logo-tab
+        (click)="sampleTabClick($event)"
+        (init)="sampleTabInit($event)"
+        [title]="'6'"
+      >
+      </logo-tab>
+      <logo-tab
+        (click)="sampleTabClick($event)"
+        (init)="sampleTabInit($event)"
+        [isDisabled]="true"
+        [title]="'7'"
+      >
+      </logo-tab>
+      <logo-tab
+        (click)="sampleTabClick($event)"
+        (init)="sampleTabInit($event)"
+        [isDisabled]="true"
+        [title]="'8'"
+      >
+      </logo-tab>
+      <logo-tab
+        (click)="sampleTabClick($event)"
+        (init)="sampleTabInit($event)"
+        [isHidden]="true"
+        [title]="'9'"
+      >
+      </logo-tab>
+      <logo-tab
+        (click)="sampleTabClick($event)"
+        (init)="sampleTabInit($event)"
+        [isHidden]="true"
+        [title]="'10'"
+      >
+      </logo-tab>
+    </logo-tabs>
+  </div>
 </div>
