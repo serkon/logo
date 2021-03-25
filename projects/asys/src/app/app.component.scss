@@ -81,6 +81,22 @@
           }
         }
       }
+
+      .question-item {
+        position: relative;
+        padding-left: size(38px);
+
+        .number {
+          display: inline-block;
+          top: 0;
+          left: 0;
+          position: absolute;
+        }
+
+        .question {
+          margin-top: size(2px);
+        }
+      }
     }
 
     .page-buttons {
