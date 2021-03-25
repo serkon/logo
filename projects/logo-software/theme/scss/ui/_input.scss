@@ -2,8 +2,7 @@ input, textarea {
   @extend %input;
 
   &:read-only {
-    // pointer-events: none;
-    background-color: var(--basic);
+    background-color: var(--basic-700);
   }
 }
 
