@@ -13,9 +13,13 @@ import { Link } from './link';
  *  abbr: 'IDM',
  *  title: 'Centeral Identitiy Management',
  *  description: 'Uygulamaların kullanıcı veritabanını tutarak, kullanıcı kayıt ve giriş işlemleri güvenli olarak yönetir',
- *  link: '',
- *  class: '',
- *  onClick: (event)=> console.log(event)
+ *  url: 'home',
+ *  classes: '',
+ *  onHover: (event)=> console.log(event),
+ *  onLeave: (event)=> console.log(event),
+ *  relativeTo: false,
+ *  redirection: true,
+ *  delay: 0
  * }]
  * ```
  *
@@ -24,7 +28,7 @@ import { Link } from './link';
  * ```html
  * <logo-links [classes]="['light', 'large', 'ghost']" [links]="items">
  *   <!-- add also manually the link -->
- *   <logo-link [link]="links[0]" [classes]="['light', 'large', 'ghost']"></logo-link>
+ *   <logo-link [url]="items[0].url" [classes]="['light', 'large', 'ghost']"></logo-link>
  * </logo-links>
  * ```
  */
