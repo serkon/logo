@@ -3,7 +3,7 @@
 Theme module customize UI of the elements with Logo Element Design standard. It also support bootstrap, .Net, Angular
 and ReactNative based projects.
 
-@stacked-example(Theme Showcase, logo/theme-sample/theme-showcase/theme-showcase.component)
+Click here for [demo](http://design.logo.com.tr/#/docs/components/theme-module#thememodule)
 
 ### Installation
 
