@@ -12,4 +12,8 @@
   &:last-child {
     margin-right: 0;
   }
+
+  &.icon-left {
+    padding-left: size(32px);
+  }
 }
