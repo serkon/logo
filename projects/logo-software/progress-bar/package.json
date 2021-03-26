@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "tslib": "^2.0.0",
-    "@logo-software/theme": "^3.8.1"
+    "@logo-software/theme": "^3.9.1"
   },
   "description": "A progress bar shows the user where they are along the steps of their process journey.",
   "homepage": "http://elements.logo.com.tr",
