@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "tslib": "^2.0.0",
-    "@logo-software/links": "~1.2.0",
+    "@logo-software/links": "~1.2.1",
     "@logo-software/theme": "~3.9.1"
   },
   "description": "Tabs organize content into separate views where only one view can be visible at a time.",
