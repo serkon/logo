@@ -7,8 +7,8 @@
   },
   "dependencies": {
     "tslib": "^2.0.0",
-    "@logo-software/theme": "^3.8.1",
-    "@logo-software/progress-bar": "^0.0.1"
+    "@logo-software/theme": "^3.9.1",
+    "@logo-software/progress-bar": "^0.1.0"
   },
   "description": "Timer helps developer to set a specific time for their web apps and doSomething after completed.",
   "homepage": "http://elements.logo.com.tr",
