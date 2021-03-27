@@ -13,6 +13,7 @@ Standardization Checkbox and Radio
   padding: 0;
   vertical-align: top;
   border-radius: size(get("border.radius"));
+  border-color: var(--basic-700);
   float: left;
 
   &::before {
@@ -57,7 +58,7 @@ Standardization Checkbox and Radio
 
       margin: $margin-size size(5px) $margin-size 0;
 
-      & + label {
+      + label {
         @extend %label-#{$size};
       }
     }
