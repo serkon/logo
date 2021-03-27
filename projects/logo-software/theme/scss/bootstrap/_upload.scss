@@ -5,7 +5,8 @@
         @extend %size-medium;
         @extend %fill-basic;
 
-        border: size(1px) solid transparent;
+        border: none;
+        border-right: size(1px) solid var(--basic-700);
         display: flex;
         align-items: center;
         padding: 0;
