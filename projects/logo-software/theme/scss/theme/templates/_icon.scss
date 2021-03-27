@@ -46,8 +46,8 @@
     min-width: size(map_get($map, icon-container));
 
     &::before {
-      // width: size(map_get($map, icon-container));
-      // height: size(map_get($map, height));
+      width: size(map_get($map, icon-container));
+      height: size(map_get($map, height));
       -webkit-mask-size: size(map_get($map, icon-size));
       mask-size: size(map_get($map, icon-size));
     }
