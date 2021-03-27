@@ -1,6 +1,8 @@
 input, textarea {
   @extend %input;
+}
 
+input:not([type=checkbox]), input:not([type=radio]) {
   &:read-only {
     background-color: var(--basic-700);
   }
