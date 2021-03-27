@@ -34,6 +34,16 @@
       content: "";
       position: absolute;
       background: currentColor;
+      border-left: size(1px) solid var(--basic-700);
+    }
+
+    &::after {
+      border-left: size(1px) solid var(--basic-700);
+      position: absolute;
+      width: get("size.medium.icon-container");
+      height: get("size.medium.height");
+      content: "";
+      right: 0;
     }
 
     div {
