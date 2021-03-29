@@ -113,9 +113,9 @@ $config: deep-map-merge((
     ),
     switch:(
       size:(
-        small:(width: 38px, circle-padding: 2px),
-        medium:(width: 52px, circle-padding: 2px),
-        large:(width: 82px, circle-padding: 4px),
+        small:(width: 38px, height:24px, circle-padding: 2px, slider: 20px, border-radius: 16px),
+        medium:(width: 52px, height:32px, circle-padding: 2px, slider: 28px, border-radius: 16px),
+        large:(width: 83px, height:48px, circle-padding: 4px, slider: 40px, border-radius: 40px),
       )
     ),
     head: (

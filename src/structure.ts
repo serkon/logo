@@ -814,6 +814,23 @@ export const structure = [
           },
         ],
       },
+      {
+        type: 'page',
+        name: 'Switch Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'SwitchModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'SwitchComponent',
+          },
+        ],
+      },
     ],
   },
   {
