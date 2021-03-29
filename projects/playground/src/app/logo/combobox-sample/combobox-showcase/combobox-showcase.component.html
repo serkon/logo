@@ -1,4 +1,12 @@
-<logo-combobox (filter)="onFiltered($event)" (select)="onSelect($event)" [selected]="1" [(ngModel)]="selected" [hover]="2" [items]="displayedItems" [path]="'a.b'">
+<logo-combobox
+  (filter)="onFiltered($event)"
+  (select)="onSelect($event)"
+  [(ngModel)]="selected"
+  [hover]="2"
+  [items]="displayedItems"
+  [path]="'a.b'"
+  [selected]="1"
+>
   <ng-template let-item="item" let-index="index" let-isOdd="isOdd" let-isFirst="isFirst" let-isLast="isLast">
     <span>customized {{index}} - {{isFirst}} - {{isLast}} - {{isOdd}} - {{item | json }}</span>
   </ng-template>
