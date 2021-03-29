@@ -38,4 +38,10 @@
       margin: 0 size(30px) 0 size(20px);
     }
   }
+
+  &.no-shadow {
+    .card-header, .card-footer {
+      box-shadow: none;
+    }
+  }
 }
