@@ -11,6 +11,10 @@
         align-items: center;
         padding: 0;
 
+        > span {
+          padding-left: size(5px);
+        }
+
         .multiselect-file-content {
           background: transparent;
           width: 100%;
@@ -26,7 +30,6 @@
               border: size(1px) solid transparent;
               background-image: none;
               background-clip: border-box;
-              padding: size(3px);
               margin: size(get("size.medium.height") - get("size.small.height")) / 2 - 1;
               color: var(--neutral-900);
 
