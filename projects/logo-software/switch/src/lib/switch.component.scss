@@ -1,0 +1,70 @@
+@import "~@logo-software/theme/base";
+
+:host {
+  background-color: transparent;
+  border: 1px solid red;
+
+  .holder {
+    position: relative;
+    transition: 0.15s background ease-out;
+    background-color: var(--secondary-500);
+
+    &.disabled {
+      opacity: 0.5;
+    }
+
+    &.on {
+      background-color: transparent;
+    }
+
+    .toggle {
+      position: absolute;
+      border-radius: 50%;
+      background-color: var(--light);
+
+      .toggle.off {
+        background: #bdc3c7;
+      }
+    }
+  }
+
+  @each $size, $value in get("element.switch.size") {
+    &.#{"" + $size} {
+      .holder {
+        width: get("element.switch.size."+$size+".width");
+        height: get("size."+$size+".height");
+
+        &.rounded {
+          border-radius: get("element.switch.size."+$size+".border-radius");
+        }
+
+        .toggle {
+          width: get("element.switch.size."+$size+".slider");
+          height: get("element.switch.size."+$size+".slider");
+
+          &.on {
+            top: get("element.switch.size."+$size+".circle-padding");
+            right: get("element.switch.size."+$size+".circle-padding");
+          }
+
+          &.off {
+            top: get("element.switch.size."+$size+".circle-padding");
+            left: get("element.switch.size."+$size+".circle-padding");
+          }
+        }
+      }
+    }
+  }
+
+  @each $color, $value in get("color.list") {
+    &.#{"" + $color} {
+      background-color: transparent;
+
+      .holder {
+        &.on {
+          background-color: var(--#{$value});
+        }
+      }
+    }
+  }
+}

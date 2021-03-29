@@ -1,4 +1,7 @@
-<div>
-  asdasd!
-  switch works!
+<div [ngClass]="{'on': toggleState ,'off' : !toggleState , 'rounded' : rounded , 'disabled' : disabled}"
+     (click)="toggle()"
+     class="holder"
+>
+  <div [ngClass]="{'on': toggleState ,'off' : !toggleState}" class="toggle"></div>
 </div>
+

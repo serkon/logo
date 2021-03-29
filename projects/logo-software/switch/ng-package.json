@@ -3,5 +3,6 @@
   "dest": "../../../dist/logo-software/switch",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "whitelistedNonPeerDependencies": ["@logo-software/theme"]
 }

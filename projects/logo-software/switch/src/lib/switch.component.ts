@@ -1,17 +1,19 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'logo-switch',
   templateUrl: './switch.component.html',
   styleUrls: ['./switch.component.scss'],
 })
-export class SwitchComponent implements OnInit {
-  @Input() size: string;
-  @Input() color: string;
+export class SwitchComponent {
+  @Input() classes: string;
+  @Input() disabled: boolean = false;
+  @Input() rounded: boolean = true;
+  toggleState: boolean = false;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  public toggle() {
+    if (!this.disabled) {
+      this.toggleState = !this.toggleState;
+    }
   }
-
 }
