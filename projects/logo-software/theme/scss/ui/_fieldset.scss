@@ -1,0 +1,25 @@
+fieldset {
+  border: none;
+  position: relative;
+  padding: size(get("element.fieldset.padding"));
+
+  &::before {
+    border: get("element.fieldset.border");
+    border-radius: size(get("border.radius"));
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    top: (size(get("element.fieldset.header.height")) + size(get("element.fieldset.padding"))) * -1;
+    left: 0;
+  }
+
+  legend {
+    margin: 0;
+    padding: size(get("element.fieldset.padding")) 0 0;
+    top: size(get("element.fieldset.header.height"));
+    font-size: size(get("element.fieldset.header.font-size"));
+    line-height: size(get("element.fieldset.header.height"));
+    color: var(get("element.fieldset.header.color"));
+  }
+}

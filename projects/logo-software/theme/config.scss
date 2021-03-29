@@ -231,6 +231,11 @@ $config: deep-map-merge((
         medium: (height: 48px, font-size: 14px, line-height: 18px, padding: (left: 10px, right: 5px)),
         large:(height: 64px, font-size: 14px, line-height: 18px, padding: (left: 10px, right: 5px)),
       )
+    ),
+    fieldset:(
+      border: 1px solid var(--basic-600),
+      padding: 20px,
+      header: (height: 22px, font-size: 16px, color: --neutral-900)
     )
   ),
   color: (
