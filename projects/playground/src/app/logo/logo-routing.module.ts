@@ -151,6 +151,10 @@ const routes: Routes = [
         path: 'progress-bar-sample',
         loadChildren: () => import('./progress-bar-sample/progress-bar-sample.module').then(m => m.ProgressBarSampleModule),
       },
+      {
+        path: 'badge-sample',
+        loadChildren: () => import('./badge-sample/badge-sample.module').then(m => m.BadgeSampleModule),
+      },
     ],
   },
 ];
