@@ -13,7 +13,7 @@
     }
   }
 
-  @each $color, $value in get("color.visualisation") {
+  @each $color, $value in get("color.visualization") {
     &.#{$color} {
       @extend %badge-#{$color};
     }

@@ -99,19 +99,19 @@ $generate: ();
 }
 
 /**
-Visualisation color generate
+Visualization color generate
  */
-$visualisation: ();
+$visualization: ();
 
-@each $color-name, $hex-value in get("color.visualisation") {
-  $visualisation: map-merge($visualisation, shade-and-tint($color-name, $hex-value));
-  $visualisation: map-merge($visualisation, chaf($color-name, $visualisation));
+@each $color-name, $hex-value in get("color.visualization") {
+  $visualization: map-merge($visualization, shade-and-tint($color-name, $hex-value));
+  $visualization: map-merge($visualization, chaf($color-name, $visualization));
 }
 
 /**
 Merge colors
  */
-$colors: map-collect($colors, $generate, $visualisation);
+$colors: map-collect($colors, $generate, $visualization);
 
 /**
 outline color state variables
