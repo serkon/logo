@@ -1,20 +1,53 @@
-<div class="showcase">
-  <logo-switch
-    class="small primary"
-    [disabled]="true"
-    [rounded]="true"
-  ></logo-switch>
-
-  <logo-switch
-    class="medium primary"
-    [disabled]="false"
-    [rounded]="false"
-  ></logo-switch>
-
-  <logo-switch
-    class="large success"
-    [disabled]="false"
-    [rounded]="true"
-  ></logo-switch>
+<div class="row">
+  <div class="content col-xs-9">
+    <logo-switch
+      class="{{selectedSize}}"
+      [theme]="selectedColor"
+      [isDisabled]="disabled"
+      [isRounded]="isRounded"
+    >
+    </logo-switch>
+  </div>
+  <div class="settings col-xs-3">
+    <div>
+      <h5>Modifiers</h5>
+      <div>
+        <input [(ngModel)]="disabled" type="checkbox" id="disable" class="small"/>
+        <label for="disable">Disabled</label>
+      </div>
+    </div>
+    <div>
+      <h5>Sizes</h5>
+      <div *ngFor="let size of sizes;index as i">
+        <input
+          id="{{size.class}}-{{i}}"
+          type="checkbox"
+          [(ngModel)]="size.selected"
+          (change)="changeSize(size.class)"
+          class="small"
+        />
+        <label for="{{size.class}}-{{i}}">{{size.class}}</label>
+      </div>
+    </div>
+    <div>
+      <h5>Colors</h5>
+      <div *ngFor="let color of colors;index as i">
+        <input
+          id="{{color.class}}-{{i}}"
+          type="checkbox"
+          class="small"
+          [(ngModel)]="color.selected"
+          (change)="changeColor(color.class)"
+        >
+        <label for="{{color.class}}-{{i}}">{{color.class}}</label>
+      </div>
+    </div>
+    <div>
+      <h5>Types</h5>
+      <div>
+        <input [(ngModel)]="isRounded" type="checkbox" id="rounded" class="small"/>
+        <label for="rounded">Rounded</label>
+      </div>
+    </div>
+  </div>
 </div>
-

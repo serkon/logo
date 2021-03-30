@@ -1,9 +1,20 @@
 :host {
-  .showcase {
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .settings {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 100vh;
+
+    h5 {
+      margin: 15px 0;
+    }
+  }
+
+  label {
+    text-transform: capitalize;
   }
 }
