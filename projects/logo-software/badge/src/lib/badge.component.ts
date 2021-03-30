@@ -30,7 +30,7 @@ export enum IconPosition {
  *   [theme]="'primary'"
  *   [cssClasses]="'my-own-logo-badge'"
  *   [size]="'large'"
- *   [iconPosition]="'left'"
+ *   [iconPosition]="'icon-left'"
  *   [icon]="'info'"
  * >
  * </logo-badge>
