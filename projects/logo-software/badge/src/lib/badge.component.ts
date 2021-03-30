@@ -10,6 +10,9 @@
 
 import { Component, Input } from '@angular/core';
 
+/**
+ * IconPosition defines button icon's position where will be located. There are 5 types position 'icon-left' | 'icon-right' | 'icon-top' | 'icon-bottom' | 'icon-only'
+ */
 export enum IconPosition {
   ICON_LEFT = 'icon-left',
   ICON_RIGHT = 'icon-right',
