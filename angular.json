@@ -2142,6 +2142,46 @@
           }
         }
       }
+    },
+    "@logo-software/timepicker": {
+      "projectType": "library",
+      "root": "projects/logo-software/timepicker",
+      "sourceRoot": "projects/logo-software/timepicker/src",
+      "prefix": "logo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/logo-software/timepicker/tsconfig.lib.json",
+            "project": "projects/logo-software/timepicker/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/logo-software/timepicker/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/logo-software/timepicker/src/test.ts",
+            "tsConfig": "projects/logo-software/timepicker/tsconfig.spec.json",
+            "karmaConfig": "projects/logo-software/timepicker/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/logo-software/timepicker/tsconfig.lib.json",
+              "projects/logo-software/timepicker/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "documentation"
