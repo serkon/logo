@@ -1,8 +1,17 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
 @import "~@logo-software/theme/base";
 
 :host {
   background-color: transparent;
-  border: 1px solid red;
 
   .holder {
     position: relative;
@@ -11,10 +20,6 @@
 
     &.disabled {
       opacity: 0.5;
-    }
-
-    &.on {
-      background-color: transparent;
     }
 
     .toggle {
@@ -57,12 +62,10 @@
   }
 
   @each $color, $value in get("color.list") {
-    &.#{"" + $color} {
-      background-color: transparent;
-
-      .holder {
-        &.on {
-          background-color: var(--#{$value});
+    .holder {
+      &.on {
+        &.#{$color} {
+          background-color: $value;
         }
       }
     }
