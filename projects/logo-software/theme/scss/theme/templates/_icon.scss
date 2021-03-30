@@ -53,7 +53,7 @@
     }
 
     &-left {
-      padding-left: size(map_get($map, icon-container));
+      padding-left: size(map_get($map, icon-container)) !important;
 
       &::before {
         width: size(map_get($map, icon-container));
@@ -61,7 +61,7 @@
     }
 
     &-right {
-      padding-right: size(map_get($map, icon-container));
+      padding-right: size(map_get($map, icon-container)) !important;
 
       &::before {
         width: size(map_get($map, icon-container));

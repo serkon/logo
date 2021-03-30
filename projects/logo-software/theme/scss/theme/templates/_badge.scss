@@ -1,19 +1,81 @@
 %badge {
   border-radius: size(4px);
   display: inline-block;
-  background: var(--secondary);
-  padding: size(1px) size(5px);
-  color: var(--neutral-900);
+  font-weight: 400;
   font-size: 12px;
   line-height: 16px;
-  font-weight: 300;
-  margin-right: size(10px);
 
-  &:last-child {
-    margin-right: 0;
+  @extend %fill, %fill-secondary;
+
+  @each $size, $value in get("element.badge.size") {
+    &-#{$size} {
+      font-size: size(map-get($value, "font-size"));
+      line-height: size(map-get($value, "line-height"));
+      box-sizing: content-box;
+      height: auto !important;
+      padding: map-get($value, "padding");
+    }
+  }
+
+  @each $color, $value in get("color.list") {
+    &-#{$color} {
+      background-color: var(--#{$color}) !important;
+      color: if($color == basic or $color == light or $color == secondary or $color == gray, text-color($color), var(--white));
+    }
+  }
+
+  @each $color, $value in get("color.visualisation") {
+    &-#{$color} {
+      background-color: var(--#{$color}) !important;
+      color: if($color == yellow or $color == tan, text-color($color), var(--white));
+    }
+  }
+
+  &.icon-only {
+    &::before {
+      position: relative !important;
+    }
   }
 
   &.icon-left {
-    padding-left: size(32px);
+    @extend %icon, %icon-left;
+
+    &::before {
+      height: 100% !important;
+    }
+  }
+
+  &.icon-right {
+    @extend %icon, %icon-right;
+
+    &::before {
+      height: 100% !important;
+    }
+  }
+
+  &.icon-top {
+    @extend %icon;
+
+    padding-top: size(32px) !important;
+
+    &::before {
+      width: 100% !important;
+      min-width: 100%;
+      display: block;
+    }
+  }
+
+  &.icon-bottom {
+    @extend %icon;
+
+    padding-bottom: size(32px) !important;
+
+    &::before {
+      width: 100% !important;
+      min-width: 100%;
+      display: block;
+      top: auto;
+      bottom: 0;
+    }
   }
 }

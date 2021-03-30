@@ -1,3 +1,21 @@
 .badge {
-  @extend %badge;
+  @extend %badge, %badge-medium;
+
+  @each $size, $value in get("element.badge.size") {
+    &.#{$size} {
+      @extend %badge-#{$size};
+    }
+  }
+
+  @each $color, $value in get("color.list") {
+    &.#{$color} {
+      @extend %badge-#{$color};
+    }
+  }
+
+  @each $color, $value in get("color.visualisation") {
+    &.#{$color} {
+      @extend %badge-#{$color};
+    }
+  }
 }

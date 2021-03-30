@@ -232,6 +232,13 @@ $config: deep-map-merge((
         large:(height: 64px, font-size: 14px, line-height: 18px, padding: (left: 10px, right: 5px)),
       )
     ),
+    badge:(
+      size:(
+        small: (font-size: 12px, line-height: 16px, padding: 1px 5px),
+        medium: (font-size: 12px, line-height: 16px, padding: 4px 7px),
+        large: (font-size: 12px, line-height: 16px, padding: 7px 10px)
+      )
+    ),
     fieldset:(
       border: 1px solid var(--basic-600),
       padding: 20px,
@@ -288,7 +295,7 @@ $config: deep-map-merge((
     ),
     visualisation: (
       yellow: #f8cf1c,
-      purpple: #8054ff,
+      purple: #8054ff,
       pink: #ee538b,
       teal: #47bdff,
       tan: #ef9d85,
