@@ -8,7 +8,15 @@
  * Any reproduction of this material must contain this notice.
  */
 
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+export enum IconPosition {
+  ICON_LEFT = 'icon-left',
+  ICON_RIGHT = 'icon-right',
+  ICON_TOP = 'icon-top',
+  ICON_BOTTOM = 'icon-bottom',
+  ICON_ONLY = 'icon-only',
+}
 
 /**
  * Badges visualize and make little information cracks to readable assets.
@@ -33,11 +41,11 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './badge.component.html',
   styleUrls: ['./badge.component.scss'],
 })
-export class BadgeComponent implements OnInit {
+export class BadgeComponent {
   /**
    * The text that shown in the badge.
    */
-  @Input() label: string;
+  @Input() label: string = null;
   /**
    * Your own css class for theming.
    */
@@ -45,23 +53,26 @@ export class BadgeComponent implements OnInit {
   /**
    * Size of the badge. It accepts 'small', 'medium', 'large'. Default is medium
    */
-  @Input() size: string;
+  @Input() size: string = 'medium';
   /**
    * The semantic themes of Logo Theme. Default is 'secondary'. It accepts 'primary', 'secondary', 'success', 'warning', 'danger', 'purple', 'yellow', 'teal', 'tan', 'pink'
    */
   @Input() theme: string;
   /**
-   * Position of the icon. If not set default is 'left'. It accepts 'left', 'right', 'top', 'bottom'.
+   * Position of the icon. If not set default is 'icon-left'. It accepts 'icon-left', 'icon-right', 'icon-top', 'icon-bottom'.
    */
-  @Input() iconPosition: string = 'none';
+  @Input() iconPosition: IconPosition = null;
   /**
    * Badge accepts Logo Icon types. You can use logo name suc as 'alarm_bell_1'.
    */
-  @Input() icon: string;
+  @Input() icon: string = null;
 
-  ngOnInit(): void {
-    this.icon !== undefined ? this.icon = 'le-' + this.icon : this.icon = '';
-    this.icon !== undefined && this.label !== undefined && this.iconPosition === 'icon-none' ? this.iconPosition = 'icon-left' : this.iconPosition = 'icon-' + this.iconPosition;
-    this.icon !== undefined && this.label === undefined && this.iconPosition === 'icon-none' ? this.iconPosition = 'icon-only' : '';
+  public setIconClass() {
+    const iconClassList = [];
+    if (this.icon) {
+      iconClassList.push('le-' + this.icon);
+      iconClassList.push(!this.iconPosition ? this.label ? IconPosition.ICON_LEFT : IconPosition.ICON_ONLY : this.iconPosition);
+    }
+    return iconClassList;
   }
 }

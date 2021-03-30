@@ -9,6 +9,6 @@
  * Any reproduction of this material must contain this notice.
  */
 -->
-<span class="badge {{size}} {{icon}} {{iconPosition}} {{theme}} {{cssClasses}}">
+<span [ngClass]="setIconClass()" class="badge {{size}} {{theme}} {{cssClasses}}">
   {{label}}
 </span>
