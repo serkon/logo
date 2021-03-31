@@ -7,6 +7,7 @@ $custom-control-padding: 0;
   white-space: nowrap;
   height: auto;
   line-height: normal;
+  min-height: auto;
 
   &-inline {
     align-items: center;
@@ -17,7 +18,7 @@ $custom-control-padding: 0;
     opacity: 1;
     z-index: 0;
 
-    & + label {
+    + label {
       padding-bottom: 0;
 
       &::before, &::after {
@@ -47,7 +48,7 @@ $custom-control-padding: 0;
     width: $custom-control-width !important;
 
     &:checked, &:indeterminate {
-      & + label {
+      + label {
         &::before {
           border-radius: size(get("border.radius"));
         }
@@ -66,7 +67,7 @@ $custom-control-padding: 0;
     display: none;
 
     &:checked {
-      & + label {
+      + label {
         &::before {
           background-color: var(--primary);
         }
@@ -83,10 +84,6 @@ $custom-control-padding: 0;
     display: inline-flex;
     align-items: center;
 
-    &::before {
-      background-color: var(--basic);
-    }
-
     &::before, &::after {
       position: absolute;
       border: none;
@@ -96,6 +93,7 @@ $custom-control-padding: 0;
 
     &::before {
       top: 0;
+      background-color: var(--basic);
     }
 
     &::after {
@@ -109,7 +107,7 @@ $custom-control-padding: 0;
     &.#{"" + $color} {
       input {
         &:checked {
-          & + label {
+          + label {
             &::before {
               background-color: var(--#{$color}-500);
             }
