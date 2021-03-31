@@ -39,9 +39,8 @@ import { SwitchComponent } from './switch.component';
  */
 @NgModule({
   declarations: [SwitchComponent],
-  imports: [
-    CommonModule,
-  ],
+  imports: [CommonModule],
   exports: [SwitchComponent],
 })
-export class SwitchModule { }
+export class SwitchModule {
+}
