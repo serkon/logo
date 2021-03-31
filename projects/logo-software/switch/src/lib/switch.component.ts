@@ -36,19 +36,19 @@ export class SwitchComponent {
    */
   @Input() theme: 'primary' | 'light' | 'success' | 'warning' | 'danger' = 'primary';
   /*
-    Switch Toggle's defines disabling status.
+    Switch Toggle's defines disabling status, default is false.
    */
   @Input() isDisabled: boolean = false;
   /*
-    Switch Toggle's defiens shape status.
+    Switch Toggle's defines shape status, default is true.
    */
   @Input() isRounded: boolean = true;
   /*
-    Switch Toggle's defiens default on/off states.
+    Switch Toggle's defines default on/off states, default is false.
    */
   @Input() toggleState: boolean = false;
 
-  private toggleSwitch() {
+  public toggleSwitch() {
     if (!this.isDisabled) {
       this.toggleState = !this.toggleState;
     }
