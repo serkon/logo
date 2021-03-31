@@ -7,9 +7,15 @@
  * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
  * Any reproduction of this material must contain this notice.
 -->
-<div [ngClass]="{'on': toggleState ,'off' : !toggleState , 'rounded' : isRounded , 'disabled' : isDisabled}"
+<div [ngClass]=
+       "{
+      'on': toggleState ,
+      'off' : !toggleState ,
+      'rounded' : isRounded ,
+      'disabled' : isDisabled
+      }"
      (click)="toggleSwitch()"
      class="holder {{theme}}"
 >
-  <div [ngClass]="{'on': toggleState ,'off' : !toggleState}" class="toggle"></div>
+  <div class="toggle" [ngClass]="{'on': toggleState ,'off' : !toggleState}"></div>
 </div>
