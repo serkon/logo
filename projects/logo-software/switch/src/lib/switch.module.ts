@@ -15,6 +15,8 @@ import { SwitchComponent } from './switch.component';
 /**
  * Switch toggle provides display checked/unchecked (On/Off) state on the button.
  *
+ * @stacked-example(SwitchComponent, logo/switch-sample/switch-showcase/switch-showcase.component)
+ *
  * ### Installation
  *
  * All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). To
