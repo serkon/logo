@@ -31,18 +31,18 @@ export class SwitchShowcaseComponent {
 
   changeSize(sizeType: string) {
     this.selectedSize = sizeType;
-    this.sizes.map((x) => {
-      if (sizeType !== x.class) {
-        x.selected = false;
+    this.sizes.map((item) => {
+      if (sizeType !== item.class) {
+        item.selected = false;
       }
     });
   }
 
   changeColor(kindType: string) {
     this.selectedColor = kindType;
-    this.colors.map((x) => {
-      if (kindType !== x.class) {
-        x.selected = false;
+    this.colors.map((item) => {
+      if (kindType !== item.class) {
+        item.selected = false;
       }
     });
   }
