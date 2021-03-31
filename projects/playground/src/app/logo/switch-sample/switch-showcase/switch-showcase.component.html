@@ -20,11 +20,11 @@
       <h5>Sizes</h5>
       <div *ngFor="let size of sizes;index as i">
         <input
+          class="small"
           id="{{size.class}}-{{i}}"
           type="checkbox"
           [(ngModel)]="size.selected"
           (change)="changeSize(size.class)"
-          class="small"
         />
         <label for="{{size.class}}-{{i}}">{{size.class}}</label>
       </div>
@@ -33,9 +33,9 @@
       <h5>Colors</h5>
       <div *ngFor="let color of colors;index as i">
         <input
+          class="small"
           id="{{color.class}}-{{i}}"
           type="checkbox"
-          class="small"
           [(ngModel)]="color.selected"
           (change)="changeColor(color.class)"
         >
@@ -45,7 +45,7 @@
     <div>
       <h5>Types</h5>
       <div>
-        <input [(ngModel)]="isRounded" type="checkbox" id="rounded" class="small"/>
+        <input class="small" [(ngModel)]="isRounded" type="checkbox" id="rounded"/>
         <label for="rounded">Rounded</label>
       </div>
     </div>
