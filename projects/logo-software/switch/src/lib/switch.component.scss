@@ -17,6 +17,7 @@
     position: relative;
     transition: 0.15s background ease-out;
     background-color: var(--secondary-500);
+    border: none;
 
     &.disabled {
       opacity: 0.5;
