@@ -1,24 +1,48 @@
-# Switch
+# Switch Module
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.2.
+Switch toggle provides display checked/unchecked (On/Off) state on the button.Comes with the following properties.
 
-## Code scaffolding
+* Color
+* Size
+* Shape
 
-Run `ng generate component component-name --project switch` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project switch`.
-> Note: Don't forget to add `--project switch` or else it will be added to the default project in your `angular.json` file. 
+Click here for [demo](http://design.logo.com.tr/#/docs/components/switch-module#switchmodule)
 
-## Build
+### Installation
 
-Run `ng build switch` to build the project. The build artifacts will be stored in the `dist/` directory.
+All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). To
+install Header Module:
 
-## Publishing
+```bash
+$ npm set registry https://registry.npmjs.org/
+$ npm install @logo-software/switch -s
+```
 
-After building your library with `ng build switch`, go to the dist folder `cd dist/switch` and run `npm publish`.
+Just import it to your project of `@NgModule` import section.
 
-## Running unit tests
+```typescript
+@NgModule({
+ imports: [CommonModule, SwitchModule],
+})
+export class AppModule {
+}
+```
 
-Run `ng test switch` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Switch Component
 
-## Further help
+A switch is a simple component used for activating one of two predefined options. Commonly used as an on/off button.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<sub>app.component.html</sub>
+
+```html
+<logo-switch
+  class="medium"
+  [theme]="primary"
+  [isDisabled]="false"
+  [isRounded]="false"
+>
+</logo-switch>
+
+```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview
