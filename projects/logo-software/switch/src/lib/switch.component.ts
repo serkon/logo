@@ -18,7 +18,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
  *
  * ```html
  * <logo-switch
- * class="large success"
+ * class="large"
+ * [theme]="primary
  * [disabled]="false"
  * [rounded]="true"
  * ></logo-switch>

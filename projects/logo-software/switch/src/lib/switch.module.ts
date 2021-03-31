@@ -15,7 +15,7 @@ import { SwitchComponent } from './switch.component';
 /**
  * Switch toggle provides display checked/unchecked (On/Off) state on the button.
  *
- * @stacked-example(SwitchComponent, logo/switch-sample/switch-showcase/switch-showcase.component)
+ * @stacked-example(Switch Component, logo/switch-sample/switch-showcase/switch-showcase.component)
  *
  * ### Installation
  *

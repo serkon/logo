@@ -1,6 +1,6 @@
 # Switch Module
 
-Switch toggle provides display checked/unchecked (On/Off) state on the button.Comes with the following properties.
+Switch toggle provides display checked/unchecked (On/Off) state on the button. Comes with the following properties.
 
 * Color
 * Size
@@ -11,7 +11,7 @@ Click here for [demo](http://design.logo.com.tr/#/docs/components/switch-module#
 ### Installation
 
 All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). To
-install Header Module:
+install Switch Module:
 
 ```bash
 $ npm set registry https://registry.npmjs.org/
