@@ -10,11 +10,11 @@ Customize: Button customize colors
   }
 
   %button {
+    @extend %customize-fill-secondary;
+
     @each $type in get("type") {
-      @if ($type!=fill) {
-        &.#{$type} {
-          @extend %customize-#{$type}-secondary;
-        }
+      &.#{$type}, &-#{$type} {
+        @extend %customize-#{$type}-secondary;
       }
 
       @each $color, $value in get("color.list") {

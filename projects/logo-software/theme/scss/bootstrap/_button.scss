@@ -1,14 +1,18 @@
 .btn:not(:disabled), .btn {
-  @extend %button;
+  @extend %button, %button-fill;
+
+  &.btn-outline {
+    @extend %outline, %button-outline;
+  }
 
   @each $color, $value in get("color.list") {
     &.btn-#{"" + $color} {
       border-color: transparent;
 
-      @extend %fill-#{"" + $color};
+      @extend %fill, %fill-#{"" + $color}, %button-fill, %button-fill-#{"" + $color};
     }
     &.btn-outline-#{"" + $color} {
-      @extend %outline-#{"" + $color};
+      @extend %outline, %outline-#{"" + $color}, %button-outline, %button-outline-#{"" + $color};
     }
   }
 
