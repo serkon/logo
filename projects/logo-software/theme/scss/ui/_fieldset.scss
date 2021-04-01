@@ -19,6 +19,7 @@ fieldset {
     padding: size(get("element.fieldset.padding")) 0 0;
     top: size(get("element.fieldset.header.height"));
     font-size: size(get("element.fieldset.header.font-size"));
+    font-weight: 700;
     line-height: size(get("element.fieldset.header.height"));
     color: var(get("element.fieldset.header.color"));
   }
