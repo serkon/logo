@@ -166,6 +166,10 @@
               height: 100%;
               display: flex;
 
+              &:last-of-type {
+                justify-content: flex-end;
+              }
+
               > .row {
                 width: 100%;
               }
