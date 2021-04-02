@@ -7,7 +7,7 @@
  * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
  * Any reproduction of this material must contain this notice.
  */
-import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 
 import { PopoverService } from './popover.service';
 
@@ -57,7 +57,7 @@ export class PopoverComponent implements OnInit {
   @Output() filter: EventEmitter<string> = new EventEmitter<string>();
   public popoverSearch: string = '';
 
-  constructor(private elementRef: ElementRef, public popoverService: PopoverService) {
+  constructor(public popoverService: PopoverService) {
   }
 
   /**
@@ -66,9 +66,9 @@ export class PopoverComponent implements OnInit {
    */
   @HostListener('document:click', ['$event'])
   public onClick(event: Event) {
-    const contains = this.elementRef.nativeElement.contains(event.target);
-    if (!contains && this.isBackClick) {
-      this.popoverService.closePopover();
+    const contains = event.target;
+    if (!contains && this.isBackClick && this.popoverService.display && this.popoverService.activePopover != null) {
+      this.popoverService.togglePopover(this.id);
     }
   }
 

@@ -34,11 +34,8 @@ export class PopoverService {
    * @param id
    */
   public togglePopover(id: string) {
-    if (id !== this.activePopover && this.activePopover !== null && this.display) {
-      this.display = !this.display;
-      this.activePopover = null;
-    }
-    this.activePopover = id;
+    id !== this.activePopover && this.activePopover !== null && this.display ? this.closePopover() : '';
+    id === this.activePopover ? this.closePopover() : this.activePopover = id;
     this.display = !this.display;
   }
 
@@ -56,8 +53,7 @@ export class PopoverService {
    */
   public showPopover(id: string) {
     if (id !== this.activePopover && this.activePopover !== null && this.display) {
-      this.display = false;
-      this.activePopover = null;
+      this.closePopover();
     }
     this.activePopover = id;
     this.display = true;
