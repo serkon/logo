@@ -1,0 +1,13 @@
+<div class="popover-sample-base">
+  <button (click)="this.popoverService.togglePopover('myLogoPopover')" id="popoverBtn">
+    Toggle Popover
+  </button>
+  <logo-popover
+    [cssClasses]="'my-own-theme-css'"
+    [hasSearch]="true"
+    [id]="'myLogoPopover'"
+    [isBackClick]="true"
+  >
+    This is my own content in my own popover.
+  </logo-popover>
+</div>

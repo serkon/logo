@@ -155,6 +155,14 @@ const routes: Routes = [
         path: 'badge-sample',
         loadChildren: () => import('./badge-sample/badge-sample.module').then(m => m.BadgeSampleModule),
       },
+      {
+        path: 'timepicker-sample',
+        loadChildren: () => import('./timepicker-sample/timepicker-sample.module').then(m => m.TimepickerSampleModule),
+      },
+      {
+        path: 'popover-sample',
+        loadChildren: () => import('./popover-sample/popover-sample.module').then(m => m.PopoverSampleModule),
+      },
     ],
   },
 ];
