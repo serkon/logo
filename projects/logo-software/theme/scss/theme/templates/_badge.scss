@@ -6,7 +6,7 @@
   @extend %fill, %fill-secondary;
 
   @each $size, $value in get("element.badge.size") {
-    &-#{$size} {
+    &-#{""+$size} {
       font-size: size(map-get($value, "font-size"));
       line-height: size(map-get($value, "line-height"));
       box-sizing: content-box;
@@ -16,14 +16,14 @@
   }
 
   @each $color, $value in get("color.list") {
-    &-#{$color} {
+    &-#{""+$color} {
       background-color: var(--#{$color}) !important;
       color: if($color == basic or $color == light or $color == secondary or $color == gray, text-color($color), var(--white));
     }
   }
 
   @each $color, $value in get("color.visualization") {
-    &-#{$color} {
+    &-#{""+$color} {
       background-color: var(--#{$color}) !important;
       color: if($color == yellow or $color == tan, text-color($color), var(--white));
     }
@@ -71,7 +71,7 @@
     @extend %icon;
 
     @each $size, $value in get("size") {
-      &.#{$size} {
+      &.#{""+$size} {
         padding-bottom: size(map-get($value, "icon-container")) !important;
       }
     }

@@ -9,12 +9,12 @@
 
   @each $color, $value in get("color.list") {
     &.#{$color} {
-      @extend %badge-#{$color};
+      @extend %badge-#{"" + $color};
     }
   }
 
   @each $color, $value in get("color.visualization") {
-    &.#{$color} {
+    &.#{"" + $color} {
       @extend %badge-#{$color};
     }
   }

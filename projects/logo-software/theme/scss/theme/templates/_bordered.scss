@@ -1,0 +1,17 @@
+/**
+  Template (bordered): bordered styles
+ */
+%bordered {
+  border-style: solid;
+  border-width: size(1px);
+
+  @each $color, $value in get("color.list") {
+    &-#{"" + $color} {
+      @if ($color == basic or $color == secondary or $color == gray) {
+        border-color: var(--#{$color}-700);
+      } @else {
+        border-color: var(--#{$color});
+      }
+    }
+  }
+}

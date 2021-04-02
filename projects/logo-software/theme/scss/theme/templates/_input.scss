@@ -37,6 +37,16 @@ Standardization: Input
       right: size(-1px);
     }
   }
+
+  &.bordered {
+    @extend %bordered, %bordered-basic;
+
+    @each $color, $value in get("color.list") {
+      &.#{$color} {
+        @extend %bordered-#{$color};
+      }
+    }
+  }
 }
 
 %textarea {

@@ -38,7 +38,8 @@ input[type=checkbox], input[type=radio] {
     display: inline-block;
     position: absolute;
     height: 100%;
-    width: size(32px);
+    width: size(30px);
+    min-width: size(30px);
     z-index: 1;
     top: 0;
     color: var(--neutral-400);
@@ -51,6 +52,7 @@ input[type=checkbox], input[type=radio] {
   &.left {
     span {
       left: 0;
+      border-right: 1px solid var(--basic-700);
     }
   }
 
@@ -61,12 +63,13 @@ input[type=checkbox], input[type=radio] {
     }
   }
 
-  &.large {
-    span {
-      width: size(48px);
+  @each $size, $value in get("size") {
+    &.#{$size} {
+      span {
+        @extend %icon-#{$size};
 
-      &::before {
-        mask-size: size(24px);
+        width: calc(map-get($value, "icon-container") - 2px);
+        min-width: calc(map-get($value, "icon-container") - 2px);
       }
     }
   }
