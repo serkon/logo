@@ -2182,6 +2182,46 @@
           }
         }
       }
+    },
+    "@logo-software/popover": {
+      "projectType": "library",
+      "root": "projects/logo-software/popover",
+      "sourceRoot": "projects/logo-software/popover/src",
+      "prefix": "logo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/logo-software/popover/tsconfig.lib.json",
+            "project": "projects/logo-software/popover/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/logo-software/popover/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/logo-software/popover/src/test.ts",
+            "tsConfig": "projects/logo-software/popover/tsconfig.spec.json",
+            "karmaConfig": "projects/logo-software/popover/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/logo-software/popover/tsconfig.lib.json",
+              "projects/logo-software/popover/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "documentation"
