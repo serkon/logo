@@ -163,9 +163,12 @@
   <div class="menu-base">
     <ng-content></ng-content>
     <span class="menu-toggle-base">
-      <button (click)="toggleMenu()"
-              [ngClass]="leftbarService.isSlim ? 'le-double_chevron_right' : 'le-double_chevron_left'"
-              class="toggle-button"></button>
+      <button
+        (click)="toggleMenu()"
+        [ngClass]="leftbarService.isSlim ? 'le-double_chevron_right' : 'le-double_chevron_left'"
+        class="toggle-button"
+      >
+      </button>
     </span>
   </div>
 </div>
