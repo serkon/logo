@@ -65,18 +65,6 @@
     // Filtre alanı için kapatıldı
     // margin-right: 0 !important;
   }
-
-  @each $size, $value in get("size") {
-    &.#{"" + $size} {
-      height: auto;
-
-      table {
-        th {
-          padding: size(get("element.table.size."+#{$size}+".header.padding.top")) size(get("element.table.size."+#{$size}+".header.padding.right"));
-        }
-      }
-    }
-  }
 }
 
 %table-content {
@@ -205,6 +193,23 @@
       }
     }
   }
+
+  /* stylelint-disable no-duplicate-selectors */
+  .t-grid-header {
+    @each $size, $value in get("size") {
+      &.#{"" + $size} {
+        height: auto;
+
+        table {
+          th {
+            padding: size(get("element.table.size."+#{$size}+".header.padding.top")) size(get("element.table.size."+#{$size}+".header.padding.right"));
+          }
+        }
+      }
+    }
+  }
+
+  /* stylelint-enable no-duplicate-selectors */
 }
 
 .t-grid-pager {
