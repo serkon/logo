@@ -1,0 +1,33 @@
+<div class="logo-timepicker {{cssClasses}}">
+  <div class="input-w-icon {{iconPosition}} {{size}}">
+    <span class="le-time_clock_circle_2"></span>
+    <input
+      (focus)="showClockSelector()"
+      (keyup)="handleWriteTime($event)"
+      [ngModel]="settedTime"
+      [placeholder]="'00:00'"
+      [regexp]="'^[0-2]{1}$|^[0-2]{1}[0-9]{1}$|^[0-2]{1}[0-9]{1}[0-5]{1}$|^[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}$'"
+      [value]="settedTime != null ? settedTime : ''"
+      class="icon-{{iconPosition}} bordered {{size}}"
+      id="{{id}}"
+      logoMask
+    >
+  </div>
+  <logo-popover [hasSearch]="false" [id]="'timePopover-' + id" [isBackClick]="false">
+    <div class="selection-input">
+      <div class="selection">
+        <select (change)="setHour($event)" [(ngModel)]="selectedHour" id="{{id}}Hours">
+          <option *ngFor="let hour of hours" [value]="hour">{{hour}}</option>
+        </select>
+      </div>
+      <div class="selection">
+        <select (change)="setMin($event)" [(ngModel)]="selectedMins" id="{{id}}Mins">
+          <option *ngFor="let min of mins" [value]="min">{{min}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="btn-area">
+      <button (click)="popoverService.closePopover()" class="approve-btn">Uygula</button>
+    </div>
+  </logo-popover>
+</div>
