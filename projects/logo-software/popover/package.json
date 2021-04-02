@@ -1,0 +1,49 @@
+{
+  "name": "@logo-software/popover",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^11.2.3",
+    "@angular/core": "^11.2.3"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0",
+    "@logo-software/theme": "^3.9.1"
+  },
+  "description": "Powerful popover library, which provides the best UX for your users. It shows the small modals over the content.",
+  "homepage": "http://elements.logo.com.tr",
+  "author": {
+    "email": "Serhan.Gurbuz@logo.com.tr",
+    "name": "Serhan Gürbüz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://stash.logo.com.tr/scm/fd/theme.git"
+  },
+  "keywords": [
+    "popover",
+    "component",
+    "service",
+    "modal",
+    "inline",
+    "search",
+    "service",
+    "angular"
+  ],
+  "license": "See license in LICENSE file",
+  "scripts": {
+    "ver:patch": "npm version patch",
+    "ver:minor": "npm version minor",
+    "ver:pre": "npm version prerelease",
+    "ver:major": "npm version major",
+    "postversion": "echo '#########\n### Versioning to:' $npm_package_version '\n### CommandPATH: ' $INIT_CWD '\n#########' && git status",
+    "build": "ng build $npm_package_name --prod",
+    "git-commit": "git add -A . && git commit . -m $TYPE'('$npm_package_name'): upgrading to v.'$npm_package_version",
+    "git-release": "git add -A . && git commit . -m $TYPE'('$npm_package_name'): cut the v.'$npm_package_version' release'",
+    "patch:commit": "npm run ver:patch && npm run build && TYPE=fix npm run git-commit && npm run tag",
+    "minor:commit": "npm run ver:minor && npm run build && TYPE=feat npm run git-commit && npm run tag",
+    "pre:commit": "npm run ver:pre && npm run build && TYPE=prerelease npm run git-commit && npm run tag",
+    "major:commit": "npm run ver:major && npm run build && TYPE=release npm run git-release && npm run tag",
+    "tag": "git tag PopoverModule.$npm_package_version",
+    "unpublish": "npm unpublish $npm_package_name@$npm_package_version"
+  }
+}
