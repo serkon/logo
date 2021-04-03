@@ -1,26 +1,53 @@
-# Popover
+# Popover Module
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
+Powerful popover library, which provides the best UX for your users. It shows the small modals over the content
 
-## Code scaffolding
+It comes with the features below:
 
-Run `ng generate component component-name --project popover` to generate a new component. You can also
-use `ng generate directive|pipe|service|class|guard|interface|enum|module --project popover`.
-> Note: Don't forget to add `--project popover` or else it will be added to the default project in your `angular.json` file.
+* Logo theme support.
+* Search support.
+* Service based on-the-go support.
 
-## Build
+Click here for [demo](http://design.logo.com.tr/#/docs/components/popover-module#popovermodule)
 
-Run `ng build popover` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Installation
 
-## Publishing
+All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). To
+install Popover Module:
 
-After building your library with `ng build popover`, go to the dist folder `cd dist/popover` and run `npm publish`.
+```bash
+$ npm set registry https://registry.npmjs.org/
+$ npm install @logo-software/popover -s
+```
 
-## Running unit tests
+Just import it to your project of `@NgModule` import section.
 
-Run `ng test popover` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```typescript
+import { PopoverModule } from '@logo-software/popover';
 
-## Further help
+@NgModule({
+  imports: [PopoverModule],
+})
+export class AppModule {
+}
+```
 
-To get more help on the Angular CLI use `ng help` or go check out
-the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Popover Component
+
+Overlay popover container. Renders provided content inside. You can set options of your popover in the component. Add
+the below code to your code stack and give initializer parameters.
+
+<sub>app.component.html</sub>
+
+```html
+<logo-popover
+ [id]="'myLogoPopover'"
+ [hasSearch]="true"
+ [isBackClick]="true"
+ [cssClasses]="'my-own-theme-css'"
+>
+ My own content in my own popover.
+</logo-popover>
+```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview

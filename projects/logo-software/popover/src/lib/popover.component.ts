@@ -67,7 +67,7 @@ export class PopoverComponent implements OnInit {
   @HostListener('document:click', ['$event'])
   public onClick(event: Event) {
     const contains = event.target;
-    if (!contains && this.isBackClick && this.popoverService.display && this.popoverService.activePopover != null) {
+    if (!contains && this.isBackClick && this.popoverService.display && this.popoverService.activePopover !== null) {
       this.popoverService.togglePopover(this.id);
     }
   }
@@ -80,5 +80,4 @@ export class PopoverComponent implements OnInit {
     this.filter.emit(element.value);
     this.popoverSearch = element.value;
   }
-
 }
