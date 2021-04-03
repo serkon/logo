@@ -38,8 +38,8 @@ input[type=checkbox], input[type=radio] {
     display: inline-block;
     position: absolute;
     height: 100%;
-    width: size(30px);
-    min-width: size(30px);
+    width: size(get("size.medium.icon-container") - 2px);
+    min-width: size(get("size.medium.icon-container") - 2px);
     z-index: 1;
     top: 0;
     color: var(--neutral-400);
