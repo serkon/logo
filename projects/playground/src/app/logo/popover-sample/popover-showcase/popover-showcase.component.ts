@@ -10,9 +10,4 @@ import { PopoverService } from '@logo-software/popover';
 export class PopoverShowcaseComponent {
   constructor(private popoverService: PopoverService) {
   }
-
-  public showMyPopover() {
-    this.popoverService.showPopover('myLogoPopover');
-  }
-
 }
