@@ -26,7 +26,7 @@ export class AppModule {
 }
 ```
 
-### Timer Component
+### Timepicker Component
 
 The Timepicker is the component of itself. Provides a proxy to Timepicker options as well as custom picker options. Add
 the below code to your code stack and give initializer parameters.
