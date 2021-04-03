@@ -8,14 +8,14 @@
   }
 
   @each $color, $value in get("color.list") {
-    &.#{$color} {
+    &.#{"" + $color} {
       @extend %badge-#{"" + $color};
     }
   }
 
   @each $color, $value in get("color.visualization") {
     &.#{"" + $color} {
-      @extend %badge-#{$color};
+      @extend %badge-#{"" + $color};
     }
   }
 }
