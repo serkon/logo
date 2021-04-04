@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { Tree } from '@logo-software/tree';
 import { DrawerService } from '@logo-software/drawer';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'logo-root',
@@ -9,46 +10,51 @@ import { DrawerService } from '@logo-software/drawer';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'playground';
   hidden = false;
   components: Tree[] = [
-    {name: 'accordion'},
-    {name: 'breadcrumb'},
-    {name: 'card'},
-    {name: 'carousel'},
-    {name: 'combobox', params: {patates: 3}},
-    {name: 'core'},
-    {name: 'cursor'},
-    {name: 'datepicker'},
-    {name: 'drawer'},
-    {name: 'dynamic'},
-    {name: 'excel'},
-    {name: 'header'},
-    {name: 'hero'},
-    {name: 'icons'},
-    {name: 'idm'},
-    {name: 'image-slider'},
-    {name: 'language'},
-    {name: 'leftbar'},
-    {name: 'links'},
-    {name: 'markdown'},
-    {name: 'modal'},
-    {name: 'paging'},
-    {name: 'perspective'},
-    {name: 'playground'},
-    {name: 'progress'},
-    {name: 'select'},
-    {name: 'storage'},
-    {name: 'switch'},
-    {name: 'table'},
-    {name: 'tabs'},
-    {name: 'tags'},
-    {name: 'theme'},
-    {name: 'timer'},
-    {name: 'toast'},
-    {name: 'tree'},
     {
-      name: 'directive',
+      name: 'Components',
+      children: [
+        {name: 'accordion'},
+        {name: 'breadcrumb'},
+        {name: 'badge'},
+        {name: 'card'},
+        {name: 'carousel'},
+        {name: 'combobox', params: {patates: 3}},
+        {name: 'core'},
+        {name: 'cursor'},
+        {name: 'datepicker'},
+        {name: 'drawer'},
+        {name: 'dynamic'},
+        {name: 'excel'},
+        {name: 'header'},
+        {name: 'hero'},
+        {name: 'icons'},
+        {name: 'idm'},
+        {name: 'image-slider'},
+        {name: 'language'},
+        {name: 'leftbar'},
+        {name: 'links'},
+        {name: 'markdown'},
+        {name: 'modal'},
+        {name: 'paging'},
+        {name: 'perspective'},
+        {name: 'playground'},
+        {name: 'progress'},
+        {name: 'select'},
+        {name: 'storage'},
+        {name: 'switch'},
+        {name: 'table'},
+        {name: 'tabs'},
+        {name: 'tags'},
+        {name: 'theme'},
+        {name: 'timer'},
+        {name: 'toast'},
+        {name: 'tree'},
+      ],
+    },
+    {
+      name: 'Directives',
       children: [
         {name: 'endpoint-service'},
         {name: 'mask-directive'},
@@ -56,8 +62,22 @@ export class AppComponent {
     },
   ];
 
-  constructor(private drawerService: DrawerService) {
+  constructor(private title: Title, private drawerService: DrawerService) {
     this.refactor(this.components);
+    this.drawerService.changeTitle$.subscribe((item: Tree) => {
+      this.title.setTitle(item.name);
+    });
+  }
+
+  private _selected = {name: 'Welcome'};
+
+  get selected() {
+    return this._selected;
+  }
+
+  set selected(item: Tree) {
+    this._selected = item;
+    this.drawerService.setHeaderTitle(item.name);
   }
 
   toUpperCase(value) {
@@ -79,10 +99,15 @@ export class AppComponent {
   }
 
   htmlMenuClick(item: Tree) {
-    this.drawerService.setHeaderTitle(item.name);
+    this.selected = item;
   }
 
   htmlCategoryClick(item: Tree) {
     console.log(item.name);
+  }
+
+  htmlActivatedItem(item: Tree) {
+    console.log(item);
+    this.selected = item;
   }
 }

@@ -16,17 +16,21 @@
 
 
 
-<logo-drawer [bgColors]="{left: 'var(--white)', right: 'var(--white)'}">
+<logo-drawer
+  [bgColors]="{left: 'var(--white)', right: 'var(--white)'}"
+  [menu]="true"
+>
   <ng-container drawer-left>
     <logo-tree
       [items]="components"
-      [start]="0"
       (itemClick)="htmlMenuClick($event)"
       (categoryClick)="htmlCategoryClick($event)"
+      (routeItemActivated)="htmlActivatedItem($event)"
     >
     </logo-tree>
   </ng-container>
-  <ng-container drawer-top></ng-container>
-  <ng-container drawer-right>
+  <ng-container drawer-top>
+    <h1>{{selected && selected!.name}}</h1>
   </ng-container>
+  <ng-container drawer-right></ng-container>
 </logo-drawer>
