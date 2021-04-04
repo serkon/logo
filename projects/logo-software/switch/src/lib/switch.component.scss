@@ -23,8 +23,6 @@
     transition: 0.15s background ease-out;
     background-color: var(--secondary);
     border: none;
-    padding: 0;
-    min-width: auto;
 
     &.on {
       background-color: var(--primary);
@@ -38,6 +36,8 @@
       position: absolute;
       border-radius: 50%;
       background-color: var(--light);
+      padding: 0;
+      min-width: auto;
     }
   }
 
