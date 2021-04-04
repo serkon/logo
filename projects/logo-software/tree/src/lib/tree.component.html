@@ -12,18 +12,23 @@
 <ul [ngClass]="{'top-level-tree' : level >=  start}">
   <ng-container *ngFor="let item of items; let i = index; let lst=last">
     <!--div  class="emitter">emit</div-->
-    <ng-container *ngIf="item.children && item.children.length>0;" (click)="htmlItemOnClick(item)">
-      <li class="level-{{level}} tree-category {{classes}} {{item.group ? 'group': ''}}" [ngClass]="item.classes">
+    <ng-container (click)="htmlItemOnClick(item)" *ngIf="item.children && item.children.length>0;">
+      <li [ngClass]="item.classes" class="level-{{level}} tree-category {{classes}} {{item.group ? 'group': ''}}">
         <ng-container *ngIf="level >=  start">
           <input [checked]="item.isOpen" hidden id="{{elementId}}{{i}}" type="checkbox"/>
           <label
+            (click)="htmlCategoryOnClick(item)"
+            [style.paddingLeft]="htmlSetPadding(level, start)"
             class="label label-category {{item.group ? 'label-group': ''}}"
             for="{{elementId}}{{i}}"
-            [style.paddingLeft]="htmlSetPadding(level, start)"
-            (click)="htmlCategoryOnClick(item)"
           >
-            <input *ngIf="item.optional" [checked]="false" disabled id="tree-option-{{elementId}}-{{i}}"
-                   type="checkbox">
+            <input
+              *ngIf="item.optional"
+              [checked]="false"
+              disabled
+              id="tree-option-{{elementId}}-{{i}}"
+              type="checkbox"
+            />
             <span [ngClass]="item.iconClasses" class="{{iconClasses}} item-icon">
               <img *ngIf="item.iconPath != null" src="{{item.iconPath}}"/>
             </span>
@@ -32,19 +37,20 @@
           </label>
         </ng-container>
         <logo-tree
-          class="children"
-          [ngClass]="{'show': level <  start}"
+          (categoryClick)="$onCategoryClick($event)"
+          (itemClick)="$onItemClick($event)"
+          (routeItemActivated)="onRouteItemActivated($event)"
           [classes]="classes"
+          [group]="group"
           [iconClasses]="iconClasses"
           [items]="item.children"
           [level]="level - (item.group ? 1 : 0)"
-          [start]="0"
-          [group]="group"
+          [ngClass]="{'show': level <  start}"
           [paddingLeft]="paddingLeft"
           [request]="request"
           [roles]="roles"
-          (itemClick)="$onItemClick($event)"
-          (categoryClick)="$onCategoryClick($event)"
+          [start]="0"
+          class="children"
         >
         </logo-tree>
       </li>
@@ -52,24 +58,25 @@
     <ng-container *ngIf="!item.children">
       <li class="tree-link {{classes}}">
         <label
-          routerLinkActive="router-link-active"
           #reference="routerLinkActive"
+          (click)="htmlItemOnClick(item)"
+          (isActiveRouteEmitter)="onRouteItemActivated(item)"
+          [isActiveRoute]="reference"
           class="label label-link"
           for="{{elementId}}{{i}}"
           [style.paddingLeft]="htmlSetPadding(level, start)"
-          (click)="htmlItemOnClick(item)"
-          [isActiveRoute]="reference"
+          routerLinkActive="router-link-active"
         >
           <input *ngIf="item.optional" id="option-{{elementId}}-{{i}}" type="checkbox">
           <span [ngClass]="item.iconClasses" class="{{iconClasses}} item-icon">
             <img *ngIf="!!item.iconPath" src="{{item.iconPath}}"/>
           </span>
           <a
-            [routerLink]="item.link ? [item.link] : []"
-            [queryParams]="item.params ? item.params: {}"
-            [isActiveRoute]="reference"
             (isActiveRouteEmitter)="open($event)"
             [fragment]="item.fragment? item.fragment : ''"
+            [isActiveRoute]="reference"
+            [queryParams]="item.params ? item.params: {}"
+            [routerLink]="item.link ? [item.link] : []"
           >
             {{item.name}}
           </a>

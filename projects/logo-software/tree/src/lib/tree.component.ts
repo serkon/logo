@@ -71,6 +71,10 @@ export class TreeComponent implements OnInit {
    * Category click event trigger. When clicked on any category item, this event will be called and pushes the item information to the given method.
    */
   @Output() public categoryClick: EventEmitter<Tree> = new EventEmitter<Tree>();
+  /**
+   * The Matched router is activated this method will be triggered. It will push the tree item to the given method.
+   */
+  @Output() public routeItemActivated: EventEmitter<Tree> = new EventEmitter<Tree>();
   @Input() public elementId;
 
   /**
@@ -166,6 +170,10 @@ export class TreeComponent implements OnInit {
     const val = Number(level) - (Number(start) + (this.group ? 1 : 0));
     const padding = val <= 0 ? 0 : val * this.paddingLeft + 'px';
     return level >= start ? padding : this.paddingLeft + 'px';
+  }
+
+  onRouteItemActivated(item) {
+    this.routeItemActivated.emit(item);
   }
 
   /**
