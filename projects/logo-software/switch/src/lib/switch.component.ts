@@ -11,7 +11,7 @@
 import { Component, Input } from '@angular/core';
 
 /**
- * Here is the switch component usage.
+ * Switch is a control that is used to quickly switch between two possible states.
  * Add the below code to your code stack and give initializer parameters.
  *
  * <sub>app.component.html</sub>

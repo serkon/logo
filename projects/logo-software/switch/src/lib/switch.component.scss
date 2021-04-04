@@ -23,6 +23,8 @@
     transition: 0.15s background ease-out;
     background-color: var(--secondary);
     border: none;
+    padding: 0;
+    min-width: auto;
 
     &.on {
       background-color: var(--primary);
