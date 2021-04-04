@@ -11,13 +11,22 @@
 @import "~@logo-software/theme/base";
 
 :host {
-  background-color: transparent;
+  background-color: initial;
+
+  &:hover, &:active, &:focus {
+    background-color: initial;
+    box-shadow: none;
+  }
 
   .holder {
     position: relative;
     transition: 0.15s background ease-out;
-    background-color: var(--secondary-500);
+    background-color: var(--secondary);
     border: none;
+
+    &.on {
+      background-color: var(--primary);
+    }
 
     &.disabled {
       opacity: 0.5;
@@ -27,10 +36,6 @@
       position: absolute;
       border-radius: 50%;
       background-color: var(--light);
-
-      .toggle.off {
-        background: var(--secondary-500);
-      }
     }
   }
 
@@ -63,11 +68,18 @@
   }
 
   @each $color, $value in get("color.list") {
-    .holder {
-      &.on {
-        &.#{$color} {
+    &.#{"" + $color} {
+      background-color: initial;
+
+      .holder {
+        &.on {
           background-color: $value;
         }
+      }
+
+      &:hover, &:active, &:focus {
+        background-color: initial;
+        box-shadow: none;
       }
     }
   }

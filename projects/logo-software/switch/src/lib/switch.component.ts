@@ -8,7 +8,7 @@
  * Any reproduction of this material must contain this notice.
  */
 
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 /**
  * Here is the switch component usage.
@@ -18,37 +18,38 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
  *
  * ```html
  * <logo-switch
- * class="large"
- * [theme]="primary
- * [disabled]="false"
- * [rounded]="true"
- * ></logo-switch>
+ *   class="large"
+ *   [theme]="primary
+ *   [disabled]="false"
+ *   [rounded]="true"
+ * >
+ * </logo-switch>
  * ```
  */
-
 @Component({
   selector: 'logo-switch',
   templateUrl: './switch.component.html',
   styleUrls: ['./switch.component.scss'],
 })
 export class SwitchComponent {
-  /*
-    Switch Toggle's defines colors via Logo-Elements theme colors.
-   */
-  @Input() theme: 'primary' | 'light' | 'success' | 'warning' | 'danger' = 'primary';
-  /*
-    Switch Toggle's defines disabling status, default is false.
+  /**
+   * Switch Toggle's defines disabling status, default is false.
    */
   @Input() isDisabled: boolean = false;
-  /*
-    Switch Toggle's defines shape status, default is true.
+
+  /**
+   * Switch Toggle's defines shape status, default is true.
    */
   @Input() isRounded: boolean = true;
-  /*
-    Switch Toggle's defines default on/off states, default is false.
+
+  /**
+   * Switch Toggle's defines default on/off states, default is false.
    */
   @Input() toggleState: boolean = false;
 
+  /**
+   * Programmatically toggle switch
+   */
   public toggleSwitch() {
     if (!this.isDisabled) {
       this.toggleState = !this.toggleState;
