@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy } from '@angular/core';
 import { DrawerService } from './drawer.service';
 
 /**
@@ -26,15 +26,7 @@ import { DrawerService } from './drawer.service';
   templateUrl: './drawer.component.html',
   styleUrls: ['./drawer.component.scss'],
 })
-export class DrawerComponent implements OnInit, OnDestroy {
-  /**
-   * left menu visibility, default is open.
-   */
-  @Input() menu: boolean = false;
-  /**
-   * menu opener button visibility configuration, default is visible
-   */
-  @Input() public opener: boolean = true;
+export class DrawerComponent implements OnDestroy {
   @Input() overflow: boolean = false;
 
   constructor(private elementRef: ElementRef, public drawerService: DrawerService) {
@@ -44,6 +36,34 @@ export class DrawerComponent implements OnInit, OnDestroy {
     this.drawerService.setMenuWidth$.subscribe((width: string) => {
       this.width = width;
     });
+  }
+
+  private _menu: boolean = false;
+
+  get menu() {
+    return this._menu;
+  }
+
+  /**
+   * left menu visibility, default is open.
+   */
+  @Input() set menu(value: boolean) {
+    this._menu = value;
+    this.drawerService.menu = value;
+  }
+
+  private _opener: boolean = true;
+
+  get opener() {
+    return this._opener;
+  }
+
+  /**
+   * menu opener button visibility configuration, default is visible
+   */
+  @Input() set opener(value: boolean) {
+    this._opener = value;
+    this.drawerService.isOpenerActive = value;
   }
 
   private _height: string = '65px';
@@ -81,11 +101,6 @@ export class DrawerComponent implements OnInit, OnDestroy {
   set bgColors(value: { [key: string]: string }) {
     this._bgColors = {...this._bgColors, ...value};
     this.setColors(value);
-  }
-
-  ngOnInit() {
-    this.drawerService.menu = this.menu;
-    this.drawerService.isOpenerActive = this.opener;
   }
 
   setProperty(property, value) {
