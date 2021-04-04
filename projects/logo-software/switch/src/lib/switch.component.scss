@@ -20,7 +20,7 @@
 
   .holder {
     position: relative;
-    transition: 0.15s background ease-out;
+    transition: 0.25s all ease-out;
     background-color: var(--secondary);
     border: none;
 
@@ -38,6 +38,7 @@
       background-color: var(--light);
       padding: 0;
       min-width: auto;
+      transition: 0.25s all ease-out;
     }
   }
 
@@ -54,15 +55,14 @@
         .toggle {
           width: size(get("element.switch.size."+$size+".slider"));
           height: size(get("element.switch.size."+$size+".slider"));
+          top: get("element.switch.size."+$size+".circle-padding");
+          left: get("element.switch.size."+$size+".circle-padding");
 
           &.on {
-            top: get("element.switch.size."+$size+".circle-padding");
-            right: get("element.switch.size."+$size+".circle-padding");
-          }
+            $left: get("element.switch.size."+$size+".width") - get("element.switch.size."+$size+".slider") - get("element.switch.size."+$size+".circle-padding");
 
-          &.off {
             top: get("element.switch.size."+$size+".circle-padding");
-            left: get("element.switch.size."+$size+".circle-padding");
+            left: $left;
           }
         }
       }
