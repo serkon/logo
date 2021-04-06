@@ -167,6 +167,10 @@ const routes: Routes = [
         path: 'popover-sample',
         loadChildren: () => import('./popover-sample/popover-sample.module').then(m => m.PopoverSampleModule),
       },
+      {
+        path: 'wizard-sample',
+        loadChildren: () => import('./wizard-sample/wizard-sample.module').then(m => m.WizardSampleModule),
+      },
     ],
   },
 ];

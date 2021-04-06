@@ -1,0 +1,61 @@
+<div>
+  <logo-wizard (change)="stepChange($event)" (stepEvent)="stepEvent($event)" [activeStep]="3" [isVertical]="false"
+               [routing]="true">
+    <logo-step
+      (init)="stepInit($event)"
+      [params]="{id: 'user-id-0'}"
+      [state]="'done'"
+      [title]="'One'"
+    >
+      <p class="large">Wizard first step</p>
+      <p>You call another component by routing</p>
+    </logo-step>
+    <logo-step
+      (init)="stepInit($event)"
+      [icon]="'le-alarm_bell_1'"
+      [isDisabled]="true"
+      [params]="{id: 'user-id-1'}"
+      [state]="'done'"
+      [title]="'Two'"
+    >
+      <p class="large">Wizard Second Step</p>
+    </logo-step>
+    <logo-step
+      (click)="stepClick($event)"
+      (init)="stepInit($event)"
+      [params]="{id: 'user-id-2'}"
+      [title]="'Three'"
+    >
+      <p class="large">Wizard Third Step</p>
+    </logo-step>
+    <logo-step
+      (click)="stepClick($event)"
+      (init)="stepInit($event)"
+      [params]="{id: 'user-id-2'}"
+      [title]="'Four'"
+    >
+      <p class="large">Wizard Fourth Step</p>
+    </logo-step>
+    <logo-step
+      (click)="stepClick($event)"
+      (init)="stepInit($event)"
+      [params]="{id: 'user-id-2'}"
+      [title]="'Fifth long description and title'"
+    >
+      <p class="large">Wizard Fifth Step</p>
+    </logo-step>
+    <logo-step
+      (click)="stepClick($event)"
+      (init)="stepInit($event)"
+      [isDisabled]="true"
+      [params]="{id: 'user-id-2'}"
+      [title]="'Six'"
+    >
+      <p class="large">Wizard Sixth Step</p>
+    </logo-step>
+    <div footer>Footer contents</div>
+  </logo-wizard>
+</div>
+<div class="setter">
+  <logo-link (click)="toggleVertical()">Toggle Vertical Status</logo-link>
+</div>

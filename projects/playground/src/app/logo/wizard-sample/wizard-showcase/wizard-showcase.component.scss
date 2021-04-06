@@ -1,0 +1,10 @@
+@import "~@logo-software/icons/style";
+@import "~@logo-software/theme/base";
+
+:host {
+  .setter {
+    text-align: center;
+    padding: size(25px);
+    border-top: 1px solid var(--basic-700);
+  }
+}
