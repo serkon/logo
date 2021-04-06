@@ -1,0 +1,226 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
+@import "~@logo-software/theme/base";
+@import "scss/icons";
+
+:host {
+  display: block;
+
+  .logo-wizard {
+    .base {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: stretch;
+
+      .wizard-steps {
+        flex-grow: 1;
+        text-align: center;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        .steps {
+          display: inline-flex;
+          align-items: flex-start;
+          justify-content: center;
+          margin: 0;
+          height: auto;
+          line-height: normal;
+          list-style: none;
+          padding: 0;
+
+          li {
+            min-width: size(110px);
+            position: relative;
+            text-align: center;
+
+            logo-link {
+              display: inline-block;
+              position: relative;
+              z-index: 1;
+            }
+
+            ::ng-deep {
+              button {
+                color: var(--secondary-900);
+                font-weight: bold;
+                height: auto;
+
+                .step-badge {
+                  @include border-radius(50%);
+
+                  display: inline-block;
+                  width: size(40px);
+                  height: size(40px);
+                  overflow: hidden;
+                  text-align: center;
+                  box-sizing: border-box;
+                  border: 1px solid var(--basic);
+                  color: var(--neutral);
+                  background-color: var(--white);
+
+                  span {
+                    display: inline-block;
+                    width: 0;
+                    height: 100%;
+                    text-align: center;
+                    line-height: size(38px);
+
+                    &.step-number {
+                      width: 100%;
+                      font-weight: 400;
+                      font-size: size(18px);
+                    }
+                  }
+
+                  &.warning {
+                    color: var(--white);
+                    background-color: var(--warning);
+                  }
+                }
+
+                .step-title {
+                  max-width: size(100px);
+                  white-space: break-spaces;
+                  margin-top: size(-5px);
+                  color: var(--neutral);
+                  font-weight: 400;
+                  font-size: size(18px);
+                  line-height: size(24px);
+                }
+
+                &.done {
+                  .step-badge {
+                    background-color: var(--primary);
+                    color: var(--white);
+                  }
+
+                  .step-title {
+                    color: var(--neutral-1000);
+                  }
+                }
+
+                &.selected {
+                  .step-badge {
+                    background-color: var(--white);
+                    border: 2px solid var(--primary);
+                    color: var(--black);
+                  }
+                }
+
+                &:disabled {
+                  opacity: 1;
+                }
+              }
+            }
+
+            &::before {
+              display: inline-block;
+              content: "";
+              height: size(4px);
+              width: 100%;
+              background-color: var(--basic-600);
+              position: absolute;
+              z-index: 0;
+              top: calc((40px / 2) - 1px);
+              left: 0;
+            }
+
+            &.first-step {
+              &::before {
+                width: 50%;
+                left: 50%;
+              }
+            }
+
+            &.last-step {
+              &::before {
+                width: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.vertical {
+      .base {
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+
+        .wizard-steps {
+          flex-grow: unset;
+          margin-right: size(15px);
+
+          .steps {
+            flex-direction: column;
+
+            li {
+              min-width: size(200px);
+              min-height: size(80px);
+              text-align: left;
+
+              logo-link {
+                display: block;
+              }
+
+              ::ng-deep {
+                button {
+                  display: flex;
+                  align-items: center;
+                  justify-content: flex-start;
+                  text-align: left;
+
+                  .step-title {
+                    flex-grow: 1;
+                    margin-left: size(10px);
+                    max-width: size(140px);
+                    text-align: left;
+                  }
+                }
+              }
+
+              &::before {
+                height: 100%;
+                width: size(4px);
+                top: 0;
+                left: calc((40px / 2) + 14px);
+              }
+
+              &.first-step {
+                &::before {
+                  height: 75%;
+                  top: 25%;
+                }
+              }
+
+              &.last-step {
+                &::before {
+                  height: 35%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+}

@@ -1,0 +1,41 @@
+<div [ngClass]="{'vertical': isVertical }" class="logo-wizard {{cssClasses}}">
+  <div [ngClass]="{'container': hasContainer}" class="base">
+    <div class="wizard-steps">
+      <ul class="steps">
+        <li
+          (click)="setActiveStep(i)"
+          *ngFor="let step of steps; let i=index; first as isFirst; last as isLast"
+          [class.active]="step.isActive"
+          [ngClass]="{'hidden':step.isHidden, 'first-step': isFirst, 'last-step': isLast}"
+        >
+          <logo-link
+            [classes]="[step.isActive?'selected':'', step.state === 'done'?'done':'', 'ghost']"
+            [isDisabled]="step.isDisabled"
+            [params]="step.params"
+            [redirection]="routing"
+            [url]="step.route"
+            fragment="{{step.fragment}}"
+          >
+            <div [ngClass]="{'warning': wizardService.warningSteps.includes(i)}" class="step-badge">
+              <span *ngIf="step.icon" class="{{step.icon}} {{step.iconExtensions}}"></span>
+              <span *ngIf="step.state === 'done' && !step.icon" class="le-check"></span>
+              <span *ngIf="wizardService.warningSteps.includes(i)" class="le-warning"></span>
+              <span *ngIf="step.state !== 'done' && !step.icon && !wizardService.warningSteps.includes(i)"
+                    class="step-number">{{i + 1}}</span>
+            </div>
+            <div class="step-title">{{step.title}}</div>
+          </logo-link>
+        </li>
+      </ul>
+    </div>
+    <div class="wizard-contents">
+      <ng-content></ng-content>
+      <ng-container *ngTemplateOutlet="template"></ng-container>
+      <ng-content *ngIf="hasFooter" select="[footer]"></ng-content>
+    </div>
+  </div>
+</div>
+
+<ng-template #template>
+  <router-outlet></router-outlet>
+</ng-template>
