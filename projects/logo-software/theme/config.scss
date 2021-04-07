@@ -254,16 +254,19 @@ $config: deep-map-merge((
       background: (color: --basic-600),
       size: (
         small: (
-          body: (padding: (top: 7px, right: 6px, bottom: 7px, left: 10px)),
-          header: (padding: (top: 7px, right: 5px, bottom: 7px, left: 5px)),
+          min-height: 32px,
+          body: (padding: (top: 4px, right: 6px, bottom: 4px, left: 10px)),
+          header: (padding: (top: 4px, right: 5px, bottom: 4px, left: 5px)),
         ),
         medium: (
-          body: (padding: (top: 15px, right: 6px, bottom: 15px, left: 10px)),
-          header: (padding: (top: 15px, right: 5px, bottom: 15px, left: 5px))
+          min-height: 48px,
+          body: (padding: (top: 8px, right: 6px, bottom: 8px, left: 10px)),
+          header: (padding: (top: 8px, right: 5px, bottom: 8px, left: 5px))
         ),
         large: (
-          body: (padding: (top: 23px, right: 6px, bottom: 23px, left: 10px)),
-          header: (padding: (top: 23px, right: 5px, bottom: 23px, left: 5px))
+          min-height: 64px,
+          body: (padding: (top: 12px, right: 6px, bottom: 12px, left: 10px)),
+          header: (padding: (top: 12px, right: 5px, bottom: 12px, left: 5px))
         ),
       )
     )

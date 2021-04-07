@@ -1,0 +1,123 @@
+:host {
+  display: block;
+  background-color: transparent;
+
+  table {
+    @extend %table;
+  }
+
+  @extend %table-variation;
+}
+
+%table {
+  tr {
+    th, td {
+      font-family: get("font.family");
+
+      input {
+        margin: 0;
+      }
+
+      &:first-child {
+        .custom-checkbox {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 0 !important;
+
+          input {
+            margin-right: 0;
+          }
+
+          label {
+            display: none;
+          }
+        }
+      }
+    }
+
+    th {
+      background-color: var(--#{get("element.table.background.color")});
+      color: var(--#{get("element.table.color")});
+      border: 0;
+      font-weight: 700;
+      border-radius: 0;
+      padding: size(get("element.table.size.small.header.padding.top")) size(get("element.table.size.small.header.padding.right"));
+      font-size: size(get("element.table.font-size"));
+      line-height: size(get("element.table.line-height"));
+      position: relative;
+      height: size(get("element.table.size.small.min-height"));
+    }
+
+    td {
+      font-weight: normal;
+      color: var(--#{get("font.color.name")}-#{get("font.color.value")});
+      border: 1px solid transparent;
+      border-right: size(1px) solid var(--basic-500);
+      border-left: transparent;
+      padding: size(get("element.table.size.small.body.padding.top")) size(get("element.table.size.small.body.padding.right"));
+      font-size: size(get("element.table.font-size"));
+      line-height: size(get("element.table.line-height"));
+      min-height: size(get("element.table.size.small.min-height"));
+
+      &:last-of-type {
+        border-right: 0;
+      }
+    }
+
+    &:hover {
+      td {
+        background-color: var(--primary-100);
+      }
+    }
+
+    &:nth-child(even) {
+      background-color: var(--basic-300);
+    }
+
+    &:last-child {
+      td {
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+%table-variation {
+  @each $color, $value in get("color.list") {
+    &.#{"" + $color} {
+      // background-color: if($color=="basic", var(--basic-600), var(--#{$color}));
+      background-color: transparent;
+
+      &:hover, &:focus, &:active {
+        background-color: transparent;
+        box-shadow: none;
+      }
+
+      table {
+        th {
+          background-color: if($color=="basic", var(--#{$color}-600), var(--#{$color}));
+          color: if($color=="basic", var(--neutral-600), var(--white)) !important;
+          // border-right: size(1px) solid var(--#{"" + $color}-700);
+        }
+      }
+    }
+  }
+
+  @each $size, $value in get("size") {
+    &.#{"" + $size} {
+      height: auto;
+
+      table {
+        th {
+          padding: size(get("element.table.size."+#{$size}+".header.padding.top")) size(get("element.table.size."+#{$size}+".header.padding.right"));
+        }
+
+        td {
+          padding: size(get("element.table.size."+#{$size}+".body.padding.top")) size(get("element.table.size."+#{$size}+".body.padding.right"));
+          height: size(get("element.table.size."+#{$size}+".min-height"));
+        }
+      }
+    }
+  }
+}
