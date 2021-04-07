@@ -134,9 +134,9 @@ export class Util {
    * @returns Array<number>;
    *
    * Usage:
-   * Util.range(13, 4); // result: [13, 14, 15, 16]
+   * Util.range(4, 13); // result: [13, 14, 15, 16]
    */
-  static range(start = 0, count = 0): number[] {
+  static range(count = 0, start = 0): number[] {
     const boost = (u, i) => start + i;
     return [...Array(count)].map(boost);
   }
