@@ -1,10 +1,15 @@
 <div>
-  <logo-wizard (change)="stepChange($event)" (stepEvent)="stepEvent($event)" [activeStep]="3" [isVertical]="false"
-               [routing]="true">
+  <logo-wizard
+    (change)="stepChange($event)"
+    (stepEvent)="stepEvent($event)"
+    [activeStep]="3"
+    [isVertical]="false"
+    [routing]="true"
+  >
     <logo-step
       (init)="stepInit($event)"
       [params]="{id: 'user-id-0'}"
-      [state]="'done'"
+      [isCompleted]="true"
       [title]="'One'"
     >
       <p class="large">Wizard first step</p>
@@ -15,7 +20,7 @@
       [icon]="'le-alarm_bell_1'"
       [isDisabled]="true"
       [params]="{id: 'user-id-1'}"
-      [state]="'done'"
+      [isCompleted]="true"
       [title]="'Two'"
     >
       <p class="large">Wizard Second Step</p>

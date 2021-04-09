@@ -37,5 +37,4 @@ export class WizardShowcaseComponent implements OnInit {
   public toggleVertical() {
     this.wizardComponent.isVertical = !this.wizardComponent.isVertical;
   }
-
 }
