@@ -15,7 +15,7 @@ export class WizardService {
   /**
    * Array of the steps which have warning case
    */
-  public warningSteps = [];
+  public warningSteps: number[] = [];
   /**
    * Vertical option of the wizard.
    */

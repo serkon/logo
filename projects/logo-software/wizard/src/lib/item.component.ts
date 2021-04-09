@@ -65,9 +65,9 @@ export class ItemComponent implements AfterViewInit {
    */
   @Input() fragment: string;
   /**
-   * State of the tab as 'done' or null.
+   * State of the step to determine completed status or not.
    */
-  @Input() state: 'done' = null;
+  @Input() isCompleted: boolean = false;
   /**
    * Disabled status of the step.
    */
@@ -85,11 +85,11 @@ export class ItemComponent implements AfterViewInit {
    */
   @Input() iconExtensions: string = '';
   /**
-   * Init event emitter
+   * Init event emitter that runs when the step is initialized. This will lets developer to trigger step loaded or not.
    */
   @Output() init: EventEmitter<ItemComponent> = new EventEmitter<ItemComponent>();
   /**
-   * Click even emitter
+   * Click event emitter
    */
   @Output() click: EventEmitter<ItemComponent> = new EventEmitter<ItemComponent>();
 

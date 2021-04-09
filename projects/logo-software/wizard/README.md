@@ -56,11 +56,10 @@ Add your own footer contents to the footer element of the wizard. For example:
 <sub>app.component.html</sub>
 
 ```html
-
-<logo-wizard...>
+<logo-wizard>
   <logo-step title="one">content of wizard step one</logo-step>
   <div footer>My own footer content</div>
-  </logo-tabs>
+</logo-wizard>
 ```
 
 For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview

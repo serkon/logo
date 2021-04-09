@@ -9,7 +9,7 @@
           [ngClass]="{'hidden':step.isHidden, 'first-step': isFirst, 'last-step': isLast}"
         >
           <logo-link
-            [classes]="[step.isActive?'selected':'', step.state === 'done'?'done':'', 'ghost']"
+            [classes]="[step.isActive?'selected':'', step.isCompleted?'done':'', 'ghost']"
             [isDisabled]="step.isDisabled"
             [params]="step.params"
             [redirection]="routing"
@@ -18,10 +18,14 @@
           >
             <div [ngClass]="{'warning': wizardService.warningSteps.includes(i)}" class="step-badge">
               <span *ngIf="step.icon" class="{{step.icon}} {{step.iconExtensions}}"></span>
-              <span *ngIf="step.state === 'done' && !step.icon" class="le-check"></span>
+              <span *ngIf="step.isCompleted && !step.icon" class="le-check"></span>
               <span *ngIf="wizardService.warningSteps.includes(i)" class="le-warning"></span>
-              <span *ngIf="step.state !== 'done' && !step.icon && !wizardService.warningSteps.includes(i)"
-                    class="step-number">{{i + 1}}</span>
+              <span
+                *ngIf="!step.isCompleted && !step.icon && !wizardService.warningSteps.includes(i)"
+                class="step-number"
+              >
+                {{i + 1}}
+              </span>
             </div>
             <div class="step-title">{{step.title}}</div>
           </logo-link>
