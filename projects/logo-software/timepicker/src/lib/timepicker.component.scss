@@ -27,8 +27,6 @@
         text-align: center;
 
         select {
-          @extend %padding-input-medium, %input;
-
           width: 100%;
         }
 
