@@ -12,6 +12,7 @@ import { Subject } from 'rxjs';
 
 import { TimePipe } from './pipe/time.pipe';
 import { Lang } from './lang';
+import { DomEvent } from 'leaflet';
 
 /**
  * Timer service lets developers to control timer variables on the go.
@@ -43,7 +44,7 @@ export class TimerService {
   /**
    * Pause time in milliseconds if timer is paused.
    */
-  public pausedTime: number;
+  public pausedTime: number = 0;
   /**
    * First value of the timer before has been started.
    */
@@ -64,6 +65,7 @@ export class TimerService {
    * Run timer function which will starts timer with setted values
    */
   public runTimer() {
+    clearInterval(this.timer);
     this.timer = setInterval(() => {
       if (this.countdown) {
         this.timerCount = Math.floor(this.timerCount - 1000);
@@ -78,6 +80,7 @@ export class TimerService {
           this.isEnded.next(true);
         }
       }
+      this.pausedTime = 0;
       this.readableTime = new TimePipe().transform(this.timerCount, this.language);
     }, 1000);
   }
@@ -86,18 +89,24 @@ export class TimerService {
    * Pause the timer.
    */
   public pauseTimer() {
-    this.pausedTime = this.timerCount;
-    clearInterval(this.timer);
+    if (this.pausedTime === 0) {
+      this.pausedTime = this.timerCount;
+      clearInterval(this.timer);
+    }
   }
 
   /**
    * Resume the paused timer. If the timer isn't paused, resume function will not  be worked.
    */
   public resumeTimer() {
-    if (this.pausedTime !== undefined) {
-      this.timerCount = this.pausedTime;
-      this.runTimer();
-    }
+    setTimeout(() => {
+      if (this.pausedTime !== 0) {
+        this.timerCount = this.pausedTime;
+        this.runTimer();
+      } else {
+        this.pauseTimer();
+      }
+    }, 1000);
   }
 
   /**
