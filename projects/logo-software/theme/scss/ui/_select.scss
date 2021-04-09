@@ -1,0 +1,9 @@
+select {
+  @extend %padding-input-medium, %input;
+
+  @each $size, $value in get("size") {
+    &.#{$size} {
+      @extend %padding-input-#{"" + $size};
+    }
+  }
+}
