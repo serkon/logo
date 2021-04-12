@@ -1,0 +1,99 @@
+<div class="logo-datepicker {{cssClasses}}">
+  <div class="input-w-icon {{iconPosition}} {{size}}">
+    <span class="le-calendar"></span>
+    <input
+      #dateRef
+      (change)="onDateChangeHandler($event)"
+      [(ngModel)]="value"
+      [disabled]="disabled"
+      [maskType]="'date'"
+      [placeholder]="placeholder"
+      [regexp]="regexp"
+      class="icon-{{iconPosition}} bordered {{size}}"
+      masker
+    />
+  </div>
+
+  <span class="input-line"></span>
+  <div #calendar [hidden]="hidden" class="calendar-base">
+    <div *ngIf="selectDate">
+      <div class="calendar-header">
+        <button (click)="setPrevYear()" class="primary ghost le-double_chevron_left"></button>
+        <button (click)="setPrevMonth()" class="primary ghost le-chevron_left"></button>
+        <button (click)="setMonthView()" class="ghost info-text">{{meta.month.name}} {{this.meta.year}}</button>
+        <button (click)="setNextMonth()" class="primary ghost le-chevron_right"></button>
+        <button (click)="setNextYear()" class="primary ghost le-double_chevron_right"></button>
+      </div>
+      <div class="day-names">
+        <div *ngFor="let dayName of meta.weekdays" class="name">{{dayName}}</div>
+      </div>
+      <div class="list-days">
+        <button
+          (click)="onDayClick(before-1, meta.previousMonth)"
+          *ngFor="let before of meta.firstEmptyDays"
+          [disabled]="true"
+          [ngClass]="setClass(before-1, meta.previousMonth)"
+          class="ghost others"
+        >
+          {{before}}
+        </button>
+        <button
+          (click)="onDayClick(day, meta.currentMonth)"
+          *ngFor="let day of meta.days"
+          [disabled]="checkDisable(day, meta.currentMonth)"
+          [ngClass]="setClass(day, meta.currentMonth)"
+          class="basic"
+        >
+          {{day + 1}}
+        </button>
+        <button
+          (click)="onDayClick(end-1, meta.nextMonth)"
+          *ngFor="let end of meta.lastEmptyDays"
+          [disabled]="true"
+          [ngClass]="setClass(end-1, meta.nextMonth)"
+          class="ghost others"
+        >
+          {{end}}
+        </button>
+      </div>
+      <div class="time-base">
+        <div *ngIf="time" class="time-select">
+          <input
+            #timeRef
+            (change)="onTimeChangeHandler($event)"
+            [(ngModel)]="timeValue"
+            [hidden]="!time"
+            [placeholder]="'HH:mm'"
+            [regexp]="regexp"
+            masker
+          />
+        </div>
+        <div class="date-diff">{{diff}}</div>
+        <div class="date-opts">
+          <button (click)="goToToday()" class="primary ghost">Bugün</button>
+          <button (click)="goToSelected()" class="primary ghost">Seçilen Gün</button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="selectMonth">
+      <div class="calendar-header">
+        <button (click)="setPrevTenYears()" class="primary ghost le-double_chevron_left"></button>
+        <button (click)="setPrevYear()" class="primary ghost le-chevron_left"></button>
+        <div class="info-text">{{this.meta.year}}</div>
+        <button (click)="setNextYear()" class="primary ghost le-chevron_right"></button>
+        <button (click)="setNextTenYears()" class="primary ghost le-double_chevron_right"></button>
+      </div>
+      <div class="list-months">
+        <button
+          (click)="onMonthClick(i, meta.currentYear)"
+          *ngFor="let month of meta.months; let i=index"
+          [disabled]="checkDisable(month, meta.currentMonth)"
+          [ngClass]="setClass(month, meta.currentMonth)"
+          class="basic large"
+        >
+          {{month}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,131 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
+@import "~@logo-software/theme/base";
+@import "scss/icons";
+
+:host {
+  display: block;
+
+  .calendar-base {
+    @include box-shadow(0, size(2px), size(15px), size(4px), rgba(var(--black-rgb), 0.15), false);
+
+    background-color: var(--white);
+    padding: size(10px);
+    width: size(260px);
+
+    .calendar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: nowrap;
+
+      button {
+        flex-grow: 0;
+      }
+
+      .info-text {
+        flex-grow: 1;
+        text-align: center;
+      }
+    }
+
+    .day-names {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      padding: size(10px) 0;
+
+      div {
+        width: size(32px);
+        text-align: center;
+        font-size: size(14px);
+        line-height: size(20px);
+        padding: size(2px) 0;
+        color: var(--neutral-400);
+        box-sizing: border-box;
+      }
+    }
+
+    .list-days {
+      padding: 0 0 size(10px) 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      button {
+        @include border-radius(size(2px));
+
+        width: size(32px);
+        text-align: center;
+        margin: size(3px) size(2px);
+        box-sizing: border-box;
+        padding: 0;
+        background-color: var(--basic-300);
+
+        &.current {
+          background-color: var(--primary);
+          color: var(--white);
+        }
+
+        &.today {
+          background-color: var(--primary-300);
+        }
+      }
+    }
+
+    .list-months {
+      padding: size(10px) 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      button {
+        @include border-radius(size(2px));
+
+        width: 30%;
+        text-align: center;
+        background-color: var(--basic-300);
+        margin: size(3px) 0;
+        padding-left: 0;
+        padding-right: 0;
+        font-size: size(14px);
+
+        &.current {
+          background-color: var(--primary);
+          color: var(--white);
+        }
+      }
+    }
+
+    .time-base {
+      .time-select {
+        padding-bottom: size(10px);
+
+        input {
+          width: 100%;
+        }
+      }
+
+      .date-opts {
+        text-align: center;
+
+        button {
+          width: 50%;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
