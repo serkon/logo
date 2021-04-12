@@ -2,7 +2,7 @@
   <div class="input-w-icon {{iconPosition}} {{size}}">
     <span class="le-time_clock_circle_2"></span>
     <input
-      (focus)="showClockSelector()"
+      [logoPopover]="'timePopover-' + id"
       (keyup)="handleWriteTime($event)"
       [ngModel]="settedTime"
       [placeholder]="'00:00'"
