@@ -51,6 +51,7 @@ export class AppComponent {
         {name: 'timer'},
         {name: 'toast'},
         {name: 'tree'},
+        {name: 'wizard'},
       ],
     },
     {
