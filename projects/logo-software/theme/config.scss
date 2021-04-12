@@ -51,13 +51,15 @@ $config: deep-map-merge((
       md: 768px,
       lg: 992px,
       xl: 1200px,
+      xxl: 1400px,
     ),
     container-max-widths: (
-      xs: 100%,
+      xs: auto,
       sm: 540px,
       md: 720px,
       lg: 960px,
       xl: 1140px,
+      xxl: 1320px,
     ),
   ),
   border:(
