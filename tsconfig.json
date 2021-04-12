@@ -27,10 +27,6 @@
       "@cloud/*": [
         "./projects/cloud/src/*"
       ],
-      "@logo-software/date": [
-        "./projects/logo-software/date/src/public-api",
-        "dist/logo-software/*"
-      ],
       "@logo-software/*": [
         "dist/logo-software/*",
         "./projects/logo-software/*/src/public-api"
