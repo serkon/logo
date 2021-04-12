@@ -27,7 +27,6 @@ import { DatepickerMeta } from './datepicker-meta.model';
 moment.locale('tr');
 
 const config = {
-  t: 'months',
   placeholder: {
     format: 'DD.MM.YYYY',
     text: 'placeholder',
