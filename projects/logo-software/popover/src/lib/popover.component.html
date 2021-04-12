@@ -1,11 +1,13 @@
-<div *ngIf="popoverService.activePopover == id" class="logo-popover" id="{{id}}">
+<div *ngIf="popoverService.activePopover === id" class="logo-popover" id="{{id}}">
   <input
     #popoverSearchRef
     (input)="searchOutput(popoverSearchRef)"
     *ngIf="popoverService.hasSearch"
     [(ngModel)]="popoverSearch"
+    class="popover-input"
+    id="popoverSearch"
   />
-  <div class="popover-content">
+  <div class="popover-content" id="popoverContent">
     <ng-content></ng-content>
   </div>
 </div>

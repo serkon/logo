@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { PopoverComponent } from './popover.component';
+import { PopoverDirective } from './popover.directive';
 
 /**
  * Powerful popover library, which provides the best UX for your users. It shows the small modals over the content
@@ -46,9 +47,9 @@ import { PopoverComponent } from './popover.component';
  * ```
  */
 @NgModule({
-  declarations: [PopoverComponent],
+  declarations: [PopoverComponent, PopoverDirective],
   imports: [FormsModule, CommonModule],
-  exports: [PopoverComponent],
+  exports: [PopoverComponent, PopoverDirective],
 })
 export class PopoverModule {
 }

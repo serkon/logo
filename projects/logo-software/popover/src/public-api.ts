@@ -3,5 +3,6 @@
  */
 
 export * from './lib/popover.service';
+export * from './lib/popover.directive';
 export * from './lib/popover.component';
 export * from './lib/popover.module';
