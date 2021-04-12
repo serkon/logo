@@ -171,6 +171,10 @@ const routes: Routes = [
         path: 'wizard-sample',
         loadChildren: () => import('./wizard-sample/wizard-sample.module').then(m => m.WizardSampleModule),
       },
+      {
+        path: 'datepicker-sample',
+        loadChildren: () => import('./datepicker-sample/datepicker-sample.module').then(m => m.DatepickerSampleModule),
+      },
     ],
   },
 ];

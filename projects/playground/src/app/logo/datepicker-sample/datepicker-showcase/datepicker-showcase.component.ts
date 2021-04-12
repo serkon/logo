@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DatepickerShowcaseComponent implements OnInit {
 
-  constructor() { }
+  public datepicker = {
+    value: '05.04.2021',
+    min: '01.01.1900',
+    max: '31.12.2999',
+    second: '31.06.2021',
+  };
+
+  constructor() {
+  }
 
   ngOnInit(): void {
+
   }
 
 }

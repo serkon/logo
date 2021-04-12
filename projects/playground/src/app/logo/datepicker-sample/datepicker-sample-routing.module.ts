@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { DatepickerShowcaseComponent } from './datepicker-showcase/datepicker-showcase.component';
 
 const routes: Routes = [
@@ -8,6 +9,7 @@ const routes: Routes = [
     component: DatepickerShowcaseComponent,
   },
 ];
+
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
