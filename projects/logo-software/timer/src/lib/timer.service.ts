@@ -12,7 +12,6 @@ import { Subject } from 'rxjs';
 
 import { TimePipe } from './pipe/time.pipe';
 import { Lang } from './lang';
-import { DomEvent } from 'leaflet';
 
 /**
  * Timer service lets developers to control timer variables on the go.
