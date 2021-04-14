@@ -45,6 +45,7 @@ parameters.
   [showIcon]="true"
   [language]="{days: 'Gün', hours: 'Saat', minutes: 'Dk', seconds: 'Sn'}"
   [showProgressBar]="true"
+  [autoStart]="true"
   (onTimeCompleted)="sampleOnTimeEnd($event)"
 >
 </logo-timer>

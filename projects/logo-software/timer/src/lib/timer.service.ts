@@ -48,16 +48,21 @@ export class TimerService {
    * First value of the timer before has been started.
    */
   public timerValue: number;
+  /**
+   * Global auto start option that will change on the fly.
+   */
+  public autoStart: boolean;
+
   public isEnded = new Subject<boolean>();
   private timer;
 
   /**
-   * Starts the timer.
+   * Prepare the timer values and if autoStart option is true, starts the timer.
    */
-  public startTimer() {
+  public prepareTimer() {
     this.timerValue = this.timerCount;
     this.readableTime = new TimePipe().transform(this.timerCount, this.language);
-    this.runTimer();
+    this.autoStart ? this.runTimer() : '';
   }
 
   /**
@@ -137,5 +142,6 @@ export class TimerService {
    */
   public setTime(ms: number) {
     this.timerCount = ms;
+    this.prepareTimer();
   }
 }

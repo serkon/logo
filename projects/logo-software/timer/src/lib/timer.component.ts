@@ -31,6 +31,7 @@ import { TimePipe } from './pipe/time.pipe';
  *  [isCountdown]="true"
  *  [showIcon]="true"
  *  [showProgressBar]="true"
+ *  [autoStart]="true"
  *  [language]="{days: 'Gün', hours: 'Saat', minutes: 'Dk', seconds: 'Sn'}"
  *  (onTimeCompleted)="sampleOnTimeEnd($event)"
  * >
@@ -81,6 +82,10 @@ export class TimerComponent implements OnInit, OnDestroy {
    */
   @Input() language: Lang;
   /**
+   * Auto start timer onInit or trigger it by your own function options. If set true, timer will start on init of the library else you need to start by your own trigger function. Default is true.
+   */
+  @Input() autoStart: boolean = true;
+  /**
    * Output of the completed timer. It returns the id that setted.
    */
   @Output() public onTimeCompleted: EventEmitter<string> = new EventEmitter<string>();
@@ -100,9 +105,10 @@ export class TimerComponent implements OnInit, OnDestroy {
       this.timerService.timerCount = 0;
       this.timerService.endTime = this.timeInMs;
     }
+    this.timerService.autoStart = this.autoStart;
     this.timerService.language = this.language;
     this.timerService.countdown = this.isCountdown;
-    this.timerService.startTimer();
+    this.timerService.prepareTimer();
   }
 
   ngOnDestroy(): void {
