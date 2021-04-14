@@ -30,6 +30,8 @@
     @include animate();
 
     position: absolute;
+    display: flex;
+    flex-direction: column;
     width: var(--drawer-width);
     transform: translateX(0);
     top: 0;
