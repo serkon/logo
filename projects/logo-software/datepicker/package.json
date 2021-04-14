@@ -10,7 +10,7 @@
     "tslib": "^2.0.0",
     "@logo-software/theme": "^3.10.2"
   },
-  "description": "Datepickers let users select a date or range of dates. They should be suitable for the context in which they appear.",
+  "description": "Datepicker let users select a date or range of dates. They should be suitable for the context in which they appear.",
   "homepage": "http://elements.logo.com.tr",
   "author": {
     "email": "Serhan.Gurbuz@logo.com.tr",
