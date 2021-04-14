@@ -1,2 +1,44 @@
+@import "~@logo-software/theme/base";
+
 :host {
+  --tree-font-color: var(--white);
+  --tree-item-active-background-color: rgba(var(--white-rgb), var(--ghost-active));
+  --tree-item-hover-background-color: rgba(var(--white-rgb), var(--ghost-hover));
+  --tree-item-focus-background-color: rgba(var(--white-rgb), var(--ghost-focus));
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: size(15px) size(20px);
+    box-sizing: border-box;
+    color: var(--neutral-200);
+    background-color: var(--neutral-1000);
+    font-size: size(20px);
+    font-weight: 300;
+    min-height: size(65px);
+    box-shadow: 0 0 size(10px) rgba(0, 0, 0, 0.1);
+
+    span {
+      padding-left: size(5px);
+      color: white;
+    }
+
+    img {
+      width: size(150px);
+      text-align: center;
+    }
+  }
+
+  ::ng-deep {
+    .drawer-top {
+      box-shadow: 0 0 size(10px) rgba(0, 0, 0, 0.1);
+    }
+
+    .white {
+      label {
+        color: var(--white);
+      }
+    }
+  }
 }

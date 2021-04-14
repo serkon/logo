@@ -17,11 +17,13 @@
 
 
 <logo-drawer
-  [bgColors]="{left: 'var(--white)', right: 'var(--white)'}"
+  [bgColors]="{left: 'var(--neutral-900)', right: 'var(--white)'}"
   [menu]="true"
 >
   <ng-container drawer-left>
+    <div class="logo">LOGO<span>ELEMENTS</span></div>
     <logo-tree
+      classes="white"
       [items]="components"
       (itemClick)="htmlMenuClick($event)"
       (categoryClick)="htmlCategoryClick($event)"
