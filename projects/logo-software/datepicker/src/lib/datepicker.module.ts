@@ -11,9 +11,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { SharedDirectiveModule } from '@logo-software/core';
-
 import { DatepickerComponent } from './datepicker.component';
+import { MaskDirective } from './directive/mask.directive';
 
 /**
  * Datepickers let users select a date or range of dates. They should be suitable for the context in which they appear.
@@ -43,9 +42,9 @@ import { DatepickerComponent } from './datepicker.component';
  * ```
  */
 @NgModule({
-  declarations: [DatepickerComponent],
-  imports: [FormsModule, SharedDirectiveModule, CommonModule],
-  exports: [DatepickerComponent],
+  declarations: [DatepickerComponent, MaskDirective],
+  imports: [FormsModule, CommonModule],
+  exports: [DatepickerComponent, MaskDirective],
 })
 export class DatepickerModule {
 }
