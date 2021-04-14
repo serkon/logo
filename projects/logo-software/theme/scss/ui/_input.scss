@@ -50,6 +50,10 @@ input[type=checkbox], input[type=radio] {
   }
 
   &.left {
+    input {
+      text-indent: size(get("element.input.size.medium.padding"));
+    }
+
     span {
       left: 0;
       border-right: 1px solid var(--basic-700);
@@ -63,13 +67,25 @@ input[type=checkbox], input[type=radio] {
     }
   }
 
-  @each $size, $value in get("size") {
+  @each $size, $value in get("element.input.size") {
     &.#{$size} {
+      &.left {
+        input {
+          text-indent: size(map-get($value, "padding"));
+        }
+      }
+
+      &.right {
+        input {
+          padding-right: size(map-get($value, "padding"));
+        }
+      }
+
       span {
         @extend %icon-#{$size};
 
-        width: calc(map-get($value, "icon-container") - 2px);
-        min-width: calc(map-get($value, "icon-container") - 2px);
+        width: calc(#{get("size."+$size+".icon-container")} - 2px);
+        min-width: calc(#{get("size."+$size+".icon-container")} - 2px);
       }
     }
   }
