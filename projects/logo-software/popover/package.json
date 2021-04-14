@@ -1,13 +1,13 @@
 {
   "name": "@logo-software/popover",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "peerDependencies": {
     "@angular/common": "^11.2.3",
     "@angular/core": "^11.2.3"
   },
   "dependencies": {
     "tslib": "^2.0.0",
-    "@logo-software/theme": "^3.9.1"
+    "@logo-software/theme": "^3.10.0"
   },
   "description": "Powerful popover library, which provides the best UX for your users. It shows the small modals over the content.",
   "homepage": "http://elements.logo.com.tr",
