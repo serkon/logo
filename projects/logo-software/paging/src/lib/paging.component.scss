@@ -1,20 +1,6 @@
 @import "icons";
 @import "~@logo-software/theme/base";
 
-$link-color: var(--primary);
-$link-hover-background: rgba(var(--primary-hover-rgb), 0.06);
-$selected-background-color: var(--basic-500);
-$select-box-background-color: var(--secondary);
-$select-box-color: var(--neutral-900);
-
-%no-select {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none;
-}
-
 @mixin animate($time:0.4s, $event: all, $animate:linear) {
   transition: $event $time $animate;
 }
@@ -23,45 +9,34 @@ $select-box-color: var(--neutral-900);
   border-radius: $radius;
 }
 
+::ng-deep {
+  :root {
+    --paging-padding: #{get("element.paging.padding")};
+    --paging-background: #{get("element.paging.background")};
+    --paging-box-shadow: #{get("element.paging.box-shadow")};
+    --paging-font-size: #{get("element.paging.font-size")};
+    --paging-line-height: #{get("element.paging.line-height")};
+    --paging-button-margin-right: #{get("element.paging.button.margin.right")};
+  }
+}
+
 :host {
   display: flex;
   align-items: center;
   z-index: 1;
   position: relative;
-  padding: 10px;
-  background-color: var(--white);
+  padding: var(--paging-padding);
+  background-color: var(--paging-background);
+  box-shadow: var(--paging-box-shadow);
 
   .paging-container {
     display: flex;
     align-items: center;
     width: 100%;
 
-    select {
-      height: 32px;
-      background-color: $selected-background-color;
-      border: none;
-      font-size: 12px;
-      border-radius: 2px;
-      cursor: pointer;
-      outline: none;
-      color: $select-box-color;
-      margin-right: 30px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      background-position: right 50%;
-      background-repeat: no-repeat;
-      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAYAAABSgIzaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDZFNDEwNjlGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDZFNDEwNkFGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0NkU0MTA2N0Y3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0NkU0MTA2OEY3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuGsgwQAAAA5SURBVHjaYvz//z8DOYCJgUxAf42MQIzTk0D/M+KzkRGPoQSdykiKJrBGpOhgJFYTWNEIiEeAAAMAzNENEOH+do8AAAAASUVORK5CYII=);
-      padding: 7px 30px 7px 7px;
-
-      &::after {
-        content: "";
-        border-left: 1px solid red;
-      }
-    }
-
     .total-count, .page-numbers {
-      font-size: 12px;
-      line-height: 20px;
+      font-size: var(--paging-font-size);
+      line-height: var(--paging-line-height);
       padding-bottom: 0;
     }
 
@@ -71,11 +46,10 @@ $select-box-color: var(--neutral-900);
       color: var(--neutral-500);
 
       .total-count-number {
-        padding-right: 2.5px;
+        padding-right: size(5px);
       }
 
       .record-found-text {
-        padding-left: 2.5px;
       }
     }
 
@@ -93,14 +67,12 @@ $select-box-color: var(--neutral-900);
         display: flex;
 
         button {
-          min-width: 32px;
-          height: 32px;
-          margin-right: 10px;
-          padding: 0;
-          cursor: pointer;
+          @extend %#{get("element.paging.button.color.default")};
+
+          margin-right: var(--paging-button-margin-right);
 
           &.selected {
-            @extend %button-selected;
+            @extend %#{get("element.paging.button.color.selected")};
           }
 
           &:last-of-type {

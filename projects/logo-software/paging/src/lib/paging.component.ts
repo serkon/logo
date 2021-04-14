@@ -69,6 +69,14 @@ export interface Pager {
 })
 export class PagingComponent implements OnInit, OnChanges {
   /**
+   * Pager interface holds the paging values of the PageComponent
+   */
+  public pager: Pager = {};
+  /**
+   * Total page will be displaying
+   */
+  public totalPages: number;
+  /**
    * This property specifies the maximum number of the page will be shown at the bar.
    */
   @Input() threshold: number = 10;
@@ -100,11 +108,6 @@ export class PagingComponent implements OnInit, OnChanges {
    * event will be triggered when ngOnInit completed
    */
   @Output() onLoad: EventEmitter<Pager> = new EventEmitter<Pager>();
-  public pager: Pager = {};
-  /**
-   * Total page will be displaying
-   */
-  public totalPages: number;
 
   @HostBinding('class.app-paging') classes = true;
 
@@ -122,7 +125,9 @@ export class PagingComponent implements OnInit, OnChanges {
    * @param page
    */
   setPage(page: number) {
-    if (page >= 1 && page <= this.totalPages) {
+    console.log(page + '1')
+    if (page >= 1 && page <= this.pager.totalPages) {
+      console.log(page + '2');
       this.pager = this.getPager(this.totalCount, page, this.pageSize, this.threshold);
       this.pageNumberChange.emit(this.pager);
     }
@@ -131,6 +136,7 @@ export class PagingComponent implements OnInit, OnChanges {
   setPageSize(pageSize?: number) {
     this.pageSize = pageSize ? pageSize : this.pageSize;
     this.pager = this.getPager(this.totalCount, this.pageNumber, this.pageSize, this.threshold);
+    this.totalPages = this.pager.totalPages;
     this.pageSizeChange.emit(this.pager);
   }
 
