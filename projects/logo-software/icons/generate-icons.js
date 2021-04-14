@@ -20,7 +20,7 @@ const ICONS_TS_OUTPUT = './src/logo-icons.ts';
 const ICONS_SCSS_OUTPUT = './style.scss';
 const OUT = './';
 const ts = [];
-let scss = `[class^=${PREFIX}], [class*=' ${PREFIX}'] {
+let scss = `[class^=${PREFIX}], [class*=" ${PREFIX}"] {
   position: relative;
 
   &::before {
@@ -40,17 +40,17 @@ task('string', (cb) => {
         ts[index]["icons"].push(name);
         scss = `${scss}
 .${PREFIX}${name} {
-  &::before{
-    -webkit-mask-image:  svg-load("${ICONS_DIRECTORY}/${dirName.path}/${name}.svg", fill=currentColor);
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    display: inline-block;
-    content: '';
-    // width: 100%;
-    // height: 100%;
-    position: absolute;
-    background: currentColor;
-  }
+&::before {
+  -webkit-mask-image: svg-load("${ICONS_DIRECTORY}/${dirName.path}/${name}.svg", fill=currentColor);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  display: inline-block;
+  content: "";
+  // width: 100%;
+  // height: 100%;
+  position: absolute;
+  background: currentColor;
+}
 }
 `;
       }
