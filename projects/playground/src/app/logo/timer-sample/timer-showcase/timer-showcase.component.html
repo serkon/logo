@@ -9,6 +9,7 @@
     [theme]="'primary'"
     [language]="{days: 'Gün', hours: 'Saat', minutes: 'Dk', seconds: 'Sn'}"
     [timeInMs]="22356"
+    [autoStart]="false"
     [title]="'Estimated Time'"
   >
   </logo-timer>
@@ -20,6 +21,7 @@
   <div class="set">
     <input [(ngModel)]="customTimer" class="secondary" placeholder="Set Time in Milliseconds" type="number">
     <button (click)="setTimer()" class="primary">Set Time</button>
+    <button (click)="startTimer()" class="success outline">Start Timer</button>
     <button (click)="resetTimer()" class="primary outline">Reset Timer</button>
     <button (click)="pauseTimer()" class="warning">Pause Timer</button>
     <button (click)="resumeTimer()" class="success">Resume Timer</button>

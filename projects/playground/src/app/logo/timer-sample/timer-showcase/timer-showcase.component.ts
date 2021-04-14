@@ -18,6 +18,10 @@ export class TimerShowcaseComponent {
     this.customTimer ? this.timerService.setTime(this.customTimer) : alert('Please set timer in milliseconds');
   }
 
+  public startTimer() {
+    this.timerService.runTimer();
+  }
+
   public resetTimer() {
     this.timerService.resetTimer();
   }
