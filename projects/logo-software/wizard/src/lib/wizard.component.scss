@@ -89,6 +89,7 @@
                   &.warning {
                     color: var(--white);
                     background-color: var(--warning);
+                    border: 0;
                   }
                 }
 
@@ -106,10 +107,17 @@
                   .step-badge {
                     background-color: var(--primary);
                     color: var(--white);
+                    border: 0;
                   }
 
                   .step-title {
                     color: var(--neutral-1000);
+                  }
+
+                  &:disabled {
+                    .step-badge {
+                      background-color: var(--primary-300);
+                    }
                   }
                 }
 
@@ -123,6 +131,16 @@
 
                 &:disabled {
                   opacity: 1;
+
+                  .step-badge {
+                    span {
+                      opacity: 0.5;
+                    }
+                  }
+
+                  .step-title {
+                    opacity: 0.5;
+                  }
                 }
               }
             }
