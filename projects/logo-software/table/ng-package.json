@@ -11,9 +11,10 @@
   },
   "assets": [
   ],
-  "whitelistedNonPeerDependencies": [
+  "allowedNonPeerDependencies": [
     "@logo-software/paging",
     "@logo-software/excel",
-    "@logo-software/core"
+    "@logo-software/core",
+    "@logo-software/theme"
   ]
 }

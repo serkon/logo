@@ -105,7 +105,7 @@
     <tbody (dragover)="htmlDragOver($event)" (drop)="htmlDrop($event)">
     <ng-container *ngIf="rows.length > 0">
       <ng-container
-        *ngFor="let row of (this.serverSide ? rows : (rows | orderBy : htmlOrderBy()));trackBy: trackByMethod; index as i; let isOdd = odd; let isEven = even;  let isLast= last; let isFirst = first;"
+        *ngFor="let row of (this.serverSide ? rows : (rows | orderBy : htmlOrderBy())) as rowsOrdered;trackBy: trackByMethod; index as i; let isOdd = odd; let isEven = even;  let isLast= last; let isFirst = first;"
       >
         <tr
           (click)="htmlOnClick(row, $event, i)"
@@ -137,11 +137,11 @@
                   [ngClass]="expanderStatus[i] ? 'le-remove' : 'le-add'"
                 >
                 </button>
-                <span
+                <div
                   [innerHTML]="htmlGetRowPathValue(row, column) | format : column.filterType + ':' + column.format"
                   class="content"
                 >
-                </span>
+                </div>
               </ng-container>
               <ng-template #editableRef>
                 <button
@@ -151,27 +151,27 @@
                   [ngClass]="expanderStatus[i] ? 'le-remove' : 'le-add'"
                 >
                 </button>
-                <span class="content">
+                <div class="content">
                   <input
-                    (blur)="htmlUpdateBlur({column: column, row: row, showingCurrently: this.rows, showingOriginal: this.showing, fullOriginal: this.original, index: i, parentRow: parentRow, parentIndex: parentIndex})"
-                    (change)="htmlUpdateChange({column: column, row: row, showingCurrently: this.rows, showingOriginal: this.showing, fullOriginal: this.original, index: i, parentRow: parentRow, parentIndex: parentIndex})"
-                    (focus)="htmlUpdateFocus({column: column, row: row, showingCurrently: this.rows, showingOriginal: this.showing, fullOriginal: this.original, index: i, parentRow: parentRow, parentIndex: parentIndex})"
+                    (blur)="htmlUpdateBlur({column: column, row: row, showingCurrently: rowsOrdered, showingOriginal: this.showing, fullOriginal: this.original, index: i, parentRow: parentRow, parentIndex: parentIndex})"
+                    (change)="htmlUpdateChange({column: column, row: row, showingCurrently: rowsOrdered, showingOriginal: this.showing, fullOriginal: this.original, index: i, parentRow: parentRow, parentIndex: parentIndex})"
+                    (focus)="htmlUpdateFocus({column: column, row: row, showingCurrently: rowsOrdered, showingOriginal: this.showing, fullOriginal: this.original, index: i, parentRow: parentRow, parentIndex: parentIndex})"
                     (ngModelChange)="htmlSetRowPath($event, row, column)"
                     [ngModel]="column.filterType === 'datetime' ? (htmlGetRowPathValue(row, column) | format: 'datetime'): htmlGetRowPathValue(row, column)"
                     [type]="htmlFilterType(column)"
                   />
                   <button (click)="htmlUpdateStart()" class="light small outline le-edit_pen edit-pen"></button>
                   <button
-                    (click)="htmlUpdateCancel({column: column, row: row, showingCurrently: this.rows, showingOriginal: this.showing, fullOriginal: this.original, index: i, parentRow: parentRow, parentIndex: parentIndex})"
+                    (click)="htmlUpdateCancel({column: column, row: row, showingCurrently: rowsOrdered, showingOriginal: this.showing, fullOriginal: this.original, index: i, parentRow: parentRow, parentIndex: parentIndex})"
                     class="small light outline le-cross edit-cancel"
                   >
                   </button>
                   <button
-                    (click)="htmlUpdateAccept({column: column, row: row, showingCurrently: this.rows, showingOriginal: this.showing, fullOriginal: this.original, index: i, parentRow: parentRow, parentIndex: parentIndex})"
+                    (click)="htmlUpdateAccept({column: column, row: row, showingCurrently: rowsOrdered, showingOriginal: this.showing, fullOriginal: this.original, index: i, parentRow: parentRow, parentIndex: parentIndex})"
                     class="small success le-check edit-accept"
                   >
                   </button>
-                </span>
+                </div>
               </ng-template>
             </div>
           </td>
@@ -210,7 +210,7 @@
         [ngClass]="htmlSetTdClass(creating, column)"
       >
         <div class="content-container">
-          <span
+          <div
             *ngIf="editable && column.editable && !column.variableFunction && !isFunction(column.variablePath)"
             class="content"
           >
@@ -224,20 +224,23 @@
               placeholder="add new"
             />
             <button (click)="htmlUpdateStart()" class="light small outline le-edit_pen edit-pen"></button>
-            <button (click)="htmlCreateCanceled(column)"
-                    class="small light outline le-cross edit-cancel"></button>
+            <button
+              (click)="htmlCreateCanceled(column)"
+              class="small light outline le-cross edit-cancel"
+            >
+            </button>
             <button
               (click)="htmlCreateAccepted({column: column, row: creating, showingCurrently: this.rows, showingOriginal: this.showing, fullOriginal: this.original, index: rows.length + 1, parentRow: parentRow, parentIndex: parentIndex})"
               class="small success le-check edit-accept"
             >
             </button>
-          </span>
-          <span
+          </div>
+          <div
             *ngIf="column.variableFunction"
             [innerHTML]="htmlGetRowPathValue(creating, column) | format : column.filterType + ':' + column.format"
             class="content"
           >
-          </span>
+          </div>
         </div>
       </td>
       <ng-container

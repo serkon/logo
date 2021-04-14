@@ -657,7 +657,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
     }
     if (this.sort) {
       if (column.variablePath === this.sorting.column || column.sortingKey === this.sorting.column) {
-        classes.push(`logo-arrow-${this.sorting.descending ? 'down' : 'up'}`);
+        classes.push(`th-arrow_${this.sorting.descending ? 'down' : 'up'}`);
       } else if (column.sortable) {
         classes.push(`sort`);
       }
@@ -769,8 +769,8 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
 
   clientSideLoading() {
     this.original = JSON.parse(JSON.stringify(this.original || this.rows || []));
-    this.showing = JSON.parse(JSON.stringify(this.rows));
     this.clientSideFilter();
+    this.showing = JSON.parse(JSON.stringify(this.rows));
     this.onHttpSucceed.emit({rows: this.original, shows: this.showing});
   }
 

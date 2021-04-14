@@ -8,6 +8,7 @@
  * Any reproduction of this material must contain this notice.
  */
 @import "icons";
+@import "~@logo-software/theme/base";
 
 $font-family: "Nunito", sans-serif;
 $thead-background-color: #0090ff;
@@ -45,11 +46,13 @@ $success-color: #01cc78;
     .table-container {
       position: relative;
       overflow: auto;
-      border-bottom: 1px solid rgba($thead-background-color, 0.1);
+      border-bottom: size(1px) solid rgba($thead-background-color, 0.1);
       font-family: $font-family;
       font-size: 14px;
 
       table {
+        @extend %table;
+
         border-collapse: separate;
         border-spacing: 0;
         width: 100%;
@@ -58,23 +61,10 @@ $success-color: #01cc78;
         thead {
           tr {
             th {
-              position: sticky;
               top: 0;
               z-index: 0;
-              padding: 2px 5px;
-              background-color: $thead-background-color;
-              border-right: 1px solid $thead-border-color;
               white-space: nowrap;
               text-align: left;
-              height: 32px;
-              box-sizing: border-box;
-              font-size: 12px;
-              font-weight: 800;
-              font-stretch: normal;
-              font-style: normal;
-              line-height: normal;
-              letter-spacing: normal;
-              color: #ffffff;
 
               &.sort {
                 cursor: pointer;
@@ -85,8 +75,8 @@ $success-color: #01cc78;
                 text-align: center;
               }
 
-              &.logo-arrow-down {
-                &::before {
+              &.th-arrow_down {
+                &::after {
                   @include animate();
 
                   height: 7px;
@@ -94,8 +84,8 @@ $success-color: #01cc78;
                 }
               }
 
-              &.logo-arrow-up {
-                &::before {
+              &.th-arrow_up {
+                &::after {
                   @include animate();
 
                   height: 7px;
@@ -105,32 +95,16 @@ $success-color: #01cc78;
 
               &.filter {
                 background-color: $thead-filter-background-color;
-                border-right: 1px solid $thead-background-color;
+                border-right: size(1px) solid $thead-background-color;
                 text-align: center;
                 height: 42px;
 
                 label {
                   display: block;
+                  padding: 0;
 
                   input {
-                    border: none;
-                    padding: 0;
                     width: 100%;
-                    text-indent: 5px;
-                    font-size: 14px;
-                    height: 32px;
-                    border-radius: 2px;
-                    background-color: $thead-input-background;
-                    color: $thead-input-color;
-                    font-family: $font-family;
-                    font-stretch: normal;
-                    font-style: normal;
-                    line-height: normal;
-                    letter-spacing: normal;
-                  }
-
-                  input:disabled {
-                    opacity: 0.4;
                   }
                 }
               }
@@ -153,16 +127,6 @@ $success-color: #01cc78;
         tbody {
           tr {
             td {
-              color: black;
-              font-weight: normal;
-              font-stretch: normal;
-              font-style: normal;
-              line-height: normal;
-              letter-spacing: normal;
-              height: 32px;
-              padding: 0;
-              vertical-align: middle;
-
               button {
                 margin-right: 4px;
 
@@ -186,8 +150,8 @@ $success-color: #01cc78;
 
               &.index {
                 text-align: center;
-                background-color: transparentize($thead-background-color, 0.2);
-                color: white;
+                background-color: var(#{get("element.table.header.background-color")});
+                color: var(get("element.table.font.color"));
               }
 
               div.content-container {
@@ -196,35 +160,21 @@ $success-color: #01cc78;
                 width: 100%;
                 height: 100%;
                 box-sizing: border-box;
-                padding: 4px 0;
 
-                span.content {
+                .content {
                   display: flex;
                   flex-grow: 1;
                   align-items: center;
                   width: 100%;
                   height: 100%;
-                  padding-left: 5px;
                   position: relative;
 
                   input {
+                    @extend %bordered;
+
                     width: 100%;
-                    height: 100%;
                     margin-right: 2px;
-                    padding: 0;
-                    background-color: transparent;
-                    border: none;
-                    outline: none;
-                    font-size: 14px;
-                    font-weight: normal;
-                    font-stretch: normal;
-                    font-style: normal;
-                    line-height: normal;
-                    letter-spacing: normal;
-                    color: #4a4a4a;
-                    font-family: $font-family;
                     cursor: pointer;
-                    box-shadow: none;
                     min-width: 70px;
                   }
 
@@ -232,17 +182,12 @@ $success-color: #01cc78;
                     display: none;
                     position: absolute;
                     z-index: 2;
-                    margin-right: 4px;
-                    width: 24px;
-                    height: 24px;
                     box-sizing: border-box;
                     background-color: white;
                   }
                 }
 
                 &:hover {
-                  box-shadow: $box-shadow;
-
                   button.edit-pen {
                     display: inline-block;
                     right: 0;
@@ -318,10 +263,11 @@ $success-color: #01cc78;
             }
 
             &.expanded {
-              background-color: $expanded-background-color;
+              // background-color: var(#{get("element.table.expanded.background-color")});
+              background-color: var(#{get("element.table.expanded.backround-color")}) !important;
 
               td.expanded-td {
-                padding: 10px;
+                padding: #{get("element.table.expanded.padding")};
               }
             }
           }
@@ -357,24 +303,9 @@ $success-color: #01cc78;
   }
 
   table.table-editing tbody tr td {
-    $effect: 0 dotted rgba(0, 0, 0, 0.21);
-
-    &.editable {
-      border-right: $effect;
-      border-bottom: $effect;
-    }
-
     &.editing {
       box-sizing: border-box;
       background-color: rgba(0, 180, 94, 0.2);
-    }
-
-    &.editable + &.editable {
-      border-left: 1px solid transparent;
-    }
-
-    &:not(.editable) + .editable {
-      border-left: $effect;
     }
   }
 

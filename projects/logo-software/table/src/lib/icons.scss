@@ -2,7 +2,7 @@
   position: relative;
 }
 
-[class^=le-]::before, [class*=" le-"]::before {
+[class^=le-]::before, [class*=" le-"]::before, [class*="th-"]::after {
   width: 100%;
   height: 100%;
   left: 0;
@@ -88,5 +88,23 @@
   display: inline-block;
   content: "";
   position: absolute;
+  background: currentColor;
+}
+
+.th-arrow_down::after {
+  -webkit-mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='currentColor' xmlns='http://www.w3.org/2000/svg'%3E %3Cg id='arrow_down'%3E %3Cpath id='Shape' fill-rule='evenodd' clip-rule='evenodd' d='M11.9999 14.5714C12.1547 14.5714 12.2886 14.5149 12.4017 14.4018L16.4017 10.4018C16.5148 10.2887 16.5713 10.1548 16.5713 10C16.5713 9.84526 16.5148 9.71133 16.4017 9.59823C16.2886 9.48514 16.1547 9.42859 15.9999 9.42859H7.9999C7.84513 9.42859 7.7112 9.48514 7.59811 9.59823C7.48501 9.71133 7.42847 9.84526 7.42847 10C7.42847 10.1548 7.48501 10.2887 7.59811 10.4018L11.5981 14.4018C11.7112 14.5149 11.8451 14.5714 11.9999 14.5714Z' fill='%235A5A5A'/%3E %3C/g%3E %3C/svg%3E");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  display: inline-block;
+  content: "";
+  background: currentColor;
+}
+
+.th-arrow_up::after {
+  -webkit-mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='currentColor' xmlns='http://www.w3.org/2000/svg'%3E %3Cg id='arrow_up'%3E %3Cpath id='Shape' fill-rule='evenodd' clip-rule='evenodd' d='M11.9999 9.42859C12.1237 9.42859 12.2342 9.46478 12.3313 9.53716L12.4017 9.59823L16.4017 13.5982C16.5148 13.7113 16.5713 13.8453 16.5713 14C16.5713 14.1548 16.5148 14.2887 16.4017 14.4018C16.3112 14.4923 16.2074 14.5466 16.0903 14.5647L15.9999 14.5714H7.9999C7.84513 14.5714 7.7112 14.5149 7.59811 14.4018C7.48501 14.2887 7.42847 14.1548 7.42847 14C7.42847 13.8762 7.46466 13.7657 7.53704 13.6686L7.59811 13.5982L11.5981 9.59823C11.7112 9.48514 11.8451 9.42859 11.9999 9.42859Z' fill='%235A5A5A'/%3E %3C/g%3E %3C/svg%3E");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  display: inline-block;
+  content: "";
   background: currentColor;
 }
