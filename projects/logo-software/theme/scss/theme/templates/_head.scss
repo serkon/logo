@@ -7,7 +7,7 @@ Typography
   margin-top: 0;
   margin-bottom: 0;
   line-height: normal;
-  color: var(--#{get("font.color.name")}-#{get("font.color.value")});
+  color: var(#{get("font.color.name")}-#{get("font.color.value")});
 }
 
 // HEAD sizes

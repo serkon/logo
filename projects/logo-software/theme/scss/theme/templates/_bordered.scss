@@ -4,11 +4,12 @@
 %bordered {
   border-style: solid;
   border-width: size(1px);
+  border-color: var(--basic-600);
 
   @each $color, $value in get("color.list") {
     &-#{"" + $color} {
       @if ($color == basic or $color == secondary or $color == gray) {
-        border-color: var(--#{$color}-700);
+        border-color: var(--#{$color}-600);
       } @else {
         border-color: var(--#{$color});
       }

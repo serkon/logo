@@ -27,7 +27,7 @@
     }
 
     [class*=-calendarpanel-month], [class*=-calendarpanel-day] {
-      color: var(--#{get("font.color.name")}-#{get("font.color.value")});
+      color: var(#{get("font.color.name")}-#{get("font.color.value")});
       height: size(30px);
       align-items: center;
       display: flex;

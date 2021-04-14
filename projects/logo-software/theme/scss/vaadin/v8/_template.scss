@@ -55,7 +55,7 @@
 
     padding-left: 0;
     padding-bottom: size(2px);
-    color: var(--#{get("font.color.name")}-#{get("font.color.value")});
+    color: var(#{get("font.color.name")}-#{get("font.color.value")});
   }
 
   &.v-caption-inline-icon {

@@ -17,7 +17,7 @@
     padding: size(30px) size(30) size(30px) size(20px);
     font-size: size(14px);
     line-height: size(18px);
-    color: var(--#{get("font.color.name")}-#{get("font.color.value")});
+    color: var(#{get("font.color.name")}-#{get("font.color.value")});
   }
 
   .card-footer {
@@ -25,7 +25,7 @@
     padding: size(14px) size(15px) size(14px) size(20px);
     font-size: size(14px);
     line-height: size(18px);
-    color: var(--#{get("font.color.name")}-#{get("font.color.value")});
+    color: var(#{get("font.color.name")}-#{get("font.color.value")});
     border: none;
     background-color: transparent;
     box-shadow: 0 size(-2px) size(4px) rgba(0, 0, 0, 0.08);

@@ -104,7 +104,7 @@
     text-shadow: none;
     box-shadow: 0 size(2px) size(15px) size(4px) rgba(var(--black-rgb), 0.1);
     padding: 0;
-    color: var(--#{get("font.color.name")}-#{get("font.color.value")});
+    color: var(#{get("font.color.name")}-#{get("font.color.value")});
     animation-duration: 0ms !important;
 
     .popupContent {

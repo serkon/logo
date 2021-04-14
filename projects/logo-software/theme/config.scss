@@ -39,7 +39,7 @@ $config: deep-map-merge((
     size: 16px,
     size-base: 16px,
     path: "~@logo-software/theme/assets/fonts",
-    color:(name: "neutral", value: 900)
+    color:(name: --neutral, value: 900)
   ),
   grid:(
     status: true,
@@ -224,7 +224,7 @@ $config: deep-map-merge((
       )
     ),
     tree:(
-      padding-left:25px,
+      padding-left: 25px,
       font: (
         color: var(--neutral-900)
       ),
@@ -247,11 +247,15 @@ $config: deep-map-merge((
       header: (height: 22px, font-size: 16px, color: --neutral-900)
     ),
     table:(
-      color: --neutral-900,
-      font-size: 14px,
-      line-height: 18px,
+      font: (
+        color: --neutral-900,
+        size: 14px,
+        line-height: 18px,
+      ),
       icon: (font-size: 10px),
-      background: (color: --basic-600),
+      header: (background-color: --basic-600),
+      filter: (background-color: --basic-700),
+      expanded: (backround-color: --basic-500, padding: 10px),
       size: (
         small: (
           min-height: 32px,
@@ -268,7 +272,30 @@ $config: deep-map-merge((
           body: (padding: (top: 12px, right: 6px, bottom: 12px, left: 10px)),
           header: (padding: (top: 12px, right: 5px, bottom: 12px, left: 5px))
         ),
+      ),
+      paging: (
+        box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.08)
       )
+    ),
+    select: (
+      size: (
+        small: (padding-right: 30px),
+        large: (padding-right: 30px)
+      )
+    ),
+    paging: (
+      padding: 10px,
+      background: var(--white),
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.08),
+      font-size: size(12px),
+      line-height: size(20px),
+      button: (
+        margin: (right: 5px),
+        color: (
+          default: ghost-neutral,
+          selected: fill-basic
+        ),
+      ),
     )
   ),
   color: (

@@ -10,7 +10,7 @@ Standardization: Input
 
   cursor: pointer;
 
-  &:not([type]), &[type~="text"], &[type~="password"] {
+  &:not([type]), &[type~="text"], &[type~="password"], &[type~="number"], &[type*="date"] {
     &:focus {
       background-color: var(--white) !important;
       border: size(1px) solid var(--primary) !important;

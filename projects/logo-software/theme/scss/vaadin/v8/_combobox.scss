@@ -4,7 +4,7 @@
 
 .v-filterselect-suggestpopup [class$="suggestmenu"] {
   padding: 0;
-  color: var(--#{get("font.color.name")}-#{get("font.color.value")});
+  color: var(#{get("font.color.name")}-#{get("font.color.value")});
   border: size(1px) solid var(--primary);
   border-radius: size(get("border.radius"));
   box-shadow: get("element.menu.item.box-shadow");
