@@ -9,8 +9,14 @@
  */
 
 @import "scss/icons";
-@import "scss/config";
 @import "~@logo-software/theme/base";
+
+::ng-deep :root {
+  --tree-font-color: #{get("element.tree.font.color")};
+  --tree-item-active-background-color: rgba(var(--dark-rgb), var(--ghost-hover));
+  --tree-item-hover-background-color: rgba(var(--dark-rgb), var(--ghost-hover));
+  --tree-item-focus-background-color: rgba(var(--dark-rgb), var(--ghost-focus));
+}
 
 :host {
   display: block;
@@ -36,7 +42,7 @@
       label {
         // border: 1px solid red;
         display: flex;
-        color: get("element.tree.font.color");
+        color: var(--tree-font-color);
         padding-left: get("element.tree.size.medium.padding.left");
         padding-right: get("element.tree.size.medium.padding.right");
         font-size: get("element.tree.size.medium.font-size");
@@ -48,12 +54,17 @@
         cursor: auto;
 
         &:hover {
-          background-color: rgba(var(--dark-rgb), var(--ghost-hover));
+          background-color: var(--tree-item-hover-background-color);
+          transition: color 0.1s ease-in;
+        }
+
+        &:focus, &:focus-within {
+          background-color: var(--tree-item-focus-background-color);
           transition: color 0.1s ease-in;
         }
 
         &.router-link-active {
-          background-color: rgba(var(--dark-rgb), var(--ghost-hover));
+          background-color: var(--tree-item-active-background-color);
         }
 
         .icon {
@@ -75,7 +86,7 @@
 
         a {
           width: 100%;
-          color: get("element.tree.font.color");
+          color: var(--tree-font-color);
           text-decoration: none;
           padding-left: 10px;
           cursor: pointer;
