@@ -133,7 +133,7 @@
                 <button
                   (click)="htmlExpanderOpen({row: row, index: i , isLast: isLast, isFirst: isFirst})"
                   *ngIf="(column.expand && (!expanderComponent ? expanderTemplateRef : expanderComponent.expandable({row: row, i: index , isLast: isLast, isFirst: isFirst})))"
-                  class="small light outline expander"
+                  class="light outline expander"
                   [ngClass]="expanderStatus[i] ? 'le-remove' : 'le-add'"
                 >
                 </button>
@@ -147,7 +147,7 @@
                 <button
                   (click)="htmlExpanderOpen({row: row, index: i , isLast: isLast, isFirst: isFirst})"
                   *ngIf="(column.expand && (!expanderComponent ? expanderTemplateRef : expanderComponent.expandable({row: row, i: index , isLast: isLast, isFirst: isFirst})))"
-                  class="small light outline expander"
+                  class="light outline expander"
                   [ngClass]="expanderStatus[i] ? 'le-remove' : 'le-add'"
                 >
                 </button>
@@ -160,15 +160,15 @@
                     [ngModel]="column.filterType === 'datetime' ? (htmlGetRowPathValue(row, column) | format: 'datetime'): htmlGetRowPathValue(row, column)"
                     [type]="htmlFilterType(column)"
                   />
-                  <button (click)="htmlUpdateStart()" class="light small outline le-edit_pen edit-pen"></button>
+                  <button (click)="htmlUpdateStart()" class="light outline le-edit_pen edit-pen"></button>
                   <button
                     (click)="htmlUpdateCancel({column: column, row: row, showingCurrently: rowsOrdered, showingOriginal: this.showing, fullOriginal: this.original, index: i, parentRow: parentRow, parentIndex: parentIndex})"
-                    class="small light outline le-cross edit-cancel"
+                    class="light outline le-cross edit-cancel"
                   >
                   </button>
                   <button
                     (click)="htmlUpdateAccept({column: column, row: row, showingCurrently: rowsOrdered, showingOriginal: this.showing, fullOriginal: this.original, index: i, parentRow: parentRow, parentIndex: parentIndex})"
-                    class="small success le-check edit-accept"
+                    class="success le-check edit-accept"
                   >
                   </button>
                 </div>
@@ -223,15 +223,15 @@
               [type]="htmlFilterType(column)"
               placeholder="add new"
             />
-            <button (click)="htmlUpdateStart()" class="light small outline le-edit_pen edit-pen"></button>
+            <button (click)="htmlUpdateStart()" class="light outline le-edit_pen edit-pen"></button>
             <button
               (click)="htmlCreateCanceled(column)"
-              class="small light outline le-cross edit-cancel"
+              class="light outline le-cross edit-cancel"
             >
             </button>
             <button
               (click)="htmlCreateAccepted({column: column, row: creating, showingCurrently: this.rows, showingOriginal: this.showing, fullOriginal: this.original, index: rows.length + 1, parentRow: parentRow, parentIndex: parentIndex})"
-              class="small success le-check edit-accept"
+              class="success le-check edit-accept"
             >
             </button>
           </div>

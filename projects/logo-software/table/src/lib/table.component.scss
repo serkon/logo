@@ -39,16 +39,12 @@ $success-color: #01cc78;
   display: block;
 
   ::ng-deep {
-    color: darken(#90a4b9, 30);
     display: block;
-    font-size: 12px;
 
     .table-container {
       position: relative;
       overflow: auto;
-      border-bottom: size(1px) solid rgba($thead-background-color, 0.1);
       font-family: $font-family;
-      font-size: 14px;
 
       table {
         @extend %table;
@@ -71,7 +67,7 @@ $success-color: #01cc78;
               }
 
               &.index {
-                min-width: 20px;
+                min-width: size(20px);
                 text-align: center;
               }
 
@@ -79,8 +75,8 @@ $success-color: #01cc78;
                 &::after {
                   @include animate();
 
-                  height: 7px;
-                  width: 10px;
+                  height: size(7px);
+                  width: size(10px);
                 }
               }
 
@@ -88,16 +84,13 @@ $success-color: #01cc78;
                 &::after {
                   @include animate();
 
-                  height: 7px;
-                  width: 10px;
+                  height: size(7px);
+                  width: size(10px);
                 }
               }
 
               &.filter {
-                background-color: $thead-filter-background-color;
-                border-right: size(1px) solid $thead-background-color;
                 text-align: center;
-                height: 42px;
 
                 label {
                   display: block;
@@ -127,15 +120,17 @@ $success-color: #01cc78;
         tbody {
           tr {
             td {
+              border-top-width: 0;
+              border-bottom-width: 0;
+              box-sizing: border-box;
+              height: size(get("element.table.size.medium.min-height"));
+
               button {
-                margin-right: 4px;
+                margin-right: size(4px);
 
                 &.expander {
                   background-color: white;
-                  margin-left: 4px;
-                  color: $thead-background-color;
-                  min-width: 24px;
-                  min-height: 24px;
+                  color: var(--primary);
                   border: none;
 
                   &:focus {
@@ -173,15 +168,13 @@ $success-color: #01cc78;
                     @extend %bordered;
 
                     width: 100%;
-                    margin-right: 2px;
                     cursor: pointer;
                     min-width: 70px;
                   }
 
                   button {
                     display: none;
-                    position: absolute;
-                    z-index: 2;
+                    z-index: 1;
                     box-sizing: border-box;
                     background-color: white;
                   }
@@ -189,11 +182,15 @@ $success-color: #01cc78;
 
                 &:hover {
                   button.edit-pen {
+                    @extend %size-small;
+
+                    position: absolute;
                     display: inline-block;
                     right: 0;
-                    margin-right: 4px;
-                    color: #0090ff;
-                    border: 1px solid #e5e5e5;
+                    margin-right: size(4px);
+                    color: var(--primary);
+                    border: size(1px) solid var(--gray);
+                    padding: 0;
                   }
                 }
               }
@@ -204,11 +201,8 @@ $success-color: #01cc78;
                 div.content-container {
                   .content {
                     input {
-                      margin-right: 60px;
-
                       ~ button.edit-accept {
                         display: inline-block;
-                        right: 0;
                         background-color: $success-color;
                         border: none;
 
@@ -219,9 +213,9 @@ $success-color: #01cc78;
 
                       ~ button.edit-cancel {
                         display: inline-block;
-                        right: 28px;
-                        color: #ff3e51;
-                        border: 1px solid #e5e5e5;
+                        color: var(--danger);
+                        border: size(1px) solid var(--gray);
+                        margin-left: size(5px);
                       }
 
                       ~ button.edit {
@@ -234,28 +228,10 @@ $success-color: #01cc78;
               }
             }
 
-            &.selected {
-              td {
-                background: rgba($thead-background-color, 0.3);
-              }
-            }
-
-            &.even {
-              background-color: $table-even-background;
-            }
-
-            &.odd {
-              background-color: $table-odd-background;
-            }
-
             &:last-child {
               td {
                 border-bottom: none;
               }
-            }
-
-            &:hover {
-              background: rgba($thead-background-color, 0.1);
             }
 
             &.new-line {
@@ -279,6 +255,30 @@ $success-color: #01cc78;
       }
     }
   }
+
+  @each $size, $value in get("element.table.size") {
+    &.#{$size} {
+      ::ng-deep {
+        .table-container {
+          table {
+            tbody {
+              td {
+                height: size(get("element.table.size.small.min-height"));
+
+                button, input:not([type="checkbox"]):not([type="radio"]), select {
+                  @extend %size-#{if($size == "small", small, medium)};
+
+                  box-sizing: border-box;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @extend %table-variation;
 }
 
 :host.no-bootstrap {
@@ -305,24 +305,7 @@ $success-color: #01cc78;
   table.table-editing tbody tr td {
     &.editing {
       box-sizing: border-box;
-      background-color: rgba(0, 180, 94, 0.2);
-    }
-  }
-
-  .table-actions {
-    display: flex;
-    padding: 10px 0;
-    justify-content: flex-end;
-
-    button {
-      margin-right: 10px;
-      width: 32px;
-      height: 32px;
-      cursor: pointer;
-    }
-
-    :last-child {
-      margin-right: 0;
+      background-color: var(--success-100);
     }
   }
 }
