@@ -3,10 +3,10 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { CoreModule } from '@logo-software/core';
+import { TagsModule } from '@logo-software/tags';
 
 import { ComboboxComponent } from './combobox.component';
 import { MultiplePipe } from './pipe/multiple.pipe';
-import { TagsModule } from '@logo-software/tags';
 
 /**
  * A combo box is a commonly used graphical user interface widget (or control).
