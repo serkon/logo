@@ -9,6 +9,7 @@
  */
 
 @import "~@logo-software/theme/base";
+@import "scss/icons";
 
 :host {
   display: inline-block;
@@ -40,11 +41,12 @@
         z-index: 0;
         position: absolute;
         top: size(7px);
-        left: size(8px);
+        left: size(9px);
       }
 
       &::before {
         z-index: 1;
+        height: 100%;
       }
 
       &:hover {
