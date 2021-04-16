@@ -40,13 +40,13 @@ initializer parameters.
 
 ```html
 <logo-badge
-  [label]="'Some kind of badge text'"
   [theme]="'primary'"
   [cssClasses]="'my-own-logo-badge'"
   [size]="'large'"
   [iconPosition]="'icon-left'"
   [icon]="'info'"
 >
+  Some kind of badge text
 </logo-badge>
 ```
 

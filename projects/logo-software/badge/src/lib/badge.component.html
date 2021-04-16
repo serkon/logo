@@ -10,5 +10,5 @@
  */
 -->
 <span [ngClass]="setIconClass()" class="badge {{size}} {{theme}} {{cssClasses}}">
-  {{label}}
+  <span #label [ngClass]="{'hidden': !hasContent}"><ng-content></ng-content></span>
 </span>

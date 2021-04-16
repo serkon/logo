@@ -8,7 +8,7 @@
  * Any reproduction of this material must contain this notice.
  */
 
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 
 /**
  * IconPosition defines button icon's position where will be located. There are 5 types position 'icon-left' | 'icon-right' | 'icon-top' | 'icon-bottom' | 'icon-only'
@@ -29,13 +29,13 @@ export enum IconPosition {
  *
  * ```html
  * <logo-badge
- *   [label]="'Some kind of badge text'"
  *   [theme]="'primary'"
  *   [cssClasses]="'my-own-logo-badge'"
  *   [size]="'large'"
  *   [iconPosition]="'icon-left'"
  *   [icon]="'info'"
  * >
+ *  Some kind of badge text
  * </logo-badge>
  * ```
  */
@@ -45,10 +45,6 @@ export enum IconPosition {
   styleUrls: ['./badge.component.scss'],
 })
 export class BadgeComponent {
-  /**
-   * The text that shown in the badge.
-   */
-  @Input() label: string = null;
   /**
    * Your own css class for theming.
    */
@@ -70,11 +66,16 @@ export class BadgeComponent {
    */
   @Input() icon: string = null;
 
+  public hasContent: boolean;
+  @ViewChild('label', {read: ElementRef, static: true}) label: ElementRef;
+
   public setIconClass() {
     const iconClassList = [];
+    this.label.nativeElement.innerHTML === '' ? this.hasContent = false : this.hasContent = true;
+
     if (this.icon) {
       iconClassList.push('le-' + this.icon);
-      iconClassList.push(!this.iconPosition ? this.label ? IconPosition.ICON_LEFT : IconPosition.ICON_ONLY : this.iconPosition);
+      iconClassList.push(!this.iconPosition ? this.hasContent ? IconPosition.ICON_LEFT : IconPosition.ICON_ONLY : this.iconPosition);
     }
     return iconClassList;
   }
