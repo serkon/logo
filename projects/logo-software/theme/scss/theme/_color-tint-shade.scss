@@ -151,9 +151,18 @@ $colors: map-collect($colors, $outline, $ghost, $gray);
 
 #{get("root")} {
   @each $color, $value in get("color.list") {
-    @each $name, $ratio in get("color.shades") {
-      .#{"" + $color}-#{$name} {
-        background-color: var(--#{$color}-#{$name});
+    @each $shade, $ratio in get("color.shades") {
+      .#{"" + $color}-#{$shade} {
+        background-color: var(--#{$color}-#{$shade});
+      }
+    }
+  }
+
+  @each $color, $value in get("color.visualization") {
+    @each $shade, $ratio in get("color.shades") {
+      $selector: if($shade==500, ".#{$color}, .#{$color}-#{$shade}", ".#{$color}-#{$shade}");
+      #{$selector} {
+        background-color: var(--#{$color}-#{$shade});
       }
     }
   }

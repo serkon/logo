@@ -11,13 +11,15 @@
 
 // bu scss dosyası tamamen ASYS projesi için üretilmiştir
 
+/*
 @import "base";
 
-:root {
+:host {
   p-treetable {
     @extend %p-treetable;
   }
 }
+*/
 
 %p-treetable {
   display: block;
