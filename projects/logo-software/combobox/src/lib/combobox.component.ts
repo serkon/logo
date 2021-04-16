@@ -64,6 +64,10 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
    * When popover opened given indexed item will be hovered. Default is `-1`.
    */
   @Input() hover: number = -1;
+  /**
+   * When popover opened given indexed item will be hovered. Default is `-1`.
+   */
+  @Input() multiple: boolean = false;
   @Input() ngModel: string;
   /**
    * If you use your custom filter (e.g. server-side filtering) filter even emitter called when input entered.
@@ -92,6 +96,10 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
    * selected item
    */
   public selectedItem: any = null;
+  /**
+   * selected items if multiple true
+   */
+  public selectedItems: any[] = [];
   /**
    * filtered list
    */
@@ -158,7 +166,7 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
   }
 
   setSelectedItem(item, index) {
-    this.selectedItem = item;
+    this.multiple ? this.selectedItems.indexOf(item, 0) > -1 ? this.selectedItems.splice(this.selectedItems.indexOf(item, 0), 1) : this.selectedItems.push(item) : this.selectedItem = item;
     this.hover = index;
     this.ngModelChange.emit(item);
     this.select.emit(item);
@@ -244,6 +252,11 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
         this.inputRef.nativeElement.focus();
       }
     }, 100);
+  }
+
+  clearAll() {
+    this.selectedItems = [];
+    this.selected = null;
   }
 
   registerOnChange(fn: any): void {

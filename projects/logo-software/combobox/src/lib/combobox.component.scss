@@ -1,3 +1,15 @@
+/**
+ * @license
+ * Copyright Logo Yazılım. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of Logo Yazılım.
+ * Any reproduction of this material must contain this notice.
+ */
+@import "~@logo-software/theme/base";
+@import "scss/icons";
+
 :host {
   position: relative;
   display: block;
@@ -31,6 +43,7 @@
     border-radius: 2px;
     margin-top: 0;
     margin-left: -1px;
+    z-index: 2;
 
     input {
       display: flex;
@@ -68,6 +81,23 @@
           background-color: var(--primary-200);
         }
       }
+    }
+  }
+
+  .multiple-base {
+    position: relative;
+    padding-right: size(32px);
+
+    logo-tags {
+      margin: size(2px) size(5px) size(2px) 0;
+    }
+
+    .clear-btn {
+      @include border-radius(50%);
+
+      position: absolute;
+      top: size(2px);
+      right: 0;
     }
   }
 }

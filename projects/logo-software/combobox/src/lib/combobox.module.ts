@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { CoreModule } from '@logo-software/core';
 
 import { ComboboxComponent } from './combobox.component';
+import { MultiplePipe } from './pipe/multiple.pipe';
+import { TagsModule } from '@logo-software/tags';
 
 /**
  * A combo box is a commonly used graphical user interface widget (or control).
@@ -33,8 +35,8 @@ import { ComboboxComponent } from './combobox.component';
  * ```
  */
 @NgModule({
-  declarations: [ComboboxComponent],
-  imports: [FormsModule, CommonModule, CoreModule],
+  declarations: [ComboboxComponent, MultiplePipe],
+  imports: [FormsModule, CommonModule, CoreModule, TagsModule],
   exports: [ComboboxComponent],
 })
 export class ComboboxModule {

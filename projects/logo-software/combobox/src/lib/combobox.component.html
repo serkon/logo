@@ -1,9 +1,23 @@
 <div
   (click)="openListDiv()"
-  [innerHTML]="selectedHTML()"
   [ngClass]="{'open': display}"
   class="selected medium le-arrow_down icon-right basic"
 >
+  <div *ngIf="!this.multiple; else multipleTemplate" [innerHTML]="selectedHTML()"></div>
+  <ng-template #multipleTemplate>
+    <div *ngIf="this.selectedItems.length > 0; else noDataTemplate" class="multiple-base">
+      <logo-tags
+        (onRemoveClicked)="setSelectedItem(theSelect, i)"
+        *ngFor="let theSelect of selectedItems; let i=index;"
+        [item]="{id:i, name: theSelect | multiple: path}"
+      >
+      </logo-tags>
+      <button (click)="clearAll()" class="clear-btn ghost le-cross"></button>
+    </div>
+  </ng-template>
+  <ng-template #noDataTemplate>
+    {{placeholder}}
+  </ng-template>
 </div>
 <div *ngIf="display" class="dropdown">
   <input
@@ -24,7 +38,7 @@
       let isFirst=first;
       let isOdd=odd;"
       (click)="setSelectedItem(item, i)"
-      [ngClass]="{'hover': i === hover, 'selected': item===selectedItem}"
+      [ngClass]="{'selected': this.multiple ? selectedItems.indexOf(item) > -1 : item===selectedItem}"
     >
       <ng-container
         [ngTemplateOutletContext]="{item: item, index: i, isLast: isLast, isFirst: isFirst, isOdd: isOdd}"
