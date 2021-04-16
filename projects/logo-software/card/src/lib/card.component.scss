@@ -5,6 +5,8 @@
 }
 
 :host {
+  position: relative;
+
   .card {
     @include border-radius(size(10px));
     @include transition(all, 0.2s, ease-in-out);
@@ -14,7 +16,6 @@
     margin: size(10px);
     box-sizing: border-box;
     overflow: hidden;
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: stretch;
