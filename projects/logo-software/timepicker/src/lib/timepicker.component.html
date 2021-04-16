@@ -16,12 +16,12 @@
   <logo-popover [hasSearch]="false" [id]="'timePopover-' + id" [isBackClick]="false">
     <div class="selection-input">
       <div class="selection">
-        <select (change)="setHour($event)" [(ngModel)]="selectedHour" id="{{id}}Hours">
+        <select (change)="setHour($event)" [(ngModel)]="selectedHour" class="popoverSelect" id="{{id}}Hours">
           <option *ngFor="let hour of hours" [value]="hour">{{hour}}</option>
         </select>
       </div>
       <div class="selection">
-        <select (change)="setMin($event)" [(ngModel)]="selectedMins" id="{{id}}Mins">
+        <select (change)="setMin($event)" [(ngModel)]="selectedMins" class="popoverSelect" id="{{id}}Mins">
           <option *ngFor="let min of mins" [value]="min">{{min}}</option>
         </select>
       </div>

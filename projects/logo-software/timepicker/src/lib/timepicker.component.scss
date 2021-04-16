@@ -12,13 +12,16 @@
 @import "scss/icons";
 
 :host {
-  position: relative;
   display: inline-block;
+
+  logo-popover {
+    width: 100%;
+  }
 
   ::ng-deep {
     .selection-input {
       display: flex;
-      width: 100%;
+      width: size(160px);
       align-items: flex-start;
       justify-content: space-between;
 
