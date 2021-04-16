@@ -61,9 +61,12 @@ export enum CRUD {
  * <logo-table
  *   [columns]="tableDummyData.columns"
  *   [rows]="tableDummyData.rows"
+ *   class="small"
  * >
  * </logo-table>
  * ```
+ *
+ * You can add `'small' | 'medium' | 'large'` class names to the component, so it will set row size of the table
  *
  * Then set data at `app.component.ts` file:
  *
