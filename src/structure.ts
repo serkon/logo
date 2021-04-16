@@ -831,6 +831,57 @@ export const structure = [
           },
         ],
       },
+      {
+        type: 'page',
+        name: 'Datepicker Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'DatepickerModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'DatepickerComponent',
+          },
+        ],
+      },
+      {
+        type: 'page',
+        name: 'Wizard Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'WizardModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'WizardComponent',
+          },
+        ],
+      },
+      {
+        type: 'page',
+        name: 'Timepicker Module',
+        icon: 'toastr.svg',
+        children: [
+          {
+            type: 'block',
+            block: 'component',
+            source: 'TimepickerModule',
+          },
+          {
+            type: 'block',
+            block: 'component',
+            source: 'TimepickerComponent',
+          },
+        ],
+      },
     ],
   },
   {
