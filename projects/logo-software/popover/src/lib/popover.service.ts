@@ -8,6 +8,7 @@
  * Any reproduction of this material must contain this notice.
  */
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 /**
  * This the service for popover the edit popover options on your own code on-the-go.
@@ -29,6 +30,12 @@ export class PopoverService {
    */
   public activePopover: string = null;
 
+  public activeWidth: number;
+
+  public activeElement: HTMLElement;
+
+  public openWatcher: Subject<boolean> = new Subject<boolean>();
+
   /**
    * Global funtion to toggle a popover with id.
    * @param id
@@ -37,6 +44,7 @@ export class PopoverService {
     id !== this.activePopover && this.activePopover !== null && this.display ? this.closePopover() : '';
     id === this.activePopover ? this.closePopover() : this.activePopover = id;
     this.display = !this.display;
+    this.openWatcher.next(this.display);
   }
 
   /**
@@ -44,7 +52,7 @@ export class PopoverService {
    */
   public closePopover() {
     this.activePopover = null;
-    this.display = false;
+    this.status(false);
   }
 
   /**
@@ -56,6 +64,11 @@ export class PopoverService {
       this.closePopover();
     }
     this.activePopover = id;
-    this.display = true;
+    this.status(true);
+  }
+
+  private status(value: boolean) {
+    this.display = value;
+    this.openWatcher.next(value);
   }
 }

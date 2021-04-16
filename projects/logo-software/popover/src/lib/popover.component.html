@@ -1,4 +1,4 @@
-<div *ngIf="popoverService.activePopover === id" class="logo-popover" id="{{id}}">
+<div #popoverContentBase *ngIf="popoverService.activePopover === id" class="logo-popover" id="{{id}}">
   <input
     #popoverSearchRef
     (input)="searchOutput(popoverSearchRef)"
