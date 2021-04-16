@@ -2342,6 +2342,46 @@
           }
         }
       }
+    },
+    "@logo-software/autocomplete": {
+      "projectType": "library",
+      "root": "projects/logo-software/autocomplete",
+      "sourceRoot": "projects/logo-software/autocomplete/src",
+      "prefix": "logo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/logo-software/autocomplete/tsconfig.lib.json",
+            "project": "projects/logo-software/autocomplete/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/logo-software/autocomplete/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/logo-software/autocomplete/src/test.ts",
+            "tsConfig": "projects/logo-software/autocomplete/tsconfig.spec.json",
+            "karmaConfig": "projects/logo-software/autocomplete/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/logo-software/autocomplete/tsconfig.lib.json",
+              "projects/logo-software/autocomplete/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "documentation"
