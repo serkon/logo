@@ -1,6 +1,6 @@
 {
   "name": "@logo-software/autocomplete",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "peerDependencies": {
     "@angular/common": "^11.2.3",
     "@angular/core": "^11.2.3"
@@ -9,7 +9,7 @@
     "tslib": "^2.0.0",
     "@logo-software/core": "~0.0.22",
     "@logo-software/theme": "^3.10.2",
-    "@logo-software/tags": "^0.2.1"
+    "@logo-software/tags": "^0.2.2"
   },
   "description": "The autocomplete component is an input field that provides selectable suggestions as a merchant types into it.It allows merchants to quickly search through and select from large collections of options.",
   "homepage": "http://elements.logo.com.tr",
