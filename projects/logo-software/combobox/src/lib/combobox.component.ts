@@ -171,7 +171,9 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
     this.ngModelChange.emit(item);
     this.select.emit(item);
     this.focusInputElement();
-    this.closeListDiv();
+    if (!this.multiple) {
+      this.closeListDiv();
+    }
   }
 
   arrowUp() {
