@@ -1,0 +1,17 @@
+:host {
+  h2 {
+    margin-bottom: 15px;
+  }
+
+  .selected-container {
+    margin: 15px 0;
+
+    .label {
+      font-weight: bold;
+    }
+
+    .value {
+      color: var(--teal);
+    }
+  }
+}

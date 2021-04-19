@@ -175,6 +175,10 @@ const routes: Routes = [
         path: 'datepicker-sample',
         loadChildren: () => import('./datepicker-sample/datepicker-sample.module').then(m => m.DatepickerSampleModule),
       },
+      {
+        path: 'autocomplete-sample',
+        loadChildren: () => import('./autocomplete-sample/autocomplete-sample.module').then(m => m.AutocompleteSampleModule),
+      },
     ],
   },
 ];

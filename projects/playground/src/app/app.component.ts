@@ -16,6 +16,7 @@ export class AppComponent {
       name: 'Components',
       children: [
         {name: 'accordion'},
+        {name: 'autocomplete'},
         {name: 'breadcrumb'},
         {name: 'badge'},
         {name: 'card'},
