@@ -1,0 +1,30 @@
+/**
+ * @license
+ * Copyright Logo Yazılım. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of Logo Yazılım.
+ * Any reproduction of this material must contain this notice.
+ */
+
+[class^=le-], [class*=" le-"] {
+  position: relative;
+}
+
+[class^=le-]::before, [class*=" le-"]::before {
+  height: 100%;
+  top: 0;
+  -webkit-mask-size: 14px;
+  mask-size: 14px;
+}
+
+.le-cross::before {
+  -webkit-mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='currentColor' xmlns='http://www.w3.org/2000/svg'%3E %3Cg id='cross'%3E %3Cpath id='Shape' fill-rule='evenodd' clip-rule='evenodd' d='M18.4882 16.179L14.3092 12.001L18.4872 7.82302C19.1242 7.18602 19.1242 6.15002 18.4872 5.51302C18.1782 5.20402 17.7682 5.03402 17.3322 5.03402C16.8952 5.03402 16.4852 5.20502 16.1772 5.51302L12.0002 9.69102L7.82118 5.51202C7.51318 5.20402 7.10318 5.03302 6.66618 5.03302C6.23018 5.03302 5.82018 5.20302 5.51118 5.51202C4.87518 6.14902 4.87518 7.18502 5.51118 7.82202L9.69018 12.001L5.51118 16.179C4.87618 16.815 4.87518 17.851 5.51118 18.49C5.82018 18.797 6.23018 18.966 6.66618 18.966C7.10218 18.966 7.51218 18.797 7.82118 18.489L12.0002 14.31L16.1782 18.489C16.4872 18.797 16.8972 18.967 17.3342 18.967C17.7692 18.967 18.1792 18.797 18.4882 18.489C19.1252 17.851 19.1252 16.815 18.4882 16.179Z' fill='%235A5A5A'/%3E %3C/g%3E %3C/svg%3E");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  display: inline-block;
+  content: "";
+  position: absolute;
+  background: currentColor;
+}

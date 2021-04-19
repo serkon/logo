@@ -1,0 +1,57 @@
+<div
+  (click)="openListDiv()"
+  [ngClass]="{'open': display}"
+  class="medium basic logo-autocomplete"
+>
+  <div *ngIf="selectedItem !== null || selectedItems.length > 0" class="selection-container">
+    <logo-tags
+      (onRemoveClicked)="removeSelectedItem()"
+      *ngIf="!this.multiple; else multipleTemplate"
+      [item]="{name: selectedItem | multiple: path}"
+    >
+    </logo-tags>
+    <ng-template #multipleTemplate>
+      <div *ngIf="this.selectedItems.length > 0" class="multiple-base">
+        <logo-tags
+          (onRemoveClicked)="setSelectedItem(theSelect, i)"
+          *ngFor="let theSelect of selectedItems; let i=index;"
+          [item]="{id:i, name: theSelect | multiple: path}"
+        >
+        </logo-tags>
+      </div>
+    </ng-template>
+  </div>
+  <div *ngIf="showInput" class="input-container">
+    <input
+      #inputRef
+      (input)="debounce(inputRef)"
+      (keydown.arrowDown)="arrowDown()"
+      (keydown.arrowUp)="arrowUp()"
+      (keydown.enter)="this.selected = this.hover"
+      [(ngModel)]="search"
+      placeholder="{{placeholder}}"
+    />
+  </div>
+</div>
+<div *ngIf="display" class="dropdown">
+  <ul #itemRef class="items">
+    <li
+      (click)="setSelectedItem(item, i)"
+      *ngFor="let item of filtered;
+      let i=index;
+      let isLast=last;
+      let isFirst=first;
+      let isOdd=odd;"
+      [ngClass]="{'selected': this.multiple ? selectedItems.indexOf(item) > -1 : item===selectedItem}"
+      class="item large"
+    >
+      <ng-container
+        [ngTemplateOutletContext]="{item: item, index: i, isLast: isLast, isFirst: isFirst, isOdd: isOdd}"
+        [ngTemplateOutlet]="templateRef ? templateRef: native"
+      >
+      </ng-container>
+      <ng-template #native>{{optionHTML(item, i)}}</ng-template>
+    </li>
+  </ul>
+</div>
+

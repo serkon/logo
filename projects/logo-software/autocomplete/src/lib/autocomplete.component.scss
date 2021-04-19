@@ -1,0 +1,102 @@
+/**
+ * @license
+ * Copyright Logo Yazılım. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of Logo Yazılım.
+ * Any reproduction of this material must contain this notice.
+ */
+@import "~@logo-software/theme/base";
+@import "scss/icons";
+
+:host {
+  position: relative;
+  display: block;
+  border-radius: 2px;
+
+  .logo-autocomplete {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    height: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    .selection-container {
+      position: relative;
+      margin-right: size(5px);
+
+      logo-tags {
+        margin: size(2px) size(5px) size(2px) 0;
+      }
+    }
+
+    .input-container {
+      flex-grow: 1;
+      min-width: size(150px);
+
+      input {
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 0;
+
+        &:focus {
+          @include box-shadow(0, 0, 0, 0, var(--white-rgb), 0);
+
+          background-color: transparent !important;
+          border: 0 !important;
+          border-bottom: 1px solid var(--basic-800) !important;
+        }
+      }
+    }
+  }
+
+  .dropdown {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid var(--primary-400);
+    background-color: var(--white);
+    box-sizing: border-box;
+    box-shadow: 0 2px 15px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    margin-top: -1px;
+    max-height: size(350px);
+    overflow: auto;
+    z-index: 10;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-height: 350px;
+      overflow: auto;
+
+      li {
+        background-color: white;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0 10px;
+        height: 40px;
+        line-height: 40px;
+        color: var(--neutral-900);
+        font-size: 14px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        box-sizing: border-box;
+
+        &.hover, &:hover {
+          background-color: var(--primary-100);
+          cursor: pointer;
+        }
+
+        &.selected {
+          background-color: var(--primary-200);
+        }
+      }
+    }
+  }
+}
