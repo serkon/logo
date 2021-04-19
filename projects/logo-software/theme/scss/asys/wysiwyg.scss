@@ -1,0 +1,53 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
+@import "~@logo-software/theme/base";
+
+:root {
+  .sun-editor {
+    border-color: var(--basic-600);
+    color: var(--neutral-900);
+
+    .se-container {
+      border: 0 !important;
+      background: var(--basic-100);
+      border-width: 0;
+    }
+
+    .se-toolbar {
+      outline: var(--basic-600) solid 1px;
+      background-color: var(--basic-500);
+    }
+
+    .se-btn-tray {
+      padding: size(6px) size(8px) 0;
+    }
+
+    .se-btn-module-border {
+      border: 0;
+    }
+
+    .se-btn {
+      border-color: var(--basic-500);
+    }
+
+    .se-btn-tray svg {
+      color: var(--neutral-900)
+    }
+
+    .se-wrapper .se-wrapper-wysiwyg {
+      background-color: var(--basic-100);
+    }
+  }
+
+  .sun-editor-editable {
+    color: var(--neutral-900);
+  }
+}
