@@ -21,6 +21,7 @@
 </div>
 <div *ngIf="display" class="dropdown">
   <input
+    *ngIf="hasFilter"
     #inputRef
     (input)="debounce(inputRef)"
     (keydown.arrowDown)="arrowDown()"

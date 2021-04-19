@@ -65,9 +65,13 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
    */
   @Input() hover: number = -1;
   /**
-   * When popover opened given indexed item will be hovered. Default is `-1`.
+   * Let users select multiple options from the list. Default is `false`.
    */
   @Input() multiple: boolean = false;
+  /**
+   * This option let developers to filter the list in the box. Default is `true`.
+   */
+  @Input() hasFilter: boolean = true;
   @Input() ngModel: string;
   /**
    * If you use your custom filter (e.g. server-side filtering) filter even emitter called when input entered.
