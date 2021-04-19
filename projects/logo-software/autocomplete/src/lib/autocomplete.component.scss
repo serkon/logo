@@ -13,12 +13,12 @@
 :host {
   position: relative;
   display: block;
-  border-radius: 2px;
+  border-radius: size(2px);
 
   .logo-autocomplete {
     display: flex;
     align-items: center;
-    padding-left: 10px;
+    padding-left: size(10px);
     height: 100%;
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -57,12 +57,12 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    border: 1px solid var(--primary-400);
+    border: size(1px) solid var(--primary-400);
     background-color: var(--white);
     box-sizing: border-box;
-    box-shadow: 0 2px 15px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 2px;
-    margin-top: -1px;
+    box-shadow: 0 size(2px) size(15px) size(4px) rgba(0, 0, 0, 0.15);
+    border-radius: size(2px);
+    margin-top: size(-1px);
     max-height: size(350px);
     overflow: auto;
     z-index: 10;
@@ -71,7 +71,7 @@
       list-style: none;
       padding: 0;
       margin: 0;
-      max-height: 350px;
+      max-height: size(350px);
       overflow: auto;
 
       li {
@@ -79,10 +79,10 @@
         align-items: center;
         justify-content: flex-start;
         padding: 0 10px;
-        height: 40px;
-        line-height: 40px;
+        height: size(40px);
+        line-height: size(40px);
         color: var(--neutral-900);
-        font-size: 14px;
+        font-size: size(14px);
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;

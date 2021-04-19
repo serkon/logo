@@ -1,27 +1,47 @@
-# Autocomplete
+# Autocomplete Module
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
+The autocomplete component is an input field that provides selectable suggestions as a merchant types into it. It allows
+merchants to quickly search through and select from large collections of options.
 
-## Code scaffolding
+Click here for [demo](http://design.logo.com.tr/#/docs/components/autocomplete-module#autocompletemodule)
 
-Run `ng generate component component-name --project autocomplete` to generate a new component. You can also
-use `ng generate directive|pipe|service|class|guard|interface|enum|module --project autocomplete`.
-> Note: Don't forget to add `--project autocomplete` or else it will be added to the default project in your `angular.json` file.
+### Installation
 
-## Build
+All public npm packages of Logo Software is at [https://www.npmjs.com/~logofe](https://www.npmjs.com/~logofe). To
+install Autocomplete Module:
 
-Run `ng build autocomplete` to build the project. The build artifacts will be stored in the `dist/` directory.
+  ```bash
+$ npm set registry https://registry.npmjs.org/
+$ npm install @logo-software/autocomplete -s
+```
 
-## Publishing
+Just import it to your project of `@NgModule` import section.
 
-After building your library with `ng build autocomplete`, go to the dist folder `cd dist/autocomplete` and
-run `npm publish`.
+```typescript
+@NgModule({
+  imports: [CommonModule, AutocompleteModule],
+})
+export class AppModule {
+}
+```
 
-## Running unit tests
+### Autocomplete Component
 
-Run `ng test autocomplete` to execute the unit tests via [Karma](https://karma-runner.github.io).
+A Autocomplete displays a ListBox related to the input, which enables the user to select items from the list or enter a
+value for filtering this list then can select an item.
 
-## Further help
+```html
 
-To get more help on the Angular CLI use `ng help` or go check out
-the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<logo-autocomplete (filter)="onFiltered($event)" (select)="onSelect($event)" [(ngModel)]="selected" [hover]="1"
+                   [items]="displayedItems" [path]="'a.b'">
+  // If you wish to add custom items, please use it similar to the following code sample.
+  // Or leave blank for the default view.
+  <ng-template let-item="item" let-index="index" let-isOdd="isOdd" let-isFirst="isFirst" let-isLast="isLast">
+    <span>customized {{index}} - {{isFirst}} - {{isLast}} - {{isOdd}} - {{item | json }}</span>
+  </ng-template>
+</logo-autocomplete>
+
+Export: {{selected | json}}
+```
+
+For API details, please visit http://design.logo.com.tr/#/docs/components/components-overview

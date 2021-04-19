@@ -12,9 +12,26 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { Util } from '@logo-software/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
+import { Util } from '@logo-software/core';
+
+/**
+ * A Autocomplete displays a ListBox related to the input, which enables the user to select items
+ * from the list or enter a value for filtering this list then can select an item.
+ *
+ * __Usage Example__
+ *
+ * ```html
+ * <logo-autocomplete (filter)="onFiltered($event)" (select)="onSelect($event)" [(ngModel)]="selected" [hover]="1" [items]="displayedItems" [path]="'a.b'">
+ *   // If you wish to add custom items, please use it similar to the following code sample.
+ *   // Or leave blank for the default view.
+ *   <ng-template let-item="item" let-index="index" let-isOdd="isOdd" let-isFirst="isFirst" let-isLast="isLast">
+ *     <span>customized {{index}} - {{isFirst}} - {{isLast}} - {{isOdd}} - {{item | json }}</span>
+ *   </ng-template>
+ * </logo-autocomplete>
+ * ```
+ */
 @Component({
   selector: 'logo-autocomplete',
   templateUrl: './autocomplete.component.html',
@@ -31,7 +48,7 @@ export class AutocompleteComponent implements OnInit, AfterViewInit {
   @ViewChild('itemRef', {read: ElementRef}) itemsRef: ElementRef;
   @ViewChild('inputRef', {static: false, read: ElementRef}) inputRef: ElementRef;
   /**
-   * Add placeholder string, default is `Select`
+   * Add placeholder string, default is `Please Enter Your Search`
    */
   @Input() placeholder: string = 'Please Enter Your Search';
   /**
