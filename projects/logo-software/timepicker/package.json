@@ -1,14 +1,14 @@
 {
   "name": "@logo-software/timepicker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "peerDependencies": {
     "@angular/common": "^11.2.3",
     "@angular/core": "^11.2.3"
   },
   "dependencies": {
     "tslib": "^2.0.0",
-    "@logo-software/theme": "^3.9.1",
-    "@logo-software/popover": "^0.1.0"
+    "@logo-software/theme": "^3.10.3",
+    "@logo-software/popover": "^0.1.1"
   },
   "description": "Timepicker helps users select and set a specific time in your timesheet in 24-hour format.",
   "homepage": "http://elements.logo.com.tr",
