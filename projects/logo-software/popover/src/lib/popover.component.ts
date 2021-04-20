@@ -50,7 +50,9 @@ export class PopoverComponent implements OnInit {
    * Your own css classes for designing your own theme
    */
   @Input() cssClasses: string;
-
+  /**
+   * Set Popover width same as opener's width.
+   */
   @Input() sameSize: boolean = true;
 
   constructor(public popoverService: PopoverService, private elementRef: ElementRef) {
@@ -68,21 +70,6 @@ export class PopoverComponent implements OnInit {
     }
     this.popoverService.openWatcher.next(this.popoverService.display);
   };
-
-  /**
-   * Document click host listener.
-   * @param event
-   */
-
-  /*
-  @HostListener('document:click', ['$event'])
-  public onBodyClick(targetElement) {
-    console.log(targetElement);
-    if(this.popoverService.display) {
-      const popover: HTMLElement = (event.target as HTMLElement).closest('logo-popover');
-      this.popoverService.activePopover !== null && !!popover ? '' : this.popoverService.closePopover();
-    }
-  }*/
 
   ngOnInit(): void {
     this.popoverService.hasSearch = this.hasSearch;

@@ -2,6 +2,9 @@ import { AfterViewInit, Directive, ElementRef, HostListener, Input } from '@angu
 
 import { PopoverService } from './popover.service';
 
+/**
+ * Popover directive lets developers to implement and call logo popover easily. Just add [logoPopover] to your element and give your popover id to display it.
+ */
 @Directive({
   selector: '[logoPopover]',
 })
