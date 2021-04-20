@@ -10,16 +10,20 @@
  */
 -->
 <div [ngClass]="modal.show ? 'show' : ''" class="modal" id="{{modalId}}" tabindex="-1">
-  <div class="dialog">
+  <div [ngClass]="{'fullscreen' : modal.isFullscreen}" class="dialog">
     <div class="base">
       <div class="header">
-        <button (click)="modal.closeModal(this.modalId)" class="close le-cross small"></button>
+        <div class="opts-base">
+          <button (click)="modal.toogleFullscreen()" *ngIf="supportFullscreen"
+                  class="window-button full-screen le-cross small"></button>
+          <button (click)="modal.closeModal()" class="window-button close le-cross small"></button>
+        </div>
         <h5>{{title}}</h5>
       </div>
       <div class="content">
         <ng-content select="[body]"></ng-content>
       </div>
-      <div #dialogFooter [ngClass]="!hasFooter ? 'none': ''" class="footer">
+      <div #dialogFooter [ngClass]="{'none': !modal.hasFooter, 'shadowed': modal.hasShadow}" class="footer">
         <ng-content select="[footer]"></ng-content>
       </div>
     </div>

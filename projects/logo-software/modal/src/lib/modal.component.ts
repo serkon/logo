@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 
 import { ModalService } from './modal.service';
 
@@ -28,7 +28,7 @@ import { ModalService } from './modal.service';
   styleUrls: ['./modal.component.scss'],
   templateUrl: './modal.component.html',
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent implements AfterViewInit {
   /**
    * The identifier of the modal. You can set it dynamically.
    */
@@ -37,22 +37,36 @@ export class ModalComponent implements OnInit {
    * The title of the modal
    */
   @Input() title: string = '';
+  /**
+   * Shadow option of the modal footer. If set true, a shadow will be shown upside of the footer area. Default is false.
+   */
+  @Input() footerShadow: boolean = false;
+  /**
+   * Add your own css class to modal base. You can access dialog base by using '.dialog' class name in your own css class.
+   */
+  @Input() cssClasses: string = '';
+  /**
+   * Option for show fullscreen button or not. Default is false.
+   */
+  @Input() supportFullscreen: boolean = false;
 
   /**
    * When modal opened, output fired by the component.
    */
   @Output() public onOpened: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  public hasFooter: boolean = false;
-
   @ViewChild('dialogFooter', {read: ElementRef, static: true}) dialogFooter: ElementRef;
 
   constructor(public modal: ModalService) {
+    if (this.modal.modalVisibilityChange) {
+      this.onOpened.emit(this.modal.show);
+    }
   }
 
-  ngOnInit(): void {
-    this.dialogFooter.nativeElement.innerHTML === '' ? this.hasFooter = false : this.hasFooter = true;
-    this.onOpened.emit(true);
+  ngAfterViewInit(): void {
+    this.dialogFooter.nativeElement.innerHTML === '' ? this.modal.hasFooter = false : this.modal.hasFooter = true;
+    this.modal.supportFullscreen = this.supportFullscreen;
+    this.modal.hasShadow = this.footerShadow;
   }
 
 }
