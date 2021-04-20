@@ -48,6 +48,14 @@ import { HeaderService, HeaderTheme } from './header.service';
 })
 export class HeaderComponent implements AfterViewInit {
   /**
+   * Header left logo link display text. Default is `Home`. It also accept html string.
+   */
+  @Input() logoLinkText: string = 'Home';
+  /**
+   * Header left logo link target. Default is `/`.
+   */
+  @Input() logoLinkTarget: string = '/';
+  /**
    * adds 'default' class to header component's tag to default. It will also make header background to transparent.
    */
   @Input() defaultTheme: HeaderTheme = HeaderTheme.START;
