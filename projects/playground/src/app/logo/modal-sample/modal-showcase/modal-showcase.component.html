@@ -1,12 +1,16 @@
+<button (click)="openModal()" class="success large">Open The Modal</button>
 <logo-modal
   (onOpened)="sampleOpenAction()"
   [modalId]="'logoModal'"
   [title]="'My Logo Modal'"
+  [footerShadow]="true"
+  [supportFullscreen]="true"
 >
   <ng-container body>
     <p class="large">This is my modal content</p>
   </ng-container>
   <ng-container footer>
-    <p class="small">This is the footer content of the modal</p>
+    <button>Sample Button</button>
+    <button (click)="closeModal()" class="danger outline">Close Modal</button>
   </ng-container>
 </logo-modal>
