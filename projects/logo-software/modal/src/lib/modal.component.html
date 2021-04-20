@@ -14,8 +14,12 @@
     <div class="base">
       <div class="header">
         <div class="opts-base">
-          <button (click)="modal.toogleFullscreen()" *ngIf="supportFullscreen"
-                  class="window-button full-screen le-cross small"></button>
+          <button
+            (click)="modal.toogleFullscreen()"
+            *ngIf="supportFullscreen"
+            class="window-button full-screen le-cross small"
+          >
+          </button>
           <button (click)="modal.closeModal()" class="window-button close le-cross small"></button>
         </div>
         <h5>{{title}}</h5>
