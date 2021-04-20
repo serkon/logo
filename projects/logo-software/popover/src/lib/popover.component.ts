@@ -7,7 +7,7 @@
  * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
  * Any reproduction of this material must contain this notice.
  */
-import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 
 import { PopoverService } from './popover.service';
 
@@ -73,13 +73,16 @@ export class PopoverComponent implements OnInit {
    * Document click host listener.
    * @param event
    */
+
+  /*
   @HostListener('document:click', ['$event'])
-  public onClick(event: Event) {
-    const contains = event.target;
-    if (!contains && this.isBackClick && this.popoverService.display && this.popoverService.activePopover !== null) {
-      this.popoverService.togglePopover(this.id);
+  public onBodyClick(targetElement) {
+    console.log(targetElement);
+    if(this.popoverService.display) {
+      const popover: HTMLElement = (event.target as HTMLElement).closest('logo-popover');
+      this.popoverService.activePopover !== null && !!popover ? '' : this.popoverService.closePopover();
     }
-  }
+  }*/
 
   ngOnInit(): void {
     this.popoverService.hasSearch = this.hasSearch;

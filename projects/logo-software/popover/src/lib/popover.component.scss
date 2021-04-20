@@ -16,6 +16,7 @@
     display: inline-flex;
     flex-direction: column;
     width: auto;
+    min-width: size(150px);
     border: size(1px) solid var(--primary-400);
     background-color: var(--white);
     box-sizing: border-box;
