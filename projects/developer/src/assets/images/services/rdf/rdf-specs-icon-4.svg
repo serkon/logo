@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg height="35px" version="1.1" viewBox="0 0 34 35" width="34px" xmlns="http://www.w3.org/2000/svg">
+  <title>template</title>
+  <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Report-Designer-Features" transform="translate(-697.000000, -2226.000000)" fill="#38B878">
+      <g id="section3" transform="translate(102.000000, 1692.000000)">
+        <g id="template" transform="translate(595.000000, 534.000000)">
+          <path d="M0,0 L0,12 L34,12 L34,0 L0,0 Z M30,4 L3,4 L3,8 L30,8 L30,4 Z" id="Shape"></path>
+          <path d="M0,16 L0,35 L15,35 L15,16 L0,16 Z M11,20 L3,20 L3,31 L11,31 L11,20 Z" id="Shape"></path>
+          <polygon id="Path" fill-rule="nonzero" points="34 16 19 16 19 20 34 20"></polygon>
+          <polygon id="Path" fill-rule="nonzero" points="19 23 34 23 34 28 19 28"></polygon>
+          <polygon id="Path" fill-rule="nonzero" points="34 30 19 30 19 35 34 35"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

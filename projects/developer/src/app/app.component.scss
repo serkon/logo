@@ -1,0 +1,41 @@
+@import "~@logo-software/theme/base";
+
+$header-size: size(80px);
+
+:host {
+  display: block;
+
+  ::ng-deep {
+    logo-header {
+      height: size(84px);
+      padding: 0 size(30px);
+      background: red;
+
+      .header {
+        .logo {
+          display: flex;
+          align-items: center;
+          color: var(--white);
+          font-weight: 600;
+          font-size: size(20px);
+          line-height: size(26px);
+
+          &::before {
+            content: "";
+            background-image: url("/assets/images/main/paas-logo.svg");
+            background-repeat: no-repeat;
+            width: size(22px);
+            height: size(22px);
+            margin-right: size(10px);
+          }
+        }
+
+        .section-main {
+          flex-grow: 1;
+          justify-content: center;
+          display: flex;
+        }
+      }
+    }
+  }
+}

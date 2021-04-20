@@ -436,29 +436,29 @@
         }
       }
     },
-    "paas": {
+    "developer": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
-      "root": "projects/paas",
-      "sourceRoot": "projects/paas/src",
+      "root": "projects/developer",
+      "sourceRoot": "projects/developer/src",
       "prefix": "logo",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/paas",
-            "index": "projects/paas/src/index.html",
-            "main": "projects/paas/src/main.ts",
-            "polyfills": "projects/paas/src/polyfills.ts",
-            "tsConfig": "projects/paas/tsconfig.app.json",
+            "outputPath": "dist/developer",
+            "index": "projects/developer/src/index.html",
+            "main": "projects/developer/src/main.ts",
+            "polyfills": "projects/developer/src/polyfills.ts",
+            "tsConfig": "projects/developer/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "projects/paas/src/favicon.ico",
-              "projects/paas/src/assets",
+              "projects/developer/src/favicon.ico",
+              "projects/developer/src/assets",
               {
                 "glob": "**/*",
                 "input": "node_modules/@logo-software/icons/src/lib/assets/icons",
@@ -471,7 +471,7 @@
               }
             ],
             "styles": [
-              "projects/paas/src/styles.scss",
+              "projects/developer/src/styles.scss",
               "node_modules/@logo-software/theme/style.scss"
             ],
             "scripts": []
@@ -480,8 +480,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/paas/src/environments/environment.ts",
-                  "with": "projects/paas/src/environments/environment.prod.ts"
+                  "replace": "projects/developer/src/environments/environment.ts",
+                  "with": "projects/developer/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -511,33 +511,33 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "port": 4400,
-            "browserTarget": "paas:build"
+            "browserTarget": "developer:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "paas:build:production"
+              "browserTarget": "developer:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "paas:build"
+            "browserTarget": "developer:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/paas/src/test.ts",
-            "polyfills": "projects/paas/src/polyfills.ts",
-            "tsConfig": "projects/paas/tsconfig.spec.json",
-            "karmaConfig": "projects/paas/karma.conf.js",
+            "main": "projects/developer/src/test.ts",
+            "polyfills": "projects/developer/src/polyfills.ts",
+            "tsConfig": "projects/developer/tsconfig.spec.json",
+            "karmaConfig": "projects/developer/karma.conf.js",
             "assets": [
-              "projects/paas/src/favicon.ico",
-              "projects/paas/src/assets"
+              "projects/developer/src/favicon.ico",
+              "projects/developer/src/assets"
             ],
             "styles": [
-              "projects/paas/src/styles.scss"
+              "projects/developer/src/styles.scss"
             ],
             "scripts": []
           }
@@ -546,9 +546,9 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/paas/tsconfig.app.json",
-              "projects/paas/tsconfig.spec.json",
-              "projects/paas/e2e/tsconfig.json"
+              "projects/developer/tsconfig.app.json",
+              "projects/developer/tsconfig.spec.json",
+              "projects/developer/e2e/tsconfig.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -558,12 +558,12 @@
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "projects/paas/e2e/protractor.conf.js",
-            "devServerTarget": "paas:serve"
+            "protractorConfig": "projects/developer/e2e/protractor.conf.js",
+            "devServerTarget": "developer:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "paas:serve:production"
+              "devServerTarget": "developer:serve:production"
             }
           }
         }

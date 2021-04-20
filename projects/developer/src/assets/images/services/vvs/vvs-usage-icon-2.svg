@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg height="51px" version="1.1" viewBox="0 0 42 51" width="42px" xmlns="http://www.w3.org/2000/svg">
+  <title>copy</title>
+  <defs>
+    <linearGradient x1="50%" y1="0%" x2="50%" y2="83.4544362%" id="linearGradient-1">
+      <stop stop-color="#4FC68A" offset="0%"></stop>
+      <stop stop-color="#139554" offset="100%"></stop>
+    </linearGradient>
+    <linearGradient x1="50%" y1="0%" x2="50%" y2="83.4544362%" id="linearGradient-2">
+      <stop stop-color="#4FC68A" offset="0%"></stop>
+      <stop stop-color="#139554" offset="100%"></stop>
+    </linearGradient>
+    </defs>
+    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="-Veritabanı-Versiyonlama-Servisi" transform="translate(-533.000000, -1077.000000)">
+            <g id="section2" transform="translate(-2.000000, 815.000000)">
+                <g id="card" transform="translate(126.000000, 206.000000)">
+                    <g id="copy" transform="translate(409.000000, 56.000000)">
+                        <polygon id="Path" fill="url(#linearGradient-1)" fill-rule="nonzero" points="23 14 9 14 9 9 23 9"></polygon>
+                        <polygon id="Path" fill="url(#linearGradient-1)" fill-rule="nonzero" points="23 23 9 23 9 18 23 18"></polygon>
+                        <polygon id="Path" fill="url(#linearGradient-1)" fill-rule="nonzero" points="9 33 23 33 23 28 9 28"></polygon>
+                        <path d="M0,41.7272727 L0,0 L32.6666667,0 L32.6666667,9.27272727 L42,9.27272727 L42,51 L9.33333333,51 L9.33333333,41.7272727 L0,41.7272727 Z M28,37.0909091 L28,4.63636364 L4.66666667,4.63636364 L4.66666667,37.0909091 L28,37.0909091 Z M32.6666667,13.9090909 L32.6666667,41.7272727 L14,41.7272727 L14,46.3636364 L37.3333333,46.3636364 L37.3333333,13.9090909 L32.6666667,13.9090909 Z" id="Shape" fill="url(#linearGradient-2)"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

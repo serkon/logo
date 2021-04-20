@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg height="36px" version="1.1" viewBox="0 0 36 36" width="36px" xmlns="http://www.w3.org/2000/svg">
+  <title>size</title>
+  <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Report-Designer-Features" transform="translate(-696.000000, -2078.000000)" fill="#39B879">
+      <g id="section3" transform="translate(102.000000, 1692.000000)">
+        <g id="size" transform="translate(594.000000, 386.000000)">
+          <path
+            d="M18,4.5 L18,0 L36,0 L36,36 L18,36 L18,31.5 L9,31.5 L9,27 L0,27 L0,9 L9,9 L9,4.5 L18,4.5 Z M22,4 L32,4 L32,32 L22,32 L22,4 Z M18,9 L13,9 L13,27 L18,27 L18,9 Z M9,14 L9,23 L4,23 L4,14 L9,14 Z"
+            id="Shape"></path>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

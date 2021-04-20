@@ -21,8 +21,8 @@
     ],
     "resolveJsonModule": true,
     "paths": {
-      "@paas/*": [
-        "./projects/paas/*"
+      "@developer/*": [
+        "./projects/developer/*"
       ],
       "@cloud/*": [
         "./projects/cloud/src/*"
