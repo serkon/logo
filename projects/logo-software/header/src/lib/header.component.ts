@@ -31,7 +31,7 @@ import { HeaderService, HeaderTheme } from './header.service';
  *  [watchElement]="'body'"
  * >
  *   <!-- Your content goes here. Below code is a sample of usage. -->
- *   <div class="section-main">
+ *   <div class="nav">
  *     <logo-link [classes]="'ghost large'" [url]="'/products'">Products</logo-link>
  *     <logo-link [classes]="'ghost large'" [fragment]="'solutions'" [url]="'/'">Solutions</logo-link>
  *     <logo-link [classes]="'ghost large'" [url]="'/info/about'">About Us</logo-link>
@@ -55,6 +55,10 @@ export class HeaderComponent implements AfterViewInit {
    * Header left logo link target. Default is `/`.
    */
   @Input() logoLinkTarget: string = '/';
+  /**
+   * Header left logo link class. Default is empty.
+   */
+  @Input() logoLinkClasses: string = '';
   /**
    * adds 'default' class to header component's tag to default. It will also make header background to transparent.
    */

@@ -15,24 +15,23 @@
   transition: $property $duration $easing;
 }
 
+::ng-deep :root {
+  --header-height: #{size(64px)};
+}
+
 :host {
   @include animate(all, 0.2s, ease-in-out);
 
-  :root {
-    --header-height: size(64px);
-  }
-
-  display: block;
-  position: absolute !important;
+  position: fixed;
+  z-index: 10;
   left: 0;
   right: 0;
   top: 0;
   width: auto;
-  z-index: 10;
+  height: var(--header-height);
+  display: block;
 
   .header {
-    @include animate(all, 0.2s, ease-in-out);
-
     width: 100%;
     height: 100%;
 
@@ -48,49 +47,58 @@
 
       .logo {
         @include animate(all, 0.2s, ease-in-out);
-      }
-
-      .menu {
-        @include transition(transform, 0.25s, ease-in-out);
 
         display: flex;
         align-items: center;
-        flex-grow: 1;
-        box-sizing: border-box;
-        position: relative;
+        text-decoration: none;
+      }
 
-        &.right {
-          justify-content: flex-end;
-        }
+      ::ng-deep {
+        .menu {
+          @include transition(transform, 0.25s, ease-in-out);
 
-        &.left {
-          justify-content: flex-start;
-        }
+          display: flex;
+          align-items: center;
+          flex-grow: 1;
+          box-sizing: border-box;
+          position: relative;
 
-        &.center {
-          justify-content: center;
-        }
+          &.right {
+            justify-content: flex-end;
+          }
 
-        @include larger-than(lg) {
-          flex-direction: row;
-        }
+          &.left {
+            justify-content: flex-start;
+          }
 
-        @include smaller-than(lg) {
-          @include box-shadow(0, size(2px), size(4px), 0, rgba(var(--black-rgb), 0.08), false);
+          &.center {
+            justify-content: center;
+          }
 
-          flex-direction: column;
-          justify-content: flex-start;
-          position: fixed;
-          top: 0;
-          transform: translateX(35vw);
-          right: 0;
-          width: 35vw;
-          height: 100vh;
-          padding: var(--drawer-height) size(15px) size(15px);
-          z-index: 2;
-          background-color: var(--white);
+          @include larger-than(lg) {
+            flex-direction: row;
+          }
 
-          ::ng-deep {
+          @include smaller-than(lg) {
+            @include box-shadow(0, size(2px), size(4px), 0, rgba(var(--black-rgb), 0.08), false);
+
+            flex-direction: column;
+            justify-content: flex-start;
+            position: fixed;
+            top: 0;
+            transform: translateX(35vw);
+            right: 0;
+            width: 35vw;
+            height: 100vh;
+            padding: var(--header-height) size(15px) size(15px);
+            z-index: 2;
+            background-color: var(--white);
+
+            .nav {
+              flex-direction: column;
+              justify-content: flex-start;
+            }
+
             logo-link {
               width: 100%;
 
@@ -99,11 +107,11 @@
               }
             }
           }
-        }
 
-        @include smaller-than(sm) {
-          transform: translateX(98vw);
-          width: 98vw;
+          @include smaller-than(sm) {
+            transform: translateX(98vw);
+            width: 98vw;
+          }
         }
 
         ::ng-deep {
@@ -136,8 +144,10 @@
             }
           }
 
-          .section-main {
+          .nav {
+            display: flex;
             flex-grow: 1;
+            justify-content: center;
           }
 
           .section-secondary {
@@ -176,15 +186,70 @@
 
   &.opened {
     .header {
-      .menu {
-        transform: translateX(0);
-        display: flex;
+      .header-content {
+        .menu {
+          display: flex;
+          flex-direction: column;
+          transform: translateX(0);
+
+          ::ng-deep {
+            .nav {
+              flex-direction: column;
+              justify-content: flex-start;
+            }
+
+            button {
+              @extend %ghost-dark;
+            }
+          }
+        }
       }
     }
 
     .mobile-opener {
       button {
+        @extend %ghost-dark;
         @extend .le-cross;
+      }
+    }
+  }
+
+  &.default {
+    background: transparent;
+
+    ::ng-deep {
+      .header {
+        .menu {
+          button {
+            @extend %ghost-light;
+          }
+        }
+      }
+    }
+
+    .mobile-opener {
+      button {
+        @extend %ghost-light;
+      }
+    }
+  }
+
+  &.scroll {
+    @include box-shadow(0, size(2px), size(4px), 0, rgba(var(--black-rgb), 0.08), false);
+
+    background: var(--basic-200);
+
+    ::ng-deep {
+      .header {
+        .logo {
+          @extend %ghost-dark;
+        }
+      }
+    }
+
+    .mobile-opener {
+      button {
+        @extend %ghost-dark;
       }
     }
   }

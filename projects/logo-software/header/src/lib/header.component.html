@@ -3,7 +3,7 @@
   class="header {{isMobilized ? 'mobilized' : 'standart'}} {{headerService.activeTheme}}"
 >
   <div [ngClass]="{'container': containerStatus}" class="header-content">
-    <a [innerHTML]="logoLinkText" class="logo" href="{{logoLinkTarget}}"></a>
+    <a [innerHTML]="logoLinkText" class="logo {{logoLinkClasses}}" href="{{logoLinkTarget}}"></a>
     <div class="menu {{menuPosition}}">
       <ng-content #menu></ng-content>
     </div>
