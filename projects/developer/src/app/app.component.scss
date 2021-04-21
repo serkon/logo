@@ -35,6 +35,12 @@
             .nav {
               margin-right: size(140px);
             }
+
+            .explore {
+              @extend %fill-primary;
+
+              box-shadow: 0 size(4px) size(10px) rgba(0, 0, 0, 0.3);
+            }
           }
         }
       }

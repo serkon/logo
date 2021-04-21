@@ -17,7 +17,7 @@
 
     .line-1 {
       background-image: url("/assets/images/main/jumbutron-bg-1.svg");
-      background-position: bottom -50% left 80%;
+      background-position: top 0 left 50%;
       background-repeat: no-repeat;
       width: 100%;
       height: var(--jumbotron-height);
@@ -25,10 +25,74 @@
 
     .line-2 {
       background-image: url("/assets/images/main/jumbutron-bg-2.svg");
-      background-position: top -50% left 80%;
+      background-position: top 0 left 50%;
       background-repeat: no-repeat;
       width: 100%;
       height: var(--jumbotron-height);
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      padding-top: var(--header-height);
+
+      .rowy {
+        display: flex;
+        height: 100%;
+
+        .advertisement {
+          display: flex;
+          flex-grow: 2;
+          flex-basis: 0;
+          justify-content: center;
+          flex-direction: column;
+          align-items: flex-start;
+          color: var(--white);
+          margin: size(5px);
+
+          .small-title {
+            font-weight: normal;
+            font-size: size(16px);
+            line-height: size(22px);
+            padding-bottom: size(10px);
+
+            .left {
+              opacity: 0.5;
+              margin-right: size(5px);
+            }
+          }
+
+          .title {
+            font-weight: bold;
+            font-size: size(54px);
+            line-height: size(54px);
+            color: var(--white);
+            padding-bottom: size(40px);
+          }
+
+          .description {
+            font-weight: normal;
+            font-size: size(16px);
+            line-height: size(22px);
+            margin-bottom: size(40px);
+          }
+        }
+
+        .illustration {
+          margin: size(5px);
+          flex-grow: 3;
+          flex-basis: 0;
+          background-image: url("/assets/images/main/illustration.svg");
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+
+        @include smaller-than(md) {
+          flex-direction: column-reverse;
+        }
+      }
     }
   }
 }
