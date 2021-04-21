@@ -1,7 +1,7 @@
 @import "~@logo-software/theme/base";
 
 :host {
-  --jumbotron-height: #{size(1200px)};
+  --section-height: #{size(1200px)};
 
   display: block;
   margin-top: calc(-1 * var(--header-height));
@@ -9,7 +9,7 @@
   .jumbotron {
     background: radial-gradient(69.37% 142.55% at 78.23% 100%, rgba(26, 2, 96, 0.518) 22.4%, rgba(128, 84, 255, 0) 100%), linear-gradient(180deg, var(--purple) 0%, #440be9 100%);
     border-radius: 0 0 size(40px) size(40px);
-    height: var(--jumbotron-height);
+    height: var(--section-height);
 
     .line-1, .line-2 {
       position: absolute;
@@ -20,7 +20,7 @@
       background-position: top 0 left 50%;
       background-repeat: no-repeat;
       width: 100%;
-      height: var(--jumbotron-height);
+      height: var(--section-height);
     }
 
     .line-2 {
@@ -28,7 +28,7 @@
       background-position: top 0 left 50%;
       background-repeat: no-repeat;
       width: 100%;
-      height: var(--jumbotron-height);
+      height: var(--section-height);
     }
 
     .container {
@@ -83,7 +83,7 @@
           margin: size(5px);
           flex-grow: 3;
           flex-basis: 0;
-          background-image: url("/assets/images/main/illustration.svg");
+          background-image: url("/assets/images/main/section-01-illustration.svg");
           background-size: contain;
           background-position: center;
           background-repeat: no-repeat;
@@ -93,6 +93,53 @@
           flex-direction: column-reverse;
         }
       }
+    }
+  }
+
+  .solutions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: var(--section-height);
+    max-width: size(784px);
+    margin: auto;
+
+    .title {
+      font-weight: 800;
+      font-size: size(16px);
+      line-height: size(26px);
+      color: var(--neutral-400);
+      margin-bottom: size(30px);
+    }
+
+    h1 {
+      font-weight: 800;
+      font-size: size(76px);
+      line-height: size(72px);
+      color: var(--purple-1000);
+      margin-bottom: size(30px);
+      text-align: center;
+    }
+
+    .description {
+      font-weight: normal;
+      font-size: size(16px);
+      line-height: size(36px);
+      color: var(--neutral-900);
+      margin-bottom: size(30px);
+      max-width: size(609px);
+      text-align: center;
+    }
+
+    .illustration {
+      margin-top: size(112px);
+      background-image: url("/assets/images/main/section-02-illustration.svg");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: size(538px);
+      height: size(296px);
     }
   }
 }
