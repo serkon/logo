@@ -1,20 +1,16 @@
 @import "~@logo-software/theme/base";
 
-$header-size: size(80px);
-
 :host {
+  --header-height: #{size(84px)};
+
   display: block;
 
   ::ng-deep {
     logo-header {
-      height: size(84px);
       padding: 0 size(30px);
-      background: red;
 
       .header {
         .logo {
-          display: flex;
-          align-items: center;
           color: var(--white);
           font-weight: 600;
           font-size: size(20px);
@@ -22,20 +18,38 @@ $header-size: size(80px);
 
           &::before {
             content: "";
-            background-image: url("/assets/images/main/paas-logo.svg");
-            background-repeat: no-repeat;
+            mask-image: url("/assets/images/main/paas-logo.svg");
+            mask-repeat: no-repeat;
+            background: var(--white);
             width: size(22px);
             height: size(22px);
             margin-right: size(10px);
+            opacity: 0.5;
           }
         }
+      }
 
-        .section-main {
-          flex-grow: 1;
-          justify-content: center;
-          display: flex;
+      &:not(.opened) {
+        .header {
+          .menu {
+            .nav {
+              margin-right: size(140px);
+            }
+          }
+        }
+      }
+
+      &.scroll {
+        .logo {
+          &::before {
+            background-color: var(--dark);
+          }
         }
       }
     }
+  }
+
+  main {
+    padding-top: var(--header-height);
   }
 }

@@ -1,0 +1,34 @@
+@import "~@logo-software/theme/base";
+
+:host {
+  --jumbotron-height: #{size(1200px)};
+
+  display: block;
+  margin-top: calc(-1 * var(--header-height));
+
+  .jumbotron {
+    background: radial-gradient(69.37% 142.55% at 78.23% 100%, rgba(26, 2, 96, 0.518) 22.4%, rgba(128, 84, 255, 0) 100%), linear-gradient(180deg, var(--purple) 0%, #440be9 100%);
+    border-radius: 0 0 size(40px) size(40px);
+    height: var(--jumbotron-height);
+
+    .line-1, .line-2 {
+      position: absolute;
+    }
+
+    .line-1 {
+      background-image: url("/assets/images/main/jumbutron-bg-1.svg");
+      background-position: bottom -50% left 80%;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: var(--jumbotron-height);
+    }
+
+    .line-2 {
+      background-image: url("/assets/images/main/jumbutron-bg-2.svg");
+      background-position: top -50% left 80%;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: var(--jumbotron-height);
+    }
+  }
+}

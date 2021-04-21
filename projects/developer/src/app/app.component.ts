@@ -1,6 +1,7 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Link } from '@logo-software/links';
+import { HeaderTheme } from '../../../logo-software/header/src/lib/header.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,8 @@ import { Link } from '@logo-software/links';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements AfterViewInit {
-  title = 'PAAS';
+  public headerTheme = HeaderTheme;
+  title = 'Logo Platform as a Service';
   public links: Link[] = [
     {
       display: 'Servisler',

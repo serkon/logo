@@ -1,41 +1,40 @@
 <logo-header
-  [containerStatus]="true"
-  [defaultTheme]="'default'"
+  [containerStatus]="false"
+  [defaultTheme]="headerTheme.START"
+  [logoLinkClasses]="'large'"
   [isMobilized]="true"
   [logoLinkText]="'Logo Developer'"
-  [menuPosition]="'left'"
+  [menuPosition]="'center'"
+  [scrolledTheme]="headerTheme.SCROLL"
   [scrollPoint]="75"
   [scrollSpy]="true"
-  [scrolledTheme]="'scroll'"
   [watchElement]="'body'"
 >
-  <div class="section-main">
-    <logo-link [classes]="'ghost light large'" [url]="'/'">
-      Services
-    </logo-link>
+  <div class="nav">
+    <logo-link [classes]="'ghost large'" [url]="'/'">Services</logo-link>
     <logo-link
-      [classes]="'ghost light large'"
+      [classes]="'ghost large'"
       [external]="true"
       [url]="'http://wiki.logo.com.tr/pages/viewpage.action?pageId=65132817'"
     >
       Docs
     </logo-link>
     <logo-link
-      [classes]="'ghost light large'"
+      [classes]="'ghost large'"
       [external]="true"
       [url]="'http://design.logo.com.tr'"
     >
       Guideline
     </logo-link>
     <logo-link
-      [classes]="'ghost light large'"
+      [classes]="'ghost  large'"
       [external]="true"
       [url]="'http://wiki.logo.com.tr/pages/viewrecentblogposts.action?key=PSDOC'"
     >
       Blog
     </logo-link>
   </div>
-  <button class="primary large">Explore</button>
+  <button class="primary large explore">Explore</button>
 </logo-header>
 <logo-cursor *ngIf="false" [targets]="['.cursor', '.arrow', 'svg']" [timeDuration]="200"></logo-cursor>
 <main>
