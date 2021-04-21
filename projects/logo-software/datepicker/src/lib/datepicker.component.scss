@@ -20,6 +20,8 @@
     background-color: var(--white);
     padding: size(10px);
     width: size(260px);
+    position: absolute;
+    z-index: 5;
 
     .calendar-header {
       display: flex;
