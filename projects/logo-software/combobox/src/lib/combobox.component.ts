@@ -72,6 +72,10 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
    * This option let developers to filter the list in the box. Default is `true`.
    */
   @Input() hasFilter: boolean = true;
+  /**
+   * Add your own css class to object. You can access dropdown by '.dropdown' css class
+   */
+  @Input() cssClasses: string;
   @Input() ngModel: string;
   /**
    * If you use your custom filter (e.g. server-side filtering) filter even emitter called when input entered.

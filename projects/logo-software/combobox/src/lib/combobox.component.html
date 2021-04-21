@@ -1,53 +1,56 @@
-<div
-  (click)="openListDiv()"
-  [ngClass]="{'open': display}"
-  class="selected medium le-arrow_down icon-right basic"
->
-  <div *ngIf="!this.multiple; else multipleTemplate" [innerHTML]="selectedHTML()"></div>
-  <ng-template #multipleTemplate>
-    <div *ngIf="this.selectedItems.length > 0; else noDataTemplate" class="multiple-base">
-      <logo-tags
-        (onRemoveClicked)="setSelectedItem(theSelect, i)"
-        *ngFor="let theSelect of selectedItems; let i=index;"
-        [item]="{id:i, name: theSelect | multiple: path}"
-      >
-      </logo-tags>
-      <button (click)="clearAll()" class="clear-btn ghost le-cross"></button>
-    </div>
-  </ng-template>
-  <ng-template #noDataTemplate>
-    {{placeholder}}
-  </ng-template>
-</div>
-<div *ngIf="display" class="dropdown">
-  <input
-    *ngIf="hasFilter"
-    #inputRef
-    (input)="debounce(inputRef)"
-    (keydown.arrowDown)="arrowDown()"
-    (keydown.arrowUp)="arrowUp()"
-    (keydown.enter)="this.selected = this.hover"
-    [(ngModel)]="search"
-    class=""
-  />
-  <ul #itemRef class="items">
-    <li
-      class="item large"
-      *ngFor="let item of filtered;
+<div class="logo-combobox {{cssClasses}}">
+  <div
+    (click)="openListDiv()"
+    [ngClass]="{'open': display}"
+    class="selected medium le-arrow_down icon-right basic"
+  >
+    <div *ngIf="!this.multiple; else multipleTemplate" [innerHTML]="selectedHTML()"></div>
+    <ng-template #multipleTemplate>
+      <div *ngIf="this.selectedItems.length > 0; else noDataTemplate" class="multiple-base">
+        <logo-tags
+          (onRemoveClicked)="setSelectedItem(theSelect, i)"
+          *ngFor="let theSelect of selectedItems; let i=index;"
+          [item]="{id:i, name: theSelect | multiple: path}"
+        >
+        </logo-tags>
+        <button (click)="clearAll()" class="clear-btn ghost le-cross"></button>
+      </div>
+    </ng-template>
+    <ng-template #noDataTemplate>
+      {{placeholder}}
+    </ng-template>
+  </div>
+  <div *ngIf="display" class="dropdown">
+    <input
+      #inputRef
+      (input)="debounce(inputRef)"
+      (keydown.arrowDown)="arrowDown()"
+      (keydown.arrowUp)="arrowUp()"
+      (keydown.enter)="this.selected = this.hover"
+      *ngIf="hasFilter"
+      [(ngModel)]="search"
+      class=""
+    />
+    <ul #itemRef class="items">
+      <li
+        (click)="setSelectedItem(item, i)"
+        *ngFor="let item of filtered;
       let i=index;
       let isLast=last;
       let isFirst=first;
       let isOdd=odd;"
-      (click)="setSelectedItem(item, i)"
-      [ngClass]="{'selected': this.multiple ? selectedItems.indexOf(item) > -1 : item===selectedItem}"
-    >
-      <ng-container
-        [ngTemplateOutletContext]="{item: item, index: i, isLast: isLast, isFirst: isFirst, isOdd: isOdd}"
-        [ngTemplateOutlet]="templateRef ? templateRef: native"
+        [ngClass]="{'selected': this.multiple ? selectedItems.indexOf(item) > -1 : item===selectedItem}"
+        class="item large"
       >
-      </ng-container>
-      <ng-template #native>{{optionHTML(item, i)}}</ng-template>
-    </li>
-  </ul>
+        <ng-container
+          [ngTemplateOutletContext]="{item: item, index: i, isLast: isLast, isFirst: isFirst, isOdd: isOdd}"
+          [ngTemplateOutlet]="templateRef ? templateRef: native"
+        >
+        </ng-container>
+        <ng-template #native>{{optionHTML(item, i)}}</ng-template>
+      </li>
+    </ul>
+  </div>
 </div>
+
 
