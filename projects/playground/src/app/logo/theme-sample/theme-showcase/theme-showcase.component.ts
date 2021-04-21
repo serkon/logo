@@ -15,6 +15,7 @@ export enum ELEMENT {
 export class ThemeShowcaseComponent implements AfterViewInit {
   statuses = ['primary', 'secondary', 'basic', 'light', 'dark', 'gray', 'neutral'];
   semantic = ['success', 'info', 'warning', 'danger'];
+  visualization = ['yellow', 'purple', 'pink', 'teal', 'tan'];
   colors = [];
   states = ['hover', 'active', 'focus'];
   types = ['fill', 'outline', 'ghost'];
@@ -58,7 +59,7 @@ export class ThemeShowcaseComponent implements AfterViewInit {
 
   constructor() {
     this.keys = Object.keys(this.elements);
-    this.colors = [...this.colors, ...this.statuses, ...this.semantic];
+    this.colors = [...this.colors, ...this.statuses, ...this.semantic, ...this.visualization];
   }
 
   ngAfterViewInit() {
