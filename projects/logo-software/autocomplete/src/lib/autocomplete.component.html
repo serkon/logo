@@ -8,6 +8,8 @@
       (onRemoveClicked)="removeSelectedItem()"
       *ngIf="!this.multiple; else multipleTemplate"
       [item]="{name: selectedItem | multiple: path}"
+      [cssClass]="getTagCSS()"
+      [size]="'small'"
     >
     </logo-tags>
     <ng-template #multipleTemplate>
@@ -16,6 +18,8 @@
           (onRemoveClicked)="setSelectedItem(theSelect, i)"
           *ngFor="let theSelect of selectedItems; let i=index;"
           [item]="{id:i, name: theSelect | multiple: path}"
+          [cssClass]="getTagCSS()"
+          [size]="'small'"
         >
         </logo-tags>
       </div>
@@ -25,6 +29,8 @@
     <input
       #inputRef
       (input)="debounce(inputRef)"
+      (focus)="getSuggestionStatus()"
+      (keydown.backspace)="deleteLast()"
       (keydown.arrowDown)="arrowDown()"
       (keydown.arrowUp)="arrowUp()"
       (keydown.enter)="this.selected = this.hover"

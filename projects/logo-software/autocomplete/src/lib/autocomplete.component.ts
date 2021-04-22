@@ -50,7 +50,7 @@ export class AutocompleteComponent implements OnInit, AfterViewInit {
   /**
    * Add placeholder string, default is `Please Enter Your Search`
    */
-  @Input() placeholder: string = 'Please Enter Your Search';
+  @Input() placeholder: string = 'add more';
   /**
    * Given data path string which data will be displayed. Default is null.
    * For example `[{a: {b: 1, c: 'tomato'}}, {a: {b: 1, c: 'pepper'}}, ...]` is your data
@@ -65,6 +65,10 @@ export class AutocompleteComponent implements OnInit, AfterViewInit {
    * Allows user to make multiple selection from list
    */
   @Input() multiple: boolean = false;
+  /**
+   * By this option, input tags are turned into ghost, primary classes. Default is 'false'
+   */
+  @Input() isGhostInput: boolean = false;
   @Input() ngModel: string;
   /**
    * If you use your custom filter (e.g. server-side filtering) filter even emitter called when input entered.
@@ -269,5 +273,23 @@ export class AutocompleteComponent implements OnInit, AfterViewInit {
   }
 
   setDisabledState(isDisabled: boolean): void {
+  }
+
+  deleteLast() {
+    this.multiple ? this.selectedItems.pop() : this.removeSelectedItem();
+  }
+
+  getTagCSS() {
+    if (this.isGhostInput) {
+      return 'ghost';
+    } else {
+      return '';
+    }
+  }
+
+  getSuggestionStatus() {
+    if (!this.display) {
+      this.openListDiv();
+    }
   }
 }
