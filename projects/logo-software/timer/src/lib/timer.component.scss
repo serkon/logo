@@ -21,7 +21,7 @@
     align-items: stretch;
     justify-content: flex-start;
     flex-wrap: nowrap;
-    padding: size(8px);
+    padding: size(7px) size(10px);
     background: var(--secondary-400);
     overflow: hidden;
 
@@ -42,7 +42,7 @@
     }
 
     .timer-title {
-      margin-right: size(8px);
+      margin-right: size(10px);
 
       p {
         margin-top: 0 !important;
@@ -51,9 +51,9 @@
     }
 
     .timer-base {
-      margin: size(-8px) size(-8px) size(-8px) 0;
+      margin: size(-7px) size(-10px) size(-7px) 0;
       flex-grow: 1;
-      padding: size(8px);
+      padding: size(7px) size(10px);
       box-sizing: border-box;
 
       .counter {
