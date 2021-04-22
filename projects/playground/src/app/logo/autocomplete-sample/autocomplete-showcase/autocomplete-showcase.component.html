@@ -18,7 +18,7 @@
   <span class="value">{{selected | json}}</span>
 </div>
 
-<h2>Multiple Autocomplete</h2>
+<h2>Multiple Autocomplete with Ghost input</h2>
 <logo-autocomplete
   (filter)="onFiltered($event)"
   (select)="onSelect($event)"
@@ -28,6 +28,7 @@
   [multiple]="true"
   [path]="'a.b'"
   [selected]="1"
+  [isGhostInput]="true"
 >
   <ng-template let-index="index" let-isFirst="isFirst" let-isLast="isLast" let-isOdd="isOdd" let-item="item">
     <span>customized {{index}} - {{isFirst}} - {{isLast}} - {{isOdd}} - {{item | json }}</span>
