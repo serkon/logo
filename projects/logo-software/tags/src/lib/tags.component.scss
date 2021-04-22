@@ -58,12 +58,32 @@
       @extend %size;
 
       padding-right: size(24px);
+
+      button {
+        span {
+          top: size(3px);
+          left: size(5px);
+        }
+      }
     }
 
     &.large {
       @extend %size;
 
       padding-right: size(48px);
+
+      button {
+        span {
+          width: size(32px);
+          height: size(32px);
+          top: size(6px);
+          left: size(8px);
+        }
+      }
+    }
+
+    &.ghost {
+      color: var(--primary);
     }
 
     &:hover {

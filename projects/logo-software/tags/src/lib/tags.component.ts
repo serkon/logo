@@ -29,7 +29,7 @@ export class TagsComponent {
   /**
    * Custom CSS Class to customize visual design.
    */
-  @Input() cssClass?: string;
+  @Input() cssClass: string;
   /**
    * Size of the tag item.
    */
