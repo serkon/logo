@@ -48,9 +48,6 @@
       .total-count-number {
         padding-right: size(5px);
       }
-
-      .record-found-text {
-      }
     }
 
     .page-numbers {
@@ -78,6 +75,10 @@
           &:last-of-type {
             margin-right: 0;
           }
+        }
+
+        [class^=le-], [class*=" le-"] {
+          @extend %#{get("element.paging.button.color.arrows")};
         }
       }
     }
