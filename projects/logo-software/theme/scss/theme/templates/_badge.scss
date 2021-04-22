@@ -16,16 +16,22 @@
   }
 
   @each $color, $value in get("color.list") {
-    &-#{"" + $color} {
-      background-color: var(--#{$color}) !important;
-      color: if($color == basic or $color == light or $color == secondary or $color == gray, text-color($color), var(--white));
+    @each $shade, $ratio in get("color.shades") {
+      $selector: if($shade==500, "#{$color}, #{$color}-#{$shade}", "#{$color}-#{$shade}");
+      &-#{"" + $selector} {
+        background-color: var(--#{$color}-#{$shade}) !important;
+        color: if($color == basic or $color == light or $color == secondary or $color == gray, text-color($color), if($shade < 400, text-color($color), var(--white)));
+      }
     }
   }
 
   @each $color, $value in get("color.visualization") {
-    &-#{"" + $color} {
-      background-color: var(--#{$color}) !important;
-      color: if($color == yellow or $color == tan, text-color($color), var(--white));
+    @each $shade, $ratio in get("color.shades") {
+      $selector: if($shade==500, "#{$color}, #{$color}-#{$shade}", "#{$color}-#{$shade}");
+      &-#{"" + $selector} {
+        background-color: var(--#{$color}-#{$shade}) !important;
+        color: if($color == yellow or $color == tan, text-color($color), if($shade < 400, text-color($color), var(--white)));
+      }
     }
   }
 

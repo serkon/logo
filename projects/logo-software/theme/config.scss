@@ -293,7 +293,8 @@ $config: deep-map-merge((
         margin: (right: 5px),
         color: (
           default: ghost-neutral,
-          selected: fill-basic
+          selected: fill-basic,
+          arrows: ghost-primary
         ),
       ),
     )

@@ -8,14 +8,20 @@
   }
 
   @each $color, $value in get("color.list") {
-    &.#{"" + $color} {
-      @extend %badge-#{"" + $color};
+    @each $shade, $ratio in get("color.shades") {
+      $selector: if($shade==500, "#{$color}, #{$color}-#{$shade}", "#{$color}-#{$shade}");
+      &.#{"" + $selector} {
+        @extend %badge-#{"" + $selector};
+      }
     }
   }
 
   @each $color, $value in get("color.visualization") {
-    &.#{"" + $color} {
-      @extend %badge-#{"" + $color};
+    @each $shade, $ratio in get("color.shades") {
+      $selector: if($shade==500, "#{$color}, #{$color}-#{$shade}", "#{$color}-#{$shade}");
+      &.#{"" + $selector} {
+        @extend %badge-#{"" + $selector};
+      }
     }
   }
 }
