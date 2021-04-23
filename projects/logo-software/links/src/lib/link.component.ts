@@ -68,6 +68,10 @@ import { LinkService } from './link.service';
 })
 export class LinkComponent implements OnInit {
   /**
+   * Link target property
+   */
+  @Input() target: string;
+  /**
    * Disable navigation when it set to false. Default is true.
    */
   @Input() redirection: boolean = true;
@@ -145,18 +149,29 @@ export class LinkComponent implements OnInit {
     if (this.redirection) {
       timer(this.delay).subscribe(() => {
         if (external) {
-          this.document.location.href = `${this.url}${this.fragment ? `#${this.fragment}` : ``}`;
+          const path = `${this.url}${this.fragment ? `#${this.fragment}` : ``}`;
+          this.target ? this.document.location.href = path : window.open(path, this.target)
         } else {
-          const relativeTo = this.relativeTo ? {relativeTo: this.activatedRoute} : {};
-          const queryParams = this.params ? {queryParams: this.params} : {};
-          const fragment = this.fragment ? {fragment: this.fragment} : {};
-          const extras = {...fragment, ...queryParams, ...relativeTo};
-          const url = Array.isArray(this.url) ? [...this.url] : [this.url];
-          this.router.navigate(url, extras);
+          this.setRouterLink();
         }
       });
     }
     this.linkService.fragment = this.fragment;
+  }
+
+  setRouterLink() {
+    const relativeTo = this.relativeTo ? {relativeTo: this.activatedRoute} : {};
+    const queryParams = this.params ? {queryParams: this.params} : {};
+    const fragment = this.fragment ? {fragment: this.fragment} : {};
+    const extras = {...fragment, ...queryParams, ...relativeTo};
+    const url = Array.isArray(this.url) ? [...this.url] : [this.url];
+    this.target ? this.openInNewWindow(url, extras) : this.router.navigate(url, extras);
+  }
+
+  openInNewWindow(url, extras) {
+    // Converts the route into a string that can be used, with the window.open() function
+    const path = this.router.serializeUrl(this.router.createUrlTree(url, extras));
+    window.open(this.document.location.href + path, this.target);
   }
 
   onHoverEvent($event) {
