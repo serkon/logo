@@ -280,11 +280,7 @@ export class AutocompleteComponent implements OnInit, AfterViewInit {
   }
 
   getTagCSS() {
-    if (this.isGhostInput) {
-      return 'ghost';
-    } else {
-      return '';
-    }
+    return this.isGhostInput ? 'ghost' : '';
   }
 
   getSuggestionStatus() {
