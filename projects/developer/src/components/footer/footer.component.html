@@ -1,4 +1,27 @@
 <section class="footer">
+  <div class="container">
+    <div class="content">
+      <div class="row links">
+        <div class="social col-xs-12 col-md-4">
+          <h1>Logo Elements Design</h1>
+          <a *ngFor="let link of socials" [ngClass]="link.display.toLocaleLowerCase()"
+             href="{{link.url}}">{{link.display}}</a>
+        </div>
+        <div class="legal col-xs-12 col-md-4">
+          <h2>Linkler</h2>
+          <a *ngFor="let link of legal" href="{{link.url}}">{{link.display}}</a>
+        </div>
+        <div class="corporate col-xs-12 col-md-4">
+          <h2>Servisler</h2>
+          <a *ngFor="let item of corporate" href="/#/{{item.link}}">{{item.abbr}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
+<section class="footer">
   <div class="quotes row" *ngFor="let quote of quotes">
     <h6 class="story medium col-xs-12">"{{quote.story}}"</h6>
     <div class="col-xs-12">
@@ -39,3 +62,4 @@
     </div>
   </footer>
 </section>
+-->

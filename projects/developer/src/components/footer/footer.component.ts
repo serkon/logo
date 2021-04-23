@@ -13,10 +13,91 @@ export class FooterComponent {
   ];
 
   corporate = [
-    {url: 'https://www.logo.com.tr/', display: 'Logo'},
-    {url: 'https://www.logo.com.tr/logo-iletisim', display: 'İletişim'},
-    {url: '#', display: 'Blog'},
-    {url: 'https://kariyerim.logo.com.tr/logo/recruit', display: 'Kariyer'},
+    {
+      abbr: 'IDM',
+      title: 'Centeral Identitiy Management',
+      link: 'services/idm',
+    },
+    {
+      abbr: 'CCS',
+      title: 'Cloud Control Service',
+      link: 'services/cc',
+    },
+    {
+      abbr: 'AS',
+      title: 'Authorization Service',
+      link: 'services/as',
+    },
+    {
+      abbr: 'MS',
+      title: 'Menu Service',
+      link: 'services/ms',
+    },
+    {
+      abbr: 'SS',
+      title: 'Setting Service',
+      link: 'services/ss',
+    },
+    {
+      abbr: 'MRS',
+      title: 'Message Registry Service',
+      link: 'services/mrs',
+    },
+    {
+      abbr: 'JS',
+      title: 'JS Service',
+      link: 'services/js',
+    },
+    {
+      abbr: 'VVS',
+      title: 'Veritabanı versiyonlama',
+      link: 'services/vvs',
+    },
+    {
+      abbr: 'HFS',
+      title: 'Hangfire Service',
+      link: 'services/hfs',
+    },
+    {
+      abbr: 'EMS',
+      title: 'Email Service',
+      link: 'services/ems',
+    },
+    {
+      abbr: 'YS',
+      title: 'Yerelliştirme Service',
+      link: 'services/ys',
+    },
+    {
+      abbr: 'RS',
+      title: 'Reporting Service',
+      link: 'services/rs',
+    },
+    {
+      abbr: 'DS',
+      title: 'Discovery Service',
+      link: 'services/ds',
+    },
+    {
+      abbr: 'DFS',
+      title: 'Diagnose Features Service',
+      link: 'services/dfs',
+    },
+    {
+      abbr: 'RDF',
+      title: 'Report Designer Features',
+      link: 'services/rdf',
+    },
+    {
+      abbr: 'DAFS',
+      title: 'Dashboard Features',
+      link: 'services/dafs',
+    },
+    {
+      abbr: 'RCFS',
+      title: 'Relase Control Features',
+      link: 'services/rcfs',
+    },
   ];
 
   legal = [
@@ -28,9 +109,9 @@ export class FooterComponent {
   ];
 
   socials = [
-    {url: 'https://www.facebook.com/logoyazilim', display: 'facebook'},
-    {url: 'https://twitter.com/logoyazilim', display: 'twitter'},
-    {url: 'https://instagram.com/LOGOYazilim', display: 'instagram'},
+    {url: 'https://www.facebook.com/logoyazilim', display: 'Facebook'},
+    {url: 'https://twitter.com/logoyazilim', display: 'Twitter'},
+    {url: 'https://instagram.com/LOGOYazilim', display: 'Instagram'},
   ];
 
   constructor(public router: Router) {

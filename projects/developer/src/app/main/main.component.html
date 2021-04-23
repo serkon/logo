@@ -1,8 +1,10 @@
+<!---->
 <section class="jumbotron">
   <div class="line-1"></div>
   <div class="line-2"></div>
   <div class="container">
     <div class="rowy">
+      <logo-link [target]="'_blank'" [url]="'services/idm'">tıkla</logo-link>
       <div class="advertisement">
         <div class="small-title">
           <span class="left">Contributing to</span> <span class="right">Open Source</span>
@@ -20,12 +22,76 @@
   </div>
 </section>
 <section class="solutions">
-  <div class="title">ÇÖZÜMLER</div>
-  <h1>Hazır Çözüm, Hızlı Entegrasyon</h1>
-  <div class="description">
-    Uluslararası standartlarda, modern teknolojilere uyumlu geliştirilmiş ürün ve servisler, yeni nesil
-    mikro-servisler ile düşük maliyet, yüksek erişilebilirlik ve ölçelenebilirlik.
+  <div class="container">
+    <div class="content">
+      <div class="title">ÇÖZÜMLER</div>
+      <h1>Hazır Çözüm, Hızlı Entegrasyon</h1>
+      <div class="description">
+        Uluslararası standartlarda, modern teknolojilere uyumlu geliştirilmiş ürün ve servisler, yeni nesil
+        mikro-servisler ile düşük maliyet, yüksek erişilebilirlik ve ölçelenebilirlik.
+      </div>
+      <button class="primary large">Dökümanlara git</button>
+      <div class="illustration"></div>
+    </div>
   </div>
-  <button class="primary large">Dökümanlara git</button>
-  <div class="illustration"></div>
 </section>
+<section class="services">
+  <div class="container">
+    <div class="content">
+      <div class="title">ÇÖZÜMLER</div>
+      <h1>Servisler</h1>
+      <div class="description">
+        Mesaj Kayıt Servisi ile Logo PaaS platformu içerisinde kayıtlı olan mikroservis veya uygulamalarınızın
+        birbirleri
+        ile haberleşmesini sağlayın. Mikroservisler arası yapılan mesajların hızlı, kayıpsız ve geriye yönelik
+        sorgulanabilir şekilde iletilmesini sağlayın.
+      </div>
+    </div>
+    <logo-carousel [arrow]="true" [count]="2" [currentItem]="1" [dots]="true" [itemWidth]="'250px'">
+      <div *ngFor="let item of sliderItems" class="item">
+        <div class="header">
+          <div class="abbr">{{item.abbr}}</div>
+          <div class="title">{{item.title}}</div>
+        </div>
+        <div class="description">{{item.description}}</div>
+        <logo-link [classes]="'explore primary le-eye icon-left'" url="{{item.link}}">Explore</logo-link>
+      </div>
+    </logo-carousel>
+  </div>
+</section>
+<section class="who">
+  <div class="container">
+    <div class="content">
+      <h2>Kimler kullanıyor?</h2>
+      <div class="description">
+        <div>Bizi tercih ettiler! Ölçeklenebilir, hızlı ve güvenlir...</div>
+        <div>Logo güvencesiyle uygulama geliştirmeye siz de başlayın!</div>
+      </div>
+      <button class="explore primary large">Keşfet</button>
+    </div>
+  </div>
+  <div class="left-01"></div>
+  <div class="left-02"></div>
+  <div class="left-03"></div>
+  <div class="right-01"></div>
+  <div class="right-02"></div>
+  <div class="right-03"></div>
+</section>
+<section class="feedback">
+  <div class="container">
+    <div class="content">
+      <logo-carousel [arrow]="false" [count]="2" [currentItem]="0" [dots]="true" [itemWidth]="'510px'">
+        <div *ngFor="let item of feedbacks" class="item">
+          <div class="image">
+            <img alt="{{item.name}}" src="{{item.image}}"/>
+          </div>
+          <div class="information">
+            <div class="description">{{item.description}}</div>
+            <div class="name">{{item.name}}</div>
+          </div>
+        </div>
+      </logo-carousel>
+    </div>
+  </div>
+</section>
+<logo-footer></logo-footer>

@@ -20,6 +20,7 @@
             content: "";
             mask-image: url("/assets/images/main/paas-logo.svg");
             mask-repeat: no-repeat;
+            mask-position: center;
             background: var(--white);
             width: size(22px);
             height: size(22px);
