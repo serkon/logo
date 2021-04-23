@@ -1,18 +1,49 @@
 @import "~@logo-software/theme/base";
 
+::ng-deep {
+  :root {
+    --carusel-item-margin: 0 #{size(10px)};
+    --carusel-item-padding: #{size(20px)};
+    --carusel-item-border-radius: #{size(20px)};
+    --carusel-item-backdrop-filter: blur(#{size(20px)});
+    --carusel-item-box-shadow: 0 #{size(10px)} #{size(40px)} #{size(4px)} rgba(0, 0, 0, 0.06);
+    --carousel-animation: transform 150ms linear;
+    --carousel-dot-size: #{size(10px)};
+    --carousel-dot-margin: 0 #{size(2.5px)};
+    --carousel-dot-bg: rgba(0, 0, 0, 0.1);
+    --carousel-dot-bg-selected: var(--primary);
+  }
+}
+
 :host {
   display: block;
   width: 100%;
   box-sizing: border-box;
 
   .slider {
-    display: flex;
+    display: block;
+    text-align: center;
 
     .sliding {
       display: block;
-      // padding: 0 0 150px;
       white-space: nowrap;
-      transition: transform 150ms linear;
+      transition: var(--carousel-animation);
+
+      ::ng-deep {
+        > .item {
+          display: inline-flex;
+          box-shadow: var(--carusel-item-box-shadow);
+          border-radius: var(--carusel-item-border-radius);
+          backdrop-filter: var(--carusel-item-backdrop-filter);
+          margin: var(--carusel-item-margin);
+          padding: var(--carusel-item-padding);
+          color: var(--neutral-800);
+          box-sizing: border-box;
+          vertical-align: top;
+          white-space: normal;
+          text-align: center;
+        }
+      }
     }
   }
 
@@ -185,17 +216,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 25px;
+    margin-top: size(25px);
 
     .dot {
       position: relative;
       z-index: 1;
-      border: 1px solid rgba(0, 0, 0, 0.3);
       border-radius: 50%;
-      width: 10px;
-      height: 10px;
-      margin: 0 2.5px;
       cursor: pointer;
+      background-color: var(--carousel-dot-bg);
+      width: var(--carousel-dot-size);
+      min-width: var(--carousel-dot-size);
+      height: var(--carousel-dot-size);
+      margin: var(--carousel-dot-margin);
 
       &.active {
         position: relative;
@@ -203,8 +235,7 @@
         &::after {
           position: absolute;
           content: "";
-          background-color: rgba(0, 0, 0, 0.3);
-          transform: scale(0.5);
+          background-color: var(--carousel-dot-bg-selected);
           width: 100%;
           height: 100%;
           border-radius: 50%;

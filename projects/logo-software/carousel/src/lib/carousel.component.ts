@@ -76,6 +76,10 @@ import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, 
 })
 export class CarouselComponent implements AfterViewInit {
   /**
+   * Set the width of each item. Default is 100%.
+   */
+  @Input() itemWidth: string = '100%';
+  /**
    * It defines how many items will be moved when clicked to the arrow. The default is 1.
    */
   @Input() count = 1;
@@ -87,10 +91,7 @@ export class CarouselComponent implements AfterViewInit {
    * Activates the arrows under the slider. Default is true.
    */
   @Input() arrow = true;
-  @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
-  @ViewChild('sliding', {read: ElementRef}) sliding: ElementRef;
   totalItems: number = 0;
-  currentItem: number = 0;
   showingCount: number = 0;
   itemBoxWidth: number = 0;
   sliderWidth: number = 0;
@@ -100,6 +101,41 @@ export class CarouselComponent implements AfterViewInit {
   maxMoveCountArray = [];
 
   constructor(private elementRef: ElementRef, private cd: ChangeDetectorRef) {
+  }
+
+  private _slidingRef: ElementRef;
+
+  get slidingRef(): ElementRef {
+    return this._slidingRef;
+  }
+
+  @ViewChild('sliding', {read: ElementRef, static: false}) set slidingRef(ref: ElementRef) {
+    this._slidingRef = ref;
+  };
+
+  private _sliderRef: ElementRef;
+
+  get sliderRef(): ElementRef {
+    return this._sliderRef;
+  }
+
+  @ViewChild('slider', {read: ElementRef, static: false}) set sliderRef(ref: ElementRef) {
+    this._sliderRef = ref;
+    this.setWidth(this.itemWidth.includes('%'));
+    this.move();
+  };
+
+  private _currentItem: number = 0;
+
+  get currentItem() {
+    return this._currentItem;
+  }
+
+  /**
+   * It defines which item will be selected when first initialized
+   */
+  @Input() set currentItem(value: number) {
+    this._currentItem = value;
   }
 
   ngAfterViewInit() {
@@ -118,26 +154,30 @@ export class CarouselComponent implements AfterViewInit {
    */
   reset() {
     this.currentItem = 0;
-    this.sliding.nativeElement.style.transform = `translateX(0px)`;
+    this.slidingRef.nativeElement.style.transform = `translateX(0px)`;
   }
 
   resize() {
-    this.totalItems = this.sliding.nativeElement.childElementCount;
+    this.setWidth(this.itemWidth.includes('%'));
+    this.totalItems = this.slidingRef.nativeElement.childElementCount;
+    if (Math.floor(window.screen.width / this.getItemWidth()) > 0) {
+      this.count = 1;
+    }
     this.itemBoxWidth = this.getItemWidth() * this.count;
-    this.slidingWidth = this.sliding.nativeElement.offsetWidth;
+    this.slidingWidth = this.itemBoxWidth * this.totalItems;
     this.showingCount = Math.floor(this.calculateShowingItems());
-    this.sliderWidth = this.slider.nativeElement.offsetWidth;
+    this.sliderWidth = this.sliderRef.nativeElement.offsetWidth;
     this.maxSize = this.slidingWidth - this.sliderWidth;
     this.maxMoveCount = Math.ceil(this.maxSize / this.itemBoxWidth);
     this.maxMoveCountArray = [...Array(this.maxMoveCount + 1).keys()];
   }
 
   calculateShowingItems() {
-    return this.slider.nativeElement.offsetWidth / this.itemBoxWidth;
+    return this.sliderRef.nativeElement.offsetWidth / this.itemBoxWidth;
   }
 
   getItemWidth(): number {
-    const elementRef = this.sliding.nativeElement.firstElementChild;
+    const elementRef = this.slidingRef.nativeElement.firstElementChild;
     return elementRef.offsetWidth + parseFloat(getComputedStyle(elementRef).marginLeft) + parseFloat(getComputedStyle(elementRef).marginRight);
     // return this.sliding.nativeElement.querySelector(`:nth-child(${index})`).offsetWidth;
   }
@@ -171,7 +211,7 @@ export class CarouselComponent implements AfterViewInit {
 
   move() {
     const translateXSize = this.itemBoxWidth * this.currentItem;
-    this.sliding.nativeElement.style.transform = `translateX(${translateXSize > this.maxSize ? -this.maxSize : -translateXSize}px)`;
+    this.slidingRef.nativeElement.style.transform = `translateX(${translateXSize > this.maxSize && this.maxSize >= 0 ? -this.maxSize : -translateXSize}px)`;
   }
 
   /**
@@ -181,5 +221,11 @@ export class CarouselComponent implements AfterViewInit {
   onDotClick(index: number) {
     this.currentItem = index;
     this.move();
+  }
+
+  setWidth(isPercentage: boolean) {
+    const children = this.slidingRef.nativeElement.children;
+    const width = isPercentage ? this.sliderRef.nativeElement.offsetWidth * Number(this.itemWidth.trim().replace('%', '')) / 100 + 'px' : this.itemWidth;
+    Array.from(children).forEach((item: HTMLElement) => item.style.width = `calc(${width} - ${(parseFloat(getComputedStyle(item).marginLeft) + parseFloat(getComputedStyle(item).marginRight))}px)`);
   }
 }
