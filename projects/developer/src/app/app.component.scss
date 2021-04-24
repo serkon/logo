@@ -38,8 +38,6 @@
             }
 
             .explore {
-              @extend %fill-primary;
-
               box-shadow: 0 size(4px) size(10px) rgba(0, 0, 0, 0.3);
             }
           }
@@ -47,9 +45,37 @@
       }
 
       &.scroll {
-        .logo {
-          &::before {
-            background-color: var(--dark);
+        background: linear-gradient(0deg, #440be9, #440be9);
+
+        .header {
+          .logo {
+            color: var(--white) !important;
+
+            &::before {
+              background-color: var(--white);
+            }
+          }
+
+          .menu {
+            .nav {
+              a {
+                color: var(--white);
+              }
+            }
+          }
+        }
+
+        .mobile-opener {
+          button {
+            color: var(--white) !important;
+          }
+        }
+      }
+
+      &.opened {
+        .mobile-opener {
+          button {
+            color: var(--dark) !important;
           }
         }
       }

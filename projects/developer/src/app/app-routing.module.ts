@@ -9,7 +9,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    useHash: true,
+    useHash: false,
     scrollPositionRestoration: 'enabled',
     // anchorScrolling: 'enabled',
     scrollOffset: [0, 0],

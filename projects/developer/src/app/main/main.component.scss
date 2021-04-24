@@ -115,7 +115,6 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    min-height: var(--section-height);
 
     .container {
       display: flex;
@@ -180,6 +179,9 @@
   }
 
   .solutions {
+    padding-top: size(159.5px);
+    padding-bottom: size(252.5px);
+
     .illustration {
       margin-top: size(112px);
       background-image: url("/assets/images/main/section-02-illustration.svg");
@@ -191,10 +193,17 @@
       min-height: size(162px);
       width: 100%;
     }
+
+    @include smaller-than(md) {
+      padding-top: size(129px);
+      padding-bottom: size(175.55px);
+    }
   }
 
   .services {
     background-color: var(--basic-300);
+    padding-top: size(267px);
+    padding-bottom: size(238.5px);
     overflow: hidden;
 
     .container {
@@ -209,7 +218,6 @@
 
       logo-carousel {
         padding: 0 size(100px);
-        margin-bottom: size(138.5px);
 
         .item {
           box-shadow: var(--carusel-item-box-shadow);
@@ -291,6 +299,10 @@
           }
         }
       }
+    }
+
+    @include smaller-than(md) {
+      padding-bottom: size(138.5px);
     }
   }
 

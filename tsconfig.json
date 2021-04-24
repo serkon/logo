@@ -28,8 +28,8 @@
         "./projects/cloud/src/*"
       ],
       "@logo-software/*": [
-        "dist/logo-software/*",
-        "./projects/logo-software/*/src/public-api"
+        "./projects/logo-software/*/src/public-api",
+        "dist/logo-software/*"
       ],
       "@logo-software/playground": [
         "dist/logo-software/playground"

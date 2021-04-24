@@ -11,10 +11,18 @@
   [watchElement]="'body'"
 >
   <div class="nav">
-    <logo-link [classes]="'ghost large'" [url]="'/'">Services</logo-link>
+    <logo-link
+      [classes]="'ghost large white'"
+      [fragment]="'services'"
+      [isDisabled]="false"
+      [url]="'/'"
+    >
+      Services
+    </logo-link>
     <logo-link
       [classes]="'ghost large'"
       [external]="true"
+      [isDisabled]="false"
       [url]="'http://wiki.logo.com.tr/pages/viewpage.action?pageId=65132817'"
     >
       Docs
@@ -34,7 +42,7 @@
       Blog
     </logo-link>
   </div>
-  <button class="large explore">Explore</button>
+  <button class="large explore primary">Explore</button>
 </logo-header>
 <logo-cursor *ngIf="false" [targets]="['.cursor', '.arrow', 'svg']" [timeDuration]="200"></logo-cursor>
 <main>
