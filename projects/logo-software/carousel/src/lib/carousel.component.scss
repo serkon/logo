@@ -53,7 +53,7 @@
     grid-gap: 16px;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: size(10px);
 
     @keyframes stroke {
       52% {
@@ -168,7 +168,7 @@
 
       &::before,
       &::after {
-        content: "";
+        // content: ""
         display: block;
         position: absolute;
         left: 1px;
@@ -216,7 +216,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: size(25px);
+    margin-top: size(15px);
 
     .dot {
       position: relative;

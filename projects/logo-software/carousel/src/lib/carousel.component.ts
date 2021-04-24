@@ -40,6 +40,10 @@ import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, 
         -->
       </div>
     </div>
+    <div class="dots" *ngIf="dots">
+      <a class="dot" *ngFor="let item of maxMoveCountArray; let i = index" [ngClass]="{'active':currentItem===i}"
+         (click)="onDotClick(i)"></a>
+    </div>
     <div class="arrow-with-animation" *ngIf="arrow">
       <a href="#" class="slider-arrow left" (click)="moveLeft($event)">
         <i></i>
@@ -53,10 +57,6 @@ import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, 
           <use xlink:href="#circle"/>
         </svg>
       </a>
-    </div>
-    <div class="dots" *ngIf="dots">
-      <a class="dot" *ngFor="let item of maxMoveCountArray; let i = index" [ngClass]="{'active':currentItem===i}"
-         (click)="onDotClick(i)"></a>
     </div>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
       <symbol
