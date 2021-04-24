@@ -6,7 +6,9 @@
     "@angular/core": "^9.1.6",
     "tslib": "^1.10.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@logo-software/theme": "~3.10.3"
+  },
   "description": "Link module creates links to internal or external URL for Angular.io application.",
   "homepage": "http://elements.logo.com.tr",
   "author": {

@@ -44,20 +44,30 @@ import { LinkService } from './link.service';
     <ng-container *ngTemplateOutlet="external ? externalURL: internalURL">
     </ng-container>
     <ng-template #internalURL>
-      <button
-        [ngClass]="classes"
-        [disabled]="isDisabled"
-        (click)="onClickEvent($event, false)"
+      <a
+        class="{{classes}}"
+        [ngClass]="{'disabled': isDisabled}"
+        [routerLink]="[url]"
+        [fragment]="fragment"
+        [relativeTo]="relativeTo ? activatedRoute : null"
+        [queryParams]="params ? params : null"
         (mouseenter)="onHoverEvent($event)"
         (mouseleave)="onLeaveEvent($event)"
+        (click)="linkService.scrollToAnchor(fragment)"
+        target="{{target ? target : '_self'}}"
       >
         <ng-container *ngTemplateOutlet="display ? displayHTML : contentHTML"></ng-container>
-      </button>
+      </a>
     </ng-template>
     <ng-template #externalURL>
-      <button [ngClass]="classes" [disabled]="isDisabled" (click)="onClickEvent($event, external)">
+      <a
+        class="{{classes}}"
+        [ngClass]="{'disabled': isDisabled}"
+        (click)="onClickEvent($event, external)"
+        target="{{target ? target : '_self'}}"
+      >
         <ng-container *ngTemplateOutlet="display ? displayHTML : contentHTML"></ng-container>
-      </button>
+      </a>
     </ng-template>
     <ng-template #displayHTML>{{display}}</ng-template>
     <ng-template #contentHTML>
@@ -128,7 +138,7 @@ export class LinkComponent implements OnInit {
    */
   @Input() relativeTo: boolean = false;
 
-  constructor(@Inject(DOCUMENT) private document, private linkService: LinkService, private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(@Inject(DOCUMENT) private document, public linkService: LinkService, private router: Router, public activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -171,7 +181,7 @@ export class LinkComponent implements OnInit {
   openInNewWindow(url, extras) {
     // Converts the route into a string that can be used, with the window.open() function
     const path = this.router.serializeUrl(this.router.createUrlTree(url, extras));
-    window.open(this.document.location.href + path, this.target);
+    window.open(path, this.target);
   }
 
   onHoverEvent($event) {
