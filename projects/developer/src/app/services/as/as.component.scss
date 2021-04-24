@@ -1,8 +1,8 @@
 @import "~@logo-software/theme/base";
 
-$header-size: size(80px);
-
 :host {
+  --carousel-dots-margin: #{size(25px)} 0 0 0;
+
   display: block;
 
   ul {
@@ -15,42 +15,49 @@ $header-size: size(80px);
   }
 
   section.one {
+    height: 100%;
     display: flex;
-    position: relative;
-    align-items: flex-start;
-    justify-content: flex-start;
-    background: none;
+    align-items: center;
+    justify-content: center;
 
-    div.title-content {
-      position: relative;
-      z-index: 2;
+    .container {
       display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      flex-direction: column;
+      position: relative;
+      z-index: 1;
 
-      p.sub {
-        font-size: size(20px);
-        color: #707070;
-      }
+      div.title-content {
+        font-family: get("font.alternative");
+        max-width: size(464px);
 
-      h1.title {
-        font-family: get("font.family");
-        font-weight: 800;
-        flex-direction: column;
-        pointer-events: none;
-        color: var(--primary);
-
-        .for {
+        .sub {
+          font-size: size(20px);
           color: #707070;
+          font-weight: bold;
+          line-height: size(28px);
+          margin: 0;
         }
-      }
 
-      p.description {
-        margin: size(25px) 0 size(40px) 0;
-        font-size: size(20px);
-        color: #707070;
-        pointer-events: none;
+        .title {
+          flex-direction: column;
+          pointer-events: none;
+          color: var(--primary);
+          font-weight: bold;
+          font-size: size(40px);
+          line-height: size(45px);
+
+          .for {
+            color: #707070;
+          }
+        }
+
+        .description {
+          margin: size(25px) 0 size(40px) 0;
+          font-size: size(20px);
+          color: #707070;
+          pointer-events: none;
+          font-weight: normal;
+          line-height: size(27px);
+        }
       }
     }
 
@@ -58,10 +65,11 @@ $header-size: size(80px);
       position: absolute;
       bottom: 0;
       margin: auto;
-      width: 100%;
+      width: calc(100% - #{size(604px)});
+      right: 0;
       height: 100%;
       z-index: 0;
-      background: no-repeat url("/assets/images/services/as/section-01-illustration.svg") right top / contain;
+      background: no-repeat url("/assets/images/services/as/section-01-illustration.svg") right center/contain;
 
       @include smaller-than(lg) {
         background: none;
@@ -69,108 +77,121 @@ $header-size: size(80px);
     }
   }
 
-
-  @include smaller-than("lg") {
-    section.one {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-
   section.two {
+    position: relative;
+    font-family: get("font.alternative");
     background: linear-gradient(0deg, #cad9f3 0%, #ffffff 100%);
+    padding-bottom: size(63px);
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 
-    h1 {
-      font-size: size(40px);
-      font-weight: 100;
-      color: #707070;
-      text-align: center;
-    }
-
-    p {
-      font-size: size(20px);
-      font-weight: 100;
-      margin-top: 0;
-      margin-bottom: size(50px);
-      text-align: center;
-    }
-
-    logo-carousel {
+    .container {
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      align-items: center;
       z-index: 1;
 
-      .slider-item {
-        background-color: var(--white);
-        box-shadow: 0 size(60px) size(60px) #6e6e6e46;
-        border-radius: size(20px);
-        box-sizing: border-box;
-        backdrop-filter: blur(23px);
-        color: var(--neutral-800);
-        padding: size(30px) size(44px);
-        min-width: size(264px);
-        width: size(264px);
-        margin-right: size(24px);
-        display: inline-block;
-        vertical-align: top;
-        white-space: normal;
-        justify-content: flex-start;
-
-        .icon {
-          height: size(42px);
-        }
-
-        .abbr {
-          font-weight: bold;
-          font-size: size(40px);
-        }
-
-        .title {
-          color: #89969f;
-          font-size: size(12px);
-          font-weight: bold;
-          letter-spacing: size(0.2px);
-        }
-
-        .description {
-          margin-top: size(20px);
-          font-size: size(16px);
-          font-weight: 300;
-        }
-
-        .detail {
-          font-size: size(12px);
-          margin-top: size(20px);
-        }
+      h1 {
+        font-size: size(40px);
+        color: #707070;
+        text-align: center;
+        font-weight: 300;
+        line-height: size(45px);
       }
 
-      ::ng-deep {
-        .arrow-with-animation .slider-arrow {
-          color: var(--white);
+      p {
+        font-size: size(20px);
+        margin-top: 0;
+        margin-bottom: size(50px);
+        text-align: center;
+        font-weight: normal;
+        line-height: size(40px);
+      }
 
-          --active: #636363;
-          --border: rgb(134 134 134 / 12%);
+      logo-carousel {
+        position: relative;
+        z-index: 1;
+
+        .slider-item {
+          background-color: var(--white);
+          box-shadow: 0 size(60px) size(60px) #6e6e6e46;
+          border-radius: size(20px);
+          box-sizing: border-box;
+          backdrop-filter: blur(23px);
+          color: var(--neutral-800);
+          padding: size(60px) size(40px);
+          min-width: size(264px);
+          width: size(264px);
+          margin-right: size(24px);
+          display: inline-block;
+          vertical-align: top;
+          white-space: normal;
+          justify-content: flex-start;
+
+          .icon-bg {
+            height: size(35px);
+            width: size(35px);
+            position: relative;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            display: block;
+            margin-bottom: size(37px);
+          }
+
+          .abbr {
+            font-weight: bold;
+            font-size: size(40px);
+          }
+
+          .title {
+            color: #89969f;
+            font-size: size(12px);
+            font-weight: bold;
+            letter-spacing: size(0.2px);
+          }
+
+          .description {
+            // margin-top: size(20px);
+            font-size: size(20px);
+            font-weight: normal;
+            line-height: size(28px);
+            text-align: left;
+          }
+
+          .detail {
+            font-size: size(12px);
+            margin-top: size(20px);
+          }
         }
 
-        .dots {
-          .dot {
-            border-color: #ffffff;
+        ::ng-deep {
+          .arrow-with-animation .slider-arrow {
+            color: var(--white);
 
-            &::after {
-              background-color: rgba(255, 255, 255, 0.6);
-            }
+            --active: #636363;
+            --border: rgb(134 134 134 / 12%);
           }
         }
       }
-    }
 
-    logo-link {
-      z-index: 1;
-      margin-top: size(50px);
+      logo-link {
+        position: relative;
+        z-index: 1;
+        margin-top: size(94px);
+      }
     }
 
     div.backgrounds {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
       z-index: 0;
+      overflow: hidden;
 
       div.circle-01 {
         position: absolute;
@@ -275,7 +296,7 @@ $header-size: size(80px);
       }
 
       .image {
-        padding-right: size(120x);
+        padding-right: size(120px);
         background: no-repeat url("/assets/images/services/as/section-03-photo.png") left center / cover;
 
         @include smaller-than("md") {
@@ -294,11 +315,13 @@ $header-size: size(80px);
       }
 
       .image {
-        background: no-repeat url("/assets/images/services/as/section-04-photo.png") right center / cover;
+        background-image: url("/assets/images/services/as/section-04-photo.png");
+        background-repeat: no-repeat;
+        background-position: center;
 
         @include smaller-than("md") {
           min-height: size(350px);
-          background-size: 60%;
+          background-size: cover;
         }
       }
 
@@ -332,6 +355,7 @@ $header-size: size(80px);
         }
 
         logo-link {
+          margin-top: size(20px);
           margin-left: size(50px);
         }
       }
@@ -406,9 +430,6 @@ $header-size: size(80px);
             bottom: 0;
             width: size(30px);
             height: size(27px);
-          }
-
-          p {
           }
         }
 

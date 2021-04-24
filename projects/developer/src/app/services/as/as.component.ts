@@ -43,7 +43,7 @@ export class AsComponent implements AfterViewInit {
   constructor(@Inject(DOCUMENT) private document) {
     this.sliderItems = [
       {
-        icon: '/assets/images/services/idm/section-04-01.svg',
+        icon: '/assets/images/services/as/icon-01.svg',
         abbr: '',
         title: '',
         description: 'Uygulamalarınızı Yetkilendirme Servisi’ne entegre ederek kullanın',
@@ -51,7 +51,7 @@ export class AsComponent implements AfterViewInit {
         classes: '',
       },
       {
-        icon: '/assets/images/services/idm/section-04-02.svg',
+        icon: '/assets/images/services/as/icon-02.svg',
         abbr: '',
         title: '',
         description: 'Uygulamanıza özel yetkilerinizi api yoluyla veya arayüzden hızlıca kaydedin ve erişmesini istediğiniz kullanıcılara bu yetkileri vererek yetkilendirme mekanizması kurun',
@@ -59,7 +59,7 @@ export class AsComponent implements AfterViewInit {
         classes: '',
       },
       {
-        icon: '/assets/images/services/idm/section-04-03.svg',
+        icon: '/assets/images/services/as/icon-03.svg',
         abbr: '',
         title: '',
         description: 'Uygulama yetkilerinizi rollerle ilişkilendirerek rol bazlı yetkilendirme işlemlerini uygulayın',
@@ -67,7 +67,7 @@ export class AsComponent implements AfterViewInit {
         classes: '',
       },
       {
-        icon: '/assets/images/services/idm/section-04-04.svg',
+        icon: '/assets/images/services/as/icon-04.svg',
         abbr: '',
         title: '',
         description: 'Farklı bölgelere özel yetkilendirme kapsamlarını yönetin',
@@ -90,4 +90,3 @@ export class AsComponent implements AfterViewInit {
     this.document.querySelector('section.one').style.minHeight = `${this.bodyHeight}px`;
   }
 }
-

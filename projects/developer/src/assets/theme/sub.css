@@ -1,0 +1,12 @@
+:root {
+  --header-height: 84px;
+  --header-default-box-shadow: 0 2px 4px 0 rgba(var(--black-rgb), 0.08);
+  --header-default-button-color: var(--dark);
+  --header-default-bg: var(--light);
+  --header-default-logo-color: var(--dark);
+}
+
+:root ::before {
+  --header-default-logo-before-bg: var(--dark);
+  --header-default-logo-before-color: var(--dark);
+}

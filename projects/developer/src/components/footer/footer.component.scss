@@ -23,6 +23,7 @@
       .social, .corporate, .legal {
         display: flex;
         flex-direction: column;
+        margin-top: size(70px);
 
         h2 {
           margin-bottom: size(30px);
@@ -45,6 +46,8 @@
       }
 
       .social {
+        margin-top: 0;
+
         h1 {
           font-weight: bold;
           font-size: size(32px);

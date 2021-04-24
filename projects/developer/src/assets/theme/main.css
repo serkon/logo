@@ -1,0 +1,7 @@
+:root {
+  --header-height: 84px;
+  --header-scroll-bg: linear-gradient(0deg, #440be9, #440be9);
+  --header-scroll-logo-color: var(--light);
+  --header-scroll-button-color: var(--light);
+  --header-scroll-button-opener-color: var(--light);
+}

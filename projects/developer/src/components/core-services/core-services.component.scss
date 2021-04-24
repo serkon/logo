@@ -14,15 +14,21 @@
       font-weight: bold;
 
       h1 {
+        font-family: get("font.alternative");
         font-size: size(35px);
+        font-weight: bold;
+        line-height: size(38px);
         margin-bottom: size(35px);
+        color: #707070;
       }
 
       ul {
+        color: #707070;
         font-size: size(20px);
         font-weight: 600;
-        flex-direction: column;
+        line-height: size(45px);
         padding-left: size(25px);
+        list-style-image: url("/assets/images/services/idm/check.svg");
       }
     }
 
