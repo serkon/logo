@@ -17,6 +17,29 @@
 
 ::ng-deep :root {
   --header-height: #{size(64px)};
+  --default-bg: transparent;
+  --default-box-shadow: none;
+  --default-logo-bg: transparent;
+  --default-logo-color: var(--light);
+  --default-button-color: var(--light);
+  --default-button-opener-color: var(--light);
+  --scroll-bg: var(--basic-200);
+  --scroll-box-shadow: 0 #{size(2px)} #{size(4px)} 0 rgba(var(--black-rgb), 0.08);
+  --scroll-logo-bg: transparent;
+  --scroll-logo-color: var(--dark);
+  --scroll-button-color: var(--dark);
+  --scroll-button-opener-color: var(--dark);
+  --opened-bg: var(--basic-200);
+  --opened-box-shadow: 0 #{size(2px)} #{size(4px)} 0 rgba(var(--black-rgb), 0.08);
+  --opened-button-color: var(--dark);
+  --opened-button-opener-color: var(--dark);
+
+  ::before {
+    --default-logo-before-bg: var(--white);
+    --default-logo-before-color: var(--white);
+    --scroll-logo-before-bg: var(--dark);
+    --scroll-logo-before-color: var(--white);
+  }
 }
 
 :host {
@@ -53,116 +76,72 @@
         text-decoration: none;
       }
 
-      ::ng-deep {
-        .menu {
-          @include transition(transform, 0.25s, ease-in-out);
+      .menu {
+        @include transition(transform, 0.25s, ease-in-out);
 
-          display: flex;
-          align-items: center;
-          flex-grow: 1;
-          box-sizing: border-box;
-          position: relative;
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        box-sizing: border-box;
+        position: relative;
 
-          &.right {
-            justify-content: flex-end;
-          }
+        &.right {
+          justify-content: flex-end;
+        }
 
-          &.left {
-            justify-content: flex-start;
-          }
+        &.left {
+          justify-content: flex-start;
+        }
 
-          &.center {
-            justify-content: center;
-          }
-
-          @include larger-than(lg) {
-            flex-direction: row;
-          }
-
-          @include smaller-than(lg) {
-            @include box-shadow(0, size(2px), size(4px), 0, rgba(var(--black-rgb), 0.08), false);
-
-            flex-direction: column;
-            justify-content: flex-start;
-            position: fixed;
-            top: 0;
-            transform: translateX(35vw);
-            right: 0;
-            width: 35vw;
-            height: 100vh;
-            padding: var(--header-height) size(15px) size(15px);
-            z-index: 2;
-            background-color: var(--white);
-
-            .nav {
-              flex-direction: column;
-              justify-content: flex-start;
-            }
-
-            logo-link {
-              width: 100%;
-
-              a {
-                width: 100%;
-              }
-            }
-          }
-
-          @include smaller-than(sm) {
-            transform: translateX(98vw);
-            width: 98vw;
-          }
+        &.center {
+          justify-content: center;
         }
 
         ::ng-deep {
-          .hover-menu {
-            display: none;
-            padding: size(15px);
-            box-sizing: border-box;
-
-            &.opened {
-              position: absolute;
-              top: size(50px);
-              left: 0;
-              display: inline-block;
-              background-color: var(--basic-400);
-            }
-
-            &::before {
-              content: "";
-              display: inline-block;
-              width: 0;
-              overflow: hidden;
-              height: 0;
-              border-bottom: size(5px) solid var(--basic-400);
-              border-left: size(5px) solid transparent;
-              border-right: size(5px) solid transparent;
-              border-top: size(5px) solid transparent;
-              position: absolute;
-              top: size(-10px);
-              left: size(75px);
-            }
-          }
-
           .nav {
             display: flex;
             flex-grow: 1;
             justify-content: center;
           }
+        }
 
-          .section-secondary {
-            logo-link {
-              margin-right: size(10px);
+        @include larger-than(lg) {
+          flex-direction: row;
+        }
 
-              &:last-child {
-                margin-right: 0;
+        @include smaller-than(lg) {
+          background: var(--opened-bg);
+          box-shadow: var(--opened-box-shadow);
+          flex-direction: column;
+          justify-content: flex-start;
+          position: fixed;
+          top: 0;
+          transform: translateX(35vw);
+          right: 0;
+          width: 35vw;
+          height: 100vh;
+          padding: var(--header-height) size(15px) size(15px);
+          z-index: 2;
+
+          ::ng-deep {
+            .nav {
+              flex-direction: column;
+              justify-content: flex-start;
+
+              logo-link {
+                width: 100%;
+
+                a {
+                  width: 100%;
+                }
               }
             }
           }
+        }
 
-          logo-link {
-            display: inline-block;
-          }
+        @include smaller-than(sm) {
+          transform: translateX(98vw);
+          width: 98vw;
         }
       }
     }
@@ -184,6 +163,74 @@
     }
   }
 
+  &.default {
+    background: var(--default-bg);
+    box-shadow: var(--default-box-shadow);
+
+    .header {
+      .header-content {
+        .logo {
+          background-color: var(--default-logo-bg);
+          color: var(--default-logo-color);
+
+          &::before {
+            background-color: var(--default-logo-before-bg);
+            color: var(--default-logo-before-color);
+          }
+        }
+
+        .menu {
+          ::ng-deep {
+            .nav {
+              a {
+                color: var(--default-button-color);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .mobile-opener {
+      button {
+        color: var(--default-button-opener-color);
+      }
+    }
+  }
+
+  &.scroll {
+    background: var(--scroll-bg);
+    box-shadow: var(--scroll-box-shadow);
+
+    .header {
+      .logo {
+        background-color: var(--scroll-logo-bg);
+        color: var(--scroll-logo-color);
+
+        &::before {
+          background-color: var(--scroll-logo-before-bg);
+          color: var(--scroll-logo-before-color);
+        }
+      }
+
+      .menu {
+        ::ng-deep {
+          .nav {
+            a {
+              color: var(--scroll-button-color);
+            }
+          }
+        }
+      }
+    }
+
+    .mobile-opener {
+      button {
+        color: var(--scroll-button-opener-color);
+      }
+    }
+  }
+
   &.opened {
     .header {
       .header-content {
@@ -197,12 +244,11 @@
               flex-direction: column;
               justify-content: flex-start;
               width: 100%;
-            }
 
-            a {
-              @extend %ghost-dark;
-
-              text-align: center;
+              a {
+                color: var(--opened-button-color);
+                text-align: center;
+              }
             }
           }
         }
@@ -211,54 +257,9 @@
 
     .mobile-opener {
       button {
-        @extend %ghost-dark;
         @extend .le-cross;
-      }
-    }
-  }
 
-  &.default {
-    background: transparent;
-
-    ::ng-deep {
-      .header {
-        .menu {
-          a {
-            @extend %ghost-light;
-          }
-        }
-      }
-    }
-
-    .mobile-opener {
-      button {
-        @extend %ghost-light;
-      }
-    }
-  }
-
-  &.scroll {
-    @include box-shadow(0, size(2px), size(4px), 0, rgba(var(--black-rgb), 0.08), false);
-
-    background: var(--basic-200);
-
-    ::ng-deep {
-      .header {
-        .logo {
-          @extend %ghost-dark;
-        }
-
-        .menu {
-          a {
-            @extend %ghost-dark;
-          }
-        }
-      }
-    }
-
-    .mobile-opener {
-      button {
-        @extend %ghost-dark;
+        color: var(--opened-button-opener-color);
       }
     }
   }
