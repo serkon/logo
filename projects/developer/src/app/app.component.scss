@@ -1,86 +1,55 @@
 @import "~@logo-software/theme/base";
 
-:host {
-  --header-height: #{size(84px)};
+::ng-deep {
+  logo-header {
+    padding: 0 size(30px);
 
-  display: block;
+    .header {
+      .logo {
+        font-weight: 600;
+        font-size: size(20px);
+        line-height: size(26px);
 
-  ::ng-deep {
-    logo-header {
-      padding: 0 size(30px);
+        &::before {
+          --scroll-logo-before-color: var(--light);
+          --scroll-logo-before-bg: var(--light);
 
+          content: "";
+          mask-image: url("/assets/images/main/paas-logo.svg");
+          mask-repeat: no-repeat;
+          mask-position: center;
+          width: size(22px);
+          height: size(22px);
+          margin-right: size(10px);
+          opacity: 0.5;
+        }
+      }
+    }
+
+    &:not(.opened) {
       .header {
-        .logo {
-          color: var(--white);
-          font-weight: 600;
-          font-size: size(20px);
-          line-height: size(26px);
-
-          &::before {
-            content: "";
-            mask-image: url("/assets/images/main/paas-logo.svg");
-            mask-repeat: no-repeat;
-            mask-position: center;
-            background: var(--white);
-            width: size(22px);
-            height: size(22px);
-            margin-right: size(10px);
-            opacity: 0.5;
-          }
-        }
-      }
-
-      &:not(.opened) {
-        .header {
-          .menu {
-            .nav {
-              margin-right: size(140px);
-            }
-
-            .explore {
-              box-shadow: 0 size(4px) size(10px) rgba(0, 0, 0, 0.3);
-            }
-          }
-        }
-      }
-
-      &.scroll {
-        background: linear-gradient(0deg, #440be9, #440be9);
-
-        .header {
-          .logo {
-            color: var(--white) !important;
-
-            &::before {
-              background-color: var(--white);
-            }
+        .menu {
+          .nav {
+            margin-right: size(90px);
           }
 
-          .menu {
-            .nav {
-              a {
-                color: var(--white);
-              }
-            }
-          }
-        }
-
-        .mobile-opener {
-          button {
-            color: var(--white) !important;
-          }
-        }
-      }
-
-      &.opened {
-        .mobile-opener {
-          button {
-            color: var(--dark) !important;
+          .explore {
+            box-shadow: 0 size(4px) size(10px) rgba(0, 0, 0, 0.3);
           }
         }
       }
     }
   }
+}
+
+:host {
+  --header-height: #{size(84px)};
+  --scroll-bg: linear-gradient(0deg, #440be9, #440be9);
+  --scroll-logo-color: var(--light);
+  --scroll-button-color: var(--light);
+  --scroll-button-opener-color: var(--light);
+
+  display: block;
 
   main {
     padding-top: var(--header-height);
