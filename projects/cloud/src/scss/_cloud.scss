@@ -112,6 +112,14 @@ html, body {
       }
 
       .section-secondary {
+        logo-link {
+          margin-right: size(10px);
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+
         @include smaller-than(lg) {
           width: 100%;
 
