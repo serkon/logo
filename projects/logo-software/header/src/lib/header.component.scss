@@ -17,28 +17,28 @@
 
 ::ng-deep :root {
   --header-height: #{size(64px)};
-  --default-bg: transparent;
-  --default-box-shadow: none;
-  --default-logo-bg: transparent;
-  --default-logo-color: var(--light);
-  --default-button-color: var(--light);
-  --default-button-opener-color: var(--light);
-  --scroll-bg: var(--basic-200);
-  --scroll-box-shadow: 0 #{size(2px)} #{size(4px)} 0 rgba(var(--black-rgb), 0.08);
-  --scroll-logo-bg: transparent;
-  --scroll-logo-color: var(--dark);
-  --scroll-button-color: var(--dark);
-  --scroll-button-opener-color: var(--dark);
-  --opened-bg: var(--basic-200);
-  --opened-box-shadow: 0 #{size(2px)} #{size(4px)} 0 rgba(var(--black-rgb), 0.08);
-  --opened-button-color: var(--dark);
-  --opened-button-opener-color: var(--dark);
+  --header-default-bg: transparent;
+  --header-default-box-shadow: none;
+  --header-default-logo-bg: transparent;
+  --header-default-logo-color: var(--light);
+  --header-default-button-color: var(--light);
+  --header-default-button-opener-color: var(--light);
+  --header-scroll-bg: var(--basic-200);
+  --header-scroll-box-shadow: 0 #{size(2px)} #{size(4px)} 0 rgba(var(--black-rgb), 0.08);
+  --header-scroll-logo-bg: transparent;
+  --header-scroll-logo-color: var(--dark);
+  --header-scroll-button-color: var(--dark);
+  --header-scroll-button-opener-color: var(--dark);
+  --header-opened-bg: var(--basic-200);
+  --header-opened-box-shadow: 0 #{size(2px)} #{size(4px)} 0 rgba(var(--black-rgb), 0.08);
+  --header-opened-button-color: var(--dark);
+  --header-opened-button-opener-color: var(--dark);
 
   ::before {
-    --default-logo-before-bg: var(--white);
-    --default-logo-before-color: var(--white);
-    --scroll-logo-before-bg: var(--dark);
-    --scroll-logo-before-color: var(--white);
+    --header-default-logo-before-bg: var(--white);
+    --header-default-logo-before-color: var(--white);
+    --header-scroll-logo-before-bg: var(--dark);
+    --header-scroll-logo-before-color: var(--white);
   }
 }
 
@@ -110,8 +110,8 @@
         }
 
         @include smaller-than(lg) {
-          background: var(--opened-bg);
-          box-shadow: var(--opened-box-shadow);
+          background: var(--header-opened-bg);
+          box-shadow: var(--header-opened-box-shadow);
           flex-direction: column;
           justify-content: flex-start;
           position: fixed;
@@ -164,18 +164,18 @@
   }
 
   &.default {
-    background: var(--default-bg);
-    box-shadow: var(--default-box-shadow);
+    background: var(--header-default-bg);
+    box-shadow: var(--header-default-box-shadow);
 
     .header {
       .header-content {
         .logo {
-          background-color: var(--default-logo-bg);
-          color: var(--default-logo-color);
+          background-color: var(--header-default-logo-bg);
+          color: var(--header-default-logo-color);
 
           &::before {
-            background-color: var(--default-logo-before-bg);
-            color: var(--default-logo-before-color);
+            background-color: var(--header-default-logo-before-bg);
+            color: var(--header-default-logo-before-color);
           }
         }
 
@@ -183,7 +183,7 @@
           ::ng-deep {
             .nav {
               a {
-                color: var(--default-button-color);
+                color: var(--header-default-button-color);
               }
             }
           }
@@ -193,23 +193,23 @@
 
     .mobile-opener {
       button {
-        color: var(--default-button-opener-color);
+        color: var(--header-default-button-opener-color);
       }
     }
   }
 
   &.scroll {
-    background: var(--scroll-bg);
-    box-shadow: var(--scroll-box-shadow);
+    background: var(--header-scroll-bg);
+    box-shadow: var(--header-scroll-box-shadow);
 
     .header {
       .logo {
-        background-color: var(--scroll-logo-bg);
-        color: var(--scroll-logo-color);
+        background-color: var(--header-scroll-logo-bg);
+        color: var(--header-scroll-logo-color);
 
         &::before {
-          background-color: var(--scroll-logo-before-bg);
-          color: var(--scroll-logo-before-color);
+          background-color: var(--header-scroll-logo-before-bg);
+          color: var(--header-scroll-logo-before-color);
         }
       }
 
@@ -217,7 +217,7 @@
         ::ng-deep {
           .nav {
             a {
-              color: var(--scroll-button-color);
+              color: var(--header-scroll-button-color);
             }
           }
         }
@@ -226,7 +226,7 @@
 
     .mobile-opener {
       button {
-        color: var(--scroll-button-opener-color);
+        color: var(--header-scroll-button-opener-color);
       }
     }
   }
@@ -246,7 +246,7 @@
               width: 100%;
 
               a {
-                color: var(--opened-button-color);
+                color: var(--header-opened-button-color);
                 text-align: center;
               }
             }
@@ -259,7 +259,7 @@
       button {
         @extend .le-cross;
 
-        color: var(--opened-button-opener-color);
+        color: var(--header-opened-button-opener-color);
       }
     }
   }
