@@ -102,7 +102,7 @@
             logo-link {
               width: 100%;
 
-              button {
+              a {
                 width: 100%;
               }
             }
@@ -196,10 +196,13 @@
             .nav {
               flex-direction: column;
               justify-content: flex-start;
+              width: 100%;
             }
 
-            button {
+            a {
               @extend %ghost-dark;
+
+              text-align: center;
             }
           }
         }
@@ -220,7 +223,7 @@
     ::ng-deep {
       .header {
         .menu {
-          button {
+          a {
             @extend %ghost-light;
           }
         }
@@ -243,6 +246,12 @@
       .header {
         .logo {
           @extend %ghost-dark;
+        }
+
+        .menu {
+          a {
+            @extend %ghost-dark;
+          }
         }
       }
     }
