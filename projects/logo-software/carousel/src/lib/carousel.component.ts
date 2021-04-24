@@ -41,8 +41,11 @@ import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, 
       </div>
     </div>
     <div class="dots" *ngIf="dots">
-      <a class="dot" *ngFor="let item of maxMoveCountArray; let i = index" [ngClass]="{'active':currentItem===i}"
-         (click)="onDotClick(i)"></a>
+      <a
+        class="dot" *ngFor="let item of maxMoveCountArray; let i = index" [ngClass]="{'active':currentItem===i}"
+        (click)="onDotClick(i)"
+      >
+      </a>
     </div>
     <div class="arrow-with-animation" *ngIf="arrow">
       <a href="#" class="slider-arrow left" (click)="moveLeft($event)">

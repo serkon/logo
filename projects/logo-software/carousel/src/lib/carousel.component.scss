@@ -8,6 +8,8 @@
     --carusel-item-backdrop-filter: blur(#{size(20px)});
     --carusel-item-box-shadow: 0 #{size(10px)} #{size(40px)} #{size(4px)} rgba(0, 0, 0, 0.06);
     --carousel-animation: transform 150ms linear;
+    --carousel-dots-margin: #{size(15px)};
+    --carousel-arrows-margin: #{size(15px)};
     --carousel-dot-size: #{size(10px)};
     --carousel-dot-margin: 0 #{size(2.5px)};
     --carousel-dot-bg: rgba(0, 0, 0, 0.1);
@@ -53,7 +55,7 @@
     grid-gap: 16px;
     align-items: center;
     justify-content: center;
-    margin-top: size(10px);
+    margin: var(--carousel-arrows-margin);
 
     @keyframes stroke {
       52% {
@@ -216,7 +218,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: size(15px);
+    margin: var(--carousel-dots-margin);
 
     .dot {
       position: relative;
