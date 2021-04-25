@@ -318,10 +318,10 @@
         background-image: url("/assets/images/services/as/section-04-photo.png");
         background-repeat: no-repeat;
         background-position: center;
+        background-size: cover;
 
         @include smaller-than("md") {
           min-height: size(350px);
-          background-size: cover;
         }
       }
 
