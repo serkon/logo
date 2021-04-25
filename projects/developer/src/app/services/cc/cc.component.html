@@ -1,14 +1,17 @@
-<logo-header></logo-header>
 <section class="one" id="main">
-  <div class="title-content col-lg-6 col-xs-12">
-    <h1 class="title">Cloud Control <span class="for">Service</span></h1>
-    <p class="description">
-      Logo PaaS platformunda var olan Hesaplar (Tenant), Uygulamalar ve kullanıcılar arasında ki ilişkileri Çoklu hesap
-      (multi-tenancy) operasyonları kapsamında yönetir.
-    </p>
-    <logo-link [classes]="['primary', 'large', 'get-started']" external="true"
-               url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139691">KEŞFET
-    </logo-link>
+  <div class="container">
+    <div class="title-content">
+      <h1 class="title">Cloud Control <span class="for">Service</span></h1>
+      <p class="description">
+        Logo PaaS platformunda var olan Hesaplar (Tenant), Uygulamalar ve kullanıcılar arasında ki ilişkileri Çoklu
+        hesap (multi-tenancy) operasyonları kapsamında yönetir.
+      </p>
+      <logo-link
+        [classes]="['primary large get-started']"
+        [external]="true"
+        url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139691">KEŞFET
+      </logo-link>
+    </div>
   </div>
   <div class="illustrations">
     <div class="computer"></div>
@@ -16,20 +19,25 @@
   <div class="backgrounds"></div>
 </section>
 <section class="two">
-  <h1>Kullanım Senaryoları</h1>
-  <p>Uygulamaları nasıl kullanacağınızı keşfedin. İşinize değer katın!</p>
-  <div class="boxes row">
-    <div class="box col-xs-12 col-sm-6 col-lg-4" *ngFor="let box of boxes">
-      <div class="icon"><img src="{{box.icon}}"/></div>
-      <div class="description">{{box.description}}</div>
+  <div class="container">
+    <h1>Kullanım Senaryoları</h1>
+    <p>Uygulamaları nasıl kullanacağınızı keşfedin. İşinize değer katın!</p>
+    <div class="boxes row">
+      <div *ngFor="let box of boxes" class="box-container col-xs-12 col-sm-6 col-lg-4">
+        <div class="box">
+          <div class="icon"><img src="{{box.icon}}"/></div>
+          <div class="description">{{box.description}}</div>
+        </div>
+      </div>
     </div>
+    <logo-link
+      [classes]="'primary large'"
+      [external]="true"
+      [url]="'http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139691'"
+    >
+      DETAYLARI GÖRÜNTÜLE
+    </logo-link>
   </div>
-  <logo-link [classes]="['primary', 'large']"
-             external="true"
-             url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139691"
-  >
-    DETAYLARI GÖRÜNTÜLE
-  </logo-link>
   <div class="backgrounds">
     <div class="three-angle"></div>
     <div class="rectangle-01"></div>
@@ -38,8 +46,8 @@
   </div>
 </section>
 <section class="three">
-  <div class="row">
-    <div class="content col-xs-12 col-md-6">
+  <div class="container">
+    <div class="content">
       <h1>Özellikler</h1>
       <p class="description">
         Cloud Control Servisi Özelliklerine Gözatın. Servis Özellikleri Yakından Tanıyın!
@@ -67,17 +75,12 @@
         </li>
       </ul>
     </div>
-    <div class="image col-xs-12 col-md-6">
-      <div class="backgrounds"></div>
-    </div>
   </div>
+  <div class="background"></div>
 </section>
 <section class="four">
-  <div class="row">
-    <div class="image col-xs-12 col-md-6">
-      <div class="backgrounds"></div>
-    </div>
-    <div class="content col-xs-12 col-md-6">
+  <div class="container">
+    <div class="content">
       <ul>
         <li>
           <h2>Swagger UI destekli API uçları</h2>
@@ -96,67 +99,24 @@
           <p>Oturum bağımsız mimarisi ile Bulut Yönetim Servisini çoklayarak kullanabilirsiniz.</p>
         </li>
       </ul>
-      <logo-link [classes]="['primary', 'large']"
-                 external="true"
-                 url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139691"
+      <logo-link
+        [classes]="'primary large'"
+        [external]="true"
+        [url]="'http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139691'"
       >
         DETAYLARI GÖRÜNTÜLE
       </logo-link>
     </div>
   </div>
+  <div class="background"></div>
 </section>
-<section class="five">
-  <div class="row opinions" *ngFor="let opinion of opinions">
-    <aside class="user hidden-xs col-sm-12 col-md-3">
-      <div class="circle"></div>
-    </aside>
-    <aside class="opinion col-xs-12 col-md-9">
-      <h1>Kullanıcı Görüşleri</h1>
-      <div class="description">
-        <p>
-          Türkiye'deki İşbaşı ve Hindistan'daki Vyapari uygulamalarımızda geliştirme sürecinin en başından bu yana IDM
-          servislerini kullanmaktayız. Hem kullanıcı arayüzü hem de servis entegrasyon arayüzlerinin kolayca
-          kullanılabilir olmasından memnunuz.
-        </p>
-        <p>
-          Kullanıcı sayımızın artmasına rağmen performans ve güvenilirlik açısından beklentilerimizi fazlasıyla
-          karşılaşmıştır.
-        </p>
-      </div>
-      <div class="author">
-        <div class="name">Ayhan İNAL</div>
-        <div class="title">KOBİ Bulut Ürünleri Teknik Proje Yöneticisi</div>
-      </div>
-    </aside>
-  </div>
-</section>
-<section class="six">
-  <div class="row">
-    <div class="list col-xs-12 col-lg-6">
-      <h1>Core Servisler</h1>
-      <div class="row">
-        <ul class="col-xs-12 col-md-6">
-          <li>Bulut Yönetim Servisi</li>
-          <li>Ayarlar Servisi</li>
-          <li>Yetkilendirme Servisi</li>
-        </ul>
-        <ul class="col-xs-12 col-md-6">
-          <li>Menü Servis</li>
-          <li>Yerelleştirme Servisi</li>
-        </ul>
-      </div>
-      <div class="col-xs-6 button">
-        <logo-link [classes]="['success', 'large']"
-                   external="true"
-                   url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65132817"
-        >
-          TÜMÜNÜ GÖRÜNTÜLE
-        </logo-link>
-      </div>
-    </div>
-    <div class="picture col-xs-12 col-lg-6">
-      <div class="background"></div>
-    </div>
-  </div>
-</section>
+<logo-user-review
+  [circle]="false"
+  [imageStyle]="{'background-position':'left bottom -50px', 'background-size': 'contain'}"
+  [reverse]="true"
+  backgroundUrl="/assets/images/reviewers/green-background.png"
+  imageUrl="/assets/images/services/as/section-05-user-review-illustration.svg"
+>
+</logo-user-review>
+<logo-core-services theme="success"></logo-core-services>
 <logo-footer></logo-footer>
