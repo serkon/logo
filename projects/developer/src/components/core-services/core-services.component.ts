@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'logo-core-services',
@@ -6,4 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./core-services.component.scss'],
 })
 export class CoreServicesComponent {
+  @Input() theme: string = 'success';
 }
