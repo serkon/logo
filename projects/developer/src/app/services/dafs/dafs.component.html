@@ -1,88 +1,47 @@
-<div class="intro">
-  <div class="intro-content col-md-12 col-sm-12 col-xs-12">
-    <h1 class="g8 bold">
-      Dashboard Feature
-    </h1>
-    <p class="large">
-      Farklı veri kaynaklarından çekilen verilerinizi görsel bileşenlere dönüştürün, tek bir dashboard tanımı yapın,
-      tasarladığınız dashbordu herkes kendi verisi ile görsün.
-    </p>
-    <logo-link
-      [classes]="['success', 'large', 'get-started']"
-      external="true"
-      url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139772"
-    >
-      KEŞFET
-    </logo-link>
-    <img class="img-fluid" src="./assets/images/services/dafs/dafs-intro-illu.png">
-  </div>
-</div>
-<div class="usage">
-  <div class="usage-header">
-    <h2 class="g8 bold">Kullanım Senaryoları</h2>
-    <p class="large">
-      Servislerin sağlık durumlarını, birbirlerine olan bağımlılıklarını ve versiyonlarını görün ve takip edin.
-    </p>
-  </div>
-  <div class="dafs-usage-content">
-    <div class="right col-lg-6 col-md-6 col-sm-12 col-xs-12">
-      <img src="./assets/images/services/dafs/dafs-usage-illu.png">
+<section class="intro">
+  <div class="container">
+    <div class="content">
+      <h1 class="g8 bold">
+        Dashboard Feature
+      </h1>
+      <p class="large">
+        Farklı veri kaynaklarından (rest API, Veritabanı) çekilen verilerinizi görsel bileşenlere dönüştürün, Çoklu
+        hesap (Multitenancy) desteğinden faydalanarak tek bir dashboard tanımı yapın, tasarladığınız dashbordu herkes
+        kendi verisi ile görsün.
+      </p>
+      <logo-link
+        [classes]="'success large get-started'"
+        [external]="true"
+        [url]="'http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139772'"
+      >
+        KEŞFET
+      </logo-link>
+      <img class="img-fluid" src="./assets/images/services/dafs/dafs-intro-illu.png">
     </div>
-    <div class="left col-lg-6 col-md-12 col-sm-12 col-xs-12">
-      <div class="usage-content">
-        <div class="usage-card">
-          <div class="col-md-2 col-xs-2">
-            <img src="./assets/images/services/dafs/dafs-usage-check.svg">
-          </div>
-          <div class="col-md-8 col-xs-10">
-            <p class="large">
-              Servislerinizin sağlık kontrolünü otomatik sağlayın.
-            </p>
-          </div>
+  </div>
+</section>
+<section class="usage">
+  <div class="container">
+    <div class="header">
+      <h2>Kullanım Senaryoları</h2>
+      <p>Dashboard Servis Özelliğini Nasıl Kullanacağınızı Öğrenin!</p>
+    </div>
+    <div class="properties">
+      <div class="row">
+        <div class="left col-xs-12 col-md-6">
+          <img class="img-fluid" src="./assets/images/services/dafs/dafs-usage-illu.png">
         </div>
-        <div class="usage-card">
-          <div class="col-md-2 col-xs-2">
-            <img src="./assets/images/services/dafs/dafs-usage-check.svg">
-          </div>
-          <div class="col-md-8 col-xs-10">
-            <p class="large">
-              Ortamda çalışan ve kullanmak istediğiniz servis(ler)in isimlerini elde edin.
-            </p>
-          </div>
-        </div>
-        <div class="usage-card">
-          <div class="col-md-2 col-xs-2">
-            <img src="./assets/images/services/dafs/dafs-usage-check.svg">
-          </div>
-          <div class="col-md-8 col-xs-10">
-            <p class="large">
-              Servis versiyonlarına kolayca erişin.
-            </p>
-          </div>
-        </div>
-        <div class="usage-card">
-          <div class="col-md-2 col-xs-2">
-            <img src="./assets/images/services/dafs/dafs-usage-check.svg">
-          </div>
-          <div class="col-md-8 col-xs-10">
-            <p class="large">
-              Servislerin kullandığı ve bağımlı olduğu iç servislerin sağlık ve özellik kontrolünü inceleyin.
-            </p>
-          </div>
-        </div>
-        <div class="usage-card">
-          <div class="col-md-2 col-xs-2">
-            <img src="./assets/images/services/dafs/dafs-usage-check.svg">
-          </div>
-          <div class="col-md-8 col-xs-10">
-            <p class="large">
-              Servis konfigürasyonlarını görün ve takip edin.
-            </p>
-          </div>
+        <div class="right col-xs-12 col-md-6">
+          <ul>
+            <li>Farklı tiplerde ( Rest API – Veritabanı) veri kaynakları tanımlayın</li>
+            <li>Veri kaynağı tanımlarınızı parametrik olarak (kullanıcıya göre, hesaba göre) yapın</li>
+            <li>Parametrik filtreler tanımlayın</li>
+            <li>Kendi uygulamanız içerisinde tasarladığınız dashboardu gömülü olarak açın</li>
+          </ul>
         </div>
       </div>
       <logo-link
-        [classes]="['success', 'large', 'get-started']"
+        [classes]="'success large get-started'"
         external="true"
         url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139772"
       >
@@ -90,24 +49,24 @@
       </logo-link>
     </div>
   </div>
-</div>
-<div class="specs">
-  <section class="four">
+</section>
+<section class="specs">
+  <div class="container">
     <h1>Özellikler</h1>
-    <p>DAFS ‘dan nelerde ve nasıl faydalanabileceğinizi öğrenin. İşinize değer katın!</p>
-    <logo-carousel [count]="1" [arrow]="true" [dots]="true">
+    <p>Dashboard servisi özelliklerini yakından tanıyın</p>
+    <logo-carousel [arrow]="true" [count]="1" [dots]="true" [itemWidth]="'296px'">
       <div class="slider-item" *ngFor="let item of sliderItems">
-        <div class="icon-bg"
-             [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"
+        <div
+          [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"
+          class="icon-bg"
         >
         </div>
         <div class="abbr">{{item.abbr}}</div>
         <div class="description">{{item.description}}</div>
-        <a class="go" href="{{item.url}}" [ngClass]="item.classes">→ detay</a>
       </div>
     </logo-carousel>
-  </section>
-</div>
+  </div>
+</section>
 <logo-user-review
   imageUrl="./assets/images/reviewers/reviewer-nail.png"
   backgroundUrl="./assets/images/reviewers/green-background.png"

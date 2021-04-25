@@ -1,45 +1,121 @@
 @import "~@logo-software/theme/base";
 
-$header-size: size(80px);
-
 :host {
-  @include larger-than(lg) {
-    .intro {
-      display: flex;
-      height: 100vh;
-      flex-direction: column;
-      background-image: url("/assets/images/services/dafs/dafs-intro-bg.png");
-      background-size: cover;
+  .intro {
+    display: flex;
+    min-height: size(800px);
+    flex-direction: column;
+    background-image: url("/assets/images/services/dafs/dafs-intro-bg.png");
+    background-size: cover;
+    background-position: center bottom;
 
-      .intro-content {
-        display: flex;
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .content {
         position: relative;
+        z-index: 2;
+        font-family: get("font.alternative");
+        max-width: size(727px);
+        display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         text-align: center;
-        z-index: 2;
-        padding: 0 size(365px) 0 size(365px);
         margin-top: size(64px);
 
         p, h1 {
           color: var(--light);
         }
 
+        h1 {
+          font-weight: bold;
+          font-size: size(50px);
+          line-height: size(67px);
+        }
+
         logo-link {
-          padding: size(30px) 0 size(30px) 0;
+          padding: size(30px) 0;
+        }
+
+        .img-fluid {
+          max-width: size(600px);
+          width: 100%;
         }
       }
     }
+  }
 
-    .usage {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+  .usage {
+    .container {
+      font-family: get("font.alternative");
 
-      .usage-header {
+      .header {
         text-align: center;
+
+        h2 {
+          font-weight: bold;
+          font-size: size(40px);
+          line-height: size(45px);
+          color: #707070;
+        }
+
+        p {
+          font-size: size(20px);
+          line-height: size(28px);
+          margin-top: 0;
+          margin-bottom: size(60px);
+          text-align: center;
+          font-weight: normal;
+          color: #707070;
+        }
+      }
+
+      .properties {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .left {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .img-fluid {
+            width: 80%;
+          }
+        }
+
+        .right {
+          ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+              background: url("/assets/images/services/check-full.svg") no-repeat left top;
+              margin: size(25px) 0;
+              padding-left: size(75px);
+              min-height: 50px;
+              display: flex;
+              align-items: center;
+
+              h2 {
+                font-weight: bold;
+                font-size: size(20px);
+              }
+
+              p {
+                font-size: size(16px);
+              }
+            }
+          }
+        }
+
+        logo-link {
+          margin: size(50px) 0;
+        }
       }
 
       .dafs-usage-content {
@@ -91,298 +167,66 @@ $header-size: size(80px);
         }
       }
     }
-
-    .specs {
-      background: no-repeat url("/assets/images/services/rcfs/rcfs-specs-bg-2.png");
-      background-size: cover;
-
-      h1 {
-        color: var(--white);
-        font-size: size(45px);
-        font-weight: lighter;
-        text-align: center;
-      }
-
-      p {
-        color: var(--white);
-        font-size: size(20px);
-        text-align: center;
-        margin-bottom: 50px;
-      }
-
-      logo-carousel {
-        .slider-item {
-          background-color: var(--white);
-          box-shadow: 0 size(60px) size(60px) #6e6e6e46;
-          border-radius: size(20px);
-          box-sizing: border-box;
-          backdrop-filter: blur(23px);
-          color: var(--neutral-800);
-          padding: size(30px) size(44px);
-          min-width: size(264px);
-          width: size(264px);
-          margin-right: size(24px);
-          display: inline-block;
-          vertical-align: top;
-          white-space: normal;
-
-          .icon-bg {
-            width: size(42px);
-            height: size(42px);
-            background-color: #6259a7;
-            mask-size: contain;
-            mask-repeat: no-repeat;
-            mask-position: center;
-
-            .icon {
-              position: relative;
-              max-height: size(42px);
-              max-width: size(42px);
-              height: size(42px);
-              margin-bottom: size(10px);
-              filter: invert(43%) sepia(26%) saturate(1500%) hue-rotate(208deg) brightness(115%) contrast(200%);
-              background-size: contain;
-
-              &::after {
-                content: "";
-                background: url("/assets/images/services/idm/section-04-icon-background.svg") no-repeat;
-                position: absolute;
-                left: 0;
-                top: 0;
-              }
-            }
-          }
-
-          .abbr {
-            font-weight: bold;
-            font-size: size(20px);
-            margin-top: size(15px);
-          }
-
-          .description {
-            margin-top: 20px;
-            font-size: 16px;
-            font-weight: 300;
-          }
-
-          .go {
-            display: block;
-            margin-top: size(20px);
-          }
-        }
-
-        ::ng-deep {
-          .arrow-with-animation .slider-arrow {
-            color: var(--white);
-
-            --active: var(--white);
-            --border: rgba(255, 255, 255, 0.12);
-          }
-
-          .dots {
-            .dot {
-              border-color: #ffffff;
-
-              &::after {
-                background-color: rgba(255, 255, 255, 0.6);
-              }
-            }
-          }
-        }
-      }
-    }
   }
 
-  @include smaller-than(lg) {
-    .intro {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      flex-direction: column;
-      background-image: url("/assets/images/services/dafs/dafs-intro-bg.png");
-      background-size: cover;
+  .specs {
+    background: no-repeat url("/assets/images/services/dafs/section-03-bg.png");
+    background-size: cover;
 
-      .intro-content {
-        display: flex;
-        position: relative;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        z-index: 2;
-        padding: size(64px);
-
-        p, h1 {
-          color: var(--light);
-        }
-
-        logo-link {
-          padding: size(30px) 0 size(30px) 0;
-        }
-      }
-
-      img {
-        display: none;
-      }
+    h1 {
+      font-size: size(40px);
+      line-height: size(45px);
+      text-align: center;
+      font-weight: bold;
+      color: #707070;
     }
 
-    .usage {
-      padding: 0 size(40px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      .usage-header {
-        text-align: center;
-      }
-
-      .dafs-usage-content {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .left {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-
-          .usage-content {
-            .usage-card {
-              display: flex;
-              border-radius: size(11px);
-
-              div {
-                display: flex;
-                align-items: center;
-
-                img {
-                  margin: size(10px);
-                }
-
-                img:nth-child(1) {
-                  align-self: center;
-                  transform: scale(0.75);
-                }
-              }
-
-              div:nth-child(1) {
-                justify-content: center;
-              }
-            }
-          }
-
-          logo-link {
-            margin: size(30px) 0;
-          }
-        }
-
-        .right {
-          display: none;
-          justify-content: center;
-          align-items: center;
-        }
-      }
+    p {
+      font-size: size(20px);
+      line-height: size(28px);
+      margin-top: 0;
+      margin-bottom: size(50px);
+      text-align: center;
+      font-weight: normal;
     }
 
-    .specs {
-      background: no-repeat url("/assets/images/services/rcfs/rcfs-specs-bg-2.png");
-      background-size: cover;
+    logo-carousel {
+      padding-bottom: size(170px);
 
-      h1 {
-        color: var(--white);
-        font-size: size(45px);
-        font-weight: lighter;
-        text-align: center;
-      }
+      .slider-item {
+        background-color: var(--white);
+        box-shadow: 0 size(60px) size(60px) #6e6e6e46;
+        border-radius: size(20px);
+        box-sizing: border-box;
+        backdrop-filter: blur(23px);
+        color: #707070;
+        padding: size(60px) size(40px);
+        margin-right: size(20px);
+        display: inline-block;
+        vertical-align: top;
+        white-space: normal;
 
-      p {
-        color: var(--white);
-        font-size: size(20px);
-        text-align: center;
-        margin-bottom: 50px;
-      }
-
-      logo-carousel {
-        .slider-item {
-          background-color: var(--white);
-          box-shadow: 0 size(60px) size(60px) #6e6e6e46;
-          border-radius: size(20px);
-          box-sizing: border-box;
-          backdrop-filter: blur(23px);
-          color: var(--neutral-800);
-          padding: size(30px) size(44px);
-          min-width: size(264px);
-          width: size(264px);
-          margin-right: size(24px);
-          display: inline-block;
-          vertical-align: top;
-          white-space: normal;
-
-          .icon-bg {
-            width: size(42px);
-            height: size(42px);
-            background-color: #6259a7;
-            mask-size: contain;
-            mask-repeat: no-repeat;
-            mask-position: center;
-
-            .icon {
-              position: relative;
-              max-height: size(42px);
-              max-width: size(42px);
-              height: size(42px);
-              margin-bottom: size(10px);
-              filter: invert(43%) sepia(26%) saturate(1500%) hue-rotate(208deg) brightness(115%) contrast(200%);
-              background-size: contain;
-
-              &::after {
-                content: "";
-                background: url("/assets/images/services/idm/section-04-icon-background.svg") no-repeat;
-                position: absolute;
-                left: 0;
-                top: 0;
-              }
-            }
-          }
-
-          .abbr {
-            font-weight: bold;
-            font-size: size(20px);
-            margin-top: size(15px);
-          }
-
-          .description {
-            margin-top: 20px;
-            font-size: 16px;
-            font-weight: 300;
-          }
-
-          .go {
-            display: block;
-            margin-top: size(20px);
-          }
+        .icon-bg {
+          width: size(42px);
+          height: size(42px);
+          background-color: #6259a7;
+          mask-size: contain;
+          mask-repeat: no-repeat;
+          mask-position: center;
+          margin: 0 auto size(40px) auto;
         }
 
-        ::ng-deep {
-          .arrow-with-animation .slider-arrow {
-            color: var(--white);
+        .abbr {
+          font-size: size(25px);
+          font-weight: 600;
+          line-height: size(28px);
+        }
 
-            --active: var(--white);
-            --border: rgba(255, 255, 255, 0.12);
-          }
-
-          .dots {
-            .dot {
-              border-color: #ffffff;
-
-              &::after {
-                background-color: rgba(255, 255, 255, 0.6);
-              }
-            }
-          }
+        .description {
+          font-weight: normal;
+          font-size: size(20px);
+          margin-top: size(20px);
+          line-height: size(27px);
         }
       }
     }
