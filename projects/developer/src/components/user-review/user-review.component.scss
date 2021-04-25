@@ -8,6 +8,7 @@
   color: var(--white);
 
   .opinions {
+    display: flex;
     position: relative;
     z-index: 1;
 
@@ -15,20 +16,22 @@
       background-repeat: no-repeat;
     }
 
-    .user {
-      margin-top: size(159px);
-      margin-bottom: size(82px);
-      border-right: size(1px) solid transparentize(white, 0.5);
-      align-items: flex-end;
-      justify-content: center;
+    .illustration {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 30%;
 
       @include smaller-than("md") {
         display: none;
       }
 
-      div.circle {
-        margin-right: size(45px);
-        margin-left: size(40px);
+      .image {
+        width: 100%;
+        height: 100%;
+      }
+
+      .circle {
         width: size(106px);
         height: size(106px);
         border: size(2px) solid white;
@@ -37,34 +40,34 @@
         background-repeat: no-repeat;
         background-size: contain;
         background-position: bottom center;
-
-        @include larger-than("md") {
-          margin-left: size(120px);
-        }
+        margin-right: size(60px);
       }
     }
 
     .opinion {
+      display: flex;
       flex-direction: column;
+      padding: size(82px) size(60px) size(82px) 0;
+      width: 70%;
 
       .review {
-        padding: size(82px) size(120px) size(82px) size(82px);
-
-        @include smaller-than("md") {
-          padding: size(40px);
-        }
-
         h1 {
+          font-family: get("font.alternative");
           color: var(--white);
           font-size: size(35px);
           font-weight: normal;
-          font-family: get("font.alternative");
           margin-bottom: size(30px);
+          padding-left: size(82px);
         }
 
-        div.description {
+        .description {
           position: relative;
           color: var(--white);
+          padding-left: size(82px);
+
+          &.bordered {
+            border-left: size(1px) solid transparentize(white, 0.5);
+          }
 
           ::ng-deep {
             .desc-content {
@@ -75,14 +78,8 @@
           &::before {
             content: "";
             position: absolute;
-            left: 0;
-            top: size(-30px);
-
-            @include larger-than(md) {
-              left: size(-50px);
-              top: size(-5px);
-            }
-
+            left: size(25px);
+            top: size(-20px);
             -webkit-mask-repeat: no-repeat;
             -webkit-mask-position: center;
             display: inline-block;
@@ -110,9 +107,11 @@
           }
         }
 
-        div.author {
+        .author {
+          padding-left: size(82px);
+          margin-top: size(30px);
+
           .name {
-            margin-top: size(25px);
             font-size: size(16px);
             font-weight: bold;
           }
@@ -127,23 +126,73 @@
     &.reverse {
       flex-direction: row-reverse;
 
-      .opinion {
-        .review {
-          padding: size(82px) size(82px) size(82px) size(120px);
+      .illustration {
+        justify-content: flex-start;
 
-          @include smaller-than("md") {
-            padding: size(40px);
-          }
+        .circle {
+          margin-right: 0;
+          margin-left: size(60px);
         }
       }
 
-      .user {
-        align-items: flex-start;
-        border-left: size(1px) solid transparentize(white, 0.5);
+      .opinion {
+        padding-right: 0;
 
-        div.circle {
-          margin-right: size(40px);
-          margin-left: size(45px);
+        .review {
+          .description {
+            padding-right: size(82px);
+
+            &.bordered {
+              border-left: none;
+              border-right: size(1px) solid transparentize(white, 0.5);
+            }
+
+            &::after {
+              right: size(50px);
+            }
+          }
+        }
+      }
+    }
+
+    @include smaller-than(md) {
+      &, &.reverse {
+        .opinion {
+          width: 100%;
+          padding: size(82px) 0;
+
+          .review {
+            padding: 0;
+
+            h1, .author {
+              padding-left: 0;
+            }
+
+            h1 {
+              margin-bottom: 0;
+            }
+
+            .description {
+              left: size(0);
+              top: size(30px);
+              padding: size(25px) 0;
+              margin: 0;
+
+              &::before {
+                top: 0;
+                left: 0;
+              }
+
+              &::after {
+                bottom: 0;
+                right: 0;
+              }
+
+              &.bordered {
+                border: none;
+              }
+            }
+          }
         }
       }
     }
