@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 
 import { LeftbarService, PaasUser } from '@logo-software/leftbar';
 
@@ -7,9 +7,9 @@ import { LeftbarService, PaasUser } from '@logo-software/leftbar';
   templateUrl: './leftbar-showcase.component.html',
   styleUrls: ['./leftbar-showcase.component.scss'],
 })
-export class LeftbarShowcaseComponent implements OnInit {
+export class LeftbarShowcaseComponent implements AfterViewInit {
 
-  public TheUser: PaasUser = {
+  public theUserInfo: PaasUser = {
     name: 'Oprah Winfrey',
     title: 'HR Director',
     avatar: 'https://randomuser.me/api/portraits/women/82.jpg',
@@ -95,31 +95,36 @@ export class LeftbarShowcaseComponent implements OnInit {
       ],
     },
     applications: {
-      default: 'assets/sample-app-logo.png',
-      defaultIcon: 'assets/sample-app-icon.png',
+      default: 'assets/leftbar/sample-app-logo.png',
+      defaultIcon: 'assets/leftbar/sample-app-icon.png',
       options: [
         {
-          logo: 'assets/sample-app-logo.png',
+          logo: 'assets/leftbar/sample-app-logo.png',
           name: 'J-Platform',
           id: '1234567890',
+        },
+        {
+          logo: 'assets/leftbar/sample-app-logo.png',
+          name: 'App2',
+          id: '9876543210',
         },
       ],
     },
     shortcuts: [
       {
-        icon: 'assets/sample-app-icon.svg',
+        icon: 'assets/leftbar/sample-app-icon.svg',
         class: 'primary',
         name: 'Saha Yönetimi',
         link: '/path/to/app',
       },
       {
-        icon: 'assets/sample-app-icon.svg',
+        icon: 'assets/leftbar/sample-app-icon.svg',
         class: 'success',
         name: 'Veri Analizi',
         link: '/path/to/app',
       },
       {
-        icon: 'assets/sample-app-icon.svg',
+        icon: 'assets/leftbar/sample-app-icon.svg',
         class: 'warning',
         name: 'Kurumsal Kaynak Yönetimi',
         link: '/path/to/app',
@@ -130,9 +135,6 @@ export class LeftbarShowcaseComponent implements OnInit {
   constructor(private leftbarService: LeftbarService) {
   }
 
-  ngOnInit(): void {
-    this.leftbarService.userDataLoad.next(this.TheUser);
-  }
 
   public sampleAddShortcut() {
     console.log('### Add Shorcut Action');
@@ -171,7 +173,10 @@ export class LeftbarShowcaseComponent implements OnInit {
   }
 
   public sampleUserDataGet() {
-    console.log('### Sample Data Get');
+    console.log('### Sample Data Get', this.leftbarService.userDataLoad);
   }
 
+  ngAfterViewInit(): void {
+    this.leftbarService.userDataLoad.next(this.theUserInfo);
+  }
 }

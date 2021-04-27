@@ -1,3 +1,7 @@
 :host {
-  //@TODO Leftbar scss will be here
+  margin: -30px;
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+  background: var(--basic-500);
 }
