@@ -82,5 +82,4 @@ export class TabComponent implements AfterViewInit {
     event.stopPropagation();
     this.click.emit(this);
   }
-
 }
