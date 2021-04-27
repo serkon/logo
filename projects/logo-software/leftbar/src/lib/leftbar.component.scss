@@ -10,6 +10,14 @@
 
 @import "~@logo-software/theme/base";
 
+:root {
+  overflow-x: hidden;
+
+  body {
+    overflow-x: hidden;
+  }
+}
+
 :host {
   ::ng-deep {
     a, button {
@@ -27,11 +35,32 @@
     display: flex;
     flex-flow: column;
 
+    @include smaller-than(md) {
+      width: 100vw;
+      height: size(68px);
+      flex-flow: row;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
     .info-card {
       flex: 0 1 auto;
 
+      @include smaller-than(md) {
+        flex: 1 1 auto;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-around;
+        align-items: center;
+      }
+
       .item {
         background: var(--basic-300);
+
+        @include smaller-than(md) {
+          background: transparent;
+        }
       }
 
       .user-base {
@@ -40,8 +69,15 @@
         position: relative;
         padding: size(10px);
         overflow: hidden;
-        height: size(80px);
+        height: size(100px);
         background: var(--white);
+
+        @include smaller-than(md) {
+          padding: 0;
+          height: 100%;
+          flex-grow: 0;
+          width: size(74px);
+        }
 
         .item {
           margin-bottom: size(10px);
@@ -49,6 +85,11 @@
           &.user-summary-card {
             height: size(80px);
             position: relative;
+
+            @include smaller-than(md) {
+              height: 100%;
+              width: size(74px);
+            }
 
             .avatar {
               @include border-radius(100%);
@@ -63,6 +104,13 @@
               top: size(8px);
               left: size(20px);
               z-index: 2;
+
+              @include smaller-than(md) {
+                width: size(44px);
+                height: size(44px);
+                top: size(12px);
+                left: size(15px);
+              }
 
               img {
                 width: 100%;
@@ -85,10 +133,21 @@
               left: size(20px);
               z-index: 1;
               filter: blur(4px);
+
+              @include smaller-than(md) {
+                width: size(44px);
+                height: size(44px);
+                top: size(14px);
+                left: size(15px);
+              }
             }
 
             .details {
               padding: size(25px) size(10px) 0 size(105px);
+
+              @include smaller-than(md) {
+                display: none;
+              }
 
               p {
                 margin: 0;
@@ -96,6 +155,8 @@
             }
 
             button {
+              @include box-shadow(0, 0, 0, 0, rgba(var(--white-rgb), 0));
+
               position: absolute;
               top: 0;
               left: 0;
@@ -105,14 +166,23 @@
               display: inline-block;
               width: 100%;
               height: 100%;
+              background-color: transparent;
+              outline: 0;
             }
           }
         }
 
         .expandable-content {
+          @include smaller-than(md) {
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+          }
+
           .item {
             position: relative;
             text-align: center;
+            background-color: var(--basic-300);
 
             .title {
               display: inline-block;
@@ -120,6 +190,11 @@
               color: var(--neutral-400);
               font-size: size(12px);
               margin-bottom: size(5px);
+
+              @include smaller-than(md) {
+                width: auto;
+                top: -8px;
+              }
 
               &.icon {
                 height: size(14px);
@@ -162,6 +237,10 @@
               z-index: 1;
             }
           }
+
+          @include smaller-than(md) {
+            margin: 0 size(10px);
+          }
         }
 
         .row {
@@ -173,6 +252,11 @@
           }
         }
 
+        .close-user-btn {
+          display: none;
+          top: size(-100px);
+        }
+
         &.extended {
           @include box-shadow(0, size(2px), size(15px), size(4px), rgba(var(--black-rgb), 0.15), false);
 
@@ -181,11 +265,80 @@
           top: 0;
           left: 0;
           z-index: 6;
+
+          @include smaller-than(md) {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-flow: column;
+
+            .item {
+              &.user-summary-card {
+                width: 100%;
+                text-align: center;
+                height: size(228px);
+                background: var(--white);
+
+                .badge {
+                  top: size(92px);
+                  left: auto;
+                  margin-left: size(-72px);
+                }
+
+                .avatar {
+                  width: size(64px);
+                  height: size(64px);
+                  position: relative;
+                  margin-top: size(98px);
+                  top: auto;
+                  left: auto;
+                  z-index: 1;
+                }
+
+                .avatar-background {
+                  width: size(64px);
+                  height: size(64px);
+                  margin-top: size(100px);
+                  top: auto;
+                  left: auto;
+                }
+
+                .details {
+                  display: block;
+                  padding: 0;
+                  margin-top: size(20px);
+                }
+              }
+            }
+
+            .badge {
+              padding: size(4px) size(7px);
+            }
+          }
+
+          .close-user-btn {
+            @include smaller-than(md) {
+              display: block;
+              position: absolute;
+              top: 0;
+              right: 0;
+              z-index: 1;
+            }
+          }
         }
       }
 
       .tenant-base {
         padding: 0 size(10px);
+
+        @include smaller-than(md) {
+          flex-grow: 1;
+          text-align: center;
+
+          &.mobile-fix {
+            margin-top: size(-30px);
+          }
+        }
 
         .item {
           padding: size(8px) 0;
@@ -201,14 +354,23 @@
               position: relative;
               padding-left: size(60px);
 
+              @include smaller-than(md) {
+                padding-left: 0;
+                width: auto;
+              }
+
               .le-login_key {
                 display: inline-block;
                 width: size(14px);
                 height: size(14px);
                 color: var(--neutral-400);
                 position: absolute;
-                top: size(4px);
+                top: size(-5px);
                 left: size(20px);
+
+                @include smaller-than(md) {
+                  display: none;
+                }
               }
             }
           }
@@ -217,6 +379,10 @@
 
       .search-base {
         padding: size(10px);
+
+        @include smaller-than(md) {
+          display: none;
+        }
 
         .input-w-icon {
           width: 100%;
@@ -235,22 +401,44 @@
       .shortcuts-base {
         padding: 0 size(10px);
 
+        @include smaller-than(md) {
+          padding: 0;
+
+          &.hidden-mobile {
+            flex-grow: 0;
+            padding: 0;
+          }
+        }
+
         .standarts {
           display: flex;
           justify-content: flex-start;
           align-items: flex-start;
           flex-flow: row wrap;
 
+          @include smaller-than(md) {
+            flex-flow: column;
+          }
+
           .home {
             width: size(32px);
             margin-right: size(10px);
             text-align: center;
+
+            @include smaller-than(md) {
+              display: none;
+            }
           }
 
           .apps {
             width: size(218px);
             line-height: size(32px);
             position: relative;
+
+            @include smaller-than(md) {
+              position: absolute;
+              left: calc((100% - 218px) / 2);
+            }
 
             button {
               width: 100%;
@@ -260,6 +448,10 @@
             .single-app {
               text-align: center;
               white-space: nowrap;
+
+              @include smaller-than(md) {
+                display: none;
+              }
 
               .aligner {
                 display: inline-block;
@@ -284,6 +476,10 @@
           justify-content: space-between;
           align-items: flex-start;
           flex-flow: row nowrap;
+
+          @include smaller-than(md) {
+            display: none;
+          }
 
           logo-link {
             width: size(32px);
@@ -332,6 +528,23 @@
       padding: 0;
       position: relative;
 
+      @include smaller-than(md) {
+        @include animate(all, 0.2s, ease-in-out);
+        @include box-shadow(0, 0, 0, 0, rgba(var(--gray-1000-rgb), 0), false);
+
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        z-index: 6;
+        top: 0;
+        right: -100vw;
+        background-color: var(--white);
+
+        &.opened {
+          right: 0;
+        }
+      }
+
       ::ng-deep {
         .item-icon {
           @include border-radius(size(8px));
@@ -372,6 +585,10 @@
         left: size(124px);
         z-index: 7;
 
+        @include smaller-than(md) {
+          display: none;
+        }
+
         .toggle-button {
           @include border-radius(50%);
         }
@@ -384,6 +601,10 @@
       font-size: size(12px);
       padding: size(4px) size(7px);
       display: inline-block;
+
+      @include smaller-than(md) {
+        padding: size(1px) size(5px);
+      }
 
       &.top {
         @include animate(all, 0.2s, ease-in-out);
@@ -411,20 +632,39 @@
         position: absolute;
         right: 0;
         left: 0;
-        top: size(30px);
+        top: size(68px);
         background: var(--white);
         padding: size(10px);
         border: 1px solid var(--primary-400);
         z-index: 5;
         max-height: 55vh;
+        text-align: left;
+
+        @include smaller-than(md) {
+          @include box-shadow(0, 0, 0, 0, rgba(var(--black-rgb), 0), false);
+
+          width: 100vw;
+          height: calc(100vh - 68px);
+          max-height: 100vh;
+          border: 0;
+          position: fixed;
+        }
       }
 
-      .search-base {
+      .popover-search-base {
         flex: 0 1 auto;
       }
 
       .result-base {
         flex: 1 1 auto;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        button {
+          width: 100%;
+          display: block;
+          text-align: left;
+        }
       }
 
       .input-w-icon {
@@ -605,6 +845,22 @@
           left: size(7px);
         }
       }
+    }
+
+    .mobile-menu-btn {
+      display: none;
+
+      @include smaller-than(md) {
+        display: block;
+        margin-right: size(15px);
+        z-index: 7;
+      }
+    }
+  }
+
+  .hidden-mobile {
+    @include smaller-than(md) {
+      display: none;
     }
   }
 }

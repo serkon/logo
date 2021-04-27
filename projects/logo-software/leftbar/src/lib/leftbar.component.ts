@@ -77,6 +77,7 @@ export class LeftbarComponent implements OnInit {
   public showUserDetails: boolean = false;
   public popoverStatus: boolean = false;
   public activePopover: string = '';
+  public mobileMenu: boolean = false;
 
   public emptyShortcutSlots: any;
   @ViewChild(TreeComponent, {read: TreeComponent}) tree: TreeComponent;
@@ -117,6 +118,10 @@ export class LeftbarComponent implements OnInit {
   public toggleMenu() {
     this.popoverStatus ? this.popoverStatus = false : '';
     this.leftbarService.isSlim = !this.leftbarService.isSlim;
+  }
+
+  public toggleMobileMenu() {
+    this.mobileMenu = !this.mobileMenu;
   }
 
   public homeEmitter() {

@@ -31,6 +31,7 @@
         </div>
       </div>
       <div class="expandable-content">
+        <button (click)="toggleUserDetails()" class="le-cross ghost large close-user-btn"></button>
         <div class="row infos">
           <div
             *ngFor="let item of leftbarService.userInfo.infos"
@@ -60,7 +61,7 @@
         </div>
       </div>
     </div>
-    <div class="tenant-base">
+    <div [ngClass]="{'mobile-fix':leftbarService.userInfo.applications.options.length > 1}" class="tenant-base">
       <div class="item">
         <span class="tenant-options-base">
           <button
@@ -74,7 +75,7 @@
             class="popover"
             id="tenantOptions"
           >
-            <div class="search-base">
+            <div class="popover-search-base">
               <span class="input-w-icon">
                 <span class="le-search input-icon"></span>
                 <input class="icon-left" id="searchTenant">
@@ -97,11 +98,15 @@
       <button (click)="toggleMenu()" class="search-btn ghost le-search"></button>
       <span class="input-w-icon">
         <span class="le-search input-icon"></span>
-        <input (keyup)="doSearchEmitter($event.target.value)" class="icon-left"
-               placeholder="Size Nasıl Yardımcı Olabilirim?" value="">
+        <input
+          #leftbarSearch
+          (keyup)="doSearchEmitter(leftbarSearch.value)"
+          class="icon-left"
+          placeholder="Size Nasıl Yardımcı Olabilirim?"
+        >
       </span>
     </div>
-    <div class="shortcuts-base">
+    <div [ngClass]="{'hidden-mobile': leftbarService.userInfo.applications.options.length < 2}" class="shortcuts-base">
       <div class="standarts">
         <div class="home item">
           <button (click)="homeEmitter()" class="ghost le-home"></button>
@@ -159,8 +164,10 @@
         <button (click)="shortcutSettingsEmitter()" class="ghost le-settings"></button>
       </div>
     </div>
+    <button (click)="toggleMobileMenu()" [ngClass]="mobileMenu ? 'le-cross' : 'le-hamburger'"
+            class="mobile-menu-btn large ghost"></button>
   </div>
-  <div class="menu-base">
+  <div [ngClass]="{'opened' : mobileMenu}" class="menu-base">
     <ng-content></ng-content>
     <span class="menu-toggle-base">
       <button
