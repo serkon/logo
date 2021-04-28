@@ -17,7 +17,7 @@ export class ComboboxShowcaseComponent {
   ];
   displayedItems = [];
 
-  selected = this.items[3];
+  selected = this.items[1];
 
   constructor() {
     this.displayedItems = this.clone(this.items);
@@ -28,6 +28,7 @@ export class ComboboxShowcaseComponent {
   };
 
   onFiltered($event) {
+    console.log('test');
     this.displayedItems = this.items.filter(item => {
       return item.a.b.includes($event);
     });

@@ -61,10 +61,6 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
    */
   @Input() path: string = null;
   /**
-   * When popover opened given indexed item will be hovered. Default is `-1`.
-   */
-  @Input() hover: number = -1;
-  /**
    * Let users select multiple options from the list. Default is `false`.
    */
   @Input() multiple: boolean = false;
@@ -73,19 +69,16 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
    */
   @Input() hasFilter: boolean = true;
   /**
-   * Add your own css class to object. You can access dropdown by '.dropdown' css class
-   */
-  @Input() cssClasses: string;
-  @Input() ngModel: string;
-  /**
-   * If you use your custom filter (e.g. server-side filtering) filter even emitter called when input entered.
-   * In the Custom filter method, you must replace `items` with filtered data. For example:
+   * If you wish to use your own filter algorithm (e.g. server-side filtering) the filter emitter will be called while you typing into the input field.
+   * Otherwise if you don't define any filter, it will filter with the default algorithm automatically when you type to input field.
+   * In the custom filter method, you must replace `items` with filtered data. It will show only your defined data.
+   * For example:
    *
    * ```typescript
    * onFiltered($event) {
    *  // html sample: `<logo-combobox [items]="displayItems" (filter)="onFiltered($event)"></logo-combobox>`
    *  this.displayItems = this.items.filter(item => {
-   *    return item.a.b.includes($event);
+   *    return item["path-of-displayed-text"].includes($event);
    *  });
    * }
    * ```
@@ -121,43 +114,56 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
   constructor(private elementRef: ElementRef) {
   }
 
-  _items: any[] = [];
+  private _items: any[] = [];
+
+  private _ngModel: any;
+
+  get ngModel() {
+    return this._ngModel;
+  }
 
   /**
-   * combobox item list will be displayed
+   * set initial default value
+   * @param value
    */
+  @Input() set ngModel(value: any) {
+    this._ngModel = value;
+  }
+
+  private _hover: number = -1;
+
+  get hover(): number {
+    return this._hover;
+  }
+
+  /**
+   * When popover opened given indexed item will be hovered. Default is `-1`.
+   */
+  @Input() set hover(value) {
+    this._hover = value;
+  }
+
   get items() {
     return this._items;
   }
 
+  /**
+   * selectable combobox item list will be displayed in popover
+   */
   @Input() set items(values: any[]) {
     this._items = values;
     this.filtered = values;
-  }
-
-  _selected: number = null;
-
-  /**
-   * Sets selected item with item index in the list
-   * for example: `[selected]="1"`
-   */
-  get selected(): number {
-    return this._selected;
-  }
-
-  @Input() set selected(value) {
-    this._selected = value;
-    this.hover = value;
-    const selected = this.items[value];
-    if (typeof selected !== 'undefined') {
-      this.setSelectedItem(selected, value);
-    }
   }
 
   ngOnInit() {
     const first = this.items[0];
     if (this.path && first && !Util.isObject(first)) {
       console.warn('Please set an object or remove path for items');
+    } else {
+      const index = this.findItemIndex(this.ngModel);
+      if (index >= 0) {
+        this.setSelectedItem(this.ngModel, index);
+      }
     }
   }
 
@@ -174,14 +180,23 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
   }
 
   setSelectedItem(item, index) {
-    this.multiple ? this.selectedItems.indexOf(item, 0) > -1 ? this.selectedItems.splice(this.selectedItems.indexOf(item, 0), 1) : this.selectedItems.push(item) : this.selectedItem = item;
     this.hover = index;
+    this.multiple && this.selectedItems.indexOf(item, 0) > -1 ? this.selectedItems.splice(this.selectedItems.indexOf(item, 0), 1) : this.selectedItems.push(item);
+    this.selectedItem = item;
     this.ngModelChange.emit(item);
     this.select.emit(item);
     this.focusInputElement();
     if (!this.multiple) {
       this.closeListDiv();
     }
+  }
+
+  findItemIndex(item: any): number {
+    return this.items.findIndex((i) => item === i);
+  }
+
+  findItemByIndex(index: number): any {
+    this.setSelectedItem(this.items[index], index);
   }
 
   arrowUp() {
@@ -230,7 +245,8 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
     // But will still have been sent search criteria to Combobox.
     if (this.filter.observers.length <= 0) {
       this.filtered = this.items.filter(item => {
-        return item.a.b.includes(this.search);
+        return Util.getObjectPathValue(item, this.path).includes(this.search);
+        // return item.a.b.includes(this.search);
       });
     }
   }
@@ -266,7 +282,6 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
 
   clearAll() {
     this.selectedItems = [];
-    this.selected = null;
   }
 
   registerOnChange(fn: any): void {
