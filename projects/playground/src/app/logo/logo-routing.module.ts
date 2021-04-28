@@ -179,6 +179,10 @@ const routes: Routes = [
         path: 'autocomplete-sample',
         loadChildren: () => import('./autocomplete-sample/autocomplete-sample.module').then(m => m.AutocompleteSampleModule),
       },
+      {
+        path: 'loading-sample',
+        loadChildren: () => import('./loading-sample/loading-sample.module').then(m => m.LoadingSampleModule),
+      },
     ],
   },
 ];
