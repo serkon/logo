@@ -17,15 +17,11 @@ export class LoadingInterceptor implements HttpInterceptor {
     this.totalRequests++;
     this.loadingService.loadingWatcher.next(true);
 
-    console.log('Geldi', this.totalRequests);
-    console.log('Geldi DURUM', this.loadingService.isLoading);
-
     return next.handle(request).pipe(
       finalize(() => {
         this.totalRequests--;
         if (this.totalRequests === 0) {
           this.loadingService.status = false;
-          console.log('Bitti', this.loadingService.isLoading);
         }
       }),
     );
