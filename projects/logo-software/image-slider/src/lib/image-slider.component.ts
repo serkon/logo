@@ -57,6 +57,7 @@ export class ImageSliderComponent {
   }
 
   set media(value: string[]) {
+    this._media = [];
     this._media = value;
     this.itemCount = this._media.length;
   }
