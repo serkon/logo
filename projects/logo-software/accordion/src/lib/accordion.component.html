@@ -26,7 +26,7 @@
           <span class="arrow le-arrow_down"></span>
         </label>
       </ng-container>
-      <p class="content">{{item.description}}</p>
+      <p [innerHTML]="item.description" class="content"></p>
     </li>
   </ng-container>
 </ul>
