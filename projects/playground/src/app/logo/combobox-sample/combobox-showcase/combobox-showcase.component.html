@@ -16,12 +16,12 @@
   <span class="label">Selected Item: </span>
   <span class="value">{{selected | json}}</span>
 </div>
-<!--
+
 <h2>Multiple Combobox</h2>
 <logo-combobox
   (filter)="onFiltered($event)"
   (select)="onSelect($event)"
-  [(ngModel)]="selected"
+  [(ngModel)]="multi"
   [hover]="2"
   [items]="displayedItems"
   [multiple]="true"
@@ -31,4 +31,9 @@
     <span>customized {{index}} - {{isFirst}} - {{isLast}} - {{isOdd}} - {{item | json }}</span>
   </ng-template>
 </logo-combobox>
--->
+
+<div class="selected-container">
+  <span class="label">Multi Selected Items: </span>
+  <span class="value">{{multi | json}}</span>
+</div>
+

@@ -6,10 +6,10 @@
 >
   <div *ngIf="!this.multiple; else multipleTemplate" [innerHTML]="selectedHTML()"></div>
   <ng-template #multipleTemplate>
-    <div *ngIf="this.selectedItems.length > 0; else noDataTemplate" class="multiple-base">
+    <div *ngIf="this.selected.length > 0; else noDataTemplate" class="multiple-base">
       <logo-tags
         (onRemoveClicked)="setSelectedItem(theSelect, i)"
-        *ngFor="let theSelect of selectedItems; let i=index;"
+        *ngFor="let theSelect of selected; let i=index;"
         [item]="{id:i, name: theSelect | multiple: path}"
       >
       </logo-tags>
@@ -39,7 +39,7 @@
       let isLast=last;
       let isFirst=first;
       let isOdd=odd;"
-      [ngClass]="{'hover':hover===i, 'selected': this.multiple ? selectedItems.indexOf(item) > -1 : item===selectedItem}"
+      [ngClass]="{'hover':hover===i, 'selected': this.multiple ? selected.indexOf(item) > -1 : item===selected}"
       class="item large"
     >
       <ng-container

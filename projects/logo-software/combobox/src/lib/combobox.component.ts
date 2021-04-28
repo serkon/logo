@@ -94,13 +94,9 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
    */
   public search: string = '';
   /**
-   * selected item
+   * selected item(s)
    */
-  public selectedItem: any = null;
-  /**
-   * selected items if multiple true
-   */
-  public selectedItems: any[] = [];
+  public selected: any | any[] = null;
   /**
    * filtered list
    */
@@ -115,6 +111,18 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
   }
 
   private _items: any[] = [];
+
+  get items() {
+    return this._items;
+  }
+
+  /**
+   * selectable combobox item list will be displayed in popover
+   */
+  @Input() set items(values: any[]) {
+    this._items = values;
+    this.filtered = values;
+  }
 
   private _ngModel: any;
 
@@ -143,22 +151,13 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
     this._hover = value;
   }
 
-  get items() {
-    return this._items;
-  }
-
-  /**
-   * selectable combobox item list will be displayed in popover
-   */
-  @Input() set items(values: any[]) {
-    this._items = values;
-    this.filtered = values;
-  }
-
   ngOnInit() {
+    this.selected = this.multiple ? this.ngModel && this.ngModel.length > 0 ? this.ngModel : [] : null;
     const first = this.items[0];
     if (this.path && first && !Util.isObject(first)) {
-      console.warn('Please set an object or remove path for items');
+      console.warn('Please set an object or remove path for items on LogoCombobox component');
+    } else if (this.multiple && !Array.isArray(this.ngModel)) {
+      console.warn('Please set an Array to ngModel on LogoCombobox component');
     } else {
       const index = this.findItemIndex(this.ngModel);
       if (index >= 0) {
@@ -181,10 +180,13 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
 
   setSelectedItem(item, index) {
     this.hover = index;
-    this.multiple && this.selectedItems.indexOf(item, 0) > -1 ? this.selectedItems.splice(this.selectedItems.indexOf(item, 0), 1) : this.selectedItems.push(item);
-    this.selectedItem = item;
-    this.ngModelChange.emit(item);
-    this.select.emit(item);
+    if (this.multiple) {
+      this.selected.indexOf(item, 0) > -1 ? this.selected.splice(this.selected.indexOf(item, 0), 1) : this.selected.push(item);
+    } else {
+      this.selected = this.selected === item ? null : item;
+    }
+    this.ngModelChange.emit(this.selected);
+    this.select.emit(this.selected);
     this.focusInputElement();
     if (!this.multiple) {
       this.closeListDiv();
@@ -217,7 +219,7 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
   }
 
   selectedHTML() {
-    return this.path && Util.isObject(this.selectedItem) && !Util.isNullOrUndef(this.selectedItem) ? Util.getObjectPathValue(this.selectedItem, this.path) : this.selectedItem ? this.selectedItem : this.placeholder;
+    return this.path && Util.isObject(this.selected) && !Util.isNullOrUndef(this.selected) ? Util.getObjectPathValue(this.selected, this.path) : this.selected ? this.selected : this.placeholder;
   }
 
   openListDiv() {
@@ -281,7 +283,7 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
   }
 
   clearAll() {
-    this.selectedItems = [];
+    this.selected = this.multiple ? [] : null;
   }
 
   registerOnChange(fn: any): void {

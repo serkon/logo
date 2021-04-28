@@ -18,6 +18,7 @@ export class ComboboxShowcaseComponent {
   displayedItems = [];
 
   selected = this.items[1];
+  multi = [this.items[1], this.items[4], this.items[0]];
 
   constructor() {
     this.displayedItems = this.clone(this.items);
