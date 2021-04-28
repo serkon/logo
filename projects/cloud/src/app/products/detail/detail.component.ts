@@ -62,22 +62,27 @@ export class DetailComponent implements OnInit {
     private blogService: BlogService,
     private headerService: HeaderService,
   ) {
-    this.productSlug = this.route.snapshot.params.slug;
+    this.route.params.subscribe(item => {
+      this.productSlug = item.slug;
+      this.init();
+    });
   }
 
   ngOnInit(): void {
     this.headerService.isScrollSpy = false;
-    this.getDetails();
-    this.loadTestimonials();
-    this.loadFaqs();
-    this.loadblogSummaries();
-    this.loadProductSummaries();
-
     const scroll$ = fromEvent(window, 'scroll');
     scroll$.subscribe(dir => {
       const scrollPos = window.pageYOffset;
       this.isStickyTabs = (scrollPos >= 330) ? true : false;
     });
+  }
+
+  private init() {
+    this.getDetails();
+    this.loadTestimonials();
+    this.loadFaqs();
+    this.loadblogSummaries();
+    this.loadProductSummaries();
   }
 
   public getImageContent(index: number) {

@@ -587,7 +587,7 @@
                 background: var(--basic-300);
                 overflow: hidden;
                 box-sizing: border-box;
-                height: size(585px);
+                min-height: size(585px);
                 text-align: center;
                 position: relative;
 
