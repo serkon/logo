@@ -51,6 +51,10 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
   @ViewChild('itemRef', {read: ElementRef}) itemsRef: ElementRef;
   @ViewChild('inputRef', {static: false, read: ElementRef}) inputRef: ElementRef;
   /**
+   * Makes component disable
+   */
+  @Input() disabled: boolean = false;
+  /**
    * Add placeholder string, default is `Select`
    */
   @Input() placeholder: string = 'Select';

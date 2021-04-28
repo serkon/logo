@@ -100,4 +100,10 @@
       right: 0;
     }
   }
+
+  .disabled {
+    opacity: #{get("state.disabled.opacity")};
+    pointer-events: none;
+    color: var(#{get("state.disabled.color")});
+  }
 }

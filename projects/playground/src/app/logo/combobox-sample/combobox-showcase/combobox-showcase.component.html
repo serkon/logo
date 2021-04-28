@@ -37,3 +37,19 @@
   <span class="value">{{multi | json}}</span>
 </div>
 
+
+<logo-combobox
+  (filter)="onFiltered($event)"
+  (select)="onSelect($event)"
+  [(ngModel)]="multi"
+  [disabled]="true"
+  [hover]="2"
+  [items]="displayedItems"
+  [multiple]="true"
+  [path]="'a.b'"
+>
+  <ng-template let-index="index" let-isFirst="isFirst" let-isLast="isLast" let-isOdd="isOdd" let-item="item">
+    <span>customized {{index}} - {{isFirst}} - {{isLast}} - {{isOdd}} - {{item | json }}</span>
+  </ng-template>
+</logo-combobox>
+

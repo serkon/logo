@@ -1,7 +1,6 @@
 <div
   (click)="openListDiv()"
-  (keydown)="openListDiv()"
-  [ngClass]="{'open': display}"
+  [ngClass]="{'open': display, 'disabled': disabled}"
   class="selected medium le-arrow_down icon-right basic"
 >
   <div *ngIf="!this.multiple; else multipleTemplate" [innerHTML]="selectedHTML()"></div>
@@ -39,7 +38,7 @@
       let isLast=last;
       let isFirst=first;
       let isOdd=odd;"
-      [ngClass]="{'hover':hover===i, 'selected': this.multiple ? selected.indexOf(item) > -1 : item===selected}"
+      [ngClass]="{'hover': hover === i, 'selected': this.multiple ? selected.indexOf(item) > -1 : item===selected}"
       class="item large"
     >
       <ng-container
