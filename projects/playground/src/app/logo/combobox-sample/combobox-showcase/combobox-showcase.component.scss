@@ -1,8 +1,15 @@
 :host {
   display: block;
 
+  h4 {
+    margin-bottom: 10px;
+  }
+
   .selected-container {
-    margin: 10px;
+    margin: 30px 0;
+    background-color: rgba(var(--dark-100-rgb), 0.4);
+    padding: 20px;
+    font-size: 14px;
 
     .label {
       font-weight: bold;
@@ -11,5 +18,9 @@
     .value {
       color: var(--green);
     }
+  }
+
+  .remove {
+    margin-top: 30px;
   }
 }

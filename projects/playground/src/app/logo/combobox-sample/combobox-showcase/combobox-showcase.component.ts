@@ -8,17 +8,17 @@ import { Component } from '@angular/core';
 export class ComboboxShowcaseComponent {
   // items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
   items = [
-    {a: {b: 'first', c: 2}},
-    {a: {b: 'second', c: 4}},
-    {a: {b: 'third', c: 6}},
-    {a: {b: 'fourth', c: 8}},
-    {a: {b: 'fifth', c: 10}},
-    {a: {b: 'sixth', c: 12}},
+    {a: {b: 'first', c: 11}},
+    {a: {b: 'second', c: 12}},
+    {a: {b: 'third', c: 13}},
+    {a: {b: 'fourth', c: 14}},
+    {a: {b: 'fifth', c: 15}},
+    {a: {b: 'sixth', c: 16}},
   ];
   displayedItems = [];
 
   selected = this.items[1];
-  multi = [this.items[1], this.items[4], this.items[0]];
+  multi = [this.items[5], this.items[4], this.items[2]];
 
   constructor() {
     this.displayedItems = this.clone(this.items);
@@ -29,7 +29,6 @@ export class ComboboxShowcaseComponent {
   };
 
   onFiltered($event) {
-    console.log('test');
     this.displayedItems = this.items.filter(item => {
       return item.a.b.includes($event);
     });
@@ -37,5 +36,9 @@ export class ComboboxShowcaseComponent {
 
   onSelect($event) {
     console.log('onSelect: ', $event);
+  }
+
+  removeAll() {
+    this.multi = [];
   }
 }

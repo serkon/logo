@@ -1,4 +1,4 @@
-<h2>Single Combobox</h2>
+<h4>Single</h4>
 <logo-combobox
   (select)="onSelect($event)"
   [(ngModel)]="selected"
@@ -8,7 +8,7 @@
   [multiple]="false"
 >
   <ng-template let-item="item" let-index="index" let-isOdd="isOdd" let-isFirst="isFirst" let-isLast="isLast">
-    <span>customized {{index}} - {{isFirst}} - {{isLast}} - {{isOdd}} - {{item | json }}</span>
+    <span>customized {{index + 1}} - {{isFirst}} - {{isLast}} - {{isOdd}} - {{item | json }}</span>
   </ng-template>
 </logo-combobox>
 
@@ -17,18 +17,18 @@
   <span class="value">{{selected | json}}</span>
 </div>
 
-<h2>Multiple Combobox</h2>
+<h4>Multiple</h4>
 <logo-combobox
   (filter)="onFiltered($event)"
   (select)="onSelect($event)"
   [(ngModel)]="multi"
-  [hover]="2"
+  [hover]="1"
   [items]="displayedItems"
   [multiple]="true"
   [path]="'a.b'"
 >
   <ng-template let-index="index" let-isFirst="isFirst" let-isLast="isLast" let-isOdd="isOdd" let-item="item">
-    <span>customized {{index}} - {{isFirst}} - {{isLast}} - {{isOdd}} - {{item | json }}</span>
+    <span>customized {{index + 1}} - {{isFirst}} - {{isLast}} - {{isOdd}} - {{item | json }}</span>
   </ng-template>
 </logo-combobox>
 
@@ -37,19 +37,25 @@
   <span class="value">{{multi | json}}</span>
 </div>
 
-
+<h4>Disabled</h4>
 <logo-combobox
   (filter)="onFiltered($event)"
   (select)="onSelect($event)"
   [(ngModel)]="multi"
   [disabled]="true"
-  [hover]="2"
+  [hover]="0"
   [items]="displayedItems"
   [multiple]="true"
   [path]="'a.b'"
 >
   <ng-template let-index="index" let-isFirst="isFirst" let-isLast="isLast" let-isOdd="isOdd" let-item="item">
-    <span>customized {{index}} - {{isFirst}} - {{isLast}} - {{isOdd}} - {{item | json }}</span>
+    <span>customized {{index + 1}} - {{isFirst}} - {{isLast}} - {{isOdd}} - {{item | json }}</span>
   </ng-template>
 </logo-combobox>
 
+<div class="selected-container">
+  <span class="label">Multi Selected Items: </span>
+  <span class="value">{{multi | json}}</span>
+</div>
+
+<button (click)="removeAll()" class="remove">RemoveAll</button>
