@@ -38,16 +38,11 @@
     }
 
     .multiple {
+      display: flex;
+      align-items: center;
       position: relative;
       padding-right: size(32px);
-
-      logo-tags {
-        margin: size(2px) size(5px) size(2px) 0;
-      }
-
-      .clear {
-        @include border-radius(50%);
-      }
+      height: 100%;
     }
 
     .clear {
