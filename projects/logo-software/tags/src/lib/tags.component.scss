@@ -12,82 +12,40 @@
 @import "scss/icons";
 
 :host {
-  display: inline-block;
+  @extend %fill-secondary, %size-small;
+
+  display: inline-flex;
+  align-items: center;
+  padding-left: size(6px);
+  border-radius: size(2px);
+  margin-right: size(5px);
 
   .tag-item {
-    @extend %button;
-
-    display: block;
     position: relative;
     z-index: 0;
-    padding-right: size(32px);
+    margin-right: size(7px);
+    color: var(--neutral-900);
+  }
 
-    button {
-      display: inline-block;
-      position: absolute;
-      top: 0;
-      right: 0;
+  .clear {
+    display: flex;
+    width: size(14px);
+    min-width: size(14px);
+    height: size(14px);
+    flex-shrink: 1;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 0;
+    margin-right: size(6px);
+
+    &::before {
+      width: 100%;
       height: 100%;
-      z-index: 1;
-      text-align: center;
-
-      span {
-        @include border-radius(50%);
-
-        display: inline-block;
-        width: size(14px);
-        height: size(14px);
-        background: rgba(var(--black-rgb), 0.1);
-        z-index: 0;
-        position: absolute;
-        top: size(7px);
-        left: size(9px);
-      }
-
-      &::before {
-        z-index: 1;
-        height: 100%;
-      }
-
-      &:hover {
-        background: transparent !important;
-      }
-    }
-
-    &.small {
-      @extend %size;
-
-      padding-right: size(24px);
-
-      button {
-        span {
-          top: size(3px);
-          left: size(5px);
-        }
-      }
-    }
-
-    &.large {
-      @extend %size;
-
-      padding-right: size(48px);
-
-      button {
-        span {
-          width: size(32px);
-          height: size(32px);
-          top: size(6px);
-          left: size(8px);
-        }
-      }
-    }
-
-    &.ghost {
-      color: var(--primary);
-    }
-
-    &:hover {
-      cursor: auto !important;
+      transform: scale(#{size(0.57)});
+      background: rgba(0, 0, 0, 0.5);
+      position: static;
+      top: auto;
+      left: auto;
     }
   }
 }

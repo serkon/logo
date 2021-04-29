@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output } from '@angular/core';
 
 import { TagItem } from './item';
 
@@ -38,8 +38,17 @@ export class TagsComponent {
    * Output that fired when remove button clicked.
    */
   @Output() onRemoveClicked: EventEmitter<string> = new EventEmitter<string>();
+  @Output() onClick: EventEmitter<any> = new EventEmitter<any>();
+
+  constructor(private elementRef: ElementRef) {
+    elementRef.nativeElement.addEventListener('click', () => {
+      this.onClick.emit(event)
+    })
+  }
 
   public removeEmitter(id: string) {
+    event.preventDefault();
+    event.stopPropagation();
     this.onRemoveClicked.emit(id);
   }
 }
