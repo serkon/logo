@@ -282,4 +282,8 @@ export class TableShowcaseComponent {
   onTrClickedChild(row: any) {
     console.log(row);
   }
+
+  onFilter(data) {
+    console.log('table filter: ', data);
+  }
 }

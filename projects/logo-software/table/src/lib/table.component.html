@@ -177,7 +177,7 @@
           </td>
           <!-- Column template -->
           <ng-container
-            [ngTemplateOutletContext]="{row: row, index: i, isLast: isLast, isFirst: isFirst, isOdd: isOdd, columns: columns, heads: heads, filter: filter, sorting: sorting, actions: actions}"
+            [ngTemplateOutletContext]="{row: row, index: i, isLast: isLast, isFirst: isFirst, isOdd: isOdd, columns: columns, heads: heads, filter: tableFilter, sorting: sorting, actions: actions}"
             [ngTemplateOutlet]="templateRef"
           >
           </ng-container>
@@ -186,7 +186,7 @@
         <tr *ngIf="expanderStatus[i]" class="expanded">
           <td [colSpan]="htmlSetTdColspan()" class="expanded-td">
             <ng-container
-              [ngTemplateOutletContext]="{row: row, index: i, isLast: isLast, isFirst: isFirst, isOdd: isOdd, columns: columns, heads: heads, filter: filter, sorting: sorting, actions: actions, isOpen: expanderStatus[i]}"
+              [ngTemplateOutletContext]="{row: row, index: i, isLast: isLast, isFirst: isFirst, isOdd: isOdd, columns: columns, heads: heads, filter: tableFilter, sorting: sorting, actions: actions, isOpen: expanderStatus[i]}"
               [ngTemplateOutlet]="expanderTemplateRef"
             >
             </ng-container>
@@ -244,7 +244,7 @@
         </div>
       </td>
       <ng-container
-        [ngTemplateOutletContext]="{row: creating, index: rows.length + 1, isLast: true, isFirst: false, columns: columns, heads: heads, filter: filter, sorting: sorting, actions: actions, createHead: true}"
+        [ngTemplateOutletContext]="{row: creating, index: rows.length + 1, isLast: true, isFirst: false, columns: columns, heads: heads, filter: tableFilter, sorting: sorting, actions: actions, createHead: true}"
         [ngTemplateOutlet]="templateRef"
       >
       </ng-container>

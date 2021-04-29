@@ -267,6 +267,10 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
    */
   @Input() checkbox: boolean = true;
   /**
+   * Trigger an event when filter inputs changed. It will push to method {paging, rows, shows} object.
+   */
+  @Output() public onFilter: EventEmitter<{ paging, rows, shows }> = new EventEmitter<{ paging, rows, shows }>();
+  /**
    * Trigger an event, when the excel button clicked. It sends `this.row` and `this.original` data to a given method.
    */
   @Output() public onExcelClick: EventEmitter<any> = new EventEmitter<any>();
@@ -417,7 +421,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
   /**
    * Filter variable
    */
-  public filter: TableFilter<string>[] = [];
+  public tableFilter: TableFilter<string>[] = [];
   /**
    * Interval set refreshing time of reload
    */
@@ -612,7 +616,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
         url: this.service.url,
         method: this.service.method,
         body: {
-          data: this.filter,
+          data: this.tableFilter,
         },
       },
       complete: () => console.log('Excel export done!'),
@@ -747,8 +751,8 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
       const index = this.variableFunctionFilter.findIndex(item => item.path === search.path);
       index >= 0 ? search.value.length <= 0 ? this.variableFunctionFilter.splice(index, 1) : Object.assign(this.variableFunctionFilter[index], search) : this.variableFunctionFilter.push(search);
     } else {
-      const index = this.filter.findIndex(item => item.path === search.path);
-      index >= 0 ? search.value.length <= 0 ? this.filter.splice(index, 1) : Object.assign(this.filter[index], search) : this.filter.push(search);
+      const index = this.tableFilter.findIndex(item => item.path === search.path);
+      index >= 0 ? search.value.length <= 0 ? this.tableFilter.splice(index, 1) : Object.assign(this.tableFilter[index], search) : this.tableFilter.push(search);
     }
   }
 
@@ -775,11 +779,12 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
     this.clientSideFilter();
     this.showing = JSON.parse(JSON.stringify(this.rows));
     this.onHttpSucceed.emit({rows: this.original, shows: this.showing});
+    this.onFilter.emit({paging: this.paging, rows: this.original, shows: this.showing});
   }
 
   clientSideFilter() {
     const startIndex = (this.pageNumber - 1) * this.pageSize;
-    const filter = this.makeFilterToObject(this.filter);
+    const filter = this.makeFilterToObject(this.tableFilter);
     Util.clearNullAndUndefined(filter, true);
     let filtered = JSON.parse(
       JSON.stringify(this.original && Util.findAllObjectInArray(this.original, filter, false)),
@@ -804,7 +809,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
 
   manageQueryParams(): HttpParams {
     let sorting = this.sorting.column ? Util.makeObject(this.sorting.column as string, this.sorting.descending ? 'desc' : 'asc') : null;
-    const filter: TableFilter<string>[] = this.filter.length > 0 ? this.filter : null;
+    const filter: TableFilter<string>[] = this.tableFilter.length > 0 ? this.tableFilter : null;
     const paging = {pageNumber: this.pageNumber, pageSize: this.pageSize};
     const queryParameter: { sort?: string, q?: string, offset?: number, limit?: number, $orderby?: string, $skip?: number, $top?: number, $filter?: string } = {};
     const reformat = {
@@ -955,6 +960,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
     this.showing = JSON.parse(JSON.stringify(this.rows));
     this.rows = this.runPathFilter(this.rows);
     this.onHttpSucceed.emit({rows: this.original, shows: this.showing});
+    this.onFilter.emit({paging: this.paging, rows: this.original, shows: this.showing});
     if (this.rows.length <= 0) {
       this.htmlRendered(null);
     }
@@ -1129,7 +1135,7 @@ export class TableComponent implements TableMeta<any>, OnInit, OnDestroy, OnChan
       totalCount: 0,
       totalPages: 0,
     };
-    this.filter = [];
+    this.tableFilter = [];
     this.rows = [];
     this.creating = {};
   }
