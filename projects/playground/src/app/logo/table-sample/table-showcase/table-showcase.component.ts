@@ -103,8 +103,8 @@ export class TableShowcaseComponent {
       },
     ],
     rows: [
-      {id: 0, zone: {name: 'Çorum'}, percentage: 0.133191, hour: '2019-01-13', surname: 'konakcı', because: 2132131},
-      {id: 1, zone: {name: 'Adana'}, percentage: 633, hour: '2019-12-22', surname: 'meydancı', because: 1235},
+      {id: 0, zone: {name: 'Çorum'}, percentage: 6.133191, hour: '2019-01-13', surname: 'konakcı', because: 2132131},
+      {id: 1, zone: {name: 'Adana'}, percentage: 1.3, hour: '2019-12-22', surname: 'meydancı', because: 1235},
       {id: 2, zone: {name: 'İstanbul'}, percentage: 314, hour: '2018-03-13', surname: 'uyar', because: 54466},
       {id: 3, zone: {name: 'Samsun'}, percentage: 554, hour: '2017-06-15', surname: 'güler', because: 65467},
       {id: 4, zone: {name: 'Çorum'}, percentage: 219, hour: '2019-12-31', surname: 'sevim', because: 9876543},

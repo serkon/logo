@@ -11,35 +11,35 @@
 -->
 <div class="table-actions" *ngIf="showActions">
   <button
-    class="outline le-add"
+    class="primary light le-add"
     (click)="actionHtmlAddReference()" *ngIf="!!reference && refButtonStatus"></button>
   <button
-    class="outline le-i-remove"
+    class="primary light le-i-remove"
     (click)="actionHtmlRemoveReference()" *ngIf="!!reference && refButtonStatus"
   >
   </button>
   <button
-    class="outline le-refresh"
+    class="primary light le-refresh"
     (click)="actionHtmlLoad()" *ngIf="!!refresh"
   >
   </button>
   <button
-    class="outline le-add"
+    class="primary light le-add"
     (click)="create=!create" *ngIf="editable" [ngClass]="{'button-selected': create}"
   >
   </button>
   <button
-    (click)="editable = !editable"
     [ngClass]="{'button-selected': editable}"
-    class="outline le-edit_pen"
+    class="primary light le-edit_pen"
+    (click)="editable = !editable"
   >
   </button>
-  <button (click)="actionHtmlDeleteRow(selected)" *ngIf="delete" class="outline le-trash"></button>
+  <button (click)="actionHtmlDeleteRow(selected)" *ngIf="delete" class="primary light le-trash"></button>
   <ng-container *ngFor="let action of actions">
     <button
-      (click)="action.click && action.click(_this)" [disabled]="action.disable"
       [ngClass]="htmlSetActionButtonClass(action)"
-      class="outline"
+      class="primary light"
+      (click)="action.click && action.click(_this)" [disabled]="action.disable"
     >
       {{action.display}}
     </button>
