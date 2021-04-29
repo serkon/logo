@@ -16,6 +16,10 @@
       .hero-product-detail {
         height: size(255px);
 
+        @include smaller-than(md) {
+          height: auto;
+        }
+
         .overlay {
           background: rgba(var(--primary-900-rgb), 0.8);
         }
@@ -80,10 +84,6 @@
               @include smaller-than(md) {
                 margin-top: size(10px);
                 width: 100%;
-
-                &:first-child {
-                  display: none;
-                }
               }
 
               &:last-child {
@@ -580,7 +580,7 @@
               justify-content: flex-start;
 
               @include smaller-than(lg) {
-                flex-wrap: nowrap;
+                flex-wrap: wrap;
                 overflow-x: auto;
               }
 
@@ -597,7 +597,7 @@
                 position: relative;
 
                 @include smaller-than(lg) {
-                  width: calc((100% - 18px) / 2);
+                  width: calc((100% - 36px) / 2);
                   margin-bottom: size(18px);
                 }
 

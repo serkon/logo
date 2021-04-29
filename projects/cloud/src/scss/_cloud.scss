@@ -390,4 +390,10 @@ html, body {
       }
     }
   }
+
+  .hidden-md {
+    @include smaller-than(md) {
+      display: none;
+    }
+  }
 }
