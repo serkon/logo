@@ -24,13 +24,13 @@
   >
   </button>
   <button
-    class="primary light le-add"
+    class="light le-add"
     (click)="create=!create" *ngIf="editable" [ngClass]="{'button-selected': create}"
   >
   </button>
   <button
     [ngClass]="{'button-selected': editable}"
-    class="primary light le-edit_pen"
+    class="light le-edit_pen"
     (click)="editable = !editable"
   >
   </button>
@@ -38,7 +38,7 @@
   <ng-container *ngFor="let action of actions">
     <button
       [ngClass]="htmlSetActionButtonClass(action)"
-      class="primary light"
+      class="light"
       (click)="action.click && action.click(_this)" [disabled]="action.disable"
     >
       {{action.display}}
@@ -52,7 +52,7 @@
     [name]="excel.name"
     [status]="excel.status"
   >
-    <button class="outline le-printer" (click)="htmlExcelClick()"></button>
+    <button class="light le-printer" (click)="htmlExcelClick()"></button>
   </logo-excel>
 </div>
 
