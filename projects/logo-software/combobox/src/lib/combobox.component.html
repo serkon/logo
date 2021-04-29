@@ -1,22 +1,24 @@
 <div
   (click)="openListDiv()"
   [ngClass]="{'open': display, 'disabled': disabled}"
-  class="selected medium le-arrow_down icon-right basic"
+  class="content medium le-arrow_down icon-right basic"
 >
-  <div *ngIf="!this.multiple; else multipleTemplate" [innerHTML]="selectedHTML()"></div>
+  <div *ngIf="!this.multiple; else multipleTemplate" [innerHTML]="selectedHTML()" class="single"></div>
   <ng-template #multipleTemplate>
-    <div *ngIf="this.selected.length > 0; else noDataTemplate" class="multiple-base">
+    <div *ngIf="this.ngModel.length > 0; else noDataTemplate" class="multiple">
       <logo-tags
-        (onRemoveClicked)="setSelectedItem(theSelect, i)"
-        *ngFor="let theSelect of selected; let i=index;"
+        (click)="prevent()"
+        *ngFor="let theSelect of ngModel; let i=index;"
         [item]="{id:i, name: theSelect | multiple: path}"
+        (onRemoveClicked)="setSelectedItem(theSelect, i)"
+        [size]="'small'"
       >
       </logo-tags>
-      <button (click)="clearAll()" class="clear-btn ghost le-cross"></button>
     </div>
   </ng-template>
+  <button (click)="clearAll()" *ngIf="isNull(this.ngModel)" class="clear le-cross ghost"></button>
   <ng-template #noDataTemplate>
-    {{placeholder}}
+    <div [innerHTML]="placeholder" class="single"></div>
   </ng-template>
 </div>
 <div *ngIf="display" class="dropdown">
@@ -33,12 +35,13 @@
   <ul #itemRef class="items">
     <li
       (click)="setSelectedItem(item, i)"
+      (mouseover)="hover=i"
       *ngFor="let item of filtered;
       let i=index;
       let isLast=last;
       let isFirst=first;
       let isOdd=odd;"
-      [ngClass]="{'hover': hover === i, 'selected': this.multiple ? selected.indexOf(item) > -1 : item===selected}"
+      [ngClass]="{'hover': hover === i, 'selected': this.multiple ? ngModel.indexOf(item) > -1 : item===ngModel}"
       class="item large"
     >
       <ng-container

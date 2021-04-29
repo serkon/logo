@@ -48,7 +48,6 @@ import { Util } from '@logo-software/core';
 })
 export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAccessor {
   @ContentChild(TemplateRef) templateRef = null;
-  @ViewChild('itemRef', {read: ElementRef}) itemsRef: ElementRef;
   @ViewChild('inputRef', {static: false, read: ElementRef}) inputRef: ElementRef;
   /**
    * Makes component disable
@@ -98,10 +97,6 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
    */
   public search: string = '';
   /**
-   * selected item(s)
-   */
-  public selected: any | any[] = null;
-  /**
    * filtered list
    */
   public filtered: any[] = [];
@@ -112,6 +107,17 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
   private timer: number;
 
   constructor(private elementRef: ElementRef) {
+  }
+
+  private _itemRef: ElementRef;
+
+  get itemRef() {
+    return this._itemRef;
+  }
+
+  @ViewChild('itemRef', {read: ElementRef}) set itemsRef(elementRef: ElementRef) {
+    this._itemRef = elementRef
+    this.scroll();
   }
 
   private _items: any[] = [];
@@ -156,26 +162,22 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
   }
 
   ngOnInit() {
-    this.selected = this.multiple ? this.ngModel && this.ngModel.length > 0 ? this.ngModel : [] : null;
+    this.ngModel = this.ngModel ? this.ngModel : this.multiple ? [] : null;
     const first = this.items[0];
     if (this.path && first && !Util.isObject(first)) {
       console.warn('Please set an object or remove path for items on LogoCombobox component');
     } else if (this.multiple && !Array.isArray(this.ngModel)) {
       console.warn('Please set an Array to ngModel on LogoCombobox component');
-    } else {
-      const index = this.findItemIndex(this.ngModel);
-      if (index >= 0) {
-        this.setSelectedItem(this.ngModel, index);
-      }
     }
   }
 
   ngAfterViewInit() {
-    this.scroll();
   }
 
   @HostListener('document:click', ['$event'])
   public onClick(event: Event) {
+    event.preventDefault();
+    event.stopPropagation();
     const contains = this.elementRef.nativeElement.contains(event.target);
     if (!contains) {
       this.closeListDiv();
@@ -185,12 +187,12 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
   setSelectedItem(item, index) {
     this.hover = index;
     if (this.multiple) {
-      this.selected.indexOf(item, 0) > -1 ? this.selected.splice(this.selected.indexOf(item, 0), 1) : this.selected.push(item);
+      this.ngModel.indexOf(item, 0) > -1 ? this.ngModel.splice(this.ngModel.indexOf(item, 0), 1) : this.ngModel.push(item);
     } else {
-      this.selected = this.selected === item ? null : item;
+      this.ngModel = this.ngModel === item ? null : item;
     }
-    this.ngModelChange.emit(this.selected);
-    this.select.emit(this.selected);
+    this.ngModelChange.emit(this.ngModel);
+    this.select.emit(this.ngModel);
     this.focusInputElement();
     if (!this.multiple) {
       this.closeListDiv();
@@ -223,7 +225,7 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
   }
 
   selectedHTML() {
-    return this.path && Util.isObject(this.selected) && !Util.isNullOrUndef(this.selected) ? Util.getObjectPathValue(this.selected, this.path) : this.selected ? this.selected : this.placeholder;
+    return this.path && Util.isObject(this.ngModel) && !Util.isNullOrUndef(this.ngModel) ? Util.getObjectPathValue(this.ngModel, this.path) : this.ngModel ? this.ngModel : this.placeholder;
   }
 
   openListDiv() {
@@ -268,7 +270,7 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
   }
 
   scroll() {
-    if (this.display && this.hover >= 0 && this.hover <= this.filtered.length) {
+    if (this.itemsRef && this.display && this.hover >= 0 && this.hover <= this.filtered.length) {
       window.setTimeout(() => {
         this.itemsRef.nativeElement.children[this.hover].scrollIntoView({
           behavior: 'smooth',
@@ -287,7 +289,11 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
   }
 
   clearAll() {
-    this.selected = this.multiple ? [] : null;
+    event.preventDefault();
+    event.stopPropagation();
+    this.ngModel = this.multiple ? [] : null;
+    this.ngModelChange.emit(this.ngModel);
+    this.select.emit(this.ngModel);
   }
 
   registerOnChange(fn: any): void {
@@ -300,5 +306,14 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
   }
 
   setDisabledState(isDisabled: boolean): void {
+  }
+
+  isNull(value) {
+    return Array.isArray(value) ? value.length > 0 : value !== null
+  }
+
+  prevent() {
+    // event.preventDefault();
+    // event.stopPropagation();
   }
 }
