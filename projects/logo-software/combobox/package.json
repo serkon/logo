@@ -1,6 +1,6 @@
 {
   "name": "@logo-software/combobox",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "peerDependencies": {
     "@angular/common": "^9.1.6",
     "@angular/core": "^9.1.6",
@@ -8,8 +8,8 @@
   },
   "dependencies": {
     "@logo-software/core": "~0.0.22",
-    "@logo-software/theme": "^3.10.4",
-    "@logo-software/tags": "^0.2.2"
+    "@logo-software/theme": "^3.10.5",
+    "@logo-software/tags": "^0.2.3"
   },
   "description": "Combobox component replace native select element with many added features.",
   "homepage": "http://elements.logo.com.tr",
