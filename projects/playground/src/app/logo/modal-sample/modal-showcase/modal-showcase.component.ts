@@ -16,8 +16,8 @@ export class ModalShowcaseComponent {
     this.modalService.openModal();
   }
 
-  public sampleOpenAction() {
-    console.log('### Modal Opened');
+  public sampleOpenAction(e) {
+    console.log('### Modal Opened', e);
   }
 
   public closeModal() {

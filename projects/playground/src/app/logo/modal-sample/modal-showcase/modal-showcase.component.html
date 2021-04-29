@@ -1,6 +1,6 @@
 <button (click)="openModal()" class="success large">Open The Modal</button>
 <logo-modal
-  (onOpened)="sampleOpenAction()"
+  (onToggle)="sampleOpenAction($event)"
   [modalId]="'logoModal'"
   [title]="'My Logo Modal'"
   [footerShadow]="true"
