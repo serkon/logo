@@ -1,6 +1,6 @@
 {
   "name": "@logo-software/table",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "peerDependencies": {
     "@angular/common": "^7.0.0",
     "@angular/core": "^7.0.0",
@@ -10,7 +10,7 @@
     "@logo-software/core": "~0.1.0",
     "@logo-software/excel": "~1.2.0",
     "@logo-software/paging": "~1.1.2",
-    "@logo-software/theme": "~3.10.2"
+    "@logo-software/theme": "~3.10.4"
   },
   "description": "This module generates a table using the given data. The table can generate data using server-side Http requests or given direct data using the client-side feature.",
   "homepage": "http://elements.logo.com.tr",
