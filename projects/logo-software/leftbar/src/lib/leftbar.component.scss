@@ -135,10 +135,10 @@
               filter: blur(4px);
 
               @include smaller-than(md) {
-                width: size(44px);
-                height: size(44px);
-                top: size(14px);
-                left: size(15px);
+                width: size(36px);
+                height: size(36px);
+                top: size(22px);
+                left: size(19px);
               }
             }
 
@@ -264,7 +264,7 @@
           position: absolute;
           top: 0;
           left: 0;
-          z-index: 6;
+          z-index: 8;
 
           @include smaller-than(md) {
             height: 100vh;
@@ -280,7 +280,7 @@
                 background: var(--white);
 
                 .badge {
-                  top: size(92px);
+                  top: size(50px);
                   left: auto;
                   margin-left: size(-72px);
                 }
@@ -289,18 +289,19 @@
                   width: size(64px);
                   height: size(64px);
                   position: relative;
-                  margin-top: size(98px);
+                  margin-top: size(55px);
                   top: auto;
                   left: auto;
                   z-index: 1;
                 }
 
                 .avatar-background {
-                  width: size(64px);
-                  height: size(64px);
-                  margin-top: size(100px);
+                  width: size(56px);
+                  height: size(56px);
+                  margin-top: size(65px);
                   top: auto;
                   left: auto;
+                  margin-left: size(4px);
                 }
 
                 .details {
