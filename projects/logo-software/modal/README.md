@@ -35,7 +35,7 @@ workflow. Add the below code to your code stack and give initializer parameters.
 
 ```html
 <logo-modal
- (onOpened)="sampleOpenAction()"
+ (onToggle)="sampleToggleAction($event)"
  [modalId]="'logoModal'"
  [title]="'My Logo Modal'"
 >

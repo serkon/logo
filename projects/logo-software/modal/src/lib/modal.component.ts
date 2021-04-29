@@ -51,15 +51,19 @@ export class ModalComponent implements AfterViewInit {
   @Input() supportFullscreen: boolean = false;
 
   /**
-   * When modal opened, output fired by the component.
+   * When modal opened or closed, a boolean status of the modal fired by the component.
    */
-  @Output() public onOpened: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() public onToggle: EventEmitter<boolean> = new EventEmitter<boolean>();
+  /**
+   * When modal closed, output fired by the component.
+   */
+  @Output() public onClosed: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   @ViewChild('dialogFooter', {read: ElementRef, static: true}) dialogFooter: ElementRef;
 
   constructor(public modal: ModalService) {
     if (this.modal.modalVisibilityChange) {
-      this.onOpened.emit(this.modal.show);
+      this.onToggle.emit(this.modal.show);
     }
   }
 
