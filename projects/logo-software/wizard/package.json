@@ -1,6 +1,6 @@
 {
   "name": "@logo-software/wizard",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "peerDependencies": {
     "@angular/common": "^11.2.3",
     "@angular/core": "^11.2.3"
@@ -8,7 +8,7 @@
   "dependencies": {
     "tslib": "^2.0.0",
     "@logo-software/links": "~1.2.1",
-    "@logo-software/theme": "~3.9.1"
+    "@logo-software/theme": "~3.10.3"
   },
   "description": "Wizard library create business flow paths for your users.",
   "homepage": "http://elements.logo.com.tr",
