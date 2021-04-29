@@ -51,7 +51,7 @@ $config: deep-map-merge((
       md: 768px,
       lg: 992px,
       xl: 1200px,
-      xxl: 1400px,
+      xxl: 1440px,
     ),
     container-max-widths: (
       xs: auto,
@@ -83,7 +83,8 @@ $config: deep-map-merge((
       focus: 0.15
     ),
     disabled:(
-      opacity: 40%
+      opacity: 0.4,
+      color: --neutral-500
     ),
     selected: (
     )
