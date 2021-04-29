@@ -1,6 +1,6 @@
 <div>
   <logo-wizard
-    (change)="stepChange($event)"
+    (stepChange)="stepChange($event)"
     (stepEvent)="stepEvent($event)"
     [activeStep]="3"
     [isVertical]="false"
@@ -26,7 +26,6 @@
       <p class="large">Wizard Second Step</p>
     </logo-step>
     <logo-step
-      (click)="stepClick($event)"
       (init)="stepInit($event)"
       [params]="{id: 'user-id-2'}"
       [title]="'Three'"
@@ -34,7 +33,6 @@
       <p class="large">Wizard Third Step</p>
     </logo-step>
     <logo-step
-      (click)="stepClick($event)"
       (init)="stepInit($event)"
       [params]="{id: 'user-id-2'}"
       [title]="'Four'"
@@ -42,7 +40,6 @@
       <p class="large">Wizard Fourth Step</p>
     </logo-step>
     <logo-step
-      (click)="stepClick($event)"
       (init)="stepInit($event)"
       [params]="{id: 'user-id-2'}"
       [title]="'Fifth long description and title'"
@@ -50,7 +47,6 @@
       <p class="large">Wizard Fifth Step</p>
     </logo-step>
     <logo-step
-      (click)="stepClick($event)"
       (init)="stepInit($event)"
       [isDisabled]="true"
       [params]="{id: 'user-id-2'}"
@@ -58,6 +54,11 @@
     >
       <p class="large">Wizard Sixth Step</p>
     </logo-step>
+    <div right>right text</div>
+    <div left>left text</div>
+    <div actions>
+      <button>Action Button</button>
+    </div>
     <div footer>Footer contents</div>
   </logo-wizard>
 </div>
