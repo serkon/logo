@@ -37,15 +37,15 @@ parameters.
 ```html
 
 <logo-wizard
-  [activeStep]="0"
-  [cssClasses]="'my-own-wizard-class'"
-  [routing]="true"
-  [isVertical]="true"
-  (change)="yourChangeTrigger($event)"
-  (tabEvent)="yourTabEvent($event)"
+        [activeStep]="0"
+        [cssClasses]="'my-own-wizard-class'"
+        [routing]="true"
+        [isVertical]="true"
+        (stepChange)="yourChangeTrigger($event)"
+        (tabEvent)="yourTabEvent($event)"
 >
-  <logo-step title="one">content of wizard step one</logo-step>
-  <logo-step title="two">content of wizard step two</logo-step>
+    <logo-step title="one">content of wizard step one</logo-step>
+    <logo-step title="two">content of wizard step two</logo-step>
 </logo-wizard>
 ```
 

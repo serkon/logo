@@ -27,6 +27,10 @@
         overflow: auto;
         -webkit-overflow-scrolling: touch;
         -ms-overflow-style: -ms-autohiding-scrollbar;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
 
         &::-webkit-scrollbar {
           display: none;
@@ -41,6 +45,7 @@
           line-height: normal;
           list-style: none;
           padding: 0;
+          flex-grow: 1;
 
           li {
             min-width: size(110px);
@@ -142,6 +147,22 @@
                     opacity: 0.5;
                   }
                 }
+
+                &:active {
+                  @include box-shadow(0, 0, 0, 0, rgba(var(--light-rgb), 0), false);
+
+                  background-color: transparent;
+                }
+
+                &:focus {
+                  @include box-shadow(0, 0, 0, 0, rgba(var(--light-rgb), 0), false);
+
+                  background-color: transparent;
+                }
+
+                &:hover {
+                  background-color: transparent;
+                }
               }
             }
 
@@ -171,6 +192,20 @@
             }
           }
         }
+
+        .actions {
+          width: 100%;
+          text-align: right;
+          padding-top: size(40px);
+
+          button {
+            margin-right: size(10px);
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
       }
     }
 
@@ -183,6 +218,7 @@
         .wizard-steps {
           flex-grow: unset;
           margin-right: size(15px);
+          flex-direction: column;
 
           .steps {
             flex-direction: column;

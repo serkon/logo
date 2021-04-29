@@ -35,7 +35,7 @@ import { Params } from '@angular/router';
   selector: 'logo-step',
   template: `
     <ng-container *ngIf="isActive">
-      <div class="pane" (click)="htmlClick()">
+      <div class="pane">
         <ng-content></ng-content>
       </div>
     </ng-container>
@@ -88,17 +88,8 @@ export class ItemComponent implements AfterViewInit {
    * Init event emitter that runs when the step is initialized. This will lets developer to trigger step loaded or not.
    */
   @Output() init: EventEmitter<ItemComponent> = new EventEmitter<ItemComponent>();
-  /**
-   * Click event emitter
-   */
-  @Output() click: EventEmitter<ItemComponent> = new EventEmitter<ItemComponent>();
 
   ngAfterViewInit() {
     this.init.emit(this);
-  }
-
-  htmlClick() {
-    event.stopPropagation();
-    this.click.emit(this);
   }
 }

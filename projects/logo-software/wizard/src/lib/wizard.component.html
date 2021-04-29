@@ -1,6 +1,9 @@
 <div [ngClass]="{'vertical': isVertical }" class="logo-wizard {{cssClasses}}">
   <div [ngClass]="{'container': hasContainer}" class="base">
     <div class="wizard-steps">
+      <div class="left">
+        <ng-content select="[left]"></ng-content>
+      </div>
       <ul class="steps">
         <li
           (click)="setActiveStep(i)"
@@ -31,6 +34,12 @@
           </logo-link>
         </li>
       </ul>
+      <div class="right">
+        <ng-content select="[right]"></ng-content>
+      </div>
+      <div class="actions">
+        <ng-content select="[actions]"></ng-content>
+      </div>
     </div>
     <div class="wizard-contents">
       <ng-content></ng-content>

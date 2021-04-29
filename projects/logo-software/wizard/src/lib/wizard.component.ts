@@ -88,7 +88,7 @@ export class WizardComponent implements AfterContentInit {
   /**
    * Triggered when clicked another step
    */
-  @Output() change: EventEmitter<ItemComponent> = new EventEmitter<ItemComponent>();
+  @Output() stepChange: EventEmitter<ItemComponent> = new EventEmitter<ItemComponent>();
   /**
    * When added, created or changed ItemComponent this event will be triggered
    */
@@ -148,7 +148,7 @@ export class WizardComponent implements AfterContentInit {
         item.isActive = false;
       });
       step.isActive = true;
-      this.change.emit(step);
+      this.stepChange.emit(step);
       if (this.routing && !!step.route) {
         setTimeout(() => {
           this.router.navigate([step.route], {fragment: step.fragment, queryParams: step.params});
