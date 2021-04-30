@@ -1,13 +1,13 @@
 {
   "name": "@logo-software/switch",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "peerDependencies": {
     "@angular/common": "^11.1.2",
     "@angular/core": "^11.1.2"
   },
   "dependencies": {
     "tslib": "^2.0.0",
-    "@logo-software/theme": "~3.9.1"
+    "@logo-software/theme": "~3.10.5"
   },
   "description": "Switch provides display checked/unchecked (On/Off) state on the button.",
   "homepage": "http://elements.logo.com.tr",
