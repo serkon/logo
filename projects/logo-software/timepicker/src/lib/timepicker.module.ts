@@ -46,8 +46,8 @@ import { MaskDirective } from './directive/mask.directive';
  */
 @NgModule({
   declarations: [TimepickerComponent, MaskDirective],
-  imports: [CommonModule, PopoverModule, FormsModule],
-  exports: [TimepickerComponent, MaskDirective],
+  imports: [FormsModule, CommonModule, PopoverModule],
+  exports: [TimepickerComponent],
 })
 export class TimepickerModule {
 }

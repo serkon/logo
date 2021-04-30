@@ -8,9 +8,10 @@
  * Any reproduction of this material must contain this notice.
  */
 
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, forwardRef, Input, Output } from '@angular/core';
 
 import { PopoverService } from '@logo-software/popover';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 /**
  * IconPosition sets the clock icon position on the input. Default is left.
@@ -40,6 +41,7 @@ export enum Sizes {
  * ```html
  * <logo-timepicker
  *  [id]="'myLogoTimer'"
+ *  [(ngModel)]="setTime"
  *  [size]="'medium'"
  *  [iconPosition]="'left'"
  *  [cssClasses]="'my-own-theme-css'"
@@ -51,6 +53,11 @@ export enum Sizes {
   selector: 'logo-timepicker',
   templateUrl: './timepicker.component.html',
   styleUrls: ['./timepicker.component.scss'],
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => TimepickerComponent),
+    multi: true,
+  }],
 })
 export class TimepickerComponent {
   /**
@@ -69,16 +76,34 @@ export class TimepickerComponent {
    * Your own css class to design the component
    */
   @Input() cssClasses: string;
-
   public hours = [];
-  public mins = [];
+  public minutes = [];
   public selectedHour = '00';
-  public selectedMins = '00';
-  public settedTime = null;
+  public selectedMinute = '00';
+  public time = null;
+  @Output() ngModelChange: EventEmitter<boolean> = new EventEmitter();
+  @Output() onChange: EventEmitter<string> = new EventEmitter();
 
   constructor(public popoverService: PopoverService) {
     this.hours = Array.from({length: 24}, (x, i) => i < 10 ? '0' + i : '' + i);
-    this.mins = Array.from({length: 60}, (x, i) => i < 10 ? '0' + i : '' + i);
+    this.minutes = Array.from({length: 60}, (x, i) => i < 10 ? '0' + i : '' + i);
+  }
+
+  private _ngModel: string;
+
+  get ngModel() {
+    return this._ngModel;
+  }
+
+  /**
+   * Set model
+   */
+  @Input() set ngModel(value: string) {
+    const split = value.trim().split(':');
+    this._ngModel = value;
+    this.selectedHour = split[0];
+    this.selectedMinute = split[1];
+    this.setTime();
   }
 
   /**
@@ -107,7 +132,7 @@ export class TimepickerComponent {
    * This function sets the minutes of the clock
    */
   public setMin($event) {
-    this.selectedMins = $event.target.value;
+    this.selectedMinute = $event.target.value;
     this.setTime();
   }
 
@@ -115,7 +140,7 @@ export class TimepickerComponent {
    * This function sets the certain time with setted hours and minutes.
    */
   public setTime() {
-    this.settedTime = this.selectedHour + ':' + this.selectedMins;
+    this.time = this.selectedHour + ':' + this.selectedMinute;
   }
 
   /**
@@ -124,6 +149,24 @@ export class TimepickerComponent {
   public handleWriteTime($event) {
     const findTime = $event.target.value.split(':', 2);
     findTime[0] === undefined || findTime[0].length < 2 ? this.selectedHour = '00' : this.selectedHour = findTime[0];
-    findTime[1] === undefined || findTime[1].length < 2 ? this.selectedMins = '00' : this.selectedMins = findTime[1];
+    findTime[1] === undefined || findTime[1].length < 2 ? this.selectedMinute = '00' : this.selectedMinute = findTime[1];
+  }
+
+  apply() {
+    this.ngModelChange.emit(this.time);
+    this.onChange.emit(this.time);
+    this.popoverService.closePopover();
+  }
+
+  registerOnChange(fn: any): void {
+  }
+
+  registerOnTouched(fn: any): void {
+  }
+
+  writeValue(obj: any): void {
+  }
+
+  setDisabledState(isDisabled: boolean): void {
   }
 }

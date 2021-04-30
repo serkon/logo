@@ -4,10 +4,10 @@
     <input
       [logoPopover]="'timePopover-' + id"
       (keyup)="handleWriteTime($event)"
-      [ngModel]="settedTime"
+      [ngModel]="time"
       [placeholder]="'00:00'"
       [regexp]="'^[0-2]{1}$|^[0-2]{1}[0-9]{1}$|^[0-2]{1}[0-9]{1}[0-5]{1}$|^[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}$'"
-      [value]="settedTime != null ? settedTime : ''"
+      [value]="time != null ? time : ''"
       class="icon-{{iconPosition}} bordered {{size}}"
       id="{{id}}"
       logoMask
@@ -20,14 +20,15 @@
           <option *ngFor="let hour of hours" [value]="hour">{{hour}}</option>
         </select>
       </div>
+      <div>:</div>
       <div class="selection">
-        <select (change)="setMin($event)" [(ngModel)]="selectedMins" class="popoverSelect" id="{{id}}Mins">
-          <option *ngFor="let min of mins" [value]="min">{{min}}</option>
+        <select (change)="setMin($event)" [(ngModel)]="selectedMinute" class="popoverSelect" id="{{id}}Mins">
+          <option *ngFor="let min of minutes" [value]="min">{{min}}</option>
         </select>
       </div>
     </div>
     <div class="btn-area">
-      <button (click)="popoverService.closePopover()" class="approve-btn">Uygula</button>
+      <button (click)="apply()" class="approve-btn">Uygula</button>
     </div>
   </logo-popover>
 </div>
