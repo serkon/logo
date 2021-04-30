@@ -101,6 +101,7 @@
     "@logo-software/table": "^1.2.7",
     "@logo-software/theme": "^3.6.1",
     "@logo-software/toast": "0.0.18",
+    "@logo-software/wizard": "^0.1.1",
     "@nebular/bootstrap": "^6.2.1",
     "@nebular/eva-icons": "^6.2.1",
     "@nebular/theme": "^6.2.1",
