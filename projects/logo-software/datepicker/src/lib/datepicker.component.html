@@ -4,7 +4,7 @@
     <input
       #dateRef
       (change)="onDateChangeHandler($event)"
-      [(ngModel)]="value"
+      [(ngModel)]="dateValue"
       [disabled]="disabled"
       [maskType]="'date'"
       [placeholder]="placeholder"
@@ -15,7 +15,7 @@
   </div>
   <span class="input-line"></span>
   <div #calendar [hidden]="hidden" class="calendar-base">
-    <div *ngIf="selectDate">
+    <div [hidden]="!selectDate">
       <div class="calendar-header">
         <button (click)="setPrevYear()" class="primary ghost le-double_chevron_left"></button>
         <button (click)="setPrevMonth()" class="primary ghost le-chevron_left"></button>
@@ -74,7 +74,7 @@
         </div>
       </div>
     </div>
-    <div *ngIf="selectMonth">
+    <div [hidden]="!selectMonth">
       <div class="calendar-header">
         <button (click)="setPrevTenYears()" class="primary ghost le-double_chevron_left"></button>
         <button (click)="setPrevYear()" class="primary ghost le-chevron_left"></button>

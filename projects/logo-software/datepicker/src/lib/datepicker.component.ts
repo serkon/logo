@@ -109,10 +109,9 @@ export class DatepickerComponent implements OnInit, OnChanges {
    * Show time option for datepicker in 24-hours format.
    */
   @Input() public time = true;
-  /**
-   * Pre-set value of the datepicker if needed
-   */
-  @Input() public value: string = moment().format(this.placeholder);
+  public month: moment.Moment = moment(this.dateValue, this.placeholder);
+  public year: moment.Moment = moment(this.dateValue, this.placeholder);
+
   /**
    * Min value of the datepicker
    */
@@ -151,13 +150,25 @@ export class DatepickerComponent implements OnInit, OnChanges {
   public meta: DatepickerMeta;
   public timeValue: string;
   public hidden = true;
-  public month: moment.Moment = moment(this.value, this.placeholder);
-  public year: moment.Moment = moment(this.value, this.placeholder);
-
   /**
    * Selected date parameter
    */
-  public selected: moment.Moment = moment(this.value, this.placeholder);
+  public selected: moment.Moment = moment(this.dateValue, this.placeholder);
+
+  private _dateValue: string = moment().format(this.placeholder);
+
+  get dateValue() {
+    return this._dateValue;
+  }
+
+  /**
+   * Pre-set value of the datepicker if needed
+   */
+  @Input() set dateValue(val: string) {
+    this._dateValue = val;
+    this.selected = moment(this._dateValue);
+  };
+
   public diff: string;
   public selectStatus = false;
   /**
@@ -178,6 +189,9 @@ export class DatepickerComponent implements OnInit, OnChanges {
     if (!this.disabled) {
       if (!this.selectStatus) {
         this.hidden = !this._elementRef.nativeElement.contains(targetElement);
+        if (this.hidden) {
+          this.setDayView();
+        }
       }
     }
     this.selectStatus = false;
@@ -192,13 +206,13 @@ export class DatepickerComponent implements OnInit, OnChanges {
   }
 
   initialize() {
-    this.selected = moment(this.value, this.placeholder);
-    this.month = moment(this.value, this.placeholder);
-    this.year = moment(this.value, this.placeholder);
+    this.selected = moment(this.dateValue, this.placeholder);
+    this.month = moment(this.dateValue, this.placeholder);
+    this.year = moment(this.dateValue, this.placeholder);
     this.meta = new DatepickerMeta(this.month);
     const diffDuration: moment.Duration = moment.duration(this.selected.diff(moment(this.target, this.placeholder)));
     this.setDiffTimeString(diffDuration);
-    this.time ? this.timeValue = moment(this.value).format(this.timeFormat) : '';
+    this.time ? this.timeValue = moment(this.dateValue).format(this.timeFormat) : '';
     this.initialized = true;
   }
 
@@ -206,6 +220,7 @@ export class DatepickerComponent implements OnInit, OnChanges {
     this.hidden = true;
     this.selectStatus = true;
     this.selected = this.calculateClickedButtonDay(day, whichMonth);
+    this.dateValue = this.calculateClickedButtonDay(day, whichMonth).format(this.placeholder);
     this.valueChange.emit(this.calculateClickedButtonDay(day, whichMonth).format(this.placeholder));
     if (!!this.reference && this.hidden) {
       this.reference.selectStatus = true;
@@ -223,7 +238,6 @@ export class DatepickerComponent implements OnInit, OnChanges {
     this.meta.month = {index: month, value: month, name: moment.months(month)};
     this.meta.days = this.meta.range(whichYear.daysInMonth());
     this.setDayView();
-    console.log(this.meta.days);
   }
 
   checkDisable(day: number, whichMonth: moment.Moment) {
@@ -399,8 +413,8 @@ export class DatepickerComponent implements OnInit, OnChanges {
 
   emit(date: moment.Moment) {
     const formatted = this.checkMinMaxValidDate(date);
-    this.value = formatted.format(this.placeholder);
-    this.valueChange.emit(this.value);
+    this.dateValue = formatted.format(this.placeholder);
+    this.valueChange.emit(this.dateValue);
     this.timeValue = formatted.format(this.timeFormat);
   }
 
@@ -419,7 +433,7 @@ export class DatepickerComponent implements OnInit, OnChanges {
    * @param $event
    */
   onTimeChangeHandler($event: Event) {
-    const date = moment(this.value).set(this.setTime(this.timeValue));
+    const date = moment(this.dateValue).set(this.setTime(this.timeValue));
     this.emit(date);
   }
 
@@ -460,5 +474,17 @@ export class DatepickerComponent implements OnInit, OnChanges {
     this.selectStatus = true;
     this.selectDate = true;
     this.selectMonth = false;
+  }
+
+  registerOnChange(fn: any): void {
+  }
+
+  registerOnTouched(fn: any): void {
+  }
+
+  writeValue(obj: any): void {
+  }
+
+  setDisabledState(isDisabled: boolean): void {
   }
 }
