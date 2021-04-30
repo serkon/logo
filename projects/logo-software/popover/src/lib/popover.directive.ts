@@ -26,14 +26,24 @@ export class PopoverDirective implements AfterViewInit {
   public onClick(targetElement) {
     event.preventDefault();
     event.stopPropagation();
-    const popover: HTMLElement = (event.target as HTMLElement).closest('logo-popover');
-    this.el.nativeElement.contains(targetElement.target) ? this.popoverService.togglePopover(this._logoPopover) : this.popoverService.activePopover !== null && !!popover ? '' : this.popoverService.closePopover();
+    // const popover: HTMLElement = (event.target as HTMLElement).closest('logo-popover');
+    if (this.el.nativeElement.contains(targetElement.target)) {
+      this.popoverService.showPopover(this._logoPopover);
+    }
+    // this.el.nativeElement.contains(targetElement.target) ?  : this.popoverService.activePopover !== null && !!popover ? '' : this.popoverService.closePopover();
   }
 
   @HostListener('document:click', ['$event'])
   public onBodyClick(clickedElement) {
     const popover: HTMLElement = (event.target as HTMLElement).closest('logo-popover');
-    this.popoverService.activePopover !== null && !!popover ? '' : this.popoverService.closePopover();
+    if (!popover) {
+      this.popoverService.closePopover();
+    }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.popoverService.closePopover();
   }
 
   ngAfterViewInit(): void {

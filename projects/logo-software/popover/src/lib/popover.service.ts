@@ -11,6 +11,18 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 /**
+ * PopoverPosition sets the position of the popover. Default is POPOVER_RIGHT.
+ */
+export enum PopoverPosition {
+  POPOVER_RIGHT,
+  POPOVER_LEFT,
+  POPOVER_BOTTOM_LEFT,
+  POPOVER_BOTTOM_RIGHT,
+  POPOVER_TOP_LEFT,
+  POPOVER_TOP_RIGHT,
+}
+
+/**
  * This the service for popover the edit popover options on your own code on-the-go.
  */
 @Injectable({
@@ -31,10 +43,12 @@ export class PopoverService {
   public activePopover: string = null;
 
   public activeWidth: number;
-
   public activeElement: HTMLElement;
-
   public openWatcher: Subject<boolean> = new Subject<boolean>();
+
+  public openerWidth: number;
+  public openerHeight: number;
+  public openerLeft: number;
 
   /**
    * Global funtion to toggle a popover with id.
