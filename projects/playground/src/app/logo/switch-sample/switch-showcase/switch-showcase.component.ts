@@ -47,4 +47,8 @@ export class SwitchShowcaseComponent {
       }
     });
   }
+
+  switchChanged(data) {
+    console.log(data);
+  }
 }

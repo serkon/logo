@@ -47,13 +47,25 @@ export class SwitchComponent {
    * Switch Toggle's defines shape status, default is true.
    */
   @Input() isRounded: boolean = true;
+  @Output() ngModelChange: EventEmitter<boolean> = new EventEmitter();
+  /**
+   * Trigger an event event when switch change
+   */
+  @Output() change: EventEmitter<any> = new EventEmitter();
+
+  private _ngModel: boolean = false;
+
+  get ngModel() {
+    return this._ngModel;
+  }
 
   /**
    * Switch Toggle's defines default on/off states, default is false.
    */
-  @Input() ngModel: boolean = false;
-
-  @Output() ngModelChange = new EventEmitter();
+  @Input() set ngModel(value: boolean) {
+    this._ngModel = value;
+    this.change.emit(this.ngModel);
+  }
 
   /**
    * Programmatically toggle switch

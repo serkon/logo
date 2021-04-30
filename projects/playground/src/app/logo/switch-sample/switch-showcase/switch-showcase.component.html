@@ -5,6 +5,7 @@
       [isDisabled]="disabled"
       [isRounded]="isRounded"
       [(ngModel)]="status"
+      (change)="switchChanged($event)"
     >
     </logo-switch>
     <div class="value">{{status | json}}</div>
