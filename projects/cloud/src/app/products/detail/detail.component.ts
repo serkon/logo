@@ -110,6 +110,7 @@ export class DetailComponent implements OnInit {
   }
 
   private setScreens(data) {
+    this.appScreens = [];
     data.forEach((val) => {
       this.appScreens.push(val.image);
     });
