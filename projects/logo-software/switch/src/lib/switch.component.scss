@@ -12,6 +12,7 @@
 
 :host {
   background-color: initial;
+  cursor: pointer;
 
   &:hover, &:active, &:focus {
     background-color: initial;
@@ -30,6 +31,7 @@
 
     &.disabled {
       opacity: 0.5;
+      pointer-events: none;
     }
 
     .toggle {

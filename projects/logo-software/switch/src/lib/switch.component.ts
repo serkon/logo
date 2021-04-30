@@ -19,10 +19,11 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
  *
  * ```html
  * <logo-switch
- *   class="large"
- *   [theme]="primary
+ *   class="large primary"
  *   [disabled]="false"
  *   [rounded]="true"
+ *   [(ngModel)]="booleanValue"
+ *   (change)="triggerEvent($event)"
  * >
  * </logo-switch>
  * ```
