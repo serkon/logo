@@ -10,7 +10,7 @@
             [style.background-image]="sanitizer(item)"
             class="item"
           >
-            <span [innerHTML]="texts[i]" class="caption"></span>
+            <span *ngIf="texts[i]" [innerHTML]="texts[i]" class="caption"></span>
           </li>
         </ng-container>
       </ul>

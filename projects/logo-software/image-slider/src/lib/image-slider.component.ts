@@ -49,15 +49,14 @@ export class ImageSliderComponent {
 
   private _media: string[] = [];
 
-  /**
-   * Import the images that will have shown at image slider. Media input will be string array.
-   */
-  @Input() get media(): string[] {
+  get media(): string[] {
     return this._media;
   }
 
-  set media(value: string[]) {
-    this._media = [];
+  /**
+   * Import the images that will have shown at image slider. Media input will be string array.
+   */
+  @Input() set media(value: string[]) {
     this._media = value;
     this.itemCount = this._media.length;
   }
