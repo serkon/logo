@@ -7,7 +7,13 @@
     [hasSearch]="true"
     [id]="'myLogoPopover'"
     [isBackClick]="true"
+    [position]="PopoverPosition.POPOVER_BOTTOM_LEFT"
+    [sameSize]="false"
   >
-    My Popover content
+    <logo-datepicker
+      [(dateValue)]="datepicker.value"
+      [time]="false"
+    >
+    </logo-datepicker>
   </logo-popover>
 </div>

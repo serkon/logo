@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { PopoverService } from '@logo-software/popover';
+import { PopoverPosition, PopoverService } from '@logo-software/popover';
 
 @Component({
   selector: 'logo-popover-showcase',
@@ -10,4 +10,10 @@ import { PopoverService } from '@logo-software/popover';
 export class PopoverShowcaseComponent {
   constructor(private popoverService: PopoverService) {
   }
+
+  public PopoverPosition = PopoverPosition;
+
+  public datepicker = {
+    value: '05.04.2021',
+  };
 }
