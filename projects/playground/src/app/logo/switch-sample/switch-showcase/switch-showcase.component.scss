@@ -3,6 +3,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+
+    logo-switch {
+      margin: 5px;
+    }
+
+    .value {
+      margin-bottom: 5px;
+    }
   }
 
   .settings {

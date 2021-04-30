@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./switch-showcase.component.scss'],
 })
 export class SwitchShowcaseComponent {
+  status = true;
   sizes = [
     {class: 'small', selected: false},
     {class: 'medium', selected: true},

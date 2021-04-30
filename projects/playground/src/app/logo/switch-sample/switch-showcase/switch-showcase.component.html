@@ -4,8 +4,11 @@
       class="{{selectedSize}} {{selectedColor}}"
       [isDisabled]="disabled"
       [isRounded]="isRounded"
+      [(ngModel)]="status"
     >
     </logo-switch>
+    <div class="value">{{status | json}}</div>
+    <button (click)="status=!status" class="primary">Change</button>
   </div>
   <div class="settings col-xs-3">
     <div>

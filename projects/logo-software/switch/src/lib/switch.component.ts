@@ -8,7 +8,8 @@
  * Any reproduction of this material must contain this notice.
  */
 
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, forwardRef, Input, Output } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 /**
  * Switch is a control that is used to quickly switch between two possible states.
@@ -30,6 +31,11 @@ import { Component, Input } from '@angular/core';
   selector: 'logo-switch',
   templateUrl: './switch.component.html',
   styleUrls: ['./switch.component.scss'],
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => SwitchComponent),
+    multi: true,
+  }],
 })
 export class SwitchComponent {
   /**
@@ -45,14 +51,28 @@ export class SwitchComponent {
   /**
    * Switch Toggle's defines default on/off states, default is false.
    */
-  @Input() toggleState: boolean = false;
+  @Input() ngModel: boolean = false;
+
+  @Output() ngModelChange = new EventEmitter();
 
   /**
    * Programmatically toggle switch
    */
   public toggleSwitch() {
     if (!this.isDisabled) {
-      this.toggleState = !this.toggleState;
+      this.ngModelChange.emit(!this.ngModel);
     }
+  }
+
+  registerOnChange(fn: any): void {
+  }
+
+  registerOnTouched(fn: any): void {
+  }
+
+  writeValue(obj: any): void {
+  }
+
+  setDisabledState(isDisabled: boolean): void {
   }
 }

@@ -9,8 +9,8 @@
 -->
 <div
   (click)="toggleSwitch()"
-  [ngClass]="{ 'on': toggleState , 'off' : !toggleState , 'rounded' : isRounded , 'disabled' : isDisabled }"
+  [ngClass]="{ 'on': ngModel , 'off' : !ngModel , 'rounded' : isRounded , 'disabled' : isDisabled }"
   class="holder"
 >
-  <button [ngClass]="{'on': toggleState ,'off' : !toggleState}" class="toggle"></button>
+  <button [ngClass]="{'on': ngModel ,'off' : !ngModel}" class="toggle"></button>
 </div>
