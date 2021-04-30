@@ -18,6 +18,7 @@
   .content {
     display: flex;
     align-items: center;
+    flex-direction: row;
     padding-left: size(5px);
     padding-right: size(5px);
     cursor: pointer;
@@ -36,6 +37,7 @@
 
     .single, .multiple {
       flex-grow: 1;
+      padding-right: size(10px);
     }
 
     .multiple {
