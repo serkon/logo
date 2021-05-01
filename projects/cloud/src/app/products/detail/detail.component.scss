@@ -185,6 +185,8 @@
             padding: size(63px) size(42px);
             height: size(325px);
             box-sizing: border-box;
+            min-width: 50%;
+            flex-grow: 1;
 
             .input-base {
               margin-top: size(24px);
@@ -231,7 +233,8 @@
             overflow: hidden;
 
             img {
-              height: 100%;
+              min-width: 100%;
+              min-height: 100%;
               margin-left: 50%;
               transform: translateX(-50%);
             }
