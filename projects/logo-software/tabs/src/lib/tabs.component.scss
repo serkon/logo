@@ -84,19 +84,15 @@
   }
 
   @each $color, $value in get("color.list") {
-    &.#{"" + $color} {
-      .navigator {
-        .scroll {
-          .nav {
-            background-color: transparent !important;
+    .#{"" + $color} {
+      &.nav {
+        background-color: transparent !important;
 
-            li {
-              ::ng-deep {
-                button {
-                  &.selected {
-                    background-color: var(--#{$color}) !important;
-                  }
-                }
+        li {
+          ::ng-deep {
+            button {
+              &.selected {
+                background-color: var(--#{$color}) !important;
               }
             }
           }
