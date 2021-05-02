@@ -8,7 +8,7 @@
  * Any reproduction of this material must contain this notice.
  */
 
-import { Component, EventEmitter, forwardRef, Input, Output } from '@angular/core';
+import { Component, EventEmitter, forwardRef, Input, OnDestroy, Output } from '@angular/core';
 
 import { PopoverService } from '@logo-software/popover';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -59,7 +59,7 @@ export enum Sizes {
     multi: true,
   }],
 })
-export class TimepickerComponent {
+export class TimepickerComponent implements OnDestroy {
   /**
    * The identifier of the picker
    */
@@ -83,10 +83,18 @@ export class TimepickerComponent {
   public time = null;
   @Output() ngModelChange: EventEmitter<boolean> = new EventEmitter();
   @Output() onChange: EventEmitter<string> = new EventEmitter();
+  private subscribtion;
 
   constructor(public popoverService: PopoverService) {
     this.hours = Array.from({length: 24}, (x, i) => i < 10 ? '0' + i : '' + i);
     this.minutes = Array.from({length: 60}, (x, i) => i < 10 ? '0' + i : '' + i);
+    if (!this.subscribtion) {
+      this.subscribtion = this.popoverService.openWatcher.subscribe((status) => {
+        if (!status) {
+          this.setInputTime(this.ngModel);
+        }
+      });
+    }
   }
 
   private _ngModel: string;
@@ -99,8 +107,16 @@ export class TimepickerComponent {
    * Set model
    */
   @Input() set ngModel(value: string) {
+    this._ngModel = value.trim();
+    this.setInputTime(value);
+  }
+
+  ngOnDestroy() {
+    this.subscribtion.unsubscribe();
+  }
+
+  setInputTime(value: string) {
     const split = value.trim().split(':');
-    this._ngModel = value;
     this.selectedHour = split[0];
     this.selectedMinute = split[1];
     this.setTime();

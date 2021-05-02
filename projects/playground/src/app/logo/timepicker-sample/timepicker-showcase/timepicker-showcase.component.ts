@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./timepicker-showcase.component.scss'],
 })
 export class TimepickerShowcaseComponent {
-  time: string = '00:12';
+  public time: string = '00:12';
 
   timeIs($event) {
     console.log(this.time);
