@@ -47,7 +47,7 @@ your code stack and give initializer parameters.
         [target]="'mySecondDatepickerForRange'"
         [iconPosition]="'left'"
         [size]="'medium'"
-        [cssClasses]="'my-own-datepicker-class'"
+        [classes]="'my-own-datepicker-class'"
         (valueChange)="yourChangeTrigger($event)"
 >
 </logo-datepicker>

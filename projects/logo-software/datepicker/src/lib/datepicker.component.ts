@@ -147,7 +147,7 @@ export class DatepickerComponent implements OnInit, OnChanges {
   /**
    * Your own CSS Class for the datepicker
    */
-  @Input() cssClasses: string;
+  @Input() classes: string;
   @ViewChild('dateRef') dateRef: ElementRef;
   @ViewChild('timeRef') timeRef: ElementRef;
   @Output() ngModelChange: EventEmitter<Date> = new EventEmitter<Date>();
@@ -155,22 +155,50 @@ export class DatepickerComponent implements OnInit, OnChanges {
    * Value change output of the datepicker
    */
   @Output() public onChange: EventEmitter<Date> = new EventEmitter<Date>();
-  @Output() public closed: EventEmitter<boolean> = new EventEmitter<boolean>();
+  /**
+   * Trigger an event when popover closed
+   */
+  @Output() public onClose: EventEmitter<boolean> = new EventEmitter<boolean>();
   public isPopupActive = false;
   public meta: DatepickerMeta;
   public timeValue: string;
   public diff: string;
+  private initialized: boolean = false;
+  private _calenderActivated = false;
+
+  constructor(private _elementRef: ElementRef, private renderer: Renderer2) {
+  }
+
+  private _setViewFormatToMonth: boolean = false;
+
+  get setViewFormatToMonth() {
+    return this._setViewFormatToMonth;
+  }
+
   /**
    * Show calendar in month view format
    */
-  public selectDate: boolean = true;
-  /**
-   * Show calendar in year view format
-   */
-  public selectMonth: boolean = false;
-  private initialized: boolean = false;
+  @Input() set setViewFormatToMonth(value: boolean) {
+    this._setViewFormatToMonth = value;
+    if (value) {
+      this.setViewFormatToDay = false;
+    }
+  }
 
-  constructor(private _elementRef: ElementRef, private renderer: Renderer2) {
+  private _setViewFormatToDay: boolean = true;
+
+  get setViewFormatToDay() {
+    return this._setViewFormatToDay;
+  }
+
+  /**
+   * Show calendar in day view format
+   */
+  @Input() set setViewFormatToDay(value: boolean) {
+    this._setViewFormatToDay = value;
+    if (value) {
+      this.setViewFormatToMonth = false;
+    }
   }
 
   private _calendarDiv: ElementRef;
@@ -181,7 +209,10 @@ export class DatepickerComponent implements OnInit, OnChanges {
 
   @ViewChild('calendar', {static: false, read: ElementRef}) set calendarDiv(elementRef: ElementRef) {
     this._calendarDiv = elementRef;
-    if (!elementRef) {
+    if (elementRef) {
+      this._calenderActivated = true;
+    }
+    if (this._calenderActivated && !elementRef) {
       this.closePopOver();
     }
   };
@@ -226,8 +257,8 @@ export class DatepickerComponent implements OnInit, OnChanges {
 
   closePopOver() {
     this.isPopupActive = false;
-    this.closed.emit(true);
-    this.setDayView();
+    this.onClose.emit(true);
+    this.setViewFormatToDay = true;
   }
 
   /**
@@ -237,12 +268,12 @@ export class DatepickerComponent implements OnInit, OnChanges {
   onDateChangeHandler($event: Event) {
     const htmlInput = $event.target as HTMLInputElement;
     const date = moment(htmlInput.value, this.placeholder);
-    this.emit(date);
+    this.manuelChange(date);
     this.dateRef.nativeElement.value = this.ngModel.format(this.placeholder);
-    this.closePopOver();
+    // this.isPopupActive = false;
   }
 
-  emit(date: moment.Moment) {
+  manuelChange(date: moment.Moment) {
     const formatted = this.checkMinMaxValidDate(date);
     this.ngModel = formatted;
     this.ngModelChange.emit(this.ngModel.toDate());
@@ -269,7 +300,7 @@ export class DatepickerComponent implements OnInit, OnChanges {
     this.meta.currentMonth = monthMeta.currentMonth;
     this.meta.month = {index: month, value: month, name: moment.months(month)};
     this.meta.days = this.meta.range(whichYear.daysInMonth());
-    this.setDayView();
+    this.setViewFormatToDay = true;
   }
 
   checkDisable(day: number, whichMonth: moment.Moment) {
@@ -283,7 +314,6 @@ export class DatepickerComponent implements OnInit, OnChanges {
    */
   setDiffTimeString(diffDuration: any) {
     const string = [];
-
     const abs = (value: number, period: string) => {
       return `${Math.abs(value)} ${period}`;
     };
@@ -449,7 +479,7 @@ export class DatepickerComponent implements OnInit, OnChanges {
    */
   onTimeChangeHandler($event: Event) {
     const date = moment(this.ngModel).set(this.setTime(this.timeValue));
-    this.emit(date);
+    this.manuelChange(date);
   }
 
   /**
@@ -477,16 +507,6 @@ export class DatepickerComponent implements OnInit, OnChanges {
    */
   goToSelected() {
     this.meta = new DatepickerMeta(this.ngModel);
-  }
-
-  setMonthView() {
-    this.selectDate = false;
-    this.selectMonth = true;
-  }
-
-  setDayView() {
-    this.selectDate = true;
-    this.selectMonth = false;
   }
 
   registerOnChange(fn: any): void {

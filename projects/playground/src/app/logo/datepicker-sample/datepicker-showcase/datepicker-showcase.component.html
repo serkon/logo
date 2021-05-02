@@ -1,7 +1,8 @@
 <logo-datepicker
-  (closed)="popOverClosed($event)"
+  (onClose)="popOverClosed($event)"
   [min]="datepicker.min"
   [time]="true"
+  [setViewFormatToDay]="true"
   (onChange)="dateChanged($event)"
   [(ngModel)]="datepicker.value"
   name="datepicker.value"

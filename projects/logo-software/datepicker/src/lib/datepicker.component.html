@@ -1,4 +1,4 @@
-<div class="logo-datepicker {{cssClasses}}">
+<div class="logo-datepicker {{classes}}">
   <div class="input-w-icon {{iconPosition}} {{size}}">
     <span class="le-calendar"></span>
     <input
@@ -15,11 +15,11 @@
   </div>
   <span class="input-line"></span>
   <div #calendar *ngIf="isPopupActive" class="calendar-base">
-    <div [hidden]="!selectDate">
+    <div [hidden]="!setViewFormatToDay">
       <div class="calendar-header">
         <button (click)="setPrevYear()" class="primary ghost le-double_chevron_left"></button>
         <button (click)="setPrevMonth()" class="primary ghost le-chevron_left"></button>
-        <button (click)="setMonthView()" class="ghost info-text">{{meta.month.name}} {{this.meta.year}}</button>
+        <button (click)="setViewFormatToMonth=true" class="ghost info-text">{{meta.month.name}} {{this.meta.year}}</button>
         <button (click)="setNextMonth()" class="primary ghost le-chevron_right"></button>
         <button (click)="setNextYear()" class="primary ghost le-double_chevron_right"></button>
       </div>
@@ -74,7 +74,7 @@
         </div>
       </div>
     </div>
-    <div [hidden]="!selectMonth">
+    <div [hidden]="!setViewFormatToMonth">
       <div class="calendar-header">
         <button (click)="setPrevTenYears()" class="primary ghost le-double_chevron_left"></button>
         <button (click)="setPrevYear()" class="primary ghost le-chevron_left"></button>

@@ -208,8 +208,9 @@ export class MaskDirective implements OnInit {
   }
 
   isValid(value: any) {
-    const convertDate = new Date(value);
-    return Object.prototype.toString.call(convertDate) === '[object Date]' && !isNaN(convertDate.getTime());
+    // const convertDate = new Date(value);
+    // return Object.prototype.toString.call(convertDate) === '[object Date]' && !isNaN(convertDate.getTime());
+    return moment(value, this.placeholder).isValid();
   }
 
   @HostListener('focus', ['$event'])
@@ -301,7 +302,7 @@ export class MaskDirective implements OnInit {
     if ($event.data || $event.inputType === 'insertFromPaste') {
       this.conditionCheck();
       newValue = this.mask(value);
-      if (this.maskType === 'date' && !moment(newValue).isValid() && this._maxLength === this.input.value) {
+      if (this.maskType === 'date' && !moment(newValue, this.placeholder).isValid() && this._maxLength === this.input.value) {
         this.emit(this.oldValue);
       } else {
         this.emit(newValue);
