@@ -176,8 +176,8 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
 
   @HostListener('document:click', ['$event'])
   public onClick(event: Event) {
-    event.preventDefault();
-    event.stopPropagation();
+    // event.preventDefault();
+    // event.stopPropagation();
     const contains = this.elementRef.nativeElement.contains(event.target);
     if (!contains) {
       this.closeListDiv();
