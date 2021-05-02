@@ -98,13 +98,17 @@ const config = {
 })
 export class DatepickerComponent implements OnInit, OnChanges {
   /**
+   * Placeholder empty state display text
+   */
+  @Input() public placeholder: string = 'Select Date';
+  /**
    * If there is more than one datepicker on same page and these pickers are related, you can use reference option to make a relations.
    */
   @Input() public reference: DatepickerComponent | null = null;
   /**
-   * Placeholder of the datepicker
+   * Placeholder format of the datepicker
    */
-  @Input() public placeholder = config.placeholder.format;
+  @Input() public formatter = config.placeholder.format;
   /**
    * Datepicker input regexp to for masking
    */
@@ -117,8 +121,9 @@ export class DatepickerComponent implements OnInit, OnChanges {
    * Show time option for datepicker in 24-hours format.
    */
   @Input() public time = true;
-  public month: moment.Moment = moment(this.ngModel, this.placeholder);
-  public year: moment.Moment = moment(this.ngModel, this.placeholder);
+  public date: moment.Moment = moment();
+  public month: moment.Moment = moment(this.ngModel, this.formatter);
+  public year: moment.Moment = moment(this.ngModel, this.formatter);
 
   /**
    * Min value of the datepicker
@@ -217,7 +222,7 @@ export class DatepickerComponent implements OnInit, OnChanges {
     }
   };
 
-  private _ngModel = moment();
+  private _ngModel = null;
 
   get ngModel() {
     return this._ngModel;
@@ -227,10 +232,12 @@ export class DatepickerComponent implements OnInit, OnChanges {
    * Pre-set value of the datepicker if needed
    */
   @Input() set ngModel(val) {
-    if (!val) {
-      val = moment();
+    if (val && moment(val).isValid()) {
+      this._ngModel = moment(val, this.formatter);
+      this.date = this.ngModel;
+    } else {
+      this._ngModel = null;
     }
-    this._ngModel = moment(val, this.placeholder);
   };
 
   @HostListener('document:click', ['$event.target'])
@@ -249,13 +256,15 @@ export class DatepickerComponent implements OnInit, OnChanges {
   }
 
   initialize() {
-    this.month = moment(this.ngModel, this.placeholder);
-    this.year = moment(this.ngModel, this.placeholder);
-    this.meta = new DatepickerMeta(this.month);
-    const diffDuration: moment.Duration = moment.duration(this.ngModel.diff(moment(this.target, this.placeholder)));
-    this.setDiffTimeString(diffDuration);
-    this.time ? this.timeValue = moment(this.ngModel).format(this.timeFormat) : '';
-    this.initialized = true;
+    if (this.date) {
+      this.month = moment(this.date, this.formatter);
+      this.year = moment(this.date, this.formatter);
+      this.meta = new DatepickerMeta(this.month);
+      const diffDuration: moment.Duration = moment.duration(this.date.diff(moment(this.target, this.formatter)));
+      this.setDiffTimeString(diffDuration);
+      this.time ? this.timeValue = moment(this.date).format(this.timeFormat) : '';
+      this.initialized = true;
+    }
   }
 
   closePopOver() {
@@ -270,18 +279,17 @@ export class DatepickerComponent implements OnInit, OnChanges {
    */
   onDateChangeHandler($event: Event) {
     const htmlInput = $event.target as HTMLInputElement;
-    const date = moment(htmlInput.value, this.placeholder);
+    const date = moment(htmlInput.value, this.formatter);
     this.manuelChange(date);
-    this.dateRef.nativeElement.value = this.ngModel.format(this.placeholder);
+    this.dateRef.nativeElement.value = this.ngModel ? this.ngModel.format(this.formatter) : '';
     // this.isPopupActive = false;
   }
 
   manuelChange(date: moment.Moment) {
-    const formatted = this.checkMinMaxValidDate(date);
-    this.ngModel = formatted;
-    this.ngModelChange.emit(this.ngModel.toDate());
-    this.onChange.emit(this.ngModel.toDate());
-    this.timeValue = formatted.format(this.timeFormat);
+    this.ngModel = this.checkMinMaxValidDate(date);
+    this.ngModelChange.emit(this.ngModel ? this.ngModel.toDate() : this.ngModel);
+    this.onChange.emit(this.ngModel ? this.ngModel.toDate() : this.ngModel);
+    this.timeValue = this.ngModel ? this.ngModel.format(this.timeFormat) : this.date.format(this.timeFormat);
   }
 
   onDayClick(day: number, whichMonth: moment.Moment) {
@@ -308,7 +316,7 @@ export class DatepickerComponent implements OnInit, OnChanges {
 
   checkDisable(day: number, whichMonth: moment.Moment) {
     const date: moment.Moment = this.calculateClickedButtonDay(day, whichMonth);
-    return this.min && date.diff(moment(this.min, this.placeholder)) < 0 || this.max && date.diff(moment(this.max, this.placeholder)) > 0;
+    return this.min && date.diff(moment(this.min, this.formatter)) < 0 || this.max && date.diff(moment(this.max, this.formatter)) > 0;
   }
 
   /**
@@ -347,14 +355,14 @@ export class DatepickerComponent implements OnInit, OnChanges {
    * @param whichMonth
    */
   setClass(day: number, whichMonth: moment.Moment) {
-    const target = moment(this.target, this.placeholder);
+    const target = moment(this.target, this.formatter);
     const date: moment.Moment = this.calculateClickedButtonDay(day, whichMonth);
     const className = [];
-    if (date.format(this.placeholder) === this.ngModel.format(this.placeholder)) {
+    if (date.format(this.formatter) === this.date.format(this.formatter)) {
       className.push(config.css.current);
     }
     if (this.target !== null && typeof (this.target)) {
-      if ((date.diff(target) <= 0 && date.diff(this.ngModel) >= 0) || (date.diff(target) >= 0 && date.diff(this.ngModel) <= 0)) {
+      if ((date.diff(target) <= 0 && date.diff(this.date) >= 0) || (date.diff(target) >= 0 && date.diff(this.date) <= 0)) {
         className.push(config.css.selected);
       }
     }
@@ -362,14 +370,14 @@ export class DatepickerComponent implements OnInit, OnChanges {
       className.push(config.css.today);
     }
     if (
-      (date.diff(target) >= 0 && date.format(config.day.format) === this.ngModel.format(config.day.format)) ||
-      (date.format(config.day.format) === target.format(config.day.format) && date.diff(this.ngModel) >= 0)
+      (date.diff(target) >= 0 && date.format(config.day.format) === this.date.format(config.day.format)) ||
+      (date.format(config.day.format) === target.format(config.day.format) && date.diff(this.date) >= 0)
     ) {
       className.push(config.css.last);
     }
     if (
-      (date.diff(target) <= 0 && date.format(config.day.format) === this.ngModel.format(config.day.format)) ||
-      (date.format(config.day.format) === target.format(config.day.format) && date.diff(this.ngModel) <= 0)
+      (date.diff(target) <= 0 && date.format(config.day.format) === this.date.format(config.day.format)) ||
+      (date.format(config.day.format) === target.format(config.day.format) && date.diff(this.date) <= 0)
     ) {
       className.push(config.css.first);
     }
@@ -467,7 +475,7 @@ export class DatepickerComponent implements OnInit, OnChanges {
 
   checkMinMaxValidDate(date: moment.Moment) {
     if (!moment(date).isValid()) {
-      date = this.ngModel;
+      date = null;
     } else if (this.min && date.diff(moment(this.min)) < 0) {
       date = moment(this.min);
     } else if (this.max && date.diff(moment(this.max)) > 0) {
@@ -509,7 +517,7 @@ export class DatepickerComponent implements OnInit, OnChanges {
    * Go to selected day
    */
   goToSelected() {
-    this.meta = new DatepickerMeta(this.ngModel);
+    this.meta = new DatepickerMeta(this.date);
   }
 
   registerOnChange(fn: any): void {

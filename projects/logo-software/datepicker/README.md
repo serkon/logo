@@ -36,19 +36,19 @@ your code stack and give initializer parameters.
 ```html
 
 <logo-datepicker
-        [reference]="'mySecondDatepickerForRange'"
-        [placeholder]="'Placeholder of my logo datepicker'"
-        [regexp]="regexp"
-        [disabled]="false"
-        [time]="true"
-        [ngModel]="10.01.2021"
-        [min]="10.01.2000"
-        [max]="10.01.2099"
-        [target]="'mySecondDatepickerForRange'"
-        [iconPosition]="'left'"
-        [size]="'medium'"
-        [classes]="'my-own-datepicker-class'"
-        (valueChange)="yourChangeTrigger($event)"
+  [reference]="'mySecondDatepickerForRange'"
+  [formatter]="'Placeholder of my logo datepicker'"
+  [regexp]="regexp"
+  [disabled]="false"
+  [time]="true"
+  [ngModel]="10.01.2021"
+  [min]="10.01.2000"
+  [max]="10.01.2099"
+  [target]="'mySecondDatepickerForRange'"
+  [iconPosition]="'left'"
+  [size]="'medium'"
+  [classes]="'my-own-datepicker-class'"
+  (valueChange)="yourChangeTrigger($event)"
 >
 </logo-datepicker>
 ```

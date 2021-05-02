@@ -1,15 +1,16 @@
 <logo-datepicker
-  (onClose)="popOverClosed($event)"
   [min]="datepicker.min"
-  [(ngModel)]="datepicker.value"
   [time]="true"
   [setViewFormatToDay]="true"
+  [placeholder]="'Beni Seç'"
+  [(ngModel)]="datepicker.value"
+  (onClose)="popOverClosed($event)"
   (onChange)="dateChanged($event)"
   name="datepicker.value"
 >
 </logo-datepicker>
 
-{{datepicker.value}}
+{{datepicker.value | json}}
 
 <input [(ngModel)]="test" (change)="testMethod($event)" />
 {{test}}

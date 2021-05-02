@@ -125,26 +125,26 @@ export class MaskDirective implements OnInit {
     this._regexp = value;
   }
 
-  private _placeholder: string;
+  private _formatter: string;
 
   /**
    * Used for format check. What format will be used for display text.
    * if need some special chars like "- / or space" this will be looks their position
    * and will be added automatically
-   * For example :  [placeholder] = {TK-1234} This format will be add "-" char automatically to third cursor position.
+   * For example :  [formatter] = {TK-1234} This format will be add "-" char automatically to third cursor position.
    * And also will restrict insert more than char length to textbox.
    */
-  @Input() get placeholder(): string {
-    return this._placeholder;
+  @Input() get formatter(): string {
+    return this._formatter;
   }
 
-  set placeholder(value: string) {
-    this._placeholder = value;
+  set formatter(value: string) {
+    this._formatter = value;
     if (typeof value !== 'undefined' && this.input) {
       this.setPlaceholder(value);
     }
     if (!this.maxLength) {
-      this.maxLength = this.placeholder.length;
+      this.maxLength = this.formatter.length;
     }
   }
 
@@ -160,7 +160,7 @@ export class MaskDirective implements OnInit {
 
   set maxLength(value: number) {
     const length = this.elementRef.nativeElement.maxLength;
-    const maxLength = length ? length : this._placeholder.length;
+    const maxLength = length ? length : this._formatter.length;
     this._maxLength = (typeof value !== 'undefined' && value !== null) ? value : maxLength;
     if (value && this.input) {
       this.setInputAttributes();
@@ -176,14 +176,14 @@ export class MaskDirective implements OnInit {
   set extendedChars(value: string) {
     this._extendedChars = value;
     if (typeof value !== 'undefined' && this.input) {
-      this.setPlaceholder(this.placeholder);
+      this.setPlaceholder(this.formatter);
     }
   }
 
   ngOnInit() {
     this.input = this.elementRef.nativeElement;
-    if (this._placeholder) {
-      this.setPlaceholder(this._placeholder);
+    if (this._formatter) {
+      this.setPlaceholder(this._formatter);
     }
   }
 
@@ -200,7 +200,7 @@ export class MaskDirective implements OnInit {
 
   setInputAttributes() {
     this.input.setAttribute('maxLength', this._maxLength);
-    this.input.setAttribute('placeholder', this._placeholder);
+    this.input.setAttribute('placeholder', this._formatter);
   }
 
   clear(value: any) {
@@ -210,7 +210,7 @@ export class MaskDirective implements OnInit {
   isValid(value: any) {
     // const convertDate = new Date(value);
     // return Object.prototype.toString.call(convertDate) === '[object Date]' && !isNaN(convertDate.getTime());
-    return moment(value, this.placeholder).isValid();
+    return moment(value, this.formatter).isValid();
   }
 
   @HostListener('focus', ['$event'])
@@ -253,7 +253,7 @@ export class MaskDirective implements OnInit {
           }
           return false;
         });
-        const placehoder = status ? condition.placeholder : this._placeholder;
+        const placehoder = status ? condition.placeholder : this._formatter;
         this.setPlaceholder(placehoder);
       });
     }
@@ -302,7 +302,7 @@ export class MaskDirective implements OnInit {
     if ($event.data || $event.inputType === 'insertFromPaste') {
       this.conditionCheck();
       newValue = this.mask(value);
-      if (this.maskType === 'date' && !moment(newValue, this.placeholder).isValid() && this._maxLength === this.input.value) {
+      if (this.maskType === 'date' && !moment(newValue, this.formatter).isValid() && this._maxLength === this.input.value) {
         this.emit(this.oldValue);
       } else {
         this.emit(newValue);

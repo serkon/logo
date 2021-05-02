@@ -10,7 +10,7 @@
       #dateRef
       [case]="'lower'"
       [maskType]="'string'"
-      [placeholder]="'XX-00000'"
+      [formatter]="'XX-00000'"
       [regexp]="'^[a-zA-Z]{1,2}$|^[a-zA-Z]{1,2}[0-9]*$'"
       masker
     />
@@ -27,7 +27,7 @@
       [case]="'lower'"
       [conditions]="[{cases: [{position: 2, regexp:'^[0-9]$'}], placeholder: 'X-0000000000'}]"
       [maskType]="'date'"
-      [placeholder]="'XX-00000'"
+      [formatter]="'XX-00000'"
       [regexp]="'^[a-zA-Z]{1,2}$|^[a-zA-Z]{1,2}[0-9]*$'"
       masker
     />

@@ -4,9 +4,9 @@
     <input
       #dateRef
       (change)="onDateChangeHandler($event)"
-      [value]="ngModel.format(placeholder)"
+      [value]="!ngModel ? '': ngModel.format(formatter)"
       [disabled]="disabled"
-      [maskType]="'date'"
+      [formatter]="formatter"
       [placeholder]="placeholder"
       [regexp]="regexp"
       class="icon-{{iconPosition}} bordered {{size}}"
@@ -19,7 +19,12 @@
       <div class="calendar-header">
         <button (click)="setPrevYear()" class="primary ghost le-double_chevron_left"></button>
         <button (click)="setPrevMonth()" class="primary ghost le-chevron_left"></button>
-        <button (click)="setViewFormatToMonth=true" class="ghost info-text">{{meta.month.name}} {{this.meta.year}}</button>
+        <button
+          (click)="setViewFormatToMonth=true"
+          class="ghost info-text"
+        >
+          {{meta.month.name}} {{this.meta.year}}
+        </button>
         <button (click)="setNextMonth()" class="primary ghost le-chevron_right"></button>
         <button (click)="setNextYear()" class="primary ghost le-double_chevron_right"></button>
       </div>
@@ -62,7 +67,7 @@
             (change)="onTimeChangeHandler($event)"
             [(ngModel)]="timeValue"
             [hidden]="!time"
-            [placeholder]="'HH:mm'"
+            [formatter]="'HH:mm'"
             [regexp]="regexp"
             masker
           />
