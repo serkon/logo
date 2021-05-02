@@ -84,12 +84,14 @@ export class PopoverComponent implements OnInit {
           break;
         case PopoverPosition.POPOVER_BOTTOM_RIGHT:
           const bottomRightPos = Math.round(this.popoverService.activeElement.offsetParent.clientWidth - (this.popoverService.activeElement.offsetLeft + this.popoverService.activeElement.offsetWidth));
+          const bottomRightTopPos = Math.round(this.popoverService.activeElement.offsetHeight + this.popoverService.activeElement.offsetTop);
           element.style.right = `${bottomRightPos}px`;
-          element.style.top = `${this.popoverService.activeElement.offsetHeight}px`;
+          element.style.top = `${bottomRightTopPos}px`;
           break;
         case PopoverPosition.POPOVER_BOTTOM_LEFT:
+          const bottomleftTopPos = Math.round(this.popoverService.activeElement.offsetHeight + this.popoverService.activeElement.offsetTop);
           element.style.left = `${this.popoverService.activeElement.offsetLeft}px`;
-          element.style.top = `${this.popoverService.activeElement.offsetHeight}px`;
+          element.style.top = `${bottomleftTopPos}px`;
           break;
         case PopoverPosition.POPOVER_TOP_LEFT:
           element.style.left = `${this.popoverService.activeElement.offsetLeft}px`;

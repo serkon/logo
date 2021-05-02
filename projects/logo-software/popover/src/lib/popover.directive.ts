@@ -28,6 +28,8 @@ export class PopoverDirective implements AfterViewInit {
     event.stopPropagation();
     // const popover: HTMLElement = (event.target as HTMLElement).closest('logo-popover');
     if (this.el.nativeElement.contains(targetElement.target)) {
+      this.popoverService.activeElement = this.el.nativeElement;
+      this.popoverService.activeWidth = this.el.nativeElement.offsetWidth;
       this.popoverService.showPopover(this._logoPopover);
     }
     // this.el.nativeElement.contains(targetElement.target) ?  : this.popoverService.activePopover !== null && !!popover ? '' : this.popoverService.closePopover();
@@ -46,8 +48,13 @@ export class PopoverDirective implements AfterViewInit {
     this.popoverService.closePopover();
   }
 
+  @HostListener('window:scroll', [])
+  onScroll() {
+    console.log(window.scrollX);
+    this.popoverService.closePopover();
+  }
+
   ngAfterViewInit(): void {
-    this.popoverService.activeWidth = this.el.nativeElement.offsetWidth;
-    this.popoverService.activeElement = this.el.nativeElement;
+    // this.popoverService.activeWidth = this.el.nativeElement.offsetWidth;
   }
 }
