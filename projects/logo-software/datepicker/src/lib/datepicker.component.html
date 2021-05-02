@@ -4,8 +4,9 @@
     <input
       #dateRef
       (change)="onDateChangeHandler($event)"
-      [value]="dateShowing"
+      [value]="ngModel.format(placeholder)"
       [disabled]="disabled"
+      [maskType]="'date'"
       [placeholder]="placeholder"
       [regexp]="regexp"
       class="icon-{{iconPosition}} bordered {{size}}"
@@ -13,7 +14,7 @@
     />
   </div>
   <span class="input-line"></span>
-  <div #calendar [hidden]="hidden" class="calendar-base">
+  <div #calendar *ngIf="isPopupActive" class="calendar-base">
     <div [hidden]="!selectDate">
       <div class="calendar-header">
         <button (click)="setPrevYear()" class="primary ghost le-double_chevron_left"></button>

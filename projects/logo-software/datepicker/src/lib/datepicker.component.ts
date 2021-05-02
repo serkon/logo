@@ -148,7 +148,6 @@ export class DatepickerComponent implements OnInit, OnChanges {
    * Your own CSS Class for the datepicker
    */
   @Input() cssClasses: string;
-  @ViewChild('calendar') calendarDiv: ElementRef;
   @ViewChild('dateRef') dateRef: ElementRef;
   @ViewChild('timeRef') timeRef: ElementRef;
   @Output() ngModelChange: EventEmitter<Date> = new EventEmitter<Date>();
@@ -157,15 +156,10 @@ export class DatepickerComponent implements OnInit, OnChanges {
    */
   @Output() public onChange: EventEmitter<Date> = new EventEmitter<Date>();
   @Output() public closed: EventEmitter<boolean> = new EventEmitter<boolean>();
+  public isPopupActive = false;
   public meta: DatepickerMeta;
   public timeValue: string;
-  public hidden = true;
-  /**
-   * Selected date parameter
-   */
-  public selected: moment.Moment = moment(this.ngModel, this.placeholder);
   public diff: string;
-  public selectStatus = false;
   /**
    * Show calendar in month view format
    */
@@ -174,11 +168,23 @@ export class DatepickerComponent implements OnInit, OnChanges {
    * Show calendar in year view format
    */
   public selectMonth: boolean = false;
-  public dateShowing;
   private initialized: boolean = false;
 
   constructor(private _elementRef: ElementRef, private renderer: Renderer2) {
   }
+
+  private _calendarDiv: ElementRef;
+
+  get calendarDiv() {
+    return this._calendarDiv;
+  }
+
+  @ViewChild('calendar', {static: false, read: ElementRef}) set calendarDiv(elementRef: ElementRef) {
+    this._calendarDiv = elementRef;
+    if (!elementRef) {
+      this.closePopOver();
+    }
+  };
 
   private _ngModel = moment();
 
@@ -191,20 +197,13 @@ export class DatepickerComponent implements OnInit, OnChanges {
    */
   @Input() set ngModel(val) {
     this._ngModel = moment(val, this.placeholder);
-    this.selected = moment(this._ngModel);
   };
 
   @HostListener('document:click', ['$event.target'])
   public onClick(targetElement: HTMLElement) {
     if (!this.disabled) {
-      if (!this.selectStatus) {
-        this.hidden = !this._elementRef.nativeElement.contains(targetElement);
-        if (this.hidden) {
-          this.closePopOver();
-        }
-      }
+      this.isPopupActive = this._elementRef.nativeElement.contains(targetElement);
     }
-    this.selectStatus = false;
   }
 
   ngOnInit(): void {
@@ -216,19 +215,17 @@ export class DatepickerComponent implements OnInit, OnChanges {
   }
 
   initialize() {
-    this.dateShowing = this.ngModel.format(this.placeholder);
-    this.selected = moment(this.ngModel, this.placeholder);
     this.month = moment(this.ngModel, this.placeholder);
     this.year = moment(this.ngModel, this.placeholder);
     this.meta = new DatepickerMeta(this.month);
-    const diffDuration: moment.Duration = moment.duration(this.selected.diff(moment(this.target, this.placeholder)));
+    const diffDuration: moment.Duration = moment.duration(this.ngModel.diff(moment(this.target, this.placeholder)));
     this.setDiffTimeString(diffDuration);
     this.time ? this.timeValue = moment(this.ngModel).format(this.timeFormat) : '';
     this.initialized = true;
   }
 
   closePopOver() {
-    this.hidden = true;
+    this.isPopupActive = false;
     this.closed.emit(true);
     this.setDayView();
   }
@@ -247,7 +244,6 @@ export class DatepickerComponent implements OnInit, OnChanges {
 
   emit(date: moment.Moment) {
     const formatted = this.checkMinMaxValidDate(date);
-    this.dateShowing = formatted.format(this.placeholder);
     this.ngModel = formatted;
     this.ngModelChange.emit(this.ngModel.toDate());
     this.onChange.emit(this.ngModel.toDate());
@@ -255,16 +251,12 @@ export class DatepickerComponent implements OnInit, OnChanges {
   }
 
   onDayClick(day: number, whichMonth: moment.Moment) {
-    this.hidden = true;
-    this.selectStatus = true;
-    this.selected = this.calculateClickedButtonDay(day, whichMonth);
+    this.isPopupActive = false;
     this.ngModel = this.calculateClickedButtonDay(day, whichMonth);
     this.ngModelChange.emit(new Date(this.ngModel.toDate()));
-    this.dateShowing = this.ngModel.format(this.placeholder)
     this.onChange.emit(this.calculateClickedButtonDay(day, whichMonth).toDate());
-    if (!!this.reference && this.hidden) {
-      this.reference.selectStatus = true;
-      this.reference.hidden = false;
+    if (!!this.reference && !this.isPopupActive) {
+      this.reference.isPopupActive = true;
     }
     this.setClass(day, whichMonth);
   }
@@ -325,11 +317,11 @@ export class DatepickerComponent implements OnInit, OnChanges {
     const target = moment(this.target, this.placeholder);
     const date: moment.Moment = this.calculateClickedButtonDay(day, whichMonth);
     const className = [];
-    if (date.format(this.placeholder) === this.selected.format(this.placeholder)) {
+    if (date.format(this.placeholder) === this.ngModel.format(this.placeholder)) {
       className.push(config.css.current);
     }
     if (this.target !== null && typeof (this.target)) {
-      if ((date.diff(target) <= 0 && date.diff(this.selected) >= 0) || (date.diff(target) >= 0 && date.diff(this.selected) <= 0)) {
+      if ((date.diff(target) <= 0 && date.diff(this.ngModel) >= 0) || (date.diff(target) >= 0 && date.diff(this.ngModel) <= 0)) {
         className.push(config.css.selected);
       }
     }
@@ -337,14 +329,14 @@ export class DatepickerComponent implements OnInit, OnChanges {
       className.push(config.css.today);
     }
     if (
-      (date.diff(target) >= 0 && date.format(config.day.format) === this.selected.format(config.day.format)) ||
-      (date.format(config.day.format) === target.format(config.day.format) && date.diff(this.selected) >= 0)
+      (date.diff(target) >= 0 && date.format(config.day.format) === this.ngModel.format(config.day.format)) ||
+      (date.format(config.day.format) === target.format(config.day.format) && date.diff(this.ngModel) >= 0)
     ) {
       className.push(config.css.last);
     }
     if (
-      (date.diff(target) <= 0 && date.format(config.day.format) === this.selected.format(config.day.format)) ||
-      (date.format(config.day.format) === target.format(config.day.format) && date.diff(this.selected) <= 0)
+      (date.diff(target) <= 0 && date.format(config.day.format) === this.ngModel.format(config.day.format)) ||
+      (date.format(config.day.format) === target.format(config.day.format) && date.diff(this.ngModel) <= 0)
     ) {
       className.push(config.css.first);
     }
@@ -484,17 +476,15 @@ export class DatepickerComponent implements OnInit, OnChanges {
    * Go to selected day
    */
   goToSelected() {
-    this.meta = new DatepickerMeta(this.selected);
+    this.meta = new DatepickerMeta(this.ngModel);
   }
 
   setMonthView() {
-    this.selectStatus = true;
     this.selectDate = false;
     this.selectMonth = true;
   }
 
   setDayView() {
-    this.selectStatus = true;
     this.selectDate = true;
     this.selectMonth = false;
   }
