@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { DatepickerModule } from '@logo-software/datepicker';
 
@@ -12,7 +13,9 @@ import { DatepickerShowcaseComponent } from './datepicker-showcase/datepicker-sh
     CommonModule,
     DatepickerSampleRoutingModule,
     DatepickerModule,
+    FormsModule,
   ],
   exports: [DatepickerShowcaseComponent],
 })
-export class DatepickerSampleModule { }
+export class DatepickerSampleModule {
+}

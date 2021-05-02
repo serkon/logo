@@ -7,9 +7,17 @@ import { Component } from '@angular/core';
 })
 export class DatepickerShowcaseComponent {
   public datepicker = {
-    value: '05.04.2021',
-    min: '01.01.1900',
+    value: new Date('05.22.2021'),
+    min: new Date('05.16.2021'),
     max: '31.12.2999',
     second: '31.06.2021',
   };
+
+  dateChanged(value) {
+    console.log('Date changed: ', value);
+  }
+
+  popOverClosed($event) {
+    console.log($event);
+  }
 }
