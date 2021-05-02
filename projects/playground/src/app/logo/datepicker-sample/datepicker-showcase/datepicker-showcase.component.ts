@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class DatepickerShowcaseComponent {
   public datepicker = {
-    value: new Date('05.22.2021'),
+    value: null,
     min: new Date('05.16.2021'),
     max: '31.12.2999',
     second: '31.06.2021',

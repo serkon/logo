@@ -227,6 +227,9 @@ export class DatepickerComponent implements OnInit, OnChanges {
    * Pre-set value of the datepicker if needed
    */
   @Input() set ngModel(val) {
+    if (!val) {
+      val = moment();
+    }
     this._ngModel = moment(val, this.placeholder);
   };
 
