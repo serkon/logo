@@ -11,11 +11,13 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  forwardRef,
   HostListener,
   Input,
   OnChanges,
   OnInit,
   Output,
+  Renderer2,
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
@@ -23,6 +25,7 @@ import * as moment from 'moment';
 import 'moment/locale/tr';
 
 import { DatepickerMeta } from './datepicker-meta.model';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 moment.locale('tr');
 
@@ -87,6 +90,11 @@ const config = {
   selector: 'logo-datepicker',
   templateUrl: './datepicker.component.html',
   styleUrls: ['./datepicker.component.scss'],
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => DatepickerComponent),
+    multi: true,
+  }],
 })
 export class DatepickerComponent implements OnInit, OnChanges {
   /**
@@ -109,8 +117,8 @@ export class DatepickerComponent implements OnInit, OnChanges {
    * Show time option for datepicker in 24-hours format.
    */
   @Input() public time = true;
-  public month: moment.Moment = moment(this.dateValue, this.placeholder);
-  public year: moment.Moment = moment(this.dateValue, this.placeholder);
+  public month: moment.Moment = moment(this.ngModel, this.placeholder);
+  public year: moment.Moment = moment(this.ngModel, this.placeholder);
 
   /**
    * Min value of the datepicker
@@ -143,32 +151,19 @@ export class DatepickerComponent implements OnInit, OnChanges {
   @ViewChild('calendar') calendarDiv: ElementRef;
   @ViewChild('dateRef') dateRef: ElementRef;
   @ViewChild('timeRef') timeRef: ElementRef;
+  @Output() ngModelChange: EventEmitter<Date> = new EventEmitter<Date>();
   /**
    * Value change output of the datepicker
    */
-  @Output() public valueChange: EventEmitter<string> = new EventEmitter<string>();
+  @Output() public onChange: EventEmitter<Date> = new EventEmitter<Date>();
+  @Output() public closed: EventEmitter<boolean> = new EventEmitter<boolean>();
   public meta: DatepickerMeta;
   public timeValue: string;
   public hidden = true;
   /**
    * Selected date parameter
    */
-  public selected: moment.Moment = moment(this.dateValue, this.placeholder);
-
-  private _dateValue: string = moment().format(this.placeholder);
-
-  get dateValue() {
-    return this._dateValue;
-  }
-
-  /**
-   * Pre-set value of the datepicker if needed
-   */
-  @Input() set dateValue(val: string) {
-    this._dateValue = val;
-    this.selected = moment(this._dateValue);
-  };
-
+  public selected: moment.Moment = moment(this.ngModel, this.placeholder);
   public diff: string;
   public selectStatus = false;
   /**
@@ -179,10 +174,25 @@ export class DatepickerComponent implements OnInit, OnChanges {
    * Show calendar in year view format
    */
   public selectMonth: boolean = false;
+  public dateShowing;
   private initialized: boolean = false;
 
-  constructor(private _elementRef: ElementRef) {
+  constructor(private _elementRef: ElementRef, private renderer: Renderer2) {
   }
+
+  private _ngModel = moment();
+
+  get ngModel() {
+    return this._ngModel;
+  }
+
+  /**
+   * Pre-set value of the datepicker if needed
+   */
+  @Input() set ngModel(val) {
+    this._ngModel = moment(val, this.placeholder);
+    this.selected = moment(this._ngModel);
+  };
 
   @HostListener('document:click', ['$event.target'])
   public onClick(targetElement: HTMLElement) {
@@ -190,7 +200,7 @@ export class DatepickerComponent implements OnInit, OnChanges {
       if (!this.selectStatus) {
         this.hidden = !this._elementRef.nativeElement.contains(targetElement);
         if (this.hidden) {
-          this.setDayView();
+          this.closePopOver();
         }
       }
     }
@@ -206,22 +216,52 @@ export class DatepickerComponent implements OnInit, OnChanges {
   }
 
   initialize() {
-    this.selected = moment(this.dateValue, this.placeholder);
-    this.month = moment(this.dateValue, this.placeholder);
-    this.year = moment(this.dateValue, this.placeholder);
+    this.dateShowing = this.ngModel.format(this.placeholder);
+    this.selected = moment(this.ngModel, this.placeholder);
+    this.month = moment(this.ngModel, this.placeholder);
+    this.year = moment(this.ngModel, this.placeholder);
     this.meta = new DatepickerMeta(this.month);
     const diffDuration: moment.Duration = moment.duration(this.selected.diff(moment(this.target, this.placeholder)));
     this.setDiffTimeString(diffDuration);
-    this.time ? this.timeValue = moment(this.dateValue).format(this.timeFormat) : '';
+    this.time ? this.timeValue = moment(this.ngModel).format(this.timeFormat) : '';
     this.initialized = true;
+  }
+
+  closePopOver() {
+    this.hidden = true;
+    this.closed.emit(true);
+    this.setDayView();
+  }
+
+  /**
+   * Date change handler
+   * @param $event
+   */
+  onDateChangeHandler($event: Event) {
+    const htmlInput = $event.target as HTMLInputElement;
+    const date = moment(htmlInput.value, this.placeholder);
+    this.emit(date);
+    this.dateRef.nativeElement.value = this.ngModel.format(this.placeholder);
+    this.closePopOver();
+  }
+
+  emit(date: moment.Moment) {
+    const formatted = this.checkMinMaxValidDate(date);
+    this.dateShowing = formatted.format(this.placeholder);
+    this.ngModel = formatted;
+    this.ngModelChange.emit(this.ngModel.toDate());
+    this.onChange.emit(this.ngModel.toDate());
+    this.timeValue = formatted.format(this.timeFormat);
   }
 
   onDayClick(day: number, whichMonth: moment.Moment) {
     this.hidden = true;
     this.selectStatus = true;
     this.selected = this.calculateClickedButtonDay(day, whichMonth);
-    this.dateValue = this.calculateClickedButtonDay(day, whichMonth).format(this.placeholder);
-    this.valueChange.emit(this.calculateClickedButtonDay(day, whichMonth).format(this.placeholder));
+    this.ngModel = this.calculateClickedButtonDay(day, whichMonth);
+    this.ngModelChange.emit(new Date(this.ngModel.toDate()));
+    this.dateShowing = this.ngModel.format(this.placeholder)
+    this.onChange.emit(this.calculateClickedButtonDay(day, whichMonth).toDate());
     if (!!this.reference && this.hidden) {
       this.reference.selectStatus = true;
       this.reference.hidden = false;
@@ -402,7 +442,7 @@ export class DatepickerComponent implements OnInit, OnChanges {
 
   checkMinMaxValidDate(date: moment.Moment) {
     if (!moment(date).isValid()) {
-      date = this.selected;
+      date = this.ngModel;
     } else if (this.min && date.diff(moment(this.min)) < 0) {
       date = moment(this.min);
     } else if (this.max && date.diff(moment(this.max)) > 0) {
@@ -411,29 +451,12 @@ export class DatepickerComponent implements OnInit, OnChanges {
     return date;
   }
 
-  emit(date: moment.Moment) {
-    const formatted = this.checkMinMaxValidDate(date);
-    this.dateValue = formatted.format(this.placeholder);
-    this.valueChange.emit(this.dateValue);
-    this.timeValue = formatted.format(this.timeFormat);
-  }
-
-  /**
-   * Date change handler
-   * @param $event
-   */
-  onDateChangeHandler($event: Event) {
-    const htmlInput = $event.target as HTMLInputElement;
-    const date = moment(htmlInput.value);
-    this.emit(date);
-  }
-
   /**
    * Time change handler
    * @param $event
    */
   onTimeChangeHandler($event: Event) {
-    const date = moment(this.dateValue).set(this.setTime(this.timeValue));
+    const date = moment(this.ngModel).set(this.setTime(this.timeValue));
     this.emit(date);
   }
 

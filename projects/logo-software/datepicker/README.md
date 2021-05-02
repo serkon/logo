@@ -41,7 +41,7 @@ your code stack and give initializer parameters.
         [regexp]="regexp"
         [disabled]="false"
         [time]="true"
-        [dateValue]="10.01.2021"
+        [ngModel]="10.01.2021"
         [min]="10.01.2000"
         [max]="10.01.2099"
         [target]="'mySecondDatepickerForRange'"

@@ -4,9 +4,8 @@
     <input
       #dateRef
       (change)="onDateChangeHandler($event)"
-      [(ngModel)]="dateValue"
+      [value]="dateShowing"
       [disabled]="disabled"
-      [maskType]="'date'"
       [placeholder]="placeholder"
       [regexp]="regexp"
       class="icon-{{iconPosition}} bordered {{size}}"
