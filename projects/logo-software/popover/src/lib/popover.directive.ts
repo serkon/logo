@@ -32,13 +32,14 @@ export class PopoverDirective implements AfterViewInit {
       this.popoverService.activeWidth = this.el.nativeElement.offsetWidth;
       this.popoverService.showPopover(this._logoPopover);
     }
-    // this.el.nativeElement.contains(targetElement.target) ?  : this.popoverService.activePopover !== null && !!popover ? '' : this.popoverService.closePopover();
+    // this.popoverService.activePopover === null && !popover ? this.popoverService.closePopover();
   }
 
   @HostListener('document:click', ['$event'])
   public onBodyClick(clickedElement) {
     const popover: HTMLElement = (event.target as HTMLElement).closest('logo-popover');
-    if (!popover) {
+    const popoverHTML: HTMLElement = document.querySelector('logo-popover');
+    if (!popover && event.composedPath().indexOf(popoverHTML) < 0) {
       this.popoverService.closePopover();
     }
   }
@@ -50,7 +51,6 @@ export class PopoverDirective implements AfterViewInit {
 
   @HostListener('window:scroll', [])
   onScroll() {
-    console.log(window.scrollX);
     this.popoverService.closePopover();
   }
 
