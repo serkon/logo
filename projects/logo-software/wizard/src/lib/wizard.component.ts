@@ -138,7 +138,7 @@ export class WizardComponent implements AfterContentInit {
     this.steps.changes.pipe(delay(0)).subscribe((changes: QueryList<ItemComponent>) => {
       setTimeout(() => {
         this.stepEvent.emit(changes);
-      }, 0);
+      }, 300);
     });
   }
 

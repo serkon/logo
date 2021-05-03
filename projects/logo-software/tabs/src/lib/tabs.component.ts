@@ -121,7 +121,7 @@ export class TabsComponent implements AfterContentInit {
     this.tabs.changes.pipe(delay(0)).subscribe((changes: QueryList<TabComponent>) => {
       setTimeout(() => {
         this.tabEvent.emit(changes);
-      }, 0);
+      }, 300);
     });
   }
 
