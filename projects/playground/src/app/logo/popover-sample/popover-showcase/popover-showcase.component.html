@@ -11,49 +11,18 @@
     [sameSize]="false"
   >
     <logo-datepicker
-      [(dateValue)]="datepicker.value"
-      [time]="false"
+      (onChange)="dateChanged($event)"
+      (onClose)="popOverClosed($event)"
+      [(ngModel)]="datepicker.value"
+      [min]="datepicker.min"
+      [placeholder]="'Beni Seç'"
+      [setViewFormatToDay]="true"
+      [time]="true"
+      name="datepicker.value"
     >
     </logo-datepicker>
   </logo-popover>
   <br/>
-  <br/>
-  <button [logoPopover]="'myLogoPopover2'">
-    Toggle Popover
-  </button>
-  <logo-popover
-    [cssClasses]="'my-own-theme-css'"
-    [hasSearch]="true"
-    [id]="'myLogoPopover2'"
-    [isBackClick]="true"
-    [position]="PopoverPosition.POPOVER_BOTTOM_RIGHT"
-    [sameSize]="false"
-  >
-    <logo-datepicker
-      [(dateValue)]="datepicker.value"
-      [time]="false"
-    >
-    </logo-datepicker>
-  </logo-popover>
-  <br/>
-  <br/>
-  <button [logoPopover]="'myLogoPopover3'">
-    Toggle Popover
-  </button>
-  <logo-popover
-    [cssClasses]="'my-own-theme-css'"
-    [hasSearch]="true"
-    [id]="'myLogoPopover3'"
-    [isBackClick]="true"
-    [position]="PopoverPosition.POPOVER_LEFT"
-    [sameSize]="false"
-  >
-    <logo-datepicker
-      [(dateValue)]="datepicker.value"
-      [time]="false"
-    >
-    </logo-datepicker>
-  </logo-popover>
   <br/>
   <br/>
   <button [logoPopover]="'myLogoPopover4'">
@@ -67,11 +36,7 @@
     [position]="PopoverPosition.POPOVER_RIGHT"
     [sameSize]="false"
   >
-    <logo-datepicker
-      [(dateValue)]="datepicker.value"
-      [time]="false"
-    >
-    </logo-datepicker>
+    My standart logo popover
   </logo-popover>
   <p>1234567890</p>
   <p>1234567890</p>
