@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { LinksModule } from '@logo-software/links';
 import { CarouselModule } from '@logo-software/carousel';
 

@@ -42,7 +42,8 @@ import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, 
     </div>
     <div class="dots" *ngIf="dots">
       <a
-        class="dot" *ngFor="let item of maxMoveCountArray; let i = index" [ngClass]="{'active':currentItem===i}"
+        class="dot" *ngFor="let item of maxMoveCountArray; let i = index"
+        [ngClass]="{'active':currentItem===i}"
         (click)="onDotClick(i)"
       >
       </a>
