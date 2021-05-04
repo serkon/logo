@@ -65,7 +65,7 @@ export class MainComponent {
     },
     {
       abbr: 'JS',
-      title: 'JS Service',
+      title: 'Job Service',
       description: 'Tüm LOGO uygulamaları ve servisleri için devamlı erişilebilir bir iş yürütme servisidir. REST tabanlı çalışan işleri desteklemektedir.',
       link: 'services/js',
       class: '',

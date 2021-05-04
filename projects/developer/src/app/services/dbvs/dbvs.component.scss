@@ -1,152 +1,167 @@
 @import "~@logo-software/theme/base";
 
-$header-size: size(80px);
-
 :host {
-  @include larger-than(lg) {
-    .intro {
-      display: flex;
-      height: size(750px);
+  .intro {
+    display: flex;
+    height: size(750px);
 
-      div:nth-child(1) {
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .content {
+        position: relative;
+        z-index: 2;
+        font-family: get("font.alternative");
+        max-width: size(477.44px);
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: baseline;
+        margin-top: size(64px);
 
-        .vvs-title-content {
-          padding: size(30px);
-
-          p.g6 {
-            color: var(--primary);
-          }
-
-          p.g8 {
-            color: var(--success);
-          }
+        h1 {
+          font-weight: bold;
+          font-size: size(50px);
+          line-height: size(50px);
+          color: var(--success);
+          margin-bottom: size(25px);
         }
-      }
 
-      div:nth-child(2) {
-        display: flex;
-        justify-content: center;
-        position: relative;
-        align-items: center;
+        p {
+          font-weight: normal;
+          font-size: size(20px);
+          line-height: size(27px);
+        }
 
-        .img-1 {
-          max-width: 100%;
-          height: auto;
-          position: absolute;
-          right: 0;
-          top: 0;
+        logo-link {
+          margin-top: size(29px);
         }
       }
     }
 
-    .usage {
+    .background {
       display: flex;
+      justify-content: center;
       position: relative;
-      height: 100vh;
+      align-items: center;
 
-      div:nth-child(1) {
+      .image {
+        max-width: 100%;
+        height: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      @include smaller-than(md) {
+        display: none;
+      }
+    }
+  }
+
+  .usage {
+    display: flex;
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: size(60px);
+    background-image: url("/assets/images/services/vvs/section-02-bg.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+
+    .container {
+      .content {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: baseline;
+        text-align: center;
+
+        h1 {
+          font-family: get("font.alternative");
+          font-weight: bold;
+          font-size: size(40px);
+          line-height: size(45px);
+          color: #707070;
+        }
+
+        p {
+          font-weight: normal;
+          font-size: size(20px);
+          line-height: size(28px);
+          color: #707070;
+        }
 
         .cards {
-          padding: size(40px);
-          position: relative;
-          z-index: 2;
+          display: flex;
+          text-align: left;
 
-          .specs-card {
+          .card {
             display: flex;
-            flex-direction: row;
-            align-items: center;
-            margin-top: size(50px);
-            background-color: #ebf3f8;
-            border-radius: size(11px);
+            flex-direction: column;
+            margin-top: size(21px);
+            background-color: #f5f8fe;
+            border-radius: size(24px);
+            padding: size(57px) size(55px);
+            border-right: size(1px) solid #e0e5ef;
+            flex-basis: 50%;
 
             img {
-              margin: size(35px) 0 size(35px) 0;
+              max-width: size(51px);
+              max-height: size(51px);
             }
 
-            div:nth-child(1) {
-              display: flex;
-              align-items: center;
-              justify-content: center;
+            p {
+              font-weight: normal;
+              font-size: size(20px);
+              line-height: size(27px);
+              margin-top: size(40px);
+            }
+
+            &:first-child {
+              border-top-right-radius: 0;
+              border-bottom-right-radius: 0;
+            }
+
+            &:last-child {
+              border-top-left-radius: 0;
+              border-bottom-left-radius: 0;
+              border-right: none;
             }
           }
 
-          logo-link {
-            margin-top: size(50px);
+          @include smaller-than(md) {
+            flex-direction: column;
+
+            .card:first-child, .card:last-child {
+              border: none;
+              border-radius: size(24px);
+            }
           }
         }
-      }
 
-      div:nth-child(2) {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        img {
-          max-width: 100%;
+        logo-link {
+          margin-top: size(50px);
         }
       }
     }
 
-    .specs {
+    .background {
       display: flex;
       justify-content: center;
       align-items: center;
 
-      .usage-header {
-        text-align: center;
-        margin: size(35px);
+      img {
+        max-width: 100%;
       }
+    }
 
-      .left {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        img {
-          position: absolute;
-          left: 0;
-        }
-      }
-
-      .right {
-        .usage-content {
-          padding-left: size(113px);
-
-          h2 {
-            margin-top: size(15px);
-          }
-
-          logo-link {
-            margin: size(30px);
-          }
-
-          .usage-card {
-            display: flex;
-            border-radius: size(11px);
-
-            div {
-              display: flex;
-              align-items: center;
-
-              img {
-                margin: size(45px) 0 size(45px) 0;
+    @include smaller-than(md) {
+      .container {
+        .content {
+          ::ng-deep {
+            logo-link {
+              a {
+                // @extend %primary-success;
               }
-
-              img:nth-child(1) {
-                align-self: flex-end;
-              }
-            }
-
-            div:nth-child(1) {
-              justify-content: center;
             }
           }
         }
@@ -154,154 +169,58 @@ $header-size: size(80px);
     }
   }
 
-  @include smaller-than(lg) {
-    .intro {
-      display: flex;
-      height: size(750px);
+  .specs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-      div:nth-child(1) {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: baseline;
-
-        .vvs-title-content {
-          padding: size(30px);
-
-          p.g6 {
-            color: var(--primary);
-          }
-
-          p.g8 {
-            color: var(--success);
-          }
-        }
-      }
-
-      div:nth-child(2) {
-        display: flex;
-        justify-content: center;
-        position: relative;
-        align-items: center;
-
-        .img-1 {
-          max-width: 100%;
-          height: auto;
-          position: absolute;
-          right: 0;
-          top: 0;
-        }
-      }
+    .usage-header {
+      text-align: center;
+      margin: size(35px);
     }
 
-    .usage {
-      display: flex;
-      position: relative;
-      height: 100vh;
-
-      div:nth-child(1) {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: baseline;
-
-        .cards {
-          padding: size(40px);
-          position: relative;
-          z-index: 2;
-
-          .specs-card {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            margin-top: size(50px);
-            background-color: #ebf3f8;
-            border-radius: size(11px);
-
-            img {
-              margin: size(35px) 0 size(35px) 0;
-            }
-
-            div:nth-child(1) {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            }
-          }
-
-          logo-link {
-            margin-top: size(50px);
-          }
-        }
-      }
-
-      div:nth-child(2) {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        img {
-          max-width: 100%;
-        }
-      }
-    }
-
-    .specs {
+    .left {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: size(30px);
 
-      .usage-header {
-        text-align: center;
-        margin: size(35px);
+      img {
+        position: absolute;
+        left: 0;
       }
+    }
 
-      .left {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .right {
+      .usage-content {
+        padding-left: size(113px);
 
-        img {
-          position: absolute;
-          left: 0;
-          display: none;
+        h2 {
+          margin-top: size(15px);
         }
-      }
 
-      .right {
-        padding: size(30px);
+        logo-link {
+          margin: size(30px);
+        }
 
-        .usage-content {
-          h2 {
-            margin-top: size(15px);
-          }
+        .usage-card {
+          display: flex;
+          border-radius: size(11px);
 
-          logo-link {
-            margin: size(30px);
-          }
-
-          .usage-card {
+          div {
             display: flex;
-            border-radius: size(11px);
+            align-items: center;
 
-            div {
-              display: flex;
-              align-items: center;
-
-              img {
-                margin: size(45px) 0 size(45px) 0;
-              }
-
-              img:nth-child(1) {
-                align-self: center;
-                transform: scale(0.75);
-              }
+            img {
+              margin: size(45px) 0 size(45px) 0;
             }
 
-            div:nth-child(1) {
-              justify-content: center;
+            img:nth-child(1) {
+              align-self: flex-end;
             }
+          }
+
+          div:nth-child(1) {
+            justify-content: center;
           }
         }
       }
