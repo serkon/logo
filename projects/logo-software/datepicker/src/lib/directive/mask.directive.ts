@@ -99,7 +99,7 @@ export class MaskDirective implements OnInit {
    * For example [conditions]="[{cases: [{position: 2, regexp:'^[0-9]$'}], placeholder: 'X-0000000000'}]"
    * With this at 2 position if inserted char is a digit (regexp) then placeholder will be redefine to 'X-0000000000'
    */
-  @Input() private conditions: MaskConditions[] = [];
+  @Input() public conditions: MaskConditions[] = [];
   @Output() private ngModelChange = new EventEmitter();
   private list: any[];
   private oldValue = '';
