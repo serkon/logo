@@ -24,6 +24,24 @@
   </logo-popover>
   <br/>
   <br/>
+  <button [logoPopover]="'myLogoPopover3'">
+    Toggle Popover
+  </button>
+  <logo-popover
+    [cssClasses]="'my-own-theme-css'"
+    [hasSearch]="true"
+    [id]="'myLogoPopover3'"
+    [isBackClick]="true"
+    [position]="PopoverPosition.POPOVER_LEFT"
+    [sameSize]="false"
+  >
+    <logo-datepicker
+      [(ngModel)]="datepicker.value"
+      [time]="false"
+    >
+    </logo-datepicker>
+  </logo-popover>
+  <br/>
   <br/>
   <button [logoPopover]="'myLogoPopover4'">
     Toggle Popover
@@ -36,7 +54,11 @@
     [position]="PopoverPosition.POPOVER_RIGHT"
     [sameSize]="false"
   >
-    My standart logo popover
+    <logo-datepicker
+      [(ngModel)]="datepicker.value"
+      [time]="false"
+    >
+    </logo-datepicker>
   </logo-popover>
   <p>1234567890</p>
   <p>1234567890</p>
