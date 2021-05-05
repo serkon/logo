@@ -1,0 +1,252 @@
+@import "~@logo-software/theme/base";
+
+:host {
+  .intro {
+    display: flex;
+    height: size(750px);
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .content {
+        position: relative;
+        z-index: 2;
+        font-family: get("font.alternative");
+        max-width: size(477.44px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: size(64px);
+
+        h1 {
+          font-weight: bold;
+          font-size: size(50px);
+          line-height: size(50px);
+          color: var(--success);
+          margin-bottom: size(25px);
+        }
+
+        p {
+          font-weight: normal;
+          font-size: size(20px);
+          line-height: size(27px);
+        }
+
+        logo-link {
+          margin-top: size(29px);
+        }
+      }
+    }
+
+    .background {
+      display: flex;
+      justify-content: center;
+      z-index: 0;
+      align-items: center;
+      position: absolute;
+      right: 0;
+      max-width: 50%;
+
+      .image {
+        max-width: 100%;
+        height: auto;
+      }
+
+      @include smaller-than(md) {
+        display: none;
+      }
+    }
+  }
+
+  .usage {
+    display: flex;
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: size(60px);
+    background-image: url("/assets/images/services/vvs/section-02-bg.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+
+    .container {
+      .content {
+        display: flex;
+
+        .description {
+          display: flex;
+          flex-direction: column;
+
+          h1 {
+            font-family: get("font.alternative");
+            font-weight: bold;
+            font-size: size(40px);
+            line-height: size(45px);
+            color: #707070;
+          }
+
+          p {
+            font-weight: normal;
+            font-size: size(20px);
+            line-height: size(28px);
+            color: #707070;
+          }
+
+          .cards {
+            display: flex;
+            text-align: left;
+
+            .card {
+              display: flex;
+              flex-direction: column;
+              margin-top: size(21px);
+              background-color: #f5f8fe;
+              border-radius: size(24px);
+              padding: size(57px) size(55px);
+              border-right: size(1px) solid #e0e5ef;
+              flex-basis: 50%;
+
+              img {
+                max-width: size(51px);
+                max-height: size(51px);
+              }
+
+              p {
+                font-weight: normal;
+                font-size: size(20px);
+                line-height: size(27px);
+                margin-top: size(40px);
+              }
+
+              &:first-child {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+              }
+
+              &:last-child {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+                border-right: none;
+              }
+            }
+
+            @include smaller-than(xl) {
+              flex-direction: column;
+
+              .card:first-child, .card:last-child {
+                border: none;
+                border-radius: size(24px);
+              }
+            }
+          }
+
+          logo-link {
+            margin-top: size(71px);
+            margin-right: auto;
+          }
+
+          @include smaller-than(md) {
+            logo-link {
+              margin-left: auto;
+              margin-right: auto;
+              margin-bottom: size(61px);
+
+              ::ng-deep {
+                a {
+                  background-color: var(--success);
+                  color: var(--white);
+                }
+              }
+            }
+          }
+        }
+
+        .background {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .specs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-top: size(170px);
+    padding-bottom: size(163px);
+
+    .container {
+      display: flex;
+      align-items: flex-end;
+      flex-direction: column;
+
+      .content {
+        .right {
+          margin-left: auto;
+
+          h1 {
+            font-size: size(40px);
+            line-height: size(45px);
+            font-weight: 700;
+            color: #707070;
+            margin-left: size(60px);
+          }
+
+          ul {
+            list-style: none;
+            padding: 0;
+            margin-top: size(55px);
+
+            li {
+              background: url("/assets/images/services/check-green.svg") no-repeat left top;
+              margin: size(25px) 0;
+              padding-left: size(60px);
+              min-height: 50px;
+              display: flex;
+              flex-direction: column;
+
+              h2 {
+                font-weight: bold;
+                font-size: size(20px);
+                color: #707070;
+              }
+
+              p {
+                font-size: size(16px);
+                color: #707070;
+              }
+            }
+          }
+        }
+      }
+
+      logo-link {
+        margin: size(50px) 0;
+        margin-left: size(60px);
+      }
+    }
+
+    .background {
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-image: url("/assets/images/services/vvs/vvs-specs-illu.png");
+      width: 50%;
+      height: 100%;
+      background-size: contain;
+      background-position: right 100px bottom;
+      background-repeat: no-repeat;
+
+      @include smaller-than(md) {
+        display: none;
+      }
+    }
+  }
+}

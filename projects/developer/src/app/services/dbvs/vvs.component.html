@@ -1,0 +1,96 @@
+<section class="intro">
+  <div class="container">
+    <div class="content">
+      <h1>Veritabanı versiyonlama sistemi</h1>
+      <p>
+        DbVersion servisinin amacı; LOGO ürünlerinin ve mikro servislerinin veritabanı şemalarını ve varsayılan
+        kayıtlarını çok kullanıcılı bir şekilde yönetmek ve versiyonlamaktır. PostgreSql, MySql, SqlServer gibi
+        veritabanlarını destekler.
+      </p>
+      <logo-link
+        [classes]="'success large get-started'"
+        [external]="true"
+        [url]="'http://wiki.logo.com.tr/pages/viewpage.action?pageId=68331918'"
+      >
+        KEŞFET
+      </logo-link>
+    </div>
+  </div>
+  <div class="background">
+    <img class="image" src="./assets/images/services/vvs/vvs-intro-bg.png" />
+  </div>
+</section>
+<div class="usage">
+  <div class="container">
+    <div class="content row">
+      <div class="description col-md-6 col-xs-12 ">
+        <h1>Kullanım Senaryoları</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <div class="cards">
+          <div class="card">
+            <img src="./assets/images/services/vvs/card-01-icon.svg">
+            <p>İki veritabanı arasında şema farklılığını(changelog) üretmek ve bu farklılıkları uygulamak.Bu
+              veritabanları fiziksel yada jpa persistence veritabanı olabilir.Şema farkları jpa entitylerinden de
+              üretilebilir.</p>
+          </div>
+          <div class="card">
+            <img src="./assets/images/services/vvs/card-02-icon.svg" />
+            <p>Versiyonlu şekilde sql scriptleri çalıştırmak ve varsayılan kayıtlar ilgili tenantın veritabanında
+              oluşturmak.</p>
+          </div>
+        </div>
+        <logo-link
+          [classes]="'large light get-started'"
+          [external]="true"
+          [url]="'http://wiki.logo.com.tr/pages/viewpage.action?pageId=68331918'"
+        >
+          DETAYLARI GÖRÜNTÜLE
+        </logo-link>
+      </div>
+      <div class="background col-md-6 col-xs-12">
+        <img src="./assets/images/services/vvs/vvs-usage-phone.png" />
+      </div>
+    </div>
+  </div>
+</div>
+<div class="specs">
+  <div class="background"></div>
+  <div class="container">
+    <div class="content">
+      <div class="row">
+        <div class="right col-xs-12 col-md-6">
+          <h1>Özellikler</h1>
+          <ul>
+            <li>
+              <h2>Uygulama veritabanlarınız hazır gelsin</h2>
+              <p>
+                Dilerseniz uygun sunucu üzerine hesap için açacağınız veri tabanı ya da şeması hazırlansın ve siz
+                sadece bağlantı cümlesini alarak işlemlerinize devam edin.
+              </p>
+            </li>
+            <li>
+              <h2>Çoklu hesap (Multitenant) Db işlemleri</h2>
+              <p>Hesaplarınızı tamamen ayrı db lerde yönetebilirsiniz.</p>
+            </li>
+          </ul>
+          <logo-link
+            [classes]="'success large get-started'"
+            external="true"
+            url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=68331918"
+          >
+            DETAYLARI GÖRÜNTÜLE
+          </logo-link>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<logo-user-review
+  imageUrl="./assets/images/reviewers/reviewer-nail.png"
+  backgroundUrl="./assets/images/reviewers/green-background.png"
+  quoteColor="#fdbd28"
+>
+</logo-user-review>
+<logo-core-services buttonColor="primary"></logo-core-services>
+<logo-footer></logo-footer>
+
