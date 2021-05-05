@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
   selector: 'logo-core-services',
@@ -6,5 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./core-services.component.scss'],
 })
 export class CoreServicesComponent {
-  @Input() theme: string = 'success';
+  @Input() buttonColor: string = 'success';
+  @Input() backgroundColor: string = '#fff2d5';
+  @HostBinding('style.background') bg = this.backgroundColor;
 }

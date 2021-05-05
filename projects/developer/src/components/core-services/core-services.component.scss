@@ -1,110 +1,58 @@
 @import "~@logo-software/theme/base";
 
 :host {
-  @include larger-than(lg) {
-    @include host();
+  display: block;
 
-    background-color: #fffdee;
-    position: relative;
-    padding: size(50px) size(120px);
-
-    .list {
-      flex-direction: column;
-      color: #707070;
-      font-weight: bold;
+  .container {
+    .left {
+      padding-top: size(55px);
+      padding-bottom: size(55px);
 
       h1 {
-        font-family: get("font.alternative");
-        font-size: size(35px);
         font-weight: bold;
-        line-height: size(38px);
-        margin-bottom: size(35px);
-        color: #707070;
-      }
-
-      ul {
-        color: #707070;
-        font-size: size(20px);
-        font-weight: 600;
-        line-height: size(45px);
-        padding-left: size(25px);
-        list-style-image: url("/assets/images/services/idm/check.svg");
-      }
-    }
-
-    .button {
-      margin-top: size(30px);
-    }
-
-    .picture {
-      position: relative;
-      min-height: size(230px);
-
-      .background {
-        position: absolute;
-        top: size(-50px);
-        bottom: size(-50px);
-        background: url("/assets/images/core-services/core-services.png") bottom no-repeat;
-        min-height: size(230px);
-        width: 100%;
-
-        @include smaller-than(md) {
-          top: size(-40px);
-          bottom: size(-40px);
-        }
-      }
-    }
-  }
-
-  @include smaller-than(lg) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
-    background-color: #fffdee;
-    position: relative;
-    padding: size(50px) size(120px);
-
-    .list {
-      flex-direction: column;
-      color: #707070;
-      font-weight: bold;
-
-      h1 {
         font-size: size(35px);
-        margin-bottom: size(35px);
+        line-height: size(38px);
       }
 
       ul {
-        font-size: size(20px);
-        font-weight: 600;
-        flex-direction: column;
-        padding-left: size(25px);
+        display: grid;
+        grid-template-columns: 50% 50%;
+        list-style: none;
+        padding: 0;
+
+        @include smaller-than(md) {
+          grid-template-columns: 100%;
+          grid-auto-flow: row;
+        }
+
+        li {
+          background: url("/assets/images/services/check-blue.svg") no-repeat left top;
+          background-position: left center;
+          margin: size(15px) 0;
+          padding-left: size(30px);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          line-height: size(22px);
+          font-size: size(22px);
+        }
       }
     }
 
-    .button {
-      margin-top: size(30px);
-    }
-
-    .picture {
-      display: none;
+    .right {
       position: relative;
-      min-height: size(230px);
 
       .background {
         position: absolute;
-        top: size(-50px);
-        bottom: size(-50px);
         background: url("/assets/images/core-services/core-services.png") bottom no-repeat;
+        background-size: contain;
         min-height: size(230px);
         width: 100%;
+        height: 100%;
+      }
 
-        @include smaller-than(md) {
-          top: size(-40px);
-          bottom: size(-40px);
-        }
+      @include smaller-than(md) {
+        display: none;
       }
     }
   }

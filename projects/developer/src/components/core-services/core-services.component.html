@@ -1,32 +1,25 @@
-<div class="row">
-  <div class="list col-xs-12 col-md-12 col-lg-6">
-    <h1>Core Servisler</h1>
-    <div class="row">
-      <div class="col-xs-12 col-md-6">
-        <ul>
-          <li>Bulut Yönetim Servisi</li>
-          <li>Ayarlar Servisi</li>
-          <li>Yetkilendirme Servisi</li>
-        </ul>
-      </div>
-      <div class="col-xs-12 col-md-6">
-        <ul class="col-xs-12 col-md-12">
-          <li>Menü Servis {{theme}}</li>
-          <li>Yerelleştirme Servisi</li>
-        </ul>
-      </div>
-    </div>
-    <div class="button">
+<div class="container" [ngStyle]="{backgroundColor: backgroundColor}">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 left">
+      <h1>Core Servisler</h1>
+      <ul>
+        <li>Bulut Yönetim Servisi</li>
+        <li>Ayarlar Servisi</li>
+        <li>Yetkilendirme Servisi</li>
+        <li>Menü Servis {{buttonColor}}</li>
+        <li>Yerelleştirme Servisi</li>
+      </ul>
       <logo-link
-        classes="{{theme}} large"
+        classes="{{buttonColor}} large"
         [external]="true"
         url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65132817"
       >
         TÜMÜNÜ GÖRÜNTÜLE
       </logo-link>
     </div>
-  </div>
-  <div class="picture col-xs-12 col-md-12 col-lg-6">
-    <div class="background"></div>
+    <div class="col-xs-4 right">
+      <div class="background"></div>
+    </div>
   </div>
 </div>
+
