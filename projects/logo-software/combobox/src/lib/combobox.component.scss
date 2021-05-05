@@ -68,6 +68,41 @@
         left: auto;
       }
     }
+
+    .autocomplete-base {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+
+      .selection-container {
+        position: relative;
+        margin-right: size(5px);
+
+        logo-tags {
+          margin: size(2px) size(5px) size(2px) 0;
+        }
+      }
+
+      .input-container {
+        flex-grow: 1;
+        min-width: size(150px);
+
+        input {
+          width: 100%;
+          box-sizing: border-box;
+          padding-left: 0;
+
+          &:focus {
+            @include box-shadow(0, 0, 0, 0, var(--white-rgb), 0);
+
+            background-color: transparent !important;
+            border: 0 !important;
+          }
+        }
+      }
+    }
   }
 
   .dropdown {

@@ -3,14 +3,15 @@
   [ngClass]="{'open': display, 'disabled': disabled}"
   class="content medium le-arrow_down icon-right basic"
 >
-  <div *ngIf="!this.multiple; else multipleTemplate" [innerHTML]="selectedHTML()" class="single"></div>
+  <div *ngIf="!this.multiple && !this.autoComplete ; else multipleTemplate" [innerHTML]="selectedHTML()"
+       class="single"></div>
   <ng-template #multipleTemplate>
-    <div *ngIf="this.ngModel.length > 0; else noDataTemplate" class="multiple">
+    <div *ngIf="this.ngModel.length > 0 && !this.autoComplete; else noDataTemplate" class="multiple">
       <logo-tags
         (click)="prevent()"
         *ngFor="let theSelect of ngModel; let i=index;"
         [item]="{id:i, name: theSelect | multiple: path}"
-        (onRemoveClicked)="setSelectedItem(theSelect, i)"
+        (onRemoveClicked)="removeItem(theSelect, i)"
         [size]="'small'"
       >
       </logo-tags>
@@ -18,7 +19,35 @@
   </ng-template>
   <button (click)="clearAll()" *ngIf="isNull(this.ngModel)" class="clear le-cross ghost"></button>
   <ng-template #noDataTemplate>
-    <div [innerHTML]="placeholder" class="single"></div>
+    <div *ngIf="!this.autoComplete; else autocompleteTemplate" [innerHTML]="placeholder" class="single"></div>
+  </ng-template>
+  <ng-template #autocompleteTemplate>
+    <div class="autocomplete-base">
+      <div *ngIf="this.ngModel.length > 0" class="selection-container">
+        <logo-tags
+          (onRemoveClicked)="removeItem(theSelect, i)"
+          *ngFor="let theSelect of ngModel; let i=index;"
+          [cssClass]="getTagCSS()"
+          [item]="{id:i, name: theSelect | multiple: path}"
+          [size]="'small'"
+        >
+        </logo-tags>
+      </div>
+      <div class="input-container">
+        <input
+          #inputRef
+          (focus)="getSuggestionStatus()"
+          (input)="debounce(inputRef)"
+          (keydown.arrowDown)="arrowDown()"
+          (keydown.arrowUp)="arrowUp()"
+          (keydown.backspace)="deleteLast($event)"
+          (keydown.enter)="findItemByIndex(this.hover)"
+          *ngIf="showInput"
+          [(ngModel)]="search"
+          placeholder="{{placeholder}}"
+        />
+      </div>
+    </div>
   </ng-template>
 </div>
 <div *ngIf="display" class="dropdown">
@@ -28,7 +57,7 @@
     (keydown.arrowDown)="arrowDown()"
     (keydown.arrowUp)="arrowUp()"
     (keydown.enter)="findItemByIndex(this.hover)"
-    *ngIf="hasFilter"
+    *ngIf="hasFilter && !autoComplete"
     [(ngModel)]="search"
     class="filter"
   />
@@ -41,7 +70,7 @@
       let isLast=last;
       let isFirst=first;
       let isOdd=odd;"
-      [ngClass]="{'hover': hover === i, 'selected': this.multiple ? ngModel.indexOf(item) > -1 : item===ngModel}"
+      [ngClass]="{'hover': hover === i, 'selected icon-right le-check': this.multiple || this.autoComplete ? ngModel.indexOf(item) > -1 : item===ngModel}"
       class="item large"
     >
       <ng-container

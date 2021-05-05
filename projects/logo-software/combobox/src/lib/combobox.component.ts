@@ -161,12 +161,30 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
     this._hover = value;
   }
 
+  /**
+   * Turn combobox template to autocomplete template.
+   */
+  @Input() autoComplete: boolean = false;
+
+  /**
+   * By this option, input tags are turned into ghost, primary classes. Default is 'false'
+   */
+  @Input() isGhostInput: boolean = false;
+
+  public showInput: boolean;
+
+  /**
+   * On Multiselect or autocomplete state, if item remove clicked this output fired.
+   */
+  @Output() onItemRemoved: EventEmitter<any> = new EventEmitter<any>();
+
   ngOnInit() {
-    this.ngModel = this.ngModel ? this.ngModel : this.multiple ? [] : null;
+    this.ngModel = this.ngModel ? this.ngModel : this.multiple || this.autoComplete ? [] : null;
     const first = this.items[0];
+    this.checkInput();
     if (this.path && first && !Util.isObject(first)) {
       console.warn('Please set an object or remove path for items on LogoCombobox component');
-    } else if (this.multiple && !Array.isArray(this.ngModel)) {
+    } else if (this.multiple || this.autoComplete && !Array.isArray(this.ngModel)) {
       console.warn('Please set an Array to ngModel on LogoCombobox component');
     }
   }
@@ -184,15 +202,23 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
     }
   }
 
+  removeItem(item, index) {
+    this.setSelectedItem(item, index);
+    this.onItemRemoved.emit(item);
+  }
+
   setSelectedItem(item, index) {
     this.hover = index;
-    if (this.multiple) {
+    if (this.multiple || this.autoComplete) {
       this.ngModel.indexOf(item, 0) > -1 ? this.ngModel.splice(this.ngModel.indexOf(item, 0), 1) : this.ngModel.push(item);
     } else {
       this.ngModel = this.ngModel === item ? null : item;
     }
     this.ngModelChange.emit(this.ngModel);
     this.select.emit(this.ngModel);
+    if (this.autoComplete) {
+      this.checkInput();
+    }
     this.focusInputElement();
     if (!this.multiple) {
       this.closeListDiv();
@@ -291,9 +317,12 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
   clearAll() {
     event.preventDefault();
     event.stopPropagation();
-    this.ngModel = this.multiple ? [] : null;
+    this.ngModel = this.multiple || this.autoComplete ? [] : null;
     this.ngModelChange.emit(this.ngModel);
     this.select.emit(this.ngModel);
+    if (this.autoComplete) {
+      this.showInput = true;
+    }
   }
 
   registerOnChange(fn: any): void {
@@ -315,5 +344,27 @@ export class ComboboxComponent implements OnInit, AfterViewInit, ControlValueAcc
   prevent() {
     // event.preventDefault();
     // event.stopPropagation();
+  }
+
+  deleteLast(e) {
+    if (this.autoComplete) {
+      e.target.value.length < 1 && this.ngModel.length > 0 ? this.ngModel.pop() : this.showInput = true;
+    }
+  }
+
+  getTagCSS() {
+    return this.isGhostInput ? 'ghost' : '';
+  }
+
+  getSuggestionStatus() {
+    if (!this.display) {
+      this.openListDiv();
+    }
+  }
+
+  checkInput() {
+    if (this.autoComplete) {
+      this.ngModel.length === this.items.length && this.ngModel.length > 0 ? this.showInput = false : this.showInput = true;
+    }
   }
 }
