@@ -4,6 +4,7 @@
   --header-default-button-color: var(--dark);
   --header-default-bg: var(--light);
   --header-default-logo-color: var(--dark);
+  --header-default-button-opener-color: var(--dark);
 }
 
 :root ::before {
