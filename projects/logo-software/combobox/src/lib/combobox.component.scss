@@ -152,7 +152,13 @@
         }
 
         &.selected {
-          background-color: var(--primary-200);
+          background-color: var(--primary);
+          color: var(--white);
+
+          &:before {
+            color: var(--white);
+            top: size(-6px);
+          }
         }
       }
     }
