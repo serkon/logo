@@ -19,6 +19,7 @@ export class ComboboxShowcaseComponent {
 
   selected = this.items[1];
   multi = [this.items[5], this.items[4], this.items[2]];
+  auto = [this.items[1], this.items[5]];
 
   constructor() {
     this.displayedItems = this.clone(this.items);
@@ -36,6 +37,10 @@ export class ComboboxShowcaseComponent {
 
   onSelect($event) {
     console.log('onSelect: ', $event);
+  }
+
+  onItemRemoved($event) {
+    console.log('on Item Remove: ', $event);
   }
 
   removeAll() {

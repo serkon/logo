@@ -37,6 +37,28 @@
   <span class="value">{{multi | json}}</span>
 </div>
 
+<h4>Auto Complete</h4>
+<logo-combobox
+  (filter)="onFiltered($event)"
+  (onItemRemoved)="onItemRemoved($event)"
+  (select)="onSelect($event)"
+  [(ngModel)]="auto"
+  [autoComplete]="true"
+  [hover]="1"
+  [items]="displayedItems"
+  [path]="'a.b'"
+  [placeholder]="'add more'"
+>
+  <ng-template let-index="index" let-isFirst="isFirst" let-isLast="isLast" let-isOdd="isOdd" let-item="item">
+    <span>customized {{index + 1}} - {{isFirst}} - {{isLast}} - {{isOdd}} - {{item | json }}</span>
+  </ng-template>
+</logo-combobox>
+
+<div class="selected-container">
+  <span class="label">Auto Complete Selected Items: </span>
+  <span class="value">{{auto | json}}</span>
+</div>
+
 <h4>Disabled</h4>
 <logo-combobox
   (filter)="onFiltered($event)"
