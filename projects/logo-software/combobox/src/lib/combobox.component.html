@@ -3,8 +3,12 @@
   [ngClass]="{'open': display, 'disabled': disabled}"
   class="content medium le-arrow_down icon-right basic"
 >
-  <div *ngIf="!this.multiple && !this.autoComplete ; else multipleTemplate" [innerHTML]="selectedHTML()"
-       class="single"></div>
+  <div
+    *ngIf="!this.multiple && !this.autoComplete ; else multipleTemplate"
+    [innerHTML]="selectedHTML()"
+    class="single"
+  >
+  </div>
   <ng-template #multipleTemplate>
     <div *ngIf="this.ngModel.length > 0 && !this.autoComplete; else noDataTemplate" class="multiple">
       <logo-tags
