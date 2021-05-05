@@ -2,6 +2,7 @@
 
 :host {
   --section-height: #{size(1200px)};
+  --carousel-dots-margin: #{size(60px)} 0 0 0;
 
   display: block;
   margin-top: calc(-1 * var(--header-height));
@@ -227,7 +228,8 @@
           padding: var(--carusel-item-padding);
           color: var(--neutral-800);
           box-sizing: border-box;
-          display: inline-block;
+          display: inline-flex;
+          flex-direction: column;
           vertical-align: top;
           white-space: normal;
           text-align: center;
@@ -291,11 +293,18 @@
             line-height: size(16px);
             font-weight: normal;
             text-align: left;
+            flex-grow: 1;
           }
 
           logo-link {
             margin-top: size(30px);
             margin-bottom: size(20px);
+          }
+        }
+
+        ::ng-deep {
+          .sliding {
+            align-items: flex-start;
           }
         }
       }
