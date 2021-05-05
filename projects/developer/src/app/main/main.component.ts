@@ -29,6 +29,13 @@ export class MainComponent {
       class: '',
     },
     {
+      abbr: 'AS',
+      title: 'Authorization Service',
+      description: 'Logo PaaS platformunda geliştirilen uygulamlar için yetki yönetimi işlemlerini yönetmektedir',
+      link: 'services/as',
+      class: '',
+    },
+    {
       abbr: 'CCS',
       title: 'Cloud Control Service',
       description: 'Logo PaaS platformundaki mikro servislerin ve uygulamaların ortak bilgilerini sağlar ve çoklu-kiracı (multi-tenancy) işlemlerini yönetir',
@@ -36,10 +43,17 @@ export class MainComponent {
       class: '',
     },
     {
-      abbr: 'AS',
-      title: 'Authorization Service',
-      description: 'Logo PaaS platformunda geliştirilen uygulamlar için yetki yönetimi işlemlerini yönetmektedir',
-      link: 'services/as',
+      abbr: 'VVS',
+      title: 'Veritabanı versiyonlama',
+      description: 'LOGO ürünlerinin ve mikro servislerinin veritabanı şemalarını ve varsayılan kayıtlarını çok kullanıcılı bir şekilde yönetmek ve versiyonlamaktır. PostgreSql, MySql, SqlServer gibi veritabanlarını destekler.',
+      link: 'services/vvs',
+      class: '',
+    },
+    {
+      abbr: 'DAFS',
+      title: 'Dashboard Features',
+      description: 'Dashbord Servis ile farklı veri kaynaklarından (rest API, Veritabanı) çekilen verilerinizi görsel bileşenlere dönüştürün, Çoklu hesap (Multitenancy) desteğinden faydalanarak tek bir dashboard tanımı yapın, tasarladığınız dashbordu herkes kendi verisi ile görsün.',
+      link: 'services/dafs',
       class: '',
     },
     {
@@ -68,13 +82,6 @@ export class MainComponent {
       title: 'Job Service',
       description: 'Tüm LOGO uygulamaları ve servisleri için devamlı erişilebilir bir iş yürütme servisidir. REST tabanlı çalışan işleri desteklemektedir.',
       link: 'services/js',
-      class: '',
-    },
-    {
-      abbr: 'VVS',
-      title: 'Veritabanı versiyonlama',
-      description: 'LOGO ürünlerinin ve mikro servislerinin veritabanı şemalarını ve varsayılan kayıtlarını çok kullanıcılı bir şekilde yönetmek ve versiyonlamaktır. PostgreSql, MySql, SqlServer gibi veritabanlarını destekler.',
-      link: 'services/vvs',
       class: '',
     },
     {
@@ -124,13 +131,6 @@ export class MainComponent {
       title: 'Report Designer Features',
       description: 'Rapor Tasarlama Servis ile uygulamanız bünyesinde kullanabileceğiniz tasarım şablonları hazırlayın.',
       link: 'services/rdf',
-      class: '',
-    },
-    {
-      abbr: 'DAFS',
-      title: 'Dashboard Features',
-      description: 'Dashbord Servis ile farklı veri kaynaklarından (rest API, Veritabanı) çekilen verilerinizi görsel bileşenlere dönüştürün, Çoklu hesap (Multitenancy) desteğinden faydalanarak tek bir dashboard tanımı yapın, tasarladığınız dashbordu herkes kendi verisi ile görsün.',
-      link: 'services/dafs',
       class: '',
     },
     {
