@@ -15,7 +15,7 @@ const routes: Routes = [
       {path: 'as', loadChildren: () => import('./as/as.module').then(module => module.AsModule)},
       {path: 'ss', loadChildren: () => import('./ss/ss.module').then(module => module.SsModule)},
       {path: 'js', loadChildren: () => import('./js/js.module').then(module => module.JsModule)},
-      {path: 'vvs', loadChildren: () => import('./dbvs/vvs.module').then(module => module.VvsModule)},
+      {path: 'vvs', loadChildren: () => import('./vvs/vvs.module').then(module => module.VvsModule)},
       {path: 'hfs', loadChildren: () => import('./hfs/hfs.module').then(module => module.HfsModule)},
       {path: 'ems', loadChildren: () => import('./ems/ems.module').then(module => module.EmsModule)},
       {path: 'ys', loadChildren: () => import('./ys/ys.module').then(module => module.YsModule)},

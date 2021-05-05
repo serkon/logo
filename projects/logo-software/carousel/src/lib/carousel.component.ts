@@ -29,7 +29,7 @@ import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, 
   selector: 'logo-carousel',
   template: `
     <div class="slider" #slider>
-      <div class="sliding" #sliding>
+      <div class="sliding" #sliding [ngClass]="{'justify-content-center': maxMoveCount===0}">
         <ng-content></ng-content>
         <!--
         <img class="icon" src="{{item.icon}}" title="{{item.title}}"/>
@@ -174,6 +174,7 @@ export class CarouselComponent implements AfterViewInit {
     this.maxSize = this.slidingWidth - this.sliderWidth;
     this.maxMoveCount = Math.ceil(this.maxSize / this.itemBoxWidth);
     this.maxMoveCountArray = [...Array(this.maxMoveCount + 1).keys()];
+
   }
 
   calculateShowingItems() {

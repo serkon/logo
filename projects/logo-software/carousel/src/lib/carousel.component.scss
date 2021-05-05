@@ -27,13 +27,18 @@
     text-align: center;
 
     .sliding {
-      display: block;
-      white-space: nowrap;
+      display: flex;
+      flex-wrap: nowrap;
       transition: var(--carousel-animation);
+
+      &.justify-content-center {
+        justify-content: center;
+      }
 
       ::ng-deep {
         > .item {
           display: inline-flex;
+          flex-shrink: 0;
           box-shadow: var(--carusel-item-box-shadow);
           border-radius: var(--carusel-item-border-radius);
           backdrop-filter: var(--carusel-item-backdrop-filter);

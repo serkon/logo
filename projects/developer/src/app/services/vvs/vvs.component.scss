@@ -192,20 +192,22 @@
           margin-left: auto;
 
           h1 {
+            font-family: get("font.alternative");
             font-size: size(40px);
             line-height: size(45px);
             font-weight: 700;
             color: #707070;
-            margin-left: size(60px);
+            margin-left: size(50px);
           }
 
           ul {
             list-style: none;
             padding: 0;
             margin-top: size(55px);
+            margin-bottom: 0;
 
             li {
-              background: url("/assets/images/services/check-green.svg") no-repeat left top;
+              background: url("/assets/images/services/check-with-green-bg.svg") no-repeat left top;
               margin: size(25px) 0;
               padding-left: size(60px);
               min-height: 50px;
@@ -228,7 +230,7 @@
       }
 
       logo-link {
-        margin: size(50px) 0;
+        margin: size(30px) 0 size(50px) 0;
         margin-left: size(60px);
       }
     }
