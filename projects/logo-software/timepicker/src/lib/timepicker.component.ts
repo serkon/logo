@@ -76,6 +76,10 @@ export class TimepickerComponent implements OnDestroy {
    * Your own css class to design the component
    */
   @Input() cssClasses: string;
+  /**
+   * Set disabled status of the element
+   */
+  @Input() isDisabled: boolean = false;
   public hours = [];
   public minutes = [];
   public selectedHour = '00';

@@ -8,6 +8,7 @@
       [placeholder]="'00:00'"
       [regexp]="'^[0-2]{1}$|^[0-2]{1}[0-9]{1}$|^[0-2]{1}[0-9]{1}[0-5]{1}$|^[0-2]{1}[0-9]{1}[0-5]{1}[0-9]{1}$'"
       [value]="time != null ? time : ''"
+      [disabled]="isDisabled"
       class="icon-{{iconPosition}} bordered {{size}}"
       id="{{id}}"
       logoMask
