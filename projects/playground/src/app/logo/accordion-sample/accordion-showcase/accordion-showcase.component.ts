@@ -15,4 +15,16 @@ export class AccordionShowcaseComponent {
     'iconClasses': 'le-alarm_bell_1',
     'description': 'Lorem Ipsum Dolor Sit Amet.',
   }];
+
+  accordionItemInit(e) {
+    console.log('Item initilaized:', e);
+  }
+
+  accordionItemClick(e) {
+    console.log('Item clicked:', e);
+  }
+
+  accordionItemClickSample(e) {
+    console.log('General Item clicked:', e);
+  }
 }

@@ -1,1 +1,39 @@
-<logo-accordion [items]="items" [start]="0" [iconClasses]=""></logo-accordion>
+<h4>Standard Version:</h4>
+<logo-accordion [items]="items"></logo-accordion>
+<h4>Shadowed Version:</h4>
+<logo-accordion [hasShadow]="true" [items]="items"></logo-accordion>
+<h4>Inline Items Version:</h4>
+<logo-accordion>
+  <logo-accordion-item
+    (onClick)="accordionItemClick($event)"
+    (onInit)="accordionItemInit($event)"
+    [classes]="'my-own-theme'"
+    [icon]="'le-home'"
+    [isHidden]="false"
+    [isOpen]="false"
+    [params]="{id: 'user-id-1'}"
+    [title]="'My Accordion Item 1'"
+  >
+    <div>Content of the Accordion Item 1</div>
+  </logo-accordion-item>
+  <logo-accordion-item
+    [classes]="'my-own-theme'"
+    [isHidden]="false"
+    [isOpen]="true"
+    [params]="{id: 'user-id-1'}"
+    [title]="'My Accordion Item 2'"
+  >
+    <div>This content is opened content</div>
+  </logo-accordion-item>
+  <logo-accordion-item
+    (onClick)="accordionItemClick($event)"
+    (onInit)="accordionItemInit($event)"
+    [classes]="'my-own-theme'"
+    [isHidden]="true"
+    [isOpen]="false"
+    [params]="{id: 'user-id-1'}"
+    [title]="'My Accordion Item 3'"
+  >
+    <div>This is the hidden item</div>
+  </logo-accordion-item>
+</logo-accordion>
