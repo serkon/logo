@@ -61,7 +61,6 @@
 
     input[type=checkbox] {
       &:checked + label {
-        // color: $selected;
         > span.arrow {
           transform: rotate(180deg);
         }

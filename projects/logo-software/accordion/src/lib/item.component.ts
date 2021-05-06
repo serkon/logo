@@ -97,10 +97,6 @@ export class ItemComponent implements AfterViewInit, OnInit {
   }
 
   accordionItemClick($event?: MouseEvent) {
-    if (event) {
-      event.cancelBubble = true;
-      event.stopPropagation();
-    }
     this.$onAccordionItemClick(this);
   }
 

@@ -132,10 +132,6 @@ export class AccordionComponent implements OnInit {
   }
 
   itemClick(item: AccordionItem, $event?: MouseEvent) {
-    if (event) {
-      event.cancelBubble = true;
-      event.stopPropagation();
-    }
     this.$onItemClick(item);
   }
 

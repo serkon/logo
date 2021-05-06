@@ -14,8 +14,11 @@
     <ng-content></ng-content>
   </ng-container>
   <ng-template #nativeTemplate>
-    <li *ngFor="let item of items; let i = index; let lst=last" [ngClass]="item.classes"
-        class="level-{{level}} accordion-category {{classes}}">
+    <li
+      *ngFor="let item of items; let i = index; let lst=last"
+      [ngClass]="item.classes"
+      class="level-{{level}} accordion-category {{classes}}"
+    >
       <input [checked]="item.isOpen" hidden id="{{elementId}}{{i}}" type="checkbox"/>
       <label
         (click)="itemClick(item)"
