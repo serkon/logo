@@ -8,9 +8,10 @@
  * Any reproduction of this material must contain this notice.
  */
 
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { RouterLinkActive } from '@angular/router';
-import { HttpClient, HttpRequest, HttpResponse } from '@angular/common/http';
+import { Component, ContentChildren, EventEmitter, Input, OnInit, Output, QueryList } from '@angular/core';
+import { HttpClient, HttpRequest } from '@angular/common/http';
+
+import { ItemComponent } from './item.component';
 
 /**
  * Accordions are useful when you want to toggle between hiding and showing large amount of content.
@@ -68,13 +69,13 @@ export class AccordionComponent implements OnInit {
    */
   @Input() iconClasses?: string = '';
   /**
-   * Menu items to show
+   * Accordion items to show with native template
    */
   @Input() public items: AccordionItem[] = [];
   /**
-   * It indicates the starting level of the items to be displayed
+   * Option to show shadow on title
    */
-  @Input() public start = 0;
+  @Input() public hasShadow: boolean = false;
   /**
    * http request will be get items from server for each title opened
    */
@@ -82,12 +83,13 @@ export class AccordionComponent implements OnInit {
   /**
    * Item click event trigger. When clicked on any item this event will be called and pushes the item information to the given method.
    */
-  @Output() public itemClick: EventEmitter<AccordionItem> = new EventEmitter<AccordionItem>();
-  /**
-   * Title click event trigger. When clicked on any title item, this event will be called and pushes the item information to the given method.
-   */
-  @Output() public categoryClick: EventEmitter<AccordionItem> = new EventEmitter<AccordionItem>();
+  @Output() public onItemClick: EventEmitter<AccordionItem> = new EventEmitter<AccordionItem>();
+
   @Input() public elementId;
+  /**
+   * Inline accordion items, if there is
+   */
+  @ContentChildren(ItemComponent) accordionItems: QueryList<ItemComponent>;
 
   /**
    * Give HttpClient to the component. First import HttpClientModule to main Module of the app. For example.
@@ -129,32 +131,7 @@ export class AccordionComponent implements OnInit {
       + Date.now().toString(16).slice(4);
   }
 
-  open(routerLinkActive: RouterLinkActive) {
-    this.recursiveParent((routerLinkActive as any).element.nativeElement);
-  }
-
-  recursiveParent(element: HTMLLIElement) {
-    const parent = (element as any).closest('ul').closest('li');
-    if (parent) {
-      const input = parent.querySelector('input');
-      input.checked = true;
-      // if (!(element as any).closest('ul.top-level-accordion')) {
-      this.recursiveParent(parent);
-      // }
-    }
-  }
-
-  getMenuList() {
-    this.http.request(this.request).subscribe(
-      (response: HttpResponse<AccordionItem>) => this.onSuccessHandler(response),
-    );
-  }
-
-  onSuccessHandler(response: HttpResponse<AccordionItem>) {
-    // this.items = response.body.description;
-  }
-
-  htmlItemOnClick(item: AccordionItem, $event?: MouseEvent) {
+  itemClick(item: AccordionItem, $event?: MouseEvent) {
     if (event) {
       event.cancelBubble = true;
       event.stopPropagation();
@@ -163,19 +140,6 @@ export class AccordionComponent implements OnInit {
   }
 
   $onItemClick(item: AccordionItem) {
-    this.itemClick.emit(item);
-    console.log(item);
-  }
-
-  htmlCategoryOnClick(item: AccordionItem, $event?: MouseEvent) {
-    if (event) {
-      event.cancelBubble = true;
-      event.stopPropagation();
-    }
-    this.$onCategoryClick(item);
-  }
-
-  $onCategoryClick(item: AccordionItem) {
-    this.categoryClick.emit(item);
+    this.onItemClick.emit(item);
   }
 }

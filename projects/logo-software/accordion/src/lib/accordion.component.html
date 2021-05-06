@@ -9,24 +9,26 @@
  * Any reproduction of this material must contain this notice.
  */
 -->
-<ul [ngClass]="{'top-level-accordion' : level >=  start}">
-  <ng-container *ngFor="let item of items; let i = index; let lst=last">
-    <li [ngClass]="item.classes" class="level-{{level}} accordion-category {{classes}}">
-      <ng-container *ngIf="level >=  start">
-        <input [checked]="item.isOpen" hidden id="{{elementId}}{{i}}" type="checkbox"/>
-        <label
-          (click)="htmlCategoryOnClick(item)"
-          class="label label-category"
-          for="{{elementId}}{{i}}"
-        >
-          <span [ngClass]="item.iconClasses" class="{{iconClasses}}"></span>
-          <span class="title">
+<ul [ngClass]="{'shadowed': hasShadow}" class="top-level-accordion">
+  <ng-container *ngIf="items.length === 0; else nativeTemplate">
+    <ng-content></ng-content>
+  </ng-container>
+  <ng-template #nativeTemplate>
+    <li *ngFor="let item of items; let i = index; let lst=last" [ngClass]="item.classes"
+        class="level-{{level}} accordion-category {{classes}}">
+      <input [checked]="item.isOpen" hidden id="{{elementId}}{{i}}" type="checkbox"/>
+      <label
+        (click)="itemClick(item)"
+        class="label label-category"
+        for="{{elementId}}{{i}}"
+      >
+        <span [ngClass]="item.iconClasses" class="{{iconClasses}}"></span>
+        <span class="title">
             <p class="large">{{item.title}}</p>
           </span>
-          <span class="arrow le-arrow_down"></span>
-        </label>
-      </ng-container>
+        <span class="arrow le-arrow_down"></span>
+      </label>
       <p [innerHTML]="item.description" class="content"></p>
     </li>
-  </ng-container>
+  </ng-template>
 </ul>

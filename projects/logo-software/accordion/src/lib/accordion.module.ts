@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common';
 
 import { AccordionComponent } from './accordion.component';
 import { IsActiveRouteDirective } from './is-active-route.directive';
+import { ItemComponent } from './item.component';
 
 /**
  * An accordion menu is a vertically stacked list of headers that can be clicked to reveal or hide content associated with them.
@@ -44,8 +45,8 @@ import { IsActiveRouteDirective } from './is-active-route.directive';
  */
 @NgModule({
   imports: [CommonModule, RouterModule],
-  declarations: [AccordionComponent, IsActiveRouteDirective],
-  exports: [AccordionComponent],
+  declarations: [AccordionComponent, IsActiveRouteDirective, ItemComponent],
+  exports: [AccordionComponent, ItemComponent],
   providers: [],
 })
 export class AccordionModule {

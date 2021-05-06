@@ -1,0 +1,79 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
+@import "scss/icons";
+@import "scss/config";
+@import "~@logo-software/theme/base";
+
+:host {
+  li {
+    label {
+      display: flex;
+      color: get("element.tree.font.color");
+      padding-left: get("element.tree.size.medium.padding.left");
+      padding-right: get("element.tree.size.medium.padding.right");
+      font-size: get("element.tree.size.medium.font-size");
+      line-height: get("element.tree.size.medium.height");
+      height: get("element.tree.size.medium.height");
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: space-between;
+      cursor: auto;
+      background-color: var(--white);
+      position: relative;
+      z-index: 1;
+
+      &:hover {
+        background-color: rgba(var(--neutral-rgb), var(--ghost-hover));
+        transition: color 0.1s ease-in;
+      }
+
+      .title {
+        width: 100%;
+        font-weight: bold;
+        padding-left: size(10px);
+        cursor: pointer;
+      }
+
+      .arrow {
+        width: size(14px);
+        height: size(14px);
+        display: inline-block;
+      }
+    }
+
+    .content {
+      height: 100%;
+      max-height: 0;
+      opacity: 0;
+      transition: all 0.5s ease-out;
+      padding: 0 size(20px);
+      margin: 0;
+      background-color: var(--white);
+    }
+
+    input[type=checkbox] {
+      &:checked + label {
+        // color: $selected;
+        > span.arrow {
+          transform: rotate(180deg);
+        }
+
+        + .content {
+          max-height: initial;
+          opacity: 1;
+          transition: all 0.5s ease-out;
+          padding-top: size(24px);
+          padding-bottom: size(24px);
+        }
+      }
+    }
+  }
+}

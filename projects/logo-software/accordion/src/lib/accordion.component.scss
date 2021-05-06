@@ -19,15 +19,29 @@
   font-family: get("font.family");
   opacity: 1;
   transition: all 0.5s ease-out;
-  overflow: hidden;
 
   ul {
     list-style: none;
     padding: 0;
 
+    &.shadowed {
+      li {
+        label {
+          @include box-shadow(0, 0, size(4px), size(1px), rgba(var(--black-rgb), 0.08), false);
+        }
+      }
+
+      ::ng-deep {
+        li {
+          label {
+            @include box-shadow(0, 0, size(4px), size(1px), rgba(var(--black-rgb), 0.08), false);
+          }
+        }
+      }
+    }
+
     li {
       label {
-        // border: 1px solid red;
         display: flex;
         color: get("element.tree.font.color");
         padding-left: get("element.tree.size.medium.padding.left");
@@ -39,6 +53,7 @@
         align-items: center;
         justify-content: space-between;
         cursor: auto;
+        background-color: var(--white);
         position: relative;
         z-index: 1;
 
@@ -69,35 +84,28 @@
         }
       }
 
-      p.content {
+      .content {
         height: 100%;
         max-height: 0;
         opacity: 0;
         transition: all 0.5s ease-out;
         padding: 0 size(20px);
         margin: 0;
-        // padding-left: get("element.tree.padding-left");
-
-        &.show {
-          max-height: initial;
-          opacity: 1;
-          padding-left: 0;
-          margin: size(12px) 0;
-          transition: all 0.5s ease-out;
-        }
+        background-color: var(--white);
       }
 
       input[type=checkbox] {
         &:checked + label {
-          // color: $selected;
           > span.arrow {
             transform: rotate(180deg);
           }
 
-          + p.content {
+          + .content {
             max-height: initial;
             opacity: 1;
             transition: all 0.5s ease-out;
+            padding-top: size(24px);
+            padding-bottom: size(24px);
           }
         }
       }
