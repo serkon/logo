@@ -1,6 +1,5 @@
 <div class="timepicker-sample-base">
   <logo-timepicker (onChange)="timeIs($event)" [(ngModel)]="time" [id]="'my-logo-timepicker'"></logo-timepicker>
-
   <div class="selected-container">
     <span class="label">Time is: </span>
     <span class="value">{{time}}</span>
@@ -8,9 +7,13 @@
 </div>
 <div class="timepicker-sample-base">
   <h4>Disabled State</h4>
-  <logo-timepicker (onChange)="timeIs($event)" [(ngModel)]="time" [id]="'my-disabled-logo-timepicker'"
-                   [isDisabled]="true"></logo-timepicker>
-
+  <logo-timepicker
+    (onChange)="timeIs($event)"
+    [(ngModel)]="time"
+    [id]="'my-disabled-logo-timepicker'"
+    [isDisabled]="true"
+  >
+  </logo-timepicker>
   <div class="selected-container">
     <span class="label">Time is: </span>
     <span class="value">{{time}}</span>
