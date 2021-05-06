@@ -1,6 +1,6 @@
 {
   "name": "@logo-software/table",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "peerDependencies": {
     "@angular/common": "^7.0.0",
     "@angular/core": "^7.0.0",
