@@ -8,7 +8,7 @@
  * Any reproduction of this material must contain this notice.
  */
 
-import { Component, EventEmitter, forwardRef, Input, OnDestroy, Output } from '@angular/core';
+import { Component, EventEmitter, forwardRef, HostListener, Input, OnDestroy, Output } from '@angular/core';
 
 import { PopoverService } from '@logo-software/popover';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -113,6 +113,11 @@ export class TimepickerComponent implements OnDestroy {
   @Input() set ngModel(value: string) {
     this._ngModel = value.trim();
     this.setInputTime(value);
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.popoverService.closePopover();
   }
 
   ngOnDestroy() {
