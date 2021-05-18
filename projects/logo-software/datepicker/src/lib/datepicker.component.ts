@@ -164,17 +164,27 @@ export class DatepickerComponent implements OnInit, OnChanges {
    * Trigger an event when popover closed
    */
   @Output() public onClose: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   public isPopupActive = false;
   public meta: DatepickerMeta;
   public timeValue: string;
   public diff: string;
   private initialized: boolean = false;
   private _calenderActivated = false;
+  private _setViewFormatToMonth: boolean = false;
+  private _setViewFormatToDay: boolean = true;
+  private _calendarDiv: ElementRef;
+  private _ngModel = null;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    if (this._calenderActivated) {
+      this.closePopOver();
+    }
+  }
 
   constructor(private _elementRef: ElementRef, private renderer: Renderer2) {
   }
-
-  private _setViewFormatToMonth: boolean = false;
 
   get setViewFormatToMonth() {
     return this._setViewFormatToMonth;
@@ -190,8 +200,6 @@ export class DatepickerComponent implements OnInit, OnChanges {
     }
   }
 
-  private _setViewFormatToDay: boolean = true;
-
   get setViewFormatToDay() {
     return this._setViewFormatToDay;
   }
@@ -206,8 +214,6 @@ export class DatepickerComponent implements OnInit, OnChanges {
     }
   }
 
-  private _calendarDiv: ElementRef;
-
   get calendarDiv() {
     return this._calendarDiv;
   }
@@ -221,8 +227,6 @@ export class DatepickerComponent implements OnInit, OnChanges {
       this.closePopOver();
     }
   };
-
-  private _ngModel = null;
 
   get ngModel() {
     return this._ngModel;
