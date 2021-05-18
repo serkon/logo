@@ -40,6 +40,12 @@
     --header-scroll-logo-before-bg: var(--dark);
     --header-scroll-logo-before-color: var(--white);
   }
+
+  .logo {
+    a {
+      padding: 0;
+    }
+  }
 }
 
 :host {
@@ -74,6 +80,13 @@
         display: flex;
         align-items: center;
         text-decoration: none;
+        padding: 0 size(10px) 0 size(30px);
+        min-width: size(275px);
+        box-sizing: border-box;
+
+        a {
+          padding: 0;
+        }
       }
 
       .menu {
@@ -97,19 +110,17 @@
           justify-content: center;
         }
 
-        ::ng-deep {
-          .nav {
-            display: flex;
-            flex-grow: 1;
-            justify-content: center;
-          }
+        .nav {
+          display: flex;
+          flex-grow: 1;
+          justify-content: center;
         }
 
         @include larger-than(lg) {
           flex-direction: row;
         }
 
-        @include smaller-than(lg) {
+        @include smaller-than(md) {
           background: var(--header-opened-bg);
           box-shadow: var(--header-opened-box-shadow);
           flex-direction: column;
@@ -123,17 +134,15 @@
           padding: var(--header-height) size(15px) size(15px);
           z-index: 2;
 
-          ::ng-deep {
-            .nav {
-              flex-direction: column;
-              justify-content: flex-start;
+          .nav {
+            flex-direction: column;
+            justify-content: flex-start;
 
-              logo-link {
+            logo-link {
+              width: 100%;
+
+              a {
                 width: 100%;
-
-                a {
-                  width: 100%;
-                }
               }
             }
           }
@@ -143,6 +152,13 @@
           transform: translateX(98vw);
           width: 98vw;
         }
+      }
+
+      .cta-base {
+        padding-right: size(30px);
+        min-width: size(275px);
+        box-sizing: border-box;
+        text-align: right;
       }
     }
   }
@@ -180,11 +196,9 @@
         }
 
         .menu {
-          ::ng-deep {
-            .nav {
-              a {
-                color: var(--header-default-button-color);
-              }
+          .nav {
+            a {
+              color: var(--header-default-button-color);
             }
           }
         }
@@ -214,11 +228,9 @@
       }
 
       .menu {
-        ::ng-deep {
-          .nav {
-            a {
-              color: var(--header-scroll-button-color);
-            }
+        .nav {
+          a {
+            color: var(--header-scroll-button-color);
           }
         }
       }
@@ -239,16 +251,14 @@
           flex-direction: column;
           transform: translateX(0);
 
-          ::ng-deep {
-            .nav {
-              flex-direction: column;
-              justify-content: flex-start;
-              width: 100%;
+          .nav {
+            flex-direction: column;
+            justify-content: flex-start;
+            width: 100%;
 
-              a {
-                color: var(--header-opened-button-color);
-                text-align: center;
-              }
+            a {
+              color: var(--header-opened-button-color);
+              text-align: center;
             }
           }
         }

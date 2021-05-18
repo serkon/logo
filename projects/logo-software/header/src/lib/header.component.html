@@ -3,9 +3,26 @@
   class="header {{isMobilized ? 'mobilized' : 'standart'}} {{headerService.activeTheme}}"
 >
   <div [ngClass]="{'container': containerStatus}" class="header-content">
-    <a [innerHTML]="logoLinkText" class="logo {{logoLinkClasses}}" href="{{logoLinkTarget}}"></a>
+    <div class="logo">
+      <ng-container *ngIf="!hasCustomLogo; else customLogo">
+        <a *ngIf="logoLinkText != null && !logoImage; else imageLogoTemplate" [innerHTML]="logoLinkText"
+           class="logo-link {{logoLinkClasses}}" href="{{logoLinkTarget}}">TEST</a>
+        <ng-template #imageLogoTemplate>
+          <a class="logo-link {{logoLinkClasses}}" href="{{logoLinkTarget}}"><img alt="{{logoLinkText}}"
+                                                                                  src="{{logoImage}}"/></a>
+        </ng-template>
+      </ng-container>
+      <ng-template #customLogo>
+        <ng-content select="[logo]"></ng-content>
+      </ng-template>
+    </div>
     <div class="menu {{menuPosition}}">
-      <ng-content #menu></ng-content>
+      <div class="nav">
+        <ng-content select="[menu]"></ng-content>
+      </div>
+      <div class="cta-base">
+        <ng-content select="[cta]"></ng-content>
+      </div>
     </div>
   </div>
 </div>

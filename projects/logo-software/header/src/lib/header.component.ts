@@ -48,9 +48,9 @@ import { HeaderService, HeaderTheme } from './header.service';
 })
 export class HeaderComponent implements AfterViewInit {
   /**
-   * Header left logo link display text. Default is `Home`. It also accept html string.
+   * Header left logo link display text. It also accept html string.
    */
-  @Input() logoLinkText: string = 'Home';
+  @Input() logoLinkText: string;
   /**
    * Header left logo link target. Default is `/`.
    */
@@ -59,6 +59,10 @@ export class HeaderComponent implements AfterViewInit {
    * Header left logo link class. Default is empty.
    */
   @Input() logoLinkClasses: string = '';
+  /**
+   * Header left logo image if needed. You can use logoImage and logoLinkText property at the same time but logoLinkText will be alt text of the logo image in that case.
+   */
+  @Input() logoImage: string;
   /**
    * adds 'default' class to header component's tag to default. It will also make header background to transparent.
    */
@@ -76,6 +80,10 @@ export class HeaderComponent implements AfterViewInit {
    * Add mobile responsive support
    */
   @Input() isMobilized: boolean = true;
+  /**
+   * Lets developers to add their own logo HTML at the place of logo in header.
+   */
+  @Input() hasCustomLogo: boolean = false;
   /**
    * sticky header support. Default is `true`. If set false header component will not be sticky
    */
@@ -117,6 +125,7 @@ export class HeaderComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    console.log(this.logoLinkText);
     this.headerService.startTheme = this.defaultTheme;
     this.headerService.scrollTheme = this.scrolledTheme;
     this.headerService.scrollPoint = this.scrollPoint;
