@@ -7,7 +7,7 @@
  * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
  * Any reproduction of this material must contain this notice.
  */
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
 
 import { PopoverPosition, PopoverService } from './popover.service';
 
@@ -110,6 +110,11 @@ export class PopoverComponent implements OnInit {
     }
     this.popoverService.openWatcher.next(this.popoverService.display);
   };
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.popoverService.closePopover();
+  }
 
   ngOnInit(): void {
     this.popoverService.hasSearch = this.hasSearch;
