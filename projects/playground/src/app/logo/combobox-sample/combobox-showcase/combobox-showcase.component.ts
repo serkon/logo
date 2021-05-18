@@ -14,6 +14,14 @@ export class ComboboxShowcaseComponent {
     {a: {b: 'fourth', c: 14}},
     {a: {b: 'fifth', c: 15}},
     {a: {b: 'sixth', c: 16}},
+    {a: {b: 'seventh', c: 17}},
+    {a: {b: 'eighth', c: 18}},
+    {a: {b: 'nineth', c: 19}},
+    {a: {b: 'tenth', c: 20}},
+    {a: {b: 'eleventh', c: 21}},
+    {a: {b: 'twelveth', c: 22}},
+    {a: {b: 'thirteenth', c: 23}},
+
   ];
   displayedItems = [];
 
