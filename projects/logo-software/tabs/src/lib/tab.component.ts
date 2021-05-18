@@ -24,7 +24,7 @@ import { Params } from '@angular/router';
   selector: 'logo-tab',
   template: `
     <ng-container *ngIf="isActive">
-      <div class="pane" (click)="htmlClick()">
+      <div class="pane">
         <ng-content></ng-content>
       </div>
     </ng-container>
