@@ -40,8 +40,8 @@
       <div class="input-container">
         <input
           #inputRef
-          (focus)="getSuggestionStatus()"
           (input)="debounce(inputRef)"
+          (keypress)="getSuggestionStatus()"
           (keydown.arrowDown)="arrowDown()"
           (keydown.arrowUp)="arrowUp()"
           (keydown.backspace)="deleteLast($event)"

@@ -23,6 +23,8 @@
     padding-right: size(5px);
     cursor: pointer;
     border: none;
+    height: auto;
+    min-height: #{get("size.medium.height")};
 
     &::before {
       transition: all 0.2s ease;
@@ -155,7 +157,7 @@
           background-color: var(--primary);
           color: var(--white);
 
-          &:before {
+          &::before {
             color: var(--white);
             top: size(-6px);
           }
