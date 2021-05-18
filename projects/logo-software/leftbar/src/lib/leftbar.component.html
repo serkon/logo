@@ -164,8 +164,12 @@
         <button (click)="shortcutSettingsEmitter()" class="ghost le-settings"></button>
       </div>
     </div>
-    <button (click)="toggleMobileMenu()" [ngClass]="mobileMenu ? 'le-cross' : 'le-hamburger'"
-            class="mobile-menu-btn large ghost"></button>
+    <button
+      (click)="toggleMobileMenu()"
+      [ngClass]="mobileMenu ? 'le-cross' : 'le-hamburger'"
+      class="mobile-menu-btn large ghost"
+    >
+    </button>
   </div>
   <div [ngClass]="{'opened' : mobileMenu}" class="menu-base">
     <ng-content></ng-content>

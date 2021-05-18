@@ -271,6 +271,7 @@
             width: 100vw;
             display: flex;
             flex-flow: column;
+            z-index: 8;
 
             .item {
               &.user-summary-card {
