@@ -38,8 +38,12 @@
             class="col-md-{{item.col}} {{item.reference}}"
           >
             <div class="item">
-              <button (click)="infoReqEmitter(item.actionParam)" *ngIf="item.actionParam"
-                      class="ghost sum-button"></button>
+              <button
+                (click)="infoReqEmitter(item.actionParam)"
+                *ngIf="item.actionParam"
+                class="ghost sum-button"
+              >
+              </button>
               <logo-link *ngIf="item.link" [classes]="'ghost sum-button'" [url]="item.link"></logo-link>
               <span *ngIf="item.title" class="title">
                 {{item.title}}
@@ -53,7 +57,8 @@
         </div>
         <div *ngFor="let option of leftbarService.userInfo.links" class="item options">
           <logo-link
-            [classes]="'ghost large'" [ngClass]="option.name ==='Çıkış yap'?'text-danger':''"
+            [classes]="'ghost large'"
+            [ngClass]="option.name ==='Çıkış yap'?'text-danger':''"
             [url]="option.link"
           >
             {{option.name}}
@@ -66,7 +71,8 @@
         <span class="tenant-options-base">
           <button
             (click)="togglePopover('tenantOptions')"
-            class="ghost small icon-right le-arrow_down">
+            class="ghost small icon-right le-arrow_down"
+          >
             <span class="le-login_key"></span>
             {{leftbarService.userInfo.tenants.default}}
           </button>
