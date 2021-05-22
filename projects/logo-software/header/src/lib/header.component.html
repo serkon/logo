@@ -5,11 +5,17 @@
   <div [ngClass]="{'container': containerStatus}" class="header-content">
     <div class="logo">
       <ng-container *ngIf="!hasCustomLogo; else customLogo">
-        <a *ngIf="logoLinkText != null && !logoImage; else imageLogoTemplate" [innerHTML]="logoLinkText"
-           class="logo-link {{logoLinkClasses}}" href="{{logoLinkTarget}}">TEST</a>
+        <a
+          *ngIf="logoLinkText != null && !logoImage; else imageLogoTemplate"
+          [innerHTML]="logoLinkText"
+          class="logo-link {{logoLinkClasses}}"
+          href="{{logoLinkTarget}}"
+        >
+        </a>
         <ng-template #imageLogoTemplate>
-          <a class="logo-link {{logoLinkClasses}}" href="{{logoLinkTarget}}"><img alt="{{logoLinkText}}"
-                                                                                  src="{{logoImage}}"/></a>
+          <a class="logo-link {{logoLinkClasses}}" href="{{logoLinkTarget}}">
+            <img alt="{{logoLinkText}}" src="{{logoImage}}"/>
+          </a>
         </ng-template>
       </ng-container>
       <ng-template #customLogo>
