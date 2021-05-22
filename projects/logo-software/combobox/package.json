@@ -1,6 +1,6 @@
 {
   "name": "@logo-software/combobox",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "peerDependencies": {
     "@angular/common": "^9.1.6",
     "@angular/core": "^9.1.6",
