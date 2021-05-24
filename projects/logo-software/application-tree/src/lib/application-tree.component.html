@@ -1,0 +1,97 @@
+<!--
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+-->
+<ul [ngClass]="{'top-level-tree' : level >=  start}">
+  <ng-container *ngFor="let item of items; let i = index; let lst=last">
+    <ng-container (click)="htmlItemOnClick(item)" *ngIf="hasChild(item)">
+      <li [ngClass]="item.classes" class="level-{{level}} tree-category {{classes}} {{item.group ? 'group': ''}}">
+        <ng-container *ngIf="level >=  start">
+          <input [checked]="item.isOpen" hidden id="{{elementId}}{{i}}" type="checkbox"/>
+          <label
+            (click)="htmlCategoryOnClick(item)"
+            [style.paddingLeft]="htmlSetPadding(level, start)"
+            class="label label-category {{item.group ? 'label-group': ''}}"
+            for="{{elementId}}{{i}}"
+          >
+            <span [ngClass]="item.iconClasses" [style.background-color]="item.Color" class="{{iconClasses}} item-icon">
+              <img
+                *ngIf="(!!structure && !!structure.iconField && !!item[structure.iconField]) || !!item.iconPath"
+                [attr.src]="!!structure && !!structure.iconField ? item[structure.iconField] : item.iconPath"
+              />
+            </span>
+            <span class="title">
+              <ng-container
+                *ngTemplateOutlet='itemTemplateRef ? itemTemplateRef : defaultTemplate;context: { $implicit: item}' ,
+              >
+              </ng-container>
+            </span>
+            <span class="arrow le-arrow_right"></span>
+          </label>
+        </ng-container>
+        <logo-application-tree
+          (categoryClick)="$onCategoryClick($event)"
+          (itemCheckChange)="$triggerItemCheckChange($event)"
+          (itemClick)="$onItemClick($event)"
+          [(ngModel)]="ngModel"
+          [classes]="classes"
+          [iconClasses]="iconClasses"
+          [itemTemplate]="itemTemplateRef"
+          [items]="getChildren(item)"
+          [level]="level - (item.group ? 1 : 0)"
+          [maxSelected]="maxSelected"
+          [ngClass]="{'show': level <  start}"
+          [paddingLeft]="paddingLeft"
+          [request]="request"
+          [roles]="roles"
+          [start]="0"
+          [structure]="structure"
+          class="children"
+        >
+        </logo-application-tree>
+      </li>
+    </ng-container>
+    <ng-container (click)="htmlItemOnClick(item)" *ngIf="!hasChild(item)">
+      <li class="tree-link {{classes}}">
+        <label
+          #reference="routerLinkActive"
+          (click)="htmlItemOnClick(item)"
+          [isActiveRoute]="reference"
+          [style.paddingLeft]="htmlSetPadding(level, start)"
+          class="label label-link"
+          for="{{elementId}}{{i}}"
+          routerLinkActive="router-link-active"
+        >
+          <input
+            (change)="$onItemCheckChange($event, item)"
+            *ngIf="!htmlIsUndefined(item) && (!!structure && !!structure.optionalField && !!item[structure.optionalField]) || !!item.optional"
+            [checked]="item.isSelect"
+            [disabled]="!ngModel.includes(item) && ngModel.length >= maxSelected"
+            id="option-{{elementId}}-{{i}}"
+            type="checkbox"
+          >
+          <span [ngClass]="item.iconClasses" [style.background-color]="item.Color" class="{{iconClasses}} item-icon">
+            <img
+              *ngIf="(!!structure && !!structure.iconField && !!item[structure.iconField]) || !!item.iconPath"
+              [attr.src]="!!structure && !!structure.iconField ? item[structure.iconField] : item.iconPath"
+            />
+          </span>
+          <span class="title">
+            <ng-container
+              *ngTemplateOutlet='itemTemplateRef ? itemTemplateRef : defaultTemplate;context: { $implicit: item}'
+            >
+            </ng-container>
+          </span>
+        </label>
+      </li>
+    </ng-container>
+  </ng-container>
+</ul>
+<ng-template #defaultTemplate let-item> {{getDisplayName(item)}}</ng-template>
