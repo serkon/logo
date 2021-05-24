@@ -19,5 +19,20 @@
   (onSettingsButton)="sampleSettingsAction()"
   (onTenantSelected)="sampleTenantAction($event)"
 >
-  <p>TREE MENU WILL BE HERE</p>
+  <logo-application-tree
+    (categoryClick)="sampleAppAction($event);"
+    (itemClick)="sampleAppAction($event);"
+    (ngModelChange)="selectedList"
+    [(ngModel)]="selectedList"
+    [group]="true"
+    [items]="allApps"
+    [maxSelected]="5"
+    [structure]="treeOptions"
+  >
+  </logo-application-tree>
 </logo-leftbar>
+
+<div style="position: absolute; top: 0; right: 0; width: 50vw">
+  <h2>{{selectedList.length}}</h2>
+  <p>{{selectedList | json}}</p>
+</div>
