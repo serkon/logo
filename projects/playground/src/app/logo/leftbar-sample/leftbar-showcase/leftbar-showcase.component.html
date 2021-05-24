@@ -1,4 +1,15 @@
 <logo-leftbar
+  [applications]="allApps"
+  [defaultAppId]="selectedAppId"
+  [defaultTenant]="activeTenant"
+  [enableShortCuts]="true"
+  [favorites]="favorites"
+  [isMainPage]="false"
+  [onPrem]="false"
+  [profileSettings]="profileSettings"
+  [searchPlaceholder]="'What can i do sometimes?'"
+  [tenants]="tenants"
+  [user]="user"
   (onAddShortCut)="sampleAddShortcut()"
   (onAppSelected)="sampleAppAction($event)"
   (onHomeButton)="sampleHomeAction()"
@@ -8,5 +19,5 @@
   (onSettingsButton)="sampleSettingsAction()"
   (onTenantSelected)="sampleTenantAction($event)"
 >
-  <span>MY CUSTOM MENU</span>
+  <p>TREE MENU WILL BE HERE</p>
 </logo-leftbar>
