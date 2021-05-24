@@ -41,16 +41,49 @@ import { LeftbarService } from './leftbar.service';
   templateUrl: './leftbar.component.html',
 })
 export class LeftbarComponent implements OnInit, OnChanges {
+  /**
+   * User informations that shown on left bar
+   */
   @Input() public user: any;
+  /**
+   * Profile settings items which shown under user profile clicked
+   */
   @Input() public profileSettings: any;
+  /**
+   * Applications that will shown on leftbar
+   */
   @Input() public applications: any;
+  /**
+   * Default selected application
+   */
   @Input() public defaultAppId: string;
+  /**
+   * Tenants of the user.
+   */
   @Input() public tenants: any;
+  /**
+   * Selected tenant of the user
+   */
   @Input() public defaultTenant: any;
+  /**
+   * The implementation is onPrem or onCloud
+   */
   @Input() public onPrem: boolean;
+  /**
+   * The status of Main page shown or not
+   */
   @Input() public isMainPage: boolean;
+  /**
+   * Placeholder of search area
+   */
   @Input() public searchPlaceholder: string;
+  /**
+   * Shortcuts of the user if there is
+   */
   @Input() public favorites: any;
+  /**
+   * Enable shortcuts for the user
+   */
   @Input() public enableShortCuts: boolean = true;
   /**
    * When add shorcut button clicked, an output event fired with boolean.
@@ -84,10 +117,21 @@ export class LeftbarComponent implements OnInit, OnChanges {
    *  When an info area clicked from user details, an output fired with selected info id in string.
    */
   @Output() public onInfoRequest: EventEmitter<string> = new EventEmitter<string>();
-
+  /**
+   * Output of the tenant search area
+   */
   @Output() public onTenantSearch: EventEmitter<string> = new EventEmitter<string>();
+  /**
+   * When default tenant setted, this output will be triggered.
+   */
   @Output() public onDefaultTenantSet: EventEmitter<string> = new EventEmitter<string>();
+  /**
+   * When user focusses to search, search area value will be triggered.
+   */
   @Output() public onFocusSearch: EventEmitter<string> = new EventEmitter<string>();
+  /**
+   * When clicked to shortcut, output event triggered.
+   */
   @Output() public onClickShortCut: EventEmitter<any> = new EventEmitter<any>();
 
   public showUserDetails: boolean = false;
