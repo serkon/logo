@@ -8,7 +8,7 @@
  * Any reproduction of this material must contain this notice.
  */
 
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 
 import { TreeComponent } from '@logo-software/tree';
 
@@ -40,11 +40,22 @@ import { LeftbarService } from './leftbar.service';
   styleUrls: ['./leftbar.component.scss'],
   templateUrl: './leftbar.component.html',
 })
-export class LeftbarComponent implements OnInit {
+export class LeftbarComponent implements OnInit, OnChanges {
+  @Input() public user: any;
+  @Input() public profileSettings: any;
+  @Input() public applications: any;
+  @Input() public defaultAppId: string;
+  @Input() public tenants: any;
+  @Input() public defaultTenant: any;
+  @Input() public onPrem: boolean;
+  @Input() public isMainPage: boolean;
+  @Input() public searchPlaceholder: string;
+  @Input() public favorites: any;
+  @Input() public enableShortCuts: boolean = true;
   /**
    * When add shorcut button clicked, an output event fired with boolean.
    */
-  @Output() public onAddShortCut: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() public onAddShortCut: EventEmitter<number> = new EventEmitter<number>();
   /**
    *  Home button click output with boolean.
    */
@@ -74,12 +85,18 @@ export class LeftbarComponent implements OnInit {
    */
   @Output() public onInfoRequest: EventEmitter<string> = new EventEmitter<string>();
 
+  @Output() public onTenantSearch: EventEmitter<string> = new EventEmitter<string>();
+  @Output() public onDefaultTenantSet: EventEmitter<string> = new EventEmitter<string>();
+  @Output() public onFocusSearch: EventEmitter<string> = new EventEmitter<string>();
+  @Output() public onClickShortCut: EventEmitter<any> = new EventEmitter<any>();
+
   public showUserDetails: boolean = false;
   public popoverStatus: boolean = false;
   public activePopover: string = '';
   public mobileMenu: boolean = false;
-
   public emptyShortcutSlots: any;
+  public defaultApp: any = {};
+
   @ViewChild(TreeComponent, {read: TreeComponent}) tree: TreeComponent;
 
   constructor(public leftbarService: LeftbarService) {
@@ -87,13 +104,21 @@ export class LeftbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.onInit.emit(true);
-    /**
-     *  On Init user data loaded via Leftbar service.
-     */
-    this.leftbarService.userDataLoad.subscribe(data => {
-      const emptySlots: number = 5 - this.leftbarService.userInfo.shortcuts.length || 0;
-      this.emptyShortcutSlots = Array.from(Array(emptySlots).keys());
-    });
+    this.setEmptySlots();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.favorites) {
+      this.setEmptySlots();
+    } else if ((changes.defaultAppId || changes.applications) && (this.applications && this.applications.length > 0 && this.defaultAppId)) {
+      const foundApp = this.applications.find(x => x.Id === this.defaultAppId);
+      this.defaultApp = foundApp ? foundApp : {};
+    }
+  }
+
+  public homeEmitter() {
+    this.popoverStatus = false;
+    this.onHomeButton.emit(true);
   }
 
   /**
@@ -124,31 +149,62 @@ export class LeftbarComponent implements OnInit {
     this.mobileMenu = !this.mobileMenu;
   }
 
-  public homeEmitter() {
-    this.onHomeButton.emit(true);
-  }
-
   public selectTenantEmitter(id: string) {
+    this.popoverStatus = false;
     this.onTenantSelected.emit(id);
   }
 
-  public selectAppEmitter(id: string) {
-    this.onAppSelected.emit(id);
+  public selectAppEmitter(app: any) {
+    this.defaultApp = app;
+    this.popoverStatus = false;
+    this.onAppSelected.emit(app.Id);
   }
 
   public shortcutSettingsEmitter() {
+    this.popoverStatus = false;
     this.onSettingsButton.emit(true);
   }
 
-  public addShortcutEmitter() {
-    this.onAddShortCut.emit(true);
+  public addShortcutEmitter(i: number) {
+    this.popoverStatus = false;
+    this.onAddShortCut.emit(i);
+  }
+
+  public clickShortcutEmitter(shortcut: any) {
+    this.popoverStatus = false;
+    this.onClickShortCut.emit(shortcut);
   }
 
   public doSearchEmitter(val: string) {
+    this.popoverStatus = val.length > 2 ? false : this.popoverStatus;
     val.length > 2 ? this.onSearch.emit(val) : '';
   }
 
-  public infoReqEmitter(id: string) {
-    this.onInfoRequest.emit(id);
+  public doFocusSearchEmitter(val: string) {
+    this.popoverStatus = false;
+    this.onFocusSearch.emit(val);
+  }
+
+  public doTenantSearchEmitter(val: string) {
+    val.length > 2 ? this.onTenantSearch.emit(val) : '';
+  }
+
+  public setAsDefaultTenantEmitter(id: string) {
+    this.onDefaultTenantSet.emit(id);
+  }
+
+  public infoReqEmitter(item: any, popoverItem: any) {
+    if (!!popoverItem) {
+      this.togglePopover('popover_' + item.actionParam);
+      item.desc = popoverItem.Name;
+      item.value = popoverItem.Value;
+    }
+    this.popoverStatus = false;
+    this.onInfoRequest.emit(item);
+  }
+
+  private setEmptySlots() {
+    const emptySlots: number = 5 - (this.favorites ? this.favorites.length : 0);
+    this.emptyShortcutSlots = Array.from(Array(emptySlots).keys());
   }
 }

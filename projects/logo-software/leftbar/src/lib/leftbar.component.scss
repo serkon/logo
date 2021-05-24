@@ -113,7 +113,8 @@
               }
 
               img {
-                width: 100%;
+                min-width: 100%;
+                min-height: 100%;
                 margin-left: 50%;
                 transform: translateX(-50%);
                 object-fit: scale-down;
@@ -125,11 +126,11 @@
               @include animate(all, 0.2s, ease-in-out);
 
               display: inline-block;
-              width: size(64px);
-              height: size(64px);
+              width: size(60px);
+              height: size(60px);
               overflow: hidden;
               position: absolute;
-              top: size(10px);
+              top: size(14px);
               left: size(20px);
               z-index: 1;
               filter: blur(4px);
@@ -198,6 +199,10 @@
 
               &.icon {
                 height: size(14px);
+              }
+
+              &.text-danger {
+                color: var(--danger);
               }
             }
 
@@ -440,11 +445,62 @@
             @include smaller-than(md) {
               position: absolute;
               left: calc((100% - 218px) / 2);
+              top: size(34px);
             }
 
             button {
               width: 100%;
               line-height: size(32px);
+            }
+
+            .default-app-btn {
+              overflow: hidden;
+
+              .app-logo {
+                display: block;
+                max-width: 100%;
+                height: size(16px);
+                margin: size(8px) 0;
+              }
+
+              .app-logo[src*=svg] {
+                display: inline-block;
+                margin-right: size(15px);
+              }
+
+              &::after {
+                display: inline-flex;
+                content: attr(name);
+                vertical-align: top;
+              }
+            }
+
+            .app-options {
+              .app-item {
+                position: relative;
+                text-align: left;
+                overflow: hidden;
+                line-height: size(32px);
+                vertical-align: middle;
+
+                img {
+                  display: block;
+                  max-width: 100%;
+                  height: size(16px);
+                  margin: size(8px) 0;
+                }
+
+                img[src*=svg] {
+                  display: inline-block;
+                  margin-right: size(15px);
+                }
+
+                &::after {
+                  display: inline-flex;
+                  content: attr(name);
+                  vertical-align: top;
+                }
+              }
             }
 
             .single-app {
@@ -463,6 +519,14 @@
 
               img {
                 vertical-align: middle;
+                max-height: size(24px);
+              }
+
+              &::after {
+                display: inline-flex;
+                content: attr(name);
+                vertical-align: top;
+                padding-left: size(5px);
               }
 
               .app-icon {
@@ -582,7 +646,7 @@
         display: inline-block;
         width: size(32px);
         height: size(32px);
-        position: absolute;
+        position: fixed;
         bottom: size(25px);
         left: size(124px);
         z-index: 7;
@@ -629,12 +693,13 @@
       &.opened {
         @include box-shadow(0, size(2px), size(15px), size(4px), rgba(var(--black-rgb), 0.15), false);
 
+        overflow-y: auto;
         display: flex;
         flex-flow: column;
         position: absolute;
         right: 0;
         left: 0;
-        top: size(68px);
+        top: size(30px);
         background: var(--white);
         padding: size(10px);
         border: 1px solid var(--primary-400);
@@ -666,6 +731,48 @@
           width: 100%;
           display: block;
           text-align: left;
+        }
+
+        .tenant-item {
+          position: relative;
+
+          &:hover {
+            .set-button {
+              display: inline-block !important;
+            }
+          }
+        }
+
+        .tenant-button {
+          text-align: left;
+          height: auto !important;
+          width: 100%;
+          position: relative;
+          z-index: 0;
+
+          .tenant-id {
+            color: var(--neutral-500);
+            margin: 0 !important;
+          }
+
+          .le-pin_1 {
+            display: inline-block;
+            width: size(32px);
+            height: size(32px);
+            color: var(--primary);
+            position: absolute;
+            top: 0;
+            right: 0;
+          }
+        }
+
+        .set-button {
+          position: absolute;
+          top: 0;
+          right: 0;
+          z-index: 1;
+          display: none;
+          width: auto;
         }
       }
 
@@ -707,6 +814,7 @@
         .user-base {
           padding: size(5px);
           height: size(65px);
+          box-sizing: content-box;
 
           .user-summary-card {
             background: transparent;
@@ -785,12 +893,35 @@
               width: size(40px);
               overflow: hidden;
 
-              .app-logo {
-                display: none;
+              .default-app-btn {
+                padding-left: size(5px);
+
+                &::before {
+                  right: size(-10px) !important;
+                }
+
+                &::after {
+                  display: none;
+                }
               }
 
-              .app-icon {
-                display: inline-block !important;
+              div {
+                button {
+                  .app-logo {
+                    display: none;
+                  }
+
+                  .app-icon {
+                    display: inline-block !important;
+                    height: size(12px);
+                  }
+                }
+              }
+
+              .single-app {
+                &::after {
+                  display: none;
+                }
               }
             }
           }

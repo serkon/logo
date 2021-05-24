@@ -9,72 +9,94 @@
  * Any reproduction of this material must contain this notice.
  */
 -->
-<div *ngIf="!!leftbarService.userInfo" [ngClass]="leftbarService.isSlim ? 'slim': ''" class="le-leftbar">
+<div *ngIf="!!user" [ngClass]="leftbarService.isSlim ? 'slim': ''" class="le-leftbar">
   <div class="info-card">
     <div [ngClass]="showUserDetails ? 'extended' : ''" class="user-base">
       <div class="item user-summary-card">
         <button (click)="toggleUserDetails();" class="ghost"></button>
         <span
           class="avatar-background"
-          style="background-image: url({{leftbarService.userInfo.avatar}});"
+          [ngStyle]="{'background-image': 'url(data:image/jpg;base64,' + user.userImage + ')'}"
         >
         </span>
         <span class="avatar">
-          <img src="{{leftbarService.userInfo.avatar}}">
+          <img [attr.src]="user.avatar.changingThisBreaksApplicationSecurity">
         </span>
-        <span *ngIf="leftbarService.userInfo.notifications" class="badge danger top left">
-          {{leftbarService.userInfo!.notifications}}
+        <span *ngIf="user.notifications" class="badge danger top left">
+          {{user!.notifications}}
         </span>
         <div class="details">
-          <h6>{{leftbarService.userInfo.name}}</h6>
-          <p class="small">{{leftbarService.userInfo.title}}</p>
+          <h6>{{user.name}}</h6>
+          <p class="small">{{user.title}}</p>
         </div>
       </div>
       <div class="expandable-content">
         <button (click)="toggleUserDetails()" class="le-cross ghost large close-user-btn"></button>
         <div class="row infos">
           <div
-            *ngFor="let item of leftbarService.userInfo.infos"
+            *ngFor="let item of profileSettings"
             class="col-md-{{item.col}} {{item.reference}}"
           >
-            <div class="item">
+            <div *ngIf="!item.popover" class="item">
               <button
-                (click)="infoReqEmitter(item.actionParam)"
                 *ngIf="item.actionParam"
-                class="ghost sum-button"
-              >
+                (click)="infoReqEmitter(item, null)"
+                class="ghost sum-button">
               </button>
-              <logo-link *ngIf="item.link" [classes]="'ghost sum-button'" [url]="item.link"></logo-link>
-              <span *ngIf="item.title" class="title">
+              <span *ngIf="item.title" [ngClass]="item.cssClass ? item.cssClass + ' title' : 'title'">
                 {{item.title}}
                 <span *ngIf="item.badge" class="badge danger">{{item.count}}</span>
               </span>
               <span *ngIf="item.icon" class="title icon {{item.icon}}"></span>
-              <p *ngIf="item.desc; else countTemp" class="small">{{item.desc}}</p>
+              <button
+                *ngIf="!item.title && !item.icon && item.desc"
+                [ngClass]="item.cssClass ? item.cssClass : ''"
+                class="ghost large"
+              >
+                {{item.desc}}
+              </button>
+              <p *ngIf="item.icon || item.title && item.desc; else countTemp" class="small">{{item.desc}}</p>
+              <ng-template #countTemp>{{item.count}}</ng-template>
+            </div>
+            <div *ngIf="!!item.popover" class="item">
+              <button (click)="togglePopover('popover_'+item.actionParam)" class="ghost sum-button"></button>
+              <div
+                [attr.id]="'popover_'+item.actionParam"
+                [ngClass]="activePopover === 'popover_'+item.actionParam && popoverStatus ? 'opened':''"
+                class="popover"
+              >
+                <div class="result-base">
+                  <button
+                    (click)="infoReqEmitter(item, popoverItem)"
+                    *ngFor="let popoverItem of item.popoverItems"
+                    class="ghost" style="width: 100%;"
+                  >
+                    {{popoverItem.Name}}
+                  </button>
+                </div>
+              </div>
+              <span *ngIf="item.title" [ngClass]="item.cssClass ? item.cssClass + ' title' : 'title'">
+                {{item.title}}
+                <span *ngIf="item.badge" class="badge danger">{{item.count}}</span>
+              </span>
+              <span *ngIf="item.icon" class="title icon {{item.icon}}"></span>
+              <p *ngIf="item.desc; else countTemp"
+                 [ngClass]="item.cssClass ? item.cssClass + ' small' : 'small'">{{item.desc}}</p>
               <ng-template #countTemp>{{item.count}}</ng-template>
             </div>
           </div>
         </div>
-        <div *ngFor="let option of leftbarService.userInfo.links" class="item options">
-          <logo-link
-            [classes]="'ghost large'"
-            [ngClass]="option.name ==='Çıkış yap'?'text-danger':''"
-            [url]="option.link"
-          >
-            {{option.name}}
-          </logo-link>
-        </div>
       </div>
     </div>
-    <div [ngClass]="{'mobile-fix':leftbarService.userInfo.applications.options.length > 1}" class="tenant-base">
+    <div [ngClass]="{'mobile-fix':applications.length > 1}" class="tenant-base">
       <div class="item">
-        <span class="tenant-options-base">
+        <div class="tenant-options-base">
           <button
             (click)="togglePopover('tenantOptions')"
             class="ghost small icon-right le-arrow_down"
           >
             <span class="le-login_key"></span>
-            {{leftbarService.userInfo.tenants.default}}
+            {{defaultTenant.name}}
           </button>
           <div
             [ngClass]="activePopover === 'tenantOptions' && popoverStatus ? 'opened':''"
@@ -84,98 +106,104 @@
             <div class="popover-search-base">
               <span class="input-w-icon">
                 <span class="le-search input-icon"></span>
-                <input class="icon-left" id="searchTenant">
+                <input #leftbarTenantSearch (keyup)="doTenantSearchEmitter(leftbarTenantSearch.value)" class="icon-left"
+                       id="searchTenant">
               </span>
             </div>
             <div class="result-base" id="tenantResults">
-              <button
-                (click)="selectTenantEmitter(tenant.id)"
-                *ngFor="let tenant of leftbarService.userInfo.tenants.options"
-                class="ghost"
-              >
-                {{tenant.name}}
-              </button>
+              <div *ngFor="let tenant of tenants" class="tenant-item">
+                <button (click)="selectTenantEmitter(tenant.id)" class="ghost tenant-button">
+                  {{tenant.name}}
+                  <p *ngIf="onPrem" class="tenant-id small">{{tenant.id}}</p>
+                  <span *ngIf="tenant.IsDefault" class="le-pin_1"></span>
+                </button>
+                <button
+                  (click)="setAsDefaultTenantEmitter(tenant.id)"
+                  *ngIf="!tenant.IsDefault"
+                  class="ghost secondary set-button le-pin_1"
+                >
+                </button>
+              </div>
             </div>
           </div>
-        </span>
+        </div>
       </div>
     </div>
-    <div class="search-base">
+    <div *ngIf="!isMainPage" class="search-base">
       <button (click)="toggleMenu()" class="search-btn ghost le-search"></button>
       <span class="input-w-icon">
         <span class="le-search input-icon"></span>
         <input
           #leftbarSearch
           (keyup)="doSearchEmitter(leftbarSearch.value)"
+          (focus)='doFocusSearchEmitter(leftbarSearch.value)'
           class="icon-left"
-          placeholder="Size Nasıl Yardımcı Olabilirim?"
+          [placeholder]="searchPlaceholder"
         >
       </span>
     </div>
-    <div [ngClass]="{'hidden-mobile': leftbarService.userInfo.applications.options.length < 2}" class="shortcuts-base">
+    <div *ngIf="!isMainPage" [ngClass]="{'hidden-mobile': applications.length < 2}" class="shortcuts-base">
       <div class="standarts">
         <div class="home item">
           <button (click)="homeEmitter()" class="ghost le-home"></button>
         </div>
         <div class="apps item">
-          <div *ngIf="leftbarService.userInfo.applications.options.length > 1">
+          <div *ngIf="applications && applications.length > 1">
             <button
               (click)="togglePopover('appOptions')"
               class="ghost icon-right le-arrow_down"
+              data-name="{{defaultApp.Name}}"
             >
-              <img class="app-logo" src="{{leftbarService.userInfo.applications.default}}"/>
-              <img class="app-icon" src="{{leftbarService.userInfo.applications.defaultIcon}}"/>
+              <img *ngIf="defaultApp" [attr.src]="defaultApp.SafeIconAdress" class="app-logo"/>
+              <img *ngIf="defaultApp" [attr.src]="defaultApp.SafeIconAdress" class="app-icon"/>
             </button>
             <div
               [ngClass]="activePopover === 'appOptions' && popoverStatus ? 'opened':''"
-              class="popover"
+              class="popover app-options"
               id="appOptions"
             >
               <button
-                *ngFor="let app of leftbarService.userInfo.applications.options"
-                (click)="selectAppEmitter(app.id)"
-                class="ghost"
+                (click)="selectAppEmitter(app)"
+                *ngFor="let app of applications"
+                class="ghost app-item"
+                data-name="{{app.Name}}"
               >
-                <img src="{{app.logo}}"/>
+                <img [attr.src]="app.SafeIconAdress"/>
               </button>
             </div>
           </div>
-          <div *ngIf="leftbarService.userInfo.applications.options.length < 2" class="single-app">
+          <div *ngIf="applications && applications.length == 1" attr.data-name="{{applications[0].Name}}"
+               class="single-app">
             <span class="aligner"></span>
-            <img class="app-logo" src="{{leftbarService.userInfo.applications.default}}"/>
-            <img class="app-icon" src="{{leftbarService.userInfo.applications.defaultIcon}}"/>
+            <img [attr.src]="applications[0].SafeIconAdress" class="app-logo"/>
+            <img [attr.src]="applications[0].SafeIconAdress" class="app-icon"/>
           </div>
         </div>
       </div>
-      <div class="custom-shortcuts">
-        <ng-container *ngIf="leftbarService.userInfo.shortcuts.length > 0">
-          <div *ngFor="let shortcut of leftbarService.userInfo.shortcuts" class="logo-tooltip">
-            <logo-link
-              [classes]="shortcut.class"
-              [url]="shortcut.link"
+      <div *ngIf="enableShortCuts" class="custom-shortcuts">
+        <ng-container *ngIf="favorites.length > 0">
+          <div *ngFor="let shortcut of favorites; let i= index;" class="logo-tooltip">
+            <button
+              (click)="clickShortcutEmitter(shortcut)"
+              *ngIf="shortcut.Url"
+              class="primary ghost add-button"
             >
-              <img src="{{shortcut.icon}}"/>
-            </logo-link>
-            <span class="tip on-bottom">{{shortcut.name}}</span>
+              <img [attr.src]="shortcut.SafeIconAdress"/>
+            </button>
+            <span *ngIf="shortcut.Url" class="tip on-bottom">{{shortcut.Name}}</span>
+            <button (click)="addShortcutEmitter(i)" *ngIf="!shortcut.Url"
+                    class="primary ghost add-button le-add"></button>
           </div>
         </ng-container>
-        <ng-container *ngIf="this.emptyShortcutSlots.length > 0">
-          <button
-            *ngFor="let addItem of emptyShortcutSlots"
-            (click)="addShortcutEmitter()"
-            class="primary ghost add-button le-add"
-          >
-          </button>
-        </ng-container>
-        <button (click)="shortcutSettingsEmitter()" class="ghost le-settings"></button>
+        <button (click)="addShortcutEmitter(0)" *ngIf="!onPrem" class="ghost le-settings"></button>
       </div>
+      <button
+        (click)="toggleMobileMenu()"
+        [ngClass]="mobileMenu ? 'le-cross' : 'le-hamburger'"
+        class="mobile-menu-btn large ghost"
+      >
+      </button>
     </div>
-    <button
-      (click)="toggleMobileMenu()"
-      [ngClass]="mobileMenu ? 'le-cross' : 'le-hamburger'"
-      class="mobile-menu-btn large ghost"
-    >
-    </button>
   </div>
   <div [ngClass]="{'opened' : mobileMenu}" class="menu-base">
     <ng-content></ng-content>
