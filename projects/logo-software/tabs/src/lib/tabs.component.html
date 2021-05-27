@@ -2,14 +2,18 @@
   <div [ngClass]="{'container': isContainer}" class="base">
     <ul class="left">
       <div *ngIf="showPrevNext">
-        <logo-link (click)="callPrevTab()" [classes]="'ghost primary le-chevron_left'"></logo-link>
+        <logo-link (click)="callPrevTab()" [classes]="'ghost primary le-chevron_left'" [useButton]="true"></logo-link>
       </div>
       <ng-content *ngIf="!showPrevNext" select="[left]"></ng-content>
     </ul>
     <div class="scroll">
       <ul class="nav nav-tabs {{class}}">
-        <li (click)="setActiveTab(i)" *ngFor="let tab of tabs; let i=index" [class.active]="tab.isActive"
-            [ngClass]="{'hidden':tab.isHidden}">
+        <li
+          (click)="setActiveTab(i)"
+          *ngFor="let tab of tabs; let i=index"
+          [class.active]="tab.isActive"
+          [ngClass]="{'hidden':tab.isHidden}"
+        >
           <logo-link
             [classes]="[tab.isActive?'selected':'', tab.state == 'edit'?'secondary':'', tab.state == 'done'?'success':'', tab.state == 'view'?'ghost outline':'', tab.state==null?'ghost':'']"
             [params]="tab.params"
@@ -17,6 +21,7 @@
             [url]="tab.route"
             [isDisabled]="tab.isDisabled"
             fragment="{{tab.fragment}}"
+            [useButton]="true"
           >
             {{tab.title}}
           </logo-link>
@@ -25,7 +30,7 @@
     </div>
     <ul class="right">
       <div *ngIf="showPrevNext">
-        <logo-link (click)="callNextTab()" [classes]="'ghost primary le-chevron_right'"></logo-link>
+        <logo-link (click)="callNextTab()" [classes]="'ghost primary le-chevron_right'" [useButton]="true"></logo-link>
       </div>
       <ng-content *ngIf="!showPrevNext" select="[right]"></ng-content>
     </ul>
