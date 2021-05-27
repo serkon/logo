@@ -1,0 +1,935 @@
+@import "~@logo-software/theme/base";
+@import "vars";
+
+:host {
+  ::ng-deep {
+    .emutabakat-hero {
+      height: size(490px);
+      position: relative;
+
+      .gfx {
+        position: absolute;
+        width: calc(50vw + 120px);
+        height: 100%;
+        z-index: 0;
+        right: 0;
+        top: 0;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        @include smaller-than(xl) {
+          width: calc(50vw + 100px);
+        }
+
+        @include smaller-than(lg) {
+          width: calc(50vw + 50px);
+        }
+
+        @include smaller-than(md) {
+          display: none;
+        }
+      }
+
+      .overlay-bg {
+        position: absolute;
+        width: calc(50vw - 120px);
+        height: 100%;
+        z-index: 0;
+        left: 0;
+        top: 0;
+        background-color: var(--primary-900);
+        background-position: left;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        @include smaller-than(xl) {
+          width: calc(50vw - 100px);
+        }
+
+        @include smaller-than(lg) {
+          width: calc(50vw - 50px);
+        }
+
+        @include smaller-than(md) {
+          width: 100vw;
+        }
+      }
+
+      .content {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+        z-index: 1;
+        height: 100%;
+        box-sizing: border-box;
+
+        .col {
+          width: 50%;
+
+          @include smaller-than(md) {
+            width: 100%;
+          }
+
+          &.rect {
+            overflow: hidden;
+            box-sizing: border-box;
+            height: size(490px);
+            margin-left: size(-120px);
+
+            @include smaller-than(md) {
+              display: none;
+            }
+
+            span {
+              display: inline-block;
+              width: size(220px);
+              height: 200%;
+              background-color: var(--primary-900);
+              transform: rotate(25deg);
+              margin-left: size(-160px);
+              margin-top: size(-150px);
+
+              @include smaller-than(xl) {
+                margin-left: size(-110px);
+              }
+
+              @include smaller-than(lg) {
+                margin-left: size(-60px);
+              }
+            }
+          }
+
+          &.product-label {
+            color: var(--white);
+            position: relative;
+            z-index: 1;
+
+            h1 {
+              color: var(--white);
+            }
+
+            p {
+              color: var(--white);
+            }
+
+            .mail-collector {
+              margin-top: size(40px);
+
+              input {
+                width: size(300px);
+                margin-right: size(10px);
+
+                @include smaller-than(xl) {
+                  width: size(200px);
+                }
+
+                @include smaller-than(lg) {
+                  width: 100%;
+                }
+              }
+
+              logo-link {
+                @include smaller-than(lg) {
+                  margin-top: size(10px);
+                  width: 100%;
+                }
+              }
+
+              ::ng-deep {
+                a {
+                  @include smaller-than(lg) {
+                    width: 100%;
+                    text-align: center;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .section {
+    margin-top: size(80px);
+  }
+
+  .blue-section {
+    background-color: var(--primary);
+    padding: size(120px) 0;
+
+    @include smaller-than(sm) {
+      padding: size(40px) 0;
+    }
+  }
+
+  .alternate {
+    background: var(--basic);
+  }
+
+  .rapid-info-base {
+    .container {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-around;
+
+      @include smaller-than(md) {
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+      }
+
+      .contact-info {
+        background: var(--secondary-300);
+        padding: size(90px) size(85px) 0 size(42px);
+        height: size(325px);
+        box-sizing: border-box;
+        min-width: 50%;
+        flex-grow: 1;
+        width: calc(100% - 558px);
+
+        @include smaller-than(xl) {
+          min-width: auto;
+          padding: size(55px) size(42px) 0 size(42px);
+        }
+
+        @include smaller-than(md) {
+          width: 100%;
+          padding: size(20px) size(15px);
+          height: size(180px);
+        }
+
+        @include smaller-than(sm) {
+          height: auto;
+        }
+      }
+
+      .video {
+        height: size(325px);
+        overflow: hidden;
+        width: size(558px);
+
+        @include smaller-than(md) {
+          width: 100%;
+          height: auto;
+
+          iframe {
+            width: 100% !important;
+          }
+        }
+
+        @include smaller-than(sm) {
+          iframe {
+            height: size(200px) !important;
+          }
+        }
+      }
+    }
+  }
+
+  .product-details {
+    .container {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      @include smaller-than(md) {
+        flex-direction: column;
+      }
+
+      .infos {
+        flex-grow: 1;
+        margin-right: size(30px);
+
+        @include smaller-than(lg) {
+          margin-right: size(20px);
+        }
+
+        @include smaller-than(md) {
+          margin-right: 0;
+          width: 100%;
+        }
+
+        .slider-base {
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+
+          @include smaller-than(lg) {
+            flex-wrap: wrap;
+          }
+
+          .screens {
+            flex-grow: 1;
+            margin-right: size(30px);
+            width: 75%;
+            height: size(410px);
+
+            @include smaller-than(lg) {
+              width: 100%;
+              margin-right: 0;
+            }
+
+            ::ng-deep {
+              .scroller {
+                padding: size(15px) 0;
+                background-color: var(--secondary-300);
+              }
+
+              .thumbs {
+                margin-top: size(10px);
+                background-color: var(--basic-400);
+                padding: 0 size(10px);
+              }
+
+              .prev {
+                background: rgba(var(--secondary-rgb), 0.9) !important;
+                color: var(--primary) !important;
+              }
+
+              .next {
+                background: rgba(var(--secondary-rgb), 0.9) !important;
+                color: var(--primary) !important;
+              }
+            }
+          }
+
+          .slider-info {
+            width: 25%;
+            margin-top: size(35px);
+
+            @include smaller-than(lg) {
+              width: 100%;
+              position: relative;
+              padding-left: size(64px);
+            }
+
+            .icon-base {
+              @include border-radius(50%);
+
+              display: inline-block;
+              width: size(52px);
+              height: size(52px);
+              background: var(--basic-600);
+              text-align: center;
+              line-height: size(50px);
+
+              @include smaller-than(lg) {
+                position: absolute;
+                top: size(14px);
+                left: 0;
+              }
+
+              img {
+                width: size(24px);
+                vertical-align: middle;
+              }
+            }
+
+            h3 {
+              margin: size(14px) 0;
+              color: var(--primary);
+            }
+          }
+        }
+
+        .meta-data-base {
+          margin-top: size(80px);
+
+          h2.section-title {
+            margin-bottom: size(16px);
+          }
+
+          .meta-datas {
+            margin-top: size(24px);
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            flex-direction: row;
+
+            .item {
+              @include border-radius(size(14px));
+
+              width: calc((100% - 36px) / 3);
+              margin-right: size(18px);
+              margin-bottom: size(18px);
+              height: size(390px);
+              position: relative;
+              box-sizing: border-box;
+              text-align: center;
+              padding: size(24px);
+
+              &:nth-child(3n+3) {
+                margin-right: 0;
+              }
+
+              .icon {
+                display: block;
+                margin-top: size(10px);
+                margin-bottom: size(14px);
+              }
+
+              p {
+                @include smaller-than(xl) {
+                  max-height: size(145px);
+                  overflow: hidden;
+                  position: relative;
+
+                  &::after {
+                    content: "...";
+                    display: none;
+                    position: absolute;
+                    bottom: size(1px);
+                    right: 0;
+                  }
+                }
+              }
+
+              .cta {
+                position: absolute;
+                width: 100%;
+                bottom: size(24px);
+                left: 0;
+              }
+
+              @include smaller-than(lg) {
+                width: calc((100% - 18px) / 2);
+
+                &:nth-child(2n+2) {
+                  margin-right: 0;
+                }
+
+                &:nth-child(3n+3) {
+                  margin-right: size(18px);
+                }
+
+                &:nth-child(6) {
+                  margin-right: 0;
+                }
+
+                &:nth-child(12) {
+                  margin-right: 0;
+                }
+
+                &:nth-child(18) {
+                  margin-right: 0;
+                }
+              }
+
+              @include smaller-than(sm) {
+                width: 100%;
+                margin-right: 0 !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .pricing-base {
+    padding: size(100px) 0;
+
+    .container {
+      position: relative;
+    }
+
+    .section-title {
+      margin-bottom: size(48px);
+    }
+
+    .plans {
+      ::ng-deep {
+        .navigator {
+          @include box-shadow(0, 0, 0, 0, rgba(var(--white-rgb), 0), false);
+
+          position: absolute;
+          top: 0;
+          right: 0;
+          background: transparent !important;
+
+          .nav {
+            button {
+              @include border-radius(24px);
+            }
+          }
+
+          @include smaller-than(md) {
+            position: relative;
+            margin-bottom: size(12px);
+
+            .nav {
+              padding-left: 0;
+            }
+          }
+        }
+
+        .price-table-base {
+          display: flex;
+          align-items: stretch;
+          justify-content: flex-start;
+
+          @include smaller-than(lg) {
+            flex-wrap: wrap;
+            overflow-x: auto;
+          }
+
+          .table-item {
+            @include border-radius(size(14px));
+
+            width: calc((100% - 18px) / 2);
+            margin-right: size(18px);
+            background: var(--basic-300);
+            overflow: hidden;
+            box-sizing: border-box;
+            min-height: size(585px);
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+
+            @include smaller-than(lg) {
+              width: calc((100% - 18px) / 2);
+              margin-bottom: size(18px);
+            }
+
+            @include smaller-than(sm) {
+              width: 100%;
+            }
+
+            .head {
+              background: var(--secondary-800);
+              color: var(--white);
+              height: size(110px);
+              padding-top: size(36px);
+              box-sizing: border-box;
+
+              h3 {
+                color: var(--white);
+              }
+            }
+
+            .content {
+              padding: 0 size(24px) size(32px) size(24px);
+              margin-top: size(-26px);
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: flex-start;
+              flex-grow: 1;
+
+              .icon-base {
+                @include border-radius(50%);
+
+                display: inline-block;
+                width: size(52px);
+                height: size(52px);
+                text-align: center;
+                line-height: size(50px);
+                background: var(--basic);
+                margin-bottom: size(12px);
+
+                img {
+                  width: size(32px);
+                  vertical-align: middle;
+                }
+              }
+
+              .price-base {
+                h1 {
+                  color: var(--primary);
+                  font-weight: bold;
+
+                  small {
+                    color: var(--neutral-900);
+                    font-size: size(14px);
+                    font-weight: normal;
+                  }
+                }
+
+                p {
+                  margin-top: 0;
+                }
+              }
+
+              .features {
+                text-align: left;
+                margin-top: size(24px);
+                flex-grow: 1;
+
+                ul {
+                  list-style: none;
+                  padding-left: 0;
+
+                  li {
+                    margin: size(5px) 0;
+
+                    &::before {
+                      color: var(--primary);
+                    }
+
+                    &.is-new {
+                      //@TODO If is new buraya yapılacak
+                    }
+                  }
+                }
+              }
+
+              .cta {
+                width: 100%;
+              }
+            }
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+
+        .no-price-section {
+          text-align: center;
+
+          h4 {
+            margin: size(48px) 0;
+          }
+
+          .form-base {
+            .input-w-icon {
+              display: inline-block;
+              width: size(400px);
+              margin-right: size(12px);
+
+              input {
+                width: 100% !important;
+              }
+
+              @include smaller-than(lg) {
+                width: auto;
+
+                input {
+                  margin-bottom: size(10px);
+                }
+              }
+            }
+
+            logo-link {
+              display: inline-block;
+
+              @include smaller-than(lg) {
+                display: block;
+
+                ::ng-deep {
+                  button {
+                    width: 100%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .kpis {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+
+    @include smaller-than(sm) {
+      flex-wrap: wrap;
+
+      .item {
+        width: 100%;
+        margin-bottom: size(80px);
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    h1 {
+      color: var(--white);
+    }
+
+    p {
+      color: var(--white);
+
+      @include smaller-than(sm) {
+        margin: size(8px) 0;
+      }
+    }
+  }
+
+  .references-area {
+    background: var(--basic-300);
+    padding: size(40px) 0;
+    margin-top: 0;
+
+    .references-base {
+      margin-top: size(10px);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      overflow-y: hidden;
+      overflow-x: auto;
+
+      .item {
+        margin: 0 size(12px);
+        width: size(210px);
+
+        @include smaller-than(sm) {
+          width: auto;
+          height: size(120px);
+          margin-bottom: size(12px);
+        }
+
+        img {
+          width: 100%;
+
+          @include smaller-than(sm) {
+            width: auto;
+            height: 100%;
+          }
+        }
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .faqs {
+    padding: size(170px) 0;
+    margin-top: 0;
+
+    @include smaller-than(sm) {
+      padding: size(40px) 0;
+    }
+  }
+
+  .speed-connect-base {
+    position: relative;
+    height: size(580px);
+
+    @include smaller-than(sm) {
+      height: auto;
+    }
+
+    .blue-side {
+      background-color: var(--primary);
+      height: size(580px);
+      position: absolute;
+      z-index: 0;
+      width: 50vw;
+      top: 0;
+      left: 0;
+
+      @include smaller-than(sm) {
+        width: 100vw;
+        height: size(436px);
+        top: auto;
+        bottom: 0;
+      }
+    }
+
+    .gray-side {
+      background-color: var(--basic-600);
+      height: size(580px);
+      position: absolute;
+      z-index: 0;
+      width: 50vw;
+      top: 0;
+      right: 0;
+
+      @include smaller-than(sm) {
+        width: 100vw;
+        height: size(436px);
+      }
+    }
+
+    .section-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      height: 100%;
+
+      @include smaller-than(sm) {
+        flex-direction: column-reverse;
+      }
+
+      .contact-details {
+        width: 50%;
+        text-align: center;
+
+        @include smaller-than(sm) {
+          width: 100%;
+          padding: size(40px) 0;
+        }
+
+        h2 {
+          color: var(--white);
+
+          &.second-title {
+            margin-top: size(32px);
+          }
+        }
+
+        p {
+          color: var(--white);
+        }
+
+        button {
+          margin-top: size(16px);
+        }
+      }
+
+      .contact-form {
+        padding-left: size(105px);
+        width: size(366px);
+
+        @include smaller-than(sm) {
+          padding: size(40px) 0;
+          width: 100%;
+        }
+
+        .form-row {
+          margin-bottom: size(15px);
+
+          label {
+            display: inline-block;
+            width: 100%;
+            color: var(--neutral-500);
+            margin-bottom: size(2px);
+          }
+
+          input {
+            display: inline-block;
+            width: 100%;
+          }
+
+          textarea {
+            display: inline-block;
+            width: 100%;
+          }
+        }
+
+        .buttons-base {
+          padding-top: size(20px);
+
+          button {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    background-color: var(--basic-400);
+    padding-top: size(40px);
+
+    .logos {
+      margin-bottom: size(40px);
+
+      a {
+        display: inline-block;
+        margin-right: size(32px);
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        @include smaller-than(sm) {
+          display: block;
+          text-align: left;
+          width: 100%;
+          margin-right: 0;
+          margin-bottom: size(12px);
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    .site-map {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      @include smaller-than(sm) {
+        flex-direction: column;
+      }
+
+      .col {
+        @include smaller-than(sm) {
+          width: 100%;
+          padding: 0 size(10px);
+          margin-bottom: size(60px);
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        h3 {
+          margin-bottom: size(30px);
+        }
+
+        logo-link {
+          display: block;
+          margin-bottom: size(24px);
+
+          ::ng-deep {
+            vertical-align: top;
+
+            .icon {
+              display: inline-block;
+              width: size(24px);
+              height: size(24px);
+              margin-right: size(10px);
+              text-align: center;
+              vertical-align: top;
+            }
+
+            .text {
+              display: inline-block;
+              vertical-align: top;
+              margin-top: size(2px);
+            }
+          }
+        }
+      }
+    }
+
+    .support-links {
+      text-align: center;
+
+      logo-link {
+        padding: size(12px) size(24px);
+      }
+    }
+
+    .copyright {
+      border-top: 1px solid var(--basic-600);
+      padding: size(7px) 0;
+      text-align: center;
+      color: var(--neutral-700);
+      margin-top: size(48px);
+    }
+  }
+}

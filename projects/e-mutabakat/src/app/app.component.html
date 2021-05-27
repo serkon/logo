@@ -1,0 +1,33 @@
+<!--<logo-loading></logo-loading>-->
+<div class="logo-emutabakat">
+  <logo-header
+    [containerStatus]="true"
+    [defaultTheme]="headerTheme.START"
+    [isMobilized]="true"
+    [logoImage]="'/assets/img/logo.png'"
+    [menuPosition]="'center'"
+    [scrollPoint]="15"
+    [scrollSpy]="true"
+    [scrolledTheme]="headerTheme.SCROLL"
+    [watchElement]="'body'"
+  >
+    <ng-container menu>
+      <logo-link [classes]="'ghost secondary large'" [url]="'/'">Ürünler</logo-link>
+      <logo-link [classes]="'ghost secondary large'" [url]="'/'">Çözümler</logo-link>
+      <logo-link [classes]="'ghost secondary large'" [url]="'/'">Blog</logo-link>
+      <logo-link [classes]="'ghost secondary large'" [url]="'/'">İletişim</logo-link>
+      <logo-link [classes]="'ghost secondary large'" [url]="'/'">Ara</logo-link>
+    </ng-container>
+    <ng-container cta>
+      <logo-link (click)="login()" *ngIf="!idmService.isLogged" [classes]="'success large'" [url]="'/to-login'">
+        Giriş Yap
+      </logo-link>
+      <div *ngIf="idmService.isLogged" class="user-base">
+        <p>{{userService.user.Name}} {{userService.user.Surname}}</p>
+      </div>
+    </ng-container>
+  </logo-header>
+  <div class="site-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

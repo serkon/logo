@@ -1,0 +1,322 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
+@import "~@logo-software/theme/base";
+@import "vars";
+
+html, body {
+  overflow-x: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+.site-content {
+  margin-top: size(75px);
+}
+
+.logo-cloud-theme {
+  logo-header {
+    .mobile-opener {
+      position: fixed !important;
+      top: size(14px) !important;
+
+      &.nailed {
+        position: absolute !important;
+      }
+    }
+  }
+
+  .header {
+    @include animate(all, 0.2s, ease-in-out);
+
+    height: size(75px) !important;
+    background: var(--white);
+    position: fixed !important;
+
+    .logo {
+      @include smaller-than(xl) {
+        width: size(190px) !important;
+      }
+    }
+
+    .user-base {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100%;
+    }
+
+    &.scroll {
+      @include box-shadow(0, size(2px), size(15px), size(4px), rgba(var(--black-rgb), 0.15), false);
+    }
+
+    &.mobilized {
+      .section-main {
+        @include smaller-than(lg) {
+          padding-top: size(75px);
+        }
+      }
+    }
+
+    &.nailed {
+      position: absolute !important;
+    }
+  }
+
+  .card {
+    &.product-item {
+      height: size(566px);
+
+      .card-content {
+        padding-top: size(50px);
+        margin: 0 size(-10px);
+
+        .card-logo {
+          display: block;
+          padding: size(10px) 0;
+          height: size(50px);
+
+          img {
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+
+        .card-name {
+          h3 {
+            color: var(--neutral-600);
+          }
+        }
+
+        .card-cta {
+          display: flex;
+          width: calc(100% - 40px);
+          align-content: flex-start;
+
+          .price {
+            flex-grow: 1;
+            text-align: right;
+
+            h1, h2 {
+              color: var(--primary);
+
+              p {
+                display: inline;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .badge {
+    @include border-radius(size(4px));
+
+    display: inline-block;
+    background: var(--secondary);
+    padding: size(1px) size(5px);
+    color: var(--neutral-900);
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 300;
+    margin-right: size(10px);
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .blog-summary-base {
+    text-align: left;
+    margin-bottom: size(24px);
+
+    .blog-item {
+      padding: size(24px) 0;
+      border-bottom: 1px solid var(--basic-600);
+      display: flex;
+      align-content: flex-start;
+      justify-content: left;
+
+      @include smaller-than(sm) {
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .image {
+        @include border-radius(size(4px));
+
+        width: size(366px);
+        height: size(180px);
+        overflow: hidden;
+        background: var(--neutral-100);
+
+        @include smaller-than(sm) {
+          width: 100%;
+          flex-grow: 1;
+          height: size(200px);
+        }
+
+        img {
+          height: 100%;
+          margin-left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+
+      .infos {
+        flex-grow: 1;
+        padding: size(12px) size(18px);
+
+        .tags {
+          margin-bottom: size(12px);
+        }
+
+        .date {
+          padding-top: size(12px);
+
+          .le-calendar {
+            display: inline-block;
+            width: size(20px);
+            height: size(20px);
+            color: var(--basic-900);
+            margin-left: size(-10px);
+          }
+
+          p {
+            color: var(--neutral-500);
+            display: inline-block;
+            vertical-align: top;
+            margin: size(3px) 0 0 0;
+          }
+        }
+      }
+    }
+  }
+
+  .faq {
+    .title {
+      margin-bottom: size(48px) !important;
+    }
+
+    .section-content {
+      text-align: left !important;
+      padding: 0 !important;
+
+      .title {
+        margin-bottom: 0 !important;
+      }
+
+      label {
+        @include border-radius(size(2px));
+        @include box-shadow(0, 0, size(4px), size(1px), rgba(var(--black-rgb), 0.08), false);
+
+        margin: size(5px);
+      }
+    }
+  }
+
+  .testimonial {
+    padding: size(100px) 0;
+    text-align: center;
+
+    .slider-item {
+      width: 100vw !important;
+
+      .image {
+        @include border-radius(100%);
+
+        display: inline-block;
+        width: size(140px);
+        height: size(140px);
+        overflow: hidden;
+        border: size(4px) solid var(--primary-100);
+
+        img {
+          max-height: 100%;
+          margin-left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+
+      .name {
+        display: block;
+        padding: size(18px) 0 size(8px) 0;
+      }
+
+      .title {
+        display: block;
+        padding-bottom: size(12px);
+        margin-bottom: 0 !important;
+
+        h5 {
+          color: var(--neutral-500);
+        }
+      }
+
+      .feedback-title {
+        display: block;
+        padding-top: size(12px);
+
+        h4 {
+          white-space: normal;
+        }
+      }
+
+      .feedback-desc {
+        display: block;
+      }
+    }
+  }
+
+  .content-menu {
+    .scroll {
+      text-align: left !important;
+
+      .nav-tabs {
+        padding-left: 0;
+      }
+    }
+  }
+
+  .blog-detail-page {
+    .page-content {
+      img {
+        max-width: 100%;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        margin-top: size(36px);
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  .info-page {
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: size(36px);
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .hidden-md {
+    @include smaller-than(md) {
+      display: none;
+    }
+  }
+}

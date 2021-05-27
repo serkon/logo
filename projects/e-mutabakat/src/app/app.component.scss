@@ -1,0 +1,6 @@
+@import "~@logo-software/theme/base";
+
+:host {
+  --header-height: #{size(75px)};
+  --header-default-button-opener-color: var(--neutral-900);
+}

@@ -1,0 +1,261 @@
+<div *ngIf="pageData" class="home-page">
+  <logo-hero [cssClasses]="'emutabakat-hero'">
+    <div [ngStyle]="{'background-image': 'url(' + pageData.hero.gfx + ')'}" class="gfx"></div>
+    <div class="overlay-bg"></div>
+    <div class="content container">
+      <div class="col product-label">
+        <h1><b>{{pageData.hero.title}}</b></h1>
+        <p class="large">{{pageData.hero.description}}</p>
+        <div class="mail-collector">
+          <input [placeholder]="pageData.hero.placeholder" class="large" type="email">
+          <logo-link [classes]="'large primary'">{{pageData.hero.buttonText}}</logo-link>
+        </div>
+      </div>
+      <div class="col rect">
+        <span></span>
+      </div>
+    </div>
+  </logo-hero>
+  <div class="section rapid-info-base">
+    <div class="container">
+      <div class="contact-info">
+        <h1><b>{{pageData.cover.title}}</b></h1>
+        <p class="large">
+          {{pageData.cover.description}}
+        </p>
+      </div>
+      <div class="video">
+        <iframe
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          frameborder="0"
+          height="325"
+          src="https://www.youtube.com/embed/L6EHnp23MzE"
+          width="558"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="section product-details" id="general-info">
+    <div class="container">
+      <div *ngIf="pageData.screens.length > 0" class="infos">
+        <div class="slider-base">
+          <div class="screens">
+            <logo-image-slider (onItemChange)="getImageContent($event);" [media]="appScreens"></logo-image-slider>
+          </div>
+          <div class="slider-info">
+              <span class="icon-base">
+                <img src="{{imageData.icon}}">
+              </span>
+            <h3>{{imageData.title}}</h3>
+            <p>{{imageData.description}}</p>
+          </div>
+        </div>
+        <div *ngIf="imageData.feature" class="meta-data-base">
+          <h2 class="section-title"><b>{{imageData.feature.title}}</b></h2>
+          <p>{{imageData.feature.description}}</p>
+          <div class="meta-datas">
+            <div *ngFor="let feature of imageData.feature.items" class="item detail-card">
+                <span class="icon">
+                  <img src="{{feature.icon}}"/>
+                </span>
+              <h5>{{feature.title}}</h5>
+              <p>{{feature.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section alternate pricing-base" id="price">
+    <div class="container">
+      <h2 class="section-title"><b>Fiyatlandırma</b></h2>
+      <div class="plans">
+        <logo-tabs [activeTab]="1" [class]="'primary'" [routing]="false" class="small">
+          <logo-tab
+            [params]="{id: 'user-id-0'}"
+            [title]="'Aylık Plan'"
+          >
+            <div *ngIf="getMonthlyPackages().length > 0; else noPrice" class="price-table-base">
+              <div *ngFor="let package of getMonthlyPackages()" class="table-item">
+                <div class="head">
+                  <h3>{{package.title}}</h3>
+                </div>
+                <div class="content">
+                    <span class="icon-base">
+                      <img src="{{package.icon}}">
+                    </span>
+                  <div class="price-base">
+                    <h1>
+                      {{package.price.symbol}} {{package.price.cost}}
+                      <small *ngIf="!package.price.includeTax">+ KDV</small>
+                    </h1>
+                    <p>Çalışan / Ay</p>
+                  </div>
+                  <div class="features">
+                    <ul>
+                      <li
+                        *ngFor="let theFeature of package.properties"
+                        [ngClass]="{'is-new' : theFeature.isNew}"
+                        class="icon-left le-check"
+                      >
+                        {{theFeature.title}} <span *ngIf="theFeature.isNew" class="badge">Yeni</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="cta">
+                    <button class="success">Aboneliği Başlat</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ng-template #noPrice>
+              <div class="no-price-section">
+                <h4>E-mail adresinizi yazın, sizi en kısa sürede arayalım!</h4>
+                <div class="form-base">
+                  <div class="input-w-icon left">
+                    <span class="le-email"></span>
+                    <input class="light large icon-left" placeholder="E-Posta Adresiniz">
+                  </div>
+                  <logo-link [classes]="'large success'">Fiyat Bilgisi Al</logo-link>
+                </div>
+              </div>
+            </ng-template>
+          </logo-tab>
+          <logo-tab
+            [params]="{id: 'user-id-1'}"
+            [title]="'Yıllık Plan'"
+          >
+            <div *ngIf="getYearlyPackages().length > 0; else noPrice" class="price-table-base">
+              <div *ngFor="let package of getYearlyPackages()" class="table-item">
+                <div class="head">
+                  <h3>{{package.title}}</h3>
+                </div>
+                <div class="content">
+                    <span class="icon-base">
+                      <img src="{{package.icon}}">
+                    </span>
+                  <div class="price-base">
+                    <h1>
+                      {{package.price.symbol}}{{package.price.cost}}
+                      <small *ngIf="!package.price.includeTax">+ KDV</small>
+                    </h1>
+                    <p>Çalışan / Ay</p>
+                  </div>
+                  <div class="features">
+                    <ul>
+                      <li
+                        *ngFor="let theFeature of package.properties"
+                        class="icon-left le-check"
+                      >
+                        {{theFeature.title}} <span *ngIf="theFeature.isNew" class="badge danger">Yeni</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="cta">
+                    <button class="success">Aboneliği Başlat</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ng-template #noPrice>
+              <div class="no-price-section">
+                <h4>E-mail adresinizi yazın, sizi en kısa sürede arayalım!</h4>
+                <div class="form-base">
+                  <div class="input-w-icon left">
+                    <span class="le-email"></span>
+                    <input class="light large icon-left" placeholder="E-Posta Adresiniz">
+                  </div>
+                  <logo-link [classes]="'large success'">Fiyat Bilgisi Al</logo-link>
+                </div>
+              </div>
+            </ng-template>
+          </logo-tab>
+        </logo-tabs>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="pageData.kpi" class="blue-section kpi-base">
+    <div class="container kpis">
+      <div *ngFor="let kpi of pageData.kpi" class="item">
+        <h1><b>{{kpi.data}}</b></h1>
+        <p>{{kpi.name}}</p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="pageData.references" class="section references-area" id="references">
+    <div class="container">
+      <h2><b>Referanslarımız</b></h2>
+      <div class="references-base">
+        <div *ngFor="let ref of pageData.references" class="item">
+          <img alt="{{ref.name}}" src="{{ref.image}}"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="pageData.faqs" class="section faqs" id="faq">
+    <div class="faq container">
+      <span class="title">
+        <h2><b>Sıkça Sorulan Sorular</b></h2>
+      </span>
+      <div class="section-content">
+        <logo-accordion [iconClasses]="" [items]="pageData.faqs"></logo-accordion>
+      </div>
+    </div>
+  </div>
+  <div class="speed-connect-base">
+    <div class="blue-side"></div>
+    <div class="gray-side"></div>
+    <div class="section-content container">
+      <div class="contact-details">
+        <h2><b>{{pageData.contact.contactTitle}}</b></h2>
+        <p [innerHTML]="pageData.contact.contactAddress"></p>
+        <button class="outline light icon-left le-email">{{pageData.contact.contactEmail}}</button>
+        <h2 class="second-title"><b>{{pageData.contact.supportTitle}}</b></h2>
+        <button class="outline light icon-left le-phone">{{pageData.contact.supportNumber}}</button>
+      </div>
+      <div class="contact-form">
+        <div class="form-row">
+          <label class="small">Ad Soyad<sup>*</sup></label>
+          <input placeholder="Ad ve soyad bilgisi giriniz" type="text">
+        </div>
+        <div class="form-row">
+          <label class="small">E-mail<sup>*</sup></label>
+          <input placeholder="E-mail adresini giriniz" type="email">
+        </div>
+        <div class="form-row">
+          <label class="small">Mesaj</label>
+          <textarea rows="5">Mesajınızı yazını</textarea>
+        </div>
+        <div class="buttons-base">
+          <button class="primary">Gönder</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="container">
+      <div *ngIf="pageData.footer.logos" class="logos">
+        <a *ngFor="let logo of pageData.footer.logos" [href]="logo.url">
+          <img [src]="logo.logo"/>
+        </a>
+      </div>
+      <div class="site-map">
+        <div *ngFor="let links of pageData.footer.sitemap" class="col">
+          <h3>{{links.title}}</h3>
+          <logo-link *ngFor="let item of links.links" [classes]="'ghost secondary'" [ngClass]="item.css">
+            <div *ngIf="item.image" class="icon"><img [src]="item.image"/></div>
+            <div class="text">{{item.name}}</div>
+          </logo-link>
+        </div>
+      </div>
+      <div *ngIf="pageData.footer.supportLinks" class="support-links">
+        <logo-link *ngFor="let supportLink of pageData.footer.supportLinks"
+                   [classes]="'ghost secondary'">{{supportLink.title}}</logo-link>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© {{pageData.footer.copyright}}</p>
+    </div>
+  </div>
+</div>
