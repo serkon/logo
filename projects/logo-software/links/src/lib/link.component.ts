@@ -45,6 +45,7 @@ import { LinkService } from './link.service';
     </ng-container>
     <ng-template #internalURL>
       <a
+        *ngIf="!useButton; else internalButtonTemplate"
         class="{{classes}}"
         [ngClass]="{'disabled': isDisabled}"
         [routerLink]="[url]"
@@ -59,8 +60,25 @@ import { LinkService } from './link.service';
         <ng-container *ngTemplateOutlet="display ? displayHTML : contentHTML"></ng-container>
       </a>
     </ng-template>
+    <ng-template #internalButtonTemplate>
+      <button
+        [ngClass]="classes"
+        [disabled]="isDisabled"
+        (click)="onClickEvent($event, false)"
+        (mouseenter)="onHoverEvent($event)"
+        (mouseleave)="onLeaveEvent($event)"
+      >
+        <ng-container *ngTemplateOutlet="display ? displayHTML : contentHTML"></ng-container>
+      </button>
+    </ng-template>
+    <ng-template #externalButtonTemplate>
+      <button [ngClass]="classes" [disabled]="isDisabled" (click)="onClickEvent($event, external)">
+        <ng-container *ngTemplateOutlet="display ? displayHTML : contentHTML"></ng-container>
+      </button>
+    </ng-template>
     <ng-template #externalURL>
       <a
+        *ngIf="!useButton; else externalButtonTemplate"
         class="{{classes}}"
         [ngClass]="{'disabled': isDisabled}"
         (click)="onClickEvent($event, external)"
@@ -137,6 +155,10 @@ export class LinkComponent implements OnInit {
    * For example `this.router.navigate(['../list'], { relativeTo: this.route });`
    */
   @Input() relativeTo: boolean = false;
+  /**
+   * Lets developer to use button tag instead of a tag.
+   */
+  @Input() useButton: boolean = false;
 
   constructor(@Inject(DOCUMENT) private document, public linkService: LinkService, private router: Router, public activatedRoute: ActivatedRoute) {
   }
@@ -181,7 +203,7 @@ export class LinkComponent implements OnInit {
   openInNewWindow(url, extras) {
     // Converts the route into a string that can be used, with the window.open() function
     const path = this.router.serializeUrl(this.router.createUrlTree(url, extras));
-    window.open(path, this.target);
+    this.useButton ? window.open(this.document.location.href + path, this.target) : window.open(path, this.target);
   }
 
   onHoverEvent($event) {
