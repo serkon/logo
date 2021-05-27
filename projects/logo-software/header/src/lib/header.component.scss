@@ -84,6 +84,10 @@
         min-width: size(275px);
         box-sizing: border-box;
 
+        @include smaller-than(sm) {
+          padding: 0;
+        }
+
         a {
           padding: 0;
         }
@@ -259,6 +263,33 @@
             a {
               color: var(--header-opened-button-color);
               text-align: center;
+            }
+          }
+
+          .cta-base {
+            text-align: center;
+            padding: 0 size(15px);
+
+            ::ng-deep {
+              logo-link {
+                display: block;
+                width: 100%;
+                margin-bottom: size(10px);
+
+                &:last-child {
+                  margin-bottom: 0;
+                }
+              }
+
+              a {
+                display: block;
+                width: 100%;
+              }
+
+              button {
+                display: block;
+                width: 100%;
+              }
             }
           }
         }
