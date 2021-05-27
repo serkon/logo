@@ -4,10 +4,11 @@
   cursor: pointer;
   text-decoration: none;
   font-size: size(get("size.medium.font-size"));
-  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
   // display: flex;
   // align-items: center;
-  @extend %padding-button;
+  @extend %padding-button, %padding-button-medium, %size-medium;
 
   &[class^='#{get("icon.prefix")}'], &[class*=' #{get("icon.prefix")}'] {
     @extend %size-medium, %padding-button-medium;
@@ -42,5 +43,11 @@
     &::before {
       right: size(-1px);
     }
+  }
+
+  &.inline {
+    @extend %ghost;
+
+    padding: 0;
   }
 }
