@@ -27,6 +27,9 @@
       "@cloud/*": [
         "./projects/cloud/src/*"
       ],
+      "@e-mutabakat/*": [
+        "./projects/e-mutabakat/src/*"
+      ],
       "@logo-software/*": [
         "dist/logo-software/*",
         "./projects/logo-software/*/src/public-api"

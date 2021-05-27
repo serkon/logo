@@ -2462,6 +2462,132 @@
           }
         }
       }
+    },
+    "e-mutabakat": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/e-mutabakat",
+      "sourceRoot": "projects/e-mutabakat/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/e-mutabakat",
+            "index": "projects/e-mutabakat/src/index.html",
+            "main": "projects/e-mutabakat/src/main.ts",
+            "polyfills": "projects/e-mutabakat/src/polyfills.ts",
+            "tsConfig": "projects/e-mutabakat/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/e-mutabakat/src/favicon.ico",
+              "projects/e-mutabakat/src/assets"
+            ],
+            "styles": [
+              "projects/e-mutabakat/src/styles.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "projects/e-mutabakat/src/scss"
+              ]
+            },
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/e-mutabakat/src/environments/environment.ts",
+                  "with": "projects/e-mutabakat/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "port": 4800,
+            "browserTarget": "e-mutabakat:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "e-mutabakat:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "e-mutabakat:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/e-mutabakat/src/test.ts",
+            "polyfills": "projects/e-mutabakat/src/polyfills.ts",
+            "tsConfig": "projects/e-mutabakat/tsconfig.spec.json",
+            "karmaConfig": "projects/e-mutabakat/karma.conf.js",
+            "assets": [
+              "projects/e-mutabakat/src/favicon.ico",
+              "projects/e-mutabakat/src/assets"
+            ],
+            "styles": [
+              "projects/e-mutabakat/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/e-mutabakat/tsconfig.app.json",
+              "projects/e-mutabakat/tsconfig.spec.json",
+              "projects/e-mutabakat/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/e-mutabakat/e2e/protractor.conf.js",
+            "devServerTarget": "e-mutabakat:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "e-mutabakat:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "documentation"
