@@ -81,14 +81,17 @@
               </span>
               <span *ngIf="item.icon" class="title icon {{item.icon}}"></span>
               <p *ngIf="item.desc; else countTemp"
-                 [ngClass]="item.cssClass ? item.cssClass + ' small' : 'small'">{{item.desc}}</p>
+                 [ngClass]="item.cssClass ? item.cssClass + ' small' : 'small'"
+              >
+                {{item.desc}}
+              </p>
               <ng-template #countTemp>{{item.count}}</ng-template>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div [ngClass]="{'mobile-fix':applications.length > 1}" class="tenant-base">
+    <div [ngClass]="{ 'mobile-fix' : applications.length > 1}" class="tenant-base">
       <div class="item">
         <div class="tenant-options-base">
           <button
@@ -106,8 +109,10 @@
             <div class="popover-search-base">
               <span class="input-w-icon">
                 <span class="le-search input-icon"></span>
-                <input #leftbarTenantSearch (keyup)="doTenantSearchEmitter(leftbarTenantSearch.value)" class="icon-left"
-                       id="searchTenant">
+                <input
+                  #leftbarTenantSearch (keyup)="doTenantSearchEmitter(leftbarTenantSearch.value)" class="icon-left"
+                  id="searchTenant"
+                >
               </span>
             </div>
             <div class="result-base" id="tenantResults">
@@ -142,7 +147,8 @@
         >
       </span>
     </div>
-    <div *ngIf="!isMainPage" [ngClass]="{'hidden-mobile': applications.length < 2}" class="shortcuts-base">
+    <div *ngIf="!isMainPage" [ngClass]="{'hidden-mobile': applications && applications.length < 2}"
+         class="shortcuts-base">
       <div class="standarts">
         <div class="home item">
           <button (click)="homeEmitter()" class="ghost le-home"></button>
@@ -197,13 +203,13 @@
         </ng-container>
         <button (click)="addShortcutEmitter(0)" *ngIf="!onPrem" class="ghost le-settings"></button>
       </div>
-      <button
-        (click)="toggleMobileMenu()"
-        [ngClass]="mobileMenu ? 'le-cross' : 'le-hamburger'"
-        class="mobile-menu-btn large ghost"
-      >
-      </button>
     </div>
+    <button
+      (click)="toggleMobileMenu()"
+      [ngClass]="mobileMenu ? 'le-cross' : 'le-hamburger'"
+      class="mobile-menu-btn large ghost"
+    >
+    </button>
   </div>
   <div [ngClass]="{'opened' : mobileMenu}" class="menu-base">
     <ng-content></ng-content>

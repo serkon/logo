@@ -35,7 +35,7 @@
     display: flex;
     flex-flow: column;
 
-    @include smaller-than(md) {
+    @include smaller-than(xl) {
       width: 100vw;
       height: size(68px);
       flex-flow: row;
@@ -47,7 +47,7 @@
     .info-card {
       flex: 0 1 auto;
 
-      @include smaller-than(md) {
+      @include smaller-than(xl) {
         flex: 1 1 auto;
         display: flex;
         flex-flow: row;
@@ -58,7 +58,7 @@
       .item {
         background: var(--basic-300);
 
-        @include smaller-than(md) {
+        @include smaller-than(xl) {
           background: transparent;
         }
       }
@@ -72,7 +72,7 @@
         height: size(100px);
         background: var(--white);
 
-        @include smaller-than(md) {
+        @include smaller-than(xl) {
           padding: 0;
           height: 100%;
           flex-grow: 0;
@@ -86,7 +86,7 @@
             height: size(80px);
             position: relative;
 
-            @include smaller-than(md) {
+            @include smaller-than(xl) {
               height: 100%;
               width: size(74px);
             }
@@ -105,7 +105,7 @@
               left: size(20px);
               z-index: 2;
 
-              @include smaller-than(md) {
+              @include smaller-than(xl) {
                 width: size(44px);
                 height: size(44px);
                 top: size(12px);
@@ -135,7 +135,7 @@
               z-index: 1;
               filter: blur(4px);
 
-              @include smaller-than(md) {
+              @include smaller-than(xl) {
                 width: size(36px);
                 height: size(36px);
                 top: size(22px);
@@ -146,7 +146,7 @@
             .details {
               padding: size(25px) size(10px) 0 size(105px);
 
-              @include smaller-than(md) {
+              @include smaller-than(xl) {
                 display: none;
               }
 
@@ -174,7 +174,7 @@
         }
 
         .expandable-content {
-          @include smaller-than(md) {
+          @include smaller-than(xl) {
             height: 100%;
             overflow-x: hidden;
             overflow-y: auto;
@@ -192,7 +192,7 @@
               font-size: size(12px);
               margin-bottom: size(5px);
 
-              @include smaller-than(md) {
+              @include smaller-than(xl) {
                 width: auto;
                 top: -8px;
               }
@@ -243,7 +243,7 @@
             }
           }
 
-          @include smaller-than(md) {
+          @include smaller-than(xl) {
             margin: 0 size(10px);
           }
         }
@@ -271,7 +271,7 @@
           left: 0;
           z-index: 8;
 
-          @include smaller-than(md) {
+          @include smaller-than(xl) {
             height: 100vh;
             width: 100vw;
             display: flex;
@@ -324,7 +324,7 @@
           }
 
           .close-user-btn {
-            @include smaller-than(md) {
+            @include smaller-than(xl) {
               display: block;
               position: absolute;
               top: 0;
@@ -338,7 +338,7 @@
       .tenant-base {
         padding: 0 size(10px);
 
-        @include smaller-than(md) {
+        @include smaller-than(xl) {
           flex-grow: 1;
           text-align: center;
 
@@ -361,7 +361,7 @@
               position: relative;
               padding-left: size(60px);
 
-              @include smaller-than(md) {
+              @include smaller-than(xl) {
                 padding-left: 0;
                 width: auto;
               }
@@ -375,7 +375,7 @@
                 top: size(-5px);
                 left: size(20px);
 
-                @include smaller-than(md) {
+                @include smaller-than(xl) {
                   display: none;
                 }
               }
@@ -387,7 +387,7 @@
       .search-base {
         padding: size(10px);
 
-        @include smaller-than(md) {
+        @include smaller-than(xl) {
           display: none;
         }
 
@@ -408,7 +408,7 @@
       .shortcuts-base {
         padding: 0 size(10px);
 
-        @include smaller-than(md) {
+        @include smaller-than(xl) {
           padding: 0;
 
           &.hidden-mobile {
@@ -423,7 +423,7 @@
           align-items: flex-start;
           flex-flow: row wrap;
 
-          @include smaller-than(md) {
+          @include smaller-than(xl) {
             flex-flow: column;
           }
 
@@ -432,7 +432,7 @@
             margin-right: size(10px);
             text-align: center;
 
-            @include smaller-than(md) {
+            @include smaller-than(xl) {
               display: none;
             }
           }
@@ -442,15 +442,24 @@
             line-height: size(32px);
             position: relative;
 
-            @include smaller-than(md) {
+            @include smaller-than(xl) {
               position: absolute;
               left: calc((100% - 218px) / 2);
               top: size(34px);
             }
 
+            .app-icon {
+              display: none;
+            }
+
             button {
               width: 100%;
               line-height: size(32px);
+
+              img {
+                max-width: 100%;
+                max-height: 100%;
+              }
             }
 
             .default-app-btn {
@@ -459,6 +468,7 @@
               .app-logo {
                 display: block;
                 max-width: 100%;
+                max-height: 100%;
                 height: size(16px);
                 margin: size(8px) 0;
               }
@@ -507,7 +517,7 @@
               text-align: center;
               white-space: nowrap;
 
-              @include smaller-than(md) {
+              @include smaller-than(xl) {
                 display: none;
               }
 
@@ -543,7 +553,7 @@
           align-items: flex-start;
           flex-flow: row nowrap;
 
-          @include smaller-than(md) {
+          @include smaller-than(xl) {
             display: none;
           }
 
@@ -594,7 +604,7 @@
       padding: 0;
       position: relative;
 
-      @include smaller-than(md) {
+      @include smaller-than(xl) {
         @include animate(all, 0.2s, ease-in-out);
         @include box-shadow(0, 0, 0, 0, rgba(var(--gray-1000-rgb), 0), false);
 
@@ -605,6 +615,7 @@
         top: 0;
         right: -100vw;
         background-color: var(--white);
+        padding-top: size(68px);
 
         &.opened {
           right: 0;
@@ -651,7 +662,7 @@
         left: size(124px);
         z-index: 7;
 
-        @include smaller-than(md) {
+        @include smaller-than(xl) {
           display: none;
         }
 
@@ -668,7 +679,7 @@
       padding: size(4px) size(7px);
       display: inline-block;
 
-      @include smaller-than(md) {
+      @include smaller-than(xl) {
         padding: size(1px) size(5px);
       }
 
@@ -707,14 +718,15 @@
         max-height: 55vh;
         text-align: left;
 
-        @include smaller-than(md) {
+        @include smaller-than(xl) {
           @include box-shadow(0, 0, 0, 0, rgba(var(--black-rgb), 0), false);
 
           width: 100vw;
           height: calc(100vh - 68px);
-          max-height: 100vh;
+          max-height: calc(100vh - 68px);
           border: 0;
           position: fixed;
+          top: size(68px);
         }
       }
 
@@ -983,7 +995,7 @@
     .mobile-menu-btn {
       display: none;
 
-      @include smaller-than(md) {
+      @include smaller-than(xl) {
         display: block;
         margin-right: size(15px);
         z-index: 7;
@@ -992,7 +1004,7 @@
   }
 
   .hidden-mobile {
-    @include smaller-than(md) {
+    @include smaller-than(xl) {
       display: none;
     }
   }
