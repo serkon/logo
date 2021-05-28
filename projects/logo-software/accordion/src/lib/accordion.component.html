@@ -25,11 +25,14 @@
         class="label label-category"
         for="{{elementId}}{{i}}"
       >
-        <span [ngClass]="item.iconClasses" class="{{iconClasses}}"></span>
-        <span class="title">
-            <p class="large">{{item.title}}</p>
-          </span>
-        <span class="arrow le-arrow_down"></span>
+        <div [ngClass]="item.iconClasses" class="{{iconClasses}}"></div>
+        <div class="title">
+          <p class="large">{{item.title}}</p>
+        </div>
+        <div class="options">
+          <ng-content select="[option]"></ng-content>
+        </div>
+        <div class="arrow le-arrow_down"></div>
       </label>
       <p [innerHTML]="item.description" class="content"></p>
     </li>

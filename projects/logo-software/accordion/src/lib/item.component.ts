@@ -41,11 +41,14 @@ import { Params } from '@angular/router';
         class="label label-category"
         for="{{selectorId}}"
       >
-        <span [ngClass]="icon" class="{{icon}}"></span>
-        <span class="title">
-            <p class="large">{{title}}</p>
-          </span>
-        <span class="arrow le-arrow_down"></span>
+        <div *ngIf="!!icon" [ngClass]="icon" class="{{icon}}"></div>
+        <div class="title">
+          <p class="large">{{title}}</p>
+        </div>
+        <div class="options">
+          <ng-content select="[option]"></ng-content>
+        </div>
+        <div class="arrow le-arrow_down"></div>
       </label>
       <div class="content">
         <ng-content></ng-content>

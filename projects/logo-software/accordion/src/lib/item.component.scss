@@ -36,10 +36,18 @@
       }
 
       .title {
-        width: 100%;
+        flex-grow: 1;
         font-weight: bold;
         padding-left: size(10px);
         cursor: pointer;
+      }
+
+      .options {
+        white-space: nowrap;
+
+        ::ng-deep {
+          white-space: nowrap;
+        }
       }
 
       .arrow {
