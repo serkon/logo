@@ -17,7 +17,11 @@ export class ModalShowcaseComponent {
   }
 
   public sampleOpenAction(e) {
-    console.log('### Modal Opened', e);
+    console.log('### Modal Open Status ####', e);
+  }
+
+  public sampleCloseAction(e) {
+    console.log('### Modal Close Status ####', e);
   }
 
   public closeModal() {

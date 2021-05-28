@@ -36,4 +36,17 @@
   >
     <div>This is the hidden item</div>
   </logo-accordion-item>
+  <logo-accordion-item
+    (onClick)="accordionItemClick($event)"
+    (onInit)="accordionItemInit($event)"
+    [classes]="'my-own-theme'"
+    [icon]="'le-home'"
+    [isHidden]="false"
+    [isOpen]="false"
+    [params]="{id: 'user-id-1'}"
+    [title]="'My Accordion Item with button'"
+  >
+    <div option>My Option Will be here</div>
+    <div>This is the hidden item</div>
+  </logo-accordion-item>
 </logo-accordion>
