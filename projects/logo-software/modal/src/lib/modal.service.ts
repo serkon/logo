@@ -17,9 +17,6 @@ export class ModalService {
   modalVisibilityChange: Subject<boolean> = new Subject<boolean>();
 
   constructor() {
-    this.modalVisibilityChange.subscribe((value) => {
-      this.show = value
-    });
   }
 
   /**
@@ -30,6 +27,7 @@ export class ModalService {
     if (this.isFullscreen) {
       this.isFullscreen = false;
     }
+    this.modalVisibilityChange.next(this.show);
   }
 
   /**
@@ -37,6 +35,7 @@ export class ModalService {
    */
   public openModal() {
     this.show = true;
+    this.modalVisibilityChange.next(this.show);
   }
 
   /**
