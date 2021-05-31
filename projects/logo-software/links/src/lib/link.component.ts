@@ -127,7 +127,7 @@ export class LinkComponent implements OnInit {
   /**
    * Given style class names in array
    */
-  @Input() classes: string[] = [];
+  @Input() classes: string = '';
   /**
    * Screen text to show, if the text will be given in the tag it will be set to `ng-content` first.
    * <logo-link>DISPLAY TEXT</logo-link> or <logo-link display='DISPLAY TEXT'></logo-link> are the same.
@@ -167,7 +167,7 @@ export class LinkComponent implements OnInit {
     if (this.link) {
       this.external = this.link.external;
       this.fragment = this.link.fragment;
-      this.classes = this.link.classes && [...this.classes, ...this.link.classes] || this.classes;
+      this.classes = this.link.classes + ' ' + this.classes;
       this.display = this.link.display;
       this.redirection = this.link.redirection;
       this.relativeTo = ((typeof this.link.relativeTo === 'undefined' || !this.link.relativeTo) && !this.link.url) || this.link.relativeTo;
