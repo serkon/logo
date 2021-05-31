@@ -71,8 +71,8 @@
         >
           <input
             (change)="$onItemCheckChange($event, item)"
-            *ngIf="!htmlIsUndefined(item) && (!!structure && !!structure.optionalField && !!item[structure.optionalField]) || !!item.optional"
-            [checked]="item.isSelect"
+            *ngIf="(!!structure && !!structure.optionalField && !!item[structure.optionalField]) || !!item.optional"
+            [checked]="ngModel.includes(item)"
             [disabled]="!ngModel.includes(item) && ngModel.length >= maxSelected"
             id="option-{{elementId}}-{{i}}"
             type="checkbox"
