@@ -9,9 +9,9 @@
  */
 
 import { Component, EventEmitter, forwardRef, HostListener, Input, OnDestroy, Output } from '@angular/core';
-
-import { PopoverService } from '@logo-software/popover';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
+
+import { PopoverPosition, PopoverService } from '@logo-software/popover';
 
 /**
  * IconPosition sets the clock icon position on the input. Default is left.
@@ -88,6 +88,7 @@ export class TimepickerComponent implements OnDestroy {
   @Output() ngModelChange: EventEmitter<boolean> = new EventEmitter();
   @Output() onChange: EventEmitter<string> = new EventEmitter();
   private subscribtion;
+  public PopoverPosition = PopoverPosition;
 
   constructor(public popoverService: PopoverService) {
     this.hours = Array.from({length: 24}, (x, i) => i < 10 ? '0' + i : '' + i);

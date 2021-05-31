@@ -14,7 +14,8 @@
       logoMask
     />
   </div>
-  <logo-popover [hasSearch]="false" [id]="'timePopover-' + id" [isBackClick]="false">
+  <logo-popover [hasSearch]="false" [id]="'timePopover-' + id" [isBackClick]="false"
+                [position]="PopoverPosition.POPOVER_BOTTOM_LEFT">
     <div class="selection-input">
       <div class="selection">
         <select (change)="setHour($event)" [(ngModel)]="selectedHour" class="popoverSelect" id="{{id}}Hours">
