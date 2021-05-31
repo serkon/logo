@@ -10,9 +10,9 @@
   "author": "Serhan Gürbüz",
   "license": "ISC",
   "dependencies": {
-    "@logo-software/accordion": "^1.1.0",
+    "@logo-software/accordion": "^1.1.1",
     "@logo-software/carousel": "^0.3.0",
-    "@logo-software/combobox": "^0.1.0",
+    "@logo-software/combobox": "^0.1.9",
     "@logo-software/header": "^0.1.1",
     "@logo-software/hero": "^0.1.1",
     "@logo-software/icons": "^1.5.2",
@@ -21,7 +21,7 @@
     "@logo-software/links": "^1.1.1",
     "@logo-software/paging": "^1.1.1",
     "@logo-software/storage": "^0.2.1",
-    "@logo-software/tabs": "^0.2.3",
-    "@logo-software/theme": "^3.8.1"
+    "@logo-software/tabs": "^0.3.4",
+    "@logo-software/theme": "^3.10.6"
   }
 }
