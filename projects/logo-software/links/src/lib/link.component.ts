@@ -167,7 +167,7 @@ export class LinkComponent implements OnInit {
     if (this.link) {
       this.external = this.link.external;
       this.fragment = this.link.fragment;
-      this.classes = this.link.classes + ' ' + this.classes;
+      this.classes = typeof this.link.classes !== 'undefined' ? this.link.classes + ' ' + this.classes : this.classes;
       this.display = this.link.display;
       this.redirection = this.link.redirection;
       this.relativeTo = ((typeof this.link.relativeTo === 'undefined' || !this.link.relativeTo) && !this.link.url) || this.link.relativeTo;
