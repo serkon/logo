@@ -80,8 +80,9 @@
                 <span *ngIf="item.badge" class="badge danger">{{item.count}}</span>
               </span>
               <span *ngIf="item.icon" class="title icon {{item.icon}}"></span>
-              <p *ngIf="item.desc; else countTemp"
-                 [ngClass]="item.cssClass ? item.cssClass + ' small' : 'small'"
+              <p
+                *ngIf="item.desc; else countTemp"
+                [ngClass]="item.cssClass ? item.cssClass + ' small' : 'small'"
               >
                 {{item.desc}}
               </p>
