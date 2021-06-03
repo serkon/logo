@@ -10,7 +10,7 @@
 
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 
-import { TreeComponent } from '@logo-software/tree';
+import { ApplicationTreeComponent } from '@logo-software/application-tree';
 
 import { LeftbarService } from './leftbar.service';
 
@@ -49,6 +49,14 @@ export class LeftbarComponent implements OnInit, OnChanges {
    * Profile settings items which shown under user profile clicked
    */
   @Input() public profileSettings: any;
+  /**
+   * Language settings that the application supports.
+   */
+  @Input() public languageSettings: any;
+  /**
+   * Selected language model
+   */
+  @Input() public selectedLanguage: any;
   /**
    * Applications that will shown on leftbar
    */
@@ -133,6 +141,10 @@ export class LeftbarComponent implements OnInit, OnChanges {
    * When clicked to shortcut, output event triggered.
    */
   @Output() public onClickShortCut: EventEmitter<any> = new EventEmitter<any>();
+  /**
+   * When language changed, output event triggered.
+   */
+  @Output() public onLanguageChange: EventEmitter<any> = new EventEmitter<any>();
 
   public showUserDetails: boolean = false;
   public popoverStatus: boolean = false;
@@ -141,7 +153,7 @@ export class LeftbarComponent implements OnInit, OnChanges {
   public emptyShortcutSlots: any;
   public defaultApp: any = {};
 
-  @ViewChild(TreeComponent, {read: TreeComponent}) tree: TreeComponent;
+  @ViewChild(ApplicationTreeComponent, {read: ApplicationTreeComponent}) tree: ApplicationTreeComponent;
 
   constructor(public leftbarService: LeftbarService) {
   }
@@ -170,6 +182,10 @@ export class LeftbarComponent implements OnInit, OnChanges {
    */
   public toggleUserDetails() {
     this.showUserDetails = !this.showUserDetails;
+  }
+
+  public onLanguageSelect(event) {
+    this.onLanguageChange.emit(event);
   }
 
   public togglePopover(id: string) {

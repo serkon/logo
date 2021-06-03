@@ -11,11 +11,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { LinksModule } from '@logo-software/links';
+import { ComboboxModule } from '@logo-software/combobox';
 
 import { LeftbarComponent } from './leftbar.component';
-import { FormsModule } from '@angular/forms';
 
 /**
  * Leftbar is part of the Logo Elements Environment. This library is a navigational part of the apps and shared by products within a platform. It provides a common set of interaction patterns that persist between and across products also standartization of navigation between apps and user information presentation.
@@ -50,7 +51,7 @@ import { FormsModule } from '@angular/forms';
  */
 @NgModule({
   declarations: [LeftbarComponent],
-  imports: [RouterModule, CommonModule, LinksModule, FormsModule],
+  imports: [RouterModule, CommonModule, LinksModule, FormsModule, ComboboxModule],
   exports: [LeftbarComponent],
 })
 export class LeftbarModule {

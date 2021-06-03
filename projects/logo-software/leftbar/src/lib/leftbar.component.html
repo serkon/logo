@@ -33,6 +33,23 @@
       <div class="expandable-content">
         <button (click)="toggleUserDetails()" class="le-cross ghost large close-user-btn"></button>
         <div class="row infos">
+          <div *ngIf="languageSettings.support" class="col-md-12">
+            <div class="item">
+              <span class="title">{{languageSettings.title}}</span>
+              <logo-combobox
+                (select)="onLanguageSelect($event)"
+                [(ngModel)]="selectedLanguage"
+                [items]="languageSettings.model"
+                [multiple]="false"
+                [path]="'name'"
+              >
+                <ng-template let-index="index" let-isFirst="isFirst" let-isLast="isLast" let-isOdd="isOdd"
+                             let-item="item">
+                  <span>{{item.name}}</span>
+                </ng-template>
+              </logo-combobox>
+            </div>
+          </div>
           <div
             *ngFor="let item of profileSettings"
             class="col-md-{{item.col}} {{item.reference}}"
@@ -89,7 +106,9 @@
               <ng-template #countTemp>{{item.count}}</ng-template>
             </div>
           </div>
+
         </div>
+
       </div>
     </div>
     <div [ngClass]="{ 'mobile-fix' : applications.length > 1}" class="tenant-base">
