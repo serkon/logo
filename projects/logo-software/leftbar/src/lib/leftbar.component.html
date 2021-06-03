@@ -43,8 +43,13 @@
                 [multiple]="false"
                 [path]="'name'"
               >
-                <ng-template let-index="index" let-isFirst="isFirst" let-isLast="isLast" let-isOdd="isOdd"
-                             let-item="item">
+                <ng-template
+                  let-index="index"
+                  let-isFirst="isFirst"
+                  let-isLast="isLast"
+                  let-isOdd="isOdd"
+                  let-item="item"
+                >
                   <span>{{item.name}}</span>
                 </ng-template>
               </logo-combobox>
