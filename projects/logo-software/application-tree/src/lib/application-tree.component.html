@@ -72,8 +72,8 @@
           <input
             (change)="$onItemCheckChange($event, item)"
             *ngIf="(!!structure && !!structure.optionalField && !!item[structure.optionalField]) || !!item.optional"
-            [checked]="ngModel.includes(item)"
-            [disabled]="!ngModel.includes(item) && ngModel.length >= maxSelected"
+            [checked]="isExist(item.id)"
+            [disabled]="!isExist(item.id) && ngModel.length >= maxSelected"
             id="option-{{elementId}}-{{i}}"
             type="checkbox"
           >

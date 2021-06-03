@@ -264,4 +264,9 @@ export class ApplicationTreeComponent {
 
   setDisabledState(isDisabled: boolean): void {
   }
+
+  isExist(id) {
+    const exist = this.ngModel.filter(item => item.id === id);
+    return exist.length > 0;
+  }
 }
