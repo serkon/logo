@@ -50,5 +50,8 @@
     "strictTemplates": true,
     "enableIvy": false,
     "strictMetadataEmit": false
-  }
+  },
+  "exclude": [
+    "src/assets/guideline/**/*"
+  ]
 }
