@@ -146,76 +146,77 @@ export class LeftbarShowcaseComponent implements AfterViewInit {
     },
   };
 
-  public profileSettings = [{
-    col: 12,
-    reference: 'notifications',
-    title: 'BILDIRIMLER',
-    resource: [
-      {
-        lang: 'tr',
-        country: 'TR',
-        title: 'BILDIRIMLER',
-      },
-      {
-        lang: 'en',
-        country: 'US',
-        title: 'NOTIFICATIONS',
-      },
-    ],
-    badge: true,
-    count: 0,
-    link: 'path/to/notifications?',
-    icon: '',
-    actionParam: 'notification',
-  }, {
-    col: 12,
-    reference: 'language',
-    desc: 'Türkçe',
-    title: 'DIL',
-    resource: [
-      {
-        lang: 'tr',
-        country: 'TR',
-        desc: 'Türkçe',
-        title: 'DIL',
-      },
-      {
-        lang: 'en',
-        country: 'US',
-        desc: 'Turkish',
-        title: 'LANGUAGE',
-      },
-    ],
-    badge: false,
-    actionParam: 'lang',
-    popover: true,
-    popoverItems: [
-      {
-        Name: 'Türkçe',
-        Value: 'tr',
-      },
-      {
-        Name: 'English',
-        Value: 'en',
-      },
-    ],
-  }, {
-    col: 12,
-    desc: 'Hesap Ayarlari',
-    actionParam: 'settings',
-    resource: [
-      {
-        lang: 'tr',
-        country: 'TR',
-        desc: 'Hesap Ayarlari',
-      },
-      {
-        lang: 'en',
-        country: 'US',
-        desc: 'Settings',
-      },
-    ],
-  },
+  public profileSettings = [
+    {
+      col: 12,
+      reference: 'notifications',
+      title: 'BILDIRIMLER',
+      resource: [
+        {
+          lang: 'tr',
+          country: 'TR',
+          title: 'BILDIRIMLER',
+        },
+        {
+          lang: 'en',
+          country: 'US',
+          title: 'NOTIFICATIONS',
+        },
+      ],
+      badge: true,
+      count: 0,
+      link: 'path/to/notifications?',
+      icon: '',
+      actionParam: 'notification',
+    }, {
+      col: 12,
+      reference: 'language',
+      desc: 'Türkçe',
+      title: 'DIL',
+      resource: [
+        {
+          lang: 'tr',
+          country: 'TR',
+          desc: 'Türkçe',
+          title: 'DIL',
+        },
+        {
+          lang: 'en',
+          country: 'US',
+          desc: 'Turkish',
+          title: 'LANGUAGE',
+        },
+      ],
+      badge: false,
+      actionParam: 'lang',
+      popover: true,
+      popoverItems: [
+        {
+          Name: 'Türkçe',
+          Value: 'tr',
+        },
+        {
+          Name: 'English',
+          Value: 'en',
+        },
+      ],
+    }, {
+      col: 12,
+      desc: 'Hesap Ayarlari',
+      actionParam: 'settings',
+      resource: [
+        {
+          lang: 'tr',
+          country: 'TR',
+          desc: 'Hesap Ayarlari',
+        },
+        {
+          lang: 'en',
+          country: 'US',
+          desc: 'Settings',
+        },
+      ],
+    },
     {
       col: 12,
       actionParam: 'myProfile',
@@ -283,6 +284,26 @@ export class LeftbarShowcaseComponent implements AfterViewInit {
       title: 'Çıkış Yap',
     },
   ];
+
+  public languageSettings = {
+    support: true,
+    title: 'DİL',
+    model: [
+      {
+        value: 'tr',
+        name: 'Türkçe',
+      },
+      {
+        value: 'en',
+        name: 'English',
+      },
+    ],
+  };
+
+  public selectedLang = {
+    value: 'tr',
+    name: 'Türkçe',
+  };
 
   public allApps = [
     {
