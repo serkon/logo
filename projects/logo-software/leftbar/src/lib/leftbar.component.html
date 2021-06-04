@@ -116,7 +116,7 @@
 
       </div>
     </div>
-    <div [ngClass]="{ 'mobile-fix' : applications.length > 1}" class="tenant-base">
+    <div [ngClass]="{ 'mobile-fix' : applications && applications.length > 1}" class="tenant-base">
       <div class="item">
         <div class="tenant-options-base">
           <button
