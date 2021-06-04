@@ -195,11 +195,6 @@ export class ApplicationTreeComponent {
     this.itemCheckChange.emit(item);
   }
 
-  $onItemCheckChange1($event: any, item: any) {
-    item.isSelect = $event.target.checked;
-    this.ngModelChange.emit([item]);
-  }
-
   $onItemCheckChange($event: any, item: any) {
     if ($event.target.checked) {
       if (!this.ngModel.find(i => i === item)) {
@@ -266,7 +261,7 @@ export class ApplicationTreeComponent {
   }
 
   isExist(id) {
-    const exist = this.ngModel.filter(item => item.id === id);
+    const exist = this.ngModel.filter(item => item.Id === id);
     return exist.length > 0;
   }
 }

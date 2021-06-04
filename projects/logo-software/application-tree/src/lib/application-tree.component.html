@@ -13,29 +13,27 @@
   <ng-container *ngFor="let item of items; let i = index; let lst=last">
     <ng-container (click)="htmlItemOnClick(item)" *ngIf="hasChild(item)">
       <li [ngClass]="item.classes" class="level-{{level}} tree-category {{classes}} {{item.group ? 'group': ''}}">
-        <ng-container *ngIf="level >=  start">
-          <input [checked]="item.isOpen" hidden id="{{elementId}}{{i}}" type="checkbox"/>
-          <label
-            (click)="htmlCategoryOnClick(item)"
-            [style.paddingLeft]="htmlSetPadding(level, start)"
-            class="label label-category {{item.group ? 'label-group': ''}}"
-            for="{{elementId}}{{i}}"
-          >
+        <input [checked]="item.isOpen" class="tree-opener" hidden id="{{elementId}}{{i}}" type="checkbox"/>
+        <label
+          (click)="htmlCategoryOnClick(item)"
+          [style.paddingLeft]="htmlSetPadding(level, start)"
+          class="label label-category {{item.group ? 'label-group': ''}}"
+          for="{{elementId}}{{i}}"
+        >
             <span [ngClass]="item.iconClasses" [style.background-color]="item.Color" class="{{iconClasses}} item-icon">
               <img
                 *ngIf="(!!structure && !!structure.iconField && !!item[structure.iconField]) || !!item.iconPath"
                 [attr.src]="!!structure && !!structure.iconField ? item[structure.iconField] : item.iconPath"
               />
             </span>
-            <span class="title">
+          <span class="title">
               <ng-container
                 *ngTemplateOutlet='itemTemplateRef ? itemTemplateRef : defaultTemplate;context: { $implicit: item}' ,
               >
               </ng-container>
             </span>
-            <span class="arrow le-arrow_right"></span>
-          </label>
-        </ng-container>
+          <span class="arrow le-arrow_right"></span>
+        </label>
         <logo-application-tree
           (categoryClick)="$onCategoryClick($event)"
           (itemCheckChange)="$triggerItemCheckChange($event)"
@@ -72,8 +70,8 @@
           <input
             (change)="$onItemCheckChange($event, item)"
             *ngIf="(!!structure && !!structure.optionalField && !!item[structure.optionalField]) || !!item.optional"
-            [checked]="isExist(item.id)"
-            [disabled]="!isExist(item.id) && ngModel.length >= maxSelected"
+            [checked]="isExist(item.Id)"
+            [disabled]="!isExist(item.Id) && ngModel.length >= maxSelected"
             id="option-{{elementId}}-{{i}}"
             type="checkbox"
           >
