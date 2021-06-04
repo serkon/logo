@@ -1,7 +1,7 @@
 <div
   (click)="openListDiv()"
   [ngClass]="{'open': display, 'disabled': disabled}"
-  class="content medium le-arrow_down icon-right basic"
+  class="content medium icon-right le-arrow_down basic"
 >
   <div
     *ngIf="!this.multiple && !this.autoComplete ; else multipleTemplate"
@@ -21,7 +21,7 @@
       </logo-tags>
     </div>
   </ng-template>
-  <button (click)="clearAll()" *ngIf="isNull(this.ngModel)" class="clear le-cross ghost"></button>
+  <button (click)="clearAll()" *ngIf="this.multiple && isNull(this.ngModel)" class="clear le-cross ghost"></button>
   <ng-template #noDataTemplate>
     <div *ngIf="!this.autoComplete; else autocompleteTemplate" [innerHTML]="placeholder" class="single"></div>
   </ng-template>
