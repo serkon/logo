@@ -8,7 +8,7 @@
  * Any reproduction of this material must contain this notice.
  */
 
-import { Component, EventEmitter, forwardRef, Input, Output, TemplateRef } from '@angular/core';
+import { Component, EventEmitter, forwardRef, Input, OnInit, Output, TemplateRef } from '@angular/core';
 import { HttpClient, HttpRequest, HttpResponse } from '@angular/common/http';
 import { RouterLinkActive } from '@angular/router';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -36,7 +36,7 @@ import { TreeStructure } from './tree-structure';
     multi: true,
   }],
 })
-export class ApplicationTreeComponent {
+export class ApplicationTreeComponent implements OnInit {
   /**
    * Structure of the items
    */
@@ -141,6 +141,12 @@ export class ApplicationTreeComponent {
   @Input() set ngModel(value: any) {
     this._ngModel = value;
     this._selectedItems = value;
+  }
+
+  ngOnInit() {
+    if (!this.elementId) {
+      this.elementId = this.generateElementId();
+    }
   }
 
   getChildren(item: any) {
