@@ -41,6 +41,9 @@ import { Params } from '@angular/router';
         class="label label-category"
         for="{{selectorId}}"
       >
+        <div class="title-left">
+          <ng-content select="[titleLeft]"></ng-content>
+        </div>
         <div *ngIf="!!icon" [ngClass]="icon" class="{{icon}}"></div>
         <div class="title">
           <p class="large">{{title}}</p>

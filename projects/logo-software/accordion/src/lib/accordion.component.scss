@@ -66,6 +66,10 @@
           background-color: rgba(var(--neutral-rgb), var(--ghost-hover));
         }
 
+        .title-left {
+          line-height: initial;
+        }
+
         .title {
           flex-grow: 1;
           font-weight: bold;
