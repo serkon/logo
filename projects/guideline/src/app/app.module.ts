@@ -27,6 +27,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DocsService } from './docs/docs.service';
 import { environment } from '../environments/environment';
+import { LanguageInitSetting, LanguageModule } from '@logo-software/language';
+
+const languageConf: LanguageInitSetting = {
+  abbr: 'ro', readFromFile: false, extension: 'json', path: 'languages',
+};
 
 @NgModule({
   declarations: [AppComponent],
@@ -44,6 +49,7 @@ import { environment } from '../environments/environment';
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     ToastModule,
+    LanguageModule.forRoot(languageConf),
   ],
   providers: [DocsService, AngularFireModule, ToastService],
   bootstrap: [AppComponent],
