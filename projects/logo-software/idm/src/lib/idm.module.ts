@@ -1,4 +1,4 @@
-import { InjectionToken, ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
+import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { ActivatedRoute, NavigationCancel, NavigationEnd, Router } from '@angular/router';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -8,10 +8,7 @@ import { IdmService } from './idm.service';
 import { AuthorizationType } from './interface/authorization-type';
 import { IdmConfig } from './interface/config';
 import { AuthHeaderInterceptor } from './service/auth-header-interceptor.service';
-
-export const IDM_CONFIG = new InjectionToken('idm config');
-export const IDM_ID = new InjectionToken('idm client id');
-export const IDM_TEMP = new InjectionToken('idm temp config');
+import { IDM_CONFIG, IDM_ID, IDM_TEMP } from './interface/injections';
 
 export const IDM_DEFAULT_CONFIG: IdmConfig = {
   URI: 'http://dev-linux.logo-paas.com:5100',

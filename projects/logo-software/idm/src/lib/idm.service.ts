@@ -10,7 +10,7 @@ import { User } from './interface/user';
 import { IdmConfig } from './interface/config';
 import { AuthorizationType } from './interface/authorization-type';
 import { PrivilegeService } from './service/privilege.service';
-import { IDM_CONFIG, IDM_ID } from './idm.module';
+import { IDM_CONFIG, IDM_ID } from './interface/injections';
 
 /**
  * Idm Service uses for token operation and user operations for Logo Paas IDM Service.
