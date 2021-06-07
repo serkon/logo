@@ -5,8 +5,9 @@
         @extend %size-medium;
         @extend %fill-basic;
 
-        border: size(1px) solid transparent;
-        border-right: size(1px) solid var(--basic-700);
+        border: size(1px) solid;
+        border-color: if(get("element.input.border.status"), get("element.input.border.color"), transparent);
+        border-right-color: get("element.input.border.color");
         display: flex;
         align-items: center;
         padding: 0;

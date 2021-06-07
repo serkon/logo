@@ -14,7 +14,7 @@ Standardization Checkbox and Radio
   vertical-align: top;
   border-radius: size(get("border.radius"));
   border-color: var(--basic-700);
-  float: left;
+  // float: left;
 
   &::before {
     display: inline-block;

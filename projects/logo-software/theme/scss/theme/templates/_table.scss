@@ -2,6 +2,7 @@
   tr {
     th, td {
       font-family: get("font.family");
+      vertical-align: middle;
 
       input {
         margin: 0;
@@ -27,7 +28,7 @@
 
     th {
       position: relative;
-      background-color: var(#{get("element.table.header.background-color")});
+      background-color: #{get("element.table.header.background-color")};
       color: var(#{get("element.table.font.color")});
       border: 0;
       font-weight: 700;
@@ -64,16 +65,18 @@
 
     &:nth-of-type(2) {
       th {
-        background-color: var(#{get("element.table.filter.background-color")});
+        background-color: #{get("element.table.filter.background-color")};
       }
     }
 
-    &:nth-child(even) {
-      background-color: var(--basic-300);
-    }
+    @if (get("element.table.striped")) {
+      &:nth-child(even) {
+        background-color: var(--basic-300);
+      }
 
-    &:nth-child(odd) {
-      background-color: var(--white);
+      &:nth-child(odd) {
+        background-color: var(--white);
+      }
     }
 
     &.selected {
@@ -84,16 +87,20 @@
       }
     }
 
-    &:hover {
-      > td {
-        background-color: rgba(var(--primary-100-rgb), 0.7);
-        border-right-color: rgba(var(--primary-100-rgb), 0.1);
-      }
-    }
-
     &:last-child {
       td {
         border-bottom: 0;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      &:hover {
+        > td, > th {
+          background-color: rgba(var(--primary-100-rgb), 0.7);
+          border-right-color: rgba(var(--primary-100-rgb), 0.1);
+        }
       }
     }
   }
@@ -135,6 +142,128 @@
           height: size(get("element.table.size."+#{$size}+".min-height"));
           box-sizing: border-box;
         }
+      }
+    }
+  }
+}
+
+%table-header {
+  background-color: var(--basic-600);
+  position: relative;
+  border-radius: 0;
+
+  table {
+    tr {
+      th {
+        background-color: #{get("element.table.header.background-color")};
+        color: var(#{get("element.table.font.color")});
+        font-weight: 700;
+        // border-right: size(1px) solid var(--primary-700);
+        border-radius: 0;
+        padding: size(get("element.table.size.small.header.padding.top")) size(get("element.table.size.small.header.padding.right"));
+        font-size: size(get("element.table.font.size"));
+        line-height: size(get("element.table.font.line-height"));
+        height: size(get("element.table.size.small.min-height"));
+        position: relative;
+
+        .t-link {
+          line-height: inherit;
+        }
+
+        .t-filterCellBtn {
+          line-height: inherit;
+          font-size: size(get("element.table.icon.font-size"));
+
+          &::before {
+            font-size: size(get("element.table.icon.font-size"));
+          }
+        }
+
+        span.t-link {
+          font-weight: 800;
+        }
+      }
+    }
+  }
+
+  .t-grid-header-options {
+    // Filtre alanı için kapatıldı
+    // display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+
+    .t-filterCancelBtn {
+      margin-left: 0;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+
+      &::before {
+        font-size: size(get("element.table.icon.font-size"));
+      }
+    }
+  }
+
+  .t-grid-header-wrap {
+    // Filtre alanı için kapatıldı
+    // margin-right: 0 !important;
+  }
+}
+
+%table-content {
+  table {
+    tr {
+      td {
+        font-weight: normal;
+        color: var(#{get("font.color.name")}-#{get("font.color.value")});
+        border-right: size(1px) solid var(--basic-500);
+        border-left: transparent;
+        padding: size(get("element.table.size.small.body.padding.top")) size(get("element.table.size.small.body.padding.right"));
+        font-size: size(get("element.table.font.size"));
+        line-height: size(get("element.table.font.line-height"));
+        height: size(get("element.table.size.small.min-height"));
+
+        &:last-of-type {
+          border-right: 0;
+        }
+      }
+
+      &:hover {
+        td {
+          background-color: var(--primary-100);
+        }
+      }
+
+      &.t-activeRow {
+        td {
+          background-color: var(--primary-300) !important;
+        }
+      }
+
+      &.t-activeRowNoFocus {
+        td {
+          background-color: var(--primary-200) !important;
+        }
+      }
+
+      &:last-child {
+        td {
+          border-bottom: 0;
+        }
+      }
+    }
+
+    &.table-striped {
+      tr:nth-of-type(odd) {
+        background-color: var(--basic-300);
       }
     }
   }

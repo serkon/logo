@@ -1,0 +1,39 @@
+@function important($status: get("spacing.important")) {
+  @if ($status) {
+    @return !important;
+  }
+
+  @return null;
+}
+
+@for $i from 0 to 10 {
+  /**
+  padding
+   */
+  %p-#{$i} {
+    padding: $i*get("spacing.size") important();
+  }
+
+  %pr-#{$i} {
+    padding-right: $i*get("spacing.size") important();
+  }
+
+  %pl-#{$i} {
+    padding-left: $i*get("spacing.size") important();
+  }
+
+  /**
+  margin
+   */
+  %m-#{$i} {
+    margin: $i*get("spacing.size") if(get("spacing.important"), !important, "");
+  }
+
+  %mr-#{$i} {
+    margin-right: $i*get("spacing.size") if(get("spacing.important"), !important, "");
+  }
+
+  %ml-#{$i} {
+    margin-left: $i*get("spacing.size") if(get("spacing.important"), !important, "");
+  }
+}

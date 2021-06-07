@@ -4,7 +4,7 @@ input, textarea {
 
 input:not([type=checkbox]), input:not([type=radio]) {
   &:read-only {
-    background-color: var(--basic-700);
+    background-color: get("element.input.readonly.background.color");
   }
 }
 

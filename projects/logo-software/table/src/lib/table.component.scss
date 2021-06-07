@@ -153,7 +153,7 @@ $success-color: #01cc78;
 
               &.index {
                 text-align: center;
-                background-color: var(#{get("element.table.header.background-color")});
+                background-color: #{get("element.table.header.background-color")};
                 color: var(get("element.table.font.color"));
               }
 
@@ -247,8 +247,8 @@ $success-color: #01cc78;
             }
 
             &.expanded {
-              // background-color: var(#{get("element.table.expanded.background-color")});
-              background-color: var(#{get("element.table.expanded.backround-color")}) !important;
+              // background-color: #{get("element.table.expanded.background-color")};
+              background-color: #{get("element.table.expanded.backround-color")} !important;
 
               td.expanded-td {
                 padding: #{get("element.table.expanded.padding")};

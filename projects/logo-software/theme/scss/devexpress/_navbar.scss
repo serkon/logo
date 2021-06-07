@@ -1,0 +1,18 @@
+nav {
+  &.navbar {
+    height: size(get("devexpress.element.navbar.height"));
+    background-color: get("devexpress.element.navbar.background.color");
+    box-shadow: get("devexpress.element.navbar.shadow");
+    color: get("devexpress.element.navbar.color");
+
+    .navbar-toggler {
+      @extend %fill-primary;
+
+      height: 100%;
+    }
+
+    .title {
+      color: get("devexpress.element.navbar.color");
+    }
+  }
+}

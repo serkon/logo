@@ -4,9 +4,6 @@ Label
 label {
   @extend %label;
 
-  padding-bottom: size(2px);
-  color: var(#{get("font.color.name")}-#{get("font.color.value")});
-
   @each $size, $size-map in get("size") {
     &.#{$size} {
       @extend %label-#{$size};

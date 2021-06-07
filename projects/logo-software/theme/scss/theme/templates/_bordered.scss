@@ -10,7 +10,9 @@
     &-#{"" + $color} {
       @if ($color == basic or $color == secondary or $color == gray) {
         border-color: var(--#{$color}-600);
-      } @else {
+      }
+
+      @else {
         border-color: var(--#{$color});
       }
     }

@@ -1,12 +1,20 @@
 .form-group {
   width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
 
   > label {
-    vertical-align: bottom;
     font-size: size(12px);
     font-weight: 600;
     line-height: normal;
     margin-bottom: 0;
     height: auto;
+    align-self: auto;
+
+    @include larger-than(lg) {
+      align-self: center !important;
+    }
   }
 }

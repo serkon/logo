@@ -36,7 +36,7 @@ Customize: Button customize colors
     @each $color, $value in get("color.list") {
       $selector: if($type==fill, ".#{$color}", ".#{$type}.#{$color}");
       #{$selector}, &-#{$type}-#{"" + $color} { // if type fill render just `color` class else render `outline.color` and `ghost.color` classes
-        @if ($color == secondary or $color==basic or $color==gray or ($type==fill and $color==light)) {
+        @if ($color == secondary or $color==basic or $color==light) {
           color: var(get("customize.element.button.font.color"));
         }
 
@@ -56,6 +56,7 @@ Customize: Button customize colors
           @each $state in get("state.list") {
             &:#{$state} {
               background-color: rgba(var(--neutral-500-rgb), var(--ghost-#{$state}));
+              color: if($color == basic or $color == light or $color == secondary or $color == gray, get("customize.element.button.hover.font.color"), var(--white));
             }
           }
         }
@@ -93,7 +94,9 @@ Customize: Input secondary and basic customize
               border-color: var(--#{$color}-hover);
             }
           }
-        } @else {
+        }
+
+        @else {
           border-color: transparent;
         }
       }
@@ -113,7 +116,9 @@ Customize: Input secondary and basic customize
               background-color: var(--#{$color}-hover);
             }
           }
-        } @else {
+        }
+
+        @else {
           background-color: transparent; // !important;
         }
       }

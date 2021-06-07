@@ -1,0 +1,40 @@
+nav[aria-label="breadcrumb"] {
+  background-color: transparent;
+
+  .breadcrumb {
+    background-color: transparent;
+    padding: 0;
+    margin: size(11px) 0;
+
+    .breadcrumb-item {
+      display: flex;
+      align-items: center;
+
+      &::before {
+        color: var(--neutral-1000);
+      }
+
+      a {
+        font-style: normal;
+        font-weight: normal;
+        font-size: size(14px);
+        line-height: size(18px);
+        color: var(--neutral-500);
+
+        &::before {
+          background-color: transparent;
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      &.active {
+        a {
+          color: var(--primary-500);
+        }
+      }
+    }
+  }
+}

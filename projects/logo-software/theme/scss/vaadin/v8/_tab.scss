@@ -3,7 +3,7 @@
     .v-tabsheet.#{$size}, %v-tabsheet-#{$size} {
       .v-tabsheet-tabcontainer {
         table.v-tabsheet-tabs {
-          margin: size(get("element.tab.size."+$size+".margin"));
+          margin: get("element.tab.size."+$size+".margin");
 
           td.v-tabsheet-tabitemcell {
             .v-caption {

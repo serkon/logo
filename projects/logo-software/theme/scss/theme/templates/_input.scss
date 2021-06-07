@@ -5,6 +5,10 @@ Standardization: Input
   font-family: get("font.family");
   border-radius: size(get("border.radius"));
 
+  @if (get("element.input.border.status")) {
+    border-color: get("element.input.border.color");
+  }
+
   @extend %padding-input, %padding-input-medium;
   @extend %fill, %fill-basic, %size-medium, %placeholder;
 

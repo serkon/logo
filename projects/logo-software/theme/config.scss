@@ -19,10 +19,15 @@ $config: deep-map-merge((
     element:(
       button: (
         font: (
-          color: --neutral-900
+          color: --neutral-900,
         ),
         border: (
           default: --light-600,
+        ),
+        hover: (
+          font:(
+            color: var(--neutral-900)
+          )
         )
       ),
       input: (
@@ -70,6 +75,11 @@ $config: deep-map-merge((
     medium: (font-size: 14px, icon-size: 14px, height: 32px, icon-container: 32px),
     large: (font-size: 16px, icon-size: 24px, height: 48px, icon-container: 48px)
   ),
+  spacing:(
+    size: 4px,
+    count: 10,
+    important: true
+  ),
   state: (
     list: hover active focus,
     shade: (
@@ -91,7 +101,7 @@ $config: deep-map-merge((
   ),
   type: fill outline ghost,
   element: (
-    label: (font-size: 12px),
+    label: (font-size: 12px, line-height:16px, padding: 2px 0, color: var(--neutral-500)),
     input:(
       placeholder:(opacity: 0.5),
       size:(
@@ -100,7 +110,14 @@ $config: deep-map-merge((
         large:(padding: 10px),
       ),
       border: (
-        right-color: --basic-700
+        status: true,
+        color: var(--basic-700),
+        right-color: --basic-700,
+      ),
+      readonly: (
+        background: (
+          color: var(--basic-600)
+        )
       )
     ),
     button:(
@@ -184,26 +201,32 @@ $config: deep-map-merge((
       )
     ),
     modal: (
+      box-shadow: none,
       header:(
-        shadow: "0 0 10px 0 rgba(106, 120, 245, 0.05), 0 5px 5px 0 rgba(106, 120, 245, 0.1)",
-        height: 50px
+        height: 52px,
+        color: var(--neutral-1000),
+        box-shadow: "0 0 10px 0 rgba(106, 120, 245, 0.05), 0 5px 5px 0 rgba(106, 120, 245, 0.1)",
+        border-bottom: none,
       ),
       footer:(
-        shadow: "0 0 10px 0 rgba(106, 120, 245, 0.05), 0 -5px 5px 0 rgba(106, 120, 245, 0.1)",
+        box-shadow: "0 0 10px 0 rgba(106, 120, 245, 0.05), 0 -5px 5px 0 rgba(106, 120, 245, 0.1)",
         height: 52px,
         padding: 0 10px,
       ),
       body:(
-        margin: 20px
+        margin: 30px,
+        font-size: 16px,
+        color: var(--neutral-1000),
       ),
     ),
     tab:(
       align: center,
       shadow: "0 0 10px 0 rgba(106, 120, 245, 0.05), 0 5px 5px 0 rgba(106, 120, 245, 0.1)",
       margin: 20px,
+      font-weight: 700,
       size: (
-        medium: (height: 26px, font-size: 14px, margin: 13px, padding: (top: 0, right: 10px, bottom: 0, left: 10px)),
-        large: (height: 40px, font-size: 14px, margin: 14px, padding: (top: 0, right: 10px, bottom: 0, left: 10px))
+        medium: (height: 26px, font-size: 14px, margin: 13px 10px, padding: (top: 0, right: 10px, bottom: 0, left: 10px)),
+        large: (height: 40px, font-size: 14px, margin: 14px 10px, padding: (top: 0, right: 20px, bottom: 0, left: 20px))
       ),
       color: (secondary:700, primary:500),
       close:(
@@ -254,9 +277,9 @@ $config: deep-map-merge((
         line-height: 18px,
       ),
       icon: (font-size: 10px),
-      header: (background-color: --basic-600),
-      filter: (background-color: --basic-700),
-      expanded: (backround-color: --basic-500, padding: 10px),
+      header: (background-color: var(--basic-600)),
+      filter: (background-color: var(--basic-700)),
+      expanded: (backround-color: var(--basic-500), padding: 10px),
       size: (
         small: (
           min-height: 32px,
@@ -276,7 +299,8 @@ $config: deep-map-merge((
       ),
       paging: (
         box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.08)
-      )
+      ),
+      striped: true
     ),
     select: (
       size: (
@@ -298,6 +322,17 @@ $config: deep-map-merge((
           arrows: ghost-primary
         ),
       ),
+    ),
+    popover: (
+      height: 40px,
+      icon: (
+        width: 14px,
+        height: 100%,
+      ),
+      padding: (
+        right: 10px,
+        left: 10px,
+      )
     )
   ),
   color: (
@@ -389,6 +424,56 @@ $config: deep-map-merge((
           large: (padding: (top: 11px, right: 20px, bottom: 11px, left: 20px)),
         )
       )
+    )
+  ),
+  devexpress:(
+    status: false,
+    element: (
+      navbar: (
+        height: 56px,
+        color: var(--neutral-900),
+        background: (
+          color: var(--basic-300)
+        ),
+        shadow: none,
+      ),
+      k-drawer: (
+        color: var(--neutral-900),
+        background-color: var(--white),
+        hover: var(--basic-500),
+        height: 32px,
+        box-shadow: none,
+        font-size: 14px,
+        line-height: 18px,
+      ),
+      widget: (
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08),
+        padding: 16px,
+        header: (
+          font-weight: bold,
+          font-size: 14px,
+          line-height: 18px,
+          color: var(--neutral-900),
+        ),
+        content: (
+          padding: 27px 0,
+          font-weight: bold,
+          font-size: 54px,
+          line-height: 74px,
+          color: var(--basic-900),
+        ),
+        footer: (
+          font-weight: 600,
+          font-size: 14px,
+          line-height: 18px,
+          color: var(--primary-500),
+        )
+      ),
+      table: (
+        th: (height: 40px),
+        td: (height: 40px, border-color: var(--basic-600)),
+        button: (height: size-small, extend: ghost-secondary),
+      ),
     )
   ),
   debug: false,

@@ -7,6 +7,7 @@
   @import "badge";
   @import "fieldset";
   @import "select";
+  @import "spacing";
 }
 
 %bootstrap-elements {
@@ -15,6 +16,10 @@
 
 %vaadin-elements {
   @import "../vaadin/v8/vaadin";
+}
+
+%devexpress-elements {
+  @import "../devexpress/devexpress";
 }
 
 // Import Bootstrap with default
@@ -35,6 +40,14 @@
   }
 }
 
+// Import just Devexpress
+@if (get("devexpress.status")) {
+  // $config: deep-map-merge($config, (extend-colors:false), true);
+  #{get("selector")} {
+    @extend %devexpress-elements;
+  }
+}
+
 // Import just html
 @if (get("bootstrap.status")==false and get("vaadin.status")==false) {
   #{get("root")} {
@@ -43,6 +56,7 @@
 }
 
 @if (get("debug")) {
+  @debug "#################: devexpress: " + get("devexpress.status");
   @debug "#################: vaadin: " + get("vaadin.status");
   @debug "#################: bootstrap: " + get("bootstrap.status");
   @debug "#################: extend colors: " + get("extend-colors");

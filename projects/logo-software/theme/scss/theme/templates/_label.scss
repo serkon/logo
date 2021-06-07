@@ -6,8 +6,10 @@ Label
   vertical-align: middle;
   cursor: pointer;
   font-size: get("element.label.font-size");
+  line-height: #{get("element.label.line-height")};
   font-weight: 600;
-  line-height: normal;
+  padding: #{get("element.label.padding")};
+  color: #{get("element.label.color")};
 
   @each $size, $size-map in get("size") {
     &-#{$size} {

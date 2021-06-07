@@ -1,0 +1,42 @@
+.k-drawer-container {
+  border: 1px solid red;
+
+  .k-drawer.k-widget {
+    border: none;
+    background-color: var(--white);
+    box-shadow: get("devexpress.element.k-drawer.box-shadow");
+
+    .k-drawer-items {
+      margin: size(8px) 0;
+
+      .k-drawer-item {
+        display: flex;
+        align-items: center;
+        height: size(get("devexpress.element.k-drawer.height"));
+        padding: 0;
+        font-weight: normal;
+        font-size: size(get("devexpress.element.k-drawer.font-size"));
+        line-height: size(get("devexpress.element.k-drawer.line-height"));
+        color: get("devexpress.element.k-drawer.color");
+
+        &:hover {
+          background-color: get("devexpress.element.k-drawer.hover");
+        }
+
+        div[class*="k-level"] {
+          span {
+            margin: 0 size(17px);
+          }
+        }
+
+        a {
+          font-weight: normal;
+          font-size: size(get("devexpress.element.k-drawer.font-size"));
+          line-height: size(get("devexpress.element.k-drawer.line-height"));
+          color: get("devexpress.element.k-drawer.color");
+          // text-decoration: none;
+        }
+      }
+    }
+  }
+}

@@ -1,18 +1,24 @@
 @each $size, $value in get("element.tab.size") {
   .nav.#{$size}, %bootstrap-nav-#{$size} {
-    .nav-link {
-      @extend %padding-button-#{$size}, %size-#{$size};
+    .nav-item {
+      margin: get("element.tab.size."+$size+".margin");
 
-      border-radius: get("element.tab.size."+$size+".height") / 2;
+      .nav-link {
+        border-radius: size(get("element.tab.size."+$size+".height") / 2);
+        padding: size(get("element.tab.size."+$size+".padding.top")) size(get("element.tab.size."+$size+".padding.right")) size(get("element.tab.size."+$size+".padding.bottom")) size(get("element.tab.size."+$size+".padding.left"));
+        height: size(get("element.tab.size."+$size+".height"));
+      }
     }
   }
 }
 
 @each $color, $color-value in get("color.state") {
   .nav.#{"" + $color}, %bootstrap-nav-#{"" + $color} {
-    .nav-link {
-      &.active {
-        @extend %fill-#{"" + $color};
+    .nav-item {
+      .nav-link {
+        &.active {
+          @extend %fill-#{"" + $color};
+        }
       }
     }
   }
@@ -20,25 +26,35 @@
 
 .nav {
   border-radius: size(get("border.radius"));
-  box-shadow: 0 size(2px) size(4px) 0 #6a78f527;
-  padding: size(10px) size(20px);
+  // box-shadow: 0 size(2px) size(4px) 0 #6a78f527;
+  border-bottom: none;
   display: flex;
   justify-content: get("element.tab.align");
   height: auto;
 
-  .nav-link {
-    display: flex;
-    align-items: center;
-    font-weight: 800;
-    margin-right: size(20px);
-    border-radius: size(get("size.large.height")/2);
+  .nav-item {
+    margin: get("element.tab.size.large.margin");
 
-    @extend %padding-button-medium, %size-medium;
+    .nav-link {
+      display: flex;
+      align-items: center;
+      font-weight: get("element.tab.font-weight");
+      border-radius: size(get("element.tab.size.large.height") / 2);
+      padding: size(get("element.tab.size.large.padding.top")) size(get("element.tab.size.large.padding.right")) size(get("element.tab.size.large.padding.bottom")) size(get("element.tab.size.large.padding.left"));
+      height: size(get("element.tab.size.large.height"));
+      border: none;
+      color: var(--secondary-700);
 
-    &.active {
-      border-bottom: none;
+      &.active {
+        @extend %fill-primary;
 
-      @extend %fill-primary;
+        border-bottom: none;
+      }
+
+      &:hover {
+        background-color: var(--primary-100);
+        text-decoration: none;
+      }
     }
   }
 }

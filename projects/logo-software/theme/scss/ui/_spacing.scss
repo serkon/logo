@@ -1,0 +1,25 @@
+@for $i from 0 to get("spacing.count") {
+  .m {
+    @extend %m-#{$i};
+  }
+
+  .ml-#{$i} {
+    @extend %ml-#{$i};
+  }
+
+  .mr-#{$i} {
+    @extend %mr-#{$i};
+  }
+
+  .p {
+    @extend %p-#{$i};
+  }
+
+  .pl-#{$i} {
+    @extend %pl-#{$i};
+  }
+
+  .pr-#{$i} {
+    @extend %pr-#{$i};
+  }
+}
