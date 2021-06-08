@@ -45,7 +45,7 @@
           [classes]="classes"
           [iconClasses]="iconClasses"
           [itemTemplate]="itemTemplateRef"
-          [group]="group"
+          [group]="item.group"
           [items]="getChildren(item)"
           [level]="level - (item.group ? 1 : 0)"
           [maxSelected]="maxSelected"
