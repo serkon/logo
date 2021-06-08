@@ -2600,6 +2600,132 @@
           }
         }
       }
+    },
+    "polaris": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/polaris",
+      "sourceRoot": "projects/polaris/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/polaris",
+            "index": "projects/polaris/src/index.html",
+            "main": "projects/polaris/src/main.ts",
+            "polyfills": "projects/polaris/src/polyfills.ts",
+            "tsConfig": "projects/polaris/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/polaris/src/favicon.ico",
+              "projects/polaris/src/assets"
+            ],
+            "styles": [
+              "projects/polaris/src/styles.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "projects/polaris/src/scss"
+              ]
+            },
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/polaris/src/environments/environment.ts",
+                  "with": "projects/polaris/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "port": 4900,
+            "browserTarget": "polaris:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "polaris:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "polaris:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/polaris/src/test.ts",
+            "polyfills": "projects/polaris/src/polyfills.ts",
+            "tsConfig": "projects/polaris/tsconfig.spec.json",
+            "karmaConfig": "projects/polaris/karma.conf.js",
+            "assets": [
+              "projects/polaris/src/favicon.ico",
+              "projects/polaris/src/assets"
+            ],
+            "styles": [
+              "projects/polaris/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/polaris/tsconfig.app.json",
+              "projects/polaris/tsconfig.spec.json",
+              "projects/polaris/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/polaris/e2e/protractor.conf.js",
+            "devServerTarget": "polaris:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "polaris:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "documentation"
