@@ -1,0 +1,38 @@
+.k-card {
+  border: none;
+  background: #ffffff;
+  box-shadow: 0 size(2px) size(4px) rgba(0, 0, 0, 0.08);
+  margin: 16px;
+
+  .k-card-header {
+    border: none;
+    background-color: transparent;
+    padding: size(19px) size(16px) size(27px) size(16px);
+
+    .k-card-title {
+      font-weight: bold;
+      font-size: size(14px);
+      line-height: size(18px);
+      color: var(--neutral-900);
+    }
+  }
+
+  .k-card-body {
+    padding: 0 size(16px) size(16px) size(16px);
+
+    h1, h3 {
+      font-weight: bold;
+      font-size: size(54px);
+      line-height: size(74px);
+      color: var(--basic-900);
+      margin-bottom: size(12px);
+    }
+
+    div {
+      font-weight: normal;
+      font-size: size(14px);
+      line-height: size(18px);
+      color: var(--neutral-900);
+    }
+  }
+}

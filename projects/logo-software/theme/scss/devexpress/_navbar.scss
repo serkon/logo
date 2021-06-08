@@ -9,10 +9,12 @@ nav {
       @extend %fill-primary;
 
       height: 100%;
+      width: size(48px);
     }
 
     .title {
       color: get("devexpress.element.navbar.color");
+      padding-left: size(10px);
     }
   }
 }
