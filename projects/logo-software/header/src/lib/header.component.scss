@@ -103,15 +103,21 @@
         position: relative;
 
         &.right {
-          justify-content: flex-end;
+          .nav {
+            justify-content: flex-end;
+          }
         }
 
         &.left {
-          justify-content: flex-start;
+          .nav {
+            justify-content: flex-start;
+          }
         }
 
         &.center {
-          justify-content: center;
+          .nav {
+            justify-content: center;
+          }
         }
 
         .nav {
@@ -160,7 +166,7 @@
 
       .cta-base {
         padding-right: size(30px);
-        min-width: size(275px);
+        white-space: nowrap;
         box-sizing: border-box;
         text-align: right;
       }
