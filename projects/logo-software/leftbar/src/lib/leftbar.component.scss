@@ -593,6 +593,12 @@
             @include border-radius(size(8px));
 
             background: var(--basic-400);
+            padding: 0 !important;
+
+            img {
+              width: size(20px) !important;
+              height: auto !important;
+            }
           }
         }
       }
