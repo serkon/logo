@@ -1,0 +1,39 @@
+<logo-header
+  [containerStatus]="false"
+  [defaultTheme]="headerTheme.START"
+  [isMobilized]="true"
+  [logoImage]="'/assets/img/logo.png'"
+  [logoLinkClasses]="'large'"
+  [logoLinkText]="'Polaris'"
+  [menuPosition]="'right'"
+  [scrollPoint]="375"
+  [scrollSpy]="true"
+  [scrolledTheme]="headerTheme.SCROLL"
+  [watchElement]="'body'"
+>
+  <ng-container menu>
+    <a class="ghost light" href="/products">
+      Tüm Ürünler
+    </a>
+    <div class="menu-combobox">
+      <logo-combobox
+        (select)="onLangSelect($event)"
+        [(ngModel)]="theLanguage"
+        [hasFilter]="false"
+        [items]="languages"
+        [multiple]="false"
+        [path]="'name'"
+      >
+        <ng-template let-index="index" let-isFirst="isFirst" let-isLast="isLast" let-isOdd="isOdd" let-item="item">
+          <span>{{item.name}}</span>
+        </ng-template>
+      </logo-combobox>
+    </div>
+  </ng-container>
+  <ng-container cta>
+    <button (click)="logMeIn()" class="outline light icon-right le-arrow_thick_circle_2">Giriş Yapın</button>
+  </ng-container>
+</logo-header>
+<div class="logo-polaris">
+  <router-outlet></router-outlet>
+</div>
