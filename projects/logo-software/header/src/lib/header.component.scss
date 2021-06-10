@@ -85,7 +85,7 @@
         box-sizing: border-box;
 
         @include smaller-than(sm) {
-          padding: 0;
+          padding: 0 0 0 size(15px);
         }
 
         a {
@@ -133,7 +133,7 @@
         @include smaller-than(md) {
           background: var(--header-opened-bg);
           box-shadow: var(--header-opened-box-shadow);
-          flex-direction: column;
+          flex-direction: column-reverse;
           justify-content: flex-start;
           position: fixed;
           top: 0;
@@ -155,6 +155,16 @@
                 width: 100%;
               }
             }
+
+            a {
+              width: 100%;
+              color: var(--header-opened-button-color);
+            }
+
+            button {
+              width: 100%;
+              color: var(--header-opened-button-color);
+            }
           }
         }
 
@@ -166,9 +176,32 @@
 
       .cta-base {
         padding-right: size(30px);
+        padding-left: size(15px);
         white-space: nowrap;
         box-sizing: border-box;
         text-align: right;
+
+        @include smaller-than(md) {
+          text-align: center;
+          white-space: pre-wrap;
+          width: 100%;
+
+          a {
+            width: 100%;
+
+            &.light {
+              color: var(--header-opened-button-color);
+            }
+          }
+
+          button {
+            width: 100%;
+
+            &.light {
+              color: var(--header-opened-button-color);
+            }
+          }
+        }
       }
     }
   }
@@ -180,11 +213,8 @@
     display: none;
     z-index: 4;
 
-    @include smaller-than(lg) {
-      display: inline-block;
-    }
-
     @include smaller-than(md) {
+      display: inline-block;
       right: size(15px);
     }
   }
@@ -258,7 +288,7 @@
       .header-content {
         .menu {
           display: flex;
-          flex-direction: column;
+          flex-direction: column-reverse;
           transform: translateX(0);
 
           .nav {
@@ -275,6 +305,7 @@
           .cta-base {
             text-align: center;
             padding: 0 size(15px);
+            margin-bottom: size(15px);
 
             ::ng-deep {
               logo-link {
