@@ -67,6 +67,12 @@ input[type=checkbox], input[type=radio] {
     }
   }
 
+  &.no-line {
+    span {
+      border: 0;
+    }
+  }
+
   @each $size, $value in get("element.input.size") {
     &.#{$size} {
       &.left {
