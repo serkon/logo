@@ -39,7 +39,7 @@ export class HeroComponent {
   /**
    * adds custom CSS class to hero area. By this way you can customize area for your theme. Also you can customize overlay section with your custom class.
    */
-  @Input() cssClasses: string = 'hero-main';
+  @Input() cssClasses: string = 'logo-hero';
   /**
    * if sets true, add 'container' CSS class to area. You can use with bootstrap or other css frameworks.
    */
