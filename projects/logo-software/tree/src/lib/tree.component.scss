@@ -33,10 +33,18 @@
     padding: 0;
 
     li {
+      position: relative;
+
       &.group {
         .label-group {
           background-color: var(--basic-600);
         }
+      }
+
+      .selector {
+        position: absolute;
+        z-index: 1;
+        top: size(8px);
       }
 
       label {
@@ -65,6 +73,12 @@
 
         &.router-link-active {
           background-color: var(--tree-item-active-background-color);
+        }
+
+        &.check-active {
+          a {
+            margin-left: size(15px);
+          }
         }
 
         .icon {
@@ -116,7 +130,7 @@
         }
       }
 
-      input[type=checkbox] {
+      .opener[type=checkbox] {
         &:checked + label {
           // color: $selected;
           > span.arrow {

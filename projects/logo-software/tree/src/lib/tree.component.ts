@@ -75,6 +75,10 @@ export class TreeComponent implements OnInit {
    * The Matched router is activated this method will be triggered. It will push the tree item to the given method.
    */
   @Output() public routeItemActivated: EventEmitter<Tree> = new EventEmitter<Tree>();
+  /**
+   * Item checkbox status change trigger. When clicked, clicked item will be emited
+   */
+  @Output() public itemCheckChange: EventEmitter<any> = new EventEmitter<any>();
   @Input() public elementId;
 
   /**
@@ -152,6 +156,10 @@ export class TreeComponent implements OnInit {
 
   $onItemClick(item: Tree) {
     this.itemClick.emit(item);
+  }
+
+  $onItemCheckChange(item: any) {
+    this.itemCheckChange.emit(item);
   }
 
   htmlCategoryOnClick(item: Tree, $event?: MouseEvent) {
