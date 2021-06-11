@@ -2,17 +2,18 @@
   [containerStatus]="false"
   [defaultTheme]="headerTheme.START"
   [isMobilized]="true"
-  [logoImage]="'/assets/img/logo.png'"
+  [className]="'polaris-header'"
   [logoLinkClasses]="'large'"
   [logoLinkText]="'Polaris'"
   [menuPosition]="'right'"
-  [scrollPoint]="375"
+  [scrollPoint]="130"
   [scrollSpy]="true"
   [scrolledTheme]="headerTheme.SCROLL"
   [watchElement]="'body'"
+  [logoImage]="getHeaderLogo()"
 >
   <ng-container menu>
-    <a class="ghost light" href="/products">
+    <a [ngClass]="this.urlCase > 1 ? 'secandary' : 'light'" class="ghost" href="/products">
       Tüm Ürünler
     </a>
     <div class="menu-combobox">
@@ -31,7 +32,9 @@
     </div>
   </ng-container>
   <ng-container cta>
-    <button (click)="logMeIn()" class="outline light icon-right le-arrow_thick_circle_2">Giriş Yapın</button>
+    <button (click)="logMeIn()" [ngClass]="this.urlCase > 1 ? 'secandary' : 'light'"
+            class="outline icon-right le-arrow_thick_circle_2">Giriş Yapın
+    </button>
   </ng-container>
 </logo-header>
 <div class="logo-polaris">

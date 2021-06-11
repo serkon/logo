@@ -1,0 +1,131 @@
+<div class="search-result">
+  <logo-hero [bgImage]="'/assets/img/gfx-hero-sub-bg.png'" [containerStatus]="true" [cssClasses]="'polaris-hero-sub'">
+    <div class="hero-content">
+      <h1>Arama Sonuçları</h1>
+      <p class="large">Lorem ipsum dolor sit amet consectetur.</p>
+      <div class="input-base">
+        <div class="input-w-icon large left no-line">
+          <span class="le-search"></span>
+          <input class="large light icon-left" placeholder="Ürün Ara">
+        </div>
+        <button (click)="doSearch()" class="primary large icon-right le-chevron_right">Arayın</button>
+      </div>
+      <div class="tags-base">
+        <logo-tags
+          (onRemoveClicked)="sampleTagRemoveClicked($event)"
+          [className]="'primary'"
+          [item]="{id:'12345', name: 'My Search Tag 1'}"
+        >
+        </logo-tags>
+        <logo-tags
+          (onRemoveClicked)="sampleTagRemoveClicked($event)"
+          [className]="'primary'"
+          [item]="{id:'12345', name: 'My Search Tag 2'}"
+        >
+        </logo-tags>
+      </div>
+    </div>
+  </logo-hero>
+  <div class="container content-base">
+    <div class="result-info">
+      <p class="large">“Backup” içeren <b>{{this.filteredData.length}}</b> sonuç listeleniyor</p>
+    </div>
+    <div class="page-contents">
+      <div class="filters">
+        <h2>Filtreler</h2>
+        <div class="item">
+          <h4>Dil</h4>
+          <div class="filter">
+            <logo-combobox
+              (select)="onFilterLangSelect($event)"
+              [(ngModel)]="filterLanguage"
+              [hasFilter]="false"
+              [items]="filterLangs"
+              [multiple]="false"
+              [path]="'name'"
+            >
+              <ng-template
+                let-index="index"
+                let-isFirst="isFirst"
+                let-isLast="isLast"
+                let-isOdd="isOdd"
+                let-item="item"
+              >
+                <span>{{item.name}}</span>
+              </ng-template>
+            </logo-combobox>
+          </div>
+        </div>
+        <div class="item">
+          <h4>İçerik Türleri</h4>
+          <div class="filter">
+            <div class="selection">
+              <input
+                (change)="setTypeFilter(0)"
+                [value]="0"
+                id="type-all"
+                name="filterType"
+                type="radio"
+              >
+              <label>
+                Tümü
+                <logo-badge><span [innerHTML]="getCount(0)"></span></logo-badge>
+              </label>
+            </div>
+            <div *ngFor="let type of docTypes" class="selection">
+              <input
+                (change)="setTypeFilter($event.target)"
+                [value]="type.id"
+                id="type-{{type.id}}"
+                name="filterType"
+                type="radio"
+              >
+              <label>
+                {{type.name}}
+                <logo-badge><span [innerHTML]="getCount(type.id)"></span></logo-badge>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <h4>Ürünler</h4>
+          <div class="filter">
+            <div class="input-w-icon medium left no-line">
+              <span class="le-search"></span>
+              <input class="light bordered icon-left" placeholder="Ürün Ara">
+            </div>
+          </div>
+          <div class="selection">
+            <logo-tree [items]="filterProducts" [group]="false"></logo-tree>
+          </div>
+        </div>
+      </div>
+      <div class="results">
+        <div *ngFor="let result of filteredData" class="search-result-item">
+          <a routerLink="/docs/detail/{{result.slug}}" class="title">
+            <h3>
+              {{result.title}}
+              <logo-badge>{{result.dataType}}</logo-badge>
+            </h3>
+          </a>
+          <logo-breadcrumb
+            [breadcrumb]="result.breadcrumb"
+            [isLight]="false"
+            [size]="'medium'"
+          >
+          </logo-breadcrumb>
+          <p>{{result.desc}}</p>
+        </div>
+        <logo-paging
+          (pageNumberChange)="onPageChangeHandler($event)"
+          (pageSizeChange)="onPageChangeHandler($event)"
+          (onLoad)="onPageChangeHandler($event)"
+          [pageSize]="12"
+          [totalCount]="140"
+          [threshold]="5"
+        >
+        </logo-paging>
+      </div>
+    </div>
+  </div>
+</div>

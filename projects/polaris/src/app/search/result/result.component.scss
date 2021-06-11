@@ -1,0 +1,160 @@
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
+@import "~@logo-software/theme/base";
+
+:host {
+  --tree-item-active-background-color: transparent;
+
+  ::ng-deep {
+    .polaris-hero-sub {
+      height: size(380px);
+
+      .hero-content {
+        padding-top: size(130px);
+
+        h1 {
+          color: var(--primary);
+          font-size: size(48px);
+          line-height: size(66px);
+          font-weight: bold;
+
+          @include smaller-than(sm) {
+            font-size: size(32px);
+            line-height: size(44px);
+          }
+        }
+
+        .input-base {
+          .input-w-icon {
+            display: inline-block;
+            width: size(520px);
+            margin-right: size(8px);
+
+            @include smaller-than(sm) {
+              width: size(160px);
+            }
+
+            input {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      .tags-base {
+        padding: size(16px) 0;
+
+        ::ng-deep {
+          .tag-item {
+            color: var(--white);
+          }
+        }
+      }
+    }
+  }
+
+  .result-info {
+    padding: size(9px) 0 size(35px);
+  }
+
+  .content-base {
+    .page-contents {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-direction: row;
+
+      .filters {
+        width: calc(30% - 30px);
+
+        h2 {
+          color: var(--primary-900);
+          border-bottom: 1px solid var(--light-600);
+          padding-bottom: size(14px);
+          margin-bottom: size(14px);
+        }
+
+        .item {
+          margin: 0 0 size(14px) 0;
+          padding: 0 0 size(14px) 0;
+          border-bottom: 1px solid var(--light-600);
+
+          h4 {
+            color: var(--primary-900);
+            margin-bottom: size(14px);
+          }
+
+          .selection {
+            position: relative;
+
+            logo-badge {
+              position: absolute;
+              right: 0;
+
+              ::ng-deep {
+                .badge {
+                  min-width: auto;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .results {
+        margin-left: size(30px);
+        width: 70%;
+
+        .search-result-item {
+          margin-bottom: size(44px);
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          .title {
+            padding: 0;
+
+            &:hover {
+              text-decoration: none;
+
+              h3{
+                color: var(--primary-900);
+              }
+            }
+
+            h3 {
+              @include animate();
+            }
+          }
+
+          logo-breadcrumb {
+            margin-top: size(18px);
+
+            ::ng-deep {
+              a {
+                padding: 0;
+              }
+
+              .breadcrumb {
+                margin-bottom: 0;
+              }
+            }
+          }
+
+          p {
+            margin: size(8px) 0;
+          }
+        }
+      }
+    }
+  }
+}

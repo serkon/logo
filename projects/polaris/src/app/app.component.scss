@@ -1,5 +1,55 @@
-:root {
-  --header-height: 90px;
-  --header-scroll-bg: transparent;
-  --header-scroll-button-opener-color: var(--light);
+/**
+ * @license
+ * Copyright LOGO YAZILIM SANAYİ VE TİCARET A.Ş. All Rights Reserved.
+ *
+ * Save to the extent permitted by law, you may not use, copy, modify,
+ * distribute or create derivative works of this material or any part
+ * of it without the prior written consent of LOGO YAZILIM SANAYİ VE TİCARET A.Ş. Limited.
+ * Any reproduction of this material must contain this notice.
+ */
+
+@import "~@logo-software/theme/base";
+
+:host {
+  --header-height: #{size(90px)};
+  --header-default-bg: transparent;
+  --header-default-box-shadow: none;
+  --header-default-logo-bg: transparent;
+
+  /* --header-default-logo-color: var(--light);
+  --header-default-button-color: var(--light);
+  --header-default-button-opener-color: var(--light);
+  --header-scroll-bg: var(--basic-200);
+  --header-scroll-box-shadow: 0 #{size(2px)} #{size(4px)} 0 rgba(var(--black-rgb), 0.08);
+  --header-scroll-logo-bg: transparent;
+  --header-scroll-logo-color: var(--dark);
+  --header-scroll-button-color: var(--dark);
+  --header-scroll-button-opener-color: var(--dark);
+  --header-opened-bg: var(--basic-200);
+  --header-opened-box-shadow: 0 #{size(2px)} #{size(4px)} 0 rgba(var(--black-rgb), 0.08);
+  --header-opened-button-color: var(--dark);
+  --header-opened-button-opener-color: var(--dark); */
+
+  ::ng-deep {
+    .polaris-header {
+      @include smaller-than(md) {
+        .nav {
+          a {
+            color: var(--dark) !important;
+          }
+
+          .menu-combobox {
+            padding: size(14px);
+          }
+        }
+
+        .cta-base {
+          button {
+            border-color: var(--dark) !important;
+            color: var(--dark) !important;
+          }
+        }
+      }
+    }
+  }
 }
