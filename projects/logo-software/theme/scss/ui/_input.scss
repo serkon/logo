@@ -33,6 +33,11 @@ input[type=checkbox], input[type=radio] {
 
 .input-w-icon {
   position: relative;
+  border-radius: size(get("border.radius"));
+
+  @if (get("element.input.border.status")) {
+    border-color: get("element.input.border.color");
+  }
 
   span {
     display: inline-block;
@@ -71,6 +76,10 @@ input[type=checkbox], input[type=radio] {
     span {
       border: 0;
     }
+  }
+
+  &.bordered {
+    border: 1px solid get("element.input.border.color");
   }
 
   @each $size, $value in get("element.input.size") {
