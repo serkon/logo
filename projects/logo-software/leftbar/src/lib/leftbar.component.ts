@@ -246,7 +246,7 @@ export class LeftbarComponent implements OnInit, OnChanges {
   }
 
   public doTenantSearchEmitter(val: string) {
-    val.length > 2 ? this.onTenantSearch.emit(val) : '';
+    val.length === 0 ? this.onTenantSearch.emit('') : val.length > 2 ? this.onTenantSearch.emit(val) : '';
   }
 
   public setAsDefaultTenantEmitter(id: string) {

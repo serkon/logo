@@ -494,10 +494,9 @@
                 vertical-align: middle;
 
                 img {
-                  display: block;
                   max-width: 100%;
                   height: size(16px);
-                  margin: size(8px) 0;
+                  margin: size(8px) size(8px) size(8px) 0;
                 }
 
                 img[src*=svg] {
@@ -506,9 +505,14 @@
                 }
 
                 &::after {
-                  display: inline-flex;
+                  display: inline-block;
+                  width: size(155px);
                   content: attr(name);
                   vertical-align: top;
+                  flex-grow: 1;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
                 }
               }
             }
