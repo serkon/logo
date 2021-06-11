@@ -1963,6 +1963,10 @@ export class LeftbarShowcaseComponent implements AfterViewInit {
     console.log('### Tanent Action' + id);
   }
 
+  public sampleTenantSearch(val) {
+    console.log('### Tanent Search Keyword', val);
+  }
+
   public sampleAppAction(id) {
     console.log('### Application Action' + id);
   }
