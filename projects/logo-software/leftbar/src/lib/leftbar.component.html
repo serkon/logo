@@ -175,8 +175,11 @@
         >
       </span>
     </div>
-    <div *ngIf="!isMainPage" [ngClass]="{'hidden-mobile': applications && applications.length < 2}"
-         class="shortcuts-base">
+    <div
+      *ngIf="!isMainPage"
+      [ngClass]="{'hidden-mobile': applications && applications.length < 2}"
+      class="shortcuts-base"
+    >
       <div class="standarts">
         <div class="home item">
           <button (click)="homeEmitter()" class="ghost le-home"></button>
@@ -184,8 +187,10 @@
         <div class="apps item">
           <div *ngIf="applications && applications.length > 1">
             <button
-              (click)="togglePopover('appOptions')"
-              class="ghost icon-right le-arrow_down"
+              (click)="!leftbarService.disableAppSelection ? togglePopover('appOptions') : ''"
+              [ngClass]="{'le-arrow_down':!leftbarService.disableAppSelection}"
+              [disabled]="leftbarService.disableAppSelection"
+              class="ghost icon-right"
               data-name="{{defaultApp.Name}}"
             >
               <img *ngIf="defaultApp" [attr.src]="defaultApp.SafeIconAdress" class="app-logo"/>
@@ -206,8 +211,11 @@
               </button>
             </div>
           </div>
-          <div *ngIf="applications && applications.length == 1" attr.data-name="{{applications[0].Name}}"
-               class="single-app">
+          <div
+            *ngIf="applications && applications.length == 1"
+            attr.data-name="{{applications[0].Name}}"
+            class="single-app"
+          >
             <span class="aligner"></span>
             <img [attr.src]="applications[0].SafeIconAdress" class="app-logo"/>
             <img [attr.src]="applications[0].SafeIconAdress" class="app-icon"/>

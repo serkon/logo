@@ -29,6 +29,10 @@ export class LeftbarService {
    * Global activation of slim mode. It accepts boolean. True sets slim mode activated.
    */
   public isSlim: boolean = false;
+  /**
+   * Global feature for disable/enable application selection on-the-fly. If setted true, application selection will be disabled. Default value is 'false'
+   */
+  public disableAppSelection: boolean = false;
 
   constructor() {
     this.userDataLoad.subscribe((data) => {

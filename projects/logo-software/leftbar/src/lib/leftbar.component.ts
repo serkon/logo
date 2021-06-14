@@ -94,6 +94,10 @@ export class LeftbarComponent implements OnInit, OnChanges {
    */
   @Input() public enableShortCuts: boolean = true;
   /**
+   * Disable/Enable App Selection for user.
+   */
+  @Input() public disableAppSelection: boolean = false;
+  /**
    * When add shorcut button clicked, an output event fired with boolean.
    */
   @Output() public onAddShortCut: EventEmitter<number> = new EventEmitter<number>();
@@ -156,6 +160,7 @@ export class LeftbarComponent implements OnInit, OnChanges {
   @ViewChild(ApplicationTreeComponent, {read: ApplicationTreeComponent}) tree: ApplicationTreeComponent;
 
   constructor(public leftbarService: LeftbarService) {
+    this.leftbarService.disableAppSelection = this.disableAppSelection;
   }
 
   ngOnInit(): void {
