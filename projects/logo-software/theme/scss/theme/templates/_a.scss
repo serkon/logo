@@ -29,6 +29,14 @@
     box-shadow: none;
   }
 
+  &:visited {
+    color: var(--neutral-900);
+
+    &::before {
+      color: var(--neutral-900);
+    }
+  }
+
   &:hover {
     text-decoration: underline;
   }
