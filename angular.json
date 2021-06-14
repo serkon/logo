@@ -2623,7 +2623,8 @@
             "aot": true,
             "assets": [
               "projects/polaris/src/favicon.ico",
-              "projects/polaris/src/assets"
+              "projects/polaris/src/assets",
+              { "glob": "**/*", "input": "node_modules/ng2-pdfjs-viewer/pdfjs", "output": "/assets/pdfjs" }
             ],
             "styles": [
               "projects/polaris/src/styles.scss"
@@ -2692,7 +2693,8 @@
             "karmaConfig": "projects/polaris/karma.conf.js",
             "assets": [
               "projects/polaris/src/favicon.ico",
-              "projects/polaris/src/assets"
+              "projects/polaris/src/assets",
+              { "glob": "**/*", "input": "node_modules/ng2-pdfjs-viewer/pdfjs", "output": "/assets/pdfjs" }
             ],
             "styles": [
               "projects/polaris/src/styles.scss"
