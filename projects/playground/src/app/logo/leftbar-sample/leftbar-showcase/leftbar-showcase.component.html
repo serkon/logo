@@ -36,6 +36,12 @@
 </logo-leftbar>
 
 <div style="position: absolute; top: 20vh; right: 0; width: 50vw; height: 80vh; z-index: 0; overflow-y: auto;">
+  <div>
+    <button (click)="toggleAppSelection()" class="info large">
+      Toogle App Selection
+    </button>
+  </div>
+  <hr/>
   <h2>{{selectedList.length}}</h2>
   <p>{{selectedList | json}}</p>
 </div>

@@ -1991,6 +1991,10 @@ export class LeftbarShowcaseComponent implements AfterViewInit {
     console.log('### Sample Data Get', this.leftbarService.userDataLoad);
   }
 
+  public toggleAppSelection() {
+    this.leftbarService.disableAppSelection = !this.leftbarService.disableAppSelection;
+  }
+
   ngAfterViewInit(): void {
     this.leftbarService.userDataLoad.next(this.theUserInfo);
   }
