@@ -23,12 +23,14 @@
   --header-default-logo-color: var(--light);
   --header-default-button-color: var(--light);
   --header-default-button-opener-color: var(--light);
+  --header-default-button-opener-background-color: transparent;
   --header-scroll-bg: var(--basic-200);
   --header-scroll-box-shadow: 0 #{size(2px)} #{size(4px)} 0 rgba(var(--black-rgb), 0.08);
   --header-scroll-logo-bg: transparent;
   --header-scroll-logo-color: var(--dark);
   --header-scroll-button-color: var(--dark);
   --header-scroll-button-opener-color: var(--dark);
+  --header-scroll-button-opener-background-color: transparent;
   --header-opened-bg: var(--basic-200);
   --header-opened-box-shadow: 0 #{size(2px)} #{size(4px)} 0 rgba(var(--black-rgb), 0.08);
   --header-opened-button-color: var(--dark);
@@ -248,6 +250,7 @@
     .mobile-opener {
       button {
         color: var(--header-default-button-opener-color);
+        background-color: var(--header-default-button-opener-background-color);
       }
     }
   }
@@ -279,6 +282,7 @@
     .mobile-opener {
       button {
         color: var(--header-scroll-button-opener-color);
+        background-color: var(--header-scroll-button-opener-background-color);
       }
     }
   }
