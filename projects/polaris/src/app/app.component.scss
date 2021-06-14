@@ -10,11 +10,22 @@
 
 @import "~@logo-software/theme/base";
 
+.sub {
+  --header-default-button-opener-color: var(--white);
+  --header-default-button-opener-background-color: var(--primary-500);
+  --header-scroll-button-opener-color: var(--white);
+  --header-scroll-button-opener-background-color: var(--primary-500);
+}
+
 :host {
   --header-height: #{size(90px)};
   --header-default-bg: transparent;
   --header-default-box-shadow: none;
   --header-default-logo-bg: transparent;
+  --header-default-button-opener-color: var(--primary-500);
+  --header-default-button-opener-background-color: var(--white);
+  --header-scroll-button-opener-color: var(--primary-500);
+  --header-scroll-button-opener-background-color: var(--white);
 
   /* --header-default-logo-color: var(--light);
   --header-default-button-color: var(--light);
@@ -32,6 +43,54 @@
 
   ::ng-deep {
     .polaris-header {
+      .cta-base {
+        .user-base {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+
+          .user-image {
+            @include border-radius(50%);
+
+            width: size(36px);
+            height: size(36px);
+            overflow: hidden;
+            border: 2px solid var(--info-200);
+
+            img {
+              min-width: 100%;
+              min-height: 100%;
+              max-width: 100%;
+              max-height: 100%;
+              margin-left: 50%;
+              transform: translateX(-50%);
+              object-fit: scale-down;
+            }
+          }
+
+          .user-name {
+            flex-grow: 1;
+            position: relative;
+
+            ::ng-deep {
+              .user-options-popover {
+                right: 0;
+                top: size(36px);
+                text-align: center;
+
+                button {
+                  width: 100%;
+
+                  &:hover {
+                    color: var(--danger);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
       @include smaller-than(md) {
         .nav {
           a {

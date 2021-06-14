@@ -20,6 +20,10 @@
       .hero-content {
         padding-top: size(130px);
 
+        @include smaller-than(sm) {
+          width: 100%;
+        }
+
         h1 {
           color: var(--primary);
           font-size: size(48px);
@@ -29,22 +33,6 @@
           @include smaller-than(sm) {
             font-size: size(32px);
             line-height: size(44px);
-          }
-        }
-
-        .input-base {
-          .input-w-icon {
-            display: inline-block;
-            width: size(520px);
-            margin-right: size(8px);
-
-            @include smaller-than(sm) {
-              width: size(160px);
-            }
-
-            input {
-              width: 100%;
-            }
           }
         }
       }
@@ -63,6 +51,14 @@
 
   .result-info {
     padding: size(9px) 0 size(35px);
+
+    .mobile-filters-btn {
+      display: none;
+
+      @include smaller-than(sm) {
+        display: block;
+      }
+    }
   }
 
   .content-base {
@@ -72,8 +68,52 @@
       justify-content: flex-start;
       flex-direction: row;
 
+      @include smaller-than(sm) {
+        overflow-x: hidden;
+      }
+
       .filters {
+        @include animate(all, 0.2s, ease-in-out);
+
         width: calc(30% - 30px);
+
+        @include smaller-than(sm) {
+          width: 95vw;
+          height: 100vh;
+          position: fixed;
+          z-index: 10;
+          top: 0;
+          left: -95vw;
+          background-color: var(--white);
+          overflow-x: hidden;
+          overflow-y: auto;
+          box-sizing: border-box;
+          padding: size(30px) size(20px);
+
+          &.show {
+            left: 0;
+          }
+        }
+
+        .mobile-close-btn {
+          display: none;
+
+          @include smaller-than(sm) {
+            display: inline-block;
+            position: absolute;
+            top: size(30px);
+            right: size(20px);
+          }
+        }
+
+        .mobile-apply-btn {
+          display: none;
+
+          @include smaller-than(sm) {
+            display: inline-block;
+            width: 100%;
+          }
+        }
 
         h2 {
           color: var(--primary-900);
@@ -113,6 +153,11 @@
         margin-left: size(30px);
         width: 70%;
 
+        @include smaller-than(sm) {
+          margin-left: 0;
+          width: 100%;
+        }
+
         .search-result-item {
           margin-bottom: size(44px);
 
@@ -126,7 +171,7 @@
             &:hover {
               text-decoration: none;
 
-              h3{
+              h3 {
                 color: var(--primary-900);
               }
             }

@@ -1,0 +1,25 @@
+{
+  "name": "Polaris",
+  "version": "1.0.0",
+  "description": "",
+  "main": "karma.conf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "npm install @logo-software/theme @logo-software/links @logo-software/tabs @logo-software/card @logo-software/breadcrumb @logo-software/accordion @logo-software/carousel @logo-software/combobox @logo-software/header @logo-software/hero @logo-software/idm @logo-software/image-slider @logo-software/paging @logo-software/storage @logo-software/tags @logo-software/icons"
+  },
+  "author": "Serhan Gürbüz",
+  "license": "ISC",
+  "dependencies": {
+    "@logo-software/breadcrumb": "^1.0.0",
+    "@logo-software/combobox": "^0.1.0",
+    "@logo-software/header": "^0.1.1",
+    "@logo-software/hero": "^0.1.1",
+    "@logo-software/icons": "^1.5.2",
+    "@logo-software/idm": "^0.2.1",
+    "@logo-software/paging": "^1.1.1",
+    "@logo-software/storage": "^0.2.1",
+    "@logo-software/tags": "^0.2.1",
+    "@logo-software/theme": "^3.8.1",
+    "ng2-pdfjs-viewer": "^6.0.1"
+  }
+}

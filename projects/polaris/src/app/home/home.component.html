@@ -6,8 +6,18 @@
       <div class="input-base">
         <div class="input-w-icon large left no-line">
           <span class="le-search"></span>
-          <input class="large light icon-left" placeholder="Ürün Ara">
+          <input class="large light icon-left" placeholder="Aramak İstediğiniz Kelimeyi Yazınız" #productSearch (keyup)="getSuggestFor(productSearch.value)">
         </div>
+        <logo-popover
+          *ngIf="suggestResults.length > 0"
+          [hasSearch]="false"
+          [id]="'productSuggest'"
+          [cssClasses]="'product-suggest-popover'"
+          [isBackClick]="false"
+          [position]="PopoverPosition.POPOVER_BOTTOM_LEFT"
+        >
+          <a *ngFor="let item of suggestResults" routerLink="{{item.link}}" class="suggest-item ghost secondary">{{item.name}}</a>
+        </logo-popover>
         <button (click)="doSearch()" class="secondary large icon-right le-chevron_right">Arayın</button>
       </div>
     </div>

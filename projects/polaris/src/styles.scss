@@ -10,3 +10,53 @@
 
 @import "~@logo-software/theme/style";
 @import "~@logo-software/icons/style";
+
+logo-hero {
+  .input-base {
+    position: relative;
+
+    @include smaller-than(sm) {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+
+    .input-w-icon {
+      display: inline-block;
+      width: size(520px);
+      margin-right: size(8px);
+
+      @include smaller-than(sm) {
+        width: 100%;
+        flex-grow: 1;
+      }
+
+      input {
+        width: 100% !important;
+      }
+    }
+
+    .product-suggest-popover {
+      width: size(520px) !important;
+      left: 0;
+      top: size(50px);
+
+      @include smaller-than(sm) {
+        width: size(160px) !important;
+      }
+
+      .popover-content {
+        display: flex;
+        flex-direction: column;
+
+        .suggest-item {
+          display: block;
+          width: 100%;
+          text-align: left;
+        }
+      }
+    }
+  }
+}

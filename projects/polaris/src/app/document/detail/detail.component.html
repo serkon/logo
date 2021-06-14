@@ -1,15 +1,179 @@
 <div class="docs-detail">
   <logo-hero [bgImage]="'/assets/img/gfx-hero-sub-bg.png'" [containerStatus]="true" [cssClasses]="'polaris-hero-sub'">
     <div class="hero-content">
-      <h1>Arama Sonuçları</h1>
-      <p class="large">Lorem ipsum dolor sit amet consectetur.</p>
+      <h1>{{docData.productName}}</h1>
+      <p class="large">{{docData.intro}}</p>
       <div class="input-base">
         <div class="input-w-icon large left no-line">
           <span class="le-search"></span>
-          <input class="large light icon-left" placeholder="Ürün Ara">
+          <input class="large light icon-left" placeholder="Aramak İstediğiniz Kelimeyi Yazınız" #productSearch (keyup)="getSuggestFor(productSearch.value)">
         </div>
+        <logo-popover
+          *ngIf="suggestResults.length > 0"
+          [hasSearch]="false"
+          [id]="'productSuggest'"
+          [cssClasses]="'product-suggest-popover'"
+          [isBackClick]="false"
+          [position]="PopoverPosition.POPOVER_BOTTOM_LEFT"
+        >
+          <a *ngFor="let item of suggestResults" routerLink="{{item.link}}" class="suggest-item ghost secondary">{{item.name}}</a>
+        </logo-popover>
         <button (click)="doSearch()" class="primary large icon-right le-chevron_right">Arayın</button>
       </div>
     </div>
   </logo-hero>
+  <div class="container content-base">
+    <div class="page-infos">
+      <div class="breadcrumb-base">
+        <logo-breadcrumb
+          [breadcrumb]="docData.breadcrumb"
+          [isLight]="false"
+          [size]="'medium'"
+        >
+        </logo-breadcrumb>
+      </div>
+      <div class="options-base">
+        <a href="{{docData.pdf.source}}" target="_blank" class="icon-right le-download secondary">
+          PDF İndirin
+        </a>
+        <a href="{{docData.shareLink}}" target="_blank" class="icon-right le-share secondary">
+          Paylaş
+        </a>
+      </div>
+      <div class="mobile-actions">
+        <button
+          (click)="openDirectory()"
+          class="large secondary outline icon-right le-unordered_list"
+        >
+          Dizin
+        </button>
+        <button
+          (click)="openOptions()"
+          class="large secondary outline le-three_dots_ver"
+        >
+        </button>
+      </div>
+    </div>
+    <div class="page-contents">
+      <div class="directory-base" [ngClass]="{'show' : showMobileDirectory}">
+        <h2 class="section-title">Dizin</h2>
+        <button (click)="closeDirectory()" class="mobile-close-btn outline secondary le-cross"></button>
+        <div class="apps">
+          <logo-combobox
+            (select)="onProductSelect($event)"
+            [(ngModel)]="theProduct"
+            [hasFilter]="false"
+            [items]="docData.directory.apps"
+            [multiple]="false"
+            [path]="'name'"
+          >
+            <ng-template let-index="index" let-isFirst="isFirst" let-isLast="isLast" let-isOdd="isOdd" let-item="item">
+              <span>{{item.name}}</span>
+            </ng-template>
+          </logo-combobox>
+        </div>
+        <div class="items">
+          <logo-tree [items]="docData.directory.titles" [group]="false"></logo-tree>
+        </div>
+      </div>
+      <div class="pdf-content">
+        <div class="pdf-base">
+          <ng2-pdfjs-viewer [pdfSrc]="docData.pdf.source"></ng2-pdfjs-viewer>
+        </div>
+        <div class="comments">
+          <div class="comments-title-base">
+            <div class="comments-title">
+              <h2 class="section-title">
+                Yorumlar
+              </h2>
+            </div>
+            <div class="comment-opts">
+              <button class="secondary icon-right le-component_dialog">Yorum Yazın</button>
+            </div>
+          </div>
+          <div *ngFor="let comment of docData.comments" class="comment-item">
+            <div class="comment-info">
+              <div class="writer">
+                <h4>{{comment.writer}}</h4>
+              </div>
+              <div class="date">
+                <p>{{comment.date}}</p>
+              </div>
+            </div>
+            <div class="score-base">
+              <div class="score-item">
+                <img src="/assets/img/star-empty.png"/>
+                <img src="/assets/img/star-empty.png"/>
+                <img src="/assets/img/star-empty.png"/>
+                <img src="/assets/img/star-empty.png"/>
+                <img src="/assets/img/star-empty.png"/>
+                <div class="score" [style.width]="getScoreWidth(comment.star)">
+                  <img src="/assets/img/star-full.png"/>
+                  <img src="/assets/img/star-full.png"/>
+                  <img src="/assets/img/star-full.png"/>
+                  <img src="/assets/img/star-full.png"/>
+                  <img src="/assets/img/star-full.png"/>
+                </div>
+              </div>
+            </div>
+            <div class="comment">
+              <p class="small">
+                {{comment.comment}}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="related-contents">
+          <div class="related-contents-title">
+            <h2 class="section-title">
+              İlgili İçerikler
+            </h2>
+          </div>
+          <div class="relateds">
+            <div *ngFor="let related of docData.relatedDocs" class="item">
+              <logo-card [shadowStyle]="'large'" [cssClasses]="'related-doc-item'">
+                <logo-badge>{{related.type}}</logo-badge>
+                <div class="title">
+                  {{related.name}}
+                </div>
+                <div class="cta">
+                  <a routerLink="{{related.link}}" class="ghost icon-right le-chevron_right secondary">
+                    Detaylar
+                  </a>
+                </div>
+              </logo-card>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="table-of-contents">
+        <h4 class="section-title">Bu dokümanda neler var?</h4>
+        <div class="items">
+          <a
+            *ngFor="let item of docData.contents"
+            routerLink="{{item.link}}"
+            routerLinkActive="active"
+            class="link-item ghost secondary"
+          >
+            {{item.name}}
+          </a>
+        </div>
+      </div>
+      <div class="mobile-options-base" [ngClass]="{'show': showMobileOptions}">
+        <span class="background"></span>
+        <div class="mobile-options">
+          <div class="title">
+            <h3>Seçenekler</h3>
+            <button (click)="closeOptions()" class="window-button close le-cross"></button>
+          </div>
+          <a href="{{docData.pdf.source}}" target="_blank" class="icon-left large le-download ghost secondary">
+            PDF İndirin
+          </a>
+          <a href="{{docData.shareLink}}" target="_blank" class="icon-left large le-share ghost secondary">
+            Paylaş
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

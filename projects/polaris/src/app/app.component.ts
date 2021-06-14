@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
-
-import { HeaderTheme } from '@logo-software/header';
 import { NavigationEnd, Router } from '@angular/router';
+
+import { HeaderService, HeaderTheme } from '@logo-software/header';
+import { IdmService } from '@logo-software/idm';
+import { PopoverPosition } from '@logo-software/popover';
+
+import { UserService } from '@polaris/app/services/auth/user.service';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +28,14 @@ export class AppComponent {
 
   public urlCase: number;
 
-  constructor(public router: Router) {
+  public PopoverPosition = PopoverPosition;
+
+  constructor(
+    public router: Router,
+    public idmService: IdmService,
+    public userService: UserService,
+    private headerService: HeaderService,
+  ) {
     this.router.events.subscribe(e => {
       if (e instanceof NavigationEnd) {
         this.urlCase = this.router.url.length;
@@ -39,11 +50,15 @@ export class AppComponent {
   }
 
   public logMeIn() {
-    console.log('IDM Login Action');
+    this.idmService.toLogin();
+  }
+
+  public logMeOut() {
+    this.idmService.logout();
   }
 
   public getHeaderLogo() {
-    if (this.urlCase > 1) {
+    if (this.urlCase > 1 || this.headerService.activeTheme === HeaderTheme.SCROLL) {
       return '/assets/img/logo-sub.png';
     } else {
       return '/assets/img/logo.png';

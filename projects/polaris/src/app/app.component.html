@@ -11,6 +11,7 @@
   [scrolledTheme]="headerTheme.SCROLL"
   [watchElement]="'body'"
   [logoImage]="getHeaderLogo()"
+  [ngClass]="this.urlCase > 1 ? 'sub' : 'main'"
 >
   <ng-container menu>
     <a [ngClass]="this.urlCase > 1 ? 'secandary' : 'light'" class="ghost" href="/products">
@@ -32,11 +33,44 @@
     </div>
   </ng-container>
   <ng-container cta>
-    <button (click)="logMeIn()" [ngClass]="this.urlCase > 1 ? 'secandary' : 'light'"
-            class="outline icon-right le-arrow_thick_circle_2">Giriş Yapın
+    <button
+      *ngIf="!idmService.isLogged"
+      (click)="logMeIn()"
+      [ngClass]="this.urlCase > 1 ? 'secondary' : 'light'"
+      class="outline icon-right le-arrow_thick_circle_2"
+    >
+      Giriş Yapın
     </button>
+    <div *ngIf="idmService.isLogged" class="user-base">
+      <div class="user-image">
+        <!--
+          src="https://images.generated.photos/eyziZ9aw8VJEOM5TTPvdrISOANo_IXRyI7wMjQysR44/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yy/XzAwMjkzNTMuanBn.jpg"
+        -->
+        <img
+          onerror="this.src='/assets/img/default-user.png';"
+          src="{{userService.user.UserImage}}"
+        >
+      </div>
+      <div class="user-name">
+        <button class="ghost icon-right le-chevron_down" [logoPopover]="'userPopover'" [ngClass]="this.urlCase > 1 ? 'secondary' : 'light'">
+          <!--Isobel Morgan-->
+          {{userService.user.Name}} {{userService.user.Surname}}
+        </button>
+        <logo-popover
+          [cssClasses]="'user-options-popover'"
+          [hasSearch]="false"
+          [id]="'userPopover'"
+          [isBackClick]="true"
+          [position]="PopoverPosition.POPOVER_BOTTOM_RIGHT"
+          [sameSize]="true"
+        >
+          <button class="ghost danger" (click)="logMeOut()">Çıkış Yap</button>
+        </logo-popover>
+      </div>
+    </div>
   </ng-container>
 </logo-header>
 <div class="logo-polaris">
   <router-outlet></router-outlet>
 </div>
+<logo-footer></logo-footer>

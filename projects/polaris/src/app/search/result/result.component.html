@@ -6,8 +6,29 @@
       <div class="input-base">
         <div class="input-w-icon large left no-line">
           <span class="le-search"></span>
-          <input class="large light icon-left" placeholder="Ürün Ara">
+          <input
+            class="large light icon-left"
+            placeholder="Aramak İstediğiniz Kelimeyi Yazınız"
+            #productSearch
+            (keyup)="getSuggestFor(productSearch.value)"
+          >
         </div>
+        <logo-popover
+          *ngIf="suggestResults.length > 0"
+          [hasSearch]="false"
+          [id]="'productSuggest'"
+          [cssClasses]="'product-suggest-popover'"
+          [isBackClick]="true"
+          [position]="PopoverPosition.POPOVER_BOTTOM_LEFT"
+        >
+          <a
+            *ngFor="let item of suggestResults"
+            routerLink="{{item.link}}"
+            class="suggest-item ghost secondary"
+          >
+            {{item.name}}
+          </a>
+        </logo-popover>
         <button (click)="doSearch()" class="primary large icon-right le-chevron_right">Arayın</button>
       </div>
       <div class="tags-base">
@@ -28,11 +49,18 @@
   </logo-hero>
   <div class="container content-base">
     <div class="result-info">
+      <button
+        class="mobile-filters-btn outline secondary icon-right le-filter"
+        (click)="openFilters()"
+      >
+        Arama Filtreleri
+      </button>
       <p class="large">“Backup” içeren <b>{{this.filteredData.length}}</b> sonuç listeleniyor</p>
     </div>
     <div class="page-contents">
-      <div class="filters">
+      <div class="filters" [ngClass]="{'show': showMobileFilter}">
         <h2>Filtreler</h2>
+        <button (click)="closeFilters()" class="mobile-close-btn outline secondary le-cross"></button>
         <div class="item">
           <h4>Dil</h4>
           <div class="filter">
@@ -99,6 +127,7 @@
             <logo-tree [items]="filterProducts" [group]="false"></logo-tree>
           </div>
         </div>
+        <button (click)="closeFilters()" class="mobile-apply-btn large secondary">Filtreleri Uygula</button>
       </div>
       <div class="results">
         <div *ngFor="let result of filteredData" class="search-result-item">

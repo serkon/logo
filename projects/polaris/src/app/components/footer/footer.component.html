@@ -1,0 +1,20 @@
+<div class="polaris-footer">
+  <div class="container">
+    <div class="footer-logo">
+      <img [src]="footerContents.logo">
+    </div>
+    <div class="site-map">
+      <div *ngFor="let mapItem of footerContents.sitemap" class="col">
+        <h4 class="footer-title">{{mapItem.title}}</h4>
+        <a *ngFor="let link of mapItem.links" href="{{link.link}}" class="sitemap-link">{{link.name}}</a>
+      </div>
+      <div class="col">
+        <h4 class="footer-title">Bizi Takip Edin</h4>
+        <a href="http://www.google.com" target="_blank" class="social-link le-facebook"></a>
+        <a href="http://www.google.com" target="_blank" class="social-link le-linkedin"></a>
+        <a href="http://www.google.com" target="_blank" class="social-link le-twitter"></a>
+        <a href="http://www.google.com" target="_blank" class="social-link le-youtube_clip"></a>
+      </div>
+    </div>
+  </div>
+</div>

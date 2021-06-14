@@ -1,12 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { PopoverPosition, PopoverService } from '@logo-software/popover';
+
 @Component({
   selector: 'logo-result',
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.scss'],
 })
 export class ResultComponent implements OnInit {
+  public PopoverPosition = PopoverPosition;
+
+  public suggestResults = [
+    {
+      name: 'Logo Flow 3.0',
+      link: '/docs/detail/logo-flow-3_0',
+    },
+    {
+      name: 'Logo Flow 2.0',
+      link: '/docs/detail/logo-flow-2_0',
+    },
+    {
+      name: 'Logo Flow 1.0',
+      link: '/docs/detail/logo-flow-1_0',
+    },
+  ];
 
   public filterLangs = [
     {
@@ -443,7 +461,9 @@ export class ResultComponent implements OnInit {
 
   public filteredData = [];
 
-  constructor(private router: Router) {
+  public showMobileFilter:boolean = false;
+
+  constructor(private router: Router, public popoverService: PopoverService) {
     this.filteredData = this.searchResult;
   }
 
@@ -474,4 +494,20 @@ export class ResultComponent implements OnInit {
     console.log('Search Tag Removed', e);
   }
 
+  getSuggestFor(val:string) {
+    if (val.length > 2) {
+      this.popoverService.showPopover('productSuggest');
+    } else if (val.length < 3) {
+      console.log('### Destroy Suggest Search');
+      this.popoverService.closePopover();
+    }
+  }
+
+  openFilters() {
+    this.showMobileFilter = true;
+  }
+
+  closeFilters() {
+    this.showMobileFilter = false;
+  }
 }
