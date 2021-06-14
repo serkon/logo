@@ -62,7 +62,7 @@ export class PopoverService {
   }
 
   /**
-   * Global funtion for close popovers
+   * Global function for close popovers
    */
   public closePopover() {
     this.activePopover = null;

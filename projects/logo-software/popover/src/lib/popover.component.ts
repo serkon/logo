@@ -57,7 +57,7 @@ export class PopoverComponent implements OnInit {
   /**
    * Set position of the popover. It will accept the position corner's of the opener.
    */
-  @Input() position: PopoverPosition = PopoverPosition.POPOVER_RIGHT;
+  @Input() position: PopoverPosition = PopoverPosition.POPOVER_BOTTOM_RIGHT;
 
   constructor(public popoverService: PopoverService, private elementRef: ElementRef) {
   }
@@ -73,6 +73,7 @@ export class PopoverComponent implements OnInit {
       elementRef.nativeElement.style.width = `${this.popoverService.activeElement.offsetWidth}px`;
     } else if (elementRef && elementRef.nativeElement) {
       const element = elementRef.nativeElement;
+      console.log(element);
       switch (this.position) {
         case PopoverPosition.POPOVER_RIGHT:
           const rightPos = Math.round(this.popoverService.activeElement.offsetWidth + this.popoverService.activeElement.offsetLeft);
