@@ -86,10 +86,15 @@
         }
 
         .title {
-          width: 100%;
+          width: 85%;
           font-weight: bold;
           padding-left: 10px;
           cursor: pointer;
+          display: inline-block;
+          text-overflow: ellipsis;
+          height: 100%;
+          overflow: hidden;
+          white-space: nowrap;
         }
 
         .arrow {
@@ -104,6 +109,7 @@
           text-decoration: none;
           padding-left: 10px;
           cursor: pointer;
+          line-height: normal;
         }
       }
 
