@@ -1944,6 +1944,8 @@ export class LeftbarShowcaseComponent implements AfterViewInit {
     },
   ];
 
+  public appDisableSettings: boolean = false;
+
   constructor(private leftbarService: LeftbarService) {
   }
 
@@ -1992,7 +1994,7 @@ export class LeftbarShowcaseComponent implements AfterViewInit {
   }
 
   public toggleAppSelection() {
-    this.leftbarService.disableAppSelection = !this.leftbarService.disableAppSelection;
+    this.appDisableSettings = !this.appDisableSettings;
   }
 
   public toggleUserDetails() {
