@@ -29,8 +29,8 @@
               id="tree-option-{{elementId}}-{{i}}"
               type="checkbox"
             />
-            <span *ngIf="item.iconPath != null" [ngClass]="item.iconClasses" class="{{iconClasses}} item-icon">
-              <img *ngIf="item.iconPath != null" src="{{item.iconPath}}"/>
+            <span *ngIf="item.iconPath !== null" [ngClass]="item.iconClasses" class="{{iconClasses}} item-icon">
+              <img *ngIf="item.iconPath !== null" src="{{item.iconPath}}"/>
             </span>
             <span class="title">{{item.name}}</span>
             <span class="arrow le-arrow_right"></span>
