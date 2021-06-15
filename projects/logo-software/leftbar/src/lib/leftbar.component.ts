@@ -183,6 +183,9 @@ export class LeftbarComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    if (changes.disableAppSelection) {
+      this.leftbarService.disableAppSelection = changes.disableAppSelection.currentValue;
+    }
     if (changes.favorites) {
       this.setEmptySlots();
     } else if ((changes.defaultAppId || changes.applications) && (this.applications && this.applications.length > 0 && this.defaultAppId)) {
