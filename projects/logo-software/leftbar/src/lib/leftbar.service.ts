@@ -33,6 +33,10 @@ export class LeftbarService {
    * Global feature for disable/enable application selection on-the-fly. If setted true, application selection will be disabled. Default value is 'false'
    */
   public disableAppSelection: boolean = false;
+  /**
+   * Global feature for show/hide user details on-the-fly. If setted true, user details will be shown. Default value is 'false'
+   */
+  public showUserDetails: boolean = false;
 
   constructor() {
     this.userDataLoad.subscribe((data) => {

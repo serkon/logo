@@ -8,7 +8,17 @@
  * Any reproduction of this material must contain this notice.
  */
 
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewChild,
+} from '@angular/core';
 
 import { ApplicationTreeComponent } from '@logo-software/application-tree';
 
@@ -40,7 +50,7 @@ import { LeftbarService } from './leftbar.service';
   styleUrls: ['./leftbar.component.scss'],
   templateUrl: './leftbar.component.html',
 })
-export class LeftbarComponent implements OnInit, OnChanges {
+export class LeftbarComponent implements OnInit, OnChanges, AfterViewInit {
   /**
    * User informations that shown on left bar
    */
@@ -150,7 +160,6 @@ export class LeftbarComponent implements OnInit, OnChanges {
    */
   @Output() public onLanguageChange: EventEmitter<any> = new EventEmitter<any>();
 
-  public showUserDetails: boolean = false;
   public popoverStatus: boolean = false;
   public activePopover: string = '';
   public mobileMenu: boolean = false;
@@ -166,6 +175,11 @@ export class LeftbarComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.onInit.emit(true);
     this.setEmptySlots();
+    this.leftbarService.disableAppSelection = this.disableAppSelection;
+  }
+
+  ngAfterViewInit(): void {
+    this.leftbarService.disableAppSelection = this.disableAppSelection;
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -186,7 +200,7 @@ export class LeftbarComponent implements OnInit, OnChanges {
    *  Toggle user details in leftbar.
    */
   public toggleUserDetails() {
-    this.showUserDetails = !this.showUserDetails;
+    this.leftbarService.showUserDetails = !this.leftbarService.showUserDetails;
   }
 
   public onLanguageSelect(event) {

@@ -11,7 +11,7 @@
 -->
 <div *ngIf="!!user" [ngClass]="leftbarService.isSlim ? 'slim': ''" class="le-leftbar">
   <div class="info-card">
-    <div [ngClass]="showUserDetails ? 'extended' : ''" class="user-base">
+    <div [ngClass]="leftbarService.showUserDetails ? 'extended' : ''" class="user-base">
       <div class="item user-summary-card">
         <button (click)="toggleUserDetails();" class="ghost"></button>
         <span
