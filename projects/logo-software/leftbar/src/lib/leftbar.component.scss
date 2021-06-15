@@ -461,7 +461,8 @@
 
               img {
                 max-width: 100%;
-                max-height: 100%;
+                max-height: size(28px);
+                vertical-align: middle;
               }
             }
 
@@ -936,13 +937,12 @@
 
               div {
                 button {
-                  .app-logo {
-                    display: none;
-                  }
+                  padding-left: size(5px);
+                  padding-right: size(5px);
 
-                  .app-icon {
-                    display: inline-block !important;
-                    height: size(12px);
+                  .app-logo {
+                    max-height: size(28px);
+                    vertical-align: middle;
                   }
                 }
               }
