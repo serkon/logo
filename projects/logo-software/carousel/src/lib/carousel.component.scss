@@ -10,6 +10,7 @@
     --carousel-animation: transform 150ms linear;
     --carousel-dots-margin: #{size(15px)};
     --carousel-arrows-margin: #{size(15px)};
+    --carousel-arrows-color: var(--neutral-500);
     --carousel-dot-size: #{size(10px)};
     --carousel-dot-margin: 0 #{size(2.5px)};
     --carousel-dot-bg: rgba(0, 0, 0, 0.1);
@@ -128,7 +129,7 @@
     }
 
     .slider-arrow {
-      --active: var(--neutral-500);
+      --active: var(--carousel-arrows-color);
       --border: rgba(var(--neutral-500-rgb), 0.12);
 
       display: block;
@@ -235,6 +236,7 @@
       min-width: var(--carousel-dot-size);
       height: var(--carousel-dot-size);
       margin: var(--carousel-dot-margin);
+      padding: 0;
 
       &.active {
         position: relative;

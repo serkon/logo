@@ -7,11 +7,13 @@
     .left {
       padding-top: size(55px);
       padding-bottom: size(55px);
+      font-family: get("font.alternative");
 
       h1 {
         font-weight: bold;
         font-size: size(35px);
         line-height: size(38px);
+        color: #707070;
       }
 
       ul {
@@ -26,7 +28,6 @@
         }
 
         li {
-          background: url("/assets/images/services/check-blue.svg") no-repeat left top;
           background-position: left center;
           margin: size(15px) 0;
           padding-left: size(30px);
@@ -34,7 +35,17 @@
           flex-direction: column;
           justify-content: center;
           line-height: size(22px);
-          font-size: size(22px);
+          font-size: size(20px);
+          font-weight: 600;
+          color: #707070;
+        }
+
+        &.success-li li {
+          background: url("/assets/images/services/check-green.svg") no-repeat left top;
+        }
+
+        &.primary-li li {
+          background: url("/assets/images/services/check-blue.svg") no-repeat left top;
         }
       }
     }

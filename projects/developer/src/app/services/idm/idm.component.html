@@ -1,121 +1,90 @@
 <section class="one" id="main">
-  <div class="title-content col-sm-12 col-xs-12">
-    <h1 class="title">IDM - <h6 class="medium bold">Identity Management Service</h6></h1>
-    <p class="description">
-      Uygulamaların kullanıcı veritabanını tutarak, kullanıcı kayıt ve giriş işlemleri güvenli olarak yönetir.
-    </p>
-    <logo-link [classes]="['light', 'large', 'get-started']" external="true"
-               url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65131821">KEŞFET
-    </logo-link>
+  <div class="container">
+    <div class="title-content">
+      <h1 class="title">IDM Service - <span class="for">Identity Management Service</span></h1>
+      <p class="description">
+        Identity Management Service ile tüm kullanıcı hesaplarınızı ve oturum açma işlemlerinizi uluslararası Oauth 2.0
+        protokoküne (access token ve password grant) uygun şekilde merkezi olarak yönetin. </p>
+      <logo-link
+        [classes]="'light large get-started'"
+        external="true"
+        url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65131821"
+      >
+        KEŞFET
+      </logo-link>
+    </div>
   </div>
-  <div class="illustrations">
-    <div class="people"></div>
-  </div>
-  <div class="backgrounds">
-    <div class="background one"></div>
-    <div class="background two"></div>
-    <div class="background three"></div>
-    <div class="background four"></div>
-  </div>
+  <div class="illustrations"></div>
 </section>
 <section class="two">
-  <div class="row">
-    <div class="content col-xs-12 col-md-6">
-      <h1>Kullanım Senaryoları</h1>
-      <p>IDM servisi, kullanıcı arayüzü veya API uçları ile uygulamanıza entegre edilebilir.</p>
-      <ul>
-        <li>Uygulamalarınızı IDM giriş sayfasına entegre ederek kullanın.</li>
-        <li>Uygulamanıza özel giriş sayfasını siz tasarlayın ve yönetimini IDM ile entegre edin.</li>
-        <li>Microsoft Active Directory kimlik kaynağınızı bağlayarak uygulamalarınızı yönetin.</li>
-        <li>Kendi deponuzda tuttuğunuz kimlik bilgilerini Identity Management Service ile entegre edin ve yönetin.</li>
-      </ul>
+  <div class="container">
+    <div class="row">
+      <div class="content col-xs-12 col-md-6">
+        <h1>Kullanım Senaryoları</h1>
+        <p>IDM servisi, kullanıcı arayüzü veya API uçları ile uygulamanıza entegre edilebilir.</p>
+        <ul>
+          <li>Uygulamalarınızı IDM giriş sayfasına entegre ederek kullanın.</li>
+          <li>Uygulamanıza özel giriş sayfasını siz tasarlayın ve yönetimini IDM ile entegre edin.</li>
+          <li>Microsoft Active Directory kimlik kaynağınızı bağlayarak uygulamalarınızı yönetin.</li>
+          <li>Kendi deponuzda tuttuğunuz kimlik bilgilerini Identity Management Service ile entegre edin ve yönetin.
+          </li>
+        </ul>
+      </div>
+      <div class="seperator col-md-1"></div>
+      <div class="image col-xs-12 col-md-5"></div>
     </div>
-    <div class="seperator col-md-1"></div>
-    <div class="image col-xs-12 col-md-5"></div>
   </div>
 </section>
 <section class="three">
-  <div class="row">
-    <div class="image col-xs-12 col-md-5"></div>
-    <div class="content col-xs-12 col-md-5">
-      <ul>
-        <li>LDAP hesaplarınızı IDM ile tam entegre haline getirin.</li>
-        <li>Şifremi unuttum ve yeni kullanıcı kaydı gibi hazır sayfaları kullanın.</li>
-        <li>Google, Microsoft, Twitter, Facebook ve LinkedIn hesapları entegre edin ve sosyal platform hesaplarınız ile
-          oturumlarınızı yönetin.
-        </li>
-      </ul>
-      <logo-link [classes]="['success', 'large']" external="true"
-                 url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65131821">DETAYLARI GÖRÜNTÜLE
-      </logo-link>
+  <div class="container">
+    <div class="row">
+      <div class="image col-xs-12 col-md-6"></div>
+      <div class="content col-xs-12 col-md-6">
+        <ul>
+          <li>LDAP hesaplarınızı IDM ile tam entegre haline getirin.</li>
+          <li>Şifremi unuttum ve yeni kullanıcı kaydı gibi hazır sayfaları kullanın.</li>
+          <li>Google, Microsoft, Twitter, Facebook ve LinkedIn hesapları entegre edin ve sosyal platform hesaplarınız
+            ile
+            oturumlarınızı yönetin.
+          </li>
+          <li>
+            <logo-link
+              [classes]="'success large'"
+              external="true"
+              url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65131821"
+            >
+              DETAYLARI GÖRÜNTÜLE
+            </logo-link>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="seperator col-md-2"></div>
   </div>
 </section>
 <section class="four">
-  <h1>Özellikler</h1>
-  <p>IDM ‘den nelerde ve nasıl faydalanabileceğinizi öğrenin. İşinize değer katın!</p>
-  <logo-carousel [count]="1" [arrow]="true" [dots]="true">
-    <div class="slider-item" *ngFor="let item of sliderItems">
-      <div class="icon-bg"
-           [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"
-      >
+  <div class="container">
+    <h1>Özellikler</h1>
+    <p>IDM ‘den nelerde ve nasıl faydalanabileceğinizi öğrenin. İşinize değer katın!</p>
+    <logo-carousel [count]="1" [arrow]="true" [dots]="true">
+      <div class="slider-item" *ngFor="let item of sliderItems">
+        <div
+          class="icon-bg"
+          [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"
+        >
+        </div>
+        <div class="abbr">{{item.abbr}}</div>
+        <div class="description">{{item.description}}</div>
       </div>
-      <div class="abbr">{{item.abbr}}</div>
-      <div class="description">{{item.description}}</div>
-    </div>
-  </logo-carousel>
-</section>
-<section class="five">
-  <div class="row opinions" *ngFor="let opinion of opinions">
-    <aside class="user hidden-xs col-sm-12 col-md-3">
-      <div class="circle"></div>
-    </aside>
-    <aside class="opinion col-xs-12 col-md-9">
-      <h1>Kullanıcı Görüşleri</h1>
-      <div class="description">
-        <p>
-          Türkiye'deki İşbaşı ve Hindistan'daki Vyapari uygulamalarımızda geliştirme sürecinin en başından bu yana IDM
-          servislerini kullanmaktayız. Hem kullanıcı arayüzü hem de servis entegrasyon arayüzlerinin kolayca
-          kullanılabilir
-          olmasından memnunuz.
-        </p>
-        <p>
-          Kullanıcı sayımızın artmasına rağmen performans ve güvenilirlik açısından beklentilerimizi fazlasıyla
-          karşılaşmıştır.
-        </p>
-      </div>
-      <div class="author">
-        <div class="name">Ayhan İNAL</div>
-        <div class="title">KOBİ Bulut Ürünleri Teknik Proje Yöneticisi</div>
-      </div>
-    </aside>
+    </logo-carousel>
   </div>
 </section>
-<section class="six">
-  <div class="row">
-    <div class="list col-xs-12 col-lg-6">
-      <h1>Core Servisler</h1>
-      <div class="row">
-        <ul class="col-xs-12 col-md-6">
-          <li>Bulut Yönetim Servisi</li>
-          <li>Ayarlar Servisi</li>
-          <li>Yetkilendirme Servisi</li>
-        </ul>
-        <ul class="col-xs-12 col-md-6">
-          <li>Menü Servis</li>
-          <li>Yerelleştirme Servisi</li>
-        </ul>
-      </div>
-      <div class="col-xs-6 button">
-        <logo-link [classes]="['success', 'large']" external="true"
-                   url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65132817">TÜMÜNÜ GÖRÜNTÜLE
-        </logo-link>
-      </div>
-    </div>
-    <div class="picture col-xs-12 col-lg-6">
-      <div class="background"></div>
-    </div>
-  </div>
-</section>
+<logo-user-review
+  [backgroundUrl]="'/assets/images/reviewers/green-background.png'"
+  [circle]="true"
+  [imageStyle]="{'background-position':'left bottom -10px', 'background-size': 'contain'}"
+  [imageUrl]="'/assets/images/reviewers/empty-user.png'"
+  [reverse]="false"
+>
+</logo-user-review>
+<logo-core-services buttonColor="success"></logo-core-services>
 <logo-footer></logo-footer>

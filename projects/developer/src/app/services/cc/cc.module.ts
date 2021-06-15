@@ -9,8 +9,8 @@ import { FooterModule } from '@developer/src/components/footer/footer.module';
 
 import { CcRoutingModule } from './cc-routing.module';
 import { CcComponent } from './cc.component';
-import { UserReviewModule } from '../../../components/user-review/user-review.module';
-import { CoreServicesModule } from '../../../components/core-services/core-services.module';
+import { UserReviewModule } from '@developer/src/components/user-review/user-review.module';
+import { CoreServicesModule } from '@developer/src/components/core-services/core-services.module';
 
 @NgModule({
   declarations: [CcComponent],
