@@ -29,6 +29,13 @@ export class MainComponent {
       class: '',
     },
     {
+      abbr: 'MS',
+      title: 'Menu Service',
+      description: 'Masaüstü oluşturabildiği ve kullanıcıların kayıt olmuş uygulamaları aynı ortamda kullanmasını sağlayan bir servistir',
+      link: 'services/ms',
+      class: '',
+    },
+    {
       abbr: 'AS',
       title: 'Authorization Service',
       description: 'Logo PaaS platformunda geliştirilen uygulamlar için yetki yönetimi işlemlerini yönetmektedir',
@@ -54,13 +61,6 @@ export class MainComponent {
       title: 'Dashboard Features',
       description: 'Dashbord Servis ile farklı veri kaynaklarından (rest API, Veritabanı) çekilen verilerinizi görsel bileşenlere dönüştürün, Çoklu hesap (Multitenancy) desteğinden faydalanarak tek bir dashboard tanımı yapın, tasarladığınız dashbordu herkes kendi verisi ile görsün.',
       link: 'services/dafs',
-      class: '',
-    },
-    {
-      abbr: 'MS',
-      title: 'Menu Service',
-      description: 'Masaüstü oluşturabildiği ve kullanıcıların kayıt olmuş uygulamaları aynı ortamda kullanmasını sağlayan bir servistir',
-      link: 'services/ms',
       class: '',
     },
     {
