@@ -120,6 +120,12 @@
           .nav {
             justify-content: center;
           }
+
+          .cta-base {
+            @include larger-than(xl) {
+              min-width: size(275px);
+            }
+          }
         }
 
         .nav {
@@ -132,7 +138,7 @@
           flex-direction: row;
         }
 
-        @include smaller-than(md) {
+        @include smaller-than(lg) {
           background: var(--header-opened-bg);
           box-shadow: var(--header-opened-box-shadow);
           flex-direction: column-reverse;
@@ -158,12 +164,7 @@
               }
             }
 
-            a {
-              width: 100%;
-              color: var(--header-opened-button-color);
-            }
-
-            button {
+            a, button {
               width: 100%;
               color: var(--header-opened-button-color);
             }
@@ -183,20 +184,12 @@
         box-sizing: border-box;
         text-align: right;
 
-        @include smaller-than(md) {
+        @include smaller-than(lg) {
           text-align: center;
           white-space: pre-wrap;
           width: 100%;
 
-          a {
-            width: 100%;
-
-            &.light {
-              color: var(--header-opened-button-color);
-            }
-          }
-
-          button {
+          a, button {
             width: 100%;
 
             &.light {
@@ -215,7 +208,7 @@
     display: none;
     z-index: 4;
 
-    @include smaller-than(md) {
+    @include smaller-than(lg) {
       display: inline-block;
       right: size(15px);
     }
@@ -231,6 +224,10 @@
           background-color: var(--header-default-logo-bg);
           color: var(--header-default-logo-color);
 
+          a, button {
+            color: inherit;
+          }
+
           &::before {
             background-color: var(--header-default-logo-before-bg);
             color: var(--header-default-logo-before-color);
@@ -239,8 +236,10 @@
 
         .menu {
           .nav {
-            a {
-              color: var(--header-default-button-color);
+            ::ng-deep {
+              a, button {
+                color: var(--header-default-button-color);
+              }
             }
           }
         }
@@ -264,6 +263,10 @@
         background-color: var(--header-scroll-logo-bg);
         color: var(--header-scroll-logo-color);
 
+        a, button {
+          color: inherit;
+        }
+
         &::before {
           background-color: var(--header-scroll-logo-before-bg);
           color: var(--header-scroll-logo-before-color);
@@ -272,8 +275,10 @@
 
       .menu {
         .nav {
-          a {
-            color: var(--header-scroll-button-color);
+          ::ng-deep {
+            a, button {
+              color: var(--header-scroll-button-color);
+            }
           }
         }
       }
@@ -300,9 +305,11 @@
             justify-content: flex-start;
             width: 100%;
 
-            a {
-              color: var(--header-opened-button-color);
-              text-align: center;
+            ::ng-deep {
+              a, button {
+                color: var(--header-opened-button-color);
+                text-align: center;
+              }
             }
           }
 
@@ -322,12 +329,7 @@
                 }
               }
 
-              a {
-                display: block;
-                width: 100%;
-              }
-
-              button {
+              a, button {
                 display: block;
                 width: 100%;
               }

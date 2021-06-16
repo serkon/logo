@@ -125,7 +125,6 @@ export class HeaderComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log(this.logoLinkText);
     this.headerService.startTheme = this.defaultTheme;
     this.headerService.scrollTheme = this.scrolledTheme;
     this.headerService.scrollPoint = this.scrollPoint;
@@ -142,5 +141,11 @@ export class HeaderComponent implements AfterViewInit {
 
   toggleMobileMenu() {
     return this.headerService.mobileMenu = !this.headerService.mobileMenu;
+  }
+
+  checkMobileMenu() {
+    if(this.isMobilized && this.headerService.mobileMenu) {
+      this.toggleMobileMenu();
+    }
   }
 }

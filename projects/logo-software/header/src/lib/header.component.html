@@ -6,7 +6,7 @@
     <div class="logo">
       <ng-container *ngIf="!hasCustomLogo; else customLogo">
         <a
-          *ngIf="logoLinkText != null && !logoImage; else imageLogoTemplate"
+          *ngIf="logoLinkText && !logoImage; else imageLogoTemplate"
           [innerHTML]="logoLinkText"
           class="logo-link {{logoLinkClasses}}"
           href="{{logoLinkTarget}}"
@@ -22,7 +22,7 @@
         <ng-content select="[logo]"></ng-content>
       </ng-template>
     </div>
-    <div class="menu {{menuPosition}}">
+    <div class="menu {{menuPosition}}" (click)="checkMobileMenu()">
       <div class="nav">
         <ng-content select="[menu]"></ng-content>
       </div>
