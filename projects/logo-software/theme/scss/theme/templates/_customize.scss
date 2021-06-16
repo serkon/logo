@@ -64,7 +64,7 @@ Customize: Button customize colors
           @each $state in get("state.list") {
             &:#{$state} {
               background-color: rgba(var(--neutral-500-rgb), var(--ghost-#{$state}));
-              color: if($color == basic or $color == secondary or $color == gray, get("customize.element.button.hover.font.color"), var(--white));
+              color: if($color == light, var(--white), get("customize.element.button.hover.font.color"));
             }
           }
         }
