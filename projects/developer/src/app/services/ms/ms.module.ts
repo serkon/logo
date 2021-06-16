@@ -9,6 +9,8 @@ import { HeaderModule } from '@developer/src/components/header/header.module';
 
 import { MsRoutingModule } from './ms-routing.module';
 import { MsComponent } from './ms.component';
+import { UserReviewModule } from '@developer/src/components/user-review/user-review.module';
+import { CoreServicesModule } from '@developer/src/components/core-services/core-services.module';
 
 @NgModule({
   declarations: [MsComponent],
@@ -16,9 +18,11 @@ import { MsComponent } from './ms.component';
     CommonModule,
     MsRoutingModule,
     HeaderModule,
-    FooterModule,
     CarouselModule,
     LinksModule,
+    FooterModule,
+    UserReviewModule,
+    CoreServicesModule,
   ],
   exports: [MsComponent],
 })
