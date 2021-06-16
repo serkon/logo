@@ -10,7 +10,7 @@
   [scrollSpy]="true"
   [watchElement]="'body'"
 >
-  <div class="nav">
+  <ng-container menu>
     <logo-link
       [classes]="'ghost large light'"
       [fragment]="'services'"
@@ -41,8 +41,10 @@
     >
       Blog
     </logo-link>
-  </div>
-  <button class="large explore primary">Explore</button>
+  </ng-container>
+  <ng-container cta>
+    <button class="large explore primary">Explore</button>
+  </ng-container>
 </logo-header>
 <logo-cursor *ngIf="false" [targets]="['.cursor', '.arrow', 'svg']" [timeDuration]="200"></logo-cursor>
 <main>

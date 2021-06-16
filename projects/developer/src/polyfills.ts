@@ -56,22 +56,3 @@
  * Zone JS is required by default for Angular itself.
  */
 import 'zone.js/dist/zone'; // Included with Angular CLI.
-import 'canvas-particle-network/particle-network.min';
-
-/***************************************************************************************************
- * APPLICATION IMPORTS
- */
-
-declare global {
-  interface ParticleNetworkOption {
-    particleColor: string;
-    background: string;
-    interactive: boolean;
-    speed: 'none' | 'slow' | 'medium' | 'fast';
-    density: 'low' | 'medium' | 'high' | number;
-  }
-
-  class ParticleNetwork {
-    constructor(element: HTMLElement, option: ParticleNetworkOption);
-  }
-}
