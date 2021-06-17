@@ -124,7 +124,7 @@
             class="ghost small icon-right le-arrow_down"
           >
             <span class="le-login_key"></span>
-            {{defaultTenant.name}}
+            <span class="tenant-name">{{defaultTenant.name}}</span>
           </button>
           <div
             [ngClass]="activePopover === 'tenantOptions' && popoverStatus ? 'opened':''"
@@ -145,7 +145,7 @@
             <div class="result-base" id="tenantResults">
               <div *ngFor="let tenant of tenants" class="tenant-item">
                 <button (click)="selectTenantEmitter(tenant.id)" class="ghost tenant-button">
-                  {{tenant.name}}
+                  <span class="tenant-btn-name">{{tenant.name}}</span>
                   <p *ngIf="onPrem" class="tenant-id small">{{tenant.id}}</p>
                   <span *ngIf="tenant.IsDefault" class="le-pin_1"></span>
                 </button>
@@ -231,8 +231,12 @@
               <img [attr.src]="shortcut.SafeIconAdress"/>
             </button>
             <span *ngIf="shortcut.Url" class="tip on-bottom">{{shortcut.Name}}</span>
-            <button (click)="addShortcutEmitter(i)" *ngIf="!shortcut.Url"
-                    class="primary ghost add-button le-add"></button>
+            <button
+              (click)="addShortcutEmitter(i)"
+              *ngIf="!shortcut.Url"
+              class="primary ghost add-button le-add"
+            >
+            </button>
           </div>
         </ng-container>
         <button (click)="addShortcutEmitter(0)" *ngIf="!onPrem" class="ghost le-settings"></button>

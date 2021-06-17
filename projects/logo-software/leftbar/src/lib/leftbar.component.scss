@@ -383,6 +383,13 @@
                 }
               }
             }
+
+            .tenant-name {
+              display: inline-block;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              width: 100%;
+            }
           }
         }
       }
@@ -510,7 +517,7 @@
 
                 &::after {
                   display: inline-block;
-                  width: size(155px);
+                  width: size(152px);
                   content: attr(name);
                   vertical-align: top;
                   flex-grow: 1;
@@ -538,6 +545,7 @@
               img {
                 vertical-align: middle;
                 max-height: size(24px);
+                max-width: 100%;
               }
 
               &::after {
@@ -791,8 +799,19 @@
             height: size(32px);
             color: var(--primary);
             position: absolute;
-            top: 0;
+            top: calc(50% - 32px);
             right: 0;
+          }
+
+          .tenant-btn-name {
+            overflow: hidden;
+            width: 100%;
+            text-overflow: ellipsis;
+            display: inline-block;
+            white-space: pre-wrap;
+            line-height: 20px;
+            box-sizing: border-box;
+            padding-right: size(20px);
           }
         }
 
@@ -905,6 +924,13 @@
               .le-login_key {
                 left: size(3px) !important;
               }
+            }
+
+            .tenant-name {
+              display: inline-block;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              width: 100%;
             }
           }
         }
