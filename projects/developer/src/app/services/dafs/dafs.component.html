@@ -35,16 +35,18 @@
             <li>Veri kaynağı tanımlarınızı parametrik olarak (kullanıcıya göre, hesaba göre) yapın</li>
             <li>Parametrik filtreler tanımlayın</li>
             <li>Kendi uygulamanız içerisinde tasarladığınız dashboardu gömülü olarak açın</li>
+            <li>
+              <logo-link
+                [classes]="'success large get-started'"
+                external="true"
+                url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139772"
+              >
+                DETAYLARI GÖRÜNTÜLE
+              </logo-link>
+            </li>
           </ul>
         </div>
       </div>
-      <logo-link
-        [classes]="'success large get-started'"
-        external="true"
-        url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139772"
-      >
-        DETAYLARI GÖRÜNTÜLE
-      </logo-link>
     </div>
   </div>
 </section>
@@ -53,7 +55,7 @@
     <h1>Özellikler</h1>
     <p>Dashboard servisi özelliklerini yakından tanıyın</p>
     <logo-carousel [arrow]="true" [count]="1" [dots]="true" [itemWidth]="'296px'">
-      <div class="slider-item" *ngFor="let item of sliderItems">
+      <div class="item" *ngFor="let item of sliderItems">
         <div
           [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"
           class="icon-bg"
