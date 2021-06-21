@@ -231,6 +231,6 @@ export class CarouselComponent implements AfterViewInit {
   setWidth(isPercentage: boolean) {
     const children = this.slidingRef.nativeElement.children;
     const width = isPercentage ? this.sliderRef.nativeElement.offsetWidth * Number(this.itemWidth.trim().replace('%', '')) / 100 + 'px' : this.itemWidth;
-    Array.from(children).forEach((item: HTMLElement) => item.style.width = `calc(${width} - ${(parseFloat(getComputedStyle(item).marginLeft) + parseFloat(getComputedStyle(item).marginRight))}px)`);
+    Array.from(children).forEach((item: HTMLElement) => item.style.flexBasis = `calc(${width} - ${(parseFloat(getComputedStyle(item).marginLeft) + parseFloat(getComputedStyle(item).marginRight))}px)`);
   }
 }
