@@ -6,61 +6,89 @@ $header-size: size(80px);
   display: block;
 
   ul {
-    list-style-image: url("/assets/images/services/idm/check.svg");
-    padding-left: size(25px);
+    list-style-image: url("/assets/images/services/check-green.svg");
 
     li {
-      line-height: size(35px);
+      margin-top: size(20px);
       padding-left: size(10px);
+      font-weight: normal;
+      font-size: size(20px);
+      line-height: size(27px);
+
+      h2 {
+        font-weight: bold;
+        font-size: size(20px);
+      }
+
+      p {
+        font-size: size(16px);
+      }
+
+      &:last-child {
+        list-style: none;
+        margin-top: size(54px);
+      }
     }
   }
 
   section.one {
     position: relative;
-    flex-direction: row;
-    justify-content: space-between;
-    background: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
-    div.title-content {
+    .container {
+      display: flex;
       position: relative;
-      z-index: 2;
-      max-width: size(445px);
-      width: 100%;
-      align-self: center;
-
-      h1.title {
-        font-family: get("font.alternative");
-        font-weight: 800;
-        font-size: size(60px);
-        flex-direction: column;
-        pointer-events: none;
-        color: var(--success);
-        letter-spacing: size(-1px);
-
-        @include smaller-than("md") {
-          font-size: size(42px);
-        }
-
-        .for {
-          color: var(--dark-800);
-        }
-      }
-
-      p.description {
-        margin: size(30px) 0 size(40px) 0;
-        font-size: size(20px);
-        color: var(--dark-600);
-        pointer-events: none;
-      }
-    }
-
-    div.illustrations {
-      background-image: url("/assets/images/services/ss/section-01-illustration.svg");
-      background-repeat: no-repeat;
-      background-position: left;
       flex-grow: 1;
-      margin-left: size(70px);
-      margin-right: size(-120px);
+      z-index: 1;
+
+      div.title-content {
+        position: relative;
+        z-index: 2;
+        max-width: size(445px);
+        width: 100%;
+        align-self: center;
+
+        h1.title {
+          font-family: get("font.alternative");
+          font-weight: bold;
+          font-size: size(60px);
+          flex-direction: column;
+          pointer-events: none;
+          color: var(--success);
+          letter-spacing: size(-0.75px);
+          line-height: size(45px);
+
+          @include smaller-than("md") {
+            font-size: size(42px);
+          }
+
+          .for {
+            color: #5a5a5a;
+          }
+        }
+
+        p.description {
+          margin: size(30px) 0 size(40px) 0;
+          font-size: size(20px);
+          color: #5a5a5a;
+          pointer-events: none;
+          font-weight: normal;
+          line-height: size(27px);
+        }
+      }
+
+      div.illustrations {
+        background-image: url("/assets/images/services/ss/section-01-illustration.svg");
+        background-repeat: no-repeat;
+        background-position: left;
+        flex-grow: 1;
+        margin-left: size(100px);
+        background-size: contain;
+      }
     }
   }
 
@@ -77,6 +105,7 @@ $header-size: size(80px);
         background-image: url(/assets/images/services/ss/section-02-illustration.svg);
         background-repeat: no-repeat;
         background-position: right;
+        background-size: contain;
 
         @include smaller-than("md") {
           min-height: size(350px);
@@ -84,7 +113,7 @@ $header-size: size(80px);
       }
 
       .content {
-        color: #707070;
+        color: #5a5a5a;
         flex-direction: column;
         padding: size(100px) size(120px);
 
@@ -93,10 +122,11 @@ $header-size: size(80px);
         }
 
         h1 {
-          font-size: size(40px);
-          font-weight: bold;
           font-family: get("font.alternative");
+          font-size: size(40px);
           letter-spacing: size(-1px);
+          font-weight: normal;
+          line-height: size(45px);
 
           &::before {
             -webkit-mask-image: url("/assets/images/services/ms/section-02-clipboard.svg");
@@ -119,22 +149,32 @@ $header-size: size(80px);
   }
 
   section.three {
-    color: var(--white);
     background: no-repeat url("/assets/images/services/ms/section-04-photo.png") center/cover;
+    padding-top: size(72px);
+    padding-bottom: size(131px);
 
     h1 {
-      font-size: size(45px);
-      font-weight: lighter;
+      font-weight: bold;
+      font-size: size(40px);
+      line-height: size(52px);
       text-align: center;
+      color: var(--white);
     }
 
     p {
       font-size: size(20px);
+      line-height: size(28px);
+      margin-top: 0;
+      margin-bottom: size(50px);
       text-align: center;
-      margin-bottom: 50px;
+      font-weight: normal;
+      color: var(--white);
     }
 
     logo-carousel {
+      --carousel-dot-bg-selected: var(--white);
+      --carousel-arrows-color: var(--white);
+
       .slider-item {
         background-color: var(--white);
         box-shadow: 0 size(60px) size(60px) #6e6e6e46;
@@ -142,8 +182,8 @@ $header-size: size(80px);
         box-sizing: border-box;
         backdrop-filter: blur(23px);
         color: var(--neutral-800);
-        padding: size(30px) size(44px);
-        min-width: size(264px);
+        padding: size(30px) size(40px);
+        min-width: size(272px);
         width: size(264px);
         margin-right: size(24px);
         display: inline-block;
@@ -167,6 +207,7 @@ $header-size: size(80px);
         .abbr {
           font-weight: bold;
           font-size: size(20px);
+          text-align: left;
         }
 
         .title {
@@ -174,41 +215,14 @@ $header-size: size(80px);
           font-size: size(12px);
           font-weight: bold;
           letter-spacing: size(0.2px);
+          text-align: left;
         }
 
         .description {
           margin-top: size(20px);
           font-size: size(16px);
           font-weight: 300;
-        }
-
-        .go {
-          display: block;
-
-          .detail {
-            font-size: size(12px);
-            margin-top: size(20px);
-          }
-        }
-      }
-
-
-      ::ng-deep {
-        .arrow-with-animation .slider-arrow {
-          color: var(--white);
-
-          --active: var(--white);
-          --border: rgba(255, 255, 255, 0.12);
-        }
-
-        .dots {
-          .dot {
-            border-color: #ffffff;
-
-            &::after {
-              background-color: rgba(255, 255, 255, 0.6);
-            }
-          }
+          text-align: left;
         }
       }
     }

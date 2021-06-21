@@ -1,62 +1,70 @@
 <section class="one" id="main">
-  <div class="title-content">
-    <h1 class="title">Ayarlar <span class="for">Servisi</span></h1>
-    <p class="description">
-      Logo PaaS platformundaki mikroservislerin ve oluşturabileceğiniz diğer servislerin ayarlarını Ayarlar Servisi’ne
-      entegre edin ve gerektiğinde uygulamalarınızda bu ayarları kullanarak kolayca yönetin.
-    </p>
-    <logo-link
-      [classes]="['success', 'large', 'get-started']"
-      external="true"
-      url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139826"
-    >
-      KEŞFET
-    </logo-link>
-  </div>
-  <div class="illustrations"></div>
-</section>
-<section class="two">
-  <div class="row">
-    <div class="image size-xs-12 size-md-6"></div>
-    <div class="content size-xs-12 size-md-6">
-      <h1>Kullanım Senaryoları</h1>
-      <ul>
-        <li>Genel ayarları görüntüleyin ve yönetin</li>
-        <li>Diğer mikroservislerin ayarlarına erişin</li>
-        <li>Kendi servisiniz özelindeki ayarları yönetin.</li>
-        <li>Ayarlarınızı güvenli bir şekilde şifreleyerek depolayın.</li>
-        <li>İstediğiniz ortamda (MSSQL, PostgreSQL, MongoDB, Vault, File) verilerinizi depolayın.</li>
-      </ul>
+  <div class="container">
+    <div class="title-content col-xs-12 col-md-5">
+      <h1 class="title">Setting <span class="for">features</span></h1>
+      <p class="description">
+        Logo PaaS platformundaki mikroservislerin ve oluşturabileceğiniz diğer servislerin ayarlarını Ayarlar Servisi’ne
+        entegre edin ve gerektiğinde uygulamalarınızda bu ayarları kullanarak kolayca yönetin.
+      </p>
       <logo-link
-        [classes]="['success', 'large']" external="true"
+        [classes]="['success large get-started']"
+        external="true"
         url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139826"
       >
-        DETAYLARI GÖRÜNTÜLE
+        KEŞFET
       </logo-link>
+    </div>
+    <div class="illustrations hidden-xs col-md-7"></div>
+  </div>
+</section>
+<section class="two">
+  <div class="container">
+    <div class="row">
+      <div class="image size-xs-12 size-md-6"></div>
+      <div class="content size-xs-12 size-md-6">
+        <h1>Kullanım Senaryoları</h1>
+        <ul>
+          <li>Genel ayarları görüntüleyin ve yönetin</li>
+          <li>Diğer mikroservislerin ayarlarına erişin</li>
+          <li>Kendi servisiniz özelindeki ayarları yönetin.</li>
+          <li>Ayarlarınızı güvenli bir şekilde şifreleyerek depolayın.</li>
+          <li>İstediğiniz ortamda (MSSQL, PostgreSQL, MongoDB, Vault, File) verilerinizi depolayın.</li>
+          <li>
+            <logo-link
+              [classes]="['success large']" external="true"
+              url="http://wiki.logo.com.tr/pages/viewpage.action?pageId=65139826"
+            >
+              DETAYLARI GÖRÜNTÜLE
+            </logo-link>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 <section class="three">
-  <h1>Özellikler</h1>
-  <p>Ayarlar Servisi Özelliklerini Yakından Tanıyın</p>
-  <logo-carousel [count]="2">
-    <div class="slider-item" *ngFor="let item of sliderItems">
-      <div
-        class="icon-bg"
-        [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"
-      >
+  <div class="container">
+    <h1>Özellikler</h1>
+    <p>Ayarlar Servisi Özelliklerini Yakından Tanıyın</p>
+    <logo-carousel [count]="2" [dots]="true">
+      <div class="slider-item" *ngFor="let item of sliderItems">
+        <div
+          class="icon-bg"
+          [ngStyle]="{'-webkit-mask-image': 'url('+item.icon+')', 'mask-image': 'url('+item.icon+')'}"
+        >
+        </div>
+        <div class="abbr">{{item.abbr}}</div>
+        <div class="description">{{item.description}}</div>
       </div>
-      <div class="abbr">{{item.abbr}}</div>
-      <div class="description">{{item.description}}</div>
-      <a class="go" href="{{item.url}}" [ngClass]="item.classes">detay →</a>
-    </div>
-  </logo-carousel>
+    </logo-carousel>
+  </div>
 </section>
 <logo-user-review
   backgroundUrl="/assets/images/reviewers/green-background.png"
   imageUrl="/assets/images/services/ss/section-04-hand.png"
+  [circle]="false"
   [reverse]="true"
-  [imageStyle]="{'background-position':'bottom left'}"
+  [imageStyle]="{'background-position':'bottom left', 'background-size':'contain'}"
 >
 </logo-user-review>
 <logo-core-services></logo-core-services>
