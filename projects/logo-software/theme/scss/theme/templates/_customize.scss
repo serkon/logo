@@ -36,12 +36,8 @@ Customize: Button customize colors
     @each $color, $value in get("color.list") {
       $selector: if($type==fill, ".#{$color}", ".#{$type}.#{$color}");
       #{$selector}, &-#{$type}-#{"" + $color} { // if type fill render just `color` class else render `outline.color` and `ghost.color` classes
-        @if ($color == secondary or $color==basic) {
+        @if ($color == secondary or $color==basic or $color == gray) {
           color: var(get("customize.element.button.font.color"));
-        }
-
-        @if ($color==light) {
-          color: var(--white);
         }
 
         @if (index(get("color.semantic"), $color)) {
@@ -50,10 +46,6 @@ Customize: Button customize colors
 
         @if $type == outline {
           border-color: if($color==light, rgba(var(--light-rgb), 0.5), var(#{get("customize.element.button.border.default")}));
-
-          @if ($color==light) {
-            color: var(--white);
-          }
 
           &:active, &:focus, &:hover {
             border-color: if($color==light, var(--light), var(#{get("customize.element.button.border.default")}));
@@ -64,7 +56,7 @@ Customize: Button customize colors
           @each $state in get("state.list") {
             &:#{$state} {
               background-color: rgba(var(--neutral-500-rgb), var(--ghost-#{$state}));
-              color: if($color == light, var(--white), get("customize.element.button.hover.font.color"));
+              color: if($color == basic or $color == secondary or $color == gray, get("customize.element.button.hover.font.color"), if($color == light, var(--white), var(--#{$color})));
             }
           }
         }

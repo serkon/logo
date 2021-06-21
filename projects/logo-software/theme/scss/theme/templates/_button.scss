@@ -20,17 +20,16 @@ Standardization: Button
     }
   }
 
-  &.icon-left {
-    &::before {
-      left: size(-1px);
-      top: size(-1px);
-    }
+  &::before {
+    left: size(-1px);
+    top: size(-1px);
   }
 
   &.icon-right {
     &::before {
       right: size(-1px);
       top: size(-1px);
+      left: auto;
     }
   }
 }

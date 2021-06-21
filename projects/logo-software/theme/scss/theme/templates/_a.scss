@@ -8,7 +8,7 @@
   align-items: center;
   // display: flex;
   // align-items: center;
-  @extend %padding-button, %padding-button-medium, %size-medium, %ghost, %ghost-secondary;
+  // @extend %padding-button, %padding-button-medium, %size-medium, %ghost, %ghost-secondary;
 
   &[class^='#{get("icon.prefix")}'], &[class*=' #{get("icon.prefix")}'] {
     @extend %size-medium, %padding-button-medium;
@@ -19,9 +19,7 @@
 
   @each $size, $value in get("size") {
     &.#{$size} {
-      &[class^='#{get("icon.prefix")}'], &[class*=' #{get("icon.prefix")}'] {
-        @extend %size-#{$size}, %padding-button-#{$size};
-      }
+      @extend %size-#{$size}, %padding-button-#{$size};
     }
   }
 
@@ -29,13 +27,10 @@
     @each $color, $value in get("color.list") {
       $selector: if($type==fill, "&.#{$color}", "&.#{$type}.#{$color}");
       #{$selector}, &-#{$type}-#{"" + $color} {
-        &:visited {
-          @extend %button-#{"" + $type}-#{"" + $color};
-        }
+        @extend %button-#{"" + $type}-#{"" + $color};
       }
     }
   }
-
 
   &:active, &:focus {
     box-shadow: none;
