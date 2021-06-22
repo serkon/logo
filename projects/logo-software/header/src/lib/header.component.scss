@@ -184,6 +184,16 @@
         box-sizing: border-box;
         text-align: right;
 
+        ::ng-deep {
+          a, button, logo-link {
+            margin-right: size(12px);
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+
         @include smaller-than(lg) {
           text-align: center;
           white-space: pre-wrap;
@@ -191,6 +201,7 @@
 
           a, button {
             width: 100%;
+            margin-right: 0;
 
             &.light {
               color: var(--header-opened-button-color);
