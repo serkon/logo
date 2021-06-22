@@ -7,6 +7,10 @@
       height: size(490px);
       position: relative;
 
+      @include smaller-than(sm) {
+        height: size(650px);
+      }
+
       .gfx {
         position: absolute;
         width: calc(50vw + 120px);
@@ -44,7 +48,7 @@
         background-repeat: no-repeat;
 
         @include smaller-than(xl) {
-          width: calc(50vw - 100px);
+          width: calc(50vw - 70px);
         }
 
         @include smaller-than(lg) {
@@ -106,6 +110,14 @@
             position: relative;
             z-index: 1;
 
+            .introductions {
+              width: 90%;
+
+              @include smaller-than(md) {
+                width: 100%;
+              }
+            }
+
             h1 {
               color: var(--white);
             }
@@ -114,24 +126,16 @@
               color: var(--white);
             }
 
-            .mail-collector {
-              margin-top: size(40px);
+            .cta-place {
+              margin-top: size(32px);
+              width: 70%;
 
-              input {
-                width: size(300px);
-                margin-right: size(10px);
-
-                @include smaller-than(xl) {
-                  width: size(200px);
-                }
-
-                @include smaller-than(lg) {
-                  width: 100%;
-                }
+              @include smaller-than(md) {
+                width: 100%;
               }
 
               logo-link {
-                @include smaller-than(lg) {
+                @include smaller-than(md) {
                   margin-top: size(10px);
                   width: 100%;
                 }
@@ -139,7 +143,7 @@
 
               ::ng-deep {
                 a {
-                  @include smaller-than(lg) {
+                  @include smaller-than(md) {
                     width: 100%;
                     text-align: center;
                   }
@@ -182,7 +186,7 @@
 
       .contact-info {
         background: var(--secondary-300);
-        padding: size(90px) size(85px) 0 size(42px);
+        padding: size(72px) size(85px) 0 size(42px);
         height: size(325px);
         box-sizing: border-box;
         min-width: 50%;
@@ -438,6 +442,11 @@
 
     .section-title {
       margin-bottom: size(48px);
+    }
+
+    .price-motto {
+      margin-top: size(48px);
+      color: var(--primary);
     }
 
     .plans {
@@ -890,7 +899,7 @@
           margin-bottom: size(30px);
         }
 
-        logo-link {
+        logo-link, a {
           display: block;
           margin-bottom: size(24px);
 

@@ -3,4 +3,14 @@
 :host {
   --header-height: #{size(75px)};
   --header-default-button-opener-color: var(--neutral-900);
+
+  ::ng-deep {
+    .header {
+      .header-content {
+        .logo {
+          padding-left: 0 !important;
+        }
+      }
+    }
+  }
 }

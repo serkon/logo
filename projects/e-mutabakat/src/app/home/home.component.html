@@ -4,11 +4,14 @@
     <div class="overlay-bg"></div>
     <div class="content container">
       <div class="col product-label">
-        <h1><b>{{pageData.hero.title}}</b></h1>
-        <p class="large">{{pageData.hero.description}}</p>
-        <div class="mail-collector">
-          <input [placeholder]="pageData.hero.placeholder" class="large" type="email">
-          <logo-link [classes]="'large primary'">{{pageData.hero.buttonText}}</logo-link>
+        <div class="introductions">
+          <h1><b>{{pageData.hero.title}}</b></h1>
+          <p class="large"><b>{{pageData.hero.description}}</b></p>
+          <p>{{pageData.hero.information}}</p>
+          <div class="cta-place">
+            <p class="small"><b>{{pageData.hero.cta_description}}</b></p>
+            <a href="{{pageData.hero.buttonUrl}}" class="large success">{{pageData.hero.buttonText}}</a>
+          </div>
         </div>
       </div>
       <div class="col rect">
@@ -69,110 +72,10 @@
   </div>
   <div class="section alternate pricing-base" id="price">
     <div class="container">
-      <h2 class="section-title"><b>Fiyatlandırma</b></h2>
-      <div class="plans">
-        <logo-tabs [activeTab]="1" [class]="'primary'" [routing]="false" class="small">
-          <logo-tab
-            [params]="{id: 'user-id-0'}"
-            [title]="'Aylık Plan'"
-          >
-            <div *ngIf="getMonthlyPackages().length > 0; else noPrice" class="price-table-base">
-              <div *ngFor="let package of getMonthlyPackages()" class="table-item">
-                <div class="head">
-                  <h3>{{package.title}}</h3>
-                </div>
-                <div class="content">
-                    <span class="icon-base">
-                      <img src="{{package.icon}}">
-                    </span>
-                  <div class="price-base">
-                    <h1>
-                      {{package.price.symbol}} {{package.price.cost}}
-                      <small *ngIf="!package.price.includeTax">+ KDV</small>
-                    </h1>
-                    <p>Çalışan / Ay</p>
-                  </div>
-                  <div class="features">
-                    <ul>
-                      <li
-                        *ngFor="let theFeature of package.properties"
-                        [ngClass]="{'is-new' : theFeature.isNew}"
-                        class="icon-left le-check"
-                      >
-                        {{theFeature.title}} <span *ngIf="theFeature.isNew" class="badge">Yeni</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="cta">
-                    <button class="success">Aboneliği Başlat</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <ng-template #noPrice>
-              <div class="no-price-section">
-                <h4>E-mail adresinizi yazın, sizi en kısa sürede arayalım!</h4>
-                <div class="form-base">
-                  <div class="input-w-icon left">
-                    <span class="le-email"></span>
-                    <input class="light large icon-left" placeholder="E-Posta Adresiniz">
-                  </div>
-                  <logo-link [classes]="'large success'">Fiyat Bilgisi Al</logo-link>
-                </div>
-              </div>
-            </ng-template>
-          </logo-tab>
-          <logo-tab
-            [params]="{id: 'user-id-1'}"
-            [title]="'Yıllık Plan'"
-          >
-            <div *ngIf="getYearlyPackages().length > 0; else noPrice" class="price-table-base">
-              <div *ngFor="let package of getYearlyPackages()" class="table-item">
-                <div class="head">
-                  <h3>{{package.title}}</h3>
-                </div>
-                <div class="content">
-                    <span class="icon-base">
-                      <img src="{{package.icon}}">
-                    </span>
-                  <div class="price-base">
-                    <h1>
-                      {{package.price.symbol}}{{package.price.cost}}
-                      <small *ngIf="!package.price.includeTax">+ KDV</small>
-                    </h1>
-                    <p>Çalışan / Ay</p>
-                  </div>
-                  <div class="features">
-                    <ul>
-                      <li
-                        *ngFor="let theFeature of package.properties"
-                        class="icon-left le-check"
-                      >
-                        {{theFeature.title}} <span *ngIf="theFeature.isNew" class="badge danger">Yeni</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="cta">
-                    <button class="success">Aboneliği Başlat</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <ng-template #noPrice>
-              <div class="no-price-section">
-                <h4>E-mail adresinizi yazın, sizi en kısa sürede arayalım!</h4>
-                <div class="form-base">
-                  <div class="input-w-icon left">
-                    <span class="le-email"></span>
-                    <input class="light large icon-left" placeholder="E-Posta Adresiniz">
-                  </div>
-                  <logo-link [classes]="'large success'">Fiyat Bilgisi Al</logo-link>
-                </div>
-              </div>
-            </ng-template>
-          </logo-tab>
-        </logo-tabs>
-      </div>
+      <h2 class="small"><b>{{pageData.packages.title}}</b></h2>
+      <h1 class="small price-motto"><b>{{pageData.packages.motto}}</b></h1>
+      <p class="large"><b>{{pageData.packages.information}}</b></p>
+      <p class="large" [innerHTML]="pageData.packages.cta_text"></p>
     </div>
   </div>
   <div *ngIf="pageData.kpi" class="blue-section kpi-base">
@@ -235,23 +138,28 @@
   </div>
   <div class="footer">
     <div class="container">
-      <div *ngIf="pageData.footer.logos" class="logos">
-        <a *ngFor="let logo of pageData.footer.logos" [href]="logo.url">
+      <div *ngIf="pageData.footer.logos.show" class="logos">
+        <a *ngFor="let logo of pageData.footer.logos.contents" [href]="logo.url">
           <img [src]="logo.logo"/>
         </a>
       </div>
       <div class="site-map">
         <div *ngFor="let links of pageData.footer.sitemap" class="col">
           <h3>{{links.title}}</h3>
-          <logo-link *ngFor="let item of links.links" [classes]="'ghost secondary'" [ngClass]="item.css">
+          <a *ngFor="let item of links.links" class="ghost secondary" [href]="item.url" [ngClass]="item.css">
             <div *ngIf="item.image" class="icon"><img [src]="item.image"/></div>
             <div class="text">{{item.name}}</div>
-          </logo-link>
+          </a>
         </div>
       </div>
       <div *ngIf="pageData.footer.supportLinks" class="support-links">
-        <logo-link *ngFor="let supportLink of pageData.footer.supportLinks"
-                   [classes]="'ghost secondary'">{{supportLink.title}}</logo-link>
+        <a
+          *ngFor="let supportLink of pageData.footer.supportLinks"
+          class="ghost secondary"
+          [href]="supportLink.url"
+        >
+          {{supportLink.title}}
+        </a>
       </div>
     </div>
     <div class="copyright">

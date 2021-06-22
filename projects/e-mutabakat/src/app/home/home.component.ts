@@ -17,15 +17,17 @@ export class HomeComponent implements OnInit {
     {
       id: '1',
       hero: {
-        title: 'e-Mutabakat Kullanın, Hız Kazanın!',
-        description: 'Maecenas tellus orci, consequat sollicitudin quam at, egestas tincidunt mauris. Pellentesque id lorem lacus. Vestibulum viverra eleifend elit.',
+        title: 'e-Mutabakat Kullanın, Geleceği Yakalayın!',
+        description: 'Mutabakat işlemleriniz için dijital ortamın avantajlarından yararlanın, operasyonel iş yükünüzü azaltın.',
         gfx: '/assets/img/gfx-hero.png',
-        placeholder: 'Mail Adresiniz',
-        buttonText: '14 Gün Ücretsiz Deneyin',
+        information: 'Çalıştığınız firmalarla yaptığınız beyanname alış (BA), beyanname satış (BS) ve Cari Bakiye mutabakatlarınızı posta, telefon ve faks ile iletmek yerine elektronik ortamda e-mail, SMS ve faks yoluyla gönderin, zamandan kazanın. Üstelik mutabakatlarınızın cevaplanması için ücretsiz hatırlatıcı ile işlem takibinizi kolaylaştırın, süreçlerinizi daha hızlı tamamlayın.',
+        cta_description: 'Hiçbir işlem sınırlaması olmadan 60 gün süre ile ücretsiz kullanıma başlayabilmek için üye olun! ',
+        buttonText: 'Ücretsiz Deneyin',
+        buttonUrl: 'https://e-mutabakat.logo.com.tr/Account/Register',
       },
       cover: {
         title: 'Mutabakat Süreçlerinizde Hız Kazanın!',
-        description: 'Firmanızın mutabakat süreçleri 3 adımda tamamlanıyor. Zamandan tasarruf ederek kolaylığın tadını çıkarın.',
+        description: 'Firmanızın mutabakat süreçlerini kolay , hızlı ve güvenle yönetebilmeniz amacıyla geliştirilen eLogo e-Mutabakat ile çalıştığınız firmalarla yapacağınız mutabakatlarınızda manuel işyüküne son verin ve 3 adımda sürecinizi tamamlayın.',
         videoUrl: 'https://www.youtube.com/embed/L6EHnp23MzE',
       },
       screens: [
@@ -33,40 +35,40 @@ export class HomeComponent implements OnInit {
           image: 'https://via.placeholder.com/491x340.png?text=Image1',
           title: 'Bulut avantajı',
           icon: 'https://via.placeholder.com/52x52.png?text=Icon',
-          description: 'Bulut-tabanlı Logo Payroll ile herhangi bir donanım, kurulum ya da sistem bakım maliyeti olmadan, aylık ya da yıllık abonelik kiralama sistemiyle bordro işlemlerine hemen başlayın. Çözüme online olarak dilediğiniz yerden ve dilediğiniz cihazla bağlanın.',
+          description: 'Bulut tabanlı sunduğumuz uygulamamız ile herhangi bir kurulum gerçekleştirmeden , online olarak dilediğiniz yerden ve istediğiniz cihazınızla bağlanabilirsiniz.',
           feature: {
-            title: 'Bulut avantajı',
-            description: 'Bulut-tabanlı Logo Payroll ile herhangi bir donanım, kurulum ya da sistem bakım maliyeti olmadan, aylık ya da yıllık abonelik kiralama sistemiyle bordro işlemlerine hemen başlayın. Çözüme online olarak dilediğiniz yerden ve dilediğiniz cihazla bağlanın.',
+            title: 'e-Mutabakat’ın Avantajları',
+            description: 'Mutabakat süreçlerinizi dijitalleştirerek zamandan tasarruf sağlamaya ve yüksek oranda geri dönüşler almaya hemen başlayın.',
             items: [
               {
-                icon: 'https://via.placeholder.com/52x52.png?text=Reference1',
-                title: 'Çalışan Portalı',
-                description: 'İzin talebi girişlerini, izin onay işlemlerini, bordro zarfı görüntüleme işlemlerini tablet üzerinden de yönetebilirsiniz.',
+                icon: '/assets/img/ico_hiz.png',
+                title: 'Hız',
+                description: 'Telefon, posta, faks trafiğine son verin, mutabakat süreçlerinizi hızlandırabilirsiniz.',
               },
               {
-                icon: 'https://via.placeholder.com/52x52.png?text=Reference1',
-                title: 'Ödeme Yönetimi',
-                description: 'Dönem içinde birden fazla bordro görüntüleyebilir ve raporlayabilirsiniz. Gelir, kesinti, vergi, teşvik, ar-ge fiili hizmet gibi tutarların hesaplamasını kolayca yapabilirsiniz. Ayrıca zorunlu BES kesintisini puantajda otomatik hesaplayabilirsiniz.',
+                icon: '/assets/img/ico_kontrol.png',
+                title: 'Anlık Kontrol',
+                description: 'Detaylı raporlama ile giden mutabakat mektuplarınızın karşı tarafa ulaşıp ulaşmadığı bilgisine kolayca ulaşabilirsiniz.',
               },
               {
-                icon: 'https://via.placeholder.com/52x52.png?text=Reference1',
-                title: 'Organizasyon Yönetimi',
-                description: 'Birimleri hiyerarşik olarak tanımlayabilir ve raporlayabilir, bölge-departman-pozisyon-ürün hattı-kademe ve yaka rengi bazında çalışan raporları oluşturabilir, organizasyon şeması üzerinde arama, filtreleme ve taşıma yapabilir, organizasyon şemasının görsel takibini ve dışarıya aktarımını yapabilirsiniz.',
+                icon: '/assets/img/ico_kolaylik.png',
+                title: 'Kolaylık',
+                description: 'Mutabakatlarla ilgili uyuşmazlıkları sistem üzerinden çözmenin, tamamlanan ve onaylanan mutabakatları portaldan kontrol etmenin rahatlığını yaşayabilirsiniz.',
               },
               {
-                icon: 'https://via.placeholder.com/52x52.png?text=Reference1',
-                title: 'Ücret Simülasyonu',
-                description: 'Dönem bazında işveren maliyetlerini yasal parametrelere ve tahmini değerlere göre farklı senaryolar üzerinden hesaplayabilir, ücret/yan hak tutarlarında artış oranlarını tanımlayabilirsiniz.',
+                icon: '/assets/img/ico_karsilastirma.png',
+                title: 'Ekstre Karşılaştırma',
+                description: 'Ekstreleri çok kısa sürede karşılaştırarak mutabakat farklarını kolayca tespit edebilirsiniz.',
               },
               {
-                icon: 'https://via.placeholder.com/52x52.png?text=Reference1',
-                title: 'Çalışan Yönetimi',
-                description: 'Çalışan kartı üzerinden tüm bilgilere erişebilir, işe giren ve işten ayrılan çalışanların tüm bilgilerini SGK’ya online bildirebilir, farklı çalışan grupları için farklı çalışma takvimleri oluşturabilirsiniz. ',
+                icon: '/assets/img/ico_hatirlatma.png',
+                title: 'Hatırlatma',
+                description: 'Cevap vermeyen firmalara otomatik olarak tekrar e-posta gönderilmesini sağlayabilirsiniz.',
               },
               {
-                icon: 'https://via.placeholder.com/52x52.png?text=Reference1',
-                title: 'Zaman-Devam Yönetimi',
-                description: 'İstediğiniz sayıda izin tipi oluşturabilir,otomatik izin hakediş hesaplamalarını yapabilir, vardiya gruplarının takibini yapabilir, izin onay süreçlerini yönetebilirsiniz.',
+                icon: '/assets/img/ico_kisisel.png',
+                title: 'Kişiselleştirme',
+                description: 'Göndereceğiniz mutabakatlarda mail şablonunuzu, firmanızın logosu ve belirleyeceğiniz ortak mail formatını kullanarak kişiselleştirebilirsiniz.',
               },
             ],
           },
@@ -77,181 +79,61 @@ export class HomeComponent implements OnInit {
           icon: 'https://via.placeholder.com/52x52.png?text=Icon',
           description: 'Bulut-tabanlı Logo Payroll ile herhangi bir donanım, kurulum ya da sistem bakım maliyeti olmadan, aylık ya da yıllık abonelik kiralama sistemiyle bordro işlemlerine hemen başlayın. Çözüme online olarak dilediğiniz yerden ve dilediğiniz cihazla bağlanın.',
           feature: {
-            title: 'Bulut avantajı',
-            description: 'Bulut-tabanlı Logo Payroll ile herhangi bir donanım, kurulum ya da sistem bakım maliyeti olmadan, aylık ya da yıllık abonelik kiralama sistemiyle bordro işlemlerine hemen başlayın. Çözüme online olarak dilediğiniz yerden ve dilediğiniz cihazla bağlanın.',
+            title: 'e-Mutabakat’ın Avantajları',
+            description: 'Mutabakat süreçlerinizi dijitalleştirerek zamandan tasarruf sağlamaya ve yüksek oranda geri dönüşler almaya hemen başlayın.',
             items: [
               {
-                icon: 'https://via.placeholder.com/52x52.png?text=Reference1',
-                title: 'Çalışan Portalı',
-                description: 'İzin talebi girişlerini, izin onay işlemlerini, bordro zarfı görüntüleme işlemlerini tablet üzerinden de yönetebilirsiniz.',
+                icon: '/assets/img/ico_hiz.png',
+                title: 'Hız',
+                description: 'Telefon, posta, faks trafiğine son verin, mutabakat süreçlerinizi hızlandırabilirsiniz.',
               },
               {
-                icon: 'https://via.placeholder.com/52x52.png?text=Reference1',
-                title: 'Ödeme Yönetimi',
-                description: 'Dönem içinde birden fazla bordro görüntüleyebilir ve raporlayabilirsiniz. Gelir, kesinti, vergi, teşvik, ar-ge fiili hizmet gibi tutarların hesaplamasını kolayca yapabilirsiniz. Ayrıca zorunlu BES kesintisini puantajda otomatik hesaplayabilirsiniz.',
+                icon: '/assets/img/ico_kontrol.png',
+                title: 'Anlık Kontrol',
+                description: 'Detaylı raporlama ile giden mutabakat mektuplarınızın karşı tarafa ulaşıp ulaşmadığı bilgisine kolayca ulaşabilirsiniz.',
               },
               {
-                icon: 'https://via.placeholder.com/52x52.png?text=Reference1',
-                title: 'Organizasyon Yönetimi',
-                description: 'Birimleri hiyerarşik olarak tanımlayabilir ve raporlayabilir, bölge-departman-pozisyon-ürün hattı-kademe ve yaka rengi bazında çalışan raporları oluşturabilir, organizasyon şeması üzerinde arama, filtreleme ve taşıma yapabilir, organizasyon şemasının görsel takibini ve dışarıya aktarımını yapabilirsiniz.',
+                icon: '/assets/img/ico_kolaylik.png',
+                title: 'Kolaylık',
+                description: 'Mutabakatlarla ilgili uyuşmazlıkları sistem üzerinden çözmenin, tamamlanan ve onaylanan mutabakatları portaldan kontrol etmenin rahatlığını yaşayabilirsiniz.',
               },
               {
-                icon: 'https://via.placeholder.com/52x52.png?text=Reference1',
-                title: 'Ücret Simülasyonu',
-                description: 'Dönem bazında işveren maliyetlerini yasal parametrelere ve tahmini değerlere göre farklı senaryolar üzerinden hesaplayabilir, ücret/yan hak tutarlarında artış oranlarını tanımlayabilirsiniz.',
+                icon: '/assets/img/ico_karsilastirma.png',
+                title: 'Ekstre Karşılaştırma',
+                description: 'Ekstreleri çok kısa sürede karşılaştırarak mutabakat farklarını kolayca tespit edebilirsiniz.',
               },
               {
-                icon: 'https://via.placeholder.com/52x52.png?text=Reference1',
-                title: 'Çalışan Yönetimi',
-                description: 'Çalışan kartı üzerinden tüm bilgilere erişebilir, işe giren ve işten ayrılan çalışanların tüm bilgilerini SGK’ya online bildirebilir, farklı çalışan grupları için farklı çalışma takvimleri oluşturabilirsiniz. ',
+                icon: '/assets/img/ico_hatirlatma.png',
+                title: 'Hatırlatma',
+                description: 'Cevap vermeyen firmalara otomatik olarak tekrar e-posta gönderilmesini sağlayabilirsiniz.',
               },
               {
-                icon: 'https://via.placeholder.com/52x52.png?text=Reference1',
-                title: 'Zaman-Devam Yönetimi',
-                description: 'İstediğiniz sayıda izin tipi oluşturabilir,otomatik izin hakediş hesaplamalarını yapabilir, vardiya gruplarının takibini yapabilir, izin onay süreçlerini yönetebilirsiniz.',
+                icon: '/assets/img/ico_kisisel.png',
+                title: 'Kişiselleştirme',
+                description: 'Göndereceğiniz mutabakatlarda mail şablonunuzu, firmanızın logosu ve belirleyeceğiniz ortak mail formatını kullanarak kişiselleştirebilirsiniz.',
               },
             ],
           },
         },
       ],
-      packages: [
-        {
-          id: 'b6867510-55aa-4b01-aeff-9ba9af9f7501',
-          title: 'Logo Payroll 51-500 çalışan',
-          icon: 'https://via.placeholder.com/52x52.png?text=Reference1',
-          price: {
-            id: '2',
-            cost: 100,
-            symbol: '₺', // ₺, $, € iso standartı
-            includeTax: false, // false
-            currency: 'TRY', // EUR, TRY, USD iso standardı
-            promo: 5,
-            discount: 5,
-          },
-          properties: [
-            {
-              id: 'b6867510-55aa-4b01-aeff-9ba9af9f7500',
-              title: 'Bordro  yönetimi',
-              isNew: true,
-            },
-            {
-              id: 'b6867510-55aa-4b01-aeff-9ba9af9f7501',
-              title: 'Özlük bilgileri takibil',
-              isNew: true,
-            },
-            {
-              id: 'b6867510-55aa-4b01-aeff-9ba9af9f7502',
-              title: 'Puantaj işlemleri',
-              isNew: true,
-            },
-            {
-              id: 'b6867510-55aa-4b01-aeff-9ba9af9f7503',
-              title: 'Yan haklar yönetimil',
-              isNew: true,
-            },
-            {
-              id: 'b6867510-55aa-4b01-aeff-9ba9af9f7504',
-              title: 'Mevzuat takibi',
-              isNew: true,
-            },
-            {
-              id: 'b6867510-55aa-4b01-aeff-9ba9af9f7505',
-              title: 'Ücret Simülasyonul',
-              isNew: false,
-            },
-            {
-              id: 'b6867510-55aa-4b01-aeff-9ba9af9f7506',
-              title: 'Organizasyon Yönetimii',
-              isNew: true,
-            },
-            {
-              id: 'b6867510-55aa-4b01-aeff-9ba9af9f7507',
-              title: 'İzin Yönetimi',
-              isNew: false,
-            },
-            {
-              id: 'b6867510-55aa-4b01-aeff-9ba9af9f7508',
-              title: 'Çalışan Portalı',
-              isNew: false,
-            },
-          ],
-          type: 1,
-        },
-        {
-          id: 'b6867510-55aa-4b01-aeff-9ba9af9f7502',
-          title: 'Logo Payroll 501 ve üzeri çalışan',
-          icon: 'https://via.placeholder.com/52x52.png?text=Reference1',
-          price: {
-            id: '3',
-            cost: 150,
-            symbol: '₺', // ₺, $, € iso standartı
-            includeTax: false, // false
-            currency: 'TRY', // EUR, TRY, USD iso standardı
-            promo: 5,
-            discount: 5,
-          },
-          properties: [
-            {
-              id: 'b6867510-55aa-4b01-aeff-9ba9af9f7500',
-              title: 'Bordro  yönetimi',
-              isNew: true,
-            },
-            {
-              id: 'b6867510-55aa-4b01-aeff-9ba9af9f7501',
-              title: 'Özlük bilgileri takibi',
-              isNew: true,
-            },
-            {
-              id: 'b6867510-55aa-4b01-aeff-9ba9af9f7502',
-              title: 'Puantaj işlemleri',
-              isNew: true,
-            },
-            {
-              id: 'b6867510-55aa-4b01-aeff-9ba9af9f7503',
-              title: 'Yan haklar yönetimil',
-              isNew: true,
-            },
-            {
-              id: 'b6867510-55aa-4b01-aeff-9ba9af9f7504',
-              title: 'Mevzuat takibi',
-              isNew: true,
-            },
-            {
-              id: 'b6867510-55aa-4b01-aeff-9ba9af9f7505',
-              title: 'Ücret Simülasyonul',
-              isNew: false,
-            },
-            {
-              id: 'b6867510-55aa-4b01-aeff-9ba9af9f7506',
-              title: 'Organizasyon Yönetimii',
-              isNew: true,
-            },
-            {
-              id: 'b6867510-55aa-4b01-aeff-9ba9af9f7507',
-              title: 'İzin Yönetimi',
-              isNew: false,
-            },
-            {
-              id: 'b6867510-55aa-4b01-aeff-9ba9af9f7508',
-              title: 'Çalışan Portalı',
-              isNew: false,
-            },
-          ],
-          type: 2,
-        },
-      ],
+      packages: {
+        title: 'Uygun Fiyat',
+        motto: 'eLogo e-Mutabakat kullanmak için modül ücreti ve aylık ya da yıllık aidat ücreti ödemeniz gerekmiyor.',
+        information: 'Sadece 1 kontöre e-Mutabakatlarınızı oluşturabilir ve e-mail, SMS, faks alternatiflerinden herhangi birini seçerek gönderebilirsiniz.',
+        cta_text: 'Size özel avantajlı kontör paketlerine <a href="https://portal.logo.com.tr/" target="_blank" class="inline">sipariş portalı</a> adresinden ulaşabilirsiniz.',
+      },
       kpi: [
         {
-          data: '1000',
+          data: '5000+',
           name: 'kayıtlı firma',
         },
         {
-          data: '35.000',
-          name: 'aylık mütabakat gönderimi',
+          data: '700.000+',
+          name: 'mutabakat gönderimi',
         },
         {
-          data: '₺ 6.000.000',
-          name: 'mütabakat tutarı',
+          data: '₺ 6.000.000+',
+          name: 'mutabakat tutarı',
         },
         {
           data: '%70',
@@ -261,43 +143,122 @@ export class HomeComponent implements OnInit {
       references: [
         {
           id: 'b6867510-55aa-4b01-aeff-9ba9af9f7500',
-          name: 'Reference1',
-          link: 'https://google.com',
-          image: 'https://via.placeholder.com/240x180.png?text=Reference1',
+          name: 'DRD Araç Kiralama',
+          link: '',
+          image: '/assets/img/ref-1.png',
           productId: '1',
         },
         {
           id: 'b6867510-55aa-4b01-aeff-9ba9af9f7502',
-          name: 'Reference2',
-          link: 'https://google.com',
-          image: 'https://via.placeholder.com/240x180.png?text=Reference2',
+          name: 'modanisa.com',
+          link: '',
+          image: '/assets/img/ref-2.png',
           productId: '2',
         },
         {
           id: 'b6867510-55aa-4b01-aeff-9ba9af9f7503',
-          name: 'Reference3',
-          link: 'https://google.com',
-          image: 'https://via.placeholder.com/240x180.png?text=Reference3',
+          name: 'Hedef Filo Kiralama',
+          link: '',
+          image: '/assets/img/ref-3.png',
           productId: '3',
+        },
+        {
+          id: 'b6867510-55aa-4b01-azra-9ba9af9f7503',
+          name: 'Çetin Civata',
+          link: '',
+          image: '/assets/img/ref-4.png',
+          productId: '4',
         },
       ],
       faqs: [
         {
-          id: 'b6867510-55aa-4b01-aeff-9ba9af9f7500',
-          title: 'Bordro programı nedir?',
-          description: '<b>Son yıllarda çok sık duyduğunuz bir kavram olan bulut tabanlı yazılımların</b> avantajlarından biri, elektrik ya da internet bağlantısının kesilmesi durumlarında yapılan işlemlerin yarım kalmıyor oluşudur. Çünkü yeni nesil yazılım şirketleri, ürettikleri uygulamaları güvenli veri merkezleri olan datacanter\'larda tutar. Böylece, kesintisiz bir şekilde servis sağlar. Ayrıca bulut tabanlı uygulamalarda veri saklama maliyeti ya da donanım, yazılım maliyetleri de bulunmaz. Sakladığınız verilerin online ortamdaki güvenliği de oldukça önemlidir. Bulut tabanlı yazılımlar sayesinde uygulamanızın size sunduğu koruma ile verilerinizi yedekleyebilir ve koruyabilirsiniz. Tüm bunların dışında bulut tabanlı uygulamaya ister bilgisayarınızdan ister Android ya da iOS işletim sistemlerinden erişebilirsiniz. Bulut tabanlı Logo Payroll\'da da donanımsal bir maliyete gerek kalmadığı gibi sistem ya da bakım maliyeti altına da girilmez. Ayrıca dilediğiniz ortamdan ya da cihazdan online olarak bordro programına erişimi sağlamanız da mümkün hale gelir.',
+          id: 'b6867510-55aa-4b01-faqq-000000000001',
+          title: 'eLogo e-Mutabakat ile hangi mutabakatlarımı yapabilirim?',
+          description: 'Beyanname Alış (BA),Beyanname Satış (BS) ve Cari Bakiye mutabakatlarınızı eLogo e-Mutabakat sistemi üzerinden yapılabilirsiniz. Ayrıca mutabık kalınmadığı durumlarda, karşılıklı gönderilen ekstre hesaplarınızı sistem üzerinde karşılaştırılarak farkları tespit edebilirsiniz.',
           isOpen: true,
         },
         {
-          id: 'b6867510-55aa-4b01-aeff-9ba9af9f7501',
-          title: 'Online Bordro Programı’nın avantajı nedir?',
-          description: 'Son yıllarda çok sık duyduğunuz bir kavram olan bulut tabanlı yazılımların avantajlarından biri, elektrik ya da internet bağlantısının kesilmesi durumlarında yapılan işlemlerin yarım kalmıyor oluşudur. Çünkü yeni nesil yazılım şirketleri, ürettikleri uygulamaları güvenli veri merkezleri olan datacanter\'larda tutar. Böylece, kesintisiz bir şekilde servis sağlar. Ayrıca bulut tabanlı uygulamalarda veri saklama maliyeti ya da donanım, yazılım maliyetleri de bulunmaz. Sakladığınız verilerin online ortamdaki güvenliği de oldukça önemlidir. Bulut tabanlı yazılımlar sayesinde uygulamanızın size sunduğu koruma ile verilerinizi yedekleyebilir ve koruyabilirsiniz. Tüm bunların dışında bulut tabanlı uygulamaya ister bilgisayarınızdan ister Android ya da iOS işletim sistemlerinden erişebilirsiniz. Bulut tabanlı Logo Payroll\'da da donanımsal bir maliyete gerek kalmadığı gibi sistem ya da bakım maliyeti altına da girilmez. Ayrıca dilediğiniz ortamdan ya da cihazdan online olarak bordro programına erişimi sağlamanız da mümkün hale gelir.',
+          id: 'b6867510-55aa-4b01-faqq-000000000002',
+          title: 'eLogo e-Mutabakat uygulamasını ücretsiz deneyebilir miyim?',
+          description: 'eLogo e-Mutabakat uygulamasını herhangi bir sınırlama olmadan 60 gün süre ile ücretsiz üye olarak kullanmaya başlayabilirsiniz. Ücretsiz kullanmaya başlamak için ana sayfada yer alan Ücretsiz Dene butonuna tıklayıp üyelik bilgilerinizi girmeniz ve sonrasında e-mail adresinize gelecek doğrulama linkiyle üyeliğinizi aktifleştirebilirsiniz. Üstelik deneme süreniz sona erse bile arşivlenmiş dosyalarınıza her zaman uygulama içinden erişebilirsiniz.',
           isOpen: false,
         },
         {
-          id: 'b6867510-55aa-4b01-aeff-9ba9af9f7504',
-          title: 'Bordro programı nedir?',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices, elit sit amet venenatis sagittis, augue diam consequat sem, sit amet vulputate arcu magna nec erat. Sed auctor neque in tempor tempor. Aenean fringilla mi sit amet dui volutpat placerat eget quis risus. Aenean tristique, massa et pulvinar bibendum, sem leo auctor nibh, vitae accumsan lorem lorem eget lacus. In ac pulvinar enim. Vestibulum mauris tortor, fermentum ac dignissim nec, pharetra vitae ex. Mauris a neque magna.Pellentesque sit amet sodales elit. Donec eget nisl nunc. Etiam viverra consequat justo sit amet sodales. Sed sit amet urna eu risus blandit luctus. Donec imperdiet rhoncus nibh, et suscipit elit congue vitae. Morbi scelerisque nisl sit amet massa interdum tempor. Praesent tortor dui, semper sed pulvinar a, mollis non mi.Phasellus feugiat est et purus semper, ut mattis sem viverra. Vestibulum id finibus lacus. Phasellus commodo porttitor ligula, nec rhoncus nulla mollis ac. Nunc convallis mauris magna, at aliquam nulla scelerisque in. Aenean pharetra nisi sit amet diam blandit suscipit. Cras aliquet dui nec interdum auctor. Nulla pulvinar feugiat ipsum ac lobortis. Fusce egestas rutrum quam quis volutpat. Nam sapien risus, convallis vitae mi vitae, semper malesuada purus. Phasellus eget risus semper, dapibus risus vitae, egestas eros. Proin varius erat id nibh interdum tincidunt. Pellentesque risus leo, ultrices ac porttitor nec, faucibus id ligula. Cras finibus turpis a metus maximus imperdiet.Donec faucibus turpis vitae ligula tincidunt, at molestie felis rutrum. Vivamus vitae quam ipsum. Nam feugiat velit eu purus eleifend sagittis. Donec mi enim, accumsan nec velit sit amet, lacinia fringilla elit. Duis sed diam non ligula rutrum cursus sit amet vitae risus. Nunc sed leo ut ex cursus venenatis non eget massa. Morbi scelerisque nisi ut mauris rutrum, at fringilla nisl congue. Aenean bibendum, nunc sit amet porttitor pretium, nisi magna vehicula tortor, sit amet condimentum metus sem nec ligula. Mauris dignissim interdum ipsum vel tristique.',
+          id: 'b6867510-55aa-4b01-faqq-000000000003',
+          title: 'Ücretsiz deneme sürem tamamlandığında uygulamayı nasıl kullanmaya devam edebilirim?',
+          description: 'Deneme süreniz sona erdikten sonra https://portal.logo.com.tr/ adresinden kontör paketi satın alarak veya mevcut kontör paketinizi kullanarak herhangi bir üyelik adımına gerek kalmadan e-mutabakat uygulamasını kullanmaya devam edebilirsiniz. Mevcut ücretsiz üyelik için oluşturduğunuz mail adresiyle kullanıma devam edebilmeniz için sağ üstteki Giriş Yap butonuna tıklamanız yeterlidir. ',
+          isOpen: false,
+        },
+        {
+          id: 'b6867510-55aa-4b01-faqq-000000000004',
+          title: 'eLogo e-Mutabakat uygulamasında yaptığım işlemler için nasıl ücretlendiriliyorum?',
+          description: 'Logo e-Mutabakat kullanmak için modül ücreti ve aylık ya da yıllık aidat ücreti ödemeniz gerekmiyor. https://portal.logo.com.tr/ adresinden satın aldığınız kontör paketi sonrası işlem başına 1 kontöre e-Mutabakatlarınızı oluşturabilir ve e-mail, SMS, faks alternatiflerinden herhangi birini seçerek gönderebilirsiniz.',
+          isOpen: false,
+        },
+        {
+          id: 'b6867510-55aa-4b01-faqq-000000000005',
+          title: 'eLogo e-Mutabakat uygulamasında hatırlatma özelliğini kullanırken ücretlendiriliyor muyum?',
+          description: 'İşlem başına hatırlatıcı gönderimi yaptığınızda ilk iki işleminizi ücretsiz olarak yapabilmektesiniz. İlk iki işleminiz sonrası hatırlatma gönderimleriniz işlem başına 1 kontör üzerinden ücretlendirilmektedir.',
+          isOpen: false,
+        },
+        {
+          id: 'b6867510-55aa-4b01-faqq-000000000006',
+          title: 'eLogo e-Mutabakat kullanmak için Logo ERP çözümlerinden birine sahip olmam gerekir mi?',
+          description: 'Hayır gerekmiyor. eLogo e-Mutabakat uygulası Logo ERP çözümlerinden bağımsız olarak çalışabilmektedir. Bu yüzden Logo ERP kullanıcısı olmadan da eLogo e-Mutabakat uygulamasını kullanabilirsiniz.',
+          isOpen: false,
+        },
+        {
+          id: 'b6867510-55aa-4b01-faqq-000000000007',
+          title: 'Mutabakat yapacağım firmaların da eLogo e-Mutabakat kullanıcısı olması zorunlu mudur?',
+          description: 'Mutabakat yapacağınız firmanın e-Mutabakat kullanıcısı olması gerekmiyor. Mutabakat mektubu, gönderim yaptığınız firmadaki yetkilinin email adresine gidiyor ve yetkili kişi email üzerindeki linke tıklayarak mutabakat isteğinize cevap verebiliyor.',
+          isOpen: false,
+        },
+        {
+          id: 'b6867510-55aa-4b01-faqq-000000000008',
+          title: 'Mutabakat yapacağım firmaların bir ücret ödemesi gerekiyor mu?',
+          description: 'Hayır gerekmiyor. Müşterileriniz ve tedarikçileriniz mutabakat yanıtlarını size ücretsiz olarak göndermektedir.',
+          isOpen: false,
+        },
+        {
+          id: 'b6867510-55aa-4b01-faqq-000000000009',
+          title: 'eLogo e-Mutabakat çözümü ERP sistemleri ile entegre midir?',
+          description: 'eLogo e-Mutabakat çözümü Logo ERP aileleri ile entegredir. Direkt Logo ERP üzerinden mutabakat gönderiminizi yapabilir , cevaplarınızı Logo ERP üzerinden izleyebilirsiniz. Ayrıca Logo ERP dışında farklı ERP çözümleri ve uygulamalarına altyapı yetkinliklerine göre entegre olunabilmektedir.',
+          isOpen: false,
+        },
+        {
+          id: 'b6867510-55aa-4b01-faqq-000000000010',
+          title: 'Gönderdiğim mutabakatların karşı tarafa ulaşıp ulaşmadığını nasıl anlarım?',
+          description: 'Ekran üzerinde, her mutabakat satırının detayında, gönderdiğiniz mailin karşı tarafa ulaşıp ulaşmadığı, ulaşmadı ise hatanın sebebini detaylı olarak görüntüleyebilirsiniz.',
+          isOpen: false,
+        },
+        {
+          id: 'b6867510-55aa-4b01-faqq-000000000011',
+          title: 'Göndereceğim mutabakatları uygulama içinde nasıl kişiselleştirebiliyorum?',
+          description: 'eLogo e mutabakat uygulaması içinde menü sekmesinde yer alan sistem altında e-mail ve SMS şablonları seçeneğine tıklayıp , açılan ekranda sol üstte yeni sekmesine tıkladığınızda yönlendirildiğiniz ekran üzerinde detaylı olarak firmanıza özel mail şablonlarını oluşturabilirsiniz. Detaylı video anlatımı için <a href="https://www.youtube.com/watch?v=SCq0tP6SYus" target="_blank">https://www.youtube.com/watch?v=SCq0tP6SYus</a> adresini ziyaret edebilirsiniz.',
+          isOpen: false,
+        },
+        {
+          id: 'b6867510-55aa-4b01-faqq-000000000012',
+          title: 'eLogo e-mutabakat uygulamasını nasıl kullanabileceğime dair eğitimler düzenliyor musunuz?',
+          description: 'Eğitim kapsamında belli aralıklarla webinarlar organize edilerek kullanıcı deneyimi ekran akışları üzerinden sunuluyor. Örnek webinar eğitimi için <a href="https://www.youtube.com/watch?v=MeuGCd4Qngo" target="_blank">https://www.youtube.com/watch?v=MeuGCd4Qngo</a> adresini ziyaret edebilirsiniz.',
+          isOpen: false,
+        },
+        {
+          id: 'b6867510-55aa-4b01-faqq-000000000013',
+          title: 'eLogo e-mutabakat uygulamasında bazı durumlarda hata alabiliyorum, ne yapmalıyım?',
+          description: 'Hata alınan durumlarda detaylı video anlatımı için <a href="https://www.youtube.com/watch?v=qiwlDIaiv28" target="_blank">https://www.youtube.com/watch?v=qiwlDIaiv28</a> adresini ziyaret edebilirsiniz. Ayrıca tüm sorularınız için destek@elogo.com.tr adresine mail atabilirsiniz.',
+          isOpen: false,
+        },
+        {
+          id: 'b6867510-55aa-4b01-faqq-000000000014',
+          title: 'eLogo e-Mutabakat uygulaması için şifremi unuttuğumda ne yapmalıyım?',
+          description: 'Uygulamaya bağlı üyelik oluşturduğunuz mail adresinize ait şifrenizi unutursanız , ana sayfa sağ üstte yer alan Giriş Yap butonuna tıklamanız sonrası açılan yeni pencerede şifremi unuttum seçeneğine tıklayabilirsiniz. Yönlendirileceğiniz yeni pencerede şifrenizi sıfırlamak için mail adresinizi girmeniz yeterlidir. Mail adresinize gönderilen şifre sıfırlama adımlarını uygulayarak yeni şifrenizi belirleyebilirsiniz.',
+          isOpen: false,
+        },
+        {
+          id: 'b6867510-55aa-4b01-faqq-000000000015',
+          title: 'eLogo e-Mutabakat uygulamasında ile gönderilen mutabakat mektuplarımın resmiyeti var mıdır?',
+          description: 'eLogo e-Mutabakat sistemi üzerinden e-Mail, SMS ve Faks gönderilerinin kanuni yönden bir geçerliliği yoktur. Gönderilerin ve gelecek cevapların kanuni bir değeri olması için, Mutabakat gönderiminin şirketinizin KEP adresinden, karşı firmanın KEP adresine yapılması ve cevabın karşı firmanın KEP adresinden gelmesi gerekmektedir. eLogo e-Mutabakat sisteminin KEP adresleri üzerinden gönderim yapılabilmesi için geliştirmemiz devam etmektedir.',
           isOpen: false,
         },
       ],
@@ -309,35 +270,38 @@ export class HomeComponent implements OnInit {
         supportNumber: '+90 262 679 80 00',
       },
       footer: {
-        logos: [
-          {
-            logo: '/assets/img/footer-logo-1.png',
-            url: 'http://google.com',
-          },
-          {
-            logo: '/assets/img/footer-logo-2.png',
-            url: 'http://google.com',
-          },
-          {
-            logo: '/assets/img/footer-logo-3.png',
-            url: 'http://google.com',
-          },
-        ],
+        logos: {
+          show: false,
+          contents: [
+            {
+              logo: '/assets/img/footer-logo-1.png',
+              url: 'http://google.com',
+            },
+            {
+              logo: '/assets/img/footer-logo-2.png',
+              url: 'http://google.com',
+            },
+            {
+              logo: '/assets/img/footer-logo-3.png',
+              url: 'http://google.com',
+            },
+          ],
+        },
         sitemap: [
           {
             title: 'Linkler',
             links: [
               {
-                name: 'Link 1',
-                url: 'http://google.com',
+                name: 'Sipariş Portalı',
+                url: 'https://portal.logo.com.tr/',
               },
               {
-                name: 'Link 2',
-                url: 'http://google.com',
+                name: 'Eğitim Videoları',
+                url: '',
               },
               {
-                name: 'Link 3',
-                url: 'http://google.com',
+                name: 'Kullanıcı Dokümanları',
+                url: '',
               },
             ],
           },
@@ -346,15 +310,15 @@ export class HomeComponent implements OnInit {
             links: [
               {
                 name: 'Logo Yazılım Hakkında',
-                url: 'http://google.com',
+                url: 'https://www.logo.com.tr/logo-kurumsal',
               },
               {
                 name: 'Blog',
-                url: 'http://google.com',
+                url: 'https://blog.logo.com.tr/',
               },
               {
                 name: 'İletişim ve Destek',
-                url: 'http://google.com',
+                url: 'mailto:destek@elogo.com.tr',
               },
             ],
           },
@@ -364,17 +328,17 @@ export class HomeComponent implements OnInit {
               {
                 name: 'Twitter',
                 image: '/assets/img/footer-ico-twitter.png',
-                url: 'http://google.com',
+                url: 'https://twitter.com/logo_emutabakat',
               },
               {
                 name: 'Facebook',
                 image: '/assets/img/footer-ico-fb.png',
-                url: 'http://google.com',
+                url: 'https://www.facebook.com/Logo-E-Mutabakat-790162314457529/',
               },
               {
                 name: 'Instagram',
                 image: '/assets/img/footer-ico-ig.png',
-                url: 'http://google.com',
+                url: 'https://www.instagram.com/logo_emutabakat/',
               },
             ],
           },
@@ -389,7 +353,7 @@ export class HomeComponent implements OnInit {
             url: 'http://www.logo.com.tr',
           },
         ],
-        copyright: 'Copyright 2016 Logo e-Business',
+        copyright: 'Copyright 2021 Logo e-Business',
       },
     }
 
@@ -405,18 +369,6 @@ export class HomeComponent implements OnInit {
 
   public getImageContent(index: number) {
     this.imageData = this.pageData.screens[index];
-  }
-
-  public getMonthlyPackages() {
-    return this.pageData.packages.filter((p) => {
-      return p.type === PackageType.MONTHLY;
-    });
-  }
-
-  public getYearlyPackages() {
-    return this.pageData.packages.filter((p) => {
-      return p.type === PackageType.YEARLY;
-    });
   }
 
   private setScreens(data) {

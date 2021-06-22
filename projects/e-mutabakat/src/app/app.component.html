@@ -1,30 +1,25 @@
-<!--<logo-loading></logo-loading>-->
 <div class="logo-emutabakat">
   <logo-header
     [containerStatus]="true"
     [defaultTheme]="headerTheme.START"
     [isMobilized]="true"
-    [logoImage]="'/assets/img/logo.png'"
     [menuPosition]="'center'"
     [scrollPoint]="15"
     [scrollSpy]="true"
     [scrolledTheme]="headerTheme.SCROLL"
     [watchElement]="'body'"
+    [hasCustomLogo]="true"
   >
-    <ng-container menu>
-      <logo-link [classes]="'ghost secondary large'" [url]="'/'">Ürünler</logo-link>
-      <logo-link [classes]="'ghost secondary large'" [url]="'/'">Çözümler</logo-link>
-      <logo-link [classes]="'ghost secondary large'" [url]="'/'">Blog</logo-link>
-      <logo-link [classes]="'ghost secondary large'" [url]="'/'">İletişim</logo-link>
-      <logo-link [classes]="'ghost secondary large'" [url]="'/'">Ara</logo-link>
+    <ng-container logo>
+      <h1><b>e-Mutabakat</b></h1>
     </ng-container>
     <ng-container cta>
-      <logo-link (click)="login()" *ngIf="!idmService.isLogged" [classes]="'success large'" [url]="'/to-login'">
+      <a href="https://e-mutabakat.logo.com.tr/Account/Login" class="primary outline large">
         Giriş Yap
-      </logo-link>
-      <div *ngIf="idmService.isLogged" class="user-base">
-        <p>{{userService.user.Name}} {{userService.user.Surname}}</p>
-      </div>
+      </a>
+      <a href="https://e-mutabakat.logo.com.tr/Account/Register" class="success large">
+        Üye Ol
+      </a>
     </ng-container>
   </logo-header>
   <div class="site-content">
