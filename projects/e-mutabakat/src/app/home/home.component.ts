@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
         {
           image: 'https://via.placeholder.com/491x340.png?text=Image1',
           title: 'Bulut avantajı',
-          icon: 'https://via.placeholder.com/52x52.png?text=Icon',
+          icon: '/assets/img/ico-cloud.png',
           description: 'Bulut tabanlı sunduğumuz uygulamamız ile herhangi bir kurulum gerçekleştirmeden , online olarak dilediğiniz yerden ve istediğiniz cihazınızla bağlanabilirsiniz.',
           feature: {
             title: 'e-Mutabakat’ın Avantajları',
@@ -76,8 +76,8 @@ export class HomeComponent implements OnInit {
         {
           image: 'https://via.placeholder.com/491x340.png?text=Image1',
           title: 'Bulut avantajı',
-          icon: 'https://via.placeholder.com/52x52.png?text=Icon',
-          description: 'Bulut-tabanlı Logo Payroll ile herhangi bir donanım, kurulum ya da sistem bakım maliyeti olmadan, aylık ya da yıllık abonelik kiralama sistemiyle bordro işlemlerine hemen başlayın. Çözüme online olarak dilediğiniz yerden ve dilediğiniz cihazla bağlanın.',
+          icon: '/assets/img/ico-cloud.png',
+          description: 'Bulut tabanlı sunduğumuz uygulamamız ile herhangi bir kurulum gerçekleştirmeden , online olarak dilediğiniz yerden ve istediğiniz cihazınızla bağlanabilirsiniz.',
           feature: {
             title: 'e-Mutabakat’ın Avantajları',
             description: 'Mutabakat süreçlerinizi dijitalleştirerek zamandan tasarruf sağlamaya ve yüksek oranda geri dönüşler almaya hemen başlayın.',
