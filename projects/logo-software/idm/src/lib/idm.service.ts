@@ -93,7 +93,6 @@ export class IdmService {
       RedirectUri: `${this.config.URI}`,
       code,
     }).subscribe((response: GetToken) => {
-      this.token = response.Value.access_token;
       this.validateToken(this.token);
     });
   }
@@ -147,6 +146,7 @@ export class IdmService {
 
   public loginSuccessHandler(validated: ValidatedToken) {
     this.isLogged = true;
+    this.token = validated.RawKey;
     StorageClass.setItem('token', validated.RawKey);
     StorageClass.setItem('validated', validated);
     const userId: string = validated.UserId;
