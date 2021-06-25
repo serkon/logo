@@ -6,11 +6,28 @@
   display: block;
 
   ul {
-    list-style-image: url("/assets/images/services/idm/check.svg");
+    list-style-image: url("/assets/images/services/check-green.svg");
 
     li {
-      line-height: size(35px);
+      margin-top: size(20px);
       padding-left: size(10px);
+      font-weight: normal;
+      font-size: size(20px);
+      line-height: size(27px);
+
+      h2 {
+        font-weight: bold;
+        font-size: size(20px);
+      }
+
+      p {
+        font-size: size(16px);
+      }
+
+      &:last-child {
+        list-style: none;
+        margin-top: size(54px);
+      }
     }
   }
 
@@ -274,24 +291,6 @@
         h1 {
           font-size: size(40px);
           font-weight: 500;
-        }
-
-        ul {
-          list-style-image: url("/assets/images/services/idm/check.svg");
-
-          li {
-            margin-top: size(20px);
-            padding-left: size(10px);
-
-            h2 {
-              font-weight: bold;
-              font-size: size(20px);
-            }
-
-            p {
-              font-size: size(16px);
-            }
-          }
         }
       }
 

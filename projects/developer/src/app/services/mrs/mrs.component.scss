@@ -1,488 +1,218 @@
 @import "~@logo-software/theme/base";
 
 :host {
-  @include larger-than(lg) {
-    .intro {
+  --carusel-item-margin: 0;
+  --carusel-item-padding: #{size(20px)};
+  --carusel-item-border-radius: 0;
+  --carusel-item-box-shadow: none;
+  --carousel-dot-bg: var(--white);
+  --carousel-dot-bg-selected: var(--primary-200);
+  --carousel-arrows-color: var(--white);
+
+  ul {
+    li {
+      position: relative;
       display: flex;
-      height: size(750px);
+      flex-direction: column;
+      margin-top: size(20px);
+      padding-left: size(10px);
 
-      div:nth-child(1) {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: baseline;
-
-        .title-content {
-          padding: size(30px);
-
-          p.g6 {
-            color: var(--primary);
-          }
-        }
+      &::before {
+        background: url("/assets/images/services/check-with-green-bg.svg") no-repeat;
+        content: "";
+        width: 150px;
+        height: 35px;
+        position: absolute;
+        left: -50px;
       }
 
-      div:nth-child(2) {
-        position: relative;
-
-        img {
-          position: absolute;
-          right: 0;
-          top: 0;
-          width: 100%;
-          object-fit: contain;
-        }
-      }
-    }
-
-    .usage {
-      background: no-repeat url("/assets/images/services/mss/mss-rv-bg.png");
-      background-size: cover;
-
-      h1 {
-        color: var(--white);
-        font-size: size(45px);
-        font-weight: lighter;
-        text-align: center;
+      h2 {
+        color: #666161;
+        font-size: size(25px);
+        line-height: size(28px);
+        font-weight: bold;
       }
 
       p {
-        color: var(--white);
         font-size: size(20px);
-        text-align: center;
-        margin-bottom: 50px;
-      }
-
-      logo-carousel {
-        .slider-item {
-          background-color: var(--white);
-          box-shadow: 0 size(60px) size(60px) #6e6e6e46;
-          border-radius: size(20px);
-          box-sizing: border-box;
-          backdrop-filter: blur(23px);
-          color: var(--neutral-800);
-          padding: size(30px) size(44px);
-          min-width: size(264px);
-          width: size(264px);
-          margin-right: size(24px);
-          display: inline-block;
-          vertical-align: top;
-          white-space: normal;
-          justify-content: flex-start;
-
-          .icon-bg {
-            width: size(42px);
-
-            .icon {
-              height: size(42px);
-              background-color: #008fff;
-              mask-size: contain;
-              mask-repeat: no-repeat;
-              mask-position: center;
-              margin-bottom: size(20px);
-            }
-          }
-
-          .abbr {
-            font-weight: bold;
-            font-size: size(20px);
-          }
-
-          .title {
-            color: #89969f;
-            font-size: size(12px);
-            font-weight: bold;
-            letter-spacing: size(0.2px);
-          }
-
-          .description {
-            margin-top: size(20px);
-            font-size: size(16px);
-            font-weight: 300;
-          }
-
-          .go {
-            display: block;
-
-            .detail {
-              font-size: size(12px);
-              margin-top: size(20px);
-            }
-          }
-        }
-
-        ::ng-deep {
-          .arrow-with-animation .slider-arrow {
-            color: var(--white);
-
-            --active: var(--white);
-            --border: rgba(255, 255, 255, 0.12);
-          }
-
-          .dots {
-            .dot {
-              border-color: #ffffff;
-
-              &::after {
-                background-color: rgba(255, 255, 255, 0.6);
-              }
-            }
-          }
-        }
+        color: #666161;
+        font-weight: normal;
+        line-height: size(22px);
       }
     }
+  }
 
-    .specs {
+  section.intro {
+    display: flex;
+    min-height: size(700px);
+    position: relative;
+
+    .container {
       display: flex;
-      height: 100vh;
+      align-items: center;
+      justify-content: center;
 
-      .left {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      h3 {
+        color: #666161;
+        font-weight: bold;
+        font-size: size(40px);
+        line-height: size(40px);
+        letter-spacing: size(-0.5px);
+      }
 
-        .usage-content {
-          h2 {
-            margin-top: size(15px);
-          }
+      h1 {
+        font-weight: bold;
+        font-size: size(60px);
+        line-height: size(67px);
+        letter-spacing: size(-0.75px);
+        color: #0090ff;
+      }
 
-          .usage-head {
-            display: flex;
-          }
-
-          .usage-card {
-            display: flex;
-            border-radius: size(11px);
-
-            div {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: baseline;
-
-
-              img:nth-child(1) {
-                align-self: flex-end;
-              }
-            }
-
-            div:nth-child(1) {
-              justify-content: center;
-            }
-          }
-        }
+      p {
+        font-weight: normal;
+        font-size: size(20px);
+        line-height: size(27px);
+        color: #666161;
       }
 
       .right {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        position: absolute;
+        right: 0;
+        top: 0;
 
-        img {
-          position: absolute;
-          top: size(-3px);
-          left: 0;
-        }
-      }
-    }
-
-    .specs-2 {
-      display: flex;
-      height: 100vh;
-
-      .left {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .usage-content {
-          h2 {
-            margin-top: size(15px);
-          }
-
-          .usage-head {
-            display: flex;
-          }
-
-          .usage-card {
-            display: flex;
-            border-radius: size(11px);
-
-            div {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: baseline;
-
-              img {
-                margin: size(45px) 0 size(45px) 0;
-              }
-
-              img:nth-child(1) {
-                align-self: flex-end;
-                transform: scale(0.75);
-              }
-            }
-
-            div:nth-child(1) {
-              justify-content: center;
-            }
-          }
-        }
-      }
-
-      .right {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        img {
-          position: absolute;
-          bottom: 0;
-          right: 0;
+        @include smaller-than(lg) {
+          display: none;
         }
       }
     }
   }
 
-  @include smaller-than(lg) {
-    .intro {
-      display: flex;
-      height: size(750px);
+  section.usage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: size(38px);
+    padding-bottom: size(55px);
+    background: url("/assets/images/services/mss/bg.png") bottom center no-repeat;
 
-      div:nth-child(1) {
+    .row {
+      flex-direction: column;
+    }
+
+    h1 {
+      font-weight: bold;
+      font-size: size(40px);
+      line-height: size(45px);
+      color: #666161;
+      text-align: center;
+    }
+
+    p {
+      font-weight: normal;
+      font-size: size(20px);
+      line-height: size(28px);
+      color: #666161;
+      text-align: center;
+      padding-bottom: size(70px);
+    }
+
+    logo-carousel {
+      .item {
         display: flex;
+        align-items: center;
+        justify-content: center;
         flex-direction: column;
-        justify-content: center;
-        align-items: baseline;
+        margin: 0;
+        padding-top: 65px;
+        padding-bottom: 105px;
+        background: #f5f6fa;
+        border-right: 1px solid #e0e5ef;
 
-        .title-content {
-          padding: size(30px);
+        &:first-of-type {
+          border-top-left-radius: size(24px);
+          border-bottom-left-radius: size(24px);
+        }
 
-          p.g6 {
-            font-size: size(45px);
-            color: var(--primary);
-          }
+        &:last-of-type {
+          border-top-right-radius: size(24px);
+          border-bottom-right-radius: size(24px);
+          border-right: none;
+        }
 
-          p.g8 {
-            font-size: size(34px);
-          }
+        .icon-bg {
+          width: size(50px);
+          height: size(50px);
+          margin-bottom: size(55px);
+        }
+
+        .abbr {
+          font-family: get("font.alternative");
+          font-size: size(25px);
+          font-weight: 600;
+          line-height: size(28px);
+          margin-bottom: size(12px);
+        }
+
+        .description {
+          font-family: get("font.alternative");
+          font-size: size(20px);
+          font-weight: normal;
+          line-height: size(27px);
         }
       }
+    }
+  }
 
-      div:nth-child(2) {
-        position: relative;
-        display: none;
+  section.specs {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: size(782px);
 
-        img {
-          position: absolute;
-          right: 0;
-          top: 0;
+    .container {
+      .absolute {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 50%;
+        overflow: hidden;
+
+        @include smaller-than(lg) {
+          position: relative;
           width: 100%;
-          object-fit: contain;
+          padding-bottom: size(50px);
         }
-      }
-    }
-
-    .usage {
-      background: no-repeat url("/assets/images/services/rcfs/rcfs-specs-bg-2.png");
-      background-size: cover;
-
-      h1 {
-        color: var(--white);
-        font-size: size(45px);
-        font-weight: lighter;
-        text-align: center;
-      }
-
-      p {
-        color: var(--white);
-        font-size: size(20px);
-        text-align: center;
-        margin-bottom: 50px;
-      }
-
-      logo-carousel {
-        .slider-item {
-          box-shadow: 0 size(60px) size(60px) #6e6e6e46;
-          border-radius: size(20px);
-          box-sizing: border-box;
-          backdrop-filter: blur(23px);
-          color: var(--neutral-800);
-          padding: size(30px) size(44px);
-          min-width: size(264px);
-          width: size(264px);
-          margin-right: size(24px);
-          display: inline-block;
-          vertical-align: top;
-          white-space: normal;
-          justify-content: flex-start;
-
-          .icon {
-            height: size(42px);
-          }
-
-          .abbr {
-            font-weight: bold;
-            font-size: size(40px);
-          }
-
-          .title {
-            color: #89969f;
-            font-size: size(12px);
-            font-weight: bold;
-            letter-spacing: size(0.2px);
-          }
-
-          .description {
-            margin-top: size(20px);
-            font-size: size(16px);
-            font-weight: 300;
-          }
-
-          .detail {
-            font-size: size(12px);
-            margin-top: size(20px);
-          }
-        }
-
-        ::ng-deep {
-          .arrow-with-animation .slider-arrow {
-            color: var(--white);
-
-            --active: var(--white);
-            --border: rgba(255, 255, 255, 0.12);
-          }
-
-          .dots {
-            .dot {
-              border-color: #ffffff;
-
-              &::after {
-                background-color: rgba(255, 255, 255, 0.6);
-              }
-            }
-          }
-        }
-      }
-    }
-
-    .specs {
-      display: flex;
-
-      .left {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .usage-content {
-          h2 {
-            margin-top: size(15px);
-          }
-
-          .usage-head {
-            display: flex;
-          }
-
-          .usage-card {
-            display: flex;
-            border-radius: size(11px);
-            padding: size(15px);
-
-            div {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: baseline;
-
-              img {
-                margin: size(45px) 0 size(45px) 0;
-              }
-
-              img:nth-child(1) {
-                align-self: flex-end;
-                transform: scale(0.75);
-              }
-            }
-
-            div:nth-child(1) {
-              justify-content: center;
-            }
-          }
-        }
-      }
-
-      .right {
-        position: relative;
-        display: none;
-        justify-content: center;
-        align-items: center;
 
         img {
-          position: absolute;
-          top: size(-3px);
-          left: 0;
-        }
-      }
-    }
-
-    .specs-2 {
-      display: flex;
-
-      .left {
-        position: relative;
-        justify-content: center;
-        align-items: center;
-
-        .usage-content {
-          h2 {
-            margin-top: size(15px);
-          }
-
-          .usage-head {
-            display: flex;
-            justify-content: center;
-          }
-
-          .usage-card {
-            display: flex;
-            border-radius: size(11px);
-            padding: size(15px);
-
-            div {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: baseline;
-
-
-              img:nth-child(1) {
-                align-self: flex-end;
-                transform: scale(0.75);
-              }
-            }
-
-            div:nth-child(1) {
-              justify-content: center;
-            }
-          }
+          height: 100%;
         }
       }
 
-      .right {
-        position: relative;
-        display: none;
-        justify-content: center;
-        align-items: center;
+      .normal {
+        margin-left: auto;
 
-        img {
-          position: absolute;
-          bottom: 0;
+        h1 {
+          font-weight: normal;
+          font-size: size(40px);
+          line-height: size(45px);
+          color: #666161;
+        }
+      }
+
+      .reverse {
+        .absolute {
+          left: auto;
           right: 0;
+          bottom: 0;
+          text-align: right;
+          padding-bottom: 0;
+        }
+
+        .normal {
+          margin-right: auto;
+          margin-left: 0;
         }
       }
     }
