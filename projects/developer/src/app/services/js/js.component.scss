@@ -1,366 +1,158 @@
 @import "~@logo-software/theme/base";
 
 :host {
-  @include larger-than(md) {
-    .intro {
+  ul {
+    li {
+      position: relative;
       display: flex;
-      flex-direction: row;
-      width: 100%;
-      height: size(724px);
-      background-image: linear-gradient(243deg, #6ca7ef 5%, #6f82f2 70%);
+      flex-direction: column;
+      margin-top: size(20px);
+      padding-left: size(10px);
 
-      .left {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0.85;
-        background-image: linear-gradient(179deg, #7f91fb 0%, #3542ce 90%);
-        z-index: 1;
-        min-width: auto;
-
-        .section-1-draws {
-          position: absolute;
-          bottom: size(43.61px);
-          display: block;
-        }
-
-        div.title-content {
-          position: relative;
-          z-index: 2;
-          max-width: size(486px);
-          display: flex;
-          align-items: baseline;
-          justify-content: center;
-          flex-direction: column;
-
-
-          h1.title {
-            font-family: get("font.family");
-            font-weight: 800;
-            flex-direction: column;
-            pointer-events: none;
-            color: var(--light);
-          }
-
-          p.description {
-            margin: size(25px) 0 size(40px) 0;
-            font-size: size(20px);
-            pointer-events: none;
-            text-align: left;
-            color: var(--light);
-          }
-        }
+      &::before {
+        background: url("/assets/images/services/check-with-green-bg.svg") no-repeat;
+        content: "";
+        width: 150px;
+        height: 35px;
+        position: absolute;
+        left: -50px;
       }
 
-      .right {
-        position: relative;
-        display: flex;
-        justify-content: center;
+      h2 {
+        color: #666161;
+        font-size: size(25px);
+        line-height: size(28px);
+        font-weight: bold;
+      }
 
-        .section-1-cloud {
-          position: absolute;
-          bottom: 0;
-          right: size(1px);
-        }
-
-        .section-1-slider {
-          position: absolute;
-          z-index: 1;
-          bottom: 0;
-          height: auto;
-          width: 100%;
-        }
+      p {
+        font-size: size(20px);
+        color: #666161;
+        font-weight: normal;
+        line-height: size(22px);
       }
     }
+  }
 
-    .usage {
-      height: size(400px);
+  section.intro {
+    display: flex;
+    min-height: size(724px);
+    position: relative;
+    background: linear-gradient(179.21deg, #7f91fb 0.68%, #3542ce 89.07%);
+    mix-blend-mode: normal;
+    opacity: 0.85;
+
+    .container {
       display: flex;
+      align-items: center;
+      justify-content: center;
 
-      .left {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        vertical-align: middle;
+      h1 {
+        font-weight: bold;
+        font-size: size(60px);
+        line-height: size(67px);
+        letter-spacing: size(-0.75px);
+        color: var(--white);
+      }
+
+      p {
+        font-weight: normal;
+        font-size: size(20px);
+        line-height: size(27px);
+        color: var(--white);
+      }
+
+      logo-link {
+        margin-top: size(80px);
       }
 
       .right {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: baseline;
-        vertical-align: middle;
-        overflow-x: hidden;
+        top: 0;
+        height: 100%;
 
-        logo-link {
-          z-index: 1;
-        }
-
-        .usage-content {
-          .usage-title {
-            font-size: size(25px);
-            color: #707070;
-            line-height: 45px;
-          }
-
-          .usage-description {
-            color: #707070;
-            line-height: size(45px);
-            font-size: size(40px);
-          }
-        }
-
-        .section-2-bg {
-          position: absolute;
-          right: 0;
-          bottom: size(-365px);
-        }
-      }
-    }
-
-    .specs {
-      height: size(800px);
-      display: flex;
-
-      .left {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        vertical-align: middle;
-        background-color: #f0f5ff;
-
-        .specs-content {
-          position: relative;
-          z-index: 2;
-          max-width: size(486px);
-          display: flex;
-          align-items: baseline;
-          justify-content: center;
-          flex-direction: column;
-          padding: size(30px);
-
-          .specs-title {
-            font-size: size(25px);
-            color: #707070;
-            line-height: size(45px);
-          }
-
-          .specs-title-2 {
-            font-size: size(35px);
-            color: #707070;
-            line-height: size(45px);
-          }
-
-          .specs-description {
-            font-size: size(40px);
-            color: #707070;
-            line-height: size(40px);
-          }
-        }
-
-        .section-3-bg {
-          position: absolute;
-          bottom: size(0);
-          left: size(0);
-        }
-      }
-
-      .right {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        opacity: 0.73;
-        background: #83b9fb;
-        z-index: 0;
-
-        .section-3-phone {
+        .illustration {
           position: absolute;
           bottom: 0;
+        }
+
+        @include smaller-than(lg) {
+          display: none;
         }
       }
     }
   }
 
-  @include smaller-than(md) {
-    .intro {
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-      height: size(724px);
-      background-image: linear-gradient(243deg, #6ca7ef 5%, #6f82f2 70%);
+  section.usage {
+    position: relative;
+    padding: 45px 0;
 
-      .left {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0.85;
-        background-image: linear-gradient(179deg, #7f91fb 0%, #3542ce 90%);
-        z-index: 1;
-        min-width: auto;
+    &.second {
+      background-image: url("/assets/images/services/cs/cs-section3-bg.png");
+      background-image: url("/assets/images/services/cs/cs-section3-bg.png"), linear-gradient(90deg, #f0f5ff 0%, #f0f5ff 50%, #83b9fb 50%, #83b9fb 100%);
+      background-position: left bottom;
+      background-repeat: no-repeat;
+    }
 
-        .section-1-draws {
-          position: absolute;
-          bottom: size(43.61px);
-          display: block;
-        }
-
-        div.title-content {
-          position: relative;
-          z-index: 2;
-          max-width: size(486px);
-          display: flex;
-          align-items: baseline;
-          justify-content: center;
-          flex-direction: column;
-          margin: size(35px);
-
-          h1.title {
-            font-family: get("font.family");
-            font-weight: 800;
-            flex-direction: column;
-            pointer-events: none;
-            color: var(--light);
-          }
-
-          p.description {
-            margin: size(25px) 0 size(40px) 0;
-            font-size: size(20px);
-            pointer-events: none;
-            text-align: left;
-            color: var(--light);
-          }
-        }
-      }
-
-      .right {
-        position: relative;
-        display: flex;
-        justify-content: center;
-
-        .section-1-cloud {
-          position: absolute;
-          bottom: 0;
-          right: size(1px);
-        }
-
-        .section-1-slider {
-          position: absolute;
-          z-index: 1;
-          bottom: 0;
-          height: auto;
-          width: 100%;
-        }
+    @include smaller-than(md) {
+      &.second {
+        background-image: none;
       }
     }
 
-    .usage {
-      height: size(400px);
-      display: flex;
-      padding: size(30px);
+    &.no-padding-bottom {
+      padding-bottom: 0;
+    }
 
-      .left {
-        display: none;
-        justify-content: center;
-        align-items: center;
-        vertical-align: middle;
+    div.absolute {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      img {
+        width: 60%;
       }
 
-      .right {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: baseline;
-        vertical-align: middle;
-        overflow-x: hidden;
+      @include smaller-than(md) {
+        padding-top: size(40px);
+      }
+    }
 
-        logo-link {
-          z-index: 1;
-        }
+    div.normal {
+      display: flex;
+      justify-content: center;
+      padding-top: size(40px);
 
-        .usage-content {
-          .usage-title {
-            font-size: size(25px);
-            color: #707070;
-            line-height: 45px;
-          }
+      h1 {
+        font-weight: bold;
+        font-size: size(25px);
+        line-height: size(45px);
+        color: #707070;
+      }
 
-          .usage-description {
-            color: #707070;
-            line-height: size(40px);
-            font-size: size(32px);
-          }
-        }
+      p {
+        font-weight: normal;
+        font-size: size(40px);
+        line-height: size(40px);
+        color: #707070;
+        margin: 0;
+      }
 
-        .section-2-bg {
+      logo-link {
+        margin-top: size(45px);
+      }
+
+      img {
+        position: absolute;
+
+        &.bg {
           position: absolute;
+          bottom: 0;
           right: 0;
-          bottom: size(-365px);
-        }
-      }
-    }
-
-    .specs {
-      height: size(800px);
-      display: flex;
-
-      .left {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        vertical-align: middle;
-        background-color: #f0f5ff;
-
-        .specs-content {
-          position: relative;
-          z-index: 2;
-          max-width: size(486px);
-          display: flex;
-          align-items: baseline;
-          justify-content: center;
-          flex-direction: column;
-          margin: size(30px);
-
-          .specs-title {
-            font-size: size(23px);
-            color: #707070;
-            line-height: size(45px);
-          }
-
-          .specs-title-2 {
-            font-size: size(28px);
-            color: #707070;
-            line-height: size(45px);
-          }
-
-          .specs-description {
-            font-size: size(32px);
-            color: #707070;
-            line-height: size(40px);
-          }
         }
 
-        .section-3-bg {
-          position: absolute;
-          bottom: size(0);
-          left: size(0);
-        }
-      }
-
-      .right {
-        position: relative;
-        display: none;
-        justify-content: center;
-        opacity: 0.73;
-        background: #83b9fb;
-        z-index: 0;
-
-        .section-3-phone {
-          position: absolute;
-          bottom: 0;
+        &.reverse {
+          left: 0;
         }
       }
     }
