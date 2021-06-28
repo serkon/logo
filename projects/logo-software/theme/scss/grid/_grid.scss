@@ -63,23 +63,19 @@ $container-max-widths: get("grid.container-max-widths");
           padding-right: #{$gutter/2};
           padding-left: #{$gutter/2};
         }
-        $col-list: append(
-            $col-list,
-            unquote(".col-#{$breakpoint}-#{$i}, .flex-#{$breakpoint}-#{$i}, .size-#{$breakpoint}-#{$i}"),
-            comma
+        $col-list: append (
+          $col-list,
+          unquote(".col-#{$breakpoint}-#{$i}, .flex-#{$breakpoint}-#{$i}, .size-#{$breakpoint}-#{$i}"),
+          comma
         );
       }
 
-      @include breakpoint(
-          $breakpoint,
-          $grid-columns,
-          $gutter
-      );
+      @include breakpoint($breakpoint, $grid-columns, $gutter);
       #{$col-list} {
         // display: initial !important;
         // border: 1px solid red;
         // display: flex;
-        // flex-direction: column;
+        flex-direction: column;
         box-sizing: border-box;
       }
 
